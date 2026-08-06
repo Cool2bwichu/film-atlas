@@ -1,0 +1,78 @@
+# Publish the Atlas single-file app to GitHub Pages.
+#
+# Pages is a static host, so this deliberately skips the vinext/Cloudflare
+# layer entirely and ships only the artifact `atlas/app/build.js` produces.
+# That is the whole app — the worker exists to add security headers and to
+# substitute the origin per request, not to render anything.
+#
+# Two consequences worth knowing, both handled here:
+#   * No worker means nothing rewrites __ATLAS_ORIGIN__ at request time, so the
+#     origin is baked in at build time via --origin.
+#   * No worker also means no Content-Security-Policy. Pages cannot set response
+#     headers. The app makes no network request except for poster images, so
+#     this costs hardening rather than function — but it is a real difference
+#     from the Cloudflare deployment, not an equivalent one.
+#
+# The built file is never committed; `public/atlas.html` is gitignored for the
+# same reason. This rebuilds from the committed corpus on every push, so the
+# published site cannot drift from `atlas/static/corpus.json`.
+
+name: Deploy Atlas to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; finish the in-flight one rather than cancelling,
+# so a published site is always a complete build.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # The corpus is committed, so the engine checks are cheap and worth
+      # running here: a corpus that fails validation should never publish.
+      - name: Validate corpus and claim quality
+        run: |
+          node atlas/pipeline/validate-corpus.js atlas/static/corpus.json
+          node atlas/pipeline/measure-claims.js
+
+      - name: Build Atlas
+        run: |
+          mkdir -p _site
+          node atlas/app/build.js --out _site/index.html --origin "${{ steps.pages.outputs.base_url }}"
+          cp public/og.png public/atlas-icon.png _site/
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

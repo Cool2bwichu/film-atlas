@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 /* Build the single-file app.
- *   node app/build.js [--films 0] [--degree 12] [--out atlas.html]
+ *   node app/build.js [--films 0] [--degree 12] [--out atlas.html] [--origin URL]
  * --films 0 keeps the whole corpus. Any other number packs a subset for a
  * size-limited target such as a publishable artifact.
+ *
+ * --origin bakes the canonical/OG absolute URLs in at BUILD time. The Cloudflare
+ * worker substitutes __ATLAS_ORIGIN__ per request instead, because it knows the
+ * origin it was reached on; a static host such as GitHub Pages has nothing that
+ * can do that, so the placeholder would otherwise ship verbatim into the meta
+ * tags. Omit the flag and the placeholder is left untouched, which is exactly
+ * what the worker path wants.
  */
 "use strict";
 
@@ -10,6 +17,10 @@ const fs=require("fs"), path=require("path"), os=require("os"), cp=require("chil
 const ROOT=path.join(__dirname,"..");
 const arg=(n,d)=>{const i=process.argv.indexOf("--"+n);return i>-1?process.argv[i+1]:d;};
 const FILMS=arg("films","0"), DEG=arg("degree","12"), OUT=arg("out",path.join(ROOT,"atlas.html"));
+const ORIGIN=arg("origin",null);
+if(ORIGIN!==null && !/^https?:\/\/[^\s/]+(\/[^\s]*)?$/.test(ORIGIN)){
+  throw new Error(`--origin must be an absolute http(s) URL, received: ${ORIGIN}`);
+}
 
 const TYPES=new Set(["descent","rebuttal","convergence","rhyme","hand"]);
 const SOURCES=new Set(["record","attested","reading"]);
@@ -100,6 +111,11 @@ const marker="/* __CORPUS__ */";
 if(!html.includes(marker)) throw new Error("Atlas template is missing its corpus marker");
 html=html.replace(marker,block);
 if(html.includes(marker)) throw new Error("Atlas template contains more than one corpus marker");
+if(ORIGIN!==null){
+  /* Trailing slash trimmed because every template usage already supplies its
+     own ("__ATLAS_ORIGIN__/", "__ATLAS_ORIGIN__/og.png"). */
+  html=html.replaceAll("__ATLAS_ORIGIN__",ORIGIN.replace(/\/+$/,""));
+}
 fs.mkdirSync(path.dirname(OUT),{recursive:true});
 const staged=`${OUT}.${process.pid}.tmp`;
 try{

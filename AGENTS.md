@@ -25,3 +25,10 @@ palette behavior and deterministic corpus rules remain binding.
   deliberate rights decision for the poster corpus.
 - Keep Sites metadata in `.openai/hosting.json`; never put runtime credentials
   or API keys in source.
+- A GitHub Pages target exists alongside the worker
+  (`.github/workflows/pages.yml`). It publishes the same built artifact with no
+  worker in front of it, which means no CSP and no per-request origin
+  substitution — the workflow passes `--origin` at build time instead. Treat
+  the two targets as different deployments of one artifact, not as a fallback
+  pair: a change to `worker/index.ts` headers does not reach Pages, and a
+  change to the template's meta tags must keep working under both.
