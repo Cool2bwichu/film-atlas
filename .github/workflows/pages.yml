@@ -48,6 +48,12 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # Turn Pages on if it is not already, rather than failing with a bare
+          # "Not Found" that reads like a permissions problem. Without this the
+          # very first run after creating the repo always fails, because the
+          # push that triggers it happens before anyone can enable Pages.
+          enablement: true
 
       # The corpus is committed, so the engine checks are cheap and worth
       # running here: a corpus that fails validation should never publish.
