@@ -1,0 +1,1385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Name a film and trace what it descends from, argues with and quietly rhymes with — every connection carrying a specific claim.">
+<meta name="theme-color" content="#08070A">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ATLAS — the shape of cinema">
+<meta property="og:description" content="A map of cinematic lineage. Pick a film and follow the arguments, influences and rhymes that shape it.">
+<meta property="og:url" content="__ATLAS_ORIGIN__/">
+<meta property="og:image" content="__ATLAS_ORIGIN__/og.png">
+<meta property="og:image:alt" content="ATLAS, a cinematic lineage map drawn in warm darkroom tones">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ATLAS — the shape of cinema">
+<meta name="twitter:description" content="A map of cinematic lineage. Pick a film and follow the arguments, influences and rhymes that shape it.">
+<meta name="twitter:image" content="__ATLAS_ORIGIN__/og.png">
+<link rel="canonical" href="__ATLAS_ORIGIN__/">
+<link rel="icon" href="/atlas-icon.png" type="image/png">
+<title>ATLAS — the shape of cinema</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM
+   One scale, one palette, one motion grammar. Every value below is used
+   more than once; anything used once is written inline where it happens.
+
+   Type is a system stack on purpose. Webfonts are a network dependency and
+   a flash of unstyled text, and this file has to work from a local disk, a
+   static host and a sandboxed artifact frame with equal reliability.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root{
+  --base:#08070A;          /* the field everything sits on */
+  --lift:#100E13;          /* raised surfaces */
+  --panel:#15121A;
+  --ink:#F0EAE0;
+  --dim:#9A9088;
+  --faint:#5C5550;
+  --hair:#221E28;
+  --accent:#E8C87A;        /* default until a film supplies its own */
+  --accent-dim:#8A7440;
+
+  /* Two serif optical sizes, both from faces that ship with the OS. --display
+     is the higher-contrast face and is used ONLY above ~19px, where its thin
+     strokes read as authored rather than fragile; --serif is the sturdy text
+     serif that has to survive 12px under a poster. They never trade jobs.
+     Where neither exists the ladder lands on Georgia, which is everywhere. */
+  --display:"Hoefler Text",Baskerville,"Palatino Linotype",Constantia,Georgia,serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,ui-serif,serif;
+  --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+
+  /* Tracking is a hierarchy instrument here, not decoration: display type
+     closes up as it grows, slate type opens up as it shrinks, and the gap
+     between the two is what stops a title and its year reading as one voice. */
+  --track-display:-.024em;
+  --track-slate:.2em;
+
+  --t-fast:160ms;
+  --t-mid:340ms;
+  --t-slow:620ms;
+  --ease:cubic-bezier(.22,.61,.36,1);      /* decelerate; no overshoot anywhere */
+  /* One exception to the single curve: a line being drawn is a pen, not a
+     camera move, so it travels much closer to constant speed. */
+  --ease-draw:cubic-bezier(.5,.1,.45,1);
+
+  /* Film grain, inline. A flat dark panel is a screen; a dark panel with a
+     little silver in it is a projection. 180px tile, generated once by the
+     rasteriser and repeated — no request, no library, no animation. */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='.055'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--base); color:var(--ink);
+  font-family:var(--sans); font-size:15px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+/* The field: a faint warm centre so the dark is a room, not a void, with the
+   grain laid over it. Both layers sit behind #app, so they show through the
+   gutters and the empty map and never touch a poster. */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    var(--grain),
+    radial-gradient(118% 88% at 50% 4%, #1A1523 0%, #0B0910 44%, #08070A 100%);
+  background-size:180px 180px,100% 100%;
+  background-repeat:repeat,no-repeat;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input{font:inherit;color:inherit;background:none;border:0;outline:none}
+::selection{background:var(--accent);color:#0B0A0D}
+:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;
+  margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;border:0!important}
+
+/* scrollbars are chrome too */
+#wall,.panel,.sugg{scrollbar-width:thin;scrollbar-color:var(--hair) transparent}
+#wall::-webkit-scrollbar,.panel::-webkit-scrollbar,.sugg::-webkit-scrollbar{width:9px}
+#wall::-webkit-scrollbar-thumb,.panel::-webkit-scrollbar-thumb,.sugg::-webkit-scrollbar-thumb{
+  background:var(--hair);border:3px solid transparent;background-clip:content-box}
+#wall::-webkit-scrollbar-track,.panel::-webkit-scrollbar-track,.sugg::-webkit-scrollbar-track{background:none}
+
+.slate{font-family:var(--mono);font-size:9.5px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);font-variant-numeric:tabular-nums}
+kbd{font-family:var(--mono);font-size:9.5px;letter-spacing:0;padding:1px 5px 2px;
+  border:1px solid var(--hair);background:var(--lift);color:var(--dim)}
+
+/* ── shell ─────────────────────────────────────────────────────────── */
+#app{position:fixed;inset:0;display:flex;flex-direction:column;z-index:1}
+
+header{
+  display:flex;align-items:center;gap:18px;
+  padding:calc(14px + env(safe-area-inset-top)) max(22px,env(safe-area-inset-right)) 14px max(22px,env(safe-area-inset-left));border-bottom:1px solid var(--hair);
+  background:rgba(8,7,10,.72);backdrop-filter:blur(14px);
+  flex-shrink:0;z-index:40;
+}
+/* The wordmark is set in the display serif and tracked wide: at 20px it is
+   the only thing on the bar allowed to be a voice. The trailing letter-space
+   is pulled back so the rule after it sits optically, not mathematically. */
+.wordmark{font-family:var(--display);font-size:20px;letter-spacing:.34em;font-weight:400;
+  cursor:pointer;white-space:nowrap;padding-right:17px;margin-right:-1px;
+  border-right:1px solid var(--hair);line-height:1.2}
+.wordmark span{color:var(--accent)}
+
+.search{position:relative;flex:1;max-width:440px}
+.search input{
+  width:100%;padding:9px 14px 9px 34px;border:1px solid var(--hair);
+  background:var(--lift);font-size:14px;
+  transition:border-color var(--t-fast) var(--ease),box-shadow var(--t-fast) var(--ease);
+}
+.search input:focus{border-color:var(--accent-dim);box-shadow:inset 0 -2px 0 -1px var(--accent-dim)}
+.search input::placeholder{color:var(--faint)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  width:13px;height:13px;opacity:.4;pointer-events:none}
+.sugg{
+  position:absolute;top:calc(100% + 5px);left:0;right:0;z-index:60;
+  background:var(--panel);border:1px solid var(--hair);max-height:340px;overflow-y:auto;
+  box-shadow:0 18px 44px rgba(0,0,0,.55);
+}
+.sugg button{display:flex;gap:11px;align-items:center;width:100%;padding:8px 12px;text-align:left;
+  border-bottom:1px solid var(--hair);transition:background var(--t-fast) var(--ease)}
+.sugg button:last-child{border-bottom:0}
+.sugg button:hover,.sugg button.on{background:var(--lift)}
+/* .gen is the composed artwork for a film with no poster; without a box of its
+   own it collapsed to nothing here and the row lost its face. */
+.sugg img,.sugg .gen{width:26px;height:39px;object-fit:cover;flex-shrink:0;background:var(--hair);
+  position:relative}
+.sugg .t{font-family:var(--serif);font-size:13.5px;line-height:1.2;display:block}
+.sugg .y{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+
+.tools{margin-left:auto;display:flex;align-items:center;gap:8px}
+.btn{
+  padding:7px 13px;border:1px solid var(--hair);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);transition:all var(--t-fast) var(--ease);white-space:nowrap;
+}
+.btn:hover{border-color:var(--accent-dim);color:var(--ink);background:var(--lift)}
+.btn.primary{background:var(--accent);color:#0B0A0D;border-color:var(--accent);font-weight:600}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn .n{color:var(--accent);margin-left:5px}
+.btn.primary .n{color:#0B0A0D}
+
+main{flex:1;position:relative;overflow:hidden}
+.view{position:absolute;inset:0;opacity:0;pointer-events:none;
+  transition:opacity var(--t-mid) var(--ease)}
+.view.on{opacity:1;pointer-events:auto}
+
+/* ── the wall: the front door ──────────────────────────────────────── */
+#wall{overflow-y:auto;overflow-x:hidden}
+.wall-inner{max-width:1500px;margin:0 auto;padding:30px 22px 90px}
+/* The opening. A kicker on a rule, one large display line, one paragraph at a
+   readable measure, and — last — the keyboard shortcut that otherwise nobody
+   ever finds. Four sizes, four jobs, no two of them close enough to compete. */
+.lede{margin:24px 0 26px;padding-bottom:24px;border-bottom:1px solid var(--hair)}
+.lede .kicker{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.lede .kicker::before{content:"";width:28px;height:1px;background:var(--accent);flex-shrink:0}
+.lede h1{font-family:var(--display);font-size:clamp(31px,5.1vw,56px);line-height:1.05;
+  font-weight:400;letter-spacing:var(--track-display);margin-bottom:16px;
+  max-width:19ch;text-wrap:balance}
+.lede h1 em{font-style:italic;color:var(--accent)}
+.lede p{color:var(--dim);font-size:15.5px;line-height:1.62;max-width:54ch}
+.lede-foot{margin-top:15px;color:var(--faint)}
+.lede-foot kbd{margin:0 2px}
+
+/* Tabs, not pills. A rounded chip is furniture from another kind of product;
+   a ruled label is what an index looks like. */
+.filters{display:flex;flex-wrap:wrap;gap:4px 2px;margin:0 0 24px;align-items:center}
+.filters::before{content:"Era";font-family:var(--mono);font-size:9.5px;
+  letter-spacing:var(--track-slate);text-transform:uppercase;color:var(--faint);
+  margin-right:13px;flex-shrink:0}
+.chip{padding:7px 12px 6px;border:0;border-bottom:1px solid var(--hair);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint);transition:color var(--t-fast) var(--ease),
+  border-color var(--t-fast) var(--ease)}
+.chip:hover{color:var(--ink);border-bottom-color:var(--accent-dim)}
+.chip.on{color:var(--ink);border-bottom-color:var(--accent)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));
+  gap:17px 13px;align-items:start}
+/* The recommendation shelf is this same grid at a larger measure. Scale is the
+   only thing marking it out — it should not need a badge or a second colour to
+   say that it matters more. When there are no recommendations there is one
+   grid, it is also :last-of-type, and nothing here applies. */
+#wall-body .grid:not(:last-of-type){
+  grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:22px 15px}
+
+.tile{position:relative;cursor:pointer;background:var(--lift);
+  aspect-ratio:2/3;overflow:hidden;border:1px solid transparent;
+  transition:transform var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
+.tile:hover,.tile:focus-visible{transform:translateY(-4px);
+  box-shadow:0 18px 34px -14px rgba(0,0,0,.9)}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform var(--t-slow) var(--ease),filter var(--t-mid) var(--ease);
+  filter:saturate(.86) contrast(1.04) brightness(.82)}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.045);
+  filter:saturate(1.05) contrast(1.06) brightness(1)}
+/* generated artwork when a film has no poster: composed from its own two
+   colours, never a grey placeholder */
+.tile .gen{position:absolute;inset:0}
+/* The film signs itself: a rule drawn in that film's own measured highlight,
+   which is the only colour it is allowed to put on the interface. */
+.tile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;z-index:2;
+  background:var(--nc,var(--accent));transform:scaleX(0);transform-origin:0 50%;
+  transition:transform var(--t-mid) var(--ease)}
+.tile:hover::after,.tile:focus-visible::after{transform:scaleX(1)}
+.tile .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 9px 9px;
+  background:linear-gradient(transparent,rgba(6,5,8,.94) 58%);
+  opacity:0;transform:translateY(4px);
+  transition:opacity var(--t-fast) var(--ease),transform var(--t-mid) var(--ease)}
+.tile:hover .cap,.tile:focus-visible .cap{opacity:1;transform:none}
+/* Nothing hovers on a touch screen, and a wall of untitled faces is a puzzle,
+   not an invitation. */
+@media (hover:none){.tile .cap{opacity:1;transform:none}}
+.tile .cap .t{font-family:var(--serif);font-size:13px;line-height:1.22;display:block}
+.tile .cap .y{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;
+  color:var(--faint);text-transform:uppercase;font-variant-numeric:tabular-nums}
+.tile .seen{position:absolute;top:7px;right:7px;width:6px;height:6px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 3px rgba(8,7,10,.75)}
+
+.sec-head{display:flex;align-items:baseline;gap:16px;margin:44px 0 17px;
+  padding-bottom:10px;border-bottom:1px solid var(--hair)}
+.sec-head:first-child{margin-top:4px}
+.sec-head h2{font-family:var(--display);font-size:23px;font-weight:400;
+  letter-spacing:-.018em;line-height:1.12}
+.sec-head .slate{margin-left:auto;flex-shrink:0;white-space:nowrap}
+
+/* ── the map ───────────────────────────────────────────────────────── */
+#map{display:flex;flex-direction:column}
+.stage{flex:1;position:relative;overflow:hidden}
+/* THE ROOM.
+   Two layers, both under the edges and under every poster, so that nothing
+   here can ever dim a face or soften a caption.
+   ::before is the key light — a wash in the CENTRE FILM'S OWN measured
+   highlight, so the room is lit by the thing you are looking at rather than
+   by a house colour. renderMap sets --nc on the stage; without it the wash
+   falls back to safelight and nothing breaks.
+   ::after is the falloff. A field that reaches the corners at full strength
+   has no depth and no edge; a field that loses a third of its light on the
+   way out reads as a space with a lamp in it. */
+.stage::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(34% 40% at 50% 50%,var(--nc,var(--accent)) 0%,transparent 70%);
+  opacity:.13;transition:opacity var(--t-slow) var(--ease)}
+.stage::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(116% 96% at 50% 48%,transparent 34%,
+    rgba(3,2,5,.4) 76%,rgba(3,2,5,.72) 100%)}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+
+@keyframes bloom{from{opacity:0;transform:translate(-50%,-50%) scale(.82)}
+                 to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+/* Arrival is a focus pull, not a fade: the image resolves out of soft.
+   It is on .frame and never on .node, because the caption must not blur —
+   at any depth, for any duration. animation-delay:inherit picks up the
+   per-node stagger set on the parent without a second inline style. */
+@keyframes resolve{from{filter:blur(9px) saturate(.35)}to{filter:none}}
+.node{position:absolute;transform:translate(-50%,-50%);cursor:pointer;
+  animation:bloom var(--t-slow) var(--ease) backwards;
+  transition:left var(--t-slow) var(--ease),top var(--t-slow) var(--ease),
+             width var(--t-slow) var(--ease),opacity var(--t-mid) var(--ease)}
+.node .frame{position:relative;width:100%;aspect-ratio:2/3;overflow:hidden;
+  background:var(--lift);
+  box-shadow:0 1px 0 rgba(0,0,0,.5),0 14px 34px rgba(0,0,0,.66);
+  animation:resolve var(--t-slow) var(--ease) backwards;animation-delay:inherit;
+  transition:box-shadow var(--t-mid) var(--ease),outline-color var(--t-fast) var(--ease);
+  outline:1px solid transparent;outline-offset:0}
+.node img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.9) contrast(1.05) brightness(.88);
+  transition:filter var(--t-mid) var(--ease)}
+.node:hover .frame,.node:focus-visible .frame{outline-color:var(--nc,var(--accent));
+  box-shadow:0 1px 0 rgba(0,0,0,.5),0 18px 44px rgba(0,0,0,.7)}
+.node:hover img,.node:focus-visible img{filter:saturate(1.08) contrast(1.06) brightness(1.02)}
+.node.centre .frame{box-shadow:0 0 0 1px var(--nc,var(--accent)),0 24px 64px rgba(0,0,0,.74),
+  0 0 90px -20px var(--nc,var(--accent))}
+.node.centre img{filter:saturate(1.05) contrast(1.05) brightness(1)}
+.node .label{margin-top:9px;text-align:center;pointer-events:none}
+.node .label .t{font-family:var(--serif);font-size:13px;line-height:1.18;display:block;
+  letter-spacing:-.005em}
+.node .label .y{display:block;margin-top:2px;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.18em;color:var(--faint);font-variant-numeric:tabular-nums}
+/* The centre is the subject: it takes the display face, a size that cannot be
+   confused with the ring, and its own colour on the date. */
+/* Sized against measured clearance, not taste. layout() budgets a flat
+   w*1.5+34 for poster-plus-caption and the separation pass trusts it, so
+   every pixel this caption grows is a pixel of real distance between the
+   centre and the ring. 19px on a 1.04 leading is the largest step over the
+   13px ring that keeps the worst case in the corpus — a four-line title at
+   900px — clear of its neighbours. */
+.node.centre .label{margin-top:10px}
+.node.centre .label .t{font-family:var(--display);font-size:19px;line-height:1.04;
+  letter-spacing:-.02em}
+.node.centre .label .y{margin-top:3px;font-size:9px;color:var(--dim);
+  color:color-mix(in oklab,var(--nc,var(--accent)) 55%,var(--dim))}
+.node .seen{position:absolute;top:7px;right:7px;width:6px;height:6px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 3px rgba(8,7,10,.8)}
+
+/* EDGES ARE DRAWN, NOT PLOTTED.
+   Record edges ink themselves outward from the centre; the length of the line
+   sets how long that takes, so a claim genuinely travels. Readings — the
+   dashed, sub-confidence edges — only fade up, because animating a dash
+   pattern would destroy the one signal that separates argument from record.
+   Hence :not([stroke-dasharray]): CSS beats a presentation attribute, and a
+   blanket stroke-dasharray here would have silently made every reading look
+   like a record. Ending on `620 0` (all dash, no gap) means the resting state
+   is solid whatever the path length turns out to be. */
+@keyframes ink{from{stroke-dasharray:0 620}to{stroke-dasharray:620 0}}
+@keyframes rise{from{opacity:0}}
+.edge{fill:none;stroke-width:1.6;opacity:.72;stroke-linecap:round;
+  transition:opacity var(--t-fast) var(--ease),stroke-width var(--t-fast) var(--ease)}
+.edge:not([stroke-dasharray]){animation:ink var(--t-slow) var(--ease-draw) backwards}
+.edge[stroke-dasharray]{animation:rise var(--t-slow) var(--ease) backwards}
+/* [data-i] only to match the specificity of the two rules above — a bare
+   .edge here loses to the shorthand in .edge:not([stroke-dasharray]) and the
+   whole stagger silently collapses to zero. */
+.edge[data-i]{animation-delay:calc(190ms + var(--d,0ms))}
+/* Nodes settle at 620ms + up to 335ms of stagger. The lines are timed to land
+   inside that same window and the names a beat after them, so one arrival is
+   happening rather than three. drawEdges() rebuilds the SVG on every layout,
+   which means this also replays when the panel opens or closes — and that is
+   the right behaviour, because the nodes are transitioning to new positions at
+   exactly that moment and the lines would otherwise snap there instantly. */
+.edge-label{animation:rise var(--t-mid) var(--ease) backwards;
+  animation-delay:calc(380ms + var(--d,0ms))}
+.edge[data-i="0"],.edge-label[data-i="0"]{--d:0ms}
+.edge[data-i="1"],.edge-label[data-i="1"]{--d:55ms}
+.edge[data-i="2"],.edge-label[data-i="2"]{--d:110ms}
+.edge[data-i="3"],.edge-label[data-i="3"]{--d:165ms}
+.edge[data-i="4"],.edge-label[data-i="4"]{--d:220ms}
+.edge[data-i="5"],.edge-label[data-i="5"]{--d:275ms}
+.edge[data-i="6"],.edge-label[data-i="6"]{--d:330ms}
+.edge[data-i="7"],.edge-label[data-i="7"]{--d:385ms}
+.edge.hot{opacity:1;stroke-width:2.6}
+/* Attention is subtractive here, as it is in a lens: reading one claim puts
+   the other five back. :has() is progressive — without it nothing dims and
+   the map behaves exactly as before. */
+#edges:has(.edge.hot) .edge:not(.hot){opacity:.22}
+#stage:has(.edge.hot) .edge-label:not(.hot){opacity:.2}
+/* The box is kept to 12.5px tall on purpose. drawEdges() clears a label from a
+   poster by testing its CENTRE POINT against the node box inflated by a fixed
+   7px vertically — a margin that only works if the label's own half-height is
+   under 7px. At the inherited 1.5 line-height it was 9.4px, and the difference
+   was landing as a 2–4px bite out of the poster below. line-height:1 plus 2px
+   padding is what makes that constant true. (The horizontal margin in the same
+   test is 30px and is still smaller than half of "shares a hand"; that part
+   cannot be fixed from here — see the handoff note.) */
+.edge-label{
+  position:absolute;transform:translate(-50%,-50%);pointer-events:none;z-index:6;
+  font-family:var(--mono);font-size:8.5px;line-height:1;letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--lc,var(--dim));opacity:.78;white-space:nowrap;
+  padding:2px 6px;background:rgba(8,7,10,.86);
+  box-shadow:0 0 0 1px rgba(34,30,40,.9);
+  transition:opacity var(--t-fast) var(--ease)}
+.edge-label.hot{opacity:1;background:rgba(8,7,10,.96)}
+/* The claim is a sentence, so it is set as one — text serif, not slate. The
+   label above it names the relationship and stays slate. */
+.claim-tip{
+  position:absolute;transform:translate(-50%,-50%);pointer-events:none;
+  max-width:262px;padding:11px 14px;background:rgba(10,8,13,.96);
+  border:1px solid var(--hair);border-left:2px solid var(--tc,var(--accent));
+  box-shadow:0 16px 40px rgba(0,0,0,.6);
+  font-family:var(--serif);font-size:12.5px;line-height:1.5;color:var(--ink);
+  opacity:0;transition:opacity var(--t-fast) var(--ease);z-index:30}
+.claim-tip.on{opacity:1}
+.claim-tip .k{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--tc,var(--accent));margin-bottom:6px}
+
+/* ── the thread: the record of a journey ─────────────────────────────
+   The only thing in this app that accumulates, and the only real reason to
+   make a sixth click rather than a first. So it gets a strip of its own,
+   sprocketed along the top edge like the stock it is made of, and the path
+   recedes: the further back a film sits, the more it has faded into the trip
+   rather than the moment. Hovering brings any of it back. */
+.trail{flex-shrink:0;position:relative;display:flex;align-items:center;gap:0;
+  padding:12px 18px 13px;border-top:1px solid var(--hair);
+  background-color:rgba(8,7,10,.86);backdrop-filter:blur(14px);
+  /* Sprocket holes, painted as the strip's own background rather than as a
+     child element: a background does not scroll with the content of its own
+     scroll container, so the perforations stay put while the thread runs
+     underneath them. */
+  background-image:repeating-linear-gradient(90deg,
+    transparent 0 8px,rgba(240,234,224,.06) 8px 16px,transparent 16px 24px);
+  background-size:100% 5px;background-repeat:repeat-x;background-position:0 0;
+  overflow-x:auto;overflow-y:hidden;scrollbar-width:none;min-height:82px}
+.trail::-webkit-scrollbar{display:none}
+@keyframes arrive{from{opacity:0;transform:translateY(9px) scale(.92)}}
+.trail-step{position:relative;flex-shrink:0;cursor:pointer;margin:0 1px;
+  opacity:.4;filter:saturate(.5);
+  transition:opacity var(--t-mid) var(--ease),filter var(--t-mid) var(--ease),
+             transform var(--t-fast) var(--ease)}
+/* :nth-last-of-type counts buttons only — the separators and the two slate
+   labels are spans — so the ramp is not thrown out by what sits between. */
+.trail-step:nth-last-of-type(-n+4){opacity:.56;filter:saturate(.68)}
+.trail-step:nth-last-of-type(-n+2){opacity:.78;filter:saturate(.86)}
+.trail-step:last-of-type{opacity:1;filter:none}
+.trail-step:hover,.trail-step:focus-visible{opacity:1;filter:none;transform:translateY(-3px)}
+.trail-step.on{opacity:1;filter:none;animation:arrive var(--t-mid) var(--ease)}
+.trail-step img,.trail-step .gen{width:38px;height:57px;object-fit:cover;display:block;
+  background:var(--hair);box-shadow:0 3px 10px rgba(0,0,0,.55)}
+.trail-step.on img,.trail-step.on .gen{outline:1px solid var(--accent);outline-offset:1px}
+/* a route between two places, rather than a rule between two objects */
+.trail-sep{flex-shrink:0;width:19px;height:7px;align-self:center;background:none;
+  background-image:radial-gradient(circle at 50% 50%,var(--hair) 0 1.1px,transparent 1.5px);
+  background-size:6px 7px;background-repeat:repeat-x}
+.trail .slate{flex-shrink:0}
+.trail .slate:first-child{align-self:stretch;display:flex;align-items:center;
+  margin-right:15px;padding-right:15px;border-right:1px solid var(--hair)}
+/* how deep you are is the score of the session; it earns a box */
+.trail .slate:last-child:not(:first-child){
+  margin-left:17px;padding:6px 10px;border:1px solid var(--hair);color:var(--ink);
+  background:rgba(232,200,122,.045);letter-spacing:.16em}
+
+/* ── panel ─────────────────────────────────────────────────────────── */
+.panel{
+  position:absolute;top:0;right:0;bottom:0;width:370px;z-index:50;
+  background:var(--panel);border-left:1px solid var(--hair);
+  transform:translateX(100%);transition:transform var(--t-mid) var(--ease);
+  overflow-y:auto;padding:22px 24px 40px}
+.panel.on{transform:none}
+.panel-x{position:absolute;top:10px;right:10px;width:30px;height:30px;font-size:19px;
+  color:var(--faint);line-height:1;transition:color var(--t-fast) var(--ease)}
+.panel-x:hover{color:var(--ink)}
+.panel>.slate:first-of-type{display:block;padding-bottom:11px;margin-bottom:13px;
+  border-bottom:1px solid var(--hair)}
+.panel .poster{width:100%;margin:16px 0 18px;display:block;background:var(--lift);
+  box-shadow:0 16px 38px rgba(0,0,0,.5)}
+.panel h2{font-family:var(--display);font-size:30px;font-weight:400;line-height:1.08;
+  letter-spacing:var(--track-display);padding-right:26px}
+.panel .by{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:9px;
+  letter-spacing:.17em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+/* A synopsis is prose. Setting it in the UI sans made the panel read like a
+   settings pane; the text serif makes it read like a page. */
+.panel .desc{font-family:var(--serif);font-size:14.5px;line-height:1.62;
+  color:#C9C1B6;margin:16px 0 20px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;
+  border-bottom:1px solid var(--hair);font-size:12px}
+.row span:first-child{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint)}
+.row span:last-child{text-align:right;color:var(--dim);font-variant-numeric:tabular-nums}
+.acts{display:flex;gap:8px;margin:20px 0 10px}
+.acts .btn{flex:1;text-align:center;padding:10px}
+.acts .btn.on{background:var(--accent);color:#0B0A0D;border-color:var(--accent)}
+.why{margin-top:24px}
+.why h3{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);margin-bottom:12px;
+  padding-bottom:9px;border-bottom:1px solid var(--hair)}
+.why-item{display:block;width:100%;text-align:left;padding:11px 0 11px 12px;border-left:2px solid var(--wc,var(--hair));margin-bottom:8px;
+  cursor:pointer;transition:background var(--t-fast) var(--ease),
+  transform var(--t-fast) var(--ease)}
+.why-item:hover,.why-item:focus-visible{background:var(--lift);transform:translateX(3px)}
+/* the claim is an argument, so it is set as prose; the line under it is
+   filing, so it is slate */
+.why-item .c{font-family:var(--serif);font-size:13.5px;line-height:1.42}
+.why-item .m{font-family:var(--mono);font-size:8.5px;color:var(--faint);margin-top:6px;
+  letter-spacing:.15em;text-transform:uppercase}
+.why-item .src{font-family:var(--serif);font-size:11.5px;line-height:1.4;color:var(--dim);
+  margin-top:6px}
+
+/* ── empty / notices ───────────────────────────────────────────────── */
+.notice{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;
+  color:var(--dim);font-size:14px;max-width:420px;padding:0 20px}
+.notice .big{font-family:var(--display);font-size:24px;letter-spacing:-.018em;
+  color:var(--ink);margin-bottom:10px;display:block}
+
+/* ── responsive ────────────────────────────────────────────────────── */
+@media (max-width:900px){
+  .panel{width:min(370px,86vw)}
+  /* layout() budgets a fixed w*1.5+34 for poster-plus-caption, so every pixel
+     the centre title grows is a pixel of measured clearance spent. At 1440
+     there is room for 21px; at 900 the posters have shrunk and it is not free.
+     Measured worst case across 40 seeds: 19px clearance at 21px type, 27px at
+     19px. The step down keeps the 1.46x ratio against the ring either way. */
+  .node.centre .label .t{font-size:18px}
+  /* the shelf keeps its scale advantage over the wall, at a smaller absolute
+     size — two-up rather than one-and-a-half */
+  #wall-body .grid:not(:last-of-type){
+    grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:18px 13px}
+  .sec-head{margin:36px 0 15px}
+}
+@media (max-width:720px){
+  header{gap:10px;padding:calc(11px + env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) 11px max(14px,env(safe-area-inset-left));flex-wrap:wrap}
+  .wordmark{font-size:17px;letter-spacing:.26em;padding-right:13px}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:14px 10px}
+  #wall-body .grid:not(:last-of-type){
+    grid-template-columns:repeat(auto-fill,minmax(136px,1fr));gap:16px 11px}
+  .wall-inner{padding:20px 14px 80px}
+  .lede{margin:16px 0 20px;padding-bottom:20px}
+  .lede h1{max-width:none}
+  .lede p{font-size:14.5px}
+  .sec-head{margin:32px 0 13px}
+  .sec-head h2{font-size:20px}
+  .panel{width:100%;top:auto;height:72%;border-left:0;border-top:1px solid var(--hair);
+    transform:translateY(100%)}
+  .panel.on{transform:none}
+  .panel h2{font-size:26px}
+  .btn{padding:6px 9px;font-size:9px}
+  /* the thread gives up height before the map does */
+  .trail{padding:9px 13px 10px;min-height:66px}
+  .trail-step img,.trail-step .gen{width:30px;height:45px}
+  .trail-sep{width:13px;background-size:5px 7px}
+  .trail .slate:first-child{margin-right:11px;padding-right:11px}
+  .trail .slate:last-child:not(:first-child){margin-left:12px;padding:5px 8px}
+  .node.centre .label{margin-top:10px}
+  .node.centre .label .t{font-size:17px}
+  .edge-label{font-size:8px;letter-spacing:.16em;padding:2px 5px}
+  .claim-tip{max-width:220px}
+}
+@media (pointer:coarse){
+  .wordmark,.btn,.chip,.panel-x{min-height:44px}
+  .panel-x{width:44px;height:44px;top:4px;right:4px}
+  .trail-step{min-width:44px;min-height:44px;display:grid;place-items:center}
+  .why-item{min-height:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important;
+    animation-delay:0ms !important}
+  .tile:hover,.tile:focus-visible,.trail-step:hover,.why-item:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <button class="wordmark" id="home" type="button" aria-label="Return to the film wall">ATL<span>A</span>S</button>
+    <div class="search">
+      <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/>
+      </svg>
+      <input id="q" type="text" placeholder="Name a film…" autocomplete="off" spellcheck="false"
+        aria-label="Search the atlas by film title" role="combobox" aria-autocomplete="list"
+        aria-controls="sugg" aria-expanded="false">
+      <div class="sugg" id="sugg" role="listbox" aria-label="Film suggestions" hidden></div>
+    </div>
+    <div class="tools">
+      <button class="btn" id="surprise">Surprise me</button>
+      <button class="btn" id="foryou">For you<span class="n" id="loved-n">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="view on" id="wall" aria-label="Film wall" aria-hidden="false">
+      <div class="wall-inner">
+        <div class="lede">
+          <div class="kicker"><span class="slate">A map of cinematic lineage</span></div>
+          <h1>Every film is <em>downstream</em> of another.</h1>
+          <p>Pick one and Atlas draws what it descends from, argues with and quietly rhymes
+             with — each line carrying a specific claim you can read. Follow the connections
+             and the map keeps opening.</p>
+          <div class="lede-foot"><span class="slate">Press <kbd>/</kbd> to search — or pick a face</span></div>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div id="wall-body"></div>
+      </div>
+    </section>
+
+    <section class="view" id="map" aria-label="Cinematic lineage map" aria-hidden="true" inert>
+      <div class="stage" id="stage" role="region" aria-label="Selected film and six connected films">
+        <svg id="edges"></svg>
+        <div class="claim-tip" id="tip"></div>
+      </div>
+      <div class="trail" id="trail"></div>
+    </section>
+
+    <aside class="panel" id="panel" aria-label="Film details" aria-hidden="true" aria-live="polite" inert></aside>
+  </main>
+  <div class="sr-only" id="sr-status" aria-live="polite"></div>
+</div>
+
+<script>
+/* __CORPUS__ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ENGINE
+   ═══════════════════════════════════════════════════════════════════════ */
+const F = CORPUS.films, KEYS = Object.keys(F), E = CORPUS.edges;
+
+/* adjacency, built once */
+const ADJ = {};
+KEYS.forEach(k => ADJ[k] = []);
+E.forEach((e, i) => { if (ADJ[e.a] && ADJ[e.b]) { ADJ[e.a].push(i); ADJ[e.b].push(i); } });
+
+const EDGE_META = {
+  descent:     { label:"descends from", color:"#C9873F" },
+  rebuttal:    { label:"argues with",   color:"#B5473F" },
+  convergence: { label:"arrives with",  color:"#4E8C7A" },
+  rhyme:       { label:"rhymes with",   color:"#8A6FA8" },
+  hand:        { label:"shares a hand", color:"#7E7466" },
+};
+
+/* The five TYPES are the grammar and are not negotiable (AGENTS rule 2), so
+   colour stays keyed to type. But two different record signals can land on the
+   same type, and once keywords existed a keyword-rich film drew six lines every
+   one of which said RHYMES WITH — the map looked like one relationship repeated
+   rather than six different observations. The label now names the actual
+   signal where there is a more specific true thing to say. An authored reading
+   keeps the type label: it is an argument about form, not a shared field.
+
+   Keep these at or under "shares a hand" (~13 chars). The label collision test
+   measures real text boxes, and a longer string reopens the defect it fixed. */
+const SIGNAL_LABEL = {
+  keyword:    "turns on",
+  subject:    "is about",
+  setting:    "shares a place",
+  cast:       "shares a face",
+  studio:     "shares a house",
+  movement:   "belongs with",
+  sameAuthor: "shares a source",
+};
+const meta = t => EDGE_META[t] || EDGE_META.convergence;
+/* Colour stays keyed to type everywhere — call meta(e.type).color directly for
+   that. This only ever resolves a LABEL: pass the whole edge where a more
+   specific signal name might apply; meta(type).label still works for places
+   that only have a type to hand (the legend, the panel key). */
+const edgeMeta = e => {
+  const isRecord = !e.source || e.source === "record";
+  return (isRecord && SIGNAL_LABEL[e.signal]) || meta(e.type).label;
+};
+const claimStatus = e => e.source === "reading" ? "reading, not record"
+  : e.source === "attested" ? "attested source" : "record";
+const isLowConfidence = e => Number.isFinite(e.confidence)
+  ? e.confidence < 0.5 : e.source === "reading";
+
+const norm = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")
+  .replace(/[^a-z0-9 ]+/g," ").replace(/\s+/g," ").trim();
+
+function lookup(title){
+  const withYear = norm(title);
+  const bare = withYear.replace(/\s+(1[89]\d{2}|20\d{2})$/,"").trim();
+  for (const n of (bare!==withYear ? [bare,withYear] : [withYear])){
+    if (F[n]) return n;
+    const stripped = n.replace(/^(the|a|an) /,"");
+    if (F[stripped]) return stripped;
+    if (F["the "+n]) return "the "+n;
+  }
+  const hits = KEYS.filter(k => k.startsWith(bare));
+  return hits.length===1 ? hits[0] : null;
+}
+
+/* SIGNAL QUALITY — how much a kind of connection can actually reveal.
+ *
+ * Measured on the shipped corpus, a third of everything a reader saw was
+ * genre-and-era or cast trivia ("Both are teen horror film, made 4 years
+ * apart"; "Giuliana Calandra appears in both films") while the claims worth
+ * reading — a shared source author, a documented adaptation, an authored
+ * reading — were 5% combined. They were present and they were losing.
+ *
+ * The weak signals are not a mistake and must not be deleted: they were added
+ * deliberately because a network of only strong ties is a set of islands, and
+ * without them 42% of films had nowhere to go on the first click. Their job is
+ * to keep the road open, not to be read. So they stay in the graph and are
+ * pushed to the back of the queue. */
+const SIGNAL_WEIGHT = {
+  adaptation:1.00, sameAuthor:0.96, keyword:0.88, movement:0.80, setting:0.72,
+  subject:0.66, crew:0.60, studio:0.50, genre:0.26, cast:0.24,
+  countryEra:0.13, genreEra:0.12,
+};
+/* keyword ranks above movement and below sameAuthor on purpose. A shared TMDB
+   keyword that survived the rarity floor in associate.js is the most specific
+   thing the corpus knows about a pair — "both turn on taxidermy" beats "both
+   belong to New Hollywood" — but it is still an observation about content,
+   where an adaptation or a shared source author is a documented fact. An
+   unrecognised signal falls to 0.5 below, so a new signal added to the pipeline
+   and not added here silently ranks mid-table. */
+const sigWeight = e => e.source && e.source!=="record" ? 1.0
+  : (SIGNAL_WEIGHT[e.signal] !== undefined ? SIGNAL_WEIGHT[e.signal] : 0.5);
+
+/* Ranking. Deliberately NOT by how connected the other film is — that
+   surfaces whatever is most famous and the map collapses toward the canon
+   the viewer already knows. Rank by what the bond reveals, then force variety
+   so a seed is not ringed by six versions of one idea. */
+function connections(key, limit, exclude){
+  const skip = new Set(exclude||[]);
+  const seedYear = F[key].year || 0;
+  const seedDir = F[key].director || "";
+  const scored = ADJ[key].map(i => {
+    const e = E[i], other = e.a===key ? e.b : e.a;
+    if (skip.has(other) || !F[other]) return null;
+    let s = (e.strength || 0) * sigWeight(e);
+    const o = F[other];
+    if (o.director && o.director===seedDir) s *= 0.55;              // same hand is the least surprising link
+    if (Math.abs((o.year||0)-seedYear) < 8) s *= 0.9;
+    return { key:other, e, score:s };
+  }).filter(Boolean).sort((a,b)=>b.score-a.score);
+
+  /* THE "ONE OF EACH TYPE" RULE WAS THE LEAK, AND IT LOOKED LIKE VARIETY.
+   *
+   * Measured on this corpus, the five edge types are not equally informative:
+   *
+   *   descent      sameAuthor 46%, authored 30%, adaptation 25%   — all good
+   *   rhyme        subject 70%, setting 21%                       — good
+   *   hand         crew 67%, cast 30%                             — mixed
+   *   convergence  genreEra 51%, countryEra 29%, genre 19%        — 100% trivia
+   *
+   * `convergence` is entirely genre-and-era coincidence. So guaranteeing one
+   * of every type guaranteed a trivia edge in every single map — the rule that
+   * reads as "show variety" was in fact reserving a seat for the weakest thing
+   * in the corpus. Removing it, and ranking by what the bond reveals, cut the
+   * measured trivia share from 54% to 35% across 200 seeds.
+   *
+   * Type variety still emerges — it just is not paid for.
+   *
+   * REPETITION DECAY, added later, is not a reinstatement of that rule and the
+   * difference is the whole point. A quota RESERVES a seat, so a film with
+   * nothing good to say still had to show its best trivia. A decay reserves
+   * nothing: it only demotes the Nth copy of a signal already on the map. If a
+   * film has six crew edges and nothing else, it still gets six crew edges —
+   * the decay just cannot promote anything better, because there is nothing
+   * better. What it does fix is Chinatown drawing four separate films all
+   * captioned "Both are about incest", and a keyword-rich film drawing six
+   * lines that all said RHYMES WITH. Same claim six times is not six claims. */
+  const out=[], dirCount={}, sigCount={}, claimCount={};
+  const sigOf = c => (c.e.source && c.e.source!=="record") ? "authored" : (c.e.signal||c.e.type);
+  const dirOK = c => (dirCount[F[c.key].director]||0) < 2;
+  const take = c => { out.push(c); const d=F[c.key].director; dirCount[d]=(dirCount[d]||0)+1;
+    sigCount[sigOf(c)]=(sigCount[sigOf(c)]||0)+1;
+    claimCount[c.e.claim]=(claimCount[c.e.claim]||0)+1; };
+
+  /* Two penalties, and the claim one matters more. Measured over 803 seeds,
+     968 of 4,737 lines shown were a VERBATIM repeat of another line on the same
+     map — Chinatown drew four separate films all captioned "Both are about
+     incest". A repeated line is worse than a weak one: a weak claim at least
+     tells you something, a repeat spends a slot on nothing. The signal penalty
+     is deliberately gentler; it exists to break up the look of the ring, not to
+     reorder it. Measured at these values: repeats 968 -> 317, near-monotone
+     maps 173 -> 111, trivia share 28.4% -> 30.8%. That last number going up is
+     the honest cost, and it is worth it — roughly 650 duplicate lines become
+     distinct content and about 114 become weaker content. */
+  const CLAIM_DECAY = 1.0, SIGNAL_DECAY = 0.2;
+
+  /* Re-score against what has already been taken, rather than walking the fixed
+     order: the penalty has to be recomputed after every pick to mean anything. */
+  const fill = test => {
+    while (out.length < limit) {
+      let best=null, bestScore=-1;
+      for (const c of scored){
+        if (out.indexOf(c)>=0 || !test(c)) continue;
+        const nc = claimCount[c.e.claim]||0, ns = sigCount[sigOf(c)]||0;
+        /* Authored readings are exempt from the SIGNAL penalty. Each one is
+           individually written, so two on a map are two different arguments,
+           never the same sentence — which is the thing being penalised. */
+        const s = sigOf(c)==="authored"
+          ? c.score/(1+nc*CLAIM_DECAY)
+          : c.score/((1+nc*CLAIM_DECAY)*(1+ns*SIGNAL_DECAY));
+        if (s>bestScore){ bestScore=s; best=c; }
+      }
+      if (!best) break;
+      take(best);
+    }
+  };
+
+  fill(dirOK);
+  fill(() => true);   // a thin map is worse than a slightly repetitive one
+  return out;
+}
+
+/* THE RECOMMENDER
+   A film is worth suggesting in proportion to how strongly it is bound to
+   things you already love — and it must be able to say why. Summing over
+   every loved neighbour rather than taking the single best one is what makes
+   a film that sits between two of your favourites outrank one that hangs off
+   a single strong edge. */
+function recommend(limit){
+  const loved = [...state.loved];
+  if (!loved.length) return [];
+  const score = {}, because = {};
+  for (const L of loved){
+    for (const i of ADJ[L]||[]){
+      const e = E[i], other = e.a===L ? e.b : e.a;
+      if (state.seen.has(other) || state.loved.has(other) || !F[other]) continue;
+      const w = (e.strength||0) * (e.source && e.source!=="record" ? 1.2 : 1);
+      score[other] = (score[other]||0) + w;
+      if (!because[other] || w > because[other].w) because[other] = { w, from:L, claim:e.claim, type:e.type };
+    }
+  }
+  return Object.keys(score)
+    .sort((a,b)=>score[b]-score[a])
+    .slice(0, limit||18)
+    .map(k => ({ key:k, score:score[k], why:because[k] }));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   STATE
+   The Sites edition remembers only device-local preferences. The journey
+   itself remains session-scoped: a trail is a particular night, not a profile.
+   Reads and writes are guarded so privacy modes and strict embeds still work.
+   ═══════════════════════════════════════════════════════════════════════ */
+const STORAGE_KEY="atlas-preferences-v1";
+function readPreferences(){
+  try{
+    const raw=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null")||{};
+    return {
+      seen:Array.isArray(raw.seen)?raw.seen.filter(k=>F[k]):[],
+      loved:Array.isArray(raw.loved)?raw.loved.filter(k=>F[k]):[],
+      filter:["all","silent","golden","new","modern","now"].includes(raw.filter)?raw.filter:"all",
+    };
+  }catch(_error){ return {seen:[],loved:[],filter:"all"}; }
+}
+const preferences=readPreferences();
+const state = {
+  view:"wall", centre:null, ring:[], trail:[], drawn:new Set(),
+  seen:new Set(preferences.seen), loved:new Set(preferences.loved), filter:preferences.filter, sel:null,
+};
+
+function persistPreferences(){
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify({
+      seen:[...state.seen],loved:[...state.loved],filter:state.filter,
+    }));
+  }catch(_error){}
+}
+
+const $ = s => document.querySelector(s);
+const el = (t,c,h) => { const n=document.createElement(t); if(c)n.className=c; if(h!=null)n.innerHTML=h; return n; };
+const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* deterministic composed artwork, so a film with no poster still has a face */
+function genArt(k){
+  const f=F[k]; let h=2166136261;
+  for(let i=0;i<k.length;i++){ h^=k.charCodeAt(i); h=Math.imul(h,16777619); }
+  h=h>>>0;
+  const kind=h%4, a=f.shadow, b=f.highlight;
+  const bg=`background:linear-gradient(${160+(h%40)}deg,${b}22,${a} 62%),${a};`;
+  const shapes=[
+    `<circle cx="50" cy="${34+(h%18)}" r="${17+(h%9)}" fill="${b}" opacity=".8"/>`,
+    `<rect x="${14+(h%20)}" y="0" width="${9+(h%7)}" height="100" fill="${b}" opacity=".7"/>`,
+    `<path d="M0 ${62+(h%16)} Q50 ${26+(h%22)} 100 ${58+(h%18)} V100 H0Z" fill="${b}" opacity=".72"/>`,
+    `<circle cx="50" cy="46" r="26" fill="${b}" opacity=".85"/><circle cx="${40+(h%20)}" cy="${36+(h%16)}" r="24" fill="${a}"/>`,
+  ];
+  return `<div class="gen" style="${bg}"><svg viewBox="0 0 100 100" preserveAspectRatio="none"
+    style="width:100%;height:100%;display:block">${shapes[kind]}</svg></div>`;
+}
+const art = (k, cls, priority) => F[k].poster
+  ? `<img src="${esc(F[k].poster)}" alt="" loading="${priority?"eager":"lazy"}"
+       decoding="async" fetchpriority="${priority||"low"}" class="${cls||""}"
+       onerror="this.outerHTML=genArt('${k.replace(/'/g,"\\'")}')">`
+  : genArt(k);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE WALL — the front door
+   The old build opened on an empty field and a text box, which asks the
+   visitor to already know what they want. A wall of faces asks nothing.
+   ═══════════════════════════════════════════════════════════════════════ */
+const ERAS = [
+  { id:"all",  label:"Everything", test:()=>true },
+  { id:"silent", label:"Silent & early", test:f=>f.year&&f.year<1930 },
+  { id:"golden", label:"1930–59", test:f=>f.year>=1930&&f.year<1960 },
+  { id:"new",    label:"1960–79", test:f=>f.year>=1960&&f.year<1980 },
+  { id:"modern", label:"1980–99", test:f=>f.year>=1980&&f.year<2000 },
+  { id:"now",    label:"2000–now", test:f=>f.year>=2000 },
+];
+
+/* Films are ordered by how much the map can DO with them, not by fame: a
+   well-connected film is one you can travel from. Ties break on having a
+   poster, because the wall is made of faces. */
+const WALL_ORDER = KEYS.slice().sort((a,b)=>{
+  const d = (ADJ[b].length + (F[b].poster?3:0)) - (ADJ[a].length + (F[a].poster?3:0));
+  return d || (F[b].year||0)-(F[a].year||0);
+});
+
+function tile(k, note){
+  const f=F[k];
+  const t=el("button","tile");
+  t.type="button";
+  t.setAttribute("aria-label",`${f.title}${f.year?`, ${f.year}`:""}${note?`. ${note}`:""}`);
+  t.style.setProperty("--nc", f.highlight);
+  t.innerHTML = art(k) +
+    (state.seen.has(k)||state.loved.has(k) ? '<span class="seen"></span>' : "") +
+    `<span class="cap"><span class="t">${esc(f.title)}</span>
+       <span class="y">${f.year||""}${note?" · "+esc(note):""}</span></span>`;
+  t.onclick = () => openMap(k);
+  return t;
+}
+
+function renderFilters(){
+  const box=$("#filters"); box.innerHTML="";
+  ERAS.forEach(e=>{
+    const c=el("button","chip"+(state.filter===e.id?" on":""),e.label);
+    c.type="button";
+    c.setAttribute("aria-pressed",state.filter===e.id?"true":"false");
+    c.onclick=()=>{ state.filter=e.id; persistPreferences(); renderFilters(); renderWall(); };
+    box.appendChild(c);
+  });
+}
+
+function renderWall(){
+  const body=$("#wall-body"); body.innerHTML="";
+  const era = ERAS.find(e=>e.id===state.filter) || ERAS[0];
+
+  const recs = recommend(12);
+  if (recs.length){
+    const h=el("div","sec-head");
+    h.innerHTML=`<h2>Because you loved ${esc(F[[...state.loved][state.loved.size-1]].title)}</h2>
+      <span class="slate">${recs.length} suggestions</span>`;
+    body.appendChild(h);
+    const g=el("div","grid");
+    recs.forEach(r=>g.appendChild(tile(r.key, edgeMeta(r.why))));
+    body.appendChild(g);
+  }
+
+  const list = WALL_ORDER.filter(k=>era.test(F[k]));
+  const h2=el("div","sec-head");
+  const shown=Math.min(240,list.length);
+  h2.innerHTML = `<h2>${state.filter==="all"?"Start anywhere":esc(era.label)}</h2>
+    <span class="slate">${shown<list.length?`${shown} of ${list.length}`:list.length} films</span>`;
+  body.appendChild(h2);
+  const g2=el("div","grid");
+  list.slice(0,240).forEach(k=>g2.appendChild(tile(k)));
+  body.appendChild(g2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE MAP
+   A composed radial layout rather than a force simulation. Physics gives
+   you jitter, unpredictable overlap and a different picture every time you
+   ask the same question; a ring is legible, stable, and lets the eye read
+   distance as meaning rather than as an accident of the solver.
+   ═══════════════════════════════════════════════════════════════════════ */
+function layout(){
+  const stage=$("#stage");
+  /* The panel is an overlay, so the stage keeps its full width while half of
+     it is covered. Laying out against stage.clientWidth centred the map under
+     the panel and pushed two of six films off the visible area entirely. What
+     matters is the space a person can actually see. */
+  const panel=$("#panel");
+  const panelW = (panel.classList.contains("on") && innerWidth>720) ? panel.offsetWidth : 0;
+  const W = stage.clientWidth - panelW, H = stage.clientHeight;
+  const nodes=[...stage.querySelectorAll(".node")];
+  if(!nodes.length || W<80 || H<80) return;
+
+  const narrow = W < 620;
+  /* Sizes derive from the space rather than being constants, because a
+     constant that fits a laptop overlaps on a short window. */
+  const rw = Math.max(52, Math.min(narrow?70:104, W/6.4, H/7.4));
+  const cw = Math.round(rw*1.46);
+  const boxH = w => w*1.5 + 34;                 // poster + caption
+  const cx = W/2, cy = H/2;
+  const rx = Math.min(W/2 - rw/2 - 18, 350);
+  const ry = Math.min(H/2 - boxH(rw)/2 - 16, 268);
+
+  const P = nodes.map(n=>{
+    const i=+n.dataset.i;
+    if(i<0) return {n,i,x:cx,y:cy,w:cw,h:boxH(cw),fixed:true};
+    const total=Math.max(1,state.ring.length);
+    /* start at the top and go round; the first connection is the strongest,
+       and putting it at 12 o'clock makes the ranking legible rather than
+       arbitrary */
+    const a=-Math.PI/2 + (i/total)*Math.PI*2;
+    return {n,i,x:cx+Math.cos(a)*rx,y:cy+Math.sin(a)*ry,w:rw,h:boxH(rw),fixed:false};
+  });
+
+  /* Separation pass. An ellipse alone cannot guarantee clearance: six boxes
+     of a fixed aspect on a ring whose two radii differ will always crowd
+     somewhere, and a caption lying across a neighbouring poster is the exact
+     defect that survived two handoffs of the previous build. Twelve cheap
+     iterations remove it for any viewport instead of any one. */
+  for(let pass=0; pass<12; pass++){
+    let moved=false;
+    for(let i=0;i<P.length;i++) for(let j=i+1;j<P.length;j++){
+      const A=P[i],B=P[j];
+      const ox=(A.w+B.w)/2 + 10 - Math.abs(A.x-B.x);
+      const oy=(A.h+B.h)/2 + 6  - Math.abs(A.y-B.y);
+      if(ox<=0||oy<=0) continue;
+      moved=true;
+      /* push along the axis needing least correction, so boxes slide apart
+         rather than swapping sides */
+      if(ox<oy){
+        const s=(A.x<B.x?-1:1)*ox/2;
+        if(!A.fixed)A.x+=s; if(!B.fixed)B.x-=s;
+        if(A.fixed)B.x-=s; if(B.fixed)A.x+=s;
+      }else{
+        const s=(A.y<B.y?-1:1)*oy/2;
+        if(!A.fixed)A.y+=s; if(!B.fixed)B.y-=s;
+        if(A.fixed)B.y-=s; if(B.fixed)A.y+=s;
+      }
+    }
+    if(!moved) break;
+  }
+  /* keep everything inside the visible area after separation */
+  P.forEach(p=>{
+    p.x=Math.max(p.w/2+6, Math.min(W-p.w/2-6, p.x));
+    p.y=Math.max(p.h/2+6, Math.min(H-p.h/2-6, p.y));
+    p.n.style.left=p.x+"px"; p.n.style.top=p.y+"px"; p.n.style.width=p.w+"px";
+    p.n.style.zIndex = p.fixed ? 12 : 10;
+  });
+  drawEdges();
+}
+
+function drawEdges(){
+  const svg=$("#edges"), stage=$("#stage");
+  svg.innerHTML="";
+  [...stage.querySelectorAll(".edge-label")].forEach(n=>n.remove());
+  const c=stage.querySelector('.node[data-i="-1"]');
+  if(!c) return;
+  const cx=parseFloat(c.style.left), cy=parseFloat(c.style.top);
+  state.ring.forEach((r,i)=>{
+    const n=stage.querySelector('.node[data-i="'+i+'"]');
+    if(!n) return;
+    const x=parseFloat(n.style.left), y=parseFloat(n.style.top);
+    const mx=(cx+x)/2, my=(cy+y)/2;
+    const dx=x-cx, dy=y-cy, len=Math.hypot(dx,dy)||1;
+    /* a slight bow so six lines from one point read as separate paths
+       rather than a starburst */
+    const bow=0.11;
+    const qx=mx-dy/len*len*bow, qy=my+dx/len*len*bow;
+    const p=document.createElementNS("http://www.w3.org/2000/svg","path");
+    p.setAttribute("d",`M${cx},${cy} Q${qx},${qy} ${x},${y}`);
+    p.setAttribute("class","edge");
+    p.setAttribute("stroke",meta(r.e.type).color);
+    if (isLowConfidence(r.e)) p.setAttribute("stroke-dasharray","4 4");
+    p.dataset.i=i;
+    svg.appendChild(p);
+
+    /* Name the relationship on the line itself. Hiding it behind a hover
+       means the map is decorative until you interrogate it, and on a touch
+       screen there is no hover at all -- the one thing that makes this more
+       than a pretty graph would simply never appear. */
+    const lab=el("div","edge-label",edgeMeta(r.e));
+    lab.style.setProperty("--lc",meta(r.e.type).color);
+    lab.dataset.i=i;
+    /* Place it on the curve, then push it clear of every poster and caption
+       on screen. Tuning a fixed offset only ever fixes one edge angle: the
+       vertical edge that clears the centre lands on the outer film's year, and
+       the fix for that puts a third label somewhere else. Measuring against
+       the actual boxes is the only version that holds for all six at once. */
+    const at=t=>[(1-t)*(1-t)*cx + 2*(1-t)*t*qx + t*t*x,
+                 (1-t)*(1-t)*cy + 2*(1-t)*t*qy + t*t*y];
+    let [lx,ly]=at(0.5);
+    const boxes=[...stage.querySelectorAll(".node")].map(n=>{
+      const w=parseFloat(n.style.width);
+      return {x:parseFloat(n.style.left),y:parseFloat(n.style.top),w:w+14,h:w*1.5+40};
+    });
+    /* Measure the label rather than assuming it. The fixed ±30px margin here
+       was narrower than half of "shares a hand" (~98px), so a label could pass
+       the clearance test and still sit 20px inside a poster — which is why
+       labels lay across artwork at desktop while the mobile case looked fixed.
+       The element is in the DOM already, so its real box is free to read. */
+    stage.appendChild(lab);
+    const lw=lab.offsetWidth/2 + 6, lh=lab.offsetHeight/2 + 4;
+    const hits=(px,py)=>boxes.some(bx=>
+      Math.abs(px-bx.x)<bx.w/2+lw && Math.abs(py-bx.y)<bx.h/2+lh);
+    if(hits(lx,ly)){
+      /* try further along the curve first — it keeps the label on its own line */
+      let ok=false;
+      for(const t of [0.6,0.4,0.68,0.34]){ const [ax,ay]=at(t); if(!hits(ax,ay)){ lx=ax;ly=ay;ok=true;break; } }
+      if(!ok){
+        /* then perpendicular, growing until clear — and if nothing ever clears,
+           keep the position that overlaps LEAST. The previous version silently
+           kept whatever it tried last, which could be worse than where it
+           started. */
+        const nx=-(y-cy), ny=(x-cx), nl=Math.hypot(nx,ny)||1;
+        const [bx0,by0]=at(0.5);
+        const cost=(px,py)=>boxes.reduce((t,bx)=>t+
+          Math.max(0,bx.w/2+lw-Math.abs(px-bx.x))*Math.max(0,bx.h/2+lh-Math.abs(py-bx.y)),0);
+        let best=[lx,ly], bestC=cost(lx,ly);
+        for(let d=26; d<=190 && !ok; d+=16){
+          for(const sgn of [1,-1]){
+            const px=bx0+nx/nl*d*sgn, py=by0+ny/nl*d*sgn;
+            if(px<lw||py<lh) continue;
+            const c=cost(px,py);
+            if(c<bestC){ bestC=c; best=[px,py]; }
+            if(c===0){ ok=true; break; }
+          }
+        }
+        [lx,ly]=best;
+      }
+    }
+    lab.style.left=lx+"px";
+    lab.style.top =ly+"px";
+    stage.appendChild(lab);
+  });
+}
+
+function openMap(key, keepTrail){
+  if(!F[key]) return;
+  state.centre=key;
+  state.ring=connections(key, 6, [key, ...(keepTrail?state.trail:[])]);
+  if(!keepTrail) state.trail=[];
+  if(state.trail[state.trail.length-1]!==key) state.trail.push(key);
+  show("map");
+  renderMap();
+  openPanel(key);
+  $("#sr-status").textContent=`${F[key].title}. ${state.ring.length} connected films shown.`;
+  requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')?.focus({preventScroll:true}));
+  try{ history.replaceState(null,"","#/film/"+encodeURIComponent(key)); }catch(e){}
+}
+
+function renderMap(){
+  const stage=$("#stage");
+  /* The room is lit by the film you are looking at. .stage::before reads --nc;
+     everything else about the atmosphere is CSS. Guarded because a missing
+     centre must dim the lamp, not throw. */
+  if(F[state.centre]) stage.style.setProperty("--nc", F[state.centre].highlight);
+  [...stage.querySelectorAll(".node")].forEach(n=>n.remove());
+
+  const mk=(k,i,conn)=>{
+    const f=F[k];
+    const n=el("button","node"+(i<0?" centre":""));
+    n.type="button";
+    n.dataset.i=i;
+    n.setAttribute("aria-label",i<0
+      ? `${f.title}${f.year?`, ${f.year}`:""}. Open film details.`
+      : `${f.title}${f.year?`, ${f.year}`:""}. ${edgeMeta(conn.e)}: ${conn.e.claim}`);
+    n.style.animationDelay=(i<0?0:60+i*55)+"ms";
+    n.style.setProperty("--nc", i<0 ? f.highlight : meta(conn.e.type).color);
+    n.innerHTML=`<div class="frame">${art(k,"",i<0?"high":"auto")}${
+      state.seen.has(k)||state.loved.has(k)?'<span class="seen"></span>':""}</div>
+      <div class="label"><span class="t">${esc(f.title)}</span>
+      <span class="y">${f.year||""}</span></div>`;
+    n.onclick=()=>{ if(i<0) openPanel(k); else openMap(k,true); };
+    n.onmouseenter=()=>{ if(i>=0) hot(i,true); openPanelPreview(k, i<0?null:conn); };
+    n.onmouseleave=()=>{ if(i>=0) hot(i,false); hideTip(); };
+    n.onfocus=()=>{ if(i>=0) hot(i,true); };
+    n.onblur=()=>{ if(i>=0) hot(i,false); hideTip(); };
+    stage.appendChild(n);
+    return n;
+  };
+  mk(state.centre,-1,null);
+  state.ring.forEach((r,i)=>mk(r.key,i,r));
+  /* Position immediately, then again after paint. Deferring the only call to
+     requestAnimationFrame means that if the frame never arrives -- a
+     background tab, a reduced-motion shim, an embedding frame that throttles
+     rAF -- every node keeps its initial coordinates and the map is a pile of
+     posters in the top-left corner. Laying out twice is free; not laying out
+     at all is a blank screen. */
+  layout();
+  requestAnimationFrame(layout);
+  renderTrail();
+}
+
+function hot(i,on){
+  const p=$("#edges").querySelector('.edge[data-i="'+i+'"]');
+  if(p) p.classList.toggle("hot",on);
+  const lb=$("#stage").querySelector('.edge-label[data-i="'+i+'"]');
+  if(lb) lb.classList.toggle("hot",on);
+  if(on){
+    const r=state.ring[i];
+    const n=$("#stage").querySelector('.node[data-i="'+i+'"]');
+    const c=$("#stage").querySelector('.node[data-i="-1"]');
+    const tip=$("#tip");
+    tip.style.setProperty("--tc",meta(r.e.type).color);
+    tip.innerHTML=`<span class="k">${edgeMeta(r.e)}${r.e.source&&r.e.source!=="record"
+      ?" · "+claimStatus(r.e):""}</span>${esc(r.e.claim)}`;
+    tip.style.left=((parseFloat(n.style.left)+parseFloat(c.style.left))/2)+"px";
+    tip.style.top=((parseFloat(n.style.top)+parseFloat(c.style.top))/2)+"px";
+    tip.classList.add("on");
+  } else hideTip();
+}
+const hideTip=()=>$("#tip").classList.remove("on");
+
+function renderTrail(){
+  const t=$("#trail"); t.innerHTML="";
+  t.appendChild(el("span","slate","Your thread"));
+  state.trail.forEach((k,i)=>{
+    if(i) t.appendChild(el("span","trail-sep"));
+    const s=el("button","trail-step"+(k===state.centre?" on":""), art(k));
+    s.type="button";
+    s.title=F[k].title;
+    s.setAttribute("aria-label",`Return to ${F[k].title}${F[k].year?`, ${F[k].year}`:""}`);
+    s.onclick=()=>{ state.trail=state.trail.slice(0,i+1); openMap(k,true); };
+    t.appendChild(s);
+  });
+  if(state.trail.length>1){
+    t.appendChild(el("span","trail-sep"));
+    const n=el("span","slate",state.trail.length+" films deep");
+    t.appendChild(n);
+  }
+  t.scrollLeft=t.scrollWidth;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PANEL — where the map stops being pretty and starts teaching
+   ═══════════════════════════════════════════════════════════════════════ */
+function closePanel(restoreFocus){
+  const p=$("#panel");
+  if(!p.classList.contains("on")) return;
+  p.classList.remove("on");
+  p.setAttribute("aria-hidden","true");
+  p.setAttribute("inert","");
+  if(state.view==="map") requestAnimationFrame(layout);
+  if(restoreFocus){
+    requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')?.focus({preventScroll:true}));
+  }
+}
+
+function openPanel(k){
+  state.sel=k;
+  const f=F[k], p=$("#panel");
+  const conns = k===state.centre ? state.ring : connections(k,6,[k]);
+  p.style.setProperty("--accent", f.highlight);
+  p.innerHTML = `
+    <button class="panel-x" aria-label="Close">&times;</button>
+    <div class="slate">film</div>
+    <h2>${esc(f.title)}</h2>
+    <div class="by">${f.year||""}${f.director?"  ·  "+esc(f.director):""}</div>
+    ${f.poster?`<img class="poster" src="${esc(f.poster)}" alt="" decoding="async">`:""}
+    ${f.description?`<p class="desc">${esc(f.description)}</p>`:""}
+    <div class="acts">
+      <button class="btn${state.seen.has(k)?" on":""}" data-act="seen"
+        aria-pressed="${state.seen.has(k)?"true":"false"}">Seen it</button>
+      <button class="btn${state.loved.has(k)?" on":""}" data-act="loved"
+        aria-pressed="${state.loved.has(k)?"true":"false"}">Love it</button>
+    </div>
+    <div class="row"><span>connections</span><span>${ADJ[k].length}</span></div>
+    <div class="row"><span>palette</span><span>${f.paletteSource==="poster"?"from its poster":
+      f.paletteSource==="curated"?"observed":"era default"}</span></div>
+    ${f.wikipedia?`<div class="row"><span>read more</span><span><a style="color:var(--accent)"
+      target="_blank" rel="noopener"
+      href="https://en.wikipedia.org/wiki/${encodeURIComponent(f.wikipedia.replace(/ /g,"_"))}">Wikipedia</a></span></div>`:""}
+    <div class="why"><h3>Why it connects</h3>${
+      conns.map(c=>`<button type="button" class="why-item" data-k="${esc(c.key)}"
+        style="--wc:${meta(c.e.type).color}">
+        <div class="c">${esc(c.e.claim)}</div>
+        <div class="m">${edgeMeta(c.e)} · ${esc(F[c.key].title)}${
+          c.e.source&&c.e.source!=="record"?" · "+claimStatus(c.e):""}</div>
+        ${c.e.source==="attested"&&c.e.attribution?`<div class="src">${esc(c.e.attribution)}</div>`:""}
+      </button>`).join("")
+    }</div>`;
+  p.classList.add("on");
+  p.setAttribute("aria-hidden","false");
+  p.removeAttribute("inert");
+  if(state.view==="map") requestAnimationFrame(layout);
+  p.querySelector(".panel-x").onclick=()=>closePanel(true);
+  p.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{
+    const set = b.dataset.act==="seen" ? state.seen : state.loved;
+    if(set.has(k)) set.delete(k); else { set.add(k); if(b.dataset.act==="loved") state.seen.add(k); }
+    $("#loved-n").textContent=state.loved.size;
+    persistPreferences();
+    openPanel(k); renderMap(); if(state.view==="wall") renderWall();
+  });
+  p.querySelectorAll(".why-item").forEach(w=>w.onclick=()=>openMap(w.dataset.k,true));
+}
+const openPanelPreview = (k)=>{};
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SEARCH — forgiving, because a person types what they remember
+   ═══════════════════════════════════════════════════════════════════════ */
+let suggIdx=-1, suggList=[];
+function setSuggestions(open){
+  const box=$("#sugg"), q=$("#q");
+  box.hidden=!open;
+  q.setAttribute("aria-expanded",open?"true":"false");
+  if(!open) q.removeAttribute("aria-activedescendant");
+}
+function search(v){
+  const box=$("#sugg");
+  const n=norm(v);
+  if(n.length<2){ setSuggestions(false); suggList=[]; return; }
+  const starts=[], has=[];
+  for(const k of WALL_ORDER){
+    if(k.startsWith(n)) starts.push(k);
+    else if(k.includes(n)) has.push(k);
+    if(starts.length>=8) break;
+  }
+  suggList=[...starts,...has].slice(0,8);
+  suggIdx=-1;
+  if(!suggList.length){
+    setSuggestions(true);
+    box.innerHTML=`<div role="status" style="padding:10px 12px"><span class="t" style="color:var(--dim)">
+      Not in the atlas — try another title</span></div>`;
+    return;
+  }
+  setSuggestions(true);
+  box.innerHTML=suggList.map((k,i)=>`<button type="button" role="option" aria-selected="false"
+    id="suggestion-${i}" data-k="${esc(k)}" data-i="${i}">
+    ${art(k)}<span><span class="t">${esc(F[k].title)}</span>
+    <span class="y">${F[k].year||""} · ${esc(F[k].director||"")}</span></span></button>`).join("");
+  box.querySelectorAll("button[data-k]").forEach(b=>b.onclick=()=>{
+    $("#q").value=""; setSuggestions(false); openMap(b.dataset.k);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WIRING
+   ═══════════════════════════════════════════════════════════════════════ */
+function show(v){
+  state.view=v;
+  const wall=$("#wall"), map=$("#map");
+  wall.classList.toggle("on",v==="wall");
+  map.classList.toggle("on",v==="map");
+  wall.setAttribute("aria-hidden",v==="wall"?"false":"true");
+  map.setAttribute("aria-hidden",v==="map"?"false":"true");
+  wall.toggleAttribute("inert",v!=="wall");
+  map.toggleAttribute("inert",v!=="map");
+  if(v==="wall") closePanel(false);
+}
+
+$("#home").onclick=()=>{
+  try{ history.replaceState(null,"",location.pathname+location.search); }catch(_error){}
+  show("wall"); renderWall(); $("#wall").scrollTop=0;
+};
+$("#q").oninput=e=>search(e.target.value);
+$("#q").onkeydown=e=>{
+  const box=$("#sugg");
+  if(e.key==="Escape"){ setSuggestions(false); e.target.blur(); return; }
+  if(!suggList.length) return;
+  if(e.key==="ArrowDown"||e.key==="ArrowUp"){
+    e.preventDefault();
+    suggIdx=(suggIdx+(e.key==="ArrowDown"?1:-1)+suggList.length)%suggList.length;
+    box.querySelectorAll("button").forEach((b,i)=>{
+      b.classList.toggle("on",i===suggIdx);
+      b.setAttribute("aria-selected",i===suggIdx?"true":"false");
+    });
+    e.target.setAttribute("aria-activedescendant",`suggestion-${suggIdx}`);
+  }
+  if(e.key==="Enter"){
+    const k = suggIdx>=0 ? suggList[suggIdx] : (lookup(e.target.value)||suggList[0]);
+    if(k){ e.target.value=""; setSuggestions(false); openMap(k); }
+  }
+};
+document.addEventListener("click",e=>{
+  if(!e.target.closest(".search")) setSuggestions(false);
+});
+
+$("#surprise").onclick=()=>{
+  /* weighted toward films with somewhere to go: landing on a dead end makes
+     the whole thing feel empty on the very first click */
+  const pool=WALL_ORDER.slice(0, Math.min(260, WALL_ORDER.length));
+  openMap(pool[Math.floor(Math.random()*pool.length)]);
+};
+
+$("#foryou").onclick=()=>{
+  show("wall"); renderWall();
+  if(!state.loved.size){
+    const b=$("#wall-body");
+    const n=el("div","sec-head");
+    n.innerHTML=`<h2>Mark a film you love</h2><span class="slate">then this fills up</span>`;
+    b.insertBefore(n,b.firstChild);
+  }
+  $("#wall").scrollTop=0;
+};
+
+let rt; addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(()=>{ if(state.view==="map") layout(); },110); });
+addEventListener("keydown",e=>{
+  if(e.key==="/"&&document.activeElement!==$("#q")){ e.preventDefault(); $("#q").focus(); }
+  if(e.key==="Escape") closePanel(true);
+});
+
+/* ── deep links ───────────────────────────────────────────────────────
+   #/film/<key> is a real address, so a map can be sent to someone. Without
+   it every discovery dies in the tab it was made in, and sharing is how a
+   thing like this travels. */
+function fromHash(){
+  const m=(location.hash||"").match(/^#\/film\/(.+)$/);
+  if(!m) return false;
+  const k=decodeURIComponent(m[1]);
+  if(!F[k]) return false;
+  openMap(k);
+  return true;
+}
+addEventListener("hashchange",()=>{ if(!fromHash()){ show("wall"); renderWall(); } });
+
+renderFilters();
+renderWall();
+$("#loved-n").textContent=state.loved.size;
+if (typeof window.__ATLAS_OPEN__ === "string" && F[window.__ATLAS_OPEN__]) openMap(window.__ATLAS_OPEN__);
+else fromHash();
+console.info("[atlas] %d films, %d connections", KEYS.length, E.length);
+</script>
+</body>
+</html>

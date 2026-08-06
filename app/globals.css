@@ -1,0 +1,11 @@
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: #08070a;
+  color: #f0eae0;
+}

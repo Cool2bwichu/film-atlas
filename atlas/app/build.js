@@ -1,0 +1,111 @@
+#!/usr/bin/env node
+/* Build the single-file app.
+ *   node app/build.js [--films 0] [--degree 12] [--out atlas.html]
+ * --films 0 keeps the whole corpus. Any other number packs a subset for a
+ * size-limited target such as a publishable artifact.
+ */
+"use strict";
+
+const fs=require("fs"), path=require("path"), os=require("os"), cp=require("child_process");
+const ROOT=path.join(__dirname,"..");
+const arg=(n,d)=>{const i=process.argv.indexOf("--"+n);return i>-1?process.argv[i+1]:d;};
+const FILMS=arg("films","0"), DEG=arg("degree","12"), OUT=arg("out",path.join(ROOT,"atlas.html"));
+
+const TYPES=new Set(["descent","rebuttal","convergence","rhyme","hand"]);
+const SOURCES=new Set(["record","attested","reading"]);
+
+function assertCorpus(corpus){
+  if(!corpus || !corpus.films || !Array.isArray(corpus.edges)){
+    throw new Error("Atlas corpus must contain a films object and an edges array");
+  }
+  const keys=new Set(Object.keys(corpus.films));
+  if(!keys.size) throw new Error("Atlas corpus contains no films");
+  for(const [key,film] of Object.entries(corpus.films)){
+    if(!film.title) throw new Error(`${key}: missing title`);
+    for(const field of ["shadow","highlight"]){
+      if(!/^#[0-9a-f]{6}$/i.test(film[field]||"")){
+        throw new Error(`${key}: invalid ${field} colour`);
+      }
+    }
+  }
+  for(const [index,edge] of corpus.edges.entries()){
+    if(!keys.has(edge.a)||!keys.has(edge.b)) throw new Error(`edge ${index}: unknown film endpoint`);
+    if(edge.a===edge.b) throw new Error(`edge ${index}: self edge on ${edge.a}`);
+    if(!TYPES.has(edge.type)) throw new Error(`edge ${index}: unknown type ${edge.type}`);
+    if(edge.source && !SOURCES.has(edge.source)) throw new Error(`edge ${index}: unknown source ${edge.source}`);
+    if(!edge.claim || edge.claim.trim().length<12) throw new Error(`edge ${index}: claim is missing or too thin`);
+    if(!Number.isFinite(edge.strength)) throw new Error(`edge ${index}: invalid strength`);
+  }
+}
+
+let corpus;
+if(FILMS==="0"){
+  const c=JSON.parse(fs.readFileSync(path.join(ROOT,"static","corpus.json"),"utf8"));
+  const films={};
+  for(const [k,f] of Object.entries(c.films)){
+    films[k]={title:f.title,year:f.year,director:f.director,shadow:f.shadow,highlight:f.highlight,
+      poster:f.poster||null,description:f.description||"",wikipedia:f.wikipedia||null,
+      paletteSource:f.paletteSource,posterLicence:f.posterLicence||"unknown"};
+  }
+  /* `signal` is what KIND of overlap produced the edge, and the app ranks by
+     it — dropping it here silently made every edge weight the same, which is
+     how genre-and-era trivia kept winning. */
+  const edges=c.edges.map(e=>({a:e.a,b:e.b,type:e.type,strength:e.strength,
+    confidence:e.confidence,source:e.source,claim:e.claim,signal:e.signal||null,
+    attribution:e.attribution||null}));
+  corpus={films,edges};
+}else{
+  const tmp=path.join(os.tmpdir(),`atlas-packed-${process.pid}-${Date.now()}.json`);
+  /* execFileSync, not execSync: the shell form interpolated ROOT unquoted and
+     broke outright whenever the checkout path contained a space. Passing argv
+     directly means the path never goes through word splitting at all. */
+  try{
+    cp.execFileSync("node",[path.join(ROOT,"pipeline","pack-corpus.js"),
+      "--films",FILMS,"--degree",DEG,"--desc","190","--out",tmp],{stdio:"inherit"});
+  }catch(error){
+    try{fs.rmSync(tmp,{force:true});}catch{/* best-effort cleanup */}
+    throw error;
+  }
+  const p=JSON.parse(fs.readFileSync(tmp,"utf8"));
+  fs.rmSync(tmp,{force:true});
+  const films={},keys=[];
+  for(const f of p.films){
+    keys.push(f[0]);
+    films[f[0]]={title:f[1],year:f[2]||null,director:f[3]>=0?p.directors[f[3]]:"",
+      shadow:f[4],highlight:f[5],poster:f[6]?f[6].replace("~",p.posterPrefix):null,
+      description:f[7]||"",wikipedia:null,
+      paletteSource:f[8]===1?"poster":f[8]===2?"curated":"era"};
+  }
+  const edges=p.edges.map(e=>({a:keys[e[0]],b:keys[e[1]],type:p.types[e[2]],
+    strength:e[4],confidence:null,source:p.sources[e[6]],claim:e[7],
+    signal:e[8]>=0?p.signals[e[8]]:null}));
+  corpus={films,edges};
+}
+
+assertCorpus(corpus);
+
+/* Chunked, never one enormous line: a 250k-character line is valid JavaScript
+   and a practical failure — editors, diff viewers and artifact renderers all
+   choke on it, and the symptom is a blank screen rather than an error. */
+/* Escape the opening character of a closing script tag. Descriptions and
+   claims originate outside this template, so raw `</script>` text must never
+   be able to terminate the embedded data block. */
+const json=JSON.stringify(corpus).replace(/</g,"\\u003c");
+const CH=200, chunks=[];
+for(let i=0;i<json.length;i+=CH) chunks.push(JSON.stringify(json.slice(i,i+CH)));
+const block="const CORPUS = JSON.parse([\n"+chunks.join(",\n")+"\n].join(\"\"));";
+
+let html=fs.readFileSync(path.join(__dirname,"template.html"),"utf8");
+const marker="/* __CORPUS__ */";
+if(!html.includes(marker)) throw new Error("Atlas template is missing its corpus marker");
+html=html.replace(marker,block);
+if(html.includes(marker)) throw new Error("Atlas template contains more than one corpus marker");
+fs.mkdirSync(path.dirname(OUT),{recursive:true});
+const staged=`${OUT}.${process.pid}.tmp`;
+try{
+  fs.writeFileSync(staged,html);
+  fs.renameSync(staged,OUT);
+}finally{
+  fs.rmSync(staged,{force:true});
+}
+console.log(`${OUT}  ${(fs.statSync(OUT).size/1024).toFixed(0)} KB — ${Object.keys(corpus.films).length} films, ${corpus.edges.length} edges`);
