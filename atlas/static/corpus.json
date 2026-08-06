@@ -11282,21 +11282,6 @@
    ]
   },
   {
-   "a": "au hasard balthazar",
-   "b": "eo",
-   "type": "descent",
-   "from": "a",
-   "strength": 0.92,
-   "confidence": 1,
-   "source": "record",
-   "claim": "EO is recorded as based on Au Hasard Balthazar.",
-   "evidence": [
-    "wikidata:Q111601259#P144"
-   ],
-   "signal": "adaptation",
-   "also": []
-  },
-  {
    "a": "snow white and the seven dwarfs",
    "b": "suspiria",
    "type": "descent",
@@ -13623,41 +13608,6 @@
    ]
   },
   {
-   "a": "metropolis",
-   "b": "siegfried",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Fritz Lang directing; Günther Rittau shooting; Gottfried Huppertz scoring; Fritz Lang and Thea von Harbou writing on both.",
-   "evidence": [
-    "wikidata:Q19504#director",
-    "wikidata:Q74117#cinematographer",
-    "wikidata:Q96065#composer",
-    "wikidata:Q19504#screenwriter",
-    "wikidata:Q58866#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to Expressionism.",
-     "strength": 0.678
-    },
-    {
-     "signal": "cast",
-     "claim": "Fritz Alberti and Grete Berger both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Weimar Republic, within 3 years of each other.",
-     "strength": 0.3
-    }
-   ]
-  },
-  {
    "a": "a clockwork orange",
    "b": "the shining",
    "type": "hand",
@@ -15292,35 +15242,6 @@
    ]
   },
   {
-   "a": "videodrome",
-   "b": "existenz",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "David Cronenberg directing; Ronald Sanders cutting; Howard Shore scoring; David Cronenberg writing on both.",
-   "evidence": [
-    "wikidata:Q55422#director",
-    "wikidata:Q2165739#editor",
-    "wikidata:Q207773#composer",
-    "wikidata:Q55422#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "studio",
-     "claim": "Both produced by Telefilm Canada.",
-     "strength": 0.458
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are body horror film.",
-     "strength": 0.328
-    }
-   ]
-  },
-  {
    "a": "the fly",
    "b": "scanners",
    "type": "hand",
@@ -15539,38 +15460,6 @@
     {
      "signal": "countryEra",
      "claim": "Italy, the same moment of each other.",
-     "strength": 0.233
-    }
-   ]
-  },
-  {
-   "a": "la strada",
-   "b": "nights of cabiria",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Federico Fellini directing; Otello Martelli shooting; Leo Catozzo cutting; Nino Rota scoring; Federico Fellini, Ennio Flaiano and Tullio Pinelli writing on both.",
-   "evidence": [
-    "wikidata:Q7371#director",
-    "wikidata:Q506106#cinematographer",
-    "wikidata:Q16571948#editor",
-    "wikidata:Q214665#composer",
-    "wikidata:Q7371#screenwriter",
-    "wikidata:Q222791#screenwriter",
-    "wikidata:Q545378#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Aldo Silvani and Giulietta Masina both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Italy, within 3 years of each other.",
      "strength": 0.233
     }
    ]
@@ -17392,75 +17281,6 @@
    ]
   },
   {
-   "a": "still life",
-   "b": "the world",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Jia Zhangke directing; Yu Lik-wai shooting; Lim Giong scoring; Jia Zhangke writing on both.",
-   "evidence": [
-    "wikidata:Q461079#director",
-    "wikidata:Q3573078#cinematographer",
-    "wikidata:Q710475#composer",
-    "wikidata:Q461079#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to sixth generation Chinese cinema.",
-     "strength": 0.678
-    },
-    {
-     "signal": "cast",
-     "claim": "Wang Hongwei and Zhao Tao both appear in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "People's Republic of China, the same moment of each other.",
-     "strength": 0.274
-    }
-   ]
-  },
-  {
-   "a": "pather panchali",
-   "b": "aparajito",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Satyajit Ray directing; Subrata Mitra shooting; Dulal Dutta cutting; Ravi Shankar scoring; Satyajit Ray writing on both.",
-   "evidence": [
-    "wikidata:Q8873#director",
-    "wikidata:Q724177#cinematographer",
-    "wikidata:Q662494#editor",
-    "wikidata:Q103774#composer",
-    "wikidata:Q8873#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Kanu Banerjee and Karuna Banerjee both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are coming-of-age film, made a year apart.",
-     "strength": 0.402
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are coming-of-age film.",
-     "strength": 0.284
-    }
-   ]
-  },
-  {
    "a": "pather panchali",
    "b": "apur sansar",
    "type": "hand",
@@ -18165,31 +17985,6 @@
     {
      "signal": "countryEra",
      "claim": "Italy, within 3 years of each other.",
-     "strength": 0.233
-    }
-   ]
-  },
-  {
-   "a": "la notte",
-   "b": "eclipse",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Michelangelo Antonioni directing; Gianni Di Venanzo shooting; Eraldo Da Roma cutting; Michelangelo Antonioni and Tonino Guerra writing on both.",
-   "evidence": [
-    "wikidata:Q55433#director",
-    "wikidata:Q1522660#cinematographer",
-    "wikidata:Q3731055#editor",
-    "wikidata:Q55433#screenwriter",
-    "wikidata:Q460095#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Italy, the same moment of each other.",
      "strength": 0.233
     }
    ]
@@ -18917,41 +18712,6 @@
    ]
   },
   {
-   "a": "a short film about killing",
-   "b": "a short film about love",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Krzysztof Kieślowski directing; Ewa Smal cutting; Zbigniew Preisner scoring; Krzysztof Kieślowski and Krzysztof Piesiewicz writing on both.",
-   "evidence": [
-    "wikidata:Q55165#director",
-    "wikidata:Q20729824#editor",
-    "wikidata:Q168155#composer",
-    "wikidata:Q55165#screenwriter",
-    "wikidata:Q59549#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Artur Barciś appears in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by TOR film studio.",
-     "strength": 0.46
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Poland, the same moment of each other.",
-     "strength": 0.272
-    }
-   ]
-  },
-  {
    "a": "ida",
    "b": "cold war",
    "type": "hand",
@@ -19074,37 +18834,6 @@
    ]
   },
   {
-   "a": "satantango",
-   "b": "damnation",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Béla Tarr directing; Gábor Medvigy shooting; Ágnes Hranitzky cutting; Mihály Víg scoring; Béla Tarr and László Krasznahorkai writing on both.",
-   "evidence": [
-    "wikidata:Q312944#director",
-    "wikidata:Q1175363#cinematographer",
-    "wikidata:Q1056063#editor",
-    "wikidata:Q507612#composer",
-    "wikidata:Q312944#screenwriter",
-    "wikidata:Q512062#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Gyula Pauer appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Hungary, within 6 years of each other.",
-     "strength": 0.294
-    }
-   ]
-  },
-  {
    "a": "werckmeister harmonies",
    "b": "damnation",
    "type": "hand",
@@ -19148,41 +18877,6 @@
    ],
    "signal": "crew",
    "also": []
-  },
-  {
-   "a": "landscape in the mist",
-   "b": "ulysses gaze",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Thodoros Angelopoulos directing; Giorgos Arvanitis shooting; Eleni Karaindrou scoring; Thodoros Angelopoulos and Tonino Guerra writing on both.",
-   "evidence": [
-    "wikidata:Q55168#director",
-    "wikidata:Q1525590#cinematographer",
-    "wikidata:Q270340#composer",
-    "wikidata:Q55168#screenwriter",
-    "wikidata:Q460095#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Eva Kotamanidou appears in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Greek Film Centre.",
-     "strength": 0.46
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Greece, within 7 years of each other.",
-     "strength": 0.3
-    }
-   ]
   },
   {
    "a": "october ten days that shook the world",
@@ -19603,35 +19297,6 @@
      "signal": "countryEra",
      "claim": "United States, within 5 years of each other.",
      "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "the earrings of madame de",
-   "b": "la ronde",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Max Ophüls directing; Christian Matras shooting; Oscar Straus scoring; Max Ophüls writing on both.",
-   "evidence": [
-    "wikidata:Q55410#director",
-    "wikidata:Q325970#cinematographer",
-    "wikidata:Q206667#composer",
-    "wikidata:Q55410#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Danielle Darrieux appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "France, within 3 years of each other.",
-     "strength": 0.205
     }
    ]
   },
@@ -21475,35 +21140,6 @@
    ]
   },
   {
-   "a": "hana bi",
-   "b": "sonatine",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Takeshi Kitano directing; Takeshi Kitano cutting; Joe Hisaishi scoring; Takeshi Kitano writing on both.",
-   "evidence": [
-    "wikidata:Q26372#director",
-    "wikidata:Q26372#editor",
-    "wikidata:Q275900#composer",
-    "wikidata:Q26372#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Takeshi Kitano and Tetsu Watanabe both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 4 years of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
    "a": "castle in the sky",
    "b": "kiki s delivery service",
    "type": "hand",
@@ -22053,35 +21689,6 @@
    ]
   },
   {
-   "a": "a city of sadness",
-   "b": "dust in the wind",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Hou Hsiao-Hsien directing; Liao Ching-sung cutting; Chu Tʻien-wen and Wu Nien-jen writing on both.",
-   "evidence": [
-    "wikidata:Q435626#director",
-    "wikidata:Q55696502#editor",
-    "wikidata:Q947123#screenwriter",
-    "wikidata:Q3570139#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Li Tian-lu and Hsin Shu-fen both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Taiwan, within 3 years of each other.",
-     "strength": 0.279
-    }
-   ]
-  },
-  {
    "a": "three times",
    "b": "dust in the wind",
    "type": "hand",
@@ -22189,41 +21796,6 @@
    ],
    "signal": "crew",
    "also": []
-  },
-  {
-   "a": "aparajito",
-   "b": "apur sansar",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Satyajit Ray directing; Subrata Mitra shooting; Dulal Dutta cutting; Ravi Shankar scoring; Satyajit Ray writing on both.",
-   "evidence": [
-    "wikidata:Q8873#director",
-    "wikidata:Q724177#cinematographer",
-    "wikidata:Q662494#editor",
-    "wikidata:Q103774#composer",
-    "wikidata:Q8873#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "genreEra",
-     "claim": "Both are coming-of-age film, made 3 years apart.",
-     "strength": 0.402
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are coming-of-age film.",
-     "strength": 0.284
-    },
-    {
-     "signal": "countryEra",
-     "claim": "India, within 3 years of each other.",
-     "strength": 0.275
-    }
-   ]
   },
   {
    "a": "aparajito",
@@ -22532,31 +22104,6 @@
    ]
   },
   {
-   "a": "the lobster",
-   "b": "dogtooth",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Yorgos Lanthimos directing; Thimios Bakatakis shooting; Yorgos Mavropsaridis cutting; Yorgos Lanthimos and Efthimis Filippou writing on both.",
-   "evidence": [
-    "wikidata:Q975410#director",
-    "wikidata:Q43406097#cinematographer",
-    "wikidata:Q60922953#editor",
-    "wikidata:Q975410#screenwriter",
-    "wikidata:Q12877360#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Greece, within 6 years of each other.",
-     "strength": 0.3
-    }
-   ]
-  },
-  {
    "a": "the banshees of inisherin",
    "b": "three billboards outside ebbing missouri",
    "type": "hand",
@@ -22683,31 +22230,6 @@
     {
      "signal": "countryEra",
      "claim": "Italy, within 5 years of each other.",
-     "strength": 0.233
-    }
-   ]
-  },
-  {
-   "a": "red desert",
-   "b": "eclipse",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Michelangelo Antonioni directing; Eraldo Da Roma cutting; Giovanni Fusco scoring; Michelangelo Antonioni and Tonino Guerra writing on both.",
-   "evidence": [
-    "wikidata:Q55433#director",
-    "wikidata:Q3731055#editor",
-    "wikidata:Q981473#composer",
-    "wikidata:Q55433#screenwriter",
-    "wikidata:Q460095#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Italy, the same moment of each other.",
      "strength": 0.233
     }
    ]
@@ -25768,29 +25290,6 @@
   },
   {
    "a": "sisters of the gion",
-   "b": "osaka elegy",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.804,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kenji Mizoguchi directing; Minoru Miki shooting; Yoshikata Yoda writing on both.",
-   "evidence": [
-    "wikidata:Q55401#director",
-    "wikidata:Q11355672#cinematographer",
-    "wikidata:Q3572656#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Japan, the same moment of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
-   "a": "sisters of the gion",
    "b": "the story of the last chrysanthemum",
    "type": "hand",
    "from": "none",
@@ -25945,29 +25444,6 @@
    ]
   },
   {
-   "a": "bacurau",
-   "b": "neighbouring sounds",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.804,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kleber Mendonça Filho directing; Pedro Sotero shooting; Kleber Mendonça Filho writing on both.",
-   "evidence": [
-    "wikidata:Q14940022#director",
-    "wikidata:Q85876575#cinematographer",
-    "wikidata:Q14940022#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Brazil, within 7 years of each other.",
-     "strength": 0.294
-    }
-   ]
-  },
-  {
    "a": "nomadland",
    "b": "the rider",
    "type": "hand",
@@ -25987,80 +25463,6 @@
      "signal": "countryEra",
      "claim": "United States, the same moment of each other.",
      "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "first cow",
-   "b": "meek s cutoff",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.804,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kelly Reichardt directing; Christopher Blauvelt shooting; Jon Raymond writing on both.",
-   "evidence": [
-    "wikidata:Q436861#director",
-    "wikidata:Q16727541#cinematographer",
-    "wikidata:Q3183444#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "United States, within 9 years of each other.",
-     "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "happy as lazzaro",
-   "b": "la chimera",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.804,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Alice Rohrwacher directing; Hélène Louvart shooting; Alice Rohrwacher writing on both.",
-   "evidence": [
-    "wikidata:Q510194#director",
-    "wikidata:Q3896144#cinematographer",
-    "wikidata:Q510194#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Alba Rohrwacher appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Switzerland, within 5 years of each other.",
-     "strength": 0.291
-    }
-   ]
-  },
-  {
-   "a": "bob le flambeur",
-   "b": "le cercle rouge",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.804,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Jean-Pierre Melville directing; Henri Decaë shooting; Jean-Pierre Melville writing on both.",
-   "evidence": [
-    "wikidata:Q168693#director",
-    "wikidata:Q1605811#cinematographer",
-    "wikidata:Q168693#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are heist film.",
-     "strength": 0.324
     }
    ]
   },
@@ -26216,34 +25618,6 @@
   },
   {
    "a": "all that heaven allows",
-   "b": "written on the wind",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.796,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Douglas Sirk directing; Russell Metty shooting; Frank Skinner scoring on both.",
-   "evidence": [
-    "wikidata:Q60858#director",
-    "wikidata:Q1312577#cinematographer",
-    "wikidata:Q165686#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Rock Hudson appears in both films.",
-     "strength": 0.577
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, the same moment of each other.",
-     "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "all that heaven allows",
    "b": "imitation of life",
    "type": "hand",
    "from": "none",
@@ -26261,57 +25635,6 @@
     {
      "signal": "countryEra",
      "claim": "United States, within 4 years of each other.",
-     "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "all that heaven allows",
-   "b": "magnificent obsession",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.796,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Douglas Sirk directing; Russell Metty shooting; Frank Skinner scoring on both.",
-   "evidence": [
-    "wikidata:Q60858#director",
-    "wikidata:Q1312577#cinematographer",
-    "wikidata:Q165686#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Jane Wyman and Agnes Moorehead both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, the same moment of each other.",
-     "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "written on the wind",
-   "b": "imitation of life",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.796,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Douglas Sirk directing; Russell Metty shooting; Frank Skinner scoring on both.",
-   "evidence": [
-    "wikidata:Q60858#director",
-    "wikidata:Q1312577#cinematographer",
-    "wikidata:Q165686#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "United States, within 3 years of each other.",
      "strength": 0.19
     }
    ]
@@ -27631,29 +26954,6 @@
   },
   {
    "a": "shoplifters",
-   "b": "nobody knows",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.782,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Hirokazu Koreeda directing; Hirokazu Koreeda cutting; Hirokazu Koreeda writing on both.",
-   "evidence": [
-    "wikidata:Q740758#director",
-    "wikidata:Q740758#editor",
-    "wikidata:Q740758#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "keyword",
-     "claim": "Both turn on philosophical, tokyo, japan and complex.",
-     "strength": 0.72
-    }
-   ]
-  },
-  {
-   "a": "shoplifters",
    "b": "still walking",
    "type": "hand",
    "from": "none",
@@ -28113,34 +27413,6 @@
     {
      "signal": "countryEra",
      "claim": "France, the same moment of each other.",
-     "strength": 0.205
-    }
-   ]
-  },
-  {
-   "a": "l amour fou",
-   "b": "celine and julie go boating",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.782,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Jacques Rivette directing; Nicole Lubtchansky cutting; Jacques Rivette writing on both.",
-   "evidence": [
-    "wikidata:Q167475#director",
-    "wikidata:Q18058275#editor",
-    "wikidata:Q167475#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Bulle Ogier appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "France, within 5 years of each other.",
      "strength": 0.205
     }
    ]
@@ -28665,34 +27937,6 @@
      "signal": "countryEra",
      "claim": "Taiwan, within 3 years of each other.",
      "strength": 0.279
-    }
-   ]
-  },
-  {
-   "a": "sympathy for mr vengeance",
-   "b": "sympathy for lady vengeance",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.782,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Park Chan-wook directing; Kim Sang-bum cutting; Park Chan-wook writing on both.",
-   "evidence": [
-    "wikidata:Q315484#director",
-    "wikidata:Q21005858#editor",
-    "wikidata:Q315484#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Ryoo Seung-wan and Shin Ha-kyun both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "South Korea, within 3 years of each other.",
-     "strength": 0.27
     }
    ]
   },
@@ -29867,23 +29111,6 @@
    ]
   },
   {
-   "a": "dr mabuse the gambler",
-   "b": "the testament of dr mabuse",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.778,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Fritz Lang directing; Fritz Lang and Thea von Harbou writing on both.",
-   "evidence": [
-    "wikidata:Q19504#director",
-    "wikidata:Q19504#screenwriter",
-    "wikidata:Q58866#screenwriter"
-   ],
-   "signal": "crew",
-   "also": []
-  },
-  {
    "a": "m",
    "b": "siegfried",
    "type": "hand",
@@ -30455,39 +29682,6 @@
      "signal": "countryEra",
      "claim": "Sweden, within 3 years of each other.",
      "strength": 0.269
-    }
-   ]
-  },
-  {
-   "a": "raise the red lantern",
-   "b": "to live",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.775,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Zhang Yimou directing; Du Yuan cutting; Zhao Jiping scoring on both.",
-   "evidence": [
-    "wikidata:Q55430#director",
-    "wikidata:Q104722861#editor",
-    "wikidata:Q127740#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to fifth generation Chinese cinema.",
-     "strength": 0.669
-    },
-    {
-     "signal": "setting",
-     "claim": "Both are set in China.",
-     "strength": 0.592
-    },
-    {
-     "signal": "countryEra",
-     "claim": "People's Republic of China, within 3 years of each other.",
-     "strength": 0.274
     }
    ]
   },
@@ -31638,39 +30832,6 @@
   },
   {
    "a": "onibaba",
-   "b": "kuroneko",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.771,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kaneto Shindō directing; Hikaru Hayashi scoring; Kaneto Shindō writing on both.",
-   "evidence": [
-    "wikidata:Q380846#director",
-    "wikidata:Q1618037#composer",
-    "wikidata:Q380846#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Nobuko Otowa and Kei Satō both appear in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "keyword",
-     "claim": "Both turn on samurai, jidaigeki and murder.",
-     "strength": 0.566
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 4 years of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
-   "a": "onibaba",
    "b": "the naked island",
    "type": "hand",
    "from": "none",
@@ -32456,39 +31617,6 @@
      "signal": "countryEra",
      "claim": "South Korea, within 3 years of each other.",
      "strength": 0.27
-    }
-   ]
-  },
-  {
-   "a": "o dragao da maldade contra o santo guerreiro",
-   "b": "black god white devil",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.771,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Glauber Rocha directing; Sérgio Ricardo scoring; Glauber Rocha writing on both.",
-   "evidence": [
-    "wikidata:Q55426#director",
-    "wikidata:Q7666104#composer",
-    "wikidata:Q55426#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to Cinema Novo.",
-     "strength": 0.7
-    },
-    {
-     "signal": "cast",
-     "claim": "Maurício do Valle appears in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Brazil, within 5 years of each other.",
-     "strength": 0.294
     }
    ]
   },
@@ -33562,28 +32690,6 @@
    ]
   },
   {
-   "a": "the cranes are flying",
-   "b": "i am cuba",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.724,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Mikhail Kalatozov directing; Sergey Urusevsky shooting on both.",
-   "evidence": [
-    "wikidata:Q324937#director",
-    "wikidata:Q182765#cinematographer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Soviet Union, within 7 years of each other.",
-     "strength": 0.269
-    }
-   ]
-  },
-  {
    "a": "harakiri",
    "b": "the human condition i no greater love",
    "type": "hand",
@@ -34192,38 +33298,6 @@
    ],
    "signal": "crew",
    "also": []
-  },
-  {
-   "a": "picnic at hanging rock",
-   "b": "the last wave",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.724,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Peter Weir directing; Russell Boyd shooting on both.",
-   "evidence": [
-    "wikidata:Q55424#director",
-    "wikidata:Q260963#cinematographer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to Australian New Wave.",
-     "strength": 0.7
-    },
-    {
-     "signal": "cast",
-     "claim": "Vivean Gray appears in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Australia, the same moment of each other.",
-     "strength": 0.274
-    }
-   ]
   },
   {
    "a": "call me by your name",
@@ -36555,27 +35629,6 @@
    "also": []
   },
   {
-   "a": "city of god",
-   "b": "gomorrah",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.718,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are about drug-related crime.",
-   "evidence": [
-    "wikidata:Q1259975#P921"
-   ],
-   "signal": "subject",
-   "also": [
-    {
-     "signal": "keyword",
-     "claim": "Both turn on gang war, ghetto and street gang.",
-     "strength": 0.708
-    }
-   ]
-  },
-  {
    "a": "el topo",
    "b": "damnation",
    "type": "rhyme",
@@ -38097,33 +37150,6 @@
    ]
   },
   {
-   "a": "certain women",
-   "b": "wendy and lucy",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.703,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kelly Reichardt directing; Kelly Reichardt cutting on both.",
-   "evidence": [
-    "wikidata:Q436861#director",
-    "wikidata:Q436861#editor"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Michelle Williams appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, within 8 years of each other.",
-     "strength": 0.19
-    }
-   ]
-  },
-  {
    "a": "hereditary",
    "b": "midsommar",
    "type": "rhyme",
@@ -38152,27 +37178,6 @@
    ]
   },
   {
-   "a": "touki bouki",
-   "b": "hyenes",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.7,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both belong to Laboratoire Agit'Art.",
-   "evidence": [
-    "wikidata:Q21015774#P135"
-   ],
-   "signal": "movement",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Djibril Diop Mambéty directing; Djibril Diop Mambéty writing on both.",
-     "strength": 0.699
-    }
-   ]
-  },
-  {
    "a": "the headless woman",
    "b": "zama",
    "type": "convergence",
@@ -38194,32 +37199,6 @@
     {
      "signal": "countryEra",
      "claim": "Argentina, within 8 years of each other.",
-     "strength": 0.3
-    }
-   ]
-  },
-  {
-   "a": "the headless woman",
-   "b": "la cienaga",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.7,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both belong to New Argentine Cinema.",
-   "evidence": [
-    "wikidata:Q2843729#P135"
-   ],
-   "signal": "movement",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Lucrecia Martel directing; Lucrecia Martel writing on both.",
-     "strength": 0.699
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Argentina, within 7 years of each other.",
      "strength": 0.3
     }
    ]
@@ -41841,33 +40820,6 @@
   },
   {
    "a": "a brighter summer day",
-   "b": "yi yi",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Edward Yang directing; Edward Yang writing on both.",
-   "evidence": [
-    "wikidata:Q716700#director",
-    "wikidata:Q716700#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Elaine Jin and Liu Liang-tso both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Taiwan, within 9 years of each other.",
-     "strength": 0.279
-    }
-   ]
-  },
-  {
-   "a": "a brighter summer day",
    "b": "the terrorizers",
    "type": "hand",
    "from": "none",
@@ -42075,33 +41027,6 @@
      "signal": "countryEra",
      "claim": "Taiwan, within 5 years of each other.",
      "strength": 0.279
-    }
-   ]
-  },
-  {
-   "a": "meghe dhaka tara",
-   "b": "subarnarekha",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Ritwik Ghatak directing; Ritwik Ghatak writing on both.",
-   "evidence": [
-    "wikidata:Q55404#director",
-    "wikidata:Q55404#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Gita Dey and Bijon Bhattacharya both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "India, within 5 years of each other.",
-     "strength": 0.275
     }
    ]
   },
@@ -43683,22 +42608,6 @@
    "also": []
   },
   {
-   "a": "my night at maud s",
-   "b": "the green ray",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Éric Rohmer directing; Éric Rohmer writing on both.",
-   "evidence": [
-    "wikidata:Q50764#director",
-    "wikidata:Q50764#screenwriter"
-   ],
-   "signal": "crew",
-   "also": []
-  },
-  {
    "a": "claire s knee",
    "b": "the green ray",
    "type": "hand",
@@ -43959,28 +42868,6 @@
    ]
   },
   {
-   "a": "three colours red",
-   "b": "blind chance",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Krzysztof Kieślowski directing; Krzysztof Kieślowski writing on both.",
-   "evidence": [
-    "wikidata:Q55165#director",
-    "wikidata:Q55165#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Poland, within 7 years of each other.",
-     "strength": 0.272
-    }
-   ]
-  },
-  {
    "a": "a short film about killing",
    "b": "blind chance",
    "type": "hand",
@@ -44036,38 +42923,6 @@
      "signal": "countryEra",
      "claim": "Poland, the same moment of each other.",
      "strength": 0.272
-    }
-   ]
-  },
-  {
-   "a": "the color of pomegranates",
-   "b": "shadows of forgotten ancestors",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Sergei Parajanov directing; Sergei Parajanov writing on both.",
-   "evidence": [
-    "wikidata:Q311311#director",
-    "wikidata:Q311311#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "genreEra",
-     "claim": "Both are art film, made 5 years apart.",
-     "strength": 0.406
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are art film.",
-     "strength": 0.287
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Soviet Union, within 5 years of each other.",
-     "strength": 0.269
     }
    ]
   },
@@ -44646,38 +43501,6 @@
    "also": []
   },
   {
-   "a": "the bitter tears of petra von kant",
-   "b": "in a year of 13 moons",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Rainer Werner Fassbinder directing; Rainer Werner Fassbinder writing on both.",
-   "evidence": [
-    "wikidata:Q44426#director",
-    "wikidata:Q44426#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Eva Mattes appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are lgbtq-related film, made 6 years apart.",
-     "strength": 0.396
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are lgbtq-related film.",
-     "strength": 0.279
-    }
-   ]
-  },
-  {
    "a": "the tin drum",
    "b": "the lost honour of katharina blum",
    "type": "hand",
@@ -45088,38 +43911,6 @@
    ]
   },
   {
-   "a": "fires on the plain",
-   "b": "the burmese harp",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kon Ichikawa directing; Natto Wada writing on both.",
-   "evidence": [
-    "wikidata:Q55397#director",
-    "wikidata:Q11417961#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "subject",
-     "claim": "Both are about Pacific War.",
-     "strength": 0.696
-    },
-    {
-     "signal": "keyword",
-     "claim": "Both turn on japanese soldier, pacific war and world war ii.",
-     "strength": 0.666
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 3 years of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
    "a": "death by hanging",
    "b": "in the realm of the senses",
    "type": "hand",
@@ -45207,28 +43998,6 @@
    ]
   },
   {
-   "a": "the terrorizers",
-   "b": "taipei story",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Edward Yang directing; Edward Yang writing on both.",
-   "evidence": [
-    "wikidata:Q716700#director",
-    "wikidata:Q716700#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Taiwan, the same moment of each other.",
-     "strength": 0.279
-    }
-   ]
-  },
-  {
    "a": "taipei story",
    "b": "that day on the beach",
    "type": "hand",
@@ -45300,28 +44069,6 @@
     {
      "signal": "countryEra",
      "claim": "Taiwan, within 6 years of each other.",
-     "strength": 0.279
-    }
-   ]
-  },
-  {
-   "a": "vive l amour",
-   "b": "the hole",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Tsai Ming-liang directing; Tsai Ming-liang writing on both.",
-   "evidence": [
-    "wikidata:Q698710#director",
-    "wikidata:Q698710#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Taiwan, within 4 years of each other.",
      "strength": 0.279
     }
    ]
@@ -45413,66 +44160,6 @@
    ]
   },
   {
-   "a": "right now wrong then",
-   "b": "the day he arrives",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Hong Sang-soo directing; Hong Sang-soo writing on both.",
-   "evidence": [
-    "wikidata:Q484572#director",
-    "wikidata:Q484572#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "South Korea, within 4 years of each other.",
-     "strength": 0.27
-    }
-   ]
-  },
-  {
-   "a": "no bears",
-   "b": "this is not a film",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Jafar Panahi directing; Jafar Panahi writing on both.",
-   "evidence": [
-    "wikidata:Q31637#director",
-    "wikidata:Q31637#screenwriter"
-   ],
-   "signal": "crew",
-   "also": []
-  },
-  {
-   "a": "japon",
-   "b": "silent light",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Carlos Reygadas directing; Carlos Reygadas writing on both.",
-   "evidence": [
-    "wikidata:Q388328#director",
-    "wikidata:Q388328#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Netherlands, within 5 years of each other.",
-     "strength": 0.3
-    }
-   ]
-  },
-  {
    "a": "japon",
    "b": "post tenebras lux",
    "type": "hand",
@@ -45511,49 +44198,6 @@
    ]
   },
   {
-   "a": "xala",
-   "b": "moolaade",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Ousmane Sembène directing; Ousmane Sembène writing on both.",
-   "evidence": [
-    "wikidata:Q314966#director",
-    "wikidata:Q314966#screenwriter"
-   ],
-   "signal": "crew",
-   "also": []
-  },
-  {
-   "a": "xala",
-   "b": "mandabi",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Ousmane Sembène directing; Ousmane Sembène writing on both.",
-   "evidence": [
-    "wikidata:Q314966#director",
-    "wikidata:Q314966#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Makhourédia Guèye and Farba Sarr both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Senegal, within 7 years of each other.",
-     "strength": 0.298
-    }
-   ]
-  },
-  {
    "a": "moolaade",
    "b": "mandabi",
    "type": "hand",
@@ -45568,38 +44212,6 @@
    ],
    "signal": "crew",
    "also": []
-  },
-  {
-   "a": "the iron giant",
-   "b": "the incredibles",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Brad Bird directing; Brad Bird writing on both.",
-   "evidence": [
-    "wikidata:Q310960#director",
-    "wikidata:Q310960#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "genreEra",
-     "claim": "Both are action film, made 5 years apart.",
-     "strength": 0.357
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are action film.",
-     "strength": 0.251
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, within 5 years of each other.",
-     "strength": 0.19
-    }
-   ]
   },
   {
    "a": "the iron giant",
@@ -45702,33 +44314,6 @@
    ],
    "signal": "crew",
    "also": []
-  },
-  {
-   "a": "old joy",
-   "b": "wendy and lucy",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kelly Reichardt directing; Jon Raymond writing on both.",
-   "evidence": [
-    "wikidata:Q436861#director",
-    "wikidata:Q3183444#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Will Oldham appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, the same moment of each other.",
-     "strength": 0.19
-    }
-   ]
   },
   {
    "a": "old joy",
@@ -48513,33 +47098,6 @@
    "also": []
   },
   {
-   "a": "death by hanging",
-   "b": "boy",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.692,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Nagisa Ōshima directing; Hikaru Hayashi scoring on both.",
-   "evidence": [
-    "wikidata:Q55403#director",
-    "wikidata:Q1618037#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Fumio Watanabe appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, the same moment of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
    "a": "minari",
    "b": "columbus",
    "type": "rhyme",
@@ -51024,23 +49582,6 @@
    "also": []
   },
   {
-   "a": "touki bouki",
-   "b": "atlantique",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.65,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on emigration, dakar and senegal.",
-   "evidence": [
-    "tmdb:kw:emigration#keywords",
-    "tmdb:kw:dakar#keywords",
-    "tmdb:kw:senegal#keywords"
-   ],
-   "signal": "keyword",
-   "also": []
-  },
-  {
    "a": "moonlight",
    "b": "tropical malady",
    "type": "rhyme",
@@ -51321,27 +49862,6 @@
    ],
    "signal": "setting",
    "also": []
-  },
-  {
-   "a": "in the mood for love",
-   "b": "flowers of shanghai",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.64,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are set in Shanghai.",
-   "evidence": [
-    "wikidata:Q8686#P840"
-   ],
-   "signal": "setting",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Mark Lee Ping Bin shooting on both.",
-     "strength": 0.58
-    }
-   ]
   },
   {
    "a": "2001 a space odyssey",
@@ -54160,21 +52680,6 @@
   },
   {
    "a": "street of shame",
-   "b": "sisters of the gion",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kenji Mizoguchi directing on both.",
-   "evidence": [
-    "wikidata:Q55401#director"
-   ],
-   "signal": "crew",
-   "also": []
-  },
-  {
-   "a": "street of shame",
    "b": "osaka elegy",
    "type": "hand",
    "from": "none",
@@ -54220,27 +52725,6 @@
     {
      "signal": "countryEra",
      "claim": "Japan, within 5 years of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
-   "a": "when a woman ascends the stairs",
-   "b": "repast",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Mikio Naruse directing on both.",
-   "evidence": [
-    "wikidata:Q1371306#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 9 years of each other.",
      "strength": 0.218
     }
    ]
@@ -54330,37 +52814,6 @@
     {
      "signal": "countryEra",
      "claim": "Japan, within 8 years of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
-   "a": "branded to kill",
-   "b": "youth of the beast",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Seijun Suzuki directing on both.",
-   "evidence": [
-    "wikidata:Q2296663#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Joe Shishido appears in both films.",
-     "strength": 0.594
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Nikkatsu.",
-     "strength": 0.44
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 4 years of each other.",
      "strength": 0.218
     }
    ]
@@ -54456,27 +52909,6 @@
      "signal": "cast",
      "claim": "Akira Emoto appears in both films.",
      "strength": 0.6
-    }
-   ]
-  },
-  {
-   "a": "nobody knows",
-   "b": "maborosi",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Hirokazu Koreeda directing on both.",
-   "evidence": [
-    "wikidata:Q740758#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 9 years of each other.",
-     "strength": 0.218
     }
    ]
   },
@@ -55432,58 +53864,6 @@
    "also": []
   },
   {
-   "a": "ashes and diamonds",
-   "b": "a generation",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Andrzej Wajda directing on both.",
-   "evidence": [
-    "wikidata:Q106685#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Stanisław Milski and Bogumił Kobiela both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Studio Filmowe Kadr.",
-     "strength": 0.46
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are war film, made 3 years apart.",
-     "strength": 0.395
-    }
-   ]
-  },
-  {
-   "a": "the saragossa manuscript",
-   "b": "the hour glass sanatorium",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Wojciech Jerzy Has directing on both.",
-   "evidence": [
-    "wikidata:Q1095790#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Poland, within 8 years of each other.",
-     "strength": 0.272
-    }
-   ]
-  },
-  {
    "a": "loves of a blonde",
    "b": "one flew over the cuckoo s nest",
    "type": "hand",
@@ -55497,32 +53877,6 @@
    ],
    "signal": "crew",
    "also": []
-  },
-  {
-   "a": "the ascent",
-   "b": "wings",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Larisa Shepitko directing on both.",
-   "evidence": [
-    "wikidata:Q138477#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "genreEra",
-     "claim": "Both are art film, made 11 years apart.",
-     "strength": 0.406
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are art film.",
-     "strength": 0.287
-    }
-   ]
   },
   {
    "a": "sunrise a song of two humans",
@@ -56328,21 +54682,6 @@
    "claim": "Luca Guadagnino directing on both.",
    "evidence": [
     "wikidata:Q1335528#director"
-   ],
-   "signal": "crew",
-   "also": []
-  },
-  {
-   "a": "certain women",
-   "b": "old joy",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kelly Reichardt directing on both.",
-   "evidence": [
-    "wikidata:Q436861#director"
    ],
    "signal": "crew",
    "also": []
@@ -61551,27 +59890,6 @@
      "signal": "countryEra",
      "claim": "India, the same moment of each other.",
      "strength": 0.275
-    }
-   ]
-  },
-  {
-   "a": "close up",
-   "b": "a moment of innocence",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Mohsen Makhmalbaf appears in both films.",
-   "evidence": [
-    "wikidata:Q55211#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Iran, within 6 years of each other.",
-     "strength": 0.277
     }
    ]
   },
@@ -70087,27 +68405,6 @@
    ]
   },
   {
-   "a": "closely watched trains",
-   "b": "the fireman s ball",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.594,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Milada Ježková appears in both films.",
-   "evidence": [
-    "wikidata:Q10859572#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Czechoslovakia, the same moment of each other.",
-     "strength": 0.298
-    }
-   ]
-  },
-  {
    "a": "daisies",
    "b": "the cremator",
    "type": "hand",
@@ -74943,27 +73240,6 @@
    ]
   },
   {
-   "a": "pulse",
-   "b": "ring",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.58,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Junichiro Hayashi shooting on both.",
-   "evidence": [
-    "wikidata:Q11533172#cinematographer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 3 years of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
    "a": "audition",
    "b": "hana bi",
    "type": "hand",
@@ -75168,27 +73444,6 @@
      "signal": "genre",
      "claim": "Both are thriller film.",
      "strength": 0.237
-    }
-   ]
-  },
-  {
-   "a": "memories of murder",
-   "b": "peppermint candy",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.58,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kim Hyung-koo shooting on both.",
-   "evidence": [
-    "wikidata:Q24175301#cinematographer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "South Korea, within 3 years of each other.",
-     "strength": 0.27
     }
    ]
   },
@@ -80974,29 +79229,6 @@
    ]
   },
   {
-   "a": "paris texas",
-   "b": "stroszek",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.571,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on van, new german cinema and road trip.",
-   "evidence": [
-    "tmdb:kw:van#keywords",
-    "tmdb:kw:new german cinema#keywords",
-    "tmdb:kw:road trip#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Germany, within 7 years of each other.",
-     "strength": 0.235
-    }
-   ]
-  },
-  {
    "a": "perfect blue",
    "b": "ghost in the shell",
    "type": "rhyme",
@@ -85901,28 +84133,6 @@
    ]
   },
   {
-   "a": "farewell my concubine",
-   "b": "to live",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.512,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Zhao Jiping scoring; Lu Wei writing on both.",
-   "evidence": [
-    "wikidata:Q127740#composer",
-    "wikidata:Q123551009#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "People's Republic of China, the same moment of each other.",
-     "strength": 0.274
-    }
-   ]
-  },
-  {
    "a": "the last laugh",
    "b": "the cabinet of dr caligari",
    "type": "hand",
@@ -86252,48 +84462,6 @@
      "signal": "countryEra",
      "claim": "United States, the same moment of each other.",
      "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "belladonna of sadness",
-   "b": "fantastic planet",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.511,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are adult animated film, made the same year.",
-   "evidence": [
-    "wikidata:Q138831212#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are adult animated film.",
-     "strength": 0.34
-    }
-   ]
-  },
-  {
-   "a": "a touch of sin",
-   "b": "wild tales",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.511,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are anthology film, made a year apart.",
-   "evidence": [
-    "wikidata:Q336144#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are anthology film.",
-     "strength": 0.34
     }
    ]
   },
@@ -102415,32 +100583,6 @@
   },
   {
    "a": "modern times",
-   "b": "the crowd",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.416,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are silent film, made 8 years apart.",
-   "evidence": [
-    "wikidata:Q226730#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are silent film.",
-     "strength": 0.294
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, within 8 years of each other.",
-     "strength": 0.19
-    }
-   ]
-  },
-  {
-   "a": "modern times",
    "b": "an inn in tokyo",
    "type": "convergence",
    "from": "none",
@@ -105275,27 +103417,6 @@
     {
      "signal": "genre",
      "claim": "Both are art film.",
-     "strength": 0.287
-    }
-   ]
-  },
-  {
-   "a": "andrei rublev",
-   "b": "marketa lazarova",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.406,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are historical film, made a year apart.",
-   "evidence": [
-    "wikidata:Q17013749#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are historical film.",
      "strength": 0.287
     }
    ]
@@ -112747,27 +110868,6 @@
    ]
   },
   {
-   "a": "honeyland",
-   "b": "all that breathes",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.401,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are documentary film, made 3 years apart.",
-   "evidence": [
-    "wikidata:Q93204#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are documentary film.",
-     "strength": 0.283
-    }
-   ]
-  },
-  {
    "a": "cave of forgotten dreams",
    "b": "los angeles plays itself",
    "type": "convergence",
@@ -113345,27 +111445,6 @@
   {
    "a": "the life of oharu",
    "b": "sound of the mountain",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.4,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Ichirō Saitō scoring on both.",
-   "evidence": [
-    "wikidata:Q3147667#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Japan, the same moment of each other.",
-     "strength": 0.218
-    }
-   ]
-  },
-  {
-   "a": "the life of oharu",
-   "b": "late chrysanthemums",
    "type": "hand",
    "from": "none",
    "strength": 0.4,
@@ -119497,32 +117576,6 @@
   },
   {
    "a": "the cranes are flying",
-   "b": "ballad of a soldier",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.395,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are war film, made 2 years apart.",
-   "evidence": [
-    "wikidata:Q369747#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are war film.",
-     "strength": 0.279
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Soviet Union, the same moment of each other.",
-     "strength": 0.269
-    }
-   ]
-  },
-  {
-   "a": "the cranes are flying",
    "b": "fires on the plain",
    "type": "convergence",
    "from": "none",
@@ -122203,27 +120256,6 @@
    "confidence": 1,
    "source": "record",
    "claim": "Both are comedy drama, made 3 years apart.",
-   "evidence": [
-    "wikidata:Q859369#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are comedy drama.",
-     "strength": 0.269
-    }
-   ]
-  },
-  {
-   "a": "children of heaven",
-   "b": "where is the friend s home",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.381,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are comedy drama, made 10 years apart.",
    "evidence": [
     "wikidata:Q859369#P136"
    ],
@@ -131314,21 +129346,6 @@
    "also": []
   },
   {
-   "a": "the turin horse",
-   "b": "le quattro volte",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.291,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Switzerland, the same moment of each other.",
-   "evidence": [
-    "wikidata:Q39#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
    "a": "el topo",
    "b": "stagecoach",
    "type": "convergence",
@@ -134735,21 +132752,6 @@
   },
   {
    "a": "come and see",
-   "b": "son of saul",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.279,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are war film.",
-   "evidence": [
-    "wikidata:Q369747#P136g"
-   ],
-   "signal": "genre",
-   "also": []
-  },
-  {
-   "a": "come and see",
    "b": "ballad of a soldier",
    "type": "convergence",
    "from": "none",
@@ -134781,21 +132783,6 @@
   {
    "a": "come and see",
    "b": "the life and death of colonel blimp",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.279,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are war film.",
-   "evidence": [
-    "wikidata:Q369747#P136g"
-   ],
-   "signal": "genre",
-   "also": []
-  },
-  {
-   "a": "come and see",
-   "b": "the human condition i no greater love",
    "type": "convergence",
    "from": "none",
    "strength": 0.279,
@@ -135876,21 +133863,6 @@
   {
    "a": "the terrorizers",
    "b": "vive l amour",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.279,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Taiwan, within 8 years of each other.",
-   "evidence": [
-    "wikidata:Q865#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "taipei story",
-   "b": "rebels of the neon god",
    "type": "convergence",
    "from": "none",
    "strength": 0.279,
@@ -137219,21 +135191,6 @@
    "claim": "People's Republic of China, within 4 years of each other.",
    "evidence": [
     "wikidata:Q148#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "walkabout",
-   "b": "picnic at hanging rock",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.274,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Australia, within 4 years of each other.",
-   "evidence": [
-    "wikidata:Q408#P495"
    ],
    "signal": "countryEra",
    "also": []
@@ -138744,21 +136701,6 @@
    "confidence": 1,
    "source": "record",
    "claim": "Hong Kong, within 4 years of each other.",
-   "evidence": [
-    "wikidata:Q8646#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "hard boiled",
-   "b": "police story",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.266,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Hong Kong, within 7 years of each other.",
    "evidence": [
     "wikidata:Q8646#P495"
    ],
@@ -143105,21 +141047,6 @@
   },
   {
    "a": "get carter",
-   "b": "the long good friday",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.225,
-   "confidence": 1,
-   "source": "record",
-   "claim": "United Kingdom, within 9 years of each other.",
-   "evidence": [
-    "wikidata:Q145#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "get carter",
    "b": "straw dogs",
    "type": "convergence",
    "from": "none",
@@ -144530,21 +142457,6 @@
   },
   {
    "a": "still walking",
-   "b": "tokyo sonata",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.218,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Japan, the same moment of each other.",
-   "evidence": [
-    "wikidata:Q17#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "still walking",
    "b": "platform",
    "type": "convergence",
    "from": "none",
@@ -145176,21 +143088,6 @@
   {
    "a": "the ballad of narayama",
    "b": "the burmese harp",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.218,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Japan, the same moment of each other.",
-   "evidence": [
-    "wikidata:Q17#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "the ballad of narayama",
-   "b": "the naked island",
    "type": "convergence",
    "from": "none",
    "strength": 0.218,
@@ -150635,21 +148532,6 @@
   },
   {
    "a": "letter from an unknown woman",
-   "b": "now voyager",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.19,
-   "confidence": 1,
-   "source": "record",
-   "claim": "United States, within 6 years of each other.",
-   "evidence": [
-    "wikidata:Q30#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "letter from an unknown woman",
    "b": "mildred pierce",
    "type": "convergence",
    "from": "none",
@@ -151746,21 +149628,6 @@
   {
    "a": "sound of metal",
    "b": "the souvenir",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.19,
-   "confidence": 1,
-   "source": "record",
-   "claim": "United States, the same moment of each other.",
-   "evidence": [
-    "wikidata:Q30#P495"
-   ],
-   "signal": "countryEra",
-   "also": []
-  },
-  {
-   "a": "certain women",
-   "b": "columbus",
    "type": "convergence",
    "from": "none",
    "strength": 0.19,
@@ -159801,6 +157668,2441 @@
    "strength": 0.46,
    "confidence": 0.3,
    "claim": "Combat filmed as a demonstrable craft, each fight staged to show a technique rather than to advance a grudge.",
+   "source": "reading"
+  },
+  {
+   "a": "the earrings of madame de",
+   "b": "la ronde",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "An object or an encounter passed from hand to hand in a circle, the camera gliding through walls and staircases to follow it.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Max Ophüls directing; Christian Matras shooting; Oscar Straus scoring; Max Ophüls writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "the earrings of madame de",
+   "b": "barry lyndon",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A society filmed as etiquette and surface, where a small breach of form ends in a duel nobody actually wants.",
+   "source": "reading"
+  },
+  {
+   "a": "letter from an unknown woman",
+   "b": "in the mood for love",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A love conducted almost entirely in one person's memory, narrated from after it is far too late to act on.",
+   "source": "reading"
+  },
+  {
+   "a": "la ronde",
+   "b": "wild tales",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.46,
+   "confidence": 0.3,
+   "claim": "A film built as linked episodes rather than a plot, each handing off to the next through a single shared figure.",
+   "source": "reading"
+  },
+  {
+   "a": "sound of the mountain",
+   "b": "tokyo story",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "An older man watching his family fail its own women, filmed in still rooms that decline to dramatise it.",
+   "source": "reading"
+  },
+  {
+   "a": "repast",
+   "b": "when a woman ascends the stairs",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "A marriage or a livelihood weighed in household arithmetic, Naruse letting the accounting carry what the dialogue will not say.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Mikio Naruse directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "late chrysanthemums",
+   "b": "the life of oharu",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Women whose earning years have passed, filmed without romance about what the culture has already extracted from them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Ichirō Saitō scoring on both.",
+    "strength": 0.4
+   }
+  },
+  {
+   "a": "osaka elegy",
+   "b": "sisters of the gion",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Mizoguchi's paired 1936 films: a woman monetised by her own family, shot in long unbroken takes that refuse to cut away.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kenji Mizoguchi directing; Minoru Miki shooting; Yoshikata Yoda writing on both.",
+    "strength": 0.804
+   }
+  },
+  {
+   "a": "the story of the last chrysanthemum",
+   "b": "the red shoes",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "An artist's rise paid for entirely by a woman whose own life is spent as the fuel, staged in long backstage takes.",
+   "source": "reading"
+  },
+  {
+   "a": "sisters of the gion",
+   "b": "street of shame",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Mizoguchi returning across twenty years to the same subject, the economics of the pleasure district stated more plainly each time.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kenji Mizoguchi directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "a brighter summer day",
+   "b": "yi yi",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Edward Yang building a whole society out of one family's rooms, the film long enough that history stops being background.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Edward Yang directing; Edward Yang writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "a brighter summer day",
+   "b": "rebel without a cause",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Teenage gangs and a borrowed American idea of rebellion, transplanted somewhere the politics make it lethal rather than romantic.",
+   "source": "reading"
+  },
+  {
+   "a": "taipei story",
+   "b": "the terrorizers",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "A city filmed as glass, vacancy and telephone calls, with characters framed through windows they cannot open.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Edward Yang directing; Edward Yang writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "that day on the beach",
+   "b": "l avventura",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A disappearance that organises the film and is never resolved, the search giving way to the marriage it exposes.",
+   "source": "reading"
+  },
+  {
+   "a": "dust in the wind",
+   "b": "a city of sadness",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Hou filming Taiwanese history from its edges — a village, a family, a shop — with the political events kept off screen.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Hou Hsiao-Hsien directing; Liao Ching-sung cutting; Chu Tʻien-wen and Wu Nien-jen writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "a city of sadness",
+   "b": "the tin drum",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "National catastrophe told through one family who cannot see the whole of it, the film refusing an omniscient vantage.",
+   "source": "reading"
+  },
+  {
+   "a": "flowers of shanghai",
+   "b": "in the mood for love",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Interiors lit by lamplight and shot in long takes, desire conducted entirely through etiquette and what nobody says.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "setting",
+    "claim": "Both are set in Shanghai.",
+    "strength": 0.64
+   }
+  },
+  {
+   "a": "vive l amour",
+   "b": "the hole",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Tsai's near-silent apartments, strangers sharing a space without acknowledging it, the plumbing louder than the dialogue.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Tsai Ming-liang directing; Tsai Ming-liang writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "rebels of the neon god",
+   "b": "taipei story",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Young men adrift in a Taipei of arcades and scooters, the film observing rather than explaining their drift.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Taiwan, within 8 years of each other.",
+    "strength": 0.279
+   }
+  },
+  {
+   "a": "pather panchali",
+   "b": "aparajito",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.82,
+   "confidence": 0.65,
+   "claim": "The same boy followed out of the village and into the city, the trilogy's method being that time simply passes.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Satyajit Ray directing; Subrata Mitra shooting; Dulal Dutta cutting; Ravi Shankar scoring; Satyajit Ray writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "aparajito",
+   "b": "apur sansar",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.82,
+   "confidence": 0.65,
+   "claim": "Apu grown, married and bereaved, Ray letting a whole life accumulate across three films rather than one arc.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Satyajit Ray directing; Subrata Mitra shooting; Dulal Dutta cutting; Ravi Shankar scoring; Satyajit Ray writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "charulata",
+   "b": "in the mood for love",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A neglected wife and a houseguest circling something neither will name, the film built from glances across a domestic interior.",
+   "source": "reading"
+  },
+  {
+   "a": "devi",
+   "b": "the virgin spring",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Faith turned monstrous inside a household, a young woman destroyed by what the men around her decide she is.",
+   "source": "reading"
+  },
+  {
+   "a": "jalsaghar",
+   "b": "the story of the last chrysanthemum",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A patron presiding over his own obsolescence, the film staying inside the decaying house for one last performance.",
+   "source": "reading"
+  },
+  {
+   "a": "subarnarekha",
+   "b": "meghe dhaka tara",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Ghatak returning to Partition as a wound that keeps reopening, melodrama pitched high because the history warrants it.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Ritwik Ghatak directing; Ritwik Ghatak writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "apur sansar",
+   "b": "tokyo story",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.48,
+   "confidence": 0.3,
+   "claim": "Domestic life filmed as small rooms and passing trains, grief arriving between scenes rather than in them.",
+   "source": "reading"
+  },
+  {
+   "a": "written on the wind",
+   "b": "all that heaven allows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Sirk's saturated Technicolor and mirrored interiors, the décor stating the class trap the dialogue is too polite to name.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Douglas Sirk directing; Russell Metty shooting; Frank Skinner scoring on both.",
+    "strength": 0.796
+   }
+  },
+  {
+   "a": "imitation of life",
+   "b": "written on the wind",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "A funeral of a finale and a woman punished by the film's own society, staged so the excess reads as indictment.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Douglas Sirk directing; Russell Metty shooting; Frank Skinner scoring on both.",
+    "strength": 0.796
+   }
+  },
+  {
+   "a": "magnificent obsession",
+   "b": "all that heaven allows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The same pairing and the same director, remaking the melodrama's machinery with the irony pitched a little more visibly.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Douglas Sirk directing; Russell Metty shooting; Frank Skinner scoring on both.",
+    "strength": 0.796
+   }
+  },
+  {
+   "a": "imitation of life",
+   "b": "moonlight",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.46,
+   "confidence": 0.3,
+   "claim": "Identity policed by everyone around a person until performing it becomes the only survivable option.",
+   "source": "reading"
+  },
+  {
+   "a": "leave her to heaven",
+   "b": "vertigo",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Technicolor noir where obsession is filmed in glorious daylight, the beauty of the frame doing nothing to soften it.",
+   "source": "reading"
+  },
+  {
+   "a": "now voyager",
+   "b": "letter from an unknown woman",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A woman's whole interior life given the weight of an epic, with the renunciation at the end played as victory.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "United States, within 6 years of each other.",
+    "strength": 0.19
+   }
+  },
+  {
+   "a": "bigger than life",
+   "b": "blue velvet",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The American home in CinemaScope colour with a father coming apart inside it, the domestic set lit like a nightmare.",
+   "source": "reading"
+  },
+  {
+   "a": "meet me in st louis",
+   "b": "amarcord",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.46,
+   "confidence": 0.3,
+   "claim": "A year in a town remembered as seasons and set pieces, nostalgia acknowledged as a construction rather than hidden.",
+   "source": "reading"
+  },
+  {
+   "a": "a short film about killing",
+   "b": "a short film about love",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.55,
+   "claim": "Two Dekalog hours expanded to features, filmed through filters that make Warsaw look jaundiced and unforgiving.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Krzysztof Kieślowski directing; Ewa Smal cutting; Zbigniew Preisner scoring; Krzysztof Kieślowski and Krzysztof Piesiewicz writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "a short film about killing",
+   "b": "the ascent",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A killing and an execution shown at equal, unbearable length, the film declining to let the state off the hook.",
+   "source": "reading"
+  },
+  {
+   "a": "a short film about love",
+   "b": "rear window",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Falling for someone by watching them through a window, the film making the voyeur's loneliness the actual subject.",
+   "source": "reading"
+  },
+  {
+   "a": "a generation",
+   "b": "ashes and diamonds",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Wajda's war trilogy tightening from youthful resistance to the morning after, filmed in deepening shadow.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Andrzej Wajda directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "kanal",
+   "b": "come and see",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "An escape route that becomes a tomb, the film keeping its characters in the dark for so long that hope becomes cruelty.",
+   "source": "reading"
+  },
+  {
+   "a": "mother joan of the angels",
+   "b": "the devils",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Convent possession filmed in stark white and black, the exorcism reading as an institutional event rather than a spiritual one.",
+   "source": "reading"
+  },
+  {
+   "a": "the saragossa manuscript",
+   "b": "the hour glass sanatorium",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Has building a story that keeps opening into another story, the nesting itself the point rather than any destination.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Wojciech Jerzy Has directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "the saragossa manuscript",
+   "b": "last year at marienbad",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Narrative deliberately looped and unreliable, the film refusing to confirm which layer is the real one.",
+   "source": "reading"
+  },
+  {
+   "a": "closely watched trains",
+   "b": "the fireman s ball",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Czech New Wave comedy where the occupation or the Party is handled by simply filming small people bungling a small event.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Milada Ježková appears in both films.",
+    "strength": 0.594
+   }
+  },
+  {
+   "a": "marketa lazarova",
+   "b": "andrei rublev",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "The medieval filmed as mud, weather and belief, with the narrative broken into chapters and no modern vantage offered.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are historical film, made a year apart.",
+    "strength": 0.406
+   }
+  },
+  {
+   "a": "old joy",
+   "b": "wendy and lucy",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Reichardt filming Oregon at walking pace, the drama being an economic fact rather than an event.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kelly Reichardt directing; Jon Raymond writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "wendy and lucy",
+   "b": "bicycle thieves",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "One small loss with no financial cushion beneath it, the film following the errand until the errand becomes the tragedy.",
+   "source": "reading"
+  },
+  {
+   "a": "meek s cutoff",
+   "b": "first cow",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "The Oregon trail in a boxed academy frame, the western's scale replaced by chores, thirst and bad decisions.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kelly Reichardt directing; Christopher Blauvelt shooting; Jon Raymond writing on both.",
+    "strength": 0.804
+   }
+  },
+  {
+   "a": "meek s cutoff",
+   "b": "the wages of fear",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A journey whose entire tension is whether the guide is competent, filmed as process with the destination withheld.",
+   "source": "reading"
+  },
+  {
+   "a": "certain women",
+   "b": "wendy and lucy",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Separate lives in the same cold state, each story stopping before it resolves because that is what the film is arguing.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kelly Reichardt directing; Kelly Reichardt cutting on both.",
+    "strength": 0.703
+   }
+  },
+  {
+   "a": "the rider",
+   "b": "first cow",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.34,
+   "claim": "Non-professionals playing versions of themselves in a working western landscape, the film's realism its whole argument.",
+   "source": "reading"
+  },
+  {
+   "a": "where is the friend s home",
+   "b": "children of heaven",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "A child's errand treated with the gravity of a moral quest, the adults uniformly unable to grasp why it matters.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are comedy drama, made 10 years apart.",
+    "strength": 0.381
+   }
+  },
+  {
+   "a": "where is the friend s home",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A search filmed at a child's height through real streets, with non-professionals and no score to soften it.",
+   "source": "reading"
+  },
+  {
+   "a": "a moment of innocence",
+   "b": "close up",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "The filmmaker restaging a real incident with the actual participants, the reenactment revising what the event meant.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Mohsen Makhmalbaf appears in both films.",
+    "strength": 0.6
+   }
+  },
+  {
+   "a": "the apple",
+   "b": "the wild child",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Children raised in confinement and brought into the world, filmed with the family playing themselves.",
+   "source": "reading"
+  },
+  {
+   "a": "the cow",
+   "b": "au hasard balthazar",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A man's identity dissolving into his animal, the village watching without any idea what to do about it.",
+   "source": "reading"
+  },
+  {
+   "a": "the runner",
+   "b": "the 400 blows",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A boy running through a port city with nothing but momentum, the film ending on him mid-motion.",
+   "source": "reading"
+  },
+  {
+   "a": "about elly",
+   "b": "l avventura",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "A disappearance on a coastal holiday that turns the group against itself, the missing person replaced by everyone's evasions.",
+   "source": "reading"
+  },
+  {
+   "a": "no bears",
+   "b": "this is not a film",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Panahi filming under a ban and making the restriction the form, with his own position inside the frame as the subject.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Jafar Panahi directing; Jafar Panahi writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "mandabi",
+   "b": "xala",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Sembène turning post-independence bureaucracy into farce, a man defeated by paperwork and his own status.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Ousmane Sembène directing; Ousmane Sembène writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "mandabi",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.34,
+   "claim": "A money order or a bicycle as the object the entire film pursues, poverty rendered as an administrative maze.",
+   "source": "reading"
+  },
+  {
+   "a": "moolaade",
+   "b": "xala",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Sembène's late mode: a village argument staged in the open, the camera static while the community talks itself toward change.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Ousmane Sembène directing; Ousmane Sembène writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "hyenes",
+   "b": "touki bouki",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Mambéty's Senegal filmed with surreal interruptions and a satirical eye on what money does to a community.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "movement",
+    "claim": "Both belong to Laboratoire Agit'Art.",
+    "strength": 0.7
+   }
+  },
+  {
+   "a": "sambizanga",
+   "b": "the battle of algiers",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Anti-colonial struggle told through the people waiting outside the prison rather than the fighters inside it.",
+   "source": "reading"
+  },
+  {
+   "a": "los olvidados",
+   "b": "pixote",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Street children filmed without redemption, the documentary surface making the cruelty land as reportage.",
+   "source": "reading"
+  },
+  {
+   "a": "los olvidados",
+   "b": "city of god",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Poverty filmed from inside a children's hierarchy, with violence presented as the ordinary economics of the place.",
+   "source": "reading"
+  },
+  {
+   "a": "memories of underdevelopment",
+   "b": "la dolce vita",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A bourgeois man drifting through a city in political transformation, unable to commit to anything he observes.",
+   "source": "reading"
+  },
+  {
+   "a": "black god white devil",
+   "b": "o dragao da maldade contra o santo guerreiro",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Rocha's sertão as myth and revolution, the landscape scorched and the score operatic over it.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Glauber Rocha directing; Sérgio Ricardo scoring; Glauber Rocha writing on both.",
+    "strength": 0.771
+   }
+  },
+  {
+   "a": "la cienaga",
+   "b": "the headless woman",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Martel filming an Argentine bourgeoisie through overlapping sound and bodies half out of frame, the danger always adjacent.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "movement",
+    "claim": "Both belong to New Argentine Cinema.",
+    "strength": 0.7
+   }
+  },
+  {
+   "a": "zama",
+   "b": "aguirre the wrath of god",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "A colonial functionary waiting years for a letter that never comes, the empire revealed as indifferent administration.",
+   "source": "reading"
+  },
+  {
+   "a": "japon",
+   "b": "silent light",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Reygadas shooting Mexican landscape in long takes with non-professionals, the spiritual crisis carried by duration.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Carlos Reygadas directing; Carlos Reygadas writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "silent light",
+   "b": "ordet",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "A miracle staged plainly in a devout rural community, the film committing to it without irony.",
+   "source": "reading"
+  },
+  {
+   "a": "post tenebras lux",
+   "b": "the tree of life",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Memory and family rendered as disconnected luminous fragments, the chronology abandoned entirely.",
+   "source": "reading"
+  },
+  {
+   "a": "neighbouring sounds",
+   "b": "bacurau",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Mendonça Filho building dread out of a Brazilian neighbourhood's class arrangement, the threat ambient before it is literal.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kleber Mendonça Filho directing; Pedro Sotero shooting; Kleber Mendonça Filho writing on both.",
+    "strength": 0.804
+   }
+  },
+  {
+   "a": "central station",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "An adult and a child crossing a country together, the journey slowly obliging the adult to become responsible.",
+   "source": "reading"
+  },
+  {
+   "a": "tony manero",
+   "b": "taxi driver",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A man modelling himself on a screen idol while committing casual violence, the dictatorship kept at the edge of frame.",
+   "source": "reading"
+  },
+  {
+   "a": "embrace of the serpent",
+   "b": "aguirre the wrath of god",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "A river journey with an indigenous guide and Europeans who cannot read the place, shot in monochrome.",
+   "source": "reading"
+  },
+  {
+   "a": "the human condition i no greater love",
+   "b": "come and see",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A decent man ground down by an army over an enormous running time, the film refusing to let him stay decent.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genre",
+    "claim": "Both are war film.",
+    "strength": 0.279
+   }
+  },
+  {
+   "a": "the burmese harp",
+   "b": "fires on the plain",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Ichikawa's two war films: one man staying behind to bury the dead, another eating what he can find.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kon Ichikawa directing; Natto Wada writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "the ballad of narayama",
+   "b": "the naked island",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Subsistence life filmed as ritual and labour, the community's hard arithmetic accepted without editorial.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Japan, the same moment of each other.",
+    "strength": 0.218
+   }
+  },
+  {
+   "a": "kuroneko",
+   "b": "onibaba",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.74,
+   "confidence": 0.56,
+   "claim": "Shindō's paired folk horrors: women in tall grass or bamboo, the supernatural growing directly out of wartime hunger.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kaneto Shindō directing; Hikaru Hayashi scoring; Kaneto Shindō writing on both.",
+    "strength": 0.771
+   }
+  },
+  {
+   "a": "the naked island",
+   "b": "the turin horse",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A near-wordless film of repeated labour, the same trip made again and again until repetition becomes the drama.",
+   "source": "reading"
+  },
+  {
+   "a": "hana bi",
+   "b": "sonatine",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Kitano cutting between deadpan stillness and sudden violence, with his own painting standing in for what he will not say.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Takeshi Kitano directing; Takeshi Kitano cutting; Joe Hisaishi scoring; Takeshi Kitano writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "youth of the beast",
+   "b": "branded to kill",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Suzuki treating a studio yakuza assignment as a excuse for pop composition and colour.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Seijun Suzuki directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "gate of flesh",
+   "b": "street of shame",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Post-war women surviving in the ruins by selling what they can, filmed in deliberately artificial colour.",
+   "source": "reading"
+  },
+  {
+   "a": "boy",
+   "b": "death by hanging",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Ōshima taking a real news item and turning it into a formal experiment about Japanese complicity.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Nagisa Ōshima directing; Hikaru Hayashi scoring on both.",
+    "strength": 0.692
+   }
+  },
+  {
+   "a": "vengeance is mine",
+   "b": "the act of killing",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.34,
+   "claim": "A killer filmed without psychology or explanation, the film declining to make him legible or to condemn him for us.",
+   "source": "reading"
+  },
+  {
+   "a": "a page of madness",
+   "b": "the cabinet of dr caligari",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Silent film about an asylum built from superimposition and distortion, with no intertitles to steady the viewer.",
+   "source": "reading"
+  },
+  {
+   "a": "belladonna of sadness",
+   "b": "fantastic planet",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Animation as moving illustration — watercolour panning across a still image — used for adult allegory.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are adult animated film, made the same year.",
+    "strength": 0.511
+   }
+  },
+  {
+   "a": "pulse",
+   "b": "ring",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Kurosawa's flat grey dread arriving through a screen, the ghost a transmission problem rather than a person.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Junichiro Hayashi shooting on both.",
+    "strength": 0.58
+   }
+  },
+  {
+   "a": "tokyo sonata",
+   "b": "still walking",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A family filmed at the dinner table while the father's unemployment or the son's absence sits unspoken between them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Japan, the same moment of each other.",
+    "strength": 0.218
+   }
+  },
+  {
+   "a": "still walking",
+   "b": "tokyo story",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Koreeda taking Ozu's structure — a family gathering, a day, a departure — and letting the resentments surface further.",
+   "source": "reading"
+  },
+  {
+   "a": "maborosi",
+   "b": "nobody knows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Koreeda holding a static camera on people the story has abandoned, grief handled as routine rather than as scene.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Hirokazu Koreeda directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "nobody knows",
+   "b": "the florida project",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Children left to run an apartment while an adult is absent, filmed at their height and largely as play.",
+   "source": "reading"
+  },
+  {
+   "a": "shoplifters",
+   "b": "nobody knows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "An improvised family that works better than the legal one, until the state arrives to say otherwise.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Hirokazu Koreeda directing; Hirokazu Koreeda cutting; Hirokazu Koreeda writing on both.",
+    "strength": 0.782
+   }
+  },
+  {
+   "a": "drive my car",
+   "b": "the mother and the whore",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Very long conversations in cars and rooms, the film trusting talk to carry three hours of grief.",
+   "source": "reading"
+  },
+  {
+   "a": "perfect days",
+   "b": "tokyo story",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Ordinary Tokyo routine filmed with attention rather than pity, the drama arriving only in what the routine excludes.",
+   "source": "reading"
+  },
+  {
+   "a": "sympathy for mr vengeance",
+   "b": "sympathy for lady vengeance",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.74,
+   "confidence": 0.56,
+   "claim": "Park's trilogy bracket: revenge pursued methodically by people the film keeps refusing to let us fully side with.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Park Chan-wook directing; Kim Sang-bum cutting; Park Chan-wook writing on both.",
+    "strength": 0.782
+   }
+  },
+  {
+   "a": "the host",
+   "b": "jaws",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "A creature in the water and a family the authorities will not help, the monster shown early and often on purpose.",
+   "source": "reading"
+  },
+  {
+   "a": "the housemaid",
+   "b": "parasite",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "A domestic worker installed inside a middle-class house who becomes the thing that dismantles it.",
+   "source": "reading"
+  },
+  {
+   "a": "peppermint candy",
+   "b": "memories of murder",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A Korean life told backwards through the state's violence, the personal and the political refusing to separate.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kim Hyung-koo shooting on both.",
+    "strength": 0.58
+   }
+  },
+  {
+   "a": "poetry",
+   "b": "amour",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "An older person facing decline while shouldering a moral obligation nobody else will take, filmed patiently.",
+   "source": "reading"
+  },
+  {
+   "a": "the aimless bullet",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Post-war poverty as an unrelieved accumulation, the film ending with its characters worse off than it found them.",
+   "source": "reading"
+  },
+  {
+   "a": "right now wrong then",
+   "b": "the day he arrives",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Hong telling the same encounter twice with tiny variations, the repetition itself the entire formal proposition.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Hong Sang-soo directing; Hong Sang-soo writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "to live",
+   "b": "raise the red lantern",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Zhang filming a Chinese century through one household, the political turns arriving as things done to a family.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Zhang Yimou directing; Du Yuan cutting; Zhao Jiping scoring on both.",
+    "strength": 0.775
+   }
+  },
+  {
+   "a": "raise the red lantern",
+   "b": "the earrings of madame de",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A woman's status inside a great house tracked through objects and ritual, the architecture enforcing the hierarchy.",
+   "source": "reading"
+  },
+  {
+   "a": "ju dou",
+   "b": "written on the wind",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Melodrama in engineered colour, a family business and a marriage rotting in the same saturated frames.",
+   "source": "reading"
+  },
+  {
+   "a": "yellow earth",
+   "b": "the color of pomegranates",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Landscape and folk ritual composed as static painted frames, narrative subordinated to the image.",
+   "source": "reading"
+  },
+  {
+   "a": "farewell my concubine",
+   "b": "to live",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A Chinese century staged through one pair of lives, the private betrayals timed to the political turns.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Zhao Jiping scoring; Lu Wei writing on both.",
+    "strength": 0.512
+   }
+  },
+  {
+   "a": "still life",
+   "b": "the world",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Jia filming demolition and displacement in long takes, the modernisation project visible as rubble behind everyone.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Jia Zhangke directing; Yu Lik-wai shooting; Lim Giong scoring; Jia Zhangke writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "a touch of sin",
+   "b": "wild tales",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Separate stories of ordinary people reaching sudden violence, the anger presented as a national symptom.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are anthology film, made a year apart.",
+    "strength": 0.511
+   }
+  },
+  {
+   "a": "an elephant sitting still",
+   "b": "satantango",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "A day of despair filmed in very long following takes, the running time itself the argument about what living there is like.",
+   "source": "reading"
+  },
+  {
+   "a": "in the heat of the sun",
+   "b": "amarcord",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.34,
+   "claim": "A boyhood in a politically charged decade remembered unreliably, the narrator admitting he is embellishing.",
+   "source": "reading"
+  },
+  {
+   "a": "spring in a small town",
+   "b": "brief encounter",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "A visitor reopening a marriage's dormant question, resolved by renunciation and staged in a handful of rooms.",
+   "source": "reading"
+  },
+  {
+   "a": "red desert",
+   "b": "eclipse",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Antonioni painting the industrial landscape literally, his people small and unmoored in a world designed without them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Michelangelo Antonioni directing; Eraldo Da Roma cutting; Giovanni Fusco scoring; Michelangelo Antonioni and Tonino Guerra writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "eclipse",
+   "b": "la notte",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "A relationship dissolving across a city, ending on a sequence of places the characters have already left.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Michelangelo Antonioni directing; Gianni Di Venanzo shooting; Eraldo Da Roma cutting; Michelangelo Antonioni and Tonino Guerra writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "bob le flambeur",
+   "b": "le cercle rouge",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Melville's criminals as men keeping a code nobody else observes, the heist rendered as patient procedure.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Jean-Pierre Melville directing; Henri Decaë shooting; Jean-Pierre Melville writing on both.",
+    "strength": 0.804
+   }
+  },
+  {
+   "a": "le cercle rouge",
+   "b": "rififi",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "A near-wordless robbery sequence held for its full length, professional competence filmed as its own reward.",
+   "source": "reading"
+  },
+  {
+   "a": "the mother and the whore",
+   "b": "scenes from a marriage",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Hours of a relationship talking itself apart in a small number of rooms, the camera declining to intervene.",
+   "source": "reading"
+  },
+  {
+   "a": "scenes from a marriage",
+   "b": "amour",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A marriage examined in long chapters inside one apartment, the film interested in the administration of love.",
+   "source": "reading"
+  },
+  {
+   "a": "l amour fou",
+   "b": "celine and julie go boating",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Rivette letting a rehearsal or a game run far past its narrative use, until the duration produces the reality.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Jacques Rivette directing; Nicole Lubtchansky cutting; Jacques Rivette writing on both.",
+    "strength": 0.782
+   }
+  },
+  {
+   "a": "celine and julie go boating",
+   "b": "mulholland drive",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Two women entering a house and a story that replays itself, the film treating fiction as a place you can visit.",
+   "source": "reading"
+  },
+  {
+   "a": "my night at maud s",
+   "b": "the green ray",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Rohmer filming a moral decision as conversation, the drama entirely in whether someone will act on what they have argued.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Éric Rohmer directing; Éric Rohmer writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "summer with monika",
+   "b": "the 400 blows",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A young person's escape filmed as freedom and then as consequence, ending on a look held directly at the audience.",
+   "source": "reading"
+  },
+  {
+   "a": "smiles of a summer night",
+   "b": "the earrings of madame de",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A country weekend of couples rearranging themselves, the comedy precise about who holds the power.",
+   "source": "reading"
+  },
+  {
+   "a": "the virgin spring",
+   "b": "the ballad of narayama",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A rural community whose moral order is stated as ritual, the violence carried out as something owed rather than chosen.",
+   "source": "reading"
+  },
+  {
+   "a": "in a year of 13 moons",
+   "b": "the bitter tears of petra von kant",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Fassbinder staging a life in decorated rooms as a series of arranged tableaux, the cruelty formal and unhurried.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Rainer Werner Fassbinder directing; Rainer Werner Fassbinder writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "stroszek",
+   "b": "paris texas",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "A European loose in an America of parking lots and diners, the landscape filmed as absurd and enormous.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on van, new german cinema and road trip.",
+    "strength": 0.571
+   }
+  },
+  {
+   "a": "heart of glass",
+   "b": "the turin horse",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A village awaiting an end it cannot avert, filmed in a hypnotic register that refuses ordinary performance.",
+   "source": "reading"
+  },
+  {
+   "a": "the goalkeeper s fear of the penalty",
+   "b": "le samourai",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A man committing a crime and then simply continuing, the film observing his routine rather than his motive.",
+   "source": "reading"
+  },
+  {
+   "a": "landscape in the mist",
+   "b": "ulysses gaze",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Angelopoulos sending travellers across borders in long grey takes, the journey outlasting whatever prompted it.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Thodoros Angelopoulos directing; Giorgos Arvanitis shooting; Eleni Karaindrou scoring; Thodoros Angelopoulos and Tonino Guerra writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "distant voices still lives",
+   "b": "amarcord",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A working-class family remembered as songs and set pieces, chronology abandoned for the shape of memory.",
+   "source": "reading"
+  },
+  {
+   "a": "naked",
+   "b": "taxi driver",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A furious articulate man walking a city at night, the film neither endorsing nor quite disowning him.",
+   "source": "reading"
+  },
+  {
+   "a": "get carter",
+   "b": "the long good friday",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "British crime with the glamour removed, a hard man discovering the organisation has already moved past him.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "United Kingdom, within 9 years of each other.",
+    "strength": 0.225
+   }
+  },
+  {
+   "a": "straw dogs",
+   "b": "deliverance",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "An outsider's competence tested by rural violence, both films uncomfortable about what the audience is enjoying.",
+   "source": "reading"
+  },
+  {
+   "a": "cul de sac",
+   "b": "knife in the water",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Polanski's three-hander on isolated ground, the power between them reversing as the location does the confining.",
+   "source": "reading"
+  },
+  {
+   "a": "knife in the water",
+   "b": "the exterminating angel",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.46,
+   "confidence": 0.3,
+   "claim": "A confined social situation in which the rules of politeness do all the damage.",
+   "source": "reading"
+  },
+  {
+   "a": "existenz",
+   "b": "videodrome",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Cronenberg's organic technology plugged into a body, with no reliable exit from the layers of simulation.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "David Cronenberg directing; Ronald Sanders cutting; Howard Shore scoring; David Cronenberg writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "the testament of dr mabuse",
+   "b": "dr mabuse the gambler",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.74,
+   "confidence": 0.56,
+   "claim": "Lang's criminal mastermind returning as pure influence, issuing instructions from a cell as the state fails to contain him.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Fritz Lang directing; Fritz Lang and Thea von Harbou writing on both.",
+    "strength": 0.778
+   }
+  },
+  {
+   "a": "ivan the terrible part i",
+   "b": "the color of pomegranates",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.34,
+   "claim": "History staged as frontal tableau and gesture, actors composed like figures in an icon.",
+   "source": "reading"
+  },
+  {
+   "a": "vampyr",
+   "b": "eraserhead",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Dread produced almost entirely by texture and sound, the film's logic dreamlike and never explained.",
+   "source": "reading"
+  },
+  {
+   "a": "the crowd",
+   "b": "modern times",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "One worker lost inside the machinery of a city, the camera pulling back to find him identical to everyone else.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are silent film, made 8 years apart.",
+    "strength": 0.416
+   }
+  },
+  {
+   "a": "the parallax view",
+   "b": "the conversation",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Seventies conspiracy filmed as composition — figures dwarfed by architecture — with the investigator absorbed by what he investigates.",
+   "source": "reading"
+  },
+  {
+   "a": "five easy pieces",
+   "b": "the last picture show",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A man who cannot stay anywhere, filmed in an America of oil fields and diners that offers him nothing to stay for.",
+   "source": "reading"
+  },
+  {
+   "a": "one flew over the cuckoo s nest",
+   "b": "titicut follies",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The institution as the antagonist, both films arriving at the same conclusion about who the ward actually serves.",
+   "source": "reading"
+  },
+  {
+   "a": "the last wave",
+   "b": "picnic at hanging rock",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Weir filming Australia as a place with older logic underneath it, the rational protagonist steadily overruled.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Peter Weir directing; Russell Boyd shooting on both.",
+    "strength": 0.724
+   }
+  },
+  {
+   "a": "walkabout",
+   "b": "picnic at hanging rock",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "European children in an Australian landscape that will not accommodate them, the editing refusing to explain.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Australia, within 4 years of each other.",
+    "strength": 0.274
+   }
+  },
+  {
+   "a": "animal kingdom",
+   "b": "goodfellas",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A family criminal enterprise observed by its youngest member, the menace domestic and conversational.",
+   "source": "reading"
+  },
+  {
+   "a": "toni erdmann",
+   "b": "the worst person in the world",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A long comedy about a life not going to plan, with one extended set piece that reframes everything preceding it.",
+   "source": "reading"
+  },
+  {
+   "a": "son of saul",
+   "b": "come and see",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "The camp filmed in shallow focus tight on one face, the atrocity kept insistently at the edge of the frame.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genre",
+    "claim": "Both are war film.",
+    "strength": 0.279
+   }
+  },
+  {
+   "a": "happy as lazzaro",
+   "b": "the tree of life",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.46,
+   "confidence": 0.3,
+   "claim": "A rural idyll interrupted by a rupture the film refuses to explain, faith treated as literally as the landscape.",
+   "source": "reading"
+  },
+  {
+   "a": "la chimera",
+   "b": "happy as lazzaro",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Rohrwacher shooting on grainy film stock where the past is materially present, and a man half-belonging to it.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Alice Rohrwacher directing; Hélène Louvart shooting; Alice Rohrwacher writing on both.",
+    "strength": 0.804
+   }
+  },
+  {
+   "a": "le quattro volte",
+   "b": "the turin horse",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A near-wordless film that hands its attention from a person to an animal to a tree, refusing human centrality.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Switzerland, the same moment of each other.",
+    "strength": 0.291
+   }
+  },
+  {
+   "a": "gomorrah",
+   "b": "city of god",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Organised crime filmed as an economy rather than a story, several strands with no protagonist to reassure you.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "subject",
+    "claim": "Both are about drug-related crime.",
+    "strength": 0.718
+   }
+  },
+  {
+   "a": "il divo",
+   "b": "the conformist",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "Italian political power staged as stylised procession, the man at the centre unreadable by design.",
+   "source": "reading"
+  },
+  {
+   "a": "loveless",
+   "b": "scenes from a marriage",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A marriage ending while a child goes missing, the film using the search to indict both parents and the state.",
+   "source": "reading"
+  },
+  {
+   "a": "leviathan",
+   "b": "the parallax view",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "One person against an apparatus that cannot be fought, filmed in wide landscape that dwarfs the legal fight.",
+   "source": "reading"
+  },
+  {
+   "a": "wings",
+   "b": "the ascent",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Shepitko filming a person hollowed by war, the heroism the state assigned them refusing to fit.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Larisa Shepitko directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "ballad of a soldier",
+   "b": "the cranes are flying",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Soviet Thaw cinema handing the war to ordinary young people, the camera mobile and lyrical rather than official.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are war film, made 2 years apart.",
+    "strength": 0.395
+   }
+  },
+  {
+   "a": "i am cuba",
+   "b": "the cranes are flying",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Kalatozov's impossible travelling shots, the camera moving through crowds and buildings as an argument in itself.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Mikhail Kalatozov directing; Sergey Urusevsky shooting on both.",
+    "strength": 0.724
+   }
+  },
+  {
+   "a": "shadows of forgotten ancestors",
+   "b": "the color of pomegranates",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.72,
+   "confidence": 0.54,
+   "claim": "Parajanov abandoning conventional coverage for folk ritual, saturated colour and frontal composition.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Sergei Parajanov directing; Sergei Parajanov writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "the round up",
+   "b": "the ascent",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Interrogation filmed as bureaucratic process on an empty plain, the power entirely in who is permitted to speak.",
+   "source": "reading"
+  },
+  {
+   "a": "nights of cabiria",
+   "b": "la strada",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "Fellini following a woman through repeated betrayals, ending on a look to camera that refuses despair.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Federico Fellini directing; Otello Martelli shooting; Leo Catozzo cutting; Nino Rota scoring; Federico Fellini, Ennio Flaiano and Tullio Pinelli writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "y tu mama tambien",
+   "b": "jules and jim",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Two friends and one woman on a journey, a narrator quietly telling you the futures none of them can see.",
+   "source": "reading"
+  },
+  {
+   "a": "dogtooth",
+   "b": "the lobster",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.74,
+   "confidence": 0.56,
+   "claim": "Lanthimos stating an absurd domestic rule and filming its consequences deadpan, the violence arriving without music.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Yorgos Lanthimos directing; Thimios Bakatakis shooting; Yorgos Mavropsaridis cutting; Yorgos Lanthimos and Efthimis Filippou writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "challengers",
+   "b": "jules and jim",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A triangle sustained over years, the film cutting across time so every match replays an older negotiation.",
+   "source": "reading"
+  },
+  {
+   "a": "the brutalist",
+   "b": "there will be blood",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "An immigrant's ambition and a patron's money curdling across decades, shot in a format that insists on its own scale.",
+   "source": "reading"
+  },
+  {
+   "a": "sound of metal",
+   "b": "persona",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Sensory loss rendered through the film's own sound design, forcing the audience into a silence the character cannot leave.",
+   "source": "reading"
+  },
+  {
+   "a": "close",
+   "b": "the 400 blows",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A boy's world narrowing after an irreversible event, filmed close and refusing to supply consolation.",
+   "source": "reading"
+  },
+  {
+   "a": "columbus",
+   "b": "certain women",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Two people talking in a town's architecture, the compositions doing the emotional work the dialogue withholds.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "United States, the same moment of each other.",
+    "strength": 0.19
+   }
+  },
+  {
+   "a": "the souvenir",
+   "b": "distant voices still lives",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A memory film about class and a damaging relationship, filmed in ellipses that assume you already know the ending.",
+   "source": "reading"
+  },
+  {
+   "a": "saint omer",
+   "b": "the passion of joan of arc",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A trial filmed almost entirely as faces listening, the verdict less important than what testimony does to a room.",
+   "source": "reading"
+  },
+  {
+   "a": "fire of love",
+   "b": "grizzly man",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "A documentary assembled from footage its subjects shot before the thing they loved killed them.",
+   "source": "reading"
+  },
+  {
+   "a": "gimme shelter",
+   "b": "dont look back",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Direct cinema on tour with a band, the camera present at the moment the decade's mood turns.",
+   "source": "reading"
+  },
+  {
+   "a": "all that breathes",
+   "b": "honeyland",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Observational documentary staying with people tending animals at the edge of an ecological collapse.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are documentary film, made 3 years apart.",
+    "strength": 0.401
+   }
+  },
+  {
+   "a": "watership down",
+   "b": "grave of the fireflies",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Animation used for genuine mortal stakes, with a children's surface that the film has no intention of honouring.",
+   "source": "reading"
+  },
+  {
+   "a": "the incredibles",
+   "b": "the iron giant",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Brad Bird staging mid-century design and sincere heroism, the family or the boy tested by a bureaucrat's suspicion.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Brad Bird directing; Brad Bird writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "mother india",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "Rural poverty as an epic moral test, the mother's endurance standing in for a nation's.",
+   "source": "reading"
+  },
+  {
+   "a": "awaara",
+   "b": "los olvidados",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.48,
+   "confidence": 0.3,
+   "claim": "A street childhood used to argue about whether character is inherited or produced by poverty.",
+   "source": "reading"
+  },
+  {
+   "a": "pyaasa",
+   "b": "sunset boulevard",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "An artist destroyed by the industry that will only value him once he is presumed dead.",
+   "source": "reading"
+  },
+  {
+   "a": "bombay",
+   "b": "do the right thing",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.32,
+   "claim": "A neighbourhood's communal tension building through domestic scenes until it detonates into riot.",
+   "source": "reading"
+  },
+  {
+   "a": "rrr",
+   "b": "sholay",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Indian action at maximum scale — two heroes, an interval-sized reversal, and set pieces staged as spectacle.",
+   "source": "reading"
+  },
+  {
+   "a": "gangs of wasseypur part 1",
+   "b": "the godfather",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A crime dynasty across generations, the family business and the political economy filmed as the same thing.",
+   "source": "reading"
+  },
+  {
+   "a": "elippathayam",
+   "b": "the exterminating angel",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A man trapped in a decaying house by his own inertia, the rat trap of the title stated and then literalised.",
+   "source": "reading"
+  },
+  {
+   "a": "earth",
+   "b": "battleship potemkin",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Soviet montage applied to the land itself, faces and harvest cut together into an argument about collectivisation.",
+   "source": "reading"
+  },
+  {
+   "a": "un chien andalou",
+   "b": "eraserhead",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Dream logic with no narrative obligation, images sequenced to disturb rather than to mean.",
+   "source": "reading"
+  },
+  {
+   "a": "nickel boys",
+   "b": "moonlight",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Black American boyhood filmed in close subjective register, the institutional cruelty kept mostly at the frame's edge.",
+   "source": "reading"
+  },
+  {
+   "a": "godland",
+   "b": "silent light",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A priest's faith failing in an overwhelming landscape, shot in a boxed frame that makes the terrain the antagonist.",
+   "source": "reading"
+  },
+  {
+   "a": "eo",
+   "b": "au hasard balthazar",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.76,
+   "confidence": 0.58,
+   "claim": "A donkey passed between owners across a continent, each one revealing themselves by how they treat it.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "adaptation",
+    "claim": "EO is recorded as based on Au Hasard Balthazar.",
+    "strength": 0.92
+   }
+  },
+  {
+   "a": "atlantique",
+   "b": "touki bouki",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Dakar filmed with the sea as the thing that takes people away, realism giving way to the supernatural.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on emigration, dakar and senegal.",
+    "strength": 0.65
+   }
+  },
+  {
+   "a": "certain women",
+   "b": "old joy",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Reichardt's Pacific Northwest in winter light, the drama held to the scale of a conversation that does not resolve.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kelly Reichardt directing on both.",
+    "strength": 0.62
+   }
+  },
+  {
+   "a": "in the realm of the senses",
+   "b": "possession",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A couple sealing themselves into a room and an obsession, filmed past the point most cinema stops and refusing to look away.",
+   "source": "reading"
+  },
+  {
+   "a": "sweetie",
+   "b": "la cienaga",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "A family filmed in oblique framings and bodies cut by the edge of shot, the dysfunction ambient rather than announced.",
+   "source": "reading"
+  },
+  {
+   "a": "police story",
+   "b": "hard boiled",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "Hong Kong action where the stunt is performed for real and held in wide shot, because cutting away would be cheating.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Hong Kong, within 7 years of each other.",
+    "strength": 0.266
+   }
+  },
+  {
+   "a": "blind chance",
+   "b": "three colours red",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Kieślowski arranging coincidence openly enough that you feel an author deciding, then asking what that means for the people inside it.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Krzysztof Kieślowski directing; Krzysztof Kieślowski writing on both.",
+    "strength": 0.699
+   }
+  },
+  {
+   "a": "damnation",
+   "b": "satantango",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.74,
+   "confidence": 0.56,
+   "claim": "Tarr's rain, mud and very long takes, a village of people waiting for a deal that will obviously betray them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Béla Tarr directing; Gábor Medvigy shooting; Ágnes Hranitzky cutting; Mihály Víg scoring; Béla Tarr and László Krasznahorkai writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "tampopo",
+   "b": "seven samurai",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "A team recruited one by one to rescue somebody who cannot manage alone — the structure lifted wholesale and applied to a noodle shop.",
+   "source": "reading"
+  },
+  {
+   "a": "blind shaft",
+   "b": "gomorrah",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "Crime filmed as an economy with its own labour market, the violence a line item rather than a climax.",
+   "source": "reading"
+  },
+  {
+   "a": "siegfried",
+   "b": "metropolis",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Lang building myth at architectural scale, the sets monumental enough that the human figures read as ornament on them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Fritz Lang directing; Günther Rittau shooting; Gottfried Huppertz scoring; Fritz Lang and Thea von Harbou writing on both.",
+    "strength": 0.82
+   }
+  },
+  {
+   "a": "nine queens",
+   "b": "uncut gems",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.38,
+   "claim": "A hustle that keeps having to be re-solved in real time, every fix opening a worse problem.",
    "source": "reading"
   }
  ]
