@@ -53,3 +53,8 @@ yarn-error.log*
 # Force-add the seed list once a run has completed if a harvest is built from it.
 /atlas/pipeline/seeds-expansion.txt
 /atlas/pipeline/seeds-expansion.report.tsv
+
+# Default-path build output (node atlas/app/build.js with no --out) and Python
+# bytecode from palette runs. Both regenerable, neither reviewable.
+/atlas/atlas.html
+__pycache__/
