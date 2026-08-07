@@ -122,8 +122,8 @@ const DEFAULTS = {
   stiffFloor: 0.01,    /* a strength-0 spring still pulls this much            */
   stiffExp: 5.5,       /* stiffness = floor + (1-floor) * strength^stiffExp    */
 
-  attract: 1.5,        /* global spring coefficient                            */
-  repel: 1.5,          /* global repulsion coefficient, in units of k^2        */
+  attract: 1.5,        /* spring coefficient, applied globally                            */
+  repel: 1.5,          /* repulsion coefficient, applied globally, in units of k^2        */
   gravity: 0.90,       /* uniform pull to the centroid — degree-free           */
 
   tempStart: 1.50,     /* initial per-iteration displacement cap, in k         */

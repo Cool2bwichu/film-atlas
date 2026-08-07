@@ -170,13 +170,21 @@ const ITERATIONS = 300;
    for the remaining iterations if it ever rises. See `smacof`. */
 const RELAX = 1.35;
 
+/* Non-metric refinement: how many retarget-then-resolve rounds, how many
+   majorization steps inside each, and how far each round moves the targets
+   toward the rank-matched ones. See `retarget`. */
+const PATH_POWER = 1;
+const RANK_ROUNDS = 12;
+const RANK_ITERATIONS = 40;
+const RANK_ETA = 0.5;
+
 /* Post-pass that separates films drawn closer together than this fraction of
    the layout's own diagonal. Two film cells at the same coordinate are not a
    truthful drawing of a short bond, they are one film hiding another. Kept
    deliberately small: every micro-metre of this is a lie about distance, paid
    to keep the map readable. */
 const MIN_SEPARATION = 0.006;
-const SEPARATION_PASSES = 12;
+const SEPARATION_PASSES = 40;
 
 /* Seeded, because "deterministic" has to survive someone adding a film. Used
    for one thing only: a jitter of ~1e-9 of the layout scale so that two films
@@ -477,7 +485,7 @@ function pivotMds(n, K, rows, x, y) {
  * RELAX > 1 overshoots the step. That is a heuristic, not part of the proof,
  * so stress is evaluated each iteration and the relaxation is dropped back to
  * the provably-monotone 1.0 permanently the first time stress goes up. */
-function smacof(n, pi, pj, pd, pw, x, y, iterations, rnd) {
+function smacof(n, pi, pj, pd, pw, x, y, iterations) {
   const m = pd.length;
   const den = new Float64Array(n);
   for (let e = 0; e < m; e++) { den[pi[e]] += pw[e]; den[pj[e]] += pw[e]; }
@@ -526,16 +534,89 @@ function smacof(n, pi, pj, pd, pw, x, y, iterations, rnd) {
       }
     }
   }
+}
 
-  /* Two films at literally the same coordinate would make the next stage's
-     separation pass and any downstream hit-testing degenerate. Nudge by a
-     seeded amount far below the fourth decimal the output is rounded to. */
+/* Seeded micro-jitter. Two films at literally the same coordinate divide by
+   zero in the Guttman transform and make the separation pass degenerate. The
+   displacement is ~1e-9 of the layout scale, five orders of magnitude below
+   the fourth decimal the output is rounded to, so it changes nothing visible
+   and everything numerical. */
+function dejitter(n, x, y, rnd) {
   let scale = 0;
   for (let i = 0; i < n; i++) scale += Math.abs(x[i]) + Math.abs(y[i]);
   scale = (scale / Math.max(1, n)) || 1;
   for (let i = 0; i < n; i++) {
     x[i] += (rnd() - 0.5) * scale * 1e-9;
     y[i] += (rnd() - 0.5) * scale * 1e-9;
+  }
+}
+
+/* ── Rank matching: the non-metric refinement ───────────────────────────────
+ *
+ * Metric SMACOF asks for the drawn distance to EQUAL the target. Rule 1 asks
+ * for something weaker and more useful: that drawn distance be ORDERED by bond
+ * strength. Those come apart on a graph this dense. 803 films with average
+ * degree ~9.7 cannot be embedded in a plane with every target met — a film
+ * with ten bonds of ten different lengths has more constraints than a point in
+ * R^2 has freedom — so metric stress settles into a compromise where the
+ * residual error is large enough to shuffle neighbouring strength levels past
+ * each other. The ORDER is what the reader perceives and what the harness's
+ * bondFit measures, and it is being spent to buy exact lengths nobody can read
+ * off the screen.
+ *
+ * So after the metric solve, the edge targets are replaced by DISPARITIES, in
+ * the sense of Kruskal's non-metric MDS: numbers that respect the required
+ * ordering while otherwise staying as close as possible to what the layout has
+ * actually managed to draw. This implementation uses the strongest available
+ * form of that — full quantile matching:
+ *
+ *   1. take the distances the layout currently draws for the m edges;
+ *   2. sort those m values ascending; they are the distance "slots" this
+ *      geometry has demonstrably proved it can produce, all together;
+ *   3. hand the shortest slot to the strongest bond, the next to the next, and
+ *      so on down to the weakest bond and the longest slot;
+ *   4. move each edge's target a fraction RANK_ETA of the way toward its slot
+ *      and re-solve.
+ *
+ * Step 2 is what keeps this honest. The new targets are a PERMUTATION of the
+ * distances already on the page, so the refinement cannot inflate the map,
+ * cannot collapse it, and cannot ask for a configuration whose distance
+ * distribution is unreachable. It only ever asks: given the spread of lengths
+ * you can draw, are they going to the right bonds?
+ *
+ * Ties are handled by ordering equal-strength edges among themselves by their
+ * CURRENT drawn distance. Two edges the corpus calls equally strong carry no
+ * instruction about which should be shorter, so no reordering is demanded of
+ * them, and none of the layout's effort is wasted on an arbitrary swap.
+ *
+ * The blend factor exists because a full jump would chase the layout's own
+ * noise and oscillate. A partial step is a damped fixed-point iteration and
+ * settles.
+ */
+function retarget(m, es, edgePairAt, pi, pj, x, y, curTarget, pd, pw, eta, edgeW, wpow) {
+  const ach = new Float64Array(m);
+  for (let q = 0; q < m; q++) {
+    const p = edgePairAt[q];
+    const dx = x[pi[p]] - x[pj[p]], dy = y[pi[p]] - y[pj[p]];
+    ach[q] = Math.sqrt(dx * dx + dy * dy);
+  }
+  const slots = Float64Array.from(ach);
+  slots.sort();
+
+  /* Strongest bond first; equal strengths keep their current order, so a tie
+     is never asked to resolve itself. The index tiebreak at the end keeps the
+     sort total, and therefore the whole pass reproducible. */
+  const order = new Array(m);
+  for (let q = 0; q < m; q++) order[q] = q;
+  order.sort((a, b) => (es[b] - es[a]) || (ach[a] - ach[b]) || (a - b));
+
+  for (let k = 0; k < m; k++) {
+    const q = order[k];
+    const t = curTarget[q] + eta * (slots[k] - curTarget[q]);
+    curTarget[q] = t;
+    const p = edgePairAt[q];
+    pd[p] = t;
+    pw[p] = (wpow === 2 ? 1 / (t * t) : Math.pow(t, -wpow)) * edgeW;
   }
 }
 
@@ -615,6 +696,11 @@ function layout(films, edges, opts) {
   const WPOW = o.weightPower != null ? o.weightPower : WEIGHT_POWER;
   const ITER = o.iterations != null ? o.iterations : ITERATIONS;
   const TPAIRS = o.targetPairs != null ? o.targetPairs : TARGET_PAIRS;
+  const MINLM = o.minLandmarks != null ? o.minLandmarks : MIN_LANDMARKS;
+  const PATHPOW = o.pathPower != null ? o.pathPower : PATH_POWER;
+  const RROUNDS = o.rankRounds != null ? o.rankRounds : RANK_ROUNDS;
+  const RITER = o.rankIterations != null ? o.rankIterations : RANK_ITERATIONS;
+  const RETA = o.rankEta != null ? o.rankEta : RANK_ETA;
   const MINSEP = o.minSeparation != null ? o.minSeparation : MIN_SEPARATION;
   const SEPPASS = o.separationPasses != null ? o.separationPasses : SEPARATION_PASSES;
 
@@ -709,7 +795,8 @@ function layout(films, edges, opts) {
     }
     K = lo;
   }
-  if (K < MIN_LANDMARKS) K = MIN_LANDMARKS;
+  if (K < MINLM) K = MINLM;
+  if (o.landmarks != null) K = o.landmarks;
   if (K > n) K = n;
 
   const picked = chooseLandmarks(n, K, adjStart, adjNode, adjLen);
@@ -750,6 +837,9 @@ function layout(films, edges, opts) {
   const pj = new Int32Array(capacity);
   const pd = new Float64Array(capacity);
   const pw = new Float64Array(capacity);
+  /* Where each edge's term ended up in the pair arrays. The rank-matching pass
+     rewrites those terms in place and needs to find them without searching. */
+  const edgePairAt = new Int32Array(m).fill(-1);
   let np = 0;
 
   const wOf = (d) => (WPOW === 2 ? 1 / (d * d) : Math.pow(d, -WPOW));
@@ -766,15 +856,17 @@ function layout(films, edges, opts) {
       const eq = edgeKey.get(a * n + b);
       if (eq !== undefined) {
         consumed[eq] = 1;
+        edgePairAt[eq] = np;
         pi[np] = a; pj[np] = b; pd[np] = elen[eq]; pw[np] = wOf(elen[eq]) * EW; np++;
       } else {
-        const d = row[v];
+        const d = PATHPOW === 1 ? row[v] : Math.pow(row[v], PATHPOW);
         pi[np] = a; pj[np] = b; pd[np] = d; pw[np] = wOf(d); np++;
       }
     }
   }
   for (let q = 0; q < m; q++) {
     if (consumed[q]) continue;
+    edgePairAt[q] = np;
     pi[np] = ea[q]; pj[np] = eb[q]; pd[np] = elen[q]; pw[np] = wOf(elen[q]) * EW; np++;
   }
 
@@ -811,7 +903,20 @@ function layout(films, edges, opts) {
     }
   }
 
-  smacof(n, PI, PJ, PD, PW, x, y, ITER, mulberry32(0x5C1F));
+  const rnd = mulberry32(0x5C1F);
+  smacof(n, PI, PJ, PD, PW, x, y, ITER);
+  dejitter(n, x, y, rnd);
+
+  /* Non-metric refinement. See `retarget` for why the exact-distance objective
+     is the wrong one to spend the last of the budget on. */
+  if (RROUNDS > 0 && m > 1) {
+    const curTarget = Float64Array.from(elen);
+    for (let r = 0; r < RROUNDS; r++) {
+      retarget(m, es, edgePairAt, PI, PJ, x, y, curTarget, PD, PW, RETA, EW, WPOW);
+      smacof(n, PI, PJ, PD, PW, x, y, RITER);
+    }
+    dejitter(n, x, y, rnd);
+  }
 
   /* ---- normalise, preserving aspect ------------------------------------- */
 
