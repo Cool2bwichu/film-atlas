@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* layout-sky-spectral.js — constellation layout: SPECTRAL EMBEDDING of the
- * bond-weighted graph Laplacian, then a short force refinement.
+ * bond-weighted graph Laplacian, then a force refinement against
+ * strength-derived target distances.
  *
  *   const { layout } = require("./layout-sky-spectral.js");
  *   const pos = layout(films, edges);      // -> { key: [x, y] }, both in [0,1]
@@ -45,6 +46,37 @@
  * decides HOW FAR APART two bonded films sit. Neither stage could do the
  * other's job.
  *
+ * ── AND WHAT IT MEASURABLY BUYS ON THIS CORPUS, WHICH IS LESS ───────────────
+ *
+ * The paragraphs above are the argument for the design. Here is the audit of
+ * it, because the two disagree and the disagreement is the useful part.
+ *
+ * ABLATED against the identical refinement started from a phyllotaxis spiral
+ * and from seeded noise, the spectral start is worth essentially nothing on
+ * the 803-film corpus: bondFit -0.774 spectral, -0.774 spiral, -0.771 random.
+ * It wins slightly on how evenly the cloud fills the canvas and not at all on
+ * the column that matters.
+ *
+ * The reason is diagnosable rather than mysterious, and it is a fact about
+ * this corpus rather than about spectral layout. The argument above assumes
+ * the graph HAS a global structure that relaxation cannot find — a bottleneck,
+ * a pair of traditions joined by few edges. This corpus has no such thing. It
+ * is one component of 803 films at an average of 19 edge-ends each, and its
+ * Laplacian says so: lambda_2 = 0.512 against lambda_3 = 0.522, a gap of 2% on
+ * a spectrum running to 23.3. A near-degenerate Fiedler value is the spectral
+ * statement of "there is no good way to cut this graph in two". Where there is
+ * no bottleneck, there is no hill for the force stage to fail to climb, and
+ * the initial condition stops mattering.
+ *
+ * This file is therefore kept as the assigned approach, honestly implemented
+ * and honestly measured, on the understanding that its value is INSURANCE. A
+ * corpus that grows by annexing a body of films with few links to the present
+ * one — a national cinema harvested in its own pass, say — would have exactly
+ * the bottleneck this corpus lacks, and that is the case where a force
+ * simulation started from a spiral quietly returns an interleaved answer and
+ * no metric in the harness reports it. Re-run the ablation after any harvest
+ * that changes the shape of the graph rather than just its size.
+ *
  * ── HOW THIS OBEYS AGENTS RULE 1 ────────────────────────────────────────────
  *
  * Rule 1: edge distance encodes formal bond strength, never popularity or node
@@ -72,11 +104,20 @@
  * be a violation, and is deliberately not done here, is the usual next step:
  * most spectral-layout literature solves the NORMALISED problem L u = lambda D u,
  * i.e. divides through by degree, which really is a per-node reweighting by how
- * many bonds a film happens to have. This file uses the unnormalised Laplacian
- * with plain Euclidean orthogonality so that the only per-edge quantity in the
- * whole eigenproblem is bond strength. It costs some conditioning; it keeps the
- * rule clean. The `degreeBias` column of the layout harness is the audit for
- * whether that held.
+ * many bonds a film happens to have — and, concretely, one that constrains
+ * sum(d_i * u_i^2) = 1, giving a well-connected film more mass and so
+ * penalising it for sitting anywhere but the middle. That is the canon pulled
+ * to the centre by its own popularity, which is the exact failure rule 1 was
+ * written after.
+ *
+ * This file therefore uses the unnormalised Laplacian with plain Euclidean
+ * orthogonality, so the only per-edge quantity in the whole eigenproblem is
+ * bond strength. THAT CHOICE IS EXPENSIVE and the bill is paid in the
+ * de-crowding block further down: without degree normalisation the low
+ * spectrum of this graph is entirely pendant-vertex localisation, and the
+ * eigenvectors need rescuing before they can be used at all. The bill is worth
+ * paying, and the `degreeBias` column of the layout harness is the audit for
+ * whether it bought what it was supposed to.
  *
  * ── WHY THE TARGET DISTANCE IS RANK-BASED ───────────────────────────────────
  *
@@ -103,14 +144,20 @@
  * Ties are given the midrank they span, so two edges the corpus calls equally
  * strong are given equal target distances rather than an arbitrary order.
  *
- * ── WHY THE FORCE STAGE IS SO SHORT ─────────────────────────────────────────
+ * ── WHY THE FORCE STAGE IS LONG, NOT SHORT ──────────────────────────────────
  *
- * 260 passes, against 420 for the baseline and rather more for a from-scratch
- * simulation. That is the whole benefit of the spectral start: the refinement
- * is not searching for the global arrangement, it already has one. It is only
- * setting distances and relieving overlap, both of which are local work that
- * converges quickly. Cooling is correspondingly gentle — a hot schedule would
- * throw away the initial condition it was given.
+ * 900 passes, against 420 for the baseline. The assignment expected the
+ * opposite — a good initial condition should let the refinement be brief — and
+ * the measurement says otherwise, for the reason in the ablation note above:
+ * the spectral start is not saving the refinement any work on a graph with no
+ * bottleneck, so the refinement is doing the whole job of turning a rough
+ * arrangement into correct distances, and that is slow.
+ *
+ * The cost of stopping early is not subtle. Holding everything else at the
+ * shipped defaults, bondFit runs -0.705 at 150 passes, -0.733 at 300, -0.740
+ * at 600, -0.744 at 900. Two thirds of the budget buys the last 0.011, which
+ * is the usual shape of a stress descent and the usual reason to keep paying:
+ * this runs at build time, once, and 900 passes is about a second.
  */
 
 "use strict";
@@ -136,10 +183,10 @@ const DEFAULTS = {
   repelRange: 2.0,        /* repulsion cutoff, in units of the shortest target */
   stepHot: 4.7,           /* per-pass displacement cap, hot, in MEAN targets  */
   stepCold: 0.02,         /* per-pass displacement cap, cold, in mean targets */
-  coolPow: 1.35,
+  coolPow: 1.8,
 
   /* --- spacing floor --- */
-  reliefPack: 0.62,       /* floor as a fraction of the ideal packing pitch   */
+  reliefPack: 0.65,       /* floor as a fraction of the ideal packing pitch   */
   reliefRounds: 4,
   reliefPasses: 220,
 };
@@ -340,11 +387,29 @@ function layout(films, edges, opts) {
       for (let i = 0; i < n; i++) u[i] = tmp[i];
       deflate(u, basis);
       scaleToUnit(u);
-      /* Stop on a Rayleigh quotient that has stopped moving. Requiring it to
-         hold for three consecutive passes guards against the transient plateau
-         a power iteration crosses while two components are still trading. The
-         test is on floating-point values produced by a fixed code path, so it
-         fires on exactly the same iteration in every run. */
+      /* Stop on a Rayleigh quotient that has stopped moving, held for three
+         consecutive passes so a transient plateau — two components still
+         trading — cannot end the loop early. The test reads floating-point
+         values produced by a fixed code path, so it fires on exactly the same
+         iteration in every run.
+
+         MEASURED, AND WORTH KNOWING: on this corpus it never fires. After the
+         full 600 passes the relative change is still 6.6e-6 on the first
+         vector and 9.0e-5 on the second, nowhere near the 1e-12 tolerance,
+         because lambda_2 and lambda_3 are 2% apart and power iteration
+         separates near-degenerate eigenvalues at a rate of (c-l3)/(c-l2) =
+         0.9993 per pass. So `spectralIters` is what actually binds here, and
+         raising the tolerance to make the exit "work" would just be stopping
+         at an arbitrary point under a convergence-sounding name.
+
+         The budget is nonetheless enough: taking it from 600 to 40,000 moves
+         lambda_2 from 0.51182 to 0.51166 and leaves every layout metric
+         unchanged to three decimals. The vectors do not need to be converged
+         eigenvectors, only smooth low-energy functions on the graph, and they
+         are that long before they are that. The tolerance stays because a
+         corpus WITH a real spectral gap — the case this whole file is
+         insurance for — would converge in tens of passes and should not be
+         charged for six hundred. */
       const rel = Math.abs(lam - prev) / (Math.abs(lam) + 1e-30);
       if (rel < o.spectralTol) { if (++stable >= 3) break; } else stable = 0;
       prev = lam;
@@ -666,13 +731,22 @@ function layout(films, edges, opts) {
      renormalises once and re-checks. Four rounds is comfortably past the point
      where the growth factor stops mattering.
 
-     WHAT THIS COSTS, STATED PLAINLY: the floor is a mild uniformising
-     pressure, and uniformising is not free. It takes bondFit from -0.775 to
-     -0.749 on the shipped corpus while taking occupancy from 0.385 to 0.466.
-     That trade is taken deliberately — films are drawn as poster cells with
-     real width, and two films 0.018 apart on a 1440px canvas are 26px apart,
-     i.e. printed on top of each other — but it is a trade, and a corpus whose
-     density variation was itself the story would want `reliefPack` lower. */
+         WHAT THIS COSTS, STATED PLAINLY. The floor is a mild uniformising
+     pressure and uniformising is not free. Measured on the shipped corpus,
+     turning it off gives bondFit -0.775 at occupancy 0.380; the shipped 0.65
+     gives -0.744 at 0.446. So roughly 0.03 of bond fidelity buys 0.07 of
+     canvas.
+
+     BE CLEAR ABOUT WHAT JUSTIFIES IT, because the obvious justification does
+     not. The sky view draws each film as a disc of radius 2.3px at the fit
+     zoom (`skyRadius` in template.html), and the canvas maps world [0,1] onto
+     about 828px there — so two films 0.008 apart are already visibly separate
+     discs, and the RENDER alone would justify a floor of about 0.2 packing
+     pitches, not 0.65. The rest is a deliberate legibility choice: films must
+     be individually findable and clickable across the whole field, not just
+     where the graph happens to be sparse. It is a choice, it is a knob, and a
+     corpus whose density variation was itself the story would want it lower.
+     Setting `reliefPack` to 0 disables the stage entirely. */
 
   function normalise() {
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
