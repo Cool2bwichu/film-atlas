@@ -2022,10 +2022,15 @@ function show(v){
   if(VIEWS[v].enter) VIEWS[v].enter();
 }
 
-$("#home").onclick=()=>{
+/* Named rather than living inside the wordmark's handler: Escape out of the
+   constellation goes to exactly the same place, and reaching it by
+   synthesising a click on another control is a dependency on the DOM's event
+   plumbing for something that is just a function call. */
+function goHome(){
   try{ history.replaceState(null,"",location.pathname+location.search); }catch(_error){}
   show("wall"); renderWall(); $("#wall").scrollTop=0;
-};
+}
+$("#home").onclick=goHome;
 $("#q").oninput=e=>search(e.target.value);
 $("#q").onkeydown=e=>{
   const box=$("#sugg");
@@ -2200,7 +2205,7 @@ addEventListener("keydown",e=>{
        view rather than an overlay, so it is the one place where Escape has
        nothing to close and somewhere to go instead. The search box handles its
        own Escape first and must keep it. */
-    if(state.view==="sky"&&document.activeElement!==$("#q")) $("#home").click();
+    if(state.view==="sky"&&document.activeElement!==$("#q")) goHome();
   }
 });
 
