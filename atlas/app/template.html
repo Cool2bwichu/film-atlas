@@ -509,6 +509,8 @@ main{flex:1;position:relative;overflow:hidden}
     rgba(3,2,5,.34) 78%,rgba(3,2,5,.62) 100%)}
 #sky-c{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;
   touch-action:none;cursor:grab}
+/* the cursor says what a click will do: grab the field, or open a film */
+#sky-c.over{cursor:pointer}
 #sky-c.dragging{cursor:grabbing}
 #sky-c:focus-visible{outline:1px solid var(--accent);outline-offset:-3px}
 
@@ -622,6 +624,7 @@ main{flex:1;position:relative;overflow:hidden}
 @media (pointer:coarse){
   .wordmark,.btn,.chip,.panel-x,.linky{min-height:44px}
   .linky{display:inline-flex;align-items:center}
+  .sky-ctl .btn{min-width:44px}
   .panel-x{width:44px;height:44px;top:4px;right:4px}
   .trail-step{min-width:44px;min-height:44px;display:grid;place-items:center}
   .why-item{min-height:44px}
@@ -1414,7 +1417,7 @@ const sky = {
   grid:null, sx:null, sy:null,
   cam:{cx:0.5,cy:0.5,k:1}, w:0, h:0, dpr:0, ctx:null,
   hoverKey:null, pinKey:null, labelKey:undefined, labels:[],
-  entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(),
+  entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
 };
 
 const skyReduced = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -1533,6 +1536,7 @@ function skyResize(){
   sky.ctx=c.getContext("2d");
   sky.cam.k=skyClampK(sky.cam.k);
   skyClampC(sky.cam);
+  sky.chrome=null;
 }
 
 /* CLAMPS. You cannot lose the constellation: the world point under the centre
@@ -1765,12 +1769,33 @@ function skyLabels(key){
   sky.labels=made;
 }
 
+/* The readout and the zoom controls are opaque and sit ABOVE the label layer,
+   so a name placed under them is a name nobody can read — the same class of
+   defect as an edge label lying across a poster on the radial map, and the
+   reason AGENTS asks for chrome-vs-panel occlusion to be measured rather than
+   eyeballed. They are seeded into the placer as obstacles. Cached because
+   reading a layout box every frame during a pan is a forced reflow per frame. */
+function skyChrome(){
+  if (sky.chrome) return sky.chrome;
+  const c=$("#sky-c");
+  if (!c) return (sky.chrome=[]);
+  const base=c.getBoundingClientRect(), out=[];
+  for (const sel of ["#sky-read",".sky-ctl"]){
+    const node=$(sel);
+    if (!node) continue;
+    const r=node.getBoundingClientRect();
+    if (!r.width||!r.height) continue;
+    out.push({x:r.left-base.left-6, y:r.top-base.top-6, w:r.width+12, h:r.height+12});
+  }
+  return (sky.chrome=out);
+}
+
 function skyPlaceLabels(){
   if (!sky.labels.length) return;
   const w=sky.w, h=sky.h, cam=sky.cam, k=cam.k;
   const ox=w/2-cam.cx*k, oy=h/2-cam.cy*k;
   const r=skyRadius(k/skyFitK());
-  const placed=[];
+  const placed=skyChrome().slice();
   for (const L of sky.labels){
     const px=sky.wx[L.i]*k+ox, py=sky.wy[L.i]*k+oy;
     const cands=[
@@ -1789,8 +1814,17 @@ function skyPlaceLabels(){
        asked for. A neighbour that cannot be placed without lying across
        another name is dropped instead of being stacked on it. */
     if (!put && L.lead){
-      put={x:Math.round(Math.min(w-4-L.w,Math.max(4,px-L.w/2))),
-           y:Math.round(Math.min(h-4-L.h,Math.max(4,py+r+7)))};
+      let x=Math.round(Math.min(w-4-L.w,Math.max(4,px-L.w/2)));
+      let y=Math.round(Math.min(h-4-L.h,Math.max(4,py+r+7)));
+      /* last resort still clears the chrome: lifted above whatever it landed
+         on, and only pushed back down if there is no room above */
+      for (const b of skyChrome()){
+        if (x<b.x+b.w && x+L.w>b.x && y<b.y+b.h && y+L.h>b.y){
+          const up=b.y-L.h-4, down=b.y+b.h+4;
+          y = up>=4 ? up : Math.min(h-4-L.h, down);
+        }
+      }
+      put={x,y};
     }
     if (!put){ L.el.hidden=true; continue; }
     L.el.hidden=false;
@@ -1802,6 +1836,7 @@ function skyPlaceLabels(){
 
 function skyReadout(){
   const box=$("#sky-read"), key=skyInHand();
+  sky.chrome=null;                      /* the readout changes height as it fills */
   if (key==null || !F[key]){
     box.style.removeProperty("--nc");
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
@@ -1826,6 +1861,10 @@ function skyHand(){
   const field=$("#sky-field");
   if (key!=null && F[key]) field.style.setProperty("--nc", F[key].highlight);
   else field.style.removeProperty("--nc");
+  /* only the POINTER changes the cursor — a keyboard selection leaves it alone,
+     because there is nothing under the pointer to click */
+  const c=$("#sky-c");
+  if (c) c.classList.toggle("over", sky.hoverKey!=null);
   skyLabels(key);
   skyReadout();
   skyRender();

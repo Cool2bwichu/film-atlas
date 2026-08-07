@@ -106,32 +106,79 @@ function mulberry32(seed) {
 const DEFAULTS = {
   seed: 0x0a71a5,
 
-  iterations: 600,     /* FR passes. See the cooling note below.               */
+  iterations: 600,     /* FR passes. Measurably flat past ~350 at n=803.      */
   theta: 0.80,         /* Barnes-Hut opening angle. 0 = exact O(n^2), 1 = mush */
 
-  /* All lengths below are in units of k = 1/sqrt(n), the spacing n films would
-     have if they were spread evenly over a unit square. Expressing them this
-     way is what lets the same constants hold from 800 films to 2,000: the
-     corpus grows, k shrinks, and the picture stays equally dense rather than
-     equally sized. */
-  restStrong: 0.55,    /* rest length at strength 1, in units of k             */
-  restWeak: 3.20,      /* rest length at strength 0, in units of k             */
-  restExp: 1.00,       /* shape of the strength -> length curve; 1 = linear    */
-  stiffFloor: 0.10,    /* a strength-0 spring still pulls this much            */
-  stiffExp: 1.30,      /* >1 makes stiffness rise steeply with strength        */
+  /* Lengths are in units of k = 1/sqrt(n), the spacing n films would have if
+     they were spread evenly over a unit square. Expressing them this way is
+     what lets the same constants hold from 800 films to 2,000: the corpus
+     grows, k shrinks, and the picture stays equally dense rather than equally
+     sized. Absolute numbers here would silently re-tune themselves as the
+     corpus grew, which is exactly the failure mode STATE.md item 1 is about. */
+  restStrong: 0.35,    /* rest length at strength 1                            */
+  restWeak: 48,        /* rest length at strength 0 — read the note below      */
+  restExp: 2.0,        /* shape of the strength -> length curve; 1 = linear    */
 
-  attract: 0.90,       /* overall spring coefficient                            */
-  repel: 1.00,         /* overall repulsion coefficient, in units of k^2        */
-  gravity: 0.020,      /* uniform pull to the centroid — degree-free           */
+  stiffFloor: 0.01,    /* a strength-0 spring still pulls this much            */
+  stiffExp: 5.5,       /* stiffness = floor + (1-floor) * strength^stiffExp    */
 
-  tempStart: 3.00,     /* initial per-iteration displacement cap, in k         */
+  attract: 1.5,        /* global spring coefficient                            */
+  repel: 1.5,          /* global repulsion coefficient, in units of k^2        */
+  gravity: 0.90,       /* uniform pull to the centroid — degree-free           */
+
+  tempStart: 1.50,     /* initial per-iteration displacement cap, in k         */
   tempEnd: 0.020,      /* final cap, in k                                      */
-  coolExp: 2.20,       /* cooling curve exponent; >1 spends longer cold        */
+  coolExp: 2.80,       /* cooling curve exponent; >1 spends longer cold        */
 
   initRadius: 0.56,    /* phyllotaxis disc radius; ~unit area for any n        */
   margin: 0.004,       /* inset from the [0,1] edges of the render square      */
   round: 5,            /* decimal places kept in the shipped coordinates       */
 };
+
+/* ── WHY restWeak IS 48 AND NOT 180, WHICH SCORES BETTER ─────────────────────
+ *
+ * The harness's bondFit is Spearman(edge strength, rendered edge length) and it
+ * gets monotonically better as restWeak rises: 48 scores -0.65, 110 scores
+ * -0.74, 180 scores -0.81. Those larger numbers are a lie, and the way they lie
+ * is worth writing down because the metric cannot see it.
+ *
+ * A long rest length does not just let a weak edge be long, it PUSHES its two
+ * films apart — the spring is compressed, so it shoves. Past a point the map is
+ * therefore claiming that two films with a weak tie belong FURTHER apart than
+ * two films with no tie at all, which inverts the meaning of drawing an edge.
+ * Measured on this corpus at restWeak 180: the median rendered length of the
+ * weakest strength decile is 0.403 while the median distance between two
+ * randomly chosen films that share no edge at all is 0.300. The picture is
+ * saying a weak bond is evidence of unrelatedness. It is not; STATE.md is
+ * explicit that weak ties are load-bearing precisely because they are real.
+ *
+ * So the constraint this file is tuned against is:
+ *
+ *     median(length of weakest-decile edges) / median(distance between
+ *     unconnected pairs)   must stay comfortably below 1.0
+ *
+ * At restWeak 48 that ratio is 0.83 — an edge, even the weakest kind the corpus
+ * carries, still means "closer than chance", with margin left for the ratio to
+ * drift as the corpus grows. bondFit gives up about 0.16 of correlation for it.
+ * That is the trade being made, deliberately, and it is the same trap STATE.md
+ * records under "a metric can improve while the thing it measures gets worse".
+ * If you retune this file, re-check that ratio; the harness will not.
+ *
+ * The other constants were swept by coordinate descent against the same
+ * harness, subject to that ratio cap. Two are worth a word:
+ *
+ *   - `stiffExp` 5.5 is steep on purpose. With ~19 edge-ends per film, most
+ *     rest lengths are unsatisfiable at once and what a reader sees is who won
+ *     the tug-of-war. A steep stiffness curve means the corpus's most confident
+ *     bonds win it. A flat one hands the decision to whichever endpoint has
+ *     more neighbours, i.e. to degree, which rule 1 forbids.
+ *   - `gravity` 0.90 is high for a force layout and it is doing occupancy work,
+ *     not physics: a confining pull keeps the outer films off the rim, so the
+ *     bounding box is not stretched by a handful of strays and the
+ *     normalisation does not then shrink everyone else into a dot. It took
+ *     grid occupancy from 0.36 to 0.47 against a hard ceiling of 803/1600 =
+ *     0.502 (one film per cell), and it is one constant applied to every film.
+ */
 
 /* Depth cap on the quadtree. Doubles run out of mantissa long before this, but
    two films at bit-identical coordinates would subdivide forever without it, so
@@ -190,12 +237,19 @@ function layout(films, edges, opts) {
     const s = Math.max(0, Math.min(1, edges[e].strength || 0));
     ea[live] = A; eb[live] = B;
 
-    /* THIS LINE IS AGENTS RULE 1. The distance a reader measures between two
+    /* THIS IS AGENTS RULE 1. The distance a reader measures between two
        connected films is a statement about how tightly the corpus says they are
-       bound, and about nothing else. Linear in strength because the mapping has
-       to be legible: halfway between two strengths is halfway between two
-       lengths, and a reader comparing two edges by eye is doing the right
-       arithmetic. */
+       bound, and about nothing else — no degree, no fame, no edge count.
+
+       The curve is convex (restExp 2.0), not linear, and that is a real choice
+       rather than a fitted constant. Strength in this corpus is packed into the
+       middle: the quartiles are 0.395 / 0.560 / 0.640 on a 0.19-0.92 range, so a
+       linear map spends most of its available length on the sparse tails and
+       leaves the crowded middle indistinguishable. Squaring (1-s) gives the
+       strong half of the distribution most of the short-length resolution, which
+       is where the reader is actually comparing edges. It stays strictly
+       monotone, so "shorter means stronger" is still true everywhere — only the
+       spacing between rungs changes. */
     rest[live] = k * (P.restStrong +
       Math.pow(1 - s, P.restExp) * (P.restWeak - P.restStrong));
 
@@ -211,10 +265,11 @@ function layout(films, edges, opts) {
   /* ------------------------------------------------------------- quadtree -- */
 
   /* The tree is rebuilt from scratch every iteration and the arrays are reused,
-     so the per-iteration allocation is zero. Capacity grows by doubling; a
-     quadtree over n well-spread points settles around 1.4n cells, but a corpus
-     with a very tight cluster can need more, so this is measured rather than
-     assumed. */
+     so the per-iteration allocation is zero after warm-up. 2n is the measured
+     working size, not a guess: instrumented on the 803-film corpus the tree
+     peaks at 1,402 cells, ratio 1.75. Capacity still grows by doubling, because
+     a corpus with one very tight cluster subdivides deeper than this one and a
+     silent overrun of a typed array would be a corruption, not an error. */
   let qCap = Math.max(64, n * 2);
   let qChild = new Int32Array(qCap * 4);
   let qMass = new Float64Array(qCap);
