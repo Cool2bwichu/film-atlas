@@ -93,11 +93,44 @@ Sites edition, 2026-08-06:
 
    The keyword signal is already converted: its strength comes from
    `surprise()`, a Poisson tail against the overlap expected from the corpus's
-   own frequencies. Measured across subsampled corpora of 200–803 films, that
-   drifts ~2.0x in selectivity where a fixed count drifts ~3.9x. **The other
-   signals have not been converted** — subject, setting, cast, movement and
-   studio all still gate on raw `floorIdf`. Doing that conversion is the single
-   highest-value piece of engine work before the corpus grows.
+   own frequencies. **The other signals have not been converted** — subject,
+   setting, cast, movement and studio all still gate on raw `floorIdf`.
+
+   **Measured, 2026-08-07 — the drift is real but much smaller than this entry
+   assumed.** `pipeline/measure-scale.js` now reports it instead of arguing it.
+   Over the widest ladder this corpus can actually support (N=550→803,
+   400k sampled pairs per rung):
+
+   ```
+   countryEra 1.01x   setting 1.04x   cast 1.05x   genre 1.06x
+   movement   1.09x   genreEra 1.12x  studio 1.13x  subject 1.17x
+   keyword (surprise, the scale-free control)      1.12x
+   ```
+
+   Every `floorIdf` signal drifts within the control's own margin. The worst,
+   `subject` at 1.17x, is 1.0x the control. So over the measurable range the
+   conversion is **not** urgent, and the earlier "~2.0x vs ~3.9x" figures did
+   not survive being measured with a noise guard.
+
+   Three caveats, all load-bearing:
+
+   - This measures 550→803, a 1.46x growth. Going to 2,000 is 2.5x again, and
+     the analytic argument above is still mathematically true — `idf` is
+     N-dependent whatever the current sample says. Small drift over the range
+     we can see is **not** proof of small drift beyond it.
+   - `sameAuthor` is not measurable at any N this corpus reaches: it fires on
+     ~0.01% of pairs, so even 400k sampled pairs yield 18 events. The tool now
+     prints `noisy` with the event count rather than a ratio. Its first run
+     reported a confident **6.35x** for `sameAuthor` built on about twelve
+     events, and a 2.68x "control" built on eleven — both pure noise. Any drift
+     figure quoted without its event count should be distrusted.
+   - `usable()` is not modelled, so absolute percentages read high by a constant
+     factor. That factor cancels out of the ratio, which is why the ratio is the
+     column to read.
+
+   **Re-run `measure-scale.js` after any harvest.** The ladder extends itself to
+   the new N, which converts "growth might have broken the thresholds" from a
+   worry into a number.
 
 2. **Claim quality: 20.9% trivia, down from 36.1%.** Kept falling as the
    authored layer grew — seven reading passes took it 36.1 → 30.4 → 29.7 →

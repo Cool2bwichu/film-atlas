@@ -41,3 +41,9 @@ yarn-error.log*
 /.playwright-cli/
 /output/
 /public/atlas.html
+
+# Pipeline query caches. Every networked stage is resumable by writing one file
+# per SPARQL response here; they are regenerable, large, and say nothing the
+# corpus does not already record.
+/atlas/pipeline/.cache-sparql/
+/atlas/pipeline/.cache-expand/
