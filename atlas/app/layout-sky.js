@@ -98,6 +98,26 @@ function layout(films, edges, opts) {
   const CELL = 0.055;
   const bins = new Map();
   const REPEL = o.repel || 0.00042;
+  const MIN_D2 = (CELL * 0.25) * (CELL * 0.25);
+  /* THE STEP LIMIT IS WHAT MAKES THIS CONVERGE AT ALL.
+   *
+   * Without it this simulation diverges on the second iteration: the corpus
+   * averages 19 edges per film, every one of those springs adds to the same
+   * velocity, and a film sitting 2.0 units from a neighbour with a rest length
+   * of 0.05 receives a correction far larger than the distance it needed to
+   * move. Measured on the shipped 803-film corpus, the layout spanned 1.9 units
+   * at iteration 0 and 11,000 units at iteration 1, and what it settled into
+   * 420 iterations later was 778 of 803 films inside two cells of a 20x20 grid
+   * with three survivors flung to the edges -- a picture with no information in
+   * it whatsoever. It looked like a layout because it was normalised at the end.
+   *
+   * Capping the per-iteration displacement is the standard Fruchterman-Reingold
+   * cooling schedule and it is deliberately degree-free: it is one number, the
+   * same for every film on every iteration, so it cannot smuggle node degree
+   * back into the force calculation that AGENTS rule 1 keeps it out of. A
+   * well-connected film is limited to exactly the same step as an isolated one.
+   */
+  const STEP_HOT = o.step || 0.06, STEP_COLD = 0.0006;
 
   for (let it = 0; it < ITER; it++) {
     /* Cooling: big rearrangements early, fine settling late. Without it the
@@ -134,7 +154,12 @@ function layout(films, edges, opts) {
             if (d2 > CELL * CELL * 4) continue;
             if (d2 < 1e-9) { ddx = (rnd() - 0.5) * 1e-4; ddy = (rnd() - 0.5) * 1e-4; d2 = ddx * ddx + ddy * ddy; }
             const d = Math.sqrt(d2);
-            const f = (REPEL / d2) * heat;
+            /* Softened at very short range. An unbounded 1/d^2 term between two
+               nearly coincident films returns a force of tens of thousands,
+               which the integrator turns into a node several hundred units off
+               screen in one step. Below a quarter of a cell the repulsion is
+               held flat: still firmly separating, no longer a singularity. */
+            const f = (REPEL / Math.max(d2, MIN_D2)) * heat;
             const ux = ddx / d, uy = ddy / d;
             vx[i] += ux * f; vy[i] += uy * f;
             vx[j] -= ux * f; vy[j] -= uy * f;
@@ -153,10 +178,13 @@ function layout(films, edges, opts) {
       vx[j] -= ux * f; vy[j] -= uy * f;
     }
 
+    const step = STEP_HOT * heat + STEP_COLD;
     for (let i = 0; i < n; i++) {
       vx[i] -= x[i] * 0.0016 * heat;
       vy[i] -= y[i] * 0.0016 * heat;
       vx[i] *= damp; vy[i] *= damp;
+      const sp = Math.hypot(vx[i], vy[i]);
+      if (sp > step) { const s = step / sp; vx[i] *= s; vy[i] *= s; }
       x[i] += vx[i]; y[i] += vy[i];
     }
   }
