@@ -58,3 +58,4 @@ yarn-error.log*
 # bytecode from palette runs. Both regenerable, neither reviewable.
 /atlas/atlas.html
 __pycache__/
+/atlas/pipeline/.cache-enrich/
