@@ -101,7 +101,14 @@ assertCorpus(corpus);
  * freeze on a phone the first time anyone opens the view. It is also what makes
  * the constellation deterministic in the sense the rest of the project already
  * is — the same corpus draws the same sky twice, so "it is over on the left"
- * means something to a second person. See app/layout-sky.js. */
+ * means something to a second person.
+ *
+ * app/layout-sky.js is Fruchterman-Reingold with global Barnes-Hut repulsion.
+ * It is called with films and edges and NOTHING ELSE — no degree, no ranking,
+ * no popularity — because AGENTS rule 1 makes rendered distance a statement
+ * about bond strength alone. Both build paths below feed it the same shape,
+ * so the packed subset gets a layout solved over its own edges rather than a
+ * slice of the full-corpus one. */
 const { layout } = require("./layout-sky.js");
 const positions = layout(corpus.films, corpus.edges);
 
@@ -135,6 +142,20 @@ if(ORIGIN!==null){
      own ("__ATLAS_ORIGIN__/", "__ATLAS_ORIGIN__/og.png"). */
   html=html.replaceAll("__ATLAS_ORIGIN__",ORIGIN.replace(/\/+$/,""));
 }
+/* The chunking above is only a discipline until something checks it. A
+   regression that emits CORPUS or POS as one line produces valid HTML that
+   renders as a blank page, so this is the assertion that turns a silent
+   renderer failure into a build failure. The template's own longest line is
+   360 characters and a pack() chunk is ~210, so the ceiling is slack enough
+   never to fire on legitimate content. */
+const LINE_MAX=4000;
+let worstLine=0,worstAt=0;
+html.split("\n").forEach((line,i)=>{ if(line.length>worstLine){worstLine=line.length;worstAt=i+1;} });
+if(worstLine>LINE_MAX){
+  throw new Error(`Atlas build emitted a ${worstLine}-character line at line ${worstAt} (max ${LINE_MAX}). `+
+    "Embedded data must stay chunked — a single enormous line renders as a blank page.");
+}
+
 fs.mkdirSync(path.dirname(OUT),{recursive:true});
 const staged=`${OUT}.${process.pid}.tmp`;
 try{

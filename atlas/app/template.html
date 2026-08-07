@@ -1418,6 +1418,10 @@ const sky = {
   cam:{cx:0.5,cy:0.5,k:1}, w:0, h:0, dpr:0, ctx:null,
   hoverKey:null, pinKey:null, labelKey:undefined, labels:[],
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
+  /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
+     click a touch screen fires afterwards can be told apart from a real one.
+     See the click listener by the pointerup handler. */
+  ghost:null,
 };
 
 const skyReduced = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -2197,9 +2201,35 @@ if (SKY_POS){
        tap is the hover a finger does not have, and the readout it fills in
        carries an explicit Open button for people who would rather not
        discover the second tap. */
-    if(d.type==="mouse"||sky.pinKey===key) openMap(key);
+    if(d.type==="mouse"||sky.pinKey===key){
+      /* ARM THE GHOST-CLICK GUARD BEFORE NAVIGATING, NOT AFTER.
+         A touch screen dispatches compatibility mousedown/mouseup/click AFTER
+         touchend, and re-hit-tests the page as it stands at that moment. By
+         then openMap() has replaced the canvas with the radial map, so the
+         ghost click lands on whichever ring node happens to sit under the
+         finger and opens THAT film instead. Measured in Chromium: 5 of 10
+         taps opened a neighbour — always a plausible one, which is what made
+         it read as the map being wrong rather than the tap. */
+      if(d.type!=="mouse") sky.ghost=[e.clientX,e.clientY,performance.now()];
+      openMap(key);
+    }
     else skyPinKey(key);
   });
+  /* Swallow exactly the ghost click armed above: same place, same moment.
+     Deliberately NOT a blanket "ignore clicks for N ms" — that would also eat
+     a fast second tap somewhere else, which is a real thing to do on the map
+     that just opened. Matching position as well as time means only the
+     synthetic click at the finger's own landing point is discarded, and it is
+     consumed on first use so it can never swallow a second one. */
+  addEventListener("click",e=>{
+    const g=sky.ghost;
+    if(!g) return;
+    sky.ghost=null;
+    if(performance.now()-g[2]>900) return;
+    if(Math.abs(e.clientX-g[0])>24||Math.abs(e.clientY-g[1])>24) return;
+    e.stopPropagation();
+    e.preventDefault();
+  },true);
   skyC.addEventListener("pointercancel",release);
   skyC.addEventListener("pointerleave",()=>{
     if(sky.drag||sky.hoverKey==null) return;
