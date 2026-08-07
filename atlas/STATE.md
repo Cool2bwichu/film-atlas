@@ -98,8 +98,12 @@ Sites edition, 2026-08-06:
 
    **Measured, 2026-08-07 — the drift is real but much smaller than this entry
    assumed.** `pipeline/measure-scale.js` now reports it instead of arguing it.
-   Over the widest ladder this corpus can actually support (N=550→803,
-   400k sampled pairs per rung):
+   Produced by exactly this invocation — quote the flags with the table, the
+   numbers differ without them:
+
+   ```bash
+   node pipeline/measure-scale.js --cohort pipeline/cohort-pre-growth.txt --pairs 400000
+   ```
 
    ```
    countryEra 1.01x   setting 1.04x   cast 1.05x   genre 1.06x
@@ -128,9 +132,24 @@ Sites edition, 2026-08-06:
      factor. That factor cancels out of the ratio, which is why the ratio is the
      column to read.
 
-   **Re-run `measure-scale.js` after any harvest.** The ladder extends itself to
-   the new N, which converts "growth might have broken the thresholds" from a
-   worry into a number.
+   **The tool is structurally blind to the thing most likely to go wrong.**
+   `GATED` covers only floorIdf signals, so `crew` — which gates on identity,
+   not rarity, and is the signal that swamps the edge budget as the corpus
+   grows — is not in the table at all, nor are `MAX_EDGES_PER_VALUE` or the
+   one-edge-per-pair contest. A clean drift table is **not** a clean bill of
+   health: it can read all-green while half the graph turns into filmography
+   browsing. Read `measure-claims.js` at its `crew %` and `REPEATED` lines for
+   that failure, not `TRIVIA SHARE`.
+
+   **Re-run after a harvest with `--cohort pipeline/cohort-pre-growth.txt`.**
+   An earlier version of this entry said to re-run the bare command and read the
+   extended ladder as the answer. That was wrong, and wrong in the way that
+   reads as a regression: `subsample()` takes the n lowest key hashes, so the
+   "N=803" rung of a 2,000-film corpus is a hash-selected 803 films, not the 803
+   in the corpus today — `subject` reads 0.55% here and 0.30% there, same tool,
+   same flags, different films. `pipeline/cohort-pre-growth.txt` freezes today's
+   803 so both sides of the harvest name the same films. Without it, compare
+   drift ratios only, never absolute rates.
 
 2. **Claim quality: 20.9% trivia, down from 36.1%.** Kept falling as the
    authored layer grew — seven reading passes took it 36.1 → 30.4 → 29.7 →

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /* How much does each signal's selectivity move when the corpus grows?
  *
- *   node pipeline/measure-scale.js
- *   node pipeline/measure-scale.js --pairs 400000 --ladder 200,400,600,803
+ *   node pipeline/measure-scale.js --pairs 400000
+ *   node pipeline/measure-scale.js --write-cohort pipeline/cohort-803.txt
+ *   node pipeline/measure-scale.js --cohort pipeline/cohort-803.txt --pairs 400000
  *
  * WHY THIS EXISTS
  *
@@ -18,6 +19,20 @@
  * and the ratio between the extremes. A signal whose ratio is near 1.0 is
  * scale-free. A signal at 2x or 4x will mean something different after growth
  * than it meant when it was tuned, and the ratio says how much.
+ *
+ * WHAT THIS IS STRUCTURALLY BLIND TO — READ THIS BEFORE TRUSTING A CLEAN RESULT
+ *
+ * `GATED` below lists only the floorIdf-gated signals. `crew` and `adaptation`
+ * are excluded because they gate on identity, not rarity (floorIdf 0) — and
+ * `crew` is the signal that swamps the edge budget as the corpus grows. This
+ * tool also models none of `MAX_EDGES_PER_VALUE`, the one-edge-per-pair
+ * contest, or per-film edge selection.
+ *
+ * So it can report "every floor is within the control's margin" while half the
+ * graph quietly turns into filmography browsing. A clean table here is NOT a
+ * clean bill of health for the corpus. The instrument that catches that is
+ * `measure-claims.js`, read at its `crew %` and `REPEATED` lines rather than
+ * at `TRIVIA SHARE`.
  *
  * WHAT IT DELIBERATELY DOES NOT MODEL
  *
@@ -40,8 +55,20 @@
  * left-to-right shows the direction each signal is already moving.
  *
  * The ladder is capped at the corpus you actually have -- this measures drift
- * that has HAPPENED, and cannot extrapolate past the data. Re-run it after a
- * harvest and the ladder extends itself.
+ * that has HAPPENED, and cannot extrapolate past the data.
+ *
+ * BUT TWO RUNS ARE NOT COMPARABLE UNLESS YOU PIN THE COHORT. An earlier version
+ * of this header said to re-run after a harvest and read the extended ladder as
+ * the answer to "did growth break the thresholds". That was WRONG, and the way
+ * it was wrong is the kind that reads as a regression: `subsample()` takes the
+ * n lowest key hashes, so the "N=803" rung of a 2,000-film corpus is a
+ * hash-selected 803 films, not the 803 the corpus holds today. Measured across
+ * exactly that pair, `subject` reads 0.55% today and 0.30% on the 803-rung of a
+ * grown corpus -- same tool, same flags, different films.
+ *
+ * Use --write-cohort before a harvest and --cohort after it, and the rungs name
+ * the same films on both sides. Without a pinned cohort, compare DRIFT RATIOS
+ * only, never absolute rates, and never across harvests.
  */
 
 const fs = require("fs");
@@ -182,14 +209,53 @@ function main() {
     }
   }
 
+  /* A COHORT PINS *WHICH* FILMS, NOT JUST HOW MANY.
+   *
+   * subsample() picks the n lowest key hashes, so "the N=803 rung" of a
+   * 2,000-film corpus is a hash-selected 803 films -- NOT the 803 this corpus
+   * holds today. Measured across exactly that pair, the same signal reads
+   * 0.55% today and 0.30% on the 803-rung of a grown corpus. So a table
+   * produced before a harvest CANNOT be diffed against one produced after it,
+   * and the earlier advice in STATE.md to "re-run after any harvest" to see
+   * whether growth moved the thresholds was wrong as written: the drift column
+   * is only meaningful WITHIN one run.
+   *
+   * --write-cohort freezes today's film set to a file; --cohort restricts a
+   * later run to those same films. Rungs then name the same cohort on both
+   * sides of a harvest and the two tables are comparable. Without it, compare
+   * drift ratios only, never absolute rates. */
+  const cohortPath = arg("cohort", null);
+  if (cohortPath) {
+    const want = new Set(fs.readFileSync(cohortPath, "utf8").split("\n").map((l) => l.trim()).filter(Boolean));
+    const kept = keys.filter((k) => want.has(k));
+    const missing = want.size - kept.length;
+    keys.length = 0;
+    keys.push(...kept);
+    process.stdout.write(`cohort : ${kept.length}/${want.size} films from ${path.basename(cohortPath)}`
+      + (missing ? ` (${missing} no longer in the corpus)` : "") + "\n");
+  }
+  const writeCohort = arg("write-cohort", null);
+  if (writeCohort) {
+    fs.writeFileSync(writeCohort, keys.join("\n") + "\n");
+    process.stdout.write(`cohort written -> ${writeCohort} (${keys.length} films)\n`);
+  }
+
   const full = keys.length;
-  const ladder = (arg("ladder", "") || [200, 300, 400, 550, 700, full]
+  /* Default ladder starts at 550, not 200. Below that the keyword control
+     fires on too few pairs to be usable -- at N=200 only 19,900 pairs exist in
+     total, and the control lands ~11 events -- so a six-rung ladder prints
+     "noisy" for the control and a worst-case figure ~35% higher than the
+     550-and-up ladder. Someone re-running the bare command would read that
+     difference as a regression caused by growth. The default now matches the
+     invocation whose numbers are worth quoting. */
+  const ladder = (arg("ladder", "") || [550, 700, full]
     .filter((n, i, a) => n <= full && a.indexOf(n) === i).join(","))
     .split(",").map((s) => parseInt(s.trim(), 10)).filter((n) => n > 20 && n <= full);
   if (ladder[ladder.length - 1] !== full) ladder.push(full);
 
   process.stdout.write(`corpus : ${full} films, ${kwFilms} with keywords\n`);
-  process.stdout.write(`pairs  : ${pairs.toLocaleString()} sampled per rung (deterministic)\n\n`);
+  process.stdout.write(`pairs  : ${pairs.toLocaleString()} sampled per rung (deterministic)\n`);
+  process.stdout.write(`ladder : ${ladder.join(", ")}\n\n`);
 
   const rows = ladder.map((n) => measure(films, subsample(keys, n), pairs));
 
