@@ -480,6 +480,85 @@ main{flex:1;position:relative;overflow:hidden}
 .why-item .src{font-family:var(--serif);font-size:11.5px;line-height:1.4;color:var(--dim);
   margin-top:6px}
 
+/* ── the constellation: the whole atlas in one field ─────────────────
+   CANVAS, NOT DOM. 803 discs and 7,759 lines as elements is a layout and a
+   style recalculation the browser cannot afford at interactive rates, and the
+   corpus is heading past 2,000 films. One <canvas>, one draw call per frame.
+
+   Type is the deliberate exception and is NOT painted into the canvas.
+   Captions never blur (AGENTS rule 4), and canvas text under a fractional
+   devicePixelRatio is exactly where that promise gets quietly broken. Real DOM
+   text at an integer pixel offset, with no transform on it, is the only
+   version that survives every screen. There are never more than a dozen
+   labels alive at once, so they cost nothing. */
+#sky{display:flex;flex-direction:column}
+.sky-field{flex:1;position:relative;overflow:hidden}
+/* THE ROOM, the same two layers as the radial map's stage and for the same
+   reason: a field with a lamp in it reads as a space, a flat one reads as a
+   screen. ::before is lit in the highlight of the film currently in hand and
+   follows it across the field, so the light source is the thing you are
+   looking at rather than a house colour. */
+.sky-field::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(36% 42% at var(--lx,50%) var(--ly,50%),
+    var(--nc,var(--accent)) 0%,transparent 70%);
+  opacity:.085;transition:opacity var(--t-slow) var(--ease)}
+.sky-field::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:4;
+  background:radial-gradient(120% 100% at 50% 48%,transparent 40%,
+    rgba(3,2,5,.34) 78%,rgba(3,2,5,.62) 100%)}
+#sky-c{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;
+  touch-action:none;cursor:grab}
+#sky-c.dragging{cursor:grabbing}
+#sky-c:focus-visible{outline:1px solid var(--accent);outline-offset:-3px}
+
+.sky-labels{position:absolute;inset:0;pointer-events:none;z-index:6}
+/* No transform and no fractional offset anywhere on this element. A
+   translate(-50%) on an odd-width box lands the glyphs on a half pixel, which
+   is precisely the soft-caption failure rule 4 exists to prevent; the placer
+   rounds and writes left/top instead. */
+.sky-label{position:absolute;left:0;top:0;white-space:nowrap;
+  font-family:var(--serif);font-size:12.5px;line-height:1.18;color:var(--ink);
+  padding:2px 7px 3px;background:rgba(8,7,10,.9);
+  box-shadow:0 0 0 1px rgba(34,30,40,.92)}
+.sky-label .y{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;
+  color:var(--faint);margin-left:7px;font-variant-numeric:tabular-nums}
+/* A neighbour's name is set QUIETER, never softer. Rule 4 lets graph depth
+   change a label's weight; it may never touch its sharpness, and nothing here
+   drops below a legible contrast. */
+.sky-label.near{font-size:11.5px;color:var(--dim);background:rgba(8,7,10,.82);
+  padding:2px 6px 3px}
+.sky-label.near .y{display:none}
+
+.sky-hud{position:absolute;left:0;right:0;bottom:0;z-index:8;
+  display:flex;align-items:flex-end;gap:14px;pointer-events:none;
+  padding:14px max(16px,env(safe-area-inset-right))
+          calc(14px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.sky-hud>*{pointer-events:auto}
+.sky-read{flex:1;min-width:0;max-width:min(520px,64vw);
+  background:rgba(8,7,10,.82);backdrop-filter:blur(10px);
+  border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent));
+  padding:10px 13px 11px}
+.sky-read .slate{display:block}
+.sky-read .t{font-family:var(--display);font-size:19px;line-height:1.1;
+  letter-spacing:var(--track-display);display:block;margin-top:5px;
+  overflow:hidden;text-overflow:ellipsis}
+.sky-read .y{font-family:var(--mono);font-size:9px;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--faint);display:block;margin-top:6px;
+  font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
+.sky-read .btn{margin-top:11px}
+.sky-ctl{display:flex;gap:6px;align-items:flex-end;flex-shrink:0}
+.sky-ctl .btn{min-width:38px;text-align:center}
+.sky-ctl .ico{font-family:var(--mono);font-size:14px;letter-spacing:0;
+  padding:3px 11px 5px;line-height:1.2}
+
+/* the wall's second door into the same view */
+.linky{font-family:var(--mono);font-size:9.5px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--hair);
+  padding-bottom:2px;transition:color var(--t-fast) var(--ease),
+  border-color var(--t-fast) var(--ease)}
+.linky:hover,.linky:focus-visible{color:var(--ink);border-bottom-color:var(--accent)}
+
 /* ── empty / notices ───────────────────────────────────────────────── */
 .notice{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;
   color:var(--dim);font-size:14px;max-width:420px;padding:0 20px}
@@ -500,6 +579,7 @@ main{flex:1;position:relative;overflow:hidden}
   #wall-body .grid:not(:last-of-type){
     grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:18px 13px}
   .sec-head{margin:36px 0 15px}
+  .sky-read{max-width:none}
 }
 @media (max-width:720px){
   header{gap:10px;padding:calc(11px + env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) 11px max(14px,env(safe-area-inset-left));flex-wrap:wrap}
@@ -529,9 +609,19 @@ main{flex:1;position:relative;overflow:hidden}
   .node.centre .label .t{font-size:17px}
   .edge-label{font-size:8px;letter-spacing:.16em;padding:2px 5px}
   .claim-tip{max-width:220px}
+  /* The readout gives up the field before the constellation does: on a phone
+     the map itself is the scarce thing. */
+  .sky-hud{flex-direction:column;align-items:stretch;gap:10px;padding:10px 12px
+    calc(10px + env(safe-area-inset-bottom))}
+  .sky-ctl{justify-content:flex-end}
+  .sky-read{max-width:none;padding:9px 11px 10px}
+  .sky-read .t{font-size:17px}
+  .sky-label{font-size:12px}
+  .sky-label.near{font-size:11px}
 }
 @media (pointer:coarse){
-  .wordmark,.btn,.chip,.panel-x{min-height:44px}
+  .wordmark,.btn,.chip,.panel-x,.linky{min-height:44px}
+  .linky{display:inline-flex;align-items:center}
   .panel-x{width:44px;height:44px;top:4px;right:4px}
   .trail-step{min-width:44px;min-height:44px;display:grid;place-items:center}
   .why-item{min-height:44px}
@@ -557,6 +647,8 @@ main{flex:1;position:relative;overflow:hidden}
       <div class="sugg" id="sugg" role="listbox" aria-label="Film suggestions" hidden></div>
     </div>
     <div class="tools">
+      <button class="btn" id="constellation" type="button"
+        aria-label="Open the constellation, the whole atlas as one map">Constellation</button>
       <button class="btn" id="surprise">Surprise me</button>
       <button class="btn" id="foryou">For you<span class="n" id="loved-n">0</span></button>
     </div>
@@ -571,7 +663,9 @@ main{flex:1;position:relative;overflow:hidden}
           <p>Pick one and Atlas draws what it descends from, argues with and quietly rhymes
              with — each line carrying a specific claim you can read. Follow the connections
              and the map keeps opening.</p>
-          <div class="lede-foot"><span class="slate">Press <kbd>/</kbd> to search — or pick a face</span></div>
+          <div class="lede-foot"><span class="slate">Press <kbd>/</kbd> to search — or pick a face</span>
+            <span class="slate" style="margin:0 8px">·</span>
+            <button class="linky" id="sky-lede" type="button">See the whole atlas at once</button></div>
         </div>
         <div class="filters" id="filters"></div>
         <div id="wall-body"></div>
@@ -586,6 +680,33 @@ main{flex:1;position:relative;overflow:hidden}
       <div class="trail" id="trail"></div>
     </section>
 
+    <section class="view" id="sky" aria-label="Constellation of the whole atlas"
+      aria-hidden="true" inert>
+      <div class="sky-field" id="sky-field">
+        <canvas id="sky-c" tabindex="0" role="application" aria-describedby="sky-help"
+          aria-label="Constellation. Arrow keys step between films, Enter opens the selected film's map, plus and minus zoom, zero refits the whole atlas."></canvas>
+        <div class="sky-labels" id="sky-labels" aria-hidden="true"></div>
+        <!-- The canvas's description lives here rather than inside #sky-read,
+             which the readout rebuilds on every hover: an aria-describedby
+             pointing at an element that keeps being replaced is a dangling
+             reference, and a screen reader announces nothing at all. -->
+        <span class="sr-only" id="sky-help">Drag to pan, scroll or pinch to zoom,
+          click a film to open its lineage map. Arrow keys step between films,
+          Enter opens the one in hand, plus and minus zoom, zero refits.</span>
+        <div class="sky-hud">
+          <div class="sky-read" id="sky-read">
+            <span class="slate">The whole atlas</span>
+            <span class="y" style="margin-top:7px">Drag to pan · scroll to zoom · pick a film to open its map</span>
+          </div>
+          <div class="sky-ctl">
+            <button class="btn ico" id="sky-out" type="button" aria-label="Zoom out">&minus;</button>
+            <button class="btn ico" id="sky-in" type="button" aria-label="Zoom in">+</button>
+            <button class="btn" id="sky-fit" type="button" aria-label="Fit the whole constellation on screen">Fit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <aside class="panel" id="panel" aria-label="Film details" aria-hidden="true" aria-live="polite" inert></aside>
   </main>
   <div class="sr-only" id="sr-status" aria-live="polite"></div>
@@ -593,6 +714,7 @@ main{flex:1;position:relative;overflow:hidden}
 
 <script>
 /* __CORPUS__ */
+/* __LAYOUT__ */
 
 /* ═══════════════════════════════════════════════════════════════════════
    ENGINE
@@ -1257,6 +1379,581 @@ function openPanel(k){
 const openPanelPreview = (k)=>{};
 
 /* ═══════════════════════════════════════════════════════════════════════
+   THE CONSTELLATION — the whole atlas as one field
+
+   The radial map answers "what is this film next to". This answers the
+   other question: what is the shape of the thing, where do the traditions
+   sit, and what runs between them. It is a way IN, not a replacement —
+   every film on it opens the radial map.
+
+   CANVAS, NOT DOM. 803 discs and 7,759 lines as elements is a style
+   recalculation the browser cannot afford at interactive rates, and the
+   corpus is heading past 2,000 films.
+
+   THE LAYOUT IS NOT COMPUTED HERE. POS arrives baked, two numbers per film,
+   solved by app/layout-sky.js at build time. A force solve over this graph
+   is a multi-second freeze on a phone on first open, and it would settle
+   differently on every load — the sky would rearrange itself while you
+   looked away and nobody could tell anybody else where anything is.
+   ═══════════════════════════════════════════════════════════════════════ */
+const SKY_POS = (typeof POS === "object" && POS && !Array.isArray(POS)) ? POS : null;
+
+/* Colour stays keyed to edge TYPE, exactly as it is on the radial map, so a
+   line means the same thing in both views. */
+const SKY_TYPES = ["descent","rebuttal","convergence","rhyme","hand"];
+const SKY_PAL = SKY_TYPES.map(t => EDGE_META[t].color);
+const SKY_DASH = [3,4], SKY_SOLID = [];
+const SKY_CELL = 0.02;          /* hit-test bucket, in world units */
+const SKY_LABEL_MAX = 12;       /* see skyNeighbours */
+const SKY_EDGE_FLOOR = 1500;    /* see the edge budget in skyDraw */
+const TAU = Math.PI * 2;
+
+const sky = {
+  ready:false, n:0, keys:[], at:null, wx:null, wy:null, fill:null,
+  ea:null, eb:null, eBucket:null, eStrength:null, eOrder:null, eN:0, inc:null,
+  grid:null, sx:null, sy:null,
+  cam:{cx:0.5,cy:0.5,k:1}, w:0, h:0, dpr:0, ctx:null,
+  hoverKey:null, pinKey:null, labelKey:undefined, labels:[],
+  entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(),
+};
+
+const skyReduced = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
+const skyInHand = () => sky.hoverKey || sky.pinKey || null;
+const skyFitK = () => Math.max(1, Math.min(sky.w, sky.h) * 0.92);
+
+/* ONE RADIUS FOR EVERY FILM, AT EVERY MOMENT.
+   It is a function of zoom alone, so a disc keeps a physical size as you push
+   in. It is NOT a function of degree, and nothing else on this canvas is
+   either — AGENTS rule 1. A field that draws the well-connected larger is a
+   popularity chart wearing a star map's clothes, and it would undo the one
+   correction this project was founded on. */
+const skyRadius = zr => Math.min(6.2, 2.3 + Math.log2(Math.max(1, zr)) * 0.78);
+
+/* The project's one camera curve, cubic-bezier(.22,.61,.36,1), solved rather
+   than eyeballed: a move in this view has to feel like a move in the map or
+   the panel, and an approximate ease-out does not read as the same world. */
+function skyBez(t,p1,p2){ const u=1-t; return 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t; }
+function skyEase(x){
+  let t = x;
+  for (let i=0;i<6;i++){
+    const u = 1-t;
+    const dx = 3*u*u*0.22 + 6*u*t*(0.36-0.22) + 3*t*t*(1-0.36);
+    const err = skyBez(t,0.22,0.36) - x;
+    if (Math.abs(err) < 1e-5) break;
+    t = Math.min(1, Math.max(0, t - err/(dx||1e-6)));
+  }
+  return skyBez(t,0.61,1);
+}
+
+const skyCellKey = (x,y) => (Math.floor(x/SKY_CELL)+4)*4096 + (Math.floor(y/SKY_CELL)+4);
+
+function skyBuild(){
+  if (sky.ready) return true;
+  if (!SKY_POS) return false;
+  const keys=[], at=Object.create(null);
+  for (const k of KEYS){
+    const p = SKY_POS[k];
+    if (Array.isArray(p) && Number.isFinite(p[0]) && Number.isFinite(p[1])){ at[k]=keys.length; keys.push(k); }
+  }
+  const n = keys.length;
+  if (!n) return false;
+
+  const wx=new Float64Array(n), wy=new Float64Array(n), fill=new Array(n);
+  for (let i=0;i<n;i++){ const p=SKY_POS[keys[i]]; wx[i]=p[0]; wy[i]=p[1]; fill[i]=F[keys[i]].highlight; }
+
+  const ea=[], eb=[], bucket=[], strength=[], inc=new Array(n);
+  for (let i=0;i<n;i++) inc[i]=[];
+  for (const e of E){
+    const i=at[e.a], j=at[e.b];
+    if (i===undefined || j===undefined || i===j) continue;
+    const ti = SKY_TYPES.indexOf(e.type);
+    /* +5 is the dashed half of the palette: sub-confidence claims are drawn
+       dashed here for the same reason they are on the radial map. AGENTS
+       rule 3 — a reading must never be handed to a viewer as a record. */
+    const dashed = isLowConfidence(e);
+    const id = ea.length;
+    ea.push(i); eb.push(j);
+    bucket.push((ti<0?2:ti) + (dashed?5:0));
+    strength.push(e.strength||0);
+    inc[i].push(id); inc[j].push(id);
+  }
+  const m = ea.length;
+
+  /* THE DRAW ORDER IS STRATIFIED BY EVIDENCE CLASS, AND THAT IS LOAD-BEARING.
+     skyDraw() draws a PREFIX of this order and drops the tail when zoomed out
+     (see the edge budget there). Sorting the whole set by strength alone would
+     have been the obvious thing and it is wrong: readings sit in a band around
+     0.57 while a dense wall of record edges sits above 0.70, so the top 1,500
+     by raw strength contained ONE of the corpus's 689 readings. The default
+     view of the atlas would have shown a graph that looked 100% record.
+     Interleaving the two classes by rank fraction means any prefix carries the
+     corpus's real 8.9% reading share, at every zoom, while still showing the
+     strongest bonds of each class first. */
+  const rec=[], read=[];
+  for (let id=0; id<m; id++) (bucket[id]>=5 ? read : rec).push(id);
+  const byStrength = (p,q) => strength[q]-strength[p] || p-q;   /* id tiebreak keeps it deterministic */
+  rec.sort(byStrength); read.sort(byStrength);
+  const order = new Int32Array(m);
+  let p=0, q=0;
+  for (let t=0;t<m;t++){
+    const takeRead = q<read.length && (p>=rec.length || (q/read.length) < (p/rec.length));
+    order[t] = takeRead ? read[q++] : rec[p++];
+  }
+
+  const grid = new Map();
+  for (let i=0;i<n;i++){
+    const key = skyCellKey(wx[i],wy[i]);
+    let b = grid.get(key);
+    if (!b){ b=[]; grid.set(key,b); }
+    b.push(i);
+  }
+
+  Object.assign(sky,{
+    ready:true, n, keys, at, wx, wy, fill,
+    ea:Int32Array.from(ea), eb:Int32Array.from(eb),
+    eBucket:Uint8Array.from(bucket), eStrength:Float32Array.from(strength),
+    eOrder:order, eN:m, inc, grid,
+    sx:new Float64Array(n), sy:new Float64Array(n),
+  });
+  return true;
+}
+
+function skyResize(){
+  const c=$("#sky-c");
+  if (!c) return;
+  const rect=c.getBoundingClientRect();
+  const w=Math.max(1,Math.round(rect.width)), h=Math.max(1,Math.round(rect.height));
+  /* devicePixelRatio handling, without which every disc and every line on a
+     retina screen is drawn at half resolution and looks smeared. Capped at 3:
+     past that the pixel cost outruns anything the eye gets back. */
+  const dpr=Math.max(1,Math.min(devicePixelRatio||1,3));
+  if (w===sky.w && h===sky.h && dpr===sky.dpr) return;
+  sky.w=w; sky.h=h; sky.dpr=dpr;
+  c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
+  sky.ctx=c.getContext("2d");
+  sky.cam.k=skyClampK(sky.cam.k);
+  skyClampC(sky.cam);
+}
+
+/* CLAMPS. You cannot lose the constellation: the world point under the centre
+   of the viewport is held inside the field's own [0,1] box plus a small
+   margin, so panning always leaves something on screen no matter how far in
+   you are. Zoom stops just below the fit — there is nothing out there. */
+function skyClampK(k){ const f=skyFitK(); return Math.max(f*0.82, Math.min(f*26, k)); }
+function skyClampC(c){
+  c.cx=Math.max(-0.08,Math.min(1.08,c.cx));
+  c.cy=Math.max(-0.08,Math.min(1.08,c.cy));
+}
+
+function skyRender(){ if(!sky.raf) sky.raf=requestAnimationFrame(skyFrame); }
+function skyFrame(){
+  sky.raf=0;
+  const a=sky.anim;
+  if (a){
+    const p=Math.min(1,(performance.now()-a.t0)/a.ms), e=skyEase(p);
+    sky.cam.cx=a.c0x+(a.c1x-a.c0x)*e;
+    sky.cam.cy=a.c0y+(a.c1y-a.c0y)*e;
+    /* zoom interpolates in log space; linear zoom lurches */
+    sky.cam.k=Math.exp(a.lk0+(a.lk1-a.lk0)*e);
+    if (p>=1) sky.anim=null;
+  }
+  skyDraw();
+  skyPlaceLabels();
+  if (sky.anim) skyRender();
+}
+
+function skyGo(cx,cy,k,ms){
+  const to={cx,cy,k:skyClampK(k)};
+  skyClampC(to);
+  if (!ms || skyReduced()){
+    sky.anim=null; sky.cam.cx=to.cx; sky.cam.cy=to.cy; sky.cam.k=to.k;
+  } else {
+    sky.anim={c0x:sky.cam.cx,c0y:sky.cam.cy,lk0:Math.log(sky.cam.k),
+      c1x:to.cx,c1y:to.cy,lk1:Math.log(to.k),t0:performance.now(),ms};
+  }
+  skyRender();
+}
+
+function skyPan(dx,dy){
+  sky.anim=null;
+  sky.cam.cx-=dx/sky.cam.k;
+  sky.cam.cy-=dy/sky.cam.k;
+  skyClampC(sky.cam);
+  skyRender();
+}
+
+function skyZoomAt(px,py,factor){
+  sky.anim=null;
+  const cam=sky.cam, k0=cam.k, k1=skyClampK(k0*factor);
+  if (k1===k0) return;
+  const wx=(px-sky.w/2)/k0+cam.cx, wy=(py-sky.h/2)/k0+cam.cy;
+  cam.k=k1;
+  cam.cx=wx-(px-sky.w/2)/k1;
+  cam.cy=wy-(py-sky.h/2)/k1;
+  skyClampC(cam);
+  skyRender();
+}
+const skyZoomCentre = f => skyZoomAt(sky.w/2, sky.h/2, f);
+
+function skyDraw(){
+  const ctx=sky.ctx;
+  if (!ctx || !sky.n) return;
+  const w=sky.w, h=sky.h, n=sky.n, cam=sky.cam, k=cam.k;
+  ctx.setTransform(sky.dpr,0,0,sky.dpr,0,0);
+  ctx.clearRect(0,0,w,h);
+
+  const ox=w/2-cam.cx*k, oy=h/2-cam.cy*k;
+  const SX=sky.sx, SY=sky.sy;
+  for (let i=0;i<n;i++){ SX[i]=sky.wx[i]*k+ox; SY[i]=sky.wy[i]*k+oy; }
+
+  const zr=k/skyFitK(), r=skyRadius(zr);
+
+  /* THE EDGE BUDGET, AND WHY IT IS NOT A LIE ABOUT THE GRAPH.
+     All 7,759 connections drawn at the fit zoom is not a map, it is a grey
+     wash: the lines cover the films and no structure survives. So the field
+     draws a prefix of the stratified order above — the strongest bonds first —
+     and widens it to everything as you push in, reaching the full set at about
+     6x. Three things keep this a RENDERING decision rather than a claim:
+       · the cut is on BOND STRENGTH, never on degree, popularity or recency;
+       · the prefix is stratified, so record and reading keep their true
+         proportions on screen at every zoom (see skyBuild);
+       · the moment a film is in hand, every one of its own connections is
+         drawn regardless of the budget — nothing is ever hidden about the
+         film you are actually asking about.
+     Nothing is removed from the corpus, the adjacency or the layout: the
+     weak ties still pull the sky into one object, they just do not all have
+     to be inked at once. */
+  const spread=Math.min(1,Math.max(0,Math.log2(Math.max(1,zr))/2.6));
+  const budget=Math.min(sky.eN, Math.round(SKY_EDGE_FLOOR+(sky.eN-SKY_EDGE_FLOOR)*spread));
+  /* denser field, quieter lines — the ink stays roughly constant */
+  const alpha=0.34-0.19*spread;
+
+  ctx.lineCap="round";
+  ctx.lineWidth=1;
+  for (let b=0;b<10;b++){
+    let started=false;
+    for (let t=0;t<budget;t++){
+      const id=sky.eOrder[t];
+      if (sky.eBucket[id]!==b) continue;
+      const i=sky.ea[id], j=sky.eb[id];
+      const x1=SX[i],y1=SY[i],x2=SX[j],y2=SY[j];
+      if ((x1<0&&x2<0)||(x1>w&&x2>w)||(y1<0&&y2<0)||(y1>h&&y2>h)) continue;
+      if (!started){ ctx.beginPath(); started=true; }
+      ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+    }
+    if (!started) continue;
+    ctx.setLineDash(b>=5?SKY_DASH:SKY_SOLID);
+    ctx.strokeStyle=SKY_PAL[b%5];
+    ctx.globalAlpha=alpha;
+    ctx.stroke();
+  }
+  ctx.setLineDash(SKY_SOLID);
+
+  const hand=skyInHand();
+  const hi=hand!=null ? sky.at[hand] : undefined;
+  if (hi!==undefined){
+    for (let b=0;b<10;b++){
+      let started=false;
+      for (const id of sky.inc[hi]){
+        if (sky.eBucket[id]!==b) continue;
+        const i=sky.ea[id], j=sky.eb[id];
+        if (!started){ ctx.beginPath(); started=true; }
+        ctx.moveTo(SX[i],SY[i]); ctx.lineTo(SX[j],SY[j]);
+      }
+      if (!started) continue;
+      ctx.setLineDash(b>=5?SKY_DASH:SKY_SOLID);
+      ctx.strokeStyle=SKY_PAL[b%5];
+      ctx.globalAlpha=0.92;
+      ctx.lineWidth=1.5;
+      ctx.stroke();
+    }
+    ctx.setLineDash(SKY_SOLID);
+    ctx.lineWidth=1;
+  }
+
+  /* One disc per film, in that film's own measured highlight. The colour on
+     screen comes from the photography of cinema, never from a house ramp. */
+  ctx.globalAlpha=0.82;
+  for (let i=0;i<n;i++){
+    const px=SX[i], py=SY[i];
+    if (px<-r||py<-r||px>w+r||py>h+r) continue;
+    ctx.beginPath();
+    ctx.arc(px,py,r,0,TAU);
+    ctx.fillStyle=sky.fill[i];
+    ctx.fill();
+  }
+
+  /* Seen and loved: a ring, not a size and not a second colour scheme. The
+     mark has to be findable when you are looking for it and invisible when
+     you are not — the same job the dot on a wall tile does. */
+  const ringed=(key,stroke,pad,width,a)=>{
+    const i=sky.at[key];
+    if (i===undefined) return;
+    const px=SX[i], py=SY[i];
+    if (px<-12||py<-12||px>w+12||py>h+12) return;
+    ctx.globalAlpha=1;
+    ctx.beginPath(); ctx.arc(px,py,r,0,TAU);
+    ctx.fillStyle=sky.fill[i]; ctx.fill();
+    ctx.globalAlpha=a;
+    ctx.beginPath(); ctx.arc(px,py,r+pad,0,TAU);
+    ctx.strokeStyle=stroke; ctx.lineWidth=width; ctx.stroke();
+  };
+  for (const key of state.seen) if(!state.loved.has(key)) ringed(key,"#F0EAE0",2.4,1,0.3);
+  for (const key of state.loved) ringed(key,"#E8C87A",2.6,1.2,0.72);
+
+  if (hi!==undefined){
+    const px=SX[hi], py=SY[hi];
+    ringed(hand, F[hand].highlight, 4.6, 1.4, 0.95);
+    ctx.globalAlpha=1;
+    /* the room is lit by the film in hand, and the lamp travels with it */
+    const field=$("#sky-field");
+    field.style.setProperty("--lx",(100*px/Math.max(1,w)).toFixed(1)+"%");
+    field.style.setProperty("--ly",(100*py/Math.max(1,h)).toFixed(1)+"%");
+  }
+  ctx.globalAlpha=1;
+}
+
+/* Which neighbours get named. The corpus's median degree is 21 and its
+   maximum is 34, so "every neighbour" is thirty-four names stacked on one
+   film — unreadable, and unreadable is the failure rule 4 exists to prevent.
+   The cap ranks by BOND STRENGTH, so what you read is the film's strongest
+   ties, never its most famous ones. */
+function skyNeighbours(key){
+  const i=sky.at[key];
+  if (i===undefined) return [];
+  const best=new Map();
+  for (const id of sky.inc[i]){
+    const j = sky.ea[id]===i ? sky.eb[id] : sky.ea[id];
+    const k = sky.keys[j], s = sky.eStrength[id];
+    if (!best.has(k) || best.get(k) < s) best.set(k,s);
+  }
+  return [...best.entries()]
+    .sort((a,b)=> b[1]-a[1] || (a[0]<b[0]?-1:1))
+    .slice(0,SKY_LABEL_MAX)
+    .map(e=>e[0]);
+}
+
+/* LABELS ARE DOM, AND THAT IS THE POINT.
+   AGENTS rule 4: captions never blur, at any depth, ever. Canvas text under a
+   fractional devicePixelRatio is exactly where that gets quietly broken, so
+   the names are real text at integer offsets with no transform on them.
+   Label EXISTENCE depends on interaction — 803 names at the fit zoom is a
+   grey block, not a map. Label LEGIBILITY never does: every label that exists
+   is at full sharpness and full contrast, and the only thing graph depth
+   changes is its size and its ink. */
+function skyLabels(key){
+  if (key===sky.labelKey) return;
+  sky.labelKey=key;
+  const box=$("#sky-labels");
+  box.innerHTML="";
+  sky.labels=[];
+  if (key==null || sky.at[key]===undefined) return;
+  const list=[{k:key,lead:true}, ...skyNeighbours(key).map(k=>({k,lead:false}))];
+  const made=[];
+  for (const it of list){
+    const i=sky.at[it.k];
+    if (i===undefined) continue;
+    const f=F[it.k];
+    const node=el("div","sky-label"+(it.lead?"":" near"));
+    node.innerHTML = esc(f.title) + (it.lead && f.year ? `<span class="y">${f.year}</span>` : "");
+    box.appendChild(node);
+    made.push({el:node,i,lead:it.lead,w:0,h:0});
+  }
+  /* measured in one pass after all of them are in the document, so the
+     browser lays out once rather than once per name */
+  for (const L of made){ L.w=L.el.offsetWidth; L.h=L.el.offsetHeight; }
+  sky.labels=made;
+}
+
+function skyPlaceLabels(){
+  if (!sky.labels.length) return;
+  const w=sky.w, h=sky.h, cam=sky.cam, k=cam.k;
+  const ox=w/2-cam.cx*k, oy=h/2-cam.cy*k;
+  const r=skyRadius(k/skyFitK());
+  const placed=[];
+  for (const L of sky.labels){
+    const px=sky.wx[L.i]*k+ox, py=sky.wy[L.i]*k+oy;
+    const cands=[
+      [px-L.w/2, py+r+7], [px-L.w/2, py-r-7-L.h],
+      [px+r+8, py-L.h/2], [px-r-8-L.w, py-L.h/2],
+    ];
+    let put=null;
+    for (const c of cands){
+      const x=Math.round(c[0]), y=Math.round(c[1]);
+      if (x<4||y<4||x+L.w>w-4||y+L.h>h-4) continue;
+      if (placed.some(b=> x < b.x+b.w+5 && x+L.w+5 > b.x && y < b.y+b.h+4 && y+L.h+4 > b.y)) continue;
+      put={x,y};
+      break;
+    }
+    /* The film in hand is never dropped — it is the one thing the reader
+       asked for. A neighbour that cannot be placed without lying across
+       another name is dropped instead of being stacked on it. */
+    if (!put && L.lead){
+      put={x:Math.round(Math.min(w-4-L.w,Math.max(4,px-L.w/2))),
+           y:Math.round(Math.min(h-4-L.h,Math.max(4,py+r+7)))};
+    }
+    if (!put){ L.el.hidden=true; continue; }
+    L.el.hidden=false;
+    L.el.style.left=put.x+"px";
+    L.el.style.top=put.y+"px";
+    placed.push({x:put.x,y:put.y,w:L.w,h:L.h});
+  }
+}
+
+function skyReadout(){
+  const box=$("#sky-read"), key=skyInHand();
+  if (key==null || !F[key]){
+    box.style.removeProperty("--nc");
+    box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
+      <span class="y" style="margin-top:7px">Drag to pan · scroll to zoom · pick a film to open its map</span>`;
+    return;
+  }
+  const f=F[key];
+  box.style.setProperty("--nc", f.highlight);
+  /* The button appears for the ways of choosing a film that are not a click —
+     a tap and a keyboard step. A mouse already has the shorter route: the
+     disc itself. */
+  const pinned = sky.pinKey===key;
+  box.innerHTML=`<span class="slate">in hand</span>
+    <span class="t">${esc(f.title)}</span>
+    <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${ADJ[key].length} connections</span>
+    ${pinned?`<button class="btn" id="sky-open" type="button">Open its map</button>`:""}`;
+  if (pinned) $("#sky-open").onclick=()=>openMap(key);
+}
+
+function skyHand(){
+  const key=skyInHand();
+  const field=$("#sky-field");
+  if (key!=null && F[key]) field.style.setProperty("--nc", F[key].highlight);
+  else field.style.removeProperty("--nc");
+  skyLabels(key);
+  skyReadout();
+  skyRender();
+}
+
+/* Hit test through the world-space bucket grid built in skyBuild. Scanning
+   803 films per pointer move would also work today and will not at 2,000. */
+function skyPick(px,py){
+  if (!sky.n) return null;
+  const cam=sky.cam, k=cam.k;
+  const wx=(px-sky.w/2)/k+cam.cx, wy=(py-sky.h/2)/k+cam.cy;
+  const grab=Math.max(12, skyRadius(k/skyFitK())+7)/k;      /* a finger, in world units */
+  const g0x=Math.floor((wx-grab)/SKY_CELL), g1x=Math.floor((wx+grab)/SKY_CELL);
+  const g0y=Math.floor((wy-grab)/SKY_CELL), g1y=Math.floor((wy+grab)/SKY_CELL);
+  let best=null, bestD=grab*grab;
+  for (let gx=g0x; gx<=g1x; gx++) for (let gy=g0y; gy<=g1y; gy++){
+    const b=sky.grid.get((gx+4)*4096+(gy+4));
+    if (!b) continue;
+    for (const i of b){
+      const dx=sky.wx[i]-wx, dy=sky.wy[i]-wy, d=dx*dx+dy*dy;
+      if (d<bestD){ bestD=d; best=i; }
+    }
+  }
+  return best==null ? null : sky.keys[best];
+}
+
+function skyHover(px,py){
+  const key=skyPick(px,py);
+  if (key===sky.hoverKey) return;
+  sky.hoverKey=key;
+  skyHand();
+}
+
+function skyPinKey(key){
+  if (sky.pinKey===key) return;
+  sky.pinKey=key;
+  skyHand();
+  if (key!=null && F[key]){
+    $("#sr-status").textContent=`${F[key].title}${F[key].year?", "+F[key].year:""}. ${ADJ[key].length} connections. Press Enter to open its map.`;
+  }
+}
+
+/* Search follows you into the view you are in. In the constellation the
+   answer to "where is Tokyo Story" is a PLACE, not a different screen, so the
+   camera travels to it and names it; from the wall or the map the same search
+   opens the radial map exactly as before. */
+function skyFocus(key){
+  if (!sky.ready || !F[key]) return false;
+  const i=sky.at[key];
+  if (i===undefined) return false;
+  skyPinKey(key);
+  skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()*5.5), 950);
+  return true;
+}
+function skyOrMap(key){
+  if (state.view==="sky" && skyFocus(key)) return;
+  openMap(key);
+}
+
+function skyNearestToCentre(){
+  let best=-1, bestD=Infinity;
+  const cam=sky.cam;
+  for (let i=0;i<sky.n;i++){
+    const dx=sky.wx[i]-cam.cx, dy=sky.wy[i]-cam.cy, d=dx*dx+dy*dy;
+    if (d<bestD){ bestD=d; best=i; }
+  }
+  return best;
+}
+
+/* Keyboard travel. Arrow keys step to the nearest film inside a 45° cone in
+   that direction and bring the camera with them, so the view is navigable
+   without a pointer at all. */
+function skyStep(dx,dy){
+  const hand=skyInHand();
+  const from = hand!=null && sky.at[hand]!==undefined ? sky.at[hand] : skyNearestToCentre();
+  if (from<0) return;
+  const x0=sky.wx[from], y0=sky.wy[from];
+  let best=-1, bestScore=Infinity;
+  for (let i=0;i<sky.n;i++){
+    if (i===from) continue;
+    const ax=sky.wx[i]-x0, ay=sky.wy[i]-y0;
+    const along=ax*dx+ay*dy, perp=Math.abs(ax*dy-ay*dx);
+    if (along<=1e-9 || perp>along) continue;
+    const score=along+perp*1.6;
+    if (score<bestScore){ bestScore=score; best=i; }
+  }
+  if (best<0) return;
+  sky.hoverKey=null;
+  skyPinKey(sky.keys[best]);
+  skyGo(sky.wx[best], sky.wy[best], sky.cam.k, 620);
+}
+
+function skyEnter(){
+  if (!skyBuild()) return;
+  skyResize();
+  if (!sky.entered){
+    sky.entered=true;
+    /* The arrival is a settle, not a fade-from-nothing: the field opens a
+       little tight and eases out to the whole atlas. One move, 950ms, the
+       project's position-change duration. */
+    sky.cam.cx=0.5; sky.cam.cy=0.5; sky.cam.k=skyFitK()*1.12;
+    skyGo(0.5,0.5,skyFitK(),950);
+  } else {
+    skyRender();
+  }
+  skyReadout();
+  /* Once more after paint: entering is a class change, so on this frame the
+     field can still be reporting the size it had while it was hidden. */
+  requestAnimationFrame(()=>{ skyResize(); skyRender(); });
+}
+
+function skyExit(){
+  sky.anim=null;
+  if (sky.raf){ cancelAnimationFrame(sky.raf); sky.raf=0; }
+  sky.drag=null; sky.pinch=null; sky.ptrs.clear();
+  const c=$("#sky-c");
+  if (c) c.classList.remove("dragging");
+}
+
+function openSky(){
+  if (!SKY_POS) return;
+  show("sky");
+  try{ history.replaceState(null,"","#/sky"); }catch(_error){}
+  $("#sr-status").textContent=`Constellation. ${sky.keys.length} films, ${sky.eN} connections. Arrow keys step between films.`;
+  requestAnimationFrame(()=>$("#sky-c").focus({preventScroll:true}));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
    SEARCH — forgiving, because a person types what they remember
    ═══════════════════════════════════════════════════════════════════════ */
 let suggIdx=-1, suggList=[];
@@ -1290,23 +1987,39 @@ function search(v){
     ${art(k)}<span><span class="t">${esc(F[k].title)}</span>
     <span class="y">${F[k].year||""} · ${esc(F[k].director||"")}</span></span></button>`).join("");
   box.querySelectorAll("button[data-k]").forEach(b=>b.onclick=()=>{
-    $("#q").value=""; setSuggestions(false); openMap(b.dataset.k);
+    $("#q").value=""; setSuggestions(false); skyOrMap(b.dataset.k);
   });
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
    WIRING
    ═══════════════════════════════════════════════════════════════════════ */
+/* One registry rather than a special case per view. The two-view version of
+   show() named #wall and #map in eight places; a third view would have meant
+   editing all eight and a fourth would mean editing twelve. Views declare
+   themselves here instead, and a view that needs to know when it becomes
+   current — the constellation has a canvas to size and a camera to stop —
+   says so with enter/exit rather than with another branch in show(). */
+const VIEWS = {
+  wall: { sel:"#wall" },
+  map:  { sel:"#map"  },
+  sky:  { sel:"#sky", enter:skyEnter, exit:skyExit },
+};
 function show(v){
+  if(!VIEWS[v]) v="wall";
+  const prev=state.view;
   state.view=v;
-  const wall=$("#wall"), map=$("#map");
-  wall.classList.toggle("on",v==="wall");
-  map.classList.toggle("on",v==="map");
-  wall.setAttribute("aria-hidden",v==="wall"?"false":"true");
-  map.setAttribute("aria-hidden",v==="map"?"false":"true");
-  wall.toggleAttribute("inert",v!=="wall");
-  map.toggleAttribute("inert",v!=="map");
-  if(v==="wall") closePanel(false);
+  for(const name of Object.keys(VIEWS)){
+    const node=$(VIEWS[name].sel), on=(name===v);
+    node.classList.toggle("on",on);
+    node.setAttribute("aria-hidden",on?"false":"true");
+    node.toggleAttribute("inert",!on);
+  }
+  /* the detail panel belongs to the map; every other view opens clean */
+  if(v!=="map") closePanel(false);
+  if(prev===v) return;
+  if(VIEWS[prev]&&VIEWS[prev].exit) VIEWS[prev].exit();
+  if(VIEWS[v].enter) VIEWS[v].enter();
 }
 
 $("#home").onclick=()=>{
@@ -1329,7 +2042,7 @@ $("#q").onkeydown=e=>{
   }
   if(e.key==="Enter"){
     const k = suggIdx>=0 ? suggList[suggIdx] : (lookup(e.target.value)||suggList[0]);
-    if(k){ e.target.value=""; setSuggestions(false); openMap(k); }
+    if(k){ e.target.value=""; setSuggestions(false); skyOrMap(k); }
   }
 };
 document.addEventListener("click",e=>{
@@ -1354,10 +2067,141 @@ $("#foryou").onclick=()=>{
   $("#wall").scrollTop=0;
 };
 
-let rt; addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(()=>{ if(state.view==="map") layout(); },110); });
+/* ── the constellation's controls ─────────────────────────────────────
+   Pointer Events rather than mouse+touch: one code path covers a mouse, a
+   finger, a pen and a trackpad, and it is the only API that reports which of
+   them is in use — which this view needs, because a finger has no hover and
+   has to be given one. */
+if (SKY_POS){
+  const skyC=$("#sky-c");
+  const at=e=>{ const r=skyC.getBoundingClientRect(); return [e.clientX-r.left, e.clientY-r.top]; };
+  const pinch=()=>{
+    const pts=[...sky.ptrs.values()];
+    if(pts.length<2) return null;
+    return { x:(pts[0].x+pts[1].x)/2, y:(pts[0].y+pts[1].y)/2,
+             d:Math.hypot(pts[0].x-pts[1].x, pts[0].y-pts[1].y)||1 };
+  };
+
+  skyC.addEventListener("wheel",e=>{
+    e.preventDefault();
+    /* deltaMode 1 is lines and 2 is pages. Normalising them is what stops a
+       mouse wheel travelling twenty times as far as a trackpad per notch. */
+    const unit = e.deltaMode===1 ? 16 : e.deltaMode===2 ? sky.h : 1;
+    const stepped = Math.max(-0.55, Math.min(0.55, -e.deltaY*unit*0.0016));
+    const p=at(e);
+    skyZoomAt(p[0],p[1],Math.exp(stepped));
+  },{passive:false});
+
+  skyC.addEventListener("pointerdown",e=>{
+    if(e.button>0) return;
+    try{ skyC.setPointerCapture(e.pointerId); }catch(_error){}
+    sky.ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    sky.anim=null;
+    if(sky.ptrs.size===1){
+      sky.drag={id:e.pointerId,x:e.clientX,y:e.clientY,moved:0,type:e.pointerType};
+      skyC.classList.add("dragging");
+    }else{
+      sky.drag=null;
+      sky.pinch=pinch();
+      skyC.classList.remove("dragging");
+    }
+  });
+
+  skyC.addEventListener("pointermove",e=>{
+    if(sky.ptrs.has(e.pointerId)) sky.ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(sky.ptrs.size>=2){
+      const now=pinch();
+      if(sky.pinch&&now){
+        const r=skyC.getBoundingClientRect();
+        skyZoomAt(sky.pinch.x-r.left, sky.pinch.y-r.top, now.d/sky.pinch.d);
+        skyPan(now.x-sky.pinch.x, now.y-sky.pinch.y);
+        sky.pinch=now;
+      }
+      return;
+    }
+    const d=sky.drag;
+    if(d&&d.id===e.pointerId){
+      const dx=e.clientX-d.x, dy=e.clientY-d.y;
+      d.moved+=Math.abs(dx)+Math.abs(dy);
+      d.x=e.clientX; d.y=e.clientY;
+      skyPan(dx,dy);
+      return;
+    }
+    if(e.pointerType!=="touch"){ const p=at(e); skyHover(p[0],p[1]); }
+  });
+
+  const release=e=>{
+    const d=sky.drag;
+    sky.ptrs.delete(e.pointerId);
+    if(sky.ptrs.size<2) sky.pinch=null;
+    if(!d||d.id!==e.pointerId) return null;
+    sky.drag=null;
+    skyC.classList.remove("dragging");
+    return d;
+  };
+  skyC.addEventListener("pointerup",e=>{
+    const d=release(e);
+    /* 7px of travel is a drag, not a click. Without the test every pan that
+       started on a film ended by opening it. */
+    if(!d||d.moved>=7) return;
+    const p=at(e), key=skyPick(p[0],p[1]);
+    if(key==null){ sky.hoverKey=null; skyPinKey(null); return; }
+    /* A MOUSE OPENS ON THE FIRST CLICK. A FINGER NAMES FIRST, THEN OPENS.
+       There is no hover on a touch screen, so a single tap that jumped
+       straight to the radial map would make the field unreadable on a phone:
+       you could never find out what anything was without leaving. The first
+       tap is the hover a finger does not have, and the readout it fills in
+       carries an explicit Open button for people who would rather not
+       discover the second tap. */
+    if(d.type==="mouse"||sky.pinKey===key) openMap(key);
+    else skyPinKey(key);
+  });
+  skyC.addEventListener("pointercancel",release);
+  skyC.addEventListener("pointerleave",()=>{
+    if(sky.drag||sky.hoverKey==null) return;
+    sky.hoverKey=null;
+    skyHand();
+  });
+
+  skyC.addEventListener("keydown",e=>{
+    const step={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];
+    if(step){ e.preventDefault(); skyStep(step[0],step[1]); return; }
+    if(e.key==="Enter"||e.key===" "){
+      const key=skyInHand();
+      if(key!=null){ e.preventDefault(); openMap(key); }
+      return;
+    }
+    if(e.key==="+"||e.key==="="){ e.preventDefault(); skyZoomCentre(1.45); }
+    else if(e.key==="-"||e.key==="_"){ e.preventDefault(); skyZoomCentre(1/1.45); }
+    else if(e.key==="0"||e.key==="Home"){ e.preventDefault(); skyGo(0.5,0.5,skyFitK(),620); }
+  });
+
+  $("#sky-in").onclick=()=>skyZoomCentre(1.45);
+  $("#sky-out").onclick=()=>skyZoomCentre(1/1.45);
+  $("#sky-fit").onclick=()=>skyGo(0.5,0.5,skyFitK(),620);
+  $("#constellation").onclick=openSky;
+  $("#sky-lede").onclick=openSky;
+}else{
+  /* No baked layout in this build: the door is removed rather than left to
+     open on an empty field. */
+  $("#constellation").hidden=true;
+  $("#sky-lede").hidden=true;
+}
+
+let rt; addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(()=>{
+  if(state.view==="map") layout();
+  else if(state.view==="sky"){ skyResize(); skyRender(); }
+},110); });
 addEventListener("keydown",e=>{
   if(e.key==="/"&&document.activeElement!==$("#q")){ e.preventDefault(); $("#q").focus(); }
-  if(e.key==="Escape") closePanel(true);
+  if(e.key==="Escape"){
+    if($("#panel").classList.contains("on")){ closePanel(true); return; }
+    /* Escape out of the constellation is Escape out to the wall. It is a whole
+       view rather than an overlay, so it is the one place where Escape has
+       nothing to close and somewhere to go instead. The search box handles its
+       own Escape first and must keep it. */
+    if(state.view==="sky"&&document.activeElement!==$("#q")) $("#home").click();
+  }
 });
 
 /* ── deep links ───────────────────────────────────────────────────────
@@ -1365,7 +2209,10 @@ addEventListener("keydown",e=>{
    it every discovery dies in the tab it was made in, and sharing is how a
    thing like this travels. */
 function fromHash(){
-  const m=(location.hash||"").match(/^#\/film\/(.+)$/);
+  const h=location.hash||"";
+  /* #/sky is an address too: the whole map is a place worth sending someone */
+  if(/^#\/sky\/?$/.test(h)){ if(!SKY_POS) return false; openSky(); return true; }
+  const m=h.match(/^#\/film\/(.+)$/);
   if(!m) return false;
   const k=decodeURIComponent(m[1]);
   if(!F[k]) return false;
