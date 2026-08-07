@@ -64,13 +64,13 @@ test("preserves the full validated Atlas corpus and evidence distinctions", asyn
   const html = await readFile(builtAtlasUrl, "utf8");
   const corpus = embeddedCorpus(html);
   assert.equal(Object.keys(corpus.films).length, 803);
-  assert.equal(corpus.edges.length, 7649);
+  assert.equal(corpus.edges.length, 7759);
   assert.ok(Object.values(corpus.films).every((film) => "posterLicence" in film));
 
   const sources = Object.groupBy(corpus.edges, (edge) => edge.source ?? "record");
-  assert.equal(sources.record.length, 6982);
+  assert.equal(sources.record.length, 6893);
   assert.equal(sources.attested.length, 15);
-  assert.equal(sources.reading.length, 652);
+  assert.equal(sources.reading.length, 851);
   assert.ok(sources.attested.every((edge) => edge.confidence >= 0.5));
   assert.ok(sources.reading.every((edge) => Number.isFinite(edge.confidence)));
   assert.doesNotMatch(html, /\/\* __CORPUS__ \*\//);

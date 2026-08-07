@@ -41,3 +41,20 @@ yarn-error.log*
 /.playwright-cli/
 /output/
 /public/atlas.html
+
+# Pipeline query caches. Every networked stage is resumable by writing one file
+# per SPARQL response here; they are regenerable, large, and say nothing the
+# corpus does not already record.
+/atlas/pipeline/.cache-sparql/
+/atlas/pipeline/.cache-expand/
+
+# Generated seed expansion. Regenerable with:
+#   node atlas/pipeline/expand-seeds.js --target N > atlas/pipeline/seeds-expansion.txt
+# Force-add the seed list once a run has completed if a harvest is built from it.
+/atlas/pipeline/seeds-expansion.txt
+/atlas/pipeline/seeds-expansion.report.tsv
+
+# Default-path build output (node atlas/app/build.js with no --out) and Python
+# bytecode from palette runs. Both regenerable, neither reviewable.
+/atlas/atlas.html
+__pycache__/

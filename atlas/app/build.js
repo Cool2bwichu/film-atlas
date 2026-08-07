@@ -95,22 +95,41 @@ if(FILMS==="0"){
 
 assertCorpus(corpus);
 
+/* THE CONSTELLATION'S LAYOUT IS SOLVED HERE, ONCE.
+ * A force solve over 803 films and 7,759 edges is a second of build and two
+ * numbers per film on the wire; the same solve in the browser is a multi-second
+ * freeze on a phone the first time anyone opens the view. It is also what makes
+ * the constellation deterministic in the sense the rest of the project already
+ * is — the same corpus draws the same sky twice, so "it is over on the left"
+ * means something to a second person. See app/layout-sky.js. */
+const { layout } = require("./layout-sky.js");
+const positions = layout(corpus.films, corpus.edges);
+
 /* Chunked, never one enormous line: a 250k-character line is valid JavaScript
    and a practical failure — editors, diff viewers and artifact renderers all
    choke on it, and the symptom is a blank screen rather than an error. */
 /* Escape the opening character of a closing script tag. Descriptions and
    claims originate outside this template, so raw `</script>` text must never
    be able to terminate the embedded data block. */
-const json=JSON.stringify(corpus).replace(/</g,"\\u003c");
-const CH=200, chunks=[];
-for(let i=0;i<json.length;i+=CH) chunks.push(JSON.stringify(json.slice(i,i+CH)));
-const block="const CORPUS = JSON.parse([\n"+chunks.join(",\n")+"\n].join(\"\"));";
+const CH=200;
+const pack=(name,value)=>{
+  const json=JSON.stringify(value).replace(/</g,"\\u003c");
+  const chunks=[];
+  for(let i=0;i<json.length;i+=CH) chunks.push(JSON.stringify(json.slice(i,i+CH)));
+  return `const ${name} = JSON.parse([\n`+chunks.join(",\n")+`\n].join(""));`;
+};
+const block=pack("CORPUS",corpus);
+const layoutBlock=pack("POS",positions);
 
 let html=fs.readFileSync(path.join(__dirname,"template.html"),"utf8");
 const marker="/* __CORPUS__ */";
 if(!html.includes(marker)) throw new Error("Atlas template is missing its corpus marker");
 html=html.replace(marker,block);
 if(html.includes(marker)) throw new Error("Atlas template contains more than one corpus marker");
+const layoutMarker="/* __LAYOUT__ */";
+if(!html.includes(layoutMarker)) throw new Error("Atlas template is missing its layout marker");
+html=html.replace(layoutMarker,layoutBlock);
+if(html.includes(layoutMarker)) throw new Error("Atlas template contains more than one layout marker");
 if(ORIGIN!==null){
   /* Trailing slash trimmed because every template usage already supplies its
      own ("__ATLAS_ORIGIN__/", "__ATLAS_ORIGIN__/og.png"). */
@@ -124,4 +143,4 @@ try{
 }finally{
   fs.rmSync(staged,{force:true});
 }
-console.log(`${OUT}  ${(fs.statSync(OUT).size/1024).toFixed(0)} KB — ${Object.keys(corpus.films).length} films, ${corpus.edges.length} edges`);
+console.log(`${OUT}  ${(fs.statSync(OUT).size/1024).toFixed(0)} KB — ${Object.keys(corpus.films).length} films, ${corpus.edges.length} edges, ${Object.keys(positions).length} placed`);
