@@ -76,3 +76,7 @@ __pycache__/
 # and the concatenation ORDER is load-bearing -- seeds.txt must come first so
 # `psycho` stays Hitchcock. RUN.md is where that order is enforced, not here.
 /atlas/pipeline/seeds-all.txt
+
+# Local linked worktrees used to isolate reviewed feature work from active
+# pipeline outputs in the main checkout.
+/.worktrees/
