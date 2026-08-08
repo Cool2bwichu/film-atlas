@@ -18,6 +18,7 @@ const fs=require("fs"), path=require("path"), os=require("os"), cp=require("chil
 const {canonicalJson,contentVersion,projectDiscovery,validateDiscovery}=
   require("../pipeline/discovery-contract.js");
 const {LAYOUT_ALGORITHM_VERSION,layout}=require("./layout-sky.js");
+const {isTrivia}=require("../pipeline/claim-tiers.js");
 const ROOT=path.join(__dirname,"..");
 const arg=(n,d)=>{
   const flag="--"+n,i=process.argv.indexOf(flag);
@@ -111,10 +112,39 @@ if(FILMS==="0"){
   }
   /* `signal` is what KIND of overlap produced the edge, and the app ranks by
      it — dropping it here silently made every edge weight the same, which is
-     how genre-and-era trivia kept winning. */
-  const edges=sourceCorpus.edges.map(e=>({a:e.a,b:e.b,type:e.type,strength:e.strength,
-    confidence:e.confidence,source:e.source,claim:e.claim,signal:e.signal||null,
-    attribution:e.attribution||null}));
+     how genre-and-era trivia kept winning.
+
+     `also` is the same class of mistake, one step further on. associate.js
+     writes every runner-up claim for a pair; a pair that connects through crew
+     often ALSO connects through keyword, setting or studio, and those claims
+     are computed, written to corpus.json, and then dropped here. On a site
+     whose whole thesis is that the connection is the product, that is the most
+     expensive line in the build.
+
+     A caveat that belongs next to the field, not in a commit message: these are
+     by construction the claims that LOST the pair contest, and unlike the
+     primary claim they have never been read. measure-claims.js scores only the
+     primary, so anything that renders them can make what a reader sees worse
+     while every published number holds flat. Read sampled alternates before
+     showing them. `alsoRecord` is carried for the same reason: when a reading
+     supersedes a record on a pair, the derived claim it displaced is still
+     true and still worth being able to show.
+
+     Measured before shipping them, which changed the design: of 22,949
+     alternates, 69.3% are trivia — countryEra 29.3%, genre 24.2%, cast 9.5% —
+     against 23.3% in what a reader sees today. Shipping the field whole would
+     have roughly tripled a reader's trivia exposure and cost +23% gzip to do
+     it. The informative 30.7% is the part worth carrying, so trivia alternates
+     are dropped here rather than filtered in the app: an alternate nobody
+     should render is weight in every download. */
+  const edges=sourceCorpus.edges.map(e=>{
+    const also=(e.also||[]).filter(x=>!isTrivia(x.signal));
+    return {a:e.a,b:e.b,type:e.type,strength:e.strength,
+      confidence:e.confidence,source:e.source,claim:e.claim,signal:e.signal||null,
+      attribution:e.attribution||null,
+      also:also.length?also:null,
+      alsoRecord:e.alsoRecord||null};
+  });
   corpus={meta:{...sourceCorpus.meta},films,edges};
   discovery=sourceDiscovery;
 }else{
