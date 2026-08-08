@@ -32985,39 +32985,6 @@
    "bId": "film-fc092ba6a1604583"
   },
   {
-   "a": "cape fear 1962",
-   "b": "cape fear",
-   "type": "descent",
-   "from": "a",
-   "strength": 0.92,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Cape Fear is recorded as based on Cape Fear.",
-   "evidence": [
-    "wikidata:Q501995#P144"
-   ],
-   "signal": "adaptation",
-   "also": [
-    {
-     "signal": "sameAuthor",
-     "claim": "Both adapt work by John D. MacDonald.",
-     "strength": 0.78
-    },
-    {
-     "signal": "keyword",
-     "claim": "Both turn on killing a dog, threat to family and family terrorized.",
-     "strength": 0.74
-    },
-    {
-     "signal": "cast",
-     "claim": "Robert Mitchum and Gregory Peck both appear in both films.",
-     "strength": 0.567
-    }
-   ],
-   "aId": "film-c543e52d240767a5",
-   "bId": "film-db3243aa1eb24cd7"
-  },
-  {
    "a": "yojimbo",
    "b": "django",
    "type": "descent",
@@ -56858,33 +56825,6 @@
   },
   {
    "a": "the decameron",
-   "b": "salo or the 120 days of sodom",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Pier Paolo Pasolini directing; Tonino Delli Colli shooting; Nino Baragli cutting; Ennio Morricone scoring; Pier Paolo Pasolini writing on both.",
-   "evidence": [
-    "wikidata:Q25120#director",
-    "wikidata:Q1567717#cinematographer",
-    "wikidata:Q364528#editor",
-    "wikidata:Q23848#composer",
-    "wikidata:Q25120#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Italy, within 4 years of each other.",
-     "strength": 0.205
-    }
-   ],
-   "aId": "film-061d091a0a8930b1",
-   "bId": "film-3d917f5a0f5cf6ce"
-  },
-  {
-   "a": "the decameron",
    "b": "the canterbury tales",
    "type": "hand",
    "from": "none",
@@ -70584,41 +70524,6 @@
    ],
    "aId": "film-05f62e59e0d0b089",
    "bId": "film-dcb259042d84cacd"
-  },
-  {
-   "a": "tout va bien",
-   "b": "letter to jane",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.811,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Jean-Luc Godard and Jean-Pierre Gorin directing; Jean-Luc Godard writing on both.",
-   "evidence": [
-    "wikidata:Q53001#director",
-    "wikidata:Q604362#director",
-    "wikidata:Q53001#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Jane Fonda appears in both films.",
-     "strength": 0.559
-    },
-    {
-     "signal": "movement",
-     "claim": "Both belong to French New Wave.",
-     "strength": 0.549
-    },
-    {
-     "signal": "countryEra",
-     "claim": "France, the same moment of each other.",
-     "strength": 0.199
-    }
-   ],
-   "aId": "film-05f62e59e0d0b089",
-   "bId": "film-54f600a90df2dea1"
   },
   {
    "a": "wind from the east",
@@ -87476,39 +87381,6 @@
    "bId": "film-b96ad1b7c2f26071"
   },
   {
-   "a": "the thing",
-   "b": "the thing from another world",
-   "type": "descent",
-   "from": "none",
-   "strength": 0.78,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both adapt work by John W. Campbell.",
-   "evidence": [
-    "wikidata:Q435056#P50"
-   ],
-   "signal": "sameAuthor",
-   "also": [
-    {
-     "signal": "subject",
-     "claim": "Both are about flying saucer.",
-     "strength": 0.665
-    },
-    {
-     "signal": "crew",
-     "claim": "John W. Campbell writing on both.",
-     "strength": 0.44
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are monster film.",
-     "strength": 0.331
-    }
-   ],
-   "aId": "film-e6987c7238fcc682",
-   "bId": "film-a786c6b761ac0696"
-  },
-  {
    "a": "apocalypse now",
    "b": "the duellists",
    "type": "descent",
@@ -91171,41 +91043,6 @@
    "bId": "film-cf7dc3d6413379d1"
   },
   {
-   "a": "raise the red lantern",
-   "b": "the story of qiu ju",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.775,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Zhang Yimou directing; Du Yuan cutting; Zhao Jiping scoring on both.",
-   "evidence": [
-    "wikidata:Q55430#director",
-    "wikidata:Q104722861#editor",
-    "wikidata:Q127740#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to fifth generation Chinese cinema.",
-     "strength": 0.654
-    },
-    {
-     "signal": "cast",
-     "claim": "Gong Li appears in both films.",
-     "strength": 0.54
-    },
-    {
-     "signal": "countryEra",
-     "claim": "People's Republic of China, the same moment of each other.",
-     "strength": 0.264
-    }
-   ],
-   "aId": "film-a49cb62a9bbc6c0d",
-   "bId": "film-98b11f0c45363e13"
-  },
-  {
    "a": "star wars episode v the empire strikes back",
    "b": "star wars episode vi return of the jedi",
    "type": "hand",
@@ -91491,41 +91328,6 @@
    ],
    "aId": "film-ea496f331d615bf6",
    "bId": "film-f113679e3510bcc4"
-  },
-  {
-   "a": "solaris",
-   "b": "stalker",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.771,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Andrei Tarkovsky directing; Eduard Artemyev scoring; Andrei Tarkovsky writing on both.",
-   "evidence": [
-    "wikidata:Q853#director",
-    "wikidata:Q706995#composer",
-    "wikidata:Q853#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Vladimir Zamanskiy and Anatoly Solonitsyn both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are arthouse science fiction film, made 7 years apart.",
-     "strength": 0.445
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Mosfilm.",
-     "strength": 0.41
-    }
-   ],
-   "aId": "film-a864aa503463a951",
-   "bId": "film-a13a211a9e2873ab"
   },
   {
    "a": "solaris",
@@ -97186,41 +96988,6 @@
    "bId": "film-ca09d6efaa6a64d3"
   },
   {
-   "a": "goodfellas",
-   "b": "the irishman",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.74,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on irish-american, mafia and organized crime.",
-   "evidence": [
-    "tmdb:kw:irish-american#keywords",
-    "tmdb:kw:mafia#keywords",
-    "tmdb:kw:organized crime#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Martin Scorsese directing; Thelma Schoonmaker cutting on both.",
-     "strength": 0.703
-    },
-    {
-     "signal": "cast",
-     "claim": "Joe Pesci and Robert De Niro both appear in both films.",
-     "strength": 0.559
-    },
-    {
-     "signal": "movement",
-     "claim": "Both belong to New Hollywood.",
-     "strength": 0.558
-    }
-   ],
-   "aId": "film-c94839938019227a",
-   "bId": "film-ca09d6efaa6a64d3"
-  },
-  {
    "a": "tora tora tora",
    "b": "the human condition iii a soldier s prayer",
    "type": "rhyme",
@@ -97865,41 +97632,6 @@
    "bId": "film-c89a658f0b852ea6"
   },
   {
-   "a": "the exorcist",
-   "b": "exorcist ii the heretic",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.74,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on religion and supernatural, exorcism and religious horror.",
-   "evidence": [
-    "tmdb:kw:religion and supernatural#keywords",
-    "tmdb:kw:exorcism#keywords",
-    "tmdb:kw:religious horror#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "subject",
-     "claim": "Both are about exorcism and demon.",
-     "strength": 0.72
-    },
-    {
-     "signal": "cast",
-     "claim": "Linda Blair and Kitty Winn both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "crew",
-     "claim": "William Peter Blatty writing on both.",
-     "strength": 0.44
-    }
-   ],
-   "aId": "film-d86ede637c7f3688",
-   "bId": "film-12ff40ca3d278535"
-  },
-  {
    "a": "escape from new york",
    "b": "escape from l a",
    "type": "rhyme",
@@ -98338,41 +98070,6 @@
    ],
    "aId": "film-35727b3b54096948",
    "bId": "film-7dfb4a74607ff403"
-  },
-  {
-   "a": "harakiri",
-   "b": "the 47 ronin",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.74,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on seppuku, shogunate and ronin.",
-   "evidence": [
-    "tmdb:kw:seppuku#keywords",
-    "tmdb:kw:shogunate#keywords",
-    "tmdb:kw:ronin#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "setting",
-     "claim": "Both are set in Edo.",
-     "strength": 0.618
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Shochiku.",
-     "strength": 0.377
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are samurai cinema.",
-     "strength": 0.34
-    }
-   ],
-   "aId": "film-c52ebc979fdb3fca",
-   "bId": "film-ebc460051fea284c"
   },
   {
    "a": "full metal jacket",
@@ -99851,31 +99548,6 @@
    ],
    "aId": "film-04c0dcd3a997b7ca",
    "bId": "film-4a046a3311e80b04"
-  },
-  {
-   "a": "walkabout",
-   "b": "rabbit proof fence",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.733,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on outback, australian aboriginal and australia.",
-   "evidence": [
-    "tmdb:kw:outback#keywords",
-    "tmdb:kw:australian aboriginal#keywords",
-    "tmdb:kw:australia#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "David Gulpilil appears in both films.",
-     "strength": 0.6
-    }
-   ],
-   "aId": "film-e3da473a7c9baa65",
-   "bId": "film-ffdd57f195686f46"
   },
   {
    "a": "lumiere and company",
@@ -128764,30 +128436,6 @@
    "bId": "film-5a63f71c61dc11d9"
   },
   {
-   "a": "my darling clementine",
-   "b": "the man who shot liberty valance",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.692,
-   "confidence": 1,
-   "source": "record",
-   "claim": "John Ford directing; Cyril J. Mockridge scoring on both.",
-   "evidence": [
-    "wikidata:Q51114#director",
-    "wikidata:Q328857#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are western film.",
-     "strength": 0.282
-    }
-   ],
-   "aId": "film-0ca8263ee2c53840",
-   "bId": "film-b163f70a96c309e0"
-  },
-  {
    "a": "the long good friday",
    "b": "the innocent",
    "type": "hand",
@@ -133501,36 +133149,6 @@
    ],
    "aId": "film-be513f65481ebfb0",
    "bId": "film-02c95cb1f52b21be"
-  },
-  {
-   "a": "2001 a space odyssey",
-   "b": "dark star",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.676,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on metrocolor, artificial intelligence (a.i.) and space travel.",
-   "evidence": [
-    "tmdb:kw:metrocolor#keywords",
-    "tmdb:kw:artificial intelligence (a.i.)#keywords",
-    "tmdb:kw:space travel#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to New Hollywood.",
-     "strength": 0.558
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, within 6 years of each other.",
-     "strength": 0.187
-    }
-   ],
-   "aId": "film-5fa1f80cb8a5cb71",
-   "bId": "film-8671ebb0ac22e979"
   },
   {
    "a": "the tenant",
@@ -467156,23 +466774,6 @@
    "bId": "film-b031c01bcc99421c"
   },
   {
-   "a": "black orpheus",
-   "b": "black god white devil",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.3,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Brazil, within 5 years of each other.",
-   "evidence": [
-    "wikidata:Q155#P495"
-   ],
-   "signal": "countryEra",
-   "also": [],
-   "aId": "film-e5fc2e873d0aff13",
-   "bId": "film-8ed4ba9b46ad759e"
-  },
-  {
    "a": "a fantastic woman",
    "b": "endless poetry",
    "type": "convergence",
@@ -469520,23 +469121,6 @@
    "signal": "genre",
    "also": [],
    "aId": "film-4d2a5cbd05538326",
-   "bId": "film-a8d88fe3225f084b"
-  },
-  {
-   "a": "stagecoach",
-   "b": "meek s cutoff",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.282,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are western film.",
-   "evidence": [
-    "wikidata:Q172980#P136g"
-   ],
-   "signal": "genre",
-   "also": [],
-   "aId": "film-84357f0e30bd9d31",
    "bId": "film-a8d88fe3225f084b"
   },
   {
@@ -506114,39 +505698,6 @@
    "bId": "film-1a50a994a93f6639"
   },
   {
-   "a": "no regrets for our youth",
-   "b": "the most beautiful",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.212,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Japan, the same moment of each other.",
-   "evidence": [
-    "wikidata:Q17#P495"
-   ],
-   "signal": "countryEra",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Akira Kurosawa directing; Akira Kurosawa writing on both.",
-     "strength": 0.699
-    },
-    {
-     "signal": "cast",
-     "claim": "Akitake Kōno and Takashi Shimura both appear in both films.",
-     "strength": 0.567
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Toho.",
-     "strength": 0.377
-    }
-   ],
-   "aId": "film-d40e47af0dcb23a1",
-   "bId": "film-b4e0ab7974e8e9ee"
-  },
-  {
    "a": "eureka",
    "b": "the sea is watching",
    "type": "convergence",
@@ -542526,11 +542077,716 @@
    "source": "reading",
    "aId": "film-6e992d976d1ccadc",
    "bId": "film-b3adb12d221b7629"
+  },
+  {
+   "a": "alexander nevsky",
+   "b": "andrei rublev",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.78,
+   "confidence": 0.65,
+   "claim": "A nation rallied on the ice against the outsider, answered by a cathedral sacked with the prince's own brother guiding the raiders in.",
+   "source": "reading",
+   "aId": "film-4c17aa8b9ad85d9f",
+   "bId": "film-d946b6c8aa019363"
+  },
+  {
+   "a": "lawrence of arabia",
+   "b": "burn",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.6,
+   "claim": "An Englishman consumed by the revolt he raised, answered by an agent who engineers a slave uprising for sugar, then kills the man he made.",
+   "source": "reading",
+   "aId": "film-60f6e5b121c36d3b",
+   "bId": "film-511a97fff0b8480b"
+  },
+  {
+   "a": "apocalypse now",
+   "b": "jarhead",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.78,
+   "claim": "The helicopter attack flown in to Wagner as an indictment of the war, answered by marines howling along to that same reel on their way to deploy.",
+   "source": "attested",
+   "attribution": "Anthony Swofford's memoir Jarhead (2003), the film's source, on marines screening Vietnam films as war pornography before deployment",
+   "aId": "film-30296027af4c6b53",
+   "bId": "film-5c74bd94fca56b04"
+  },
+  {
+   "a": "rambo first blood part ii",
+   "b": "born on the fourth of july",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "A veteran sent back to Vietnam to win it properly, answered by one who comes home paralysed to a ward with broken equipment and rats in it.",
+   "source": "reading",
+   "aId": "film-f94ea375b275b4c1",
+   "bId": "film-6751a876181108cb"
+  },
+  {
+   "a": "rome open city",
+   "b": "difficult years",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.55,
+   "claim": "The priest and the communist dying together, answered by a town clerk who signs the Fascist party card to keep a job he loses anyway.",
+   "source": "reading",
+   "aId": "film-30644d8f8a0387a3",
+   "bId": "film-248b2120d7109a3b"
+  },
+  {
+   "a": "is paris burning",
+   "b": "section speciale",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "Liberation as a whole city rising to free itself, answered by judges assembling a court that could sentence men retroactively for the occupier.",
+   "source": "reading",
+   "aId": "film-4ed3cbf310237dfe",
+   "bId": "film-c737c1dd8232466e"
+  },
+  {
+   "a": "the searchers",
+   "b": "meek s cutoff",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "Five years spent hunting the Comanche who took a white girl, answered by a lost party whose water depends on a captive the film never translates.",
+   "source": "reading",
+   "aId": "film-8b991c9cfa7dc61d",
+   "bId": "film-a8d88fe3225f084b"
+  },
+  {
+   "a": "walkabout",
+   "b": "rabbit proof fence",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.55,
+   "claim": "White children saved in the desert by an Aboriginal boy left unnamed, answered by three Aboriginal girls walking home along a government fence.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on outback, australian aboriginal and australia.",
+    "strength": 0.733
+   },
+   "aId": "film-e3da473a7c9baa65",
+   "bId": "film-ffdd57f195686f46"
+  },
+  {
+   "a": "the most beautiful",
+   "b": "no regrets for our youth",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.62,
+   "claim": "Girls urged to grind more lenses for the war, answered by the same director with a woman planting rice in a village that shuns her as a spy's widow.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Japan, the same moment of each other.",
+    "strength": 0.212
+   },
+   "aId": "film-b4e0ab7974e8e9ee",
+   "bId": "film-d40e47af0dcb23a1"
+  },
+  {
+   "a": "the 47 ronin",
+   "b": "harakiri",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.78,
+   "confidence": 0.62,
+   "claim": "Retainers avenging their lord, filmed to order as a morale booster, answered by a masterless samurai pricing what the code costs the poor.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on seppuku, shogunate and ronin.",
+    "strength": 0.74
+   },
+   "aId": "film-ebc460051fea284c",
+   "bId": "film-c52ebc979fdb3fca"
+  },
+  {
+   "a": "kanal",
+   "b": "ida",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.58,
+   "claim": "An uprising ending in the sewers as martyrdom, answered by two women driving out for one wartime grave and meeting who farms the land now.",
+   "source": "reading",
+   "aId": "film-857fe8e6dd49e242",
+   "bId": "film-cdce6846835f5873"
+  },
+  {
+   "a": "the godfather",
+   "b": "goodfellas",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.85,
+   "confidence": 0.7,
+   "claim": "The mob as dynasty and amber-lit ceremony, answered by the mob as a job, with bodies that have to be moved before dinner.",
+   "source": "reading",
+   "aId": "film-b57be0fe69ca253c",
+   "bId": "film-c94839938019227a"
+  },
+  {
+   "a": "goodfellas",
+   "b": "the irishman",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.65,
+   "claim": "A life of appetite and forward motion, answered by the same director with freeze-frames that pre-announce each death and a last stretch in a care home.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on irish-american, mafia and organized crime.",
+    "strength": 0.74
+   },
+   "aId": "film-c94839938019227a",
+   "bId": "film-ca09d6efaa6a64d3"
+  },
+  {
+   "a": "stagecoach",
+   "b": "meek s cutoff",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.62,
+   "claim": "Wide vistas and a cavalry bugle over the ridge, answered by a boxed-in near-square frame, no rescue, and a captive who may know where the water is.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genre",
+    "claim": "Both are western film.",
+    "strength": 0.282
+   },
+   "aId": "film-84357f0e30bd9d31",
+   "bId": "film-a8d88fe3225f084b"
+  },
+  {
+   "a": "shane",
+   "b": "heaven s gate",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.6,
+   "claim": "The range war as one gunfighter saving the homesteaders, answered by cattlemen who draw up a list of names and hire an army.",
+   "source": "reading",
+   "aId": "film-8a711f28056480d6",
+   "bId": "film-ef96363fafcffda2"
+  },
+  {
+   "a": "high noon",
+   "b": "the great silence",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.6,
+   "claim": "A lawman who pleads with his town and wins the street anyway, answered by a gunman whose throat was cut as a child and cannot ask.",
+   "source": "reading",
+   "aId": "film-2b189aeb53ff9b2e",
+   "bId": "film-4c26da26d24675fd"
+  },
+  {
+   "a": "my darling clementine",
+   "b": "mccabe mrs miller",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.65,
+   "claim": "A town founded in a dance on its half-built church floor, answered by a settlement whose church never fills and whose first business is a brothel.",
+   "source": "reading",
+   "aId": "film-0ca8263ee2c53840",
+   "bId": "film-efc820ecbc26d079"
+  },
+  {
+   "a": "the man who shot liberty valance",
+   "b": "the assassination of jesse james by the coward robert ford",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.62,
+   "claim": "The newspaperman who burns his notes and prints the legend, answered by the killer re-enacting the shooting on stage for people who came to hiss.",
+   "source": "reading",
+   "aId": "film-b163f70a96c309e0",
+   "bId": "film-2220467233bd9518"
+  },
+  {
+   "a": "the thing from another world",
+   "b": "the thing",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.65,
+   "claim": "Wisecrackers who pool what they know and beat the visitor, answered by a version where it wears their faces and only a blood test is trusted.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "sameAuthor",
+    "claim": "Both adapt work by John W. Campbell.",
+    "strength": 0.78
+   },
+   "aId": "film-a786c6b761ac0696",
+   "bId": "film-e6987c7238fcc682"
+  },
+  {
+   "a": "the maltese falcon",
+   "b": "klute",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "A private eye whose case is a woman he sees through and hands over, answered by a film that turns to her work and her sessions with an analyst.",
+   "source": "reading",
+   "aId": "film-6a85c855dcf66303",
+   "bId": "film-32b4d581f604bf21"
+  },
+  {
+   "a": "meet me in st louis",
+   "b": "new york new york",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "Painted seasons and a family that will not leave for New York, answered on soundstages just as artificial, where the songs work and the marriage fails.",
+   "source": "reading",
+   "aId": "film-ed4a7fbb42a4ee3a",
+   "bId": "film-6b85f29345754279"
+  },
+  {
+   "a": "two or three things i know about her",
+   "b": "jeanne dielman 23 quai du commerce 1080 bruxelles",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.65,
+   "claim": "A housewife selling herself while a man narrates theories over her, answered by a widow nobody explains, the potatoes taking longer than the client.",
+   "source": "reading",
+   "aId": "film-f43018da3fa5d094",
+   "bId": "film-a2d1876085156ce6"
+  },
+  {
+   "a": "bicycle thieves",
+   "b": "los olvidados",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.65,
+   "claim": "The poor as a father and son whose bond survives humiliation, refused by a blind beggar turned predator, boys preying on boys, no lesson at the end.",
+   "source": "reading",
+   "aId": "film-dbc80e129d3ec54b",
+   "bId": "film-57f6ea5531662528"
+  },
+  {
+   "a": "rear window",
+   "b": "peeping tom",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "Watching the neighbours as a hobby the plot vindicates, refused by a blade in the tripod leg and a mirror, so the filmed woman watches her own face.",
+   "source": "reading",
+   "aId": "film-f9ae84d1e42b25c0",
+   "bId": "film-a3b6f02ef8954851"
+  },
+  {
+   "a": "fitzcarraldo",
+   "b": "embrace of the serpent",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "A steamship hauled over an Amazon ridge on indigenous shoulders, answered from the far bank: the rubber trade an atrocity, the white man a sick passenger.",
+   "source": "reading",
+   "aId": "film-e934984f9a1f9714",
+   "bId": "film-f5515cde53fd6eb5"
+  },
+  {
+   "a": "tokyo story",
+   "b": "the insect woman",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.65,
+   "claim": "Decorum at tatami height, answered by the same low camera tracking a woman through farm, mill and brothel like an insect that refuses to die.",
+   "source": "reading",
+   "aId": "film-dd9cde11a2dd8ec6",
+   "bId": "film-ea3659fccedf6d9a"
+  },
+  {
+   "a": "street of shame",
+   "b": "girls of the night",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.6,
+   "claim": "Brothel women filmed with sympathy as the law closes the house, answered by his leading actress with a woman expelled from every job her past reaches.",
+   "source": "reading",
+   "aId": "film-d3f9008d3c085e69",
+   "bId": "film-ff1a467ca5f73530"
+  },
+  {
+   "a": "the color purple",
+   "b": "daughters of the dust",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.6,
+   "claim": "Black women of the rural South turned into melodrama with suffering redeemed, answered on the Sea Islands in Gullah, narrated by a child not yet born.",
+   "source": "reading",
+   "aId": "film-a2366e9471e27b98",
+   "bId": "film-d01cb9726ec7eebe"
+  },
+  {
+   "a": "raise the red lantern",
+   "b": "the story of qiu ju",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.6,
+   "claim": "Concubines arranged under red lanterns, a China composed for the eye, answered by the same actress sent into real villages with hidden cameras.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Zhang Yimou directing; Du Yuan cutting; Zhao Jiping scoring on both.",
+    "strength": 0.775
+   },
+   "aId": "film-a49cb62a9bbc6c0d",
+   "bId": "film-98b11f0c45363e13"
+  },
+  {
+   "a": "2001 a space odyssey",
+   "b": "dark star",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.65,
+   "claim": "The immaculate white ship and its calm computer, answered by a filthy scout vessel arguing a talking bomb out of detonating.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on metrocolor, artificial intelligence (a.i.) and space travel.",
+    "strength": 0.676
+   },
+   "aId": "film-5fa1f80cb8a5cb71",
+   "bId": "film-8671ebb0ac22e979"
+  },
+  {
+   "a": "close encounters of the third kind",
+   "b": "war of the worlds",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.65,
+   "claim": "A father leaving his children for ships descending in benediction, answered by machines rising from the tarmac and a father who only keeps them moving.",
+   "source": "reading",
+   "aId": "film-bd500c2469e93aba",
+   "bId": "film-98595d60bf545b1e"
+  },
+  {
+   "a": "ordet",
+   "b": "winter light",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.65,
+   "claim": "The dead raised in a parlour because a son written off as mad asks aloud, answered by a pastor in an empty church whose prayers are met with silence.",
+   "source": "reading",
+   "aId": "film-a3438eff633b46be",
+   "bId": "film-fc4cb1847923a631"
+  },
+  {
+   "a": "pinocchio",
+   "b": "a i artificial intelligence",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.6,
+   "claim": "A wooden boy made real as the reward for goodness, answered by a machine child who asks the same blue fairy and is left asking.",
+   "source": "reading",
+   "aId": "film-d6c18456997c5b5d",
+   "bId": "film-1c26d8770e7871c3"
+  },
+  {
+   "a": "metropolis",
+   "b": "alphaville",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.55,
+   "claim": "A future raised as a colossal set of towers and machine halls, answered by one shot after dark in Paris corridors, with nothing built for it at all.",
+   "source": "reading",
+   "aId": "film-79bbed3c1d961ca6",
+   "bId": "film-7bac3da638b25ccd"
+  },
+  {
+   "a": "children of hiroshima",
+   "b": "hiroshima mon amour",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.55,
+   "claim": "The bombing restaged so it can be seen and mourned, answered by a film insisting the museum and the newsreels show you nothing at all.",
+   "source": "reading",
+   "aId": "film-c709f2c6474afbba",
+   "bId": "film-981680ac563ae775"
+  },
+  {
+   "a": "chronique d un ete",
+   "b": "lessons of darkness",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.8,
+   "claim": "Passers-by asked on camera whether they are happy, answered by burning oil fields shot as alien apocalypse under an invented Pascal epigraph.",
+   "source": "attested",
+   "attribution": "Werner Herzog, 'Minnesota Declaration: Truth and Fact in Documentary Cinema' (Walker Art Center, 1999), which attacks cinema verite by name as reaching only 'the truth of accountants'",
+   "aId": "film-2d6e5391f6c7eb08",
+   "bId": "film-1422178fbd738a54"
+  },
+  {
+   "a": "salesman",
+   "b": "the thin blue line",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.78,
+   "confidence": 0.65,
+   "claim": "Bible salesmen followed by a camera that never asks a question, answered by a crime restaged in slow motion with a Philip Glass score doubting it.",
+   "source": "reading",
+   "aId": "film-3f3a7087f00a2c63",
+   "bId": "film-6ca29c8a9b030ea0"
+  },
+  {
+   "a": "black orpheus",
+   "b": "black god white devil",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.65,
+   "claim": "Favela carnival in ravishing colour for audiences abroad, answered from the parched backlands in hard black and white by a balladeer counting the dead.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Brazil, within 5 years of each other.",
+    "strength": 0.3
+   },
+   "aId": "film-e5fc2e873d0aff13",
+   "bId": "film-8ed4ba9b46ad759e"
+  },
+  {
+   "a": "battleship potemkin",
+   "b": "man with a movie camera",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.7,
+   "claim": "A mutiny restaged with a cast and a massacre invented for the steps, answered with no script or actors, cutting to the editor splicing what you watch.",
+   "source": "reading",
+   "aId": "film-4c56fa7c442d6e97",
+   "bId": "film-bd3371b7eed1762b"
+  },
+  {
+   "a": "z",
+   "b": "tout va bien",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.62,
+   "claim": "Political murder made gripping as a thriller, answered by the occupied factory built as a cutaway dolls' house no one mistakes for real.",
+   "source": "reading",
+   "aId": "film-943ee380ed0c5d69",
+   "bId": "film-05f62e59e0d0b089"
+  },
+  {
+   "a": "straw dogs",
+   "b": "funny games u s",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.66,
+   "claim": "A siege where a mild man discovers his own violence and the audience cheers, answered by an intruder who picks up a remote and rewinds it away.",
+   "source": "reading",
+   "aId": "film-098a92a22d479d72",
+   "bId": "film-e6933952bc511cb9"
+  },
+  {
+   "a": "dont look back",
+   "b": "rolling thunder revue a bob dylan story by martin scorsese",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.64,
+   "claim": "Proximity to the singer as the promise of revelation, answered by a tour film that salts its interviews with people who never existed.",
+   "source": "reading",
+   "aId": "film-69038b37aad1dd0a",
+   "bId": "film-0b82cc04c16612fd"
+  },
+  {
+   "a": "bicycle thieves",
+   "b": "accattone",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.66,
+   "claim": "The poor man as a worker wanting only the bicycle that keeps his job, answered by a hustler who cannot bear a day's labour, framed like a saint to Bach.",
+   "source": "reading",
+   "aId": "film-dbc80e129d3ec54b",
+   "bId": "film-69d744659364e293"
+  },
+  {
+   "a": "high school",
+   "b": "homework",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.58,
+   "claim": "A school watched in silence from the corner, answered by a lens set in front of each child, keeping the moments when it frightens them.",
+   "source": "reading",
+   "aId": "film-c89cb2d6d1086d18",
+   "bId": "film-20a430024ca60523"
+  },
+  {
+   "a": "high noon",
+   "b": "rio bravo",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.85,
+   "confidence": 0.88,
+   "claim": "A lawman begging his town for help, answered by a sheriff who turns every offer away and holds the jail with a drunk and a crippled old man.",
+   "source": "attested",
+   "attribution": "Howard Hawks, interviewed by Joseph McBride in Hawks on Hawks (1982): \"Rio Bravo was made because I didn't like a picture called High Noon… I didn't think a good sheriff was going to go running around town like a chicken with his head off asking for help.\"",
+   "aId": "film-2b189aeb53ff9b2e",
+   "bId": "film-b9c0fa647d54ea68"
+  },
+  {
+   "a": "the decameron",
+   "b": "salo or the 120 days of sodom",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.82,
+   "confidence": 0.85,
+   "claim": "Pasolini renounced his sunlit bawdy tales for making nakedness look like freedom, then filmed the same nakedness as inventory in a locked villa.",
+   "source": "attested",
+   "attribution": "Pasolini, \"Abiura dalla Trilogia della vita\", written 15 June 1975, published in Corriere della Sera and collected in Lettere luterane.",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Pier Paolo Pasolini directing; Tonino Delli Colli shooting; Nino Baragli cutting; Ennio Morricone scoring; Pier Paolo Pasolini writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-061d091a0a8930b1",
+   "bId": "film-3d917f5a0f5cf6ce"
+  },
+  {
+   "a": "solaris",
+   "b": "stalker",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.8,
+   "claim": "Orbital hardware judged to have crowded out the idea, answered by the same director with three men on foot in wet grass, walking towards a room.",
+   "source": "attested",
+   "attribution": "Tarkovsky, Sculpting in Time: \"the science-fiction element in Solaris was nonetheless too prominent and became a distraction\"; he adds the idea would have stood out more had the rockets and stations been dispensed with altogether.",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Andrei Tarkovsky directing; Eduard Artemyev scoring; Andrei Tarkovsky writing on both.",
+    "strength": 0.771
+   },
+   "aId": "film-a864aa503463a951",
+   "bId": "film-a13a211a9e2873ab"
+  },
+  {
+   "a": "tout va bien",
+   "b": "letter to jane",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.8,
+   "claim": "A strike film built on Fonda's stardom, answered by the same directors spending fifty minutes on one press photograph of her listening in Hanoi.",
+   "source": "attested",
+   "attribution": "Godard and Gorin's own narration in Letter to Jane, made and screened as a postscript to Tout Va Bien.",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Jean-Luc Godard and Jean-Pierre Gorin directing; Jean-Luc Godard writing on both.",
+    "strength": 0.811
+   },
+   "aId": "film-05f62e59e0d0b089",
+   "bId": "film-54f600a90df2dea1"
+  },
+  {
+   "a": "the exorcist",
+   "b": "exorcist ii the heretic",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.65,
+   "claim": "A child strapped to a bed, answered by a sequel in which the girl is grown, shares her memories through a hypnosis machine, and is a source of good.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on religion and supernatural, exorcism and religious horror.",
+    "strength": 0.74
+   },
+   "aId": "film-d86ede637c7f3688",
+   "bId": "film-12ff40ca3d278535"
+  },
+  {
+   "a": "the ballad of narayama",
+   "b": "the ballad of narayama 1983",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.8,
+   "confidence": 0.68,
+   "claim": "The old carried up the mountain on painted sets under lights that change on cue, answered by the same story dragged into snow, mud and rutting animals.",
+   "source": "reading",
+   "aId": "film-e5e8316e6940bf01",
+   "bId": "film-130ebfc808dc382b"
+  },
+  {
+   "a": "cape fear 1962",
+   "b": "cape fear",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.75,
+   "confidence": 0.65,
+   "claim": "A hunted family given a spotless lawyer to root for, answered by one who buried a report that would have helped his stalker: the siege as a debt.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "adaptation",
+    "claim": "Cape Fear is recorded as based on Cape Fear.",
+    "strength": 0.92
+   },
+   "aId": "film-c543e52d240767a5",
+   "bId": "film-db3243aa1eb24cd7"
+  },
+  {
+   "a": "my darling clementine",
+   "b": "the man who shot liberty valance",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.6,
+   "claim": "One town raised by a dance on the bare floorboards of its church, answered by the same director with a newspaper choosing legend over what happened.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "John Ford directing; Cyril J. Mockridge scoring on both.",
+    "strength": 0.692
+   },
+   "aId": "film-0ca8263ee2c53840",
+   "bId": "film-b163f70a96c309e0"
   }
  ],
  "meta": {
   "schemaVersion": 2,
   "identityVersion": "identity-2249bcb9a060c319",
-  "corpusVersion": "corpus-6ab06007ca81c711"
+  "corpusVersion": "corpus-bc11d9f0c9770113"
  }
 }
