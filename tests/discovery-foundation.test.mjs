@@ -55,7 +55,7 @@ test("movement provenance records inherited director membership once", () => {
 
 test("movement provenance preserves both paths for the same membership", () => {
   const { addDirectMovement, addInheritedMovement, movementValues } = require("../atlas/pipeline/movement-provenance.js");
-  const film = fixture("harvest.json").films["old-key"];
+  const film = {};
 
   addDirectMovement(film, "Q900");
   addInheritedMovement(film, "Q900", "Q700");
@@ -70,6 +70,26 @@ test("movement values use the legacy flat list only without authoritative proven
 
   assert.deepEqual(movementValues({ movement: ["Q902", "Q900", "Q902"] }), ["Q900", "Q902"]);
   assert.deepEqual(movementValues({ movementDirect: [], movementInherited: [], movement: ["Q999"] }), []);
+});
+
+test("movement values stay consistent for association input and scale measurement", () => {
+  const { movementValues } = require("../atlas/pipeline/movement-provenance.js");
+  const { measure } = require("../atlas/pipeline/measure-scale.js");
+  const authoritativeEmpty = {
+    first: { movementDirect: [], movementInherited: [], movement: ["Q900"] },
+    second: { movementDirect: [], movementInherited: [], movement: ["Q900"] },
+    third: { movementDirect: [], movementInherited: [], movement: [] },
+  };
+  const legacy = {
+    first: { movement: ["Q900"] },
+    second: { movement: ["Q900"] },
+    third: { movement: [] },
+  };
+
+  assert.deepEqual(movementValues(authoritativeEmpty.first), []);
+  assert.deepEqual(movementValues(legacy.first), ["Q900"]);
+  assert.equal(measure(authoritativeEmpty, Object.keys(authoritativeEmpty), 3).fired.movement, 0);
+  assert.equal(measure(legacy, Object.keys(legacy), 3).fired.movement, 1);
 });
 
 function correctedHarvest() {
