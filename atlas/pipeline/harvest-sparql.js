@@ -69,6 +69,18 @@ function post(query) {
       },
     }, (res) => {
       const chunks = [];
+      /* `res` needs its own error handler even though the gunzip below has one:
+         .pipe() does not forward a source error to its destination. On a socket
+         reset mid-body -- or after a complete body has arrived but before the
+         connection closes -- `res` emits "error" with zero listeners, the gunzip
+         emits neither "end" nor "error", and this promise never settles. The
+         process then hangs forever with no output and no exception, and
+         req.setTimeout does not rescue it: that arms an inactivity timer on a
+         socket that has already been destroyed. WDQS answers this pipeline with
+         content-encoding: gzip, so the piped branch -- the one where the
+         handler is missing -- is the live branch on every one of the ~290
+         queries a full harvest makes. */
+      res.on("error", reject);
       const stream = /gzip/.test(res.headers["content-encoding"] || "") ? res.pipe(zlib.createGunzip()) : res;
       stream.on("data", (c) => chunks.push(c));
       stream.on("end", () => {
@@ -102,7 +114,15 @@ async function sparql(label, query, attempt) {
     await sleep(THROTTLE_MS);
     return rows;
   } catch (e) {
-    const retryable = /HTTP 429|HTTP 5\d\d|timeout|ECONNRESET|ETIMEDOUT|EAI_AGAIN|socket hang up/.test(e.message);
+    /* Matched against the code as well as the message. A mid-body socket reset
+       arrives as { code: "ECONNRESET", message: "aborted" } -- the message
+       alone matches none of these alternatives, so testing it on its own
+       classifies the single most common transport failure on this route as
+       permanent and returns null. That would convert the hang fixed in post()
+       into something quieter and worse: a resolve chunk of up to CHUNK seeds
+       dropped after one attempt. */
+    const retryable = /HTTP 429|HTTP 5\d\d|timeout|ECONNRESET|ECONNABORTED|ETIMEDOUT|EPIPE|EAI_AGAIN|ERR_STREAM_PREMATURE_CLOSE|socket hang up/
+      .test((e.code || "") + " " + e.message);
     if (!retryable || n >= 4) { process.stderr.write("  ! " + label + ": " + e.message.slice(0, 90) + "\n"); return null; }
     const wait = Math.round(2000 * Math.pow(1.8, n) + Math.random() * 800);
     process.stderr.write("  (retry " + (n + 1) + " in " + wait + "ms: " + e.message.slice(0, 50) + ")\n");
@@ -178,35 +198,127 @@ const chunks = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o
 
 /* --------------------------------------------------------------- resolve */
 
+/* Two Wikidata items can share a title AND a release year. "Duel" (1971) is
+   both Spielberg's TV movie and Chang Cheh's wuxia film; "Earth" (1930) is both
+   Dovzhenko's and a Macedonian short. Taking whichever row the endpoint
+   happened to return first is not a choice, it is a coin flip -- and it has
+   already put the wrong film under two shipped corpus keys. Being wrong once is
+   the smaller half of the problem: an unordered pick means a resume or a re-run
+   can flip the coin the other way and swap the film out from under an existing
+   slug, taking that slug's authored readings with it.
+
+   So the pick is ordered, and the order is:
+
+     1. an English Wikipedia sitelink beats none. A film with an en.wikipedia
+        article is the film an English-language seed list means. Measured
+        against live WDQS on 2026-08-08 this alone decides Earth (Q55188 over
+        the sitelink-less Q12280475), Titanic, The Witch and Happy Together.
+     2. an exact rdfs:label match beats an alias hit. The query deliberately
+        reaches films through skos:altLabel as well (see resolveTitles), which
+        is how the seed "Duel" also matches a film LABELLED "The Duel"; the film
+        whose own label is the seed is the better reading of it. Measured: this
+        decides Duel (Q583407 over Q17498893) and War of the Worlds (Spielberg's
+        Q202028 over the Asylum mockbuster Q1788591).
+     3. lowest QID, and say so. What survives both rules is a genuine tie
+        between two real films and no rule breaks it honestly. The warning is
+        the point: it tells a human which lines to settle in qid-overrides.json.
+
+   `ORDER BY ?f` on the query is belt-and-braces on top of this sort -- the sort
+   alone is a total order, so it decides the pick either way. The clause earns
+   its place by making the CACHED response bytes reproducible, so a warm-cache
+   resume and a cold run agree byte for byte instead of merely agreeing on the
+   winner. */
+const qnum = (q) => parseInt(String(q).slice(1), 10) || 0;
+function betterCandidate(a, b) {
+  if (!!a.article !== !!b.article) return a.article ? -1 : 1;
+  if (a.exact !== b.exact) return b.exact - a.exact;
+  return qnum(a.qid) - qnum(b.qid);
+}
+
+/* Hand-pinned resolutions for the ties rule 3 cannot break, and for any film
+   the rules get wrong. Keyed by the seed line lowercased -- "duel (1971)" --
+   because that is the string a human is looking at when they decide. A missing
+   file means no overrides: this is a correction sheet, not a dependency, and
+   the resolver must work without it. */
+function loadOverrides() {
+  const p = path.join(__dirname, "qid-overrides.json");
+  if (!fs.existsSync(p)) return {};
+  const raw = JSON.parse(fs.readFileSync(p, "utf8"));
+  const map = {};
+  for (const k of Object.keys(raw)) {
+    if (k[0] === "_") continue;                       /* "_note" and friends */
+    map[k.toLowerCase()] = typeof raw[k] === "string" ? raw[k] : raw[k].qid;
+  }
+  return map;
+}
+const seedLine = (s) => (s.title + (s.year ? " (" + s.year + ")" : "")).toLowerCase();
+
+/* Slug disambiguation, FIRST WINS.
+   slugKey() keys on the title alone, so Psycho (1960) and Psycho (1998) claim
+   the same key -- and the loser used to disappear without a line of output, 27
+   films across the merged seed list. First-wins is the load-bearing half of the
+   rule, not an implementation detail: the film already in the corpus keeps its
+   bare slug, so no existing key is renamed, no hand-written Hitchcock reading
+   is re-targeted onto Van Sant's remake (AGENTS rule 8), and no saved
+   "#/film/psycho" URL changes meaning. The newcomer takes "psycho 1998", which
+   is the shape of keys this corpus already carries ("2001 a space odyssey",
+   "8") and which the app's hash route round-trips through
+   encodeURIComponent/decodeURIComponent.
+
+   Returns key:null only when title, year AND film all collide. That is a
+   genuine loss; the caller reports it rather than swallowing it. */
+function claimKey(out, base, filmQid, year) {
+  if (!out[base]) return { key: base, status: "new" };
+  if (out[base].qid === filmQid) return { key: base, status: "dupe" };
+  const alt = base + " " + (year || "x");
+  if (!out[alt]) return { key: alt, status: "renamed" };
+  if (out[alt].qid === filmQid) return { key: alt, status: "dupe" };
+  return { key: null, status: "collided" };
+}
+
 /* Matching on rdfs:label alone loses every film the seed list spells without
    diacritics -- "La Jetee" is labelled "La Jetée" -- so skos:altLabel is
    included, which is where Wikidata keeps exactly those variants. Type and
    year still do the discriminating: the mollusc-genus failure mode is a
    property of unfiltered label search, not of which label field is read. */
-async function resolveTitles(seeds) {
+async function resolveTitles(seeds, stats) {
+  const overrides = loadOverrides();
   const byTitle = {};
   const groups = chunks(seeds, CHUNK);
   let i = 0;
   for (const g of groups) {
     const values = g.map((s) => '"' + esc(s.title) + '"@en').join(" ");
     const q = `
-SELECT ?match ?f ?fLabel ?year ?article WHERE {
+SELECT ?match ?f ?fLabel ?year ?article ?exact WHERE {
   VALUES ?match { ${values} }
   VALUES ?type { ${TYPE_VALUES} }
-  { ?f rdfs:label ?match } UNION { ?f skos:altLabel ?match }
+  { ?f rdfs:label ?match . BIND(1 AS ?exact) } UNION { ?f skos:altLabel ?match . BIND(0 AS ?exact) }
   ?f wdt:P31 ?type .
   OPTIONAL { ?f wdt:P577 ?date . BIND(YEAR(?date) AS ?year) }
   OPTIONAL { ?article schema:about ?f ; schema:isPartOf <https://en.wikipedia.org/> . }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
-}`;
+}
+ORDER BY ?f`;
     const rows = await sparql("resolve_" + i, q);
     i++;
+    /* A null here is five failed attempts, not an empty answer, and it takes up
+       to CHUNK seeds with it. Downstream those seeds are indistinguishable from
+       films Wikidata does not have, so say it out loud at the only place that
+       still knows the difference. */
+    if (!rows) {
+      stats.chunkFailures++;
+      process.stderr.write("  !! resolve chunk " + i + "/" + groups.length + " FAILED after retries -- "
+        + g.length + " seeds were never asked about\n");
+    }
     for (const r of rows || []) {
       const t = cell(r, "match");
       const q2 = qid(cell(r, "f"));
       if (!t || !q2) continue;
       (byTitle[t] = byTitle[t] || {});
-      const rec = byTitle[t][q2] = byTitle[t][q2] || { qid: q2, label: cell(r, "fLabel"), years: [], article: null };
+      const rec = byTitle[t][q2] = byTitle[t][q2] || { qid: q2, label: cell(r, "fLabel"), years: [], article: null, exact: 0 };
+      /* One item can arrive on both UNION branches (label and alias spelled the
+         same); the exact-label branch is the one that should count. */
+      rec.exact = Math.max(rec.exact, parseInt(cell(r, "exact") || "0", 10) || 0);
       const y = cell(r, "year");
       if (y && rec.years.indexOf(+y) < 0) rec.years.push(+y);
       const a = cell(r, "article");
@@ -221,23 +333,58 @@ SELECT ?match ?f ?fLabel ?year ?article WHERE {
      (2019 Cannes, 2019 KR, 2020 US) resolves inconsistently. */
   const out = {};
   const unresolved = [];
+  const collided = [];
   for (const s of seeds) {
-    const cands = Object.values(byTitle[s.title] || {});
+    const cands = Object.values(byTitle[s.title] || {}).sort(betterCandidate);
+    /* Sorted so the "found N, years ..." line written into unresolved.txt --
+       a git-tracked file -- is the same text on every run. */
+    for (const c of cands) c.years.sort((x, y) => x - y);
     if (!cands.length) { unresolved.push(s.title + (s.year ? " (" + s.year + ")" : "")); continue; }
+
     let pick = null;
-    if (s.year) {
-      pick = cands.find((c) => c.years.indexOf(s.year) > -1)
-        || cands.find((c) => c.years.some((y) => Math.abs(y - s.year) <= 1));
+    const forced = overrides[seedLine(s)];
+    if (forced) {
+      pick = cands.find((c) => c.qid === forced) || null;
+      if (pick) stats.overridden++;
+      else console.warn("  !! override " + seedLine(s) + " -> " + forced
+        + " matched none of " + cands.length + " candidates; falling through to the ranked pick");
+    }
+    if (!pick && s.year) {
+      const exactYear = cands.filter((c) => c.years.indexOf(s.year) > -1);
+      pick = exactYear[0] || cands.find((c) => c.years.some((y) => Math.abs(y - s.year) <= 1)) || null;
       if (!pick) { unresolved.push(s.title + " (" + s.year + " — found " + cands.length + ", years " +
         cands.map((c) => c.years[0]).join("/") + ")"); continue; }
-    } else {
+      if (exactYear.length > 1) {
+        stats.ambiguous++;
+        /* Two real films, same title, same year, and rules 1 and 2 separated
+           neither. The QID tiebreak keeps the run repeatable but it is not an
+           answer -- a person has to look at these. */
+        const runnerUp = exactYear[1];
+        if (!!pick.article === !!runnerUp.article && pick.exact === runnerUp.exact) {
+          stats.tied++;
+          console.warn("  !! ambiguous " + s.title + " (" + s.year + ") -> " + pick.qid
+            + " by lowest QID; also " + exactYear.slice(1).map((c) => c.qid).join(", ")
+            + "  [settle it in pipeline/qid-overrides.json]");
+        }
+      }
+    } else if (!pick) {
       pick = cands[0];
     }
+
     const year = pick.years.length ? Math.min.apply(null, pick.years) : null;
-    const key = slugKey(pick.label || s.title);
-    if (!out[key]) out[key] = { qid: pick.qid, label: pick.label || s.title, year: year, article: pick.article };
+    const base = slugKey(pick.label || s.title);
+    const claim = claimKey(out, base, pick.qid, year);
+    if (claim.status === "dupe") { stats.dupe++; continue; }
+    if (claim.status === "collided") {
+      stats.collided++;
+      collided.push(s.title + (s.year ? " (" + s.year + ")" : "")
+        + " — key collision: \"" + base + "\" and \"" + base + " " + (year || "x") + "\" both taken");
+      continue;
+    }
+    if (claim.status === "renamed") stats.renamed++;
+    out[claim.key] = { qid: pick.qid, label: pick.label || s.title, year: year, article: pick.article };
   }
-  return { films: out, unresolved: unresolved };
+  return { films: out, unresolved: unresolved, collided: collided };
 }
 
 /* ------------------------------------------------------------ attributes */
@@ -268,7 +415,8 @@ async function main() {
   const seeds = parseSeeds(fs.readFileSync(process.argv[2] || path.join(__dirname, "seeds.txt"), "utf8"));
   console.log("seeds: " + seeds.length);
 
-  const { films: resolved, unresolved } = await resolveTitles(seeds);
+  const stats = { renamed: 0, dupe: 0, collided: 0, ambiguous: 0, tied: 0, overridden: 0, chunkFailures: 0 };
+  const { films: resolved, unresolved, collided } = await resolveTitles(seeds, stats);
   console.log("resolved by SPARQL: " + Object.keys(resolved).length + " films, " + unresolved.length + " unresolved");
 
   /* ---- fallback for the stragglers ----
@@ -279,10 +427,11 @@ async function main() {
      fuzzily through CirrusSearch and already knows how to refuse a wrong film.
      The volume is small by construction, so the rate limit that makes REST
      unusable for 800 titles is irrelevant for 40. */
-  const stillMissing = [];
-  let missing = unresolved;
+  let stillMissing = unresolved;
   if (unresolved.length && process.env.ATLAS_NO_FALLBACK !== "1") {
     const wd = require("./wikidata");
+    stillMissing = [];
+    let recovered = 0;
     console.log("REST fallback for " + unresolved.length + " unresolved titles ...");
     for (const line of unresolved) {
       const m = line.match(/^(.*?)\s*\((\d{4})/);
@@ -291,18 +440,51 @@ async function main() {
       let hit = null;
       try { hit = await wd.resolveFilm(title, year); } catch (e) { /* throttled or absent */ }
       if (!hit) { stillMissing.push(line); continue; }
-      const key = slugKey(hit.label || title);
-      if (resolved[key]) continue;
+      /* The old code here was `if (resolved[key]) continue;` -- which dropped
+         the film from `resolved`, never pushed it to stillMissing, and then let
+         the count below report it as recovered. A film could disappear from the
+         corpus AND from unresolved.txt in the same statement. Same first-wins
+         rule as the SPARQL path, and every outcome lands in a bucket. */
+      const base = slugKey(hit.label || title);
+      const claim = claimKey(resolved, base, hit.qid, hit.year || year);
+      if (claim.status === "dupe") { stats.dupe++; continue; }
+      if (claim.status === "collided") {
+        stats.collided++;
+        collided.push(line + " — key collision on REST recovery: \"" + base + "\" taken");
+        continue;
+      }
+      if (claim.status === "renamed") stats.renamed++;
       const article = (hit.ent && hit.ent.sitelinks && hit.ent.sitelinks.enwiki
         && hit.ent.sitelinks.enwiki.title) || null;
-      resolved[key] = { qid: hit.qid, label: hit.label || title, year: hit.year || year, article: article };
+      resolved[claim.key] = { qid: hit.qid, label: hit.label || title, year: hit.year || year, article: article };
+      recovered++;
     }
-    console.log("  recovered " + (unresolved.length - stillMissing.length) + ", still missing " + stillMissing.length);
-    missing = stillMissing;
+    console.log("  recovered " + recovered + ", still missing " + stillMissing.length);
   }
+  const missing = stillMissing.concat(collided);
 
   const keys = Object.keys(resolved);
   console.log("resolved: " + keys.length + " unique films");
+
+  /* Every seed line ends in exactly one bucket, and the buckets have to add
+     back up to the number of lines read. This is the point of the tally: the
+     failure it guards against -- a film silently discarded because something
+     else already held its slug -- is invisible in every other number the run
+     prints, including "resolved: N unique films". Here it is an arithmetic
+     error. */
+  const accounted = keys.length + stillMissing.length + collided.length + stats.dupe;
+  console.log("\nseeds " + seeds.length + " | resolved " + keys.length
+    + " | unresolved " + stillMissing.length + " | renamed " + stats.renamed
+    + " | dupe " + stats.dupe + " | collided " + stats.collided);
+  if (stats.ambiguous) console.log("  same-title-same-year candidates: " + stats.ambiguous
+    + " (" + stats.tied + " decided by QID alone, listed above)");
+  if (stats.overridden) console.log("  pinned by qid-overrides.json: " + stats.overridden);
+  if (stats.chunkFailures) console.log("  FAILED resolve chunks: " + stats.chunkFailures);
+  if (accounted !== seeds.length) {
+    console.error("!! seed accounting does not balance: " + accounted + " accounted for, "
+      + seeds.length + " lines read. A film has been dropped without being counted.");
+    process.exit(1);
+  }
 
   const qids = keys.map((k) => resolved[k].qid);
   const labels = {};
@@ -404,11 +586,18 @@ async function main() {
 
   console.log("\nfilms      : " + Object.keys(films).length);
   console.log("labels     : " + Object.keys(labels).length);
+  /* unresolved.txt is git-tracked, so a run that resolves everything must
+     DELETE it, not skip writing it. Leaving the previous run's list behind
+     turns a stale result into committed state that reads as current -- the
+     file would still name eight missing films after the run that found them. */
+  const unresolvedPath = path.join(OUT, "unresolved.txt");
   if (missing.length) {
     console.log("unresolved : " + missing.length);
     missing.slice(0, 15).forEach((u) => console.log("   - " + u));
     if (missing.length > 15) console.log("   ... and " + (missing.length - 15) + " more");
-    fs.writeFileSync(path.join(OUT, "unresolved.txt"), missing.join("\n"));
+    fs.writeFileSync(unresolvedPath, missing.join("\n"));
+  } else {
+    fs.rmSync(unresolvedPath, { force: true });
   }
   console.log("\nDONE -- wrote pipeline/out/harvest.json");
 }

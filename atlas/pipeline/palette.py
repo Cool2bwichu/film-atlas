@@ -26,9 +26,16 @@ forcing one invents a fact about the film. When the weighted chromatic mass is
 below threshold the era palette is kept and `paletteSource` stays "era", so the
 distinction between a measured colour and a defaulted one survives into the app
 rather than being flattened at build time.
+
+DEPENDENCIES ARE PINNED IN pipeline/requirements.txt
+This file measures colours that then ship, so "it runs" is not the bar -- it has
+to produce the same colours it produced last time. See the tie-break note in
+`dominant_hues` for the specific way an unpinned toolchain used to change them.
 """
 
-import json, os, sys, hashlib, colorsys, urllib.request, io
+import io, json, sys, time, hashlib, colorsys
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 import numpy as np
@@ -54,19 +61,104 @@ UA = "AtlasFilmLineage/0.3 (corpus pipeline; https://github.com/atlas-film-linea
 COVERAGE_FLOOR = 0.035   # share of the image carrying any hue at all
 SATURATION_FLOOR = 0.20  # how colourful that part actually is
 
+# FETCHING IS THE STAGE THAT FAILS SILENTLY, SO IT IS THE STAGE THAT IS ARMOURED
+#
+# A corpus-sized run asks one host (upload.wikimedia.org) for one poster per
+# film with nothing between the requests. At ~2,000 films on a cold cache that
+# is ~2,000 back-to-back requests, which reads as a scrape rather than a build.
+# The consequence of being throttled or blocked is not an error -- it is that
+# the affected films keep an era-default palette and the whole loss is reported
+# as one summary integer. STATE.md already lists silent palette loss under
+# "Traps that have already cost time", so the pause, the retries and the
+# per-film failure list below all exist to make that loss impossible to miss.
+THROTTLE_S = 0.12          # after any attempt that touched the network; cache hits skip it
+FETCH_ATTEMPTS = 3         # total tries per URL, not retries-after-the-first
+BACKOFF_S = (1.0, 2.0)     # waits before attempt 2 and attempt 3
 
-def fetch(url: str) -> bytes | None:
-    key = CACHE / (hashlib.sha1(url.encode()).hexdigest() + ".img")
+# A 404 is still a 404 in four seconds. Retrying every dead poster link three
+# times spends minutes across a 2,000-film run for no chance of a different
+# answer, so only the statuses that mean "not now" are worth another attempt.
+RETRY_STATUS = frozenset((408, 425, 429, 500, 502, 503, 504))
+
+# If this share of the posters we tried to fetch could not be measured, the
+# problem is the network or the host and not the corpus. Exit non-zero so a
+# scripted run stops here instead of continuing and baking era defaults into
+# a couple of thousand films.
+FAILURE_ALARM = 0.20
+
+
+def looks_like_image(data: bytes) -> bool:
+    """True only for bytes that begin with a container we can actually decode.
+
+    BYTES THAT ARE NOT AN IMAGE MUST NEVER ENTER THE CACHE.
+    An error page is a 200 with HTML in it as far as urlopen is concerned. The
+    earlier version wrote whatever came back under the cache key, so 38 bytes of
+    HTML became a permanent answer: every later run read it back from cache with
+    no revalidation, Image.open raised UnidentifiedImageError, and that film was
+    stuck on an era default for the life of the project. Checking the magic
+    number costs nothing and turns a permanent failure into a retryable one.
+    """
+    return (data[:8] == b"\x89PNG\r\n\x1a\n"                       # png
+            or data[:3] == b"\xff\xd8\xff"                         # jpeg
+            or data[:6] in (b"GIF87a", b"GIF89a")                  # gif
+            or (data[:4] == b"RIFF" and data[8:12] == b"WEBP")     # webp
+            or data[:2] == b"BM")                                  # bmp
+
+
+def cache_path(url: str) -> Path:
+    return CACHE / (hashlib.sha1(url.encode()).hexdigest() + ".img")
+
+
+def fetch(url: str):
+    """Return (bytes|None, kind, detail).
+
+    `kind` is a short groupable label -- "cache", "fetched", "HTTP 404",
+    "network", "not an image" -- so the failure report can bucket 2,000 films
+    into a handful of lines instead of printing one integer or 2,000 URLs.
+    """
+    key = cache_path(url)
     if key.exists():
-        return key.read_bytes()
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": UA})
-        with urllib.request.urlopen(req, timeout=30) as r:
-            data = r.read()
-    except Exception:
-        return None
-    key.write_bytes(data)
-    return data
+        return key.read_bytes(), "cache", ""
+
+    data = None
+    kind, detail = "no attempt", ""
+    for attempt in range(FETCH_ATTEMPTS):
+        if attempt:
+            time.sleep(BACKOFF_S[min(attempt - 1, len(BACKOFF_S) - 1)])
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                data = r.read()
+            kind, detail = "fetched", ""
+            break
+        except urllib.error.HTTPError as e:
+            kind, detail = "HTTP %d" % e.code, e.reason or ""
+            if e.code not in RETRY_STATUS:
+                break
+        except urllib.error.URLError as e:
+            kind, detail = "network", str(e.reason)
+        except Exception as e:
+            # Socket timeouts and short reads surface here rather than as
+            # URLError, and they are exactly the transient class worth retrying.
+            kind, detail = "network", "%s: %s" % (type(e).__name__, e)
+
+    # One pause per URL that reached the network, whatever the outcome. Cache
+    # hits returned above and never reach this line, so a warm re-run pays
+    # nothing for the throttle.
+    time.sleep(THROTTLE_S)
+
+    if data is None:
+        return None, kind, detail
+    if not looks_like_image(data):
+        return None, "not an image", "%d bytes, starts %r" % (len(data), data[:12])
+
+    # Atomic, for the same reason the enrich.json write is: an interrupted run
+    # otherwise leaves a truncated file under a cache key that is then trusted
+    # forever. Same-directory temp so replace() stays a rename, not a copy.
+    tmp = key.with_suffix(".part")
+    tmp.write_bytes(data)
+    tmp.replace(key)
+    return data, "fetched", ""
 
 
 def hue_profile(img: Image.Image):
@@ -99,7 +191,35 @@ def hue_profile(img: Image.Image):
 
 
 def dominant_hues(h, w, bins=36):
-    """Two hue peaks, if the image genuinely has two."""
+    """Two hue peaks, if the image genuinely has two.
+
+    AN EMPTY BIN IS NOT A PEAK, AND THE ORDER OVER EQUAL BINS MUST BE THE DATA'S
+    Most posters put all their chroma in a handful of adjacent bins: Cold War
+    (2018) carries mass in bins 1-7 and *exactly 0.0* in the other 29. The
+    earlier version ranked with `np.argsort(hist)[::-1]`, which is an unstable
+    sort over a 29-way tie of zeros, then accepted whichever empty bin came out
+    first as the second peak. So the film's shadow hue was decided by numpy's
+    introsort pivot rather than by the poster: it shipped as 125 (green), and the
+    same bytes under numpy 2.4.6 give 325 (magenta). The poster contains neither.
+    `Network` (1976) had the same defect -- 115 shipped, 355 now, mass only in
+    bins 2-8.
+
+    Both halves of that are fixed here, and they are different problems:
+
+      * `kind="stable"` over `-hist` makes the ordering *total* -- descending by
+        mass, ties broken by ascending bin index -- so it is a property of the
+        histogram and not of the sort implementation or the numpy version.
+      * breaking at zero mass means a hue that is absent from the poster can
+        never be reported as one of its two colours. `duotone` already has the
+        right answer for a poster with one hue cluster: fall through to
+        `h_hi - 24` and rotate, which is what the peaks[1] fallback there is for.
+
+    Measured on a 71-film spread of the shipped corpus: 69 palettes reproduce
+    byte-identically, and the 2 that drifted are exactly the 2 with a zero-mass
+    second peak. A *relative* floor was considered and rejected -- 18 of the 71
+    have a second peak under 2% of the first, they are stable under both
+    toolchains, and re-cutting them is a design change, not a determinism fix.
+    """
     if h.size == 0:
         return []
     idx = np.clip((h / 360.0 * bins).astype(int), 0, bins - 1)
@@ -107,9 +227,11 @@ def dominant_hues(h, w, bins=36):
     # circular smoothing so a peak straddling two bins is not split in half
     hist = np.convolve(np.concatenate([hist[-2:], hist, hist[:2]]),
                        np.array([0.25, 0.5, 1.0, 0.5, 0.25]), mode="same")[2:-2]
-    order = np.argsort(hist)[::-1]
+    order = np.argsort(-hist, kind="stable")
     peaks = []
     for i in order:
+        if hist[i] <= 0:
+            break                        # order is descending: nothing left carries hue
         centre = (i + 0.5) * 360.0 / bins
         if all(min(abs(centre - p), 360 - abs(centre - p)) > 40 for p in peaks):
             peaks.append(centre)
@@ -167,7 +289,10 @@ def duotone(img: Image.Image):
 
     # The shadow wants a related but distinct hue. A genuine second peak is a
     # relationship the poster actually contains; failing that, a small rotation
-    # keeps the pair from reading as a flat monochrome tint.
+    # keeps the pair from reading as a flat monochrome tint. `dominant_hues`
+    # now only returns a second peak that carries real mass, so this branch is
+    # reached whenever the poster has one hue cluster rather than two -- which
+    # is the correct reading of a poster like Cold War's.
     h_lo = peaks[1] if len(peaks) > 1 else (h_hi - 24)
     _, _, sat_lo = stats(h_lo) if len(peaks) > 1 else (0, 0, sat_hi)
 
@@ -185,26 +310,87 @@ def duotone(img: Image.Image):
             "coverage": round(coverage, 3), "saturation": round(sat_mean, 3)}
 
 
+def report(keys, done, measured, achromatic, carried, failures, from_cache, from_net):
+    """Print the run in a form where a per-film loss cannot hide in an integer.
+
+    The defect being fixed here is that a film which lost its measured palette
+    surfaced only as `unreadable: 1` in a summary -- indistinguishable, to a
+    reader, from a rounding error. So: the counts still lead, but every film
+    that is NOT on a palette measured from this run's bytes is named, bucketed
+    by cause, and the "carried forward from an earlier run" case is separated
+    from the "measured just now" case rather than both reading as a colour.
+    """
+    era_default = len(keys) - measured - carried
+    print(f"\nposters read : {done}   (bytes fetched or cached, and decoded)")
+    print(f"  from cache : {from_cache}")
+    print(f"  fetched    : {from_net}")
+    print(f"measured     : {measured}   (palette derived from THIS run's poster bytes)")
+    print(f"achromatic   : {achromatic}   (no dominant hue -- the era default is the right answer)")
+    print(f"unreadable   : {len(failures)}   (poster present, no palette could be taken)")
+    print(f"carried fwd  : {carried}   (kept a palette measured by an EARLIER run, not re-measured)")
+    print(f"era default  : {era_default}   (film ends with no palette at all)")
+
+    if failures:
+        buckets = {}
+        for key, kind, detail, url in failures:
+            buckets.setdefault(kind, []).append((key, detail, url))
+        print(f"\nPOSTERS THAT COULD NOT BE MEASURED -- {len(failures)} "
+              f"film{'' if len(failures) == 1 else 's'} NOT on a measured palette:")
+        for kind in sorted(buckets, key=lambda k: (-len(buckets[k]), k)):
+            rows = buckets[kind]
+            print(f"  {kind}  ({len(rows)})")
+            # Bounded per bucket so a total network outage cannot bury the
+            # counts above under two thousand lines, but every distinct cause
+            # still gets named and shown.
+            for key, detail, url in rows[:40]:
+                print(f"    {key:<38} {url}" + (f"   [{detail}]" if detail else ""))
+            if len(rows) > 40:
+                print(f"    ... and {len(rows) - 40} more with this cause")
+
+    attempted = done + len(failures)
+    if attempted and len(failures) >= FAILURE_ALARM * attempted:
+        print(f"\n!! {len(failures)} of {attempted} posters ({100.0 * len(failures) / attempted:.0f}%) "
+              f"could not be measured.")
+        print("!! At that rate the cause is the host, the network or the poster URLs --")
+        print("!! not a property of the films. The palettes written above are incomplete;")
+        print("!! the cache is warm, so fix the cause and re-run. This stage is resumable")
+        print("!! and only the films listed above will be re-requested.")
+        return 1
+    return 0
+
+
 def main():
     path = OUT / "enrich.json"
     data = json.loads(path.read_text())
     keys = list(data.keys())
-    done = measured = achromatic = failed = 0
+    done = measured = achromatic = from_cache = from_net = 0
+    failures = []                       # (film key, cause, detail, url)
 
     for i, k in enumerate(keys):
         rec = data[k]
         p = rec.get("poster")
         if not p or not p.get("url"):
             continue
-        blob = fetch(p["url"])
+        url = p["url"]
+        blob, kind, detail = fetch(url)
+        if kind == "cache":
+            from_cache += 1
+        elif kind == "fetched":
+            from_net += 1
         if not blob:
-            failed += 1
+            failures.append((k, kind, detail, url))
             continue
         try:
             img = Image.open(io.BytesIO(blob))
             img.load()
-        except Exception:
-            failed += 1
+        except Exception as e:
+            # A blob that passed the magic-number gate and still will not decode
+            # is truncated or corrupt. Evict it: leaving it in place is the same
+            # permanent-failure bug as caching an error page, just arrived at by
+            # a different route (an interrupted download, or a file written by a
+            # build that predates looks_like_image).
+            cache_path(url).unlink(missing_ok=True)
+            failures.append((k, "undecodable", type(e).__name__, url))
             continue
         pal = duotone(img)
         done += 1
@@ -214,15 +400,25 @@ def main():
         else:
             achromatic += 1
         if (i + 1) % 100 == 0:
-            print(f"  {i+1}/{len(keys)}  measured {measured}", flush=True)
+            print(f"  {i+1}/{len(keys)}  measured {measured}  unreadable {len(failures)}", flush=True)
 
-    path.write_text(json.dumps(data, indent=1))
-    print(f"\nposters read : {done}")
-    print(f"measured     : {measured}   (palette derived from the poster)")
-    print(f"achromatic   : {achromatic}   (kept the era palette -- no dominant hue)")
-    print(f"unreadable   : {failed}")
+    # Every film that still has a palette this run did not write is carrying one
+    # forward: no poster, an unreadable poster, or an achromatic poster over a
+    # record that was measured before. Counted here rather than inside the loop
+    # so the definition is exactly "present at the end, not measured now".
+    carried = sum(1 for k in keys if "palette" in data[k]) - measured
+
+    # Atomic: this is a 2.5 MB rewrite of the file every later stage reads, and
+    # a half-written enrich.json is not a smaller corpus, it is a broken one.
+    tmp = path.with_suffix(".json.part")
+    tmp.write_text(json.dumps(data, indent=1))
+    tmp.replace(path)
+
     print("\nDONE -- palettes written into pipeline/out/enrich.json")
+    # Reported last so that when the alarm fires it is the final thing on screen
+    # rather than something a "DONE" scrolls past.
+    return report(keys, done, measured, achromatic, carried, failures, from_cache, from_net)
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
