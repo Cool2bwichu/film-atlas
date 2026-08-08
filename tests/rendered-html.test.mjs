@@ -4,6 +4,7 @@ import test from "node:test";
 
 const root = new URL("../", import.meta.url);
 const builtAtlasUrl = new URL("../dist/client/atlas.html", import.meta.url);
+const sourceTemplateUrl = new URL("../atlas/app/template.html", import.meta.url);
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -62,6 +63,20 @@ test("serves the Atlas experience directly at the site root", async () => {
   assert.match(html, /role="combobox"/);
   assert.match(html, /id="map"[^>]*aria-hidden="true"[^>]*inert/);
   assert.match(html, /atlas-preferences-v1/);
+});
+
+test("radial neighbours expose inspection before explicit traversal", async () => {
+  const [html, template] = await Promise.all([
+    readFile(builtAtlasUrl, "utf8"),
+    readFile(sourceTemplateUrl, "utf8"),
+  ]);
+
+  assert.match(html, /Connected to/);
+  assert.match(html, /Why it appears here/);
+  assert.match(html, /Explore this film's web/);
+  assert.match(template, /data-act="travel"/);
+  assert.match(template, /node\.setAttribute\("aria-pressed",selected\?"true":"false"\)/);
+  assert.doesNotMatch(template, /else openMap\(k,true\)/);
 });
 
 /* WHAT THIS TEST PROTECTS, AND WHY IT NO LONGER SPELLS IT AS FIVE CONSTANTS.
