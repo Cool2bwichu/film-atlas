@@ -2,7 +2,7 @@
 /* Compress static/corpus.json into a form small enough to inline in a
  * single-file artifact.
  *
- *   node pipeline/pack-corpus.js [--degree 8] [--desc 190] [--out path]
+ *   node pipeline/pack-corpus.js [--corpus path] [--degree 8] [--desc 190] [--out path]
  *
  * The artifact runtime ships one file through a conversation, so a 2.8 MB
  * corpus is not an option the way it is for a served build. Everything here is
@@ -29,10 +29,11 @@ const arg = (n, d) => { const i = process.argv.indexOf("--" + n); return i > -1 
 const DEGREE = parseInt(arg("degree", "8"), 10);
 const DESC = parseInt(arg("desc", "190"), 10);
 const OUT = arg("out", path.join(ROOT, "static", "corpus.packed.json"));
+const CORPUS_PATH = path.resolve(arg("corpus", path.join(ROOT, "static", "corpus.json")));
 
 const LIMIT = parseInt(arg("films", "0"), 10);
 
-const corpus = JSON.parse(fs.readFileSync(path.join(ROOT, "static", "corpus.json"), "utf8"));
+const corpus = JSON.parse(fs.readFileSync(CORPUS_PATH, "utf8"));
 let keys = Object.keys(corpus.films);
 
 /* Optionally keep only a connected core.
@@ -213,6 +214,9 @@ const films = keys.map((k) => {
     shortPoster(f.poster),               // 6
     (f.description || "").slice(0, DESC),// 7
     f.paletteSource === "poster" ? 1 : f.paletteSource === "curated" ? 2 : 0, // 8
+    f.filmId,                            // 9 permanent identity
+    f.qid,                               // 10 canonical Wikidata identity
+    f.posterLicence || "unknown",        // 11 rights metadata
   ];
   return rec;
 });
@@ -230,8 +234,9 @@ const packedEdges = edges.map((e) => [
 ]);
 
 const packed = {
-  v: 1,
+  v: 2,
   note: "Packed by pipeline/pack-corpus.js for the single-file artifact. Unpack with unpack() in the artifact source.",
+  meta: corpus.meta,
   posterPrefix: PREFIX,
   types: T.list, sources: S.list, signals: G.list, directors: D.list,
   films: films,
@@ -240,7 +245,7 @@ const packed = {
 
 fs.writeFileSync(OUT, JSON.stringify(packed));
 const kb = (fs.statSync(OUT).size / 1024).toFixed(0);
-const orig = (fs.statSync(path.join(ROOT, "static", "corpus.json")).size / 1024).toFixed(0);
+const orig = (fs.statSync(CORPUS_PATH).size / 1024).toFixed(0);
 console.log("films  : " + films.length);
 console.log("edges  : " + packedEdges.length + "  (from " + corpus.edges.length + ", top " + DEGREE + " per film)");
 const deg = {};

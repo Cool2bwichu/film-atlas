@@ -1,10 +1,21 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
+import { createRequire } from "node:module";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const root = new URL("../", import.meta.url);
 const builtAtlasUrl = new URL("../dist/client/atlas.html", import.meta.url);
 const sourceTemplateUrl = new URL("../atlas/app/template.html", import.meta.url);
+const repositoryRoot = fileURLToPath(root);
+const buildScript = fileURLToPath(new URL("../atlas/app/build.js", import.meta.url));
+const authoredCorpusPath = fileURLToPath(new URL("../atlas/static/corpus.json", import.meta.url));
+const discoveryPath = fileURLToPath(new URL("../atlas/static/discovery.json", import.meta.url));
+const require = createRequire(import.meta.url);
+const { contentVersion } = require("../atlas/pipeline/discovery-contract.js");
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -35,13 +46,36 @@ async function render(pathname = "/") {
   );
 }
 
-function embeddedCorpus(html) {
-  const match = html.match(
-    /const CORPUS = JSON\.parse\(\[\n([\s\S]*?)\n\]\.join\(""\)\);/,
-  );
-  assert.ok(match, "generated Atlas should contain a chunked embedded corpus");
+function embeddedConstant(html, name) {
+  assert.match(name, /^[A-Z][A-Z0-9_]*$/, "embedded constant name must be safe");
+  const match = html.match(new RegExp(
+    `const ${name} = JSON\\.parse\\(\\[\\n([\\s\\S]*?)\\n\\]\\.join\\(""\\)\\);`,
+  ));
+  assert.ok(match, `generated Atlas should contain chunked embedded ${name} data`);
   const chunks = JSON.parse(`[${match[1]}]`);
   return JSON.parse(chunks.join(""));
+}
+
+function buildAtlas(args) {
+  return spawnSync(process.execPath, [buildScript, ...args], {
+    cwd: repositoryRoot,
+    encoding: "utf8",
+    maxBuffer: 20 * 1024 * 1024,
+  });
+}
+
+function assertBuildSucceeded(result, label) {
+  assert.equal(
+    result.status,
+    0,
+    `${label} failed\nstdout:\n${result.stdout}\nstderr:\n${result.stderr}`,
+  );
+}
+
+function discoveryPayload(discovery) {
+  const payload = structuredClone(discovery);
+  delete payload.discoveryVersion;
+  return payload;
 }
 
 test("serves the Atlas experience directly at the site root", async () => {
@@ -90,6 +124,122 @@ test("radial neighbours expose inspection before explicit traversal", async () =
     "ring-node labels should announce inspection while preserving the exact relationship",
   );
   assert.doesNotMatch(template, /else openMap\(k,true\)/);
+});
+
+test("embeds versioned discovery and permanent-ID layout data in full and sample builds", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "atlas-rendered-discovery-"));
+  const fullOutput = join(directory, "full.html");
+  const sampleOutput = join(directory, "sample.html");
+
+  try {
+    const fullResult = buildAtlas([
+      "--corpus", authoredCorpusPath,
+      "--discovery", discoveryPath,
+      "--out", fullOutput,
+    ]);
+    assertBuildSucceeded(fullResult, "full Atlas fixture build");
+
+    const fullHtml = await readFile(fullOutput, "utf8");
+    const full = {
+      CORPUS: embeddedConstant(fullHtml, "CORPUS"),
+      DISCOVERY: embeddedConstant(fullHtml, "DISCOVERY"),
+      LAYOUT: embeddedConstant(fullHtml, "LAYOUT"),
+    };
+
+    assert.equal(full.CORPUS.meta.corpusVersion, full.DISCOVERY.corpusVersion);
+    assert.equal(full.DISCOVERY.layoutVersion, full.LAYOUT.version);
+    assert.equal(full.LAYOUT.algorithmVersion, "sky-fr-bh-v1");
+    assert.equal(full.LAYOUT.corpusVersion, full.DISCOVERY.corpusVersion);
+    assert.equal(Object.keys(full.LAYOUT.positions).length, 803);
+    assert.equal(new Set(full.DISCOVERY.filmOrder).size, 803);
+    assert.deepEqual(
+      Object.keys(full.LAYOUT.positions).sort(),
+      full.DISCOVERY.filmOrder.slice().sort(),
+      "full layout positions should be keyed by every permanent film ID",
+    );
+
+    for (const [key, film] of Object.entries(full.CORPUS.films)) {
+      assert.match(film.filmId, /^film-[0-9a-f]{16}$/, `${key} should retain its permanent film ID`);
+      assert.match(film.qid, /^Q\d+$/, `${key} should retain its canonical Wikidata QID`);
+      assert.equal(full.DISCOVERY.keyByFilmId[film.filmId], key);
+      assert.ok(Object.hasOwn(full.LAYOUT.positions, film.filmId));
+      assert.ok("posterLicence" in film, `${key} should retain its poster licence`);
+    }
+    assert.match(
+      fullHtml,
+      /const POS = Object\.fromEntries\([\s\S]*Object\.entries\(DISCOVERY\.keyByFilmId\)/,
+      "the runtime should reconstruct the legacy-keyed position map from permanent IDs",
+    );
+    assert.doesNotMatch(fullHtml, /\/\* __(?:CORPUS|DISCOVERY|LAYOUT)__ \*\//);
+
+    const sampleResult = buildAtlas([
+      "--corpus", authoredCorpusPath,
+      "--discovery", discoveryPath,
+      "--films", "80",
+      "--degree", "12",
+      "--out", sampleOutput,
+    ]);
+    assertBuildSucceeded(sampleResult, "sample Atlas fixture build");
+
+    const sampleHtml = await readFile(sampleOutput, "utf8");
+    const sample = {
+      CORPUS: embeddedConstant(sampleHtml, "CORPUS"),
+      DISCOVERY: embeddedConstant(sampleHtml, "DISCOVERY"),
+      LAYOUT: embeddedConstant(sampleHtml, "LAYOUT"),
+    };
+    const sampleFilmIds = Object.values(sample.CORPUS.films).map((film) => film.filmId);
+
+    assert.ok(sampleFilmIds.length < full.DISCOVERY.filmOrder.length);
+    assert.deepEqual(
+      sampleFilmIds.slice().sort(),
+      sample.DISCOVERY.filmOrder.slice().sort(),
+      "projected discovery should contain exactly the sample films",
+    );
+    assert.equal(sample.DISCOVERY.corpusVersion, full.DISCOVERY.corpusVersion);
+    assert.equal(sample.LAYOUT.corpusVersion, full.DISCOVERY.corpusVersion);
+    assert.equal(sample.LAYOUT.version, sample.DISCOVERY.layoutVersion);
+    assert.notEqual(sample.LAYOUT.version, full.LAYOUT.version);
+    assert.equal(sample.LAYOUT.algorithmVersion, "sky-fr-bh-v1");
+    assert.match(sample.DISCOVERY.layoutAlgorithmVersion, /^sample-[0-9a-f]{16}$/);
+    assert.deepEqual(
+      Object.keys(sample.LAYOUT.positions).sort(),
+      sample.DISCOVERY.filmOrder.slice().sort(),
+    );
+    assert.ok(Object.values(sample.CORPUS.films).every((film) =>
+      /^film-[0-9a-f]{16}$/.test(film.filmId) && /^Q\d+$/.test(film.qid) && "posterLicence" in film));
+    for (const postings of Object.values(sample.DISCOVERY.facets.postings)) {
+      for (const indexes of Object.values(postings)) {
+        assert.ok(indexes.every((index) => Number.isInteger(index) && index >= 0 && index < sampleFilmIds.length));
+      }
+    }
+    assert.doesNotMatch(sampleHtml, /\/\* __(?:CORPUS|DISCOVERY|LAYOUT)__ \*\//);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("rejects a rehashed discovery manifest whose permanent IDs map to the wrong corpus keys", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "atlas-rendered-mismatch-"));
+  const badDiscoveryPath = join(directory, "discovery.json");
+  const outputPath = join(directory, "atlas.html");
+
+  try {
+    const discovery = JSON.parse(await readFile(discoveryPath, "utf8"));
+    const [firstId, secondId] = discovery.filmOrder;
+    discovery.keyByFilmId[firstId] = discovery.keyByFilmId[secondId];
+    discovery.discoveryVersion = contentVersion("discovery", discoveryPayload(discovery));
+    await writeFile(badDiscoveryPath, `${JSON.stringify(discovery, null, 2)}\n`);
+
+    const result = buildAtlas([
+      "--corpus", authoredCorpusPath,
+      "--discovery", badDiscoveryPath,
+      "--out", outputPath,
+    ]);
+    assert.notEqual(result.status, 0, "build should reject mismatched discovery identity before layout");
+    assert.match(`${result.stdout}\n${result.stderr}`, /keyByFilmId.*corpus|permanent film ID.*corpus/i);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 /* WHAT THIS TEST PROTECTS, AND WHY IT NO LONGER SPELLS IT AS FIVE CONSTANTS.
@@ -155,7 +305,7 @@ function missingFrom(expected, actual) {
 
 test("preserves the full validated Atlas corpus and evidence distinctions", async () => {
   const html = await readFile(builtAtlasUrl, "utf8");
-  const corpus = embeddedCorpus(html);
+  const corpus = embeddedConstant(html, "CORPUS");
   const authored = JSON.parse(await readFile(AUTHORED_CORPUS, "utf8"));
 
   const authoredKeys = Object.keys(authored.films);

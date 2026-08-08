@@ -86,6 +86,8 @@
  */
 "use strict";
 
+const LAYOUT_ALGORITHM_VERSION = "sky-fr-bh-v1";
+
 /* Seeded, because "deterministic" has to survive someone adding a film: the
    same corpus must give the same sky twice, and a bare Math.random() would
    quietly break that while still looking fine. Every stochastic decision in
@@ -600,4 +602,4 @@ function layout(films, edges, opts) {
   return out;
 }
 
-module.exports = { layout };
+module.exports = { LAYOUT_ALGORITHM_VERSION, layout };

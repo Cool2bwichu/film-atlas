@@ -865,7 +865,11 @@ main{flex:1;position:relative;overflow:hidden}
 
 <script>
 /* __CORPUS__ */
+/* __DISCOVERY__ */
 /* __LAYOUT__ */
+const POS = Object.fromEntries(
+  Object.entries(DISCOVERY.keyByFilmId).map(([id,key]) => [key,LAYOUT.positions[id]])
+);
 /* __RADIAL_INSPECTION__ */
 
 /* ═══════════════════════════════════════════════════════════════════════
