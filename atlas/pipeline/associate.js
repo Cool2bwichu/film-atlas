@@ -91,6 +91,25 @@ const SIGNALS = {
 const MIN_PER_FILM = 11;
 const MAX_PER_FILM = 20;
 
+/* How many of a film's edges may rest on the SAME person.
+ *
+ * `crew` is exempt from the per-value budget because a shared director is a
+ * hard production fact rather than a category (see UNCAPPED). That exemption
+ * was safe at 803 films, where an auteur held two or three titles. At 2,204 it
+ * is not: Bergman holds ~20, every pair among them proposes a crew edge at up
+ * to 0.82, and pass 1 runs in descending strength — so all twenty MAX_PER_FILM
+ * slots fill with the same director before a single keyword or cast proposal
+ * is reached. Measured on the grown corpus, `the seventh seal` went from 21
+ * neighbours across five signals to 20 crew edges and one reading, LOSING its
+ * links to 8 1/2, Andrei Rublev and The Exorcist — and gaining Stimulantia and
+ * Thirst, because early Bergman shares MORE of the standing unit than the
+ * later famous films do and therefore outranks them.
+ *
+ * The cap is per (film, person) rather than global: Bergman should still
+ * justify many edges across the graph, just not monopolise any one film's
+ * bench. Ranking cannot repair this — by then the good edges do not exist. */
+const MAX_SAME_PERSON_PER_FILM = 4;
+
 const ROLE_WEIGHT = { director: 0.62, cinematographer: 0.58, editor: 0.46, composer: 0.40, screenwriter: 0.44 };
 const ROLE_PHRASE = { director: "directing", cinematographer: "shooting", editor: "cutting",
                       composer: "scoring", screenwriter: "writing" };
@@ -610,8 +629,32 @@ function main() {
   const ordered = proposals.slice().sort(cmp);
   const perFilm = {};
   const winner = new Map();   // pairKey -> the proposal that became the edge
+  /* The people a proposal rests on, role stripped, deduped: a person credited
+     twice on the same pair (Bergman directing AND writing) is still one name
+     doing one job of justification. Only `crew` is person-justified. */
+  const personUse = {};
+  const peopleOf = (p) => {
+    if (p.signal !== "crew") return [];
+    const out = [];
+    for (const ev of p.evidence || []) {
+      const s = String(ev);
+      if (s.startsWith("wikidata:")) out.push(s.slice(9).split("#")[0]);
+    }
+    return [...new Set(out)];
+  };
+  const personOK = (p) => peopleOf(p).every((q) =>
+    (personUse[p.a + "|" + q] || 0) < MAX_SAME_PERSON_PER_FILM &&
+    (personUse[p.b + "|" + q] || 0) < MAX_SAME_PERSON_PER_FILM);
+  const chargePeople = (p) => {
+    for (const q of peopleOf(p)) {
+      personUse[p.a + "|" + q] = (personUse[p.a + "|" + q] || 0) + 1;
+      personUse[p.b + "|" + q] = (personUse[p.b + "|" + q] || 0) + 1;
+    }
+  };
+
   const take = (p) => {
     chargeBudget(p);
+    chargePeople(p);
     winner.set(p.pair, p);
     perFilm[p.a] = (perFilm[p.a] || 0) + 1;
     perFilm[p.b] = (perFilm[p.b] || 0) + 1;
@@ -622,12 +665,16 @@ function main() {
     if (winner.has(p.pair)) continue;
     if ((perFilm[p.a] || 0) >= MAX_PER_FILM || (perFilm[p.b] || 0) >= MAX_PER_FILM) continue;
     if (!withinBudget(p)) continue;
+    if (!personOK(p)) continue;
     take(p);
   }
 
   /* pass 2: backfill anything still too shallow to explore. These are weaker
      connections by definition — that is the honest trade for a film the viewer
-     can actually travel through rather than a dead end. */
+     can actually travel through rather than a dead end.
+     MAX_SAME_PERSON_PER_FILM is deliberately NOT enforced here, for the same
+     reason: a minor film whose only route to MIN_PER_FILM is four more edges
+     from the same director should get them. A repeated name beats a dead end. */
   let backfilled = 0;
   for (const key of keys) {
     if ((perFilm[key] || 0) >= MIN_PER_FILM) continue;
