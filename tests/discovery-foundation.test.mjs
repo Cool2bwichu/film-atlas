@@ -725,8 +725,28 @@ test("committed core and candidate discovery manifests equal fresh canonical reg
 
     assert.equal(core.status, 0, core.stderr);
     assert.equal(candidate.status, 0, candidate.stderr);
-    assert.equal(JSON.parse(readFileSync(coreOutput, "utf8")).filmOrder.length, 803);
-    assert.equal(JSON.parse(readFileSync(candidateOutput, "utf8")).filmOrder.length, 2204);
+    /* DERIVED, NOT HARDCODED — the same repair a8147b7 made to the discovery
+       embed assertion, which caught one of these two hardcodes and missed this
+       one. 803 and 2204 were both correct when cd5adbb wrote them: core was the
+       released 803-film edition and candidate the prepared expansion. 3491a2a
+       admitted the expansion and staled the core number without touching this
+       file, so `npm test` — which runs `npm run build` first — became a hard
+       stop on a change that was entirely correct.
+
+       What each side is comes straight from build-discovery.js: passing
+       --corpus selects exactly the keys in corpus.films, omitting it selects
+       every identity record with status "active". Deriving from those two
+       inputs is what the assertion always meant; the literals were a snapshot
+       of it at one corpus size. The floor mirrors rendered-html.test.mjs: a
+       comparison between two derived sides passes silently when both go empty,
+       and 0 === 0 is green. */
+    const coreExpected = Object.keys(JSON.parse(readFileSync(corpusPath, "utf8")).films).length;
+    const candidateExpected = JSON.parse(readFileSync(identityPath, "utf8"))
+      .films.filter((film) => film.status === "active").length;
+    assert.ok(coreExpected >= 803, `core corpus holds ${coreExpected} films, below the 803 the first release carried`);
+    assert.ok(candidateExpected >= 803, `identity manifest holds ${candidateExpected} active films, below the 803 floor`);
+    assert.equal(JSON.parse(readFileSync(coreOutput, "utf8")).filmOrder.length, coreExpected);
+    assert.equal(JSON.parse(readFileSync(candidateOutput, "utf8")).filmOrder.length, candidateExpected);
     assert.equal(readFileSync(coreOutput, "utf8"), readFileSync(committedCore, "utf8"));
     assert.equal(readFileSync(candidateOutput, "utf8"), readFileSync(committedCandidate, "utf8"));
     assert.equal(readFileSync(harvestPath, "utf8"), harvestBytes);
