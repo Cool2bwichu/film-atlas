@@ -3,7 +3,17 @@
 const fs = require("fs");
 const path = require("path");
 const nodeCrypto = require("crypto");
+const { movementValues } = require("./movement-provenance");
 const FILM_ID = /^film-[0-9a-f]{16}$/;
+const ERA_BUCKETS = [
+  { id: "era:silent-early", label: "Silent & early", maxExclusive: 1930 },
+  { id: "era:1930-1959", label: "1930–59", minInclusive: 1930, maxExclusive: 1960 },
+  { id: "era:1960-1979", label: "1960–79", minInclusive: 1960, maxExclusive: 1980 },
+  { id: "era:1980-1999", label: "1980–99", minInclusive: 1980, maxExclusive: 2000 },
+  { id: "era:2000-present", label: "2000–now", minInclusive: 2000 },
+];
+const GENRE_FAMILIES = ["action", "adventure", "animation", "comedy", "crime", "documentary", "drama", "experimental", "fantasy", "historical", "horror", "musical", "mystery", "romance", "science-fiction", "thriller", "war", "western", "uncategorized"]
+  .map((name) => `genre:${name}`);
 
 class MissingQidError extends Error {
   constructor(key) {
@@ -165,6 +175,215 @@ function parseMergeOptions(argv, root) {
     identity: pathFor("identity", path.join(root, "pipeline", "out", "identity.json")),
     out: pathFor("out", path.join(root, "static", "corpus.json")),
   };
+}
+
+function normalizeFacetTaxonomy(rawTaxonomy) {
+  if (!rawTaxonomy || rawTaxonomy.schemaVersion !== 1 || !rawTaxonomy.families || !rawTaxonomy.rawGenreToFamily) {
+    throw new CorpusIdentityError("Facet taxonomy must use schemaVersion 1 with families and rawGenreToFamily");
+  }
+  const families = {};
+  for (const id of GENRE_FAMILIES) {
+    const family = rawTaxonomy.families[id];
+    if (!family || typeof family.label !== "string") throw new CorpusIdentityError(`Facet taxonomy is missing ${id}`);
+    families[id] = { ...family, label: family.label };
+  }
+  if (Object.keys(rawTaxonomy.families).some((id) => !GENRE_FAMILIES.includes(id))) {
+    throw new CorpusIdentityError("Facet taxonomy contains an unreviewed genre family");
+  }
+  const rawGenreToFamily = {};
+  for (const [qid, family] of Object.entries(rawTaxonomy.rawGenreToFamily)) {
+    if (!/^Q\d+$/.test(qid) || !GENRE_FAMILIES.includes(family)) {
+      throw new CorpusIdentityError(`Facet taxonomy has an invalid raw genre mapping for ${qid}`);
+    }
+    rawGenreToFamily[qid] = family;
+  }
+  if (!families["genre:drama"].broad || families["genre:drama"].programmePriority !== 0) {
+    throw new CorpusIdentityError("genre:drama must remain broad with programmePriority 0");
+  }
+  return { schemaVersion: 1, families, rawGenreToFamily };
+}
+
+function eraForYear(year) {
+  if (!Number.isInteger(year)) return "era:unknown";
+  return ERA_BUCKETS.find((era) => (era.minInclusive === undefined || year >= era.minInclusive) &&
+    (era.maxExclusive === undefined || year < era.maxExclusive))?.id || "era:unknown";
+}
+
+function discoveryVersionPayload(discovery) {
+  const { discoveryVersion, ...payload } = discovery;
+  return payload;
+}
+
+function discoveryFacetDefinition(label, values) {
+  return { label, known: 0, reviewedUnknown: 0, total: 0, selectable: false, values };
+}
+
+function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion, layoutAlgorithmVersion = "atlas-layout-v1" }) {
+  validateIdentityManifest(identity);
+  if (!harvest?.films || !harvest?.labels || !corpusVersion || !layoutAlgorithmVersion) {
+    throw new CorpusIdentityError("Discovery requires identity, harvest films and labels, corpusVersion, and layoutAlgorithmVersion");
+  }
+  const reviewedTaxonomy = normalizeFacetTaxonomy(taxonomy);
+  const harvestByQid = new Map(Object.entries(harvest.films).map(([key, film]) => [film.qid, { key, film }]));
+  const requestedKeys = corpusKeys ? new Set(corpusKeys) : null;
+  const records = identity.films.filter((record) => (record.status === "active" || (requestedKeys && record.status === "legacy-release-only")) && (!requestedKeys || requestedKeys.has(record.stableSlug)))
+    .map((record) => ({ record, harvested: harvestByQid.get(record.wikidataQid) }));
+  if (requestedKeys && records.length !== requestedKeys.size) throw new CorpusIdentityError("Discovery corpus keys do not resolve to active identity records");
+  for (const entry of records) if (!entry.harvested) throw new CorpusIdentityError(`Identity ${entry.record.filmId} has no harvested record`);
+  records.sort((a, b) => a.record.filmId.localeCompare(b.record.filmId));
+
+  const definitions = {
+    era: discoveryFacetDefinition("Era", Object.fromEntries([...ERA_BUCKETS.map((era) => [era.id, { label: era.label }]), ["era:unknown", { label: "Unknown" }]])),
+    country: discoveryFacetDefinition("Cinema", { "country:unknown": { label: "Unknown" } }),
+    genre: discoveryFacetDefinition("Genre", structuredClone(reviewedTaxonomy.families)),
+    movement: { label: "Movement", total: 0, direct: 0, inherited: 0, legacy: 0, selectable: false, values: {} },
+    director: discoveryFacetDefinition("Director", { "director:unknown": { label: "Unknown" } }),
+  };
+  const postings = { era: {}, country: {}, genre: {}, movement: {}, director: {} };
+  const warnings = new Set();
+  const movementProvenance = {};
+  const post = (facet, value, index) => {
+    if (!definitions[facet].values[value]) throw new CorpusIdentityError(`Discovery ${facet} posting has no definition: ${value}`);
+    const list = postings[facet][value] || (postings[facet][value] = []);
+    if (!list.includes(index)) list.push(index);
+  };
+  const stableValue = (facet, qid) => {
+    const value = `${facet}:${qid}`;
+    if (!definitions[facet].values[value]) {
+      const label = harvest.labels[qid] || qid;
+      definitions[facet].values[value] = { label };
+      if (label === qid) warnings.add(`missing label for ${value}`);
+    }
+    return value;
+  };
+
+  for (const [index, { record, harvested }] of records.entries()) {
+    const film = harvested.film;
+    const era = eraForYear(film.year);
+    post("era", era, index);
+    definitions.era.total++;
+    definitions.era[era === "era:unknown" ? "reviewedUnknown" : "known"]++;
+
+    const countries = [...new Set(film.country || [])].sort();
+    if (!countries.length) post("country", "country:unknown", index);
+    else for (const country of countries) post("country", stableValue("country", country), index);
+    definitions.country.total++;
+    definitions.country[countries.length ? "known" : "reviewedUnknown"]++;
+
+    const genres = [...new Set(film.genre || [])].sort();
+    const families = genres.map((qid) => reviewedTaxonomy.rawGenreToFamily[qid]);
+    if (families.some((family) => !family)) throw new CorpusIdentityError(`Unmapped raw genre for ${record.filmId}`);
+    const reviewedGenres = [...new Set(families.length ? families : ["genre:uncategorized"])].sort();
+    for (const family of reviewedGenres) post("genre", family, index);
+    definitions.genre.total++;
+    definitions.genre[reviewedGenres.every((family) => family === "genre:uncategorized") ? "reviewedUnknown" : "known"]++;
+
+    const directors = [...new Set(film.crew?.director || [])].sort();
+    if (!directors.length) post("director", "director:unknown", index);
+    else for (const director of directors) post("director", stableValue("director", director), index);
+    definitions.director.total++;
+    definitions.director[directors.length ? "known" : "reviewedUnknown"]++;
+
+    const hasAuthoritativeMovement = Array.isArray(film.movementDirect) || Array.isArray(film.movementInherited);
+    const routes = {};
+    for (const movement of film.movementDirect || []) {
+      const value = stableValue("movement", movement);
+      (routes[value] = routes[value] || []).push("direct");
+      definitions.movement.direct++;
+    }
+    for (const membership of film.movementInherited || []) {
+      const value = stableValue("movement", membership.value);
+      (routes[value] = routes[value] || []).push(`director:${membership.viaDirector}`);
+      definitions.movement.inherited++;
+    }
+    if (!hasAuthoritativeMovement) for (const movement of movementValues(film)) {
+      const value = stableValue("movement", movement);
+      (routes[value] = routes[value] || []).push("legacy");
+      definitions.movement.legacy++;
+    }
+    for (const [value, provenance] of Object.entries(routes)) {
+      routes[value] = [...new Set(provenance)].sort((a, b) => a === "direct" ? -1 : b === "direct" ? 1 : a.localeCompare(b));
+      post("movement", value, index);
+    }
+    if (Object.keys(routes).length) movementProvenance[record.filmId] = routes;
+    definitions.movement.total += Object.keys(routes).length;
+  }
+  if (definitions.movement.legacy) warnings.add(`movement provenance is legacy-only for ${definitions.movement.legacy} film(s)`);
+  for (const facet of Object.values(postings)) for (const list of Object.values(facet)) list.sort((a, b) => a - b);
+  const filmOrder = records.map(({ record }) => record.filmId);
+  const keyByFilmId = Object.fromEntries(records.map(({ record }) => [record.filmId, record.stableSlug]));
+  const discovery = {
+    schemaVersion: 1,
+    identityVersion: identity.identityVersion,
+    corpusVersion,
+    layoutVersion: contentVersion("layout", { algorithm: layoutAlgorithmVersion, filmOrder }),
+    filmOrder,
+    keyByFilmId,
+    facets: { definitions, postings },
+    movementProvenance,
+    coverageWarnings: [...warnings].sort(),
+  };
+  discovery.discoveryVersion = contentVersion("discovery", discoveryVersionPayload(discovery));
+  return validateDiscovery(discovery, { identity, corpusKeys });
+}
+
+function validateDiscovery(discovery, { identity, corpusKeys } = {}) {
+  if (!discovery || discovery.schemaVersion !== 1 || !Array.isArray(discovery.filmOrder) || !discovery.facets?.definitions || !discovery.facets?.postings) {
+    throw new CorpusIdentityError("Discovery manifest must use schemaVersion 1 with filmOrder and facets");
+  }
+  if (identity) {
+    validateIdentityManifest(identity);
+    if (discovery.identityVersion !== identity.identityVersion) throw new CorpusIdentityError("Discovery identityVersion does not match identity ledger");
+    const keys = corpusKeys ? new Set(corpusKeys) : null;
+    const expected = identity.films.filter((record) => (record.status === "active" || (keys && record.status === "legacy-release-only")) && (!keys || keys.has(record.stableSlug)))
+      .map((record) => record.filmId).sort();
+    if (canonicalJson(discovery.filmOrder) !== canonicalJson(expected)) throw new CorpusIdentityError("Discovery filmOrder does not match its identity selection");
+  }
+  if (new Set(discovery.filmOrder).size !== discovery.filmOrder.length || discovery.filmOrder.some((id) => !FILM_ID.test(id))) {
+    throw new CorpusIdentityError("Discovery filmOrder must contain unique permanent film IDs");
+  }
+  for (const definition of Object.values(discovery.facets.definitions)) if (definition.selectable !== false) {
+    throw new CorpusIdentityError("Discovery facets are not selectable at this checkpoint");
+  }
+  for (const [facet, values] of Object.entries(discovery.facets.postings)) {
+    const definitions = discovery.facets.definitions[facet]?.values || {};
+    for (const [value, indexes] of Object.entries(values)) {
+      if (!definitions[value] || !Array.isArray(indexes) || indexes.some((index) => !Number.isInteger(index) || index < 0 || index >= discovery.filmOrder.length) ||
+          new Set(indexes).size !== indexes.length || canonicalJson(indexes) !== canonicalJson(indexes.slice().sort((a, b) => a - b))) {
+        throw new CorpusIdentityError(`Discovery posting ${facet}:${value} is invalid`);
+      }
+    }
+  }
+  if (!/^layout-[0-9a-f]{16}$/.test(discovery.layoutVersion || "")) throw new CorpusIdentityError("Discovery layoutVersion is invalid");
+  if (discovery.discoveryVersion !== contentVersion("discovery", discoveryVersionPayload(discovery))) throw new CorpusIdentityError("Discovery discoveryVersion is invalid");
+  return discovery;
+}
+
+function projectDiscovery(discovery, retainedFilmIds, sampleLayoutVersion) {
+  validateDiscovery(discovery);
+  if (!sampleLayoutVersion || sampleLayoutVersion === discovery.layoutVersion) throw new CorpusIdentityError("Sample discovery requires a distinct layout algorithm version");
+  const retained = new Set(retainedFilmIds);
+  const sourceIndexes = discovery.filmOrder.map((id, index) => retained.has(id) ? index : -1).filter((index) => index >= 0);
+  if (sourceIndexes.length !== retained.size) throw new CorpusIdentityError("Sample discovery retains an unknown film ID");
+  const remap = new Map(sourceIndexes.map((source, index) => [source, index]));
+  const filmOrder = sourceIndexes.map((index) => discovery.filmOrder[index]);
+  const keyByFilmId = Object.fromEntries(filmOrder.map((id) => [id, discovery.keyByFilmId[id]]));
+  const postings = {};
+  for (const [facet, values] of Object.entries(discovery.facets.postings)) {
+    postings[facet] = {};
+    for (const [value, indexes] of Object.entries(values)) {
+      const projected = indexes.filter((index) => remap.has(index)).map((index) => remap.get(index));
+      if (projected.length) postings[facet][value] = projected;
+    }
+  }
+  const movementProvenance = Object.fromEntries(filmOrder.filter((id) => discovery.movementProvenance[id]).map((id) => [id, structuredClone(discovery.movementProvenance[id])]));
+  const projected = {
+    ...structuredClone(discovery), filmOrder, keyByFilmId,
+    layoutVersion: contentVersion("layout", { algorithm: sampleLayoutVersion, filmOrder }),
+    facets: { definitions: structuredClone(discovery.facets.definitions), postings }, movementProvenance,
+  };
+  projected.discoveryVersion = contentVersion("discovery", discoveryVersionPayload(projected));
+  return validateDiscovery(projected);
 }
 
 function priorRecordByQid(previousIdentity) {
@@ -437,12 +656,16 @@ module.exports = {
   SlugOwnershipError,
   SlugRetargetError,
   attachIdentityToCorpus,
+  buildDiscovery,
   buildIdentityManifest,
   canonicalJson,
   contentVersion,
   filmIdForQid,
+  normalizeFacetTaxonomy,
   parseMergeOptions,
+  projectDiscovery,
   semanticCorpusProjection,
   validateIdentityManifest,
+  validateDiscovery,
   writeJsonAtomically,
 };

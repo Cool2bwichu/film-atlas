@@ -1,0 +1,21 @@
+{
+  "filmOrder": ["film-387975858e4951c2", "film-49341b8aec51b31a", "film-5c42db0e6023655b"],
+  "postings": {
+    "era": { "era:1960-1979": [1], "era:1980-1999": [0], "era:unknown": [2] },
+    "country": { "country:Q38": [0, 1], "country:Q142": [0], "country:unknown": [2] },
+    "genre": { "genre:action": [0], "genre:drama": [0, 1], "genre:uncategorized": [2] },
+    "movement": { "movement:Q900": [0, 1], "movement:Q901": [2] },
+    "director": { "director:Q700": [0, 2], "director:Q701": [1] }
+  },
+  "movementProvenance": {
+    "film-387975858e4951c2": { "movement:Q900": ["direct", "director:Q700"] },
+    "film-49341b8aec51b31a": { "movement:Q900": ["director:Q700"] },
+    "film-5c42db0e6023655b": { "movement:Q901": ["legacy"] }
+  },
+  "coverage": {
+    "era": { "known": 2, "reviewedUnknown": 1, "total": 3 },
+    "country": { "known": 2, "reviewedUnknown": 1, "total": 3 },
+    "genre": { "known": 2, "reviewedUnknown": 1, "total": 3 },
+    "movement": { "direct": 1, "inherited": 2, "legacy": 1 }
+  }
+}

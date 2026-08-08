@@ -13,8 +13,12 @@ const {
   buildIdentityManifest,
   canonicalJson,
   contentVersion,
+  buildDiscovery,
   filmIdForQid,
+  normalizeFacetTaxonomy,
   parseMergeOptions,
+  projectDiscovery,
+  validateDiscovery,
   validateIdentityManifest,
   writeJsonAtomically,
 } = require("../atlas/pipeline/discovery-contract.js");
@@ -26,6 +30,85 @@ const fixture = (name) => JSON.parse(readFileSync(
 
 const overrides = { schemaVersion: 1, films: {} };
 const source = "pipeline/seeds-expansion.txt";
+
+function discoveryFixture() {
+  const harvest = fixture("harvest.json");
+  const identity = buildIdentityManifest({
+    harvest,
+    releasedCorpus: fixture("corpus.json"),
+    overrides,
+    source,
+  });
+  return {
+    identity,
+    harvest,
+    taxonomy: fixture("facet-taxonomy.json"),
+    corpusKeys: ["old-key", "collision-one", "collision-two"],
+    corpusVersion: "corpus-fixture-v1",
+    layoutAlgorithmVersion: "fixture-layout-v1",
+  };
+}
+
+test("facet taxonomy explicitly assigns every raw genre exactly once", () => {
+  const taxonomy = normalizeFacetTaxonomy(fixture("facet-taxonomy.json"));
+
+  assert.equal(taxonomy.rawGenreToFamily.Q1000, "genre:action");
+  assert.equal(taxonomy.rawGenreToFamily.Q1001, "genre:drama");
+  assert.equal(taxonomy.rawGenreToFamily.Q1002, "genre:uncategorized");
+  assert.equal(taxonomy.families["genre:drama"].broad, true);
+  assert.equal(taxonomy.families["genre:drama"].programmePriority, 0);
+  assert.throws(() => normalizeFacetTaxonomy({ ...fixture("facet-taxonomy.json"), rawGenreToFamily: { Q1000: "genre:not-reviewed" } }));
+});
+
+test("discovery manifest preserves reviewed facets and movement provenance", () => {
+  const input = discoveryFixture();
+  const expected = fixture("discovery.expected.json");
+  const discovery = buildDiscovery(input);
+
+  assert.deepEqual(discovery.filmOrder, expected.filmOrder);
+  assert.deepEqual(discovery.facets.postings, expected.postings);
+  assert.deepEqual(discovery.movementProvenance, expected.movementProvenance);
+  for (const [name, coverage] of Object.entries(expected.coverage)) {
+    for (const [key, value] of Object.entries(coverage)) assert.equal(discovery.facets.definitions[name][key], value);
+  }
+  assert.equal(discovery.facets.definitions.country.values["country:Q38"].label, "Italy");
+  assert.equal(discovery.facets.definitions.director.values["director:Q700"].label, "Director One");
+  assert.deepEqual(Object.values(discovery.facets.definitions).map((definition) => definition.selectable), [false, false, false, false, false]);
+  assert.deepEqual(discovery.coverageWarnings, ["movement provenance is legacy-only for 1 film(s)"]);
+  assert.deepEqual(validateDiscovery(discovery, { identity: input.identity, corpusKeys: input.corpusKeys }), discovery);
+});
+
+test("discovery facet output is canonical and validation rejects corrupt memberships", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const shuffled = {
+    ...input,
+    harvest: { ...input.harvest, films: Object.fromEntries(Object.entries(input.harvest.films).reverse()) },
+    taxonomy: { ...input.taxonomy, rawGenreToFamily: Object.fromEntries(Object.entries(input.taxonomy.rawGenreToFamily).reverse()) },
+  };
+  assert.equal(canonicalJson(buildDiscovery(shuffled)), canonicalJson(discovery));
+
+  const corrupt = structuredClone(discovery);
+  corrupt.facets.postings.country["country:Q38"] = [0, 0];
+  assert.throws(() => validateDiscovery(corrupt, { identity: input.identity, corpusKeys: input.corpusKeys }));
+  const unmapped = structuredClone(input.taxonomy);
+  delete unmapped.rawGenreToFamily.Q1002;
+  assert.throws(() => buildDiscovery({ ...input, taxonomy: unmapped }));
+});
+
+test("discovery projection reindexes a non-contiguous sample without changing corpus version", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const sample = projectDiscovery(discovery, fixture("sample-keep.json"), "fixture-sample-layout-v1");
+
+  assert.deepEqual(sample.filmOrder, ["film-387975858e4951c2", "film-5c42db0e6023655b"]);
+  assert.deepEqual(sample.facets.postings.country, { "country:Q38": [0], "country:Q142": [0], "country:unknown": [1] });
+  assert.deepEqual(sample.facets.postings.movement, { "movement:Q900": [0], "movement:Q901": [1] });
+  assert.equal(sample.corpusVersion, discovery.corpusVersion);
+  assert.notEqual(sample.layoutVersion, discovery.layoutVersion);
+  assert.throws(() => projectDiscovery(discovery, fixture("sample-keep.json"), discovery.layoutVersion));
+  assert.deepEqual(validateDiscovery(sample, { identity: input.identity, corpusKeys: ["old-key", "collision-two"] }), sample);
+});
 
 test("movement provenance records direct film membership once", () => {
   const { addDirectMovement, movementValues } = require("../atlas/pipeline/movement-provenance.js");
