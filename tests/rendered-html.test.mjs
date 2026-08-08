@@ -60,17 +60,129 @@ test("serves the Atlas experience directly at the site root", async () => {
   assert.match(html, /atlas-preferences-v1/);
 });
 
+/* WHAT THIS TEST PROTECTS, AND WHY IT NO LONGER SPELLS IT AS FIVE CONSTANTS.
+ *
+ * It used to assert 803 films, 7,759 edges, 6,893 record / 15 attested / 851
+ * reading. Those were measurements of one corpus, not properties of the build.
+ * `pipeline/harvest-sparql.js` grows the corpus on purpose; the moment it does,
+ * all five equalities go red — and `npm test` runs `npm run build` first, so
+ * this is a hard stop on a change that is entirely correct. (`pages.yml` runs
+ * only validate-corpus and measure-claims, so the deploy survives; the
+ * developer loop does not.)
+ *
+ * Relaxing them to `> 0` would be the wrong repair, because the thing being
+ * defended was never a number. It is a relationship: with no `--films` flag
+ * `app/build.js` takes the `FILMS==="0"` path and must embed the WHOLE of
+ * `static/corpus.json` — every film, every edge, and the evidence distinction
+ * of AGENTS rule 8 intact. A `record` claim is checkable against credits, a
+ * `reading` is an argument, an `attested` claim is a reading that has been
+ * checked against a source. The build must not lose a tier, must not relabel
+ * one as another, and must not truncate.
+ *
+ * So every count is re-derived from the corpus the build read and compared
+ * exactly. That is strictly STRONGER than the constants were, not weaker: the
+ * old `=== 803` passed happily if the build swapped one film for another, and
+ * `=== 851` passed if a reading was retargeted onto a different pair. Set and
+ * per-tier comparison catches both — which is precisely the failure mode the
+ * slug-collision work in `harvest-sparql.js` exists to prevent, where a key
+ * like `psycho` changes which film it names while the totals stay put.
+ *
+ * The floors exist because a fidelity check between two derived sides dies
+ * quietly when both sides go empty: `0 === 0` is green. Each floor sits under
+ * a value measured on the shipped corpus, named here so that lowering one is a
+ * deliberate, explainable act. The attested floor matters most and is the one
+ * most easily lost by accident — 15 claims out of 7,759, each individually
+ * fact-checked against a live source (STATE.md, "All 12 attested claims
+ * checked"), carried by name through `merge-corpus.js`, which drops an
+ * authored claim silently when neither endpoint survives a rekey. */
+const AUTHORED_CORPUS = new URL("../atlas/static/corpus.json", import.meta.url);
+
+/* The shipped pre-growth corpus, 2026-08-08. Floors, not targets. */
+const FLOOR_FILMS = 803;
+const FLOOR_EDGES = 7000;
+const FLOOR_RECORD = 6000;
+const FLOOR_READING = 800;
+const FLOOR_ATTESTED = 15;
+
+/* `source` is optional in the schema and defaults to `record` in both the
+   builder and the app, so the tally has to apply the same default or the two
+   sides disagree over films that predate the field. */
+function byEvidence(edges) {
+  const counts = new Map();
+  for (const edge of edges) {
+    const source = edge.source ?? "record";
+    counts.set(source, (counts.get(source) ?? 0) + 1);
+  }
+  return counts;
+}
+
+function missingFrom(expected, actual) {
+  const have = new Set(actual);
+  return expected.filter((key) => !have.has(key));
+}
+
 test("preserves the full validated Atlas corpus and evidence distinctions", async () => {
   const html = await readFile(builtAtlasUrl, "utf8");
   const corpus = embeddedCorpus(html);
-  assert.equal(Object.keys(corpus.films).length, 803);
-  assert.equal(corpus.edges.length, 7759);
+  const authored = JSON.parse(await readFile(AUTHORED_CORPUS, "utf8"));
+
+  const authoredKeys = Object.keys(authored.films);
+  const embeddedKeys = Object.keys(corpus.films);
+  const authoredTiers = byEvidence(authored.edges);
+
+  // Floors first: everything below is a comparison, and a comparison between
+  // two empty sides is green. These make that impossible.
+  assert.ok(
+    authoredKeys.length >= FLOOR_FILMS,
+    `static/corpus.json holds ${authoredKeys.length} films, below the ${FLOOR_FILMS} the shipped corpus carried`,
+  );
+  assert.ok(
+    authored.edges.length >= FLOOR_EDGES,
+    `static/corpus.json holds ${authored.edges.length} edges, below the floor of ${FLOOR_EDGES}`,
+  );
+  assert.deepEqual(
+    [...authoredTiers.keys()].sort(),
+    ["attested", "reading", "record"],
+    "the evidence vocabulary is settled at record / attested / reading (AGENTS rule 8)",
+  );
+  for (const [tier, floor] of [["record", FLOOR_RECORD], ["reading", FLOOR_READING], ["attested", FLOOR_ATTESTED]]) {
+    assert.ok(
+      authoredTiers.get(tier) >= floor,
+      `static/corpus.json carries ${authoredTiers.get(tier)} ${tier} claims, below the floor of ${floor}`,
+    );
+  }
+
+  // Fidelity: the whole corpus, film for film, edge for edge.
+  assert.deepEqual(
+    missingFrom(authoredKeys, embeddedKeys),
+    [],
+    "films in static/corpus.json that the build did not embed",
+  );
+  assert.deepEqual(
+    missingFrom(embeddedKeys, authoredKeys),
+    [],
+    "films the build embedded that are not in static/corpus.json",
+  );
+  assert.equal(embeddedKeys.length, authoredKeys.length);
+  assert.equal(corpus.edges.length, authored.edges.length);
+
+  // A key surviving is not the same as the film surviving under it.
+  const swapped = authoredKeys.filter(
+    (key) =>
+      corpus.films[key].title !== authored.films[key].title ||
+      (corpus.films[key].year ?? null) !== (authored.films[key].year ?? null),
+  );
+  assert.deepEqual(swapped, [], "film keys that name a different film in the build than in the corpus");
   assert.ok(Object.values(corpus.films).every((film) => "posterLicence" in film));
 
+  // The evidence tiers, exactly — no tier lost, none relabelled as another.
+  const embeddedTiers = byEvidence(corpus.edges);
+  assert.deepEqual([...embeddedTiers.keys()].sort(), [...authoredTiers.keys()].sort());
+  for (const [tier, count] of authoredTiers) {
+    assert.equal(embeddedTiers.get(tier), count, `${tier} claims embedded`);
+  }
+
   const sources = Object.groupBy(corpus.edges, (edge) => edge.source ?? "record");
-  assert.equal(sources.record.length, 6893);
-  assert.equal(sources.attested.length, 15);
-  assert.equal(sources.reading.length, 851);
   assert.ok(sources.attested.every((edge) => edge.confidence >= 0.5));
   assert.ok(sources.reading.every((edge) => Number.isFinite(edge.confidence)));
   assert.doesNotMatch(html, /\/\* __CORPUS__ \*\//);

@@ -1,0 +1,25 @@
+# Python dependencies for pipeline/palette.py -- the one non-Node stage.
+#
+#     python3 -m pip install -r pipeline/requirements.txt
+#
+# WHY THESE ARE PINNED AND NOT LEFT FLOATING
+# palette.py does not merely run, it *measures*, and the numbers it measures
+# ship: each film's shadow and highlight drive its edge, glow and panel accent
+# (AGENTS.md rule 5). A stage whose output is data has to reproduce its output,
+# and this one has already failed to. Re-measuring the shipped corpus on an
+# unpinned toolchain moved 2 of 71 sampled palettes -- Cold War's shadow hue
+# 125 -> 325, Network's 115 -> 355 -- from byte-identical poster bytes, because
+# `dominant_hues` ranked its histogram with an unstable sort and both posters
+# have 29 of 36 hue bins at exactly zero. That specific cause is fixed in
+# palette.py (the ordering is now total, and an empty bin is no longer eligible
+# to be a peak), so these pins are the belt and that fix is the braces: they
+# also cover the parts of the measurement nobody has audited -- Pillow's
+# decoders, its `thumbnail` resampling, numpy's float reductions -- any of which
+# could move a colour on an upgrade without anyone noticing.
+#
+# There is no venv in this repo; these are the versions installed globally in
+# the build container and verified against the shipped palettes on 2026-08-08.
+# If you raise either pin, re-measure a spread sample of the corpus against the
+# palettes already in pipeline/out/enrich.json before committing the bump.
+numpy==2.4.6
+pillow==12.3.0

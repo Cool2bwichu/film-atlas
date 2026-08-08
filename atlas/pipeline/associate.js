@@ -152,6 +152,11 @@ const STOP_VALUES = new Set([
   "Q17",       // Japan
 ]);
 
+/* FNV-1a, the same 32-bit hash harvest-sparql.js, harvest.js, build-corpus.js
+   and measure-scale.js already use wherever this pipeline needs an arbitrary
+   choice that does not depend on corpus order. */
+const hash32 = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
+
 function idf(n, N) {
   /* 0 when everything shares it, 1 when almost nothing does */
   if (n <= 0) return 0;
@@ -298,10 +303,36 @@ function main() {
      `freq["keyword:" + v]` (built above by `bump()`) already holds each
      keyword's corpus-wide count — no separate table needed. */
   function surprise(a, b, observed) {
-    const A = films[a].keywords || [];
-    if (!A.length || observed <= 0) return 0;
-    let lambda = 0;
-    for (const v of A) lambda += ((freq["keyword:" + v] || 1) - 1) / Math.max(1, N - 1);
+    const A = films[a].keywords || [], B = films[b].keywords || [];
+    if (!A.length || !B.length || observed <= 0) return 0;
+    /* The expectation has to be computed from ONE film's keyword list, and the
+       two films give different answers: a film carrying forty common keywords
+       expects a larger accidental overlap than one carrying five rare ones. So
+       reading it off `a` alone made an edge's strength depend on which film the
+       i<j loop happened to call `a` — an artefact of corpus order, exactly like
+       the budget lottery below. Measured on the 803-film corpus: reversing the
+       film order changed the strength of 334 of 353 keyword edges, by up to
+       0.09, which is comfortably enough to lose a pair contest to `crew` or
+       `cast`. Every other signal was bit-identical under the same reversal.
+
+       Average the two conditionings. Neither is more correct than the other —
+       the properly symmetric expectation would have to model both films'
+       keyword counts, which is a different statistic and a scoring change this
+       fix has no mandate for. The mean is what the coin flip was already
+       delivering in expectation, so it is the symmetric combination that moves
+       the corpus least: 360 keyword edges against the 364 the asymmetric form
+       produced under this same selection code. Measured alternatives, both also
+       deterministic — `Math.min` gives 408 edges and reads better on trivia
+       share (19.7% against 20.0%), `Math.max` gives 330. Those are rescorings
+       dressed as a determinism fix, and min in particular inflates every
+       keyword edge; if keyword strength should move, move it deliberately and
+       measure it against sampled maps, not as a side effect of this. */
+    const expect = (kws) => {
+      let l = 0;
+      for (const v of kws) l += ((freq["keyword:" + v] || 1) - 1) / Math.max(1, N - 1);
+      return l;
+    };
+    const lambda = (expect(A) + expect(B)) / 2;
     if (lambda <= 0) return 12;
     /* P(X >= observed) for Poisson(lambda), computed as 1 - CDF(observed-1). */
     let cum = 0, term = Math.exp(-lambda);
@@ -309,8 +340,40 @@ function main() {
     return -Math.log10(Math.max(1e-12, 1 - cum));
   }
 
+  /* ---- the per-value edge budget ----
+   *
+   * An attribute that explains twenty pairs is a category, not a connection.
+   * "New Hollywood" generated six identical edges before this cap; the map is
+   * supposed to tell you something specific, and a label repeated across the
+   * graph tells you only that a bucket exists.
+   *
+   * The budget is CHARGED AT SELECTION, not here at proposal time, and that
+   * distinction is the whole design. Proposing is cheap and happens 60,000
+   * times; shipping is what a reader sees. Charging on proposal spent the
+   * budget on whichever pair the i<j loop happened to reach first, which is
+   * an artefact of `Object.keys(films)` order and nothing else. Two
+   * consequences, both measured on the 803-film corpus:
+   *
+   *   - It was not deterministic. Reversing the film order gave 7,209 edges
+   *     one way and 7,312 the other, with only 78.5% of pairs surviving both.
+   *     A fifth of the shipped graph was decided by harvest ordering.
+   *   - It leaked. A proposal can lose its pair to a stronger signal, or be
+   *     dropped by MAX_PER_FILM, and still have consumed a slot. `studio`
+   *     spent 286 slots to ship 91 edges, `movement` 51 to ship 18. So a value
+   *     could be exhausted by four proposals that all lost, leaving it
+   *     explaining zero edges — the opposite of what the paragraph above asks
+   *     for. Charging on selection makes MAX_EDGES_PER_VALUE mean what it
+   *     says: at most four edges a reader can see carry this value.
+   *
+   * Deliberately NOT addressed here: `crew` is exempt from the budget entirely
+   * (see UNCAPPED), and at a corpus of thousands it oversubscribes MAX_PER_FILM
+   * on its own. Tightening it needs calibration against a grown corpus, because
+   * its biggest beneficiary is `cast`, which measure-claims.js counts as trivia
+   * — the graph would improve while the headline number got worse. Left alone. */
   const MAX_EDGES_PER_VALUE = 4;
   const valueUse = {};
+  const withinBudget = (e) => e.capKeys.every((v) => (valueUse[v] || 0) < MAX_EDGES_PER_VALUE);
+  const chargeBudget = (e) => { for (const v of e.capKeys) valueUse[v] = (valueUse[v] || 0) + 1; };
 
   const proposals = [];   // one entry per (pair, signal)
   const push = (a, b, signal, weight, claim, evidence) => {
@@ -318,28 +381,25 @@ function main() {
     /* never show a raw Q-id to a reader: a missing label means we do not
        actually know what we are claiming they share */
     if (/Q\d{4,}/.test(claim)) return;
-    /* The cap protects the STRONG signals: an art movement or a rare subject
-       that explains six pairs has stopped being a discovery. Weak ties are the
-       opposite — "both French films of the sixties" is supposed to apply
-       broadly, and capping it starves precisely the films that have nothing
-       else. Exempt them. */
+    /* Weak ties are the opposite case from the budget above: "both French
+       films of the sixties" is supposed to apply broadly, and capping it
+       starves precisely the films that have nothing else. Exempt them, and
+       exempt the two signals that are hard production facts rather than
+       shared categories. */
     const UNCAPPED = signal === "crew" || signal === "adaptation" ||
                      signal === "genre" || signal === "countryEra" || signal === "genreEra";
     /* capMode "combo" (declared on SIGNALS.keyword) caps the joined evidence
        set as one unit rather than each value separately — see that comment
        for why. Measured cost of getting this wrong: capping each keyword on
        its own threw away all but 207 of 1,105 candidate keyword-edge pairs. */
-    const capKeys = spec.capMode === "combo"
-      ? ["kwset:" + (evidence || []).map((e) => String(e).split("#")[0]).sort().join("+")]
-      : (evidence || []).map((e) => String(e).split("#")[0]);
-    if (!UNCAPPED) {
-      for (const v of capKeys) if ((valueUse[v] || 0) >= MAX_EDGES_PER_VALUE) return;
-    }
-    for (const v of capKeys) valueUse[v] = (valueUse[v] || 0) + 1;
+    const capKeys = UNCAPPED ? []
+      : spec.capMode === "combo"
+        ? ["kwset:" + (evidence || []).map((e) => String(e).split("#")[0]).sort().join("+")]
+        : (evidence || []).map((e) => String(e).split("#")[0]);
     proposals.push({
       a: a, b: b, signal: signal, type: spec.type,
       strength: +Math.min(spec.ceiling, weight).toFixed(3),
-      claim: claim, evidence: evidence,
+      claim: claim, evidence: evidence, capKeys: capKeys,
     });
   };
 
@@ -493,33 +553,74 @@ function main() {
     }
   }
 
-  /* ---- one edge per pair: the strongest signal wins, others become context ---- */
-  const byPair = {};
+  /* ---- one edge per pair: the strongest signal wins, others become context ----
+   *
+   * Every ordering below has to be TOTAL. Sorting on strength alone leaves ties
+   * to be broken by whatever order `proposals` happens to be in, which is the
+   * i<j loop's order, which is `Object.keys(films)` order — the exact
+   * dependency the budget rewrite above exists to remove. Ties are not rare
+   * here: for single-value signals like `movement` and `studio` the strength is
+   * a function of the shared value's rarity and nothing else, so EVERY pair
+   * sharing that value scores identically. Every term in `cmp` below is
+   * therefore derived from the films themselves, never from arrival order. */
+  for (const p of proposals) p.pair = pairKey(p.a, p.b);
+  const byPair = new Map();
   for (const p of proposals) {
-    const sig = pairKey(p.a, p.b);
-    if (!byPair[sig] || p.strength > byPair[sig].strength) byPair[sig] = p;
-    (byPair[sig].also = byPair[sig].also || []);
+    const at = byPair.get(p.pair);
+    if (at) at.push(p); else byPair.set(p.pair, [p]);
   }
-  for (const p of proposals) {
-    const sig = pairKey(p.a, p.b);
-    const win = byPair[sig];
-    if (win !== p) win.also.push({ signal: p.signal, claim: p.claim, strength: p.strength });
-  }
+  /* The last two terms decide a tie the corpus cannot: two pairs sharing one
+     value score identically, because for a single-value signal `strength` is a
+     function of that value's rarity and of nothing else. Something has to break
+     it, and the choice is visible in the output. Ordering on `pair` directly
+     sorts alphabetically, which hands every contested value to whichever film
+     sorts first — all four "set in New York City" edges landed on one film,
+     because its key begins with "a". Hashing the pair key is just as
+     deterministic and just as independent of `Object.keys` order, and it
+     correlates with nothing: not the title, not fame, not degree, which AGENTS
+     rule 1 forbids weighting by. Same FNV-1a the rest of the pipeline uses for
+     stable arbitrary choices (measure-scale.js, harvest-sparql.js), with the
+     alphabetical fallback kept so the order is total even on a hash collision. */
+  const cmp = (x, y) =>
+    y.strength - x.strength ||
+    (x.signal < y.signal ? -1 : x.signal > y.signal ? 1 : 0) ||
+    (x.claim < y.claim ? -1 : x.claim > y.claim ? 1 : 0) ||
+    hash32(x.pair) - hash32(y.pair) ||
+    (x.pair < y.pair ? -1 : x.pair > y.pair ? 1 : 0);
 
-  /* ---- select, then guarantee every film is explorable ---- */
-  const ranked = Object.values(byPair).sort((x, y) => y.strength - x.strength);
+  /* ---- select, then guarantee every film is explorable ----
+   *
+   * The sweep is over PROPOSALS, not pairs, and that is deliberate. Ranking
+   * pairs by the best claim they could carry and then letting them fall through
+   * to a weaker one gets the budget wrong in a way that is easy to miss and was
+   * caught here only by reading sampled maps: `klute|midnight cowboy` ranks on a
+   * `subject` of 0.598, arrives near the front, finds that subject spent, and
+   * takes a New York setting at 0.479 — while `citizen kane|rear window`, whose
+   * best available claim IS that setting, ranks at 0.479 and finds New York
+   * exhausted. The pair that needed the value least spent it first. Sweeping
+   * proposals means every claim competes at the strength it actually
+   * contributes, so a fallback claim queues behind the pairs that lead with it.
+   *
+   * The first proposal a pair reaches wins it; the rest become `also`. A pair
+   * whose strongest claim is over budget is not dropped, it simply connects
+   * later through a weaker signal — the behaviour the proposal-time cap had,
+   * where a refused `studio` never stopped a pair connecting through `genre`. */
+  const ordered = proposals.slice().sort(cmp);
   const perFilm = {};
-  const chosen = new Set();
-  const take = (e) => {
-    chosen.add(e);
-    perFilm[e.a] = (perFilm[e.a] || 0) + 1;
-    perFilm[e.b] = (perFilm[e.b] || 0) + 1;
+  const winner = new Map();   // pairKey -> the proposal that became the edge
+  const take = (p) => {
+    chargeBudget(p);
+    winner.set(p.pair, p);
+    perFilm[p.a] = (perFilm[p.a] || 0) + 1;
+    perFilm[p.b] = (perFilm[p.b] || 0) + 1;
   };
 
   /* pass 1: best edges first, capped so one dense node cannot swamp the graph */
-  for (const e of ranked) {
-    if ((perFilm[e.a] || 0) >= MAX_PER_FILM || (perFilm[e.b] || 0) >= MAX_PER_FILM) continue;
-    take(e);
+  for (const p of ordered) {
+    if (winner.has(p.pair)) continue;
+    if ((perFilm[p.a] || 0) >= MAX_PER_FILM || (perFilm[p.b] || 0) >= MAX_PER_FILM) continue;
+    if (!withinBudget(p)) continue;
+    take(p);
   }
 
   /* pass 2: backfill anything still too shallow to explore. These are weaker
@@ -528,16 +629,25 @@ function main() {
   let backfilled = 0;
   for (const key of keys) {
     if ((perFilm[key] || 0) >= MIN_PER_FILM) continue;
-    for (const e of ranked) {
+    for (const p of ordered) {
       if ((perFilm[key] || 0) >= MIN_PER_FILM) break;
-      if (chosen.has(e)) continue;
-      if (e.a !== key && e.b !== key) continue;
-      const other = e.a === key ? e.b : e.a;
+      if (winner.has(p.pair)) continue;
+      if (p.a !== key && p.b !== key) continue;
+      const other = p.a === key ? p.b : p.a;
       if ((perFilm[other] || 0) >= MAX_PER_FILM) continue;
-      take(e); backfilled++;
+      if (!withinBudget(p)) continue;
+      take(p); backfilled++;
     }
   }
-  const kept = ranked.filter((e) => chosen.has(e));
+
+  /* `ordered` is already in descending strength, so filtering it keeps the edge
+     list in the order it has always been in, backfilled edges included. */
+  const kept = ordered.filter((p) => winner.get(p.pair) === p)
+    .map((p) => {
+      p.also = byPair.get(p.pair).filter((q) => q !== p).sort(cmp)
+        .map((q) => ({ signal: q.signal, claim: q.claim, strength: q.strength }));
+      return p;
+    });
 
   const edges = kept.map((e) => ({
     a: e.a, b: e.b, type: e.type,
@@ -609,7 +719,7 @@ function main() {
   const bySignal = {};
   edges.forEach((e) => { bySignal[e.signal] = (bySignal[e.signal] || 0) + 1; });
   console.log("films   : " + N);
-  console.log("pairs   : " + (N * (N - 1) / 2) + " considered, " + Object.keys(byPair).length +
+  console.log("pairs   : " + (N * (N - 1) / 2) + " considered, " + byPair.size +
     " with any signal, " + edges.length + " kept");
   console.log("by signal:");
   Object.entries(bySignal).sort((a, b) => b[1] - a[1])

@@ -1,5 +1,4 @@
 {
-  "model": "claude-fable-5",
-  "effortLevel": "xhigh",
-  "ultracode": true
+  "model": "claude-opus-5",
+  "effortLevel": "high"
 }

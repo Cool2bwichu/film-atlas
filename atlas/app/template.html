@@ -34,8 +34,19 @@
   --lift:#100E13;          /* raised surfaces */
   --panel:#15121A;
   --ink:#F0EAE0;
-  --dim:#9A9088;
-  --faint:#5C5550;
+  /* THREE INK WEIGHTS, AND ALL THREE ARE READABLE. This is a very dark page,
+     which is exactly where a "quiet" grey stops being a mood and starts being
+     a wall. Measured against --base and against --panel, the strictest ground:
+     ink 16.8:1, dim 7.6:1, faint 5.0:1 / 4.6:1. --faint was #5C5550 — 2.5:1,
+     which fails WCAG AA at any size and fails the 3:1 large-text floor too,
+     and it carried nearly every piece of metadata in the app: the year under
+     every poster, the panel's director line, the relationship under every
+     claim, the era chips at rest. Slate lettering is meant to be QUIETER than
+     the title, not invisible in daylight. The hierarchy still reads because
+     the steps are 2.2x and 1.5x — it was never the absolute darkness doing
+     that work, it was the ratio, the size and the tracking. */
+  --dim:#A89E95;
+  --faint:#877D75;
   --hair:#221E28;
   --accent:#E8C87A;        /* default until a film supplies its own */
   --accent-dim:#8A7440;
@@ -192,7 +203,7 @@ main{flex:1;position:relative;overflow:hidden}
 .filters::before{content:"Era";font-family:var(--mono);font-size:9.5px;
   letter-spacing:var(--track-slate);text-transform:uppercase;color:var(--faint);
   margin-right:13px;flex-shrink:0}
-.chip{padding:7px 12px 6px;border:0;border-bottom:1px solid var(--hair);
+.chip{position:relative;padding:7px 12px 6px;border:0;border-bottom:1px solid var(--hair);
   font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--faint);transition:color var(--t-fast) var(--ease),
   border-color var(--t-fast) var(--ease)}
@@ -235,6 +246,14 @@ main{flex:1;position:relative;overflow:hidden}
 /* Nothing hovers on a touch screen, and a wall of untitled faces is a puzzle,
    not an invitation. */
 @media (hover:none){.tile .cap{opacity:1;transform:none}}
+/* A POSTER CARRIES ITS OWN TITLE. A GENERATED CELL DOES NOT.
+   Hover-to-name is fine for 790 one-sheets with the name printed on them; for
+   the films drawn from their own two colours it leaves an abstract rectangle
+   that cannot be identified at all until the pointer lands on it. AGENTS rule
+   9 says the generated cell IS that film's visual identity, and an identity
+   nobody can read is not one. 13 films today, ~50 after the next harvest.
+   :has() is progressive — without it these behave exactly as they did. */
+.tile:has(.gen) .cap{opacity:1;transform:none}
 .tile .cap .t{font-family:var(--serif);font-size:13px;line-height:1.22;display:block}
 .tile .cap .y{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;
   color:var(--faint);text-transform:uppercase;font-variant-numeric:tabular-nums}
@@ -302,6 +321,37 @@ main{flex:1;position:relative;overflow:hidden}
   letter-spacing:-.005em}
 .node .label .y{display:block;margin-top:2px;font-family:var(--mono);font-size:8.5px;
   letter-spacing:.18em;color:var(--faint);font-variant-numeric:tabular-nums}
+/* THE CLAIM HAS TO SURVIVE A PHONE.
+   On a wide stage the relationship is set on the line it belongs to, which is
+   the better picture: the words travel with the connection. On a 390px stage
+   there is no clear air left between seven boxes and the placer was putting
+   three of six labels across artwork and captions — the one thing that makes
+   this more than a pretty graph, damaged exactly where it is hardest to read.
+   Below the threshold layout() sets .compact and the relationship moves into
+   the ring film's own caption, where it cannot collide with anything because
+   the separation pass already measures that box. It is set in the edge's
+   colour, so the line and the words still name each other. */
+.node .label .r{display:none;margin-top:4px;font-family:var(--mono);font-size:8px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--nc,var(--dim))}
+.stage.compact .node:not(.centre) .label .r{display:block}
+/* THE CAPTION IS WIDER THAN THE POSTER ON A PHONE, AND THAT IS THE FIX.
+   At 390px a ring poster is 61px, and "Letter from an Unknown Woman" set to
+   that measure is FOUR lines — 113px of caption under 91px of artwork. Seven
+   such boxes do not fit a 593px stage however small the posters get: shrinking
+   the poster makes the caption wrap further and the stack gets taller, so the
+   obvious lever pushes the wrong way. Letting the words run wider than the
+   image costs horizontal room the ellipse has (the top and bottom of the ring
+   sit on the centre line, where the whole width is free) and buys back two
+   lines of height everywhere. The measure set in JS so the separation pass and
+   the stylesheet cannot disagree about how wide a box is. */
+.stage.widecap .node:not(.centre) .label{width:var(--capw,118px);
+  margin-left:calc((100% - var(--capw,118px)) / 2)}
+/* The centre gets the same treatment and a wider measure: it is set in the
+   display face at 19px, it sits where the horizontal room is, and
+   "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles" over a 110px column is
+   six lines of title reaching down onto whatever is below it. */
+.stage.widecap .node.centre .label{width:calc(var(--capw,118px) * 1.4);
+  margin-left:calc((100% - var(--capw,118px) * 1.4) / 2)}
 /* The centre is the subject: it takes the display face, a size that cannot be
    confused with the ring, and its own colour on the date. */
 /* Sized against measured clearance, not taste. layout() budgets a flat
@@ -444,10 +494,17 @@ main{flex:1;position:relative;overflow:hidden}
 .panel-x{position:absolute;top:10px;right:10px;width:30px;height:30px;font-size:19px;
   color:var(--faint);line-height:1;transition:color var(--t-fast) var(--ease)}
 .panel-x:hover{color:var(--ink)}
-.panel>.slate:first-of-type{display:block;padding-bottom:11px;margin-bottom:13px;
+.phead .slate{display:block;padding-bottom:11px;margin-bottom:13px;
   border-bottom:1px solid var(--hair)}
-.panel .poster{width:100%;margin:16px 0 18px;display:block;background:var(--lift);
-  box-shadow:0 16px 38px rgba(0,0,0,.5)}
+/* THE PANEL IS WHERE THE CLAIMS LIVE, AND THE POSTER WAS STANDING IN FRONT OF
+   THEM. At 370px the one-sheet came out 322x483 and pushed "Why it connects"
+   98px below the fold on a 1440x900 desktop and 526px below it on a phone —
+   past a synopsis, on a panel you reached by clicking a film whose poster is
+   already the largest object on the screen behind it. Capped, and centred so
+   the narrower plate reads as a deliberate size rather than a failed stretch. */
+.phead{display:flex;flex-direction:column}
+.panel .poster{display:block;width:auto;max-width:100%;max-height:min(34vh,300px);
+  margin:16px auto 18px;background:var(--lift);box-shadow:0 16px 38px rgba(0,0,0,.5)}
 .panel h2{font-family:var(--display);font-size:30px;font-weight:400;line-height:1.08;
   letter-spacing:var(--track-display);padding-right:26px}
 .panel .by{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:9px;
@@ -464,7 +521,7 @@ main{flex:1;position:relative;overflow:hidden}
 .acts{display:flex;gap:8px;margin:20px 0 10px}
 .acts .btn{flex:1;text-align:center;padding:10px}
 .acts .btn.on{background:var(--accent);color:#0B0A0D;border-color:var(--accent)}
-.why{margin-top:24px}
+.why{margin:22px 0 24px}
 .why h3{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
   text-transform:uppercase;color:var(--faint);margin-bottom:12px;
   padding-bottom:9px;border-bottom:1px solid var(--hair)}
@@ -549,13 +606,29 @@ main{flex:1;position:relative;overflow:hidden}
   text-transform:uppercase;color:var(--faint);display:block;margin-top:6px;
   font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
 .sky-read .btn{margin-top:11px}
+/* FIVE COLOURS WERE BEING PAINTED AND NOTHING SAID WHAT THEY WERE.
+   On the radial map every line writes its own name next to it; on the field
+   there is no room for that, so the only thing carrying the grammar was hue,
+   unexplained. The key lives in the space the readout uses at rest — the state
+   whose real question is "what am I looking at", which was being answered with
+   mouse instructions — and is replaced by the film's own details the moment
+   one is in hand. No new chrome; the same box saying something. */
+.sky-key{display:flex;flex-wrap:wrap;gap:5px 13px;margin-top:9px}
+.sky-key i{display:inline-flex;align-items:center;gap:6px;font-style:normal;
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);white-space:nowrap}
+.sky-key i::before{content:"";width:15px;height:0;flex-shrink:0;
+  border-top:2px solid var(--kc,var(--dim))}
+/* AGENTS rule 3: a reading is never handed over as a record, and the field
+   draws it dashed. The key has to say so or the distinction is a mystery. */
+.sky-key i.dash::before{border-top-style:dashed;border-top-color:var(--faint)}
 .sky-ctl{display:flex;gap:6px;align-items:flex-end;flex-shrink:0}
 .sky-ctl .btn{min-width:38px;text-align:center}
 .sky-ctl .ico{font-family:var(--mono);font-size:14px;letter-spacing:0;
   padding:3px 11px 5px;line-height:1.2}
 
 /* the wall's second door into the same view */
-.linky{font-family:var(--mono);font-size:9.5px;letter-spacing:var(--track-slate);
+.linky{position:relative;font-family:var(--mono);font-size:9.5px;letter-spacing:var(--track-slate);
   text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--hair);
   padding-bottom:2px;transition:color var(--t-fast) var(--ease),
   border-color var(--t-fast) var(--ease)}
@@ -599,7 +672,15 @@ main{flex:1;position:relative;overflow:hidden}
   .panel{width:100%;top:auto;height:72%;border-left:0;border-top:1px solid var(--hair);
     transform:translateY(100%)}
   .panel.on{transform:none}
-  .panel h2{font-size:26px}
+  .panel h2{font-size:26px;padding-right:44px}
+  /* On a phone the sheet is 72% of a short viewport, so a full-width poster is
+     most of the reading surface. row-reverse turns the head into a catalogue
+     card — plate on the left, name on the right — without reordering the DOM,
+     and puts the first claim on the first screen. */
+  .phead{flex-direction:row-reverse;align-items:flex-start;gap:14px}
+  .phead .pmeta{flex:1;min-width:0}
+  .phead .slate{padding-bottom:8px;margin-bottom:10px}
+  .panel .poster{flex:0 0 104px;width:104px;max-height:none;margin:3px 0 0}
   .btn{padding:6px 9px;font-size:9px}
   /* the thread gives up height before the map does */
   .trail{padding:9px 13px 10px;min-height:66px}
@@ -621,9 +702,42 @@ main{flex:1;position:relative;overflow:hidden}
   .sky-label{font-size:12px}
   .sky-label.near{font-size:11px}
 }
+/* Three rows of chrome cost 172px on a 780px phone — 22% of the viewport,
+   spent before the atlas has said anything. Below this width the wordmark and
+   the three doors no longer fit on one line, so the search moves up beside the
+   mark (it is the primary action and belongs there) and the doors take the
+   second row on their own. Two rows, ~57px back to the map. */
+@media (max-width:560px){
+  .search{order:0;flex-basis:auto;min-width:0}
+  .tools{order:3;flex-basis:100%;margin-left:0;justify-content:space-between;gap:6px}
+}
+/* "The thread gives up height before the map does" was written as a width
+   rule, and the case that needs it is a SHORT window — a 660px-tall laptop
+   window leaves the map a 516px stage, shorter than the phone's. Same rule,
+   asked of the right axis. */
+@media (max-height:700px){
+  .trail{padding:9px 13px 10px;min-height:66px}
+  .trail-step img,.trail-step .gen{width:30px;height:45px}
+  .trail-sep{width:13px;background-size:5px 7px}
+}
 @media (pointer:coarse){
-  .wordmark,.btn,.chip,.panel-x,.linky{min-height:44px}
-  .linky{display:inline-flex;align-items:center}
+  .wordmark,.btn,.panel-x{min-height:44px}
+  .search input{min-height:44px}
+  /* A RULED LABEL CANNOT REACH 44px BY GROWING.
+     The chip and the "see the whole atlas" link are underlined words, and the
+     underline IS the state — so any way of making the box 44px tall, min-height
+     or padding alike, drags the rule down with it. Measured at 390px: the chip's
+     rule sat 18.3px under the word against 9.3px on the desktop it was designed
+     for, and it stopped reading as an underline at all. The target grows
+     INVISIBLY instead: a centred overlay that takes the tap while the printed
+     object keeps the proportions it was drawn with. The row gap opens to match,
+     because two 44px targets on a 36px pitch means the row above eats the top of
+     the row below and the wrong era opens. */
+  .chip::after,.linky::after{content:"";position:absolute;left:0;right:0;
+    top:50%;transform:translateY(-50%);height:44px}
+  .chip{padding-top:12px;padding-bottom:6px}
+  .filters{gap:12px 2px}
+  .linky{padding-top:10px}
   .sky-ctl .btn{min-width:44px}
   .panel-x{width:44px;height:44px;top:4px;right:4px}
   .trail-step{min-width:44px;min-height:44px;display:grid;place-items:center}
@@ -729,12 +843,17 @@ const ADJ = {};
 KEYS.forEach(k => ADJ[k] = []);
 E.forEach((e, i) => { if (ADJ[e.a] && ADJ[e.b]) { ADJ[e.a].push(i); ADJ[e.b].push(i); } });
 
+/* One colour per type, used for the stroke AND for the 8.5px label set in it.
+   That second job is a contrast constraint, so every value here clears 4.5:1
+   on --base. rebuttal was #B5473F (3.77:1) and hand was #7E7466 (4.38:1) —
+   both failed, and both are the label a reader has to squint at on a phone.
+   Lifted to 4.61 and 4.89 without moving hue: still oxblood, still slate. */
 const EDGE_META = {
-  descent:     { label:"descends from", color:"#C9873F" },
-  rebuttal:    { label:"argues with",   color:"#B5473F" },
-  convergence: { label:"arrives with",  color:"#4E8C7A" },
-  rhyme:       { label:"rhymes with",   color:"#8A6FA8" },
-  hand:        { label:"shares a hand", color:"#7E7466" },
+  descent:     { label:"descends from", color:"#C9873F" },   /* 6.72:1 */
+  rebuttal:    { label:"argues with",   color:"#C8544A" },   /* 4.61:1 */
+  convergence: { label:"arrives with",  color:"#4E8C7A" },   /* 5.13:1 */
+  rhyme:       { label:"rhymes with",   color:"#8A6FA8" },   /* 4.71:1 */
+  hand:        { label:"shares a hand", color:"#867C6C" },   /* 4.89:1 */
 };
 
 /* The five TYPES are the grammar and are not negotiable (AGENTS rule 2), so
@@ -999,13 +1118,42 @@ const ERAS = [
   { id:"now",    label:"2000–now", test:f=>f.year>=2000 },
 ];
 
+/* The strongest thing any film can say about itself, used only to break ties
+   below. Built once; it is a single pass over the 7,759 edges. */
+const BEST_BOND = {};
+for (const k of KEYS){
+  let best = 0;
+  for (const i of ADJ[k]){ const s = (E[i].strength||0) * sigWeight(E[i]); if (s > best) best = s; }
+  BEST_BOND[k] = best;
+}
+
 /* Films are ordered by how much the map can DO with them, not by fame: a
-   well-connected film is one you can travel from. Ties break on having a
-   poster, because the wall is made of faces. */
-const WALL_ORDER = KEYS.slice().sort((a,b)=>{
-  const d = (ADJ[b].length + (F[b].poster?3:0)) - (ADJ[a].length + (F[a].poster?3:0));
-  return d || (F[b].year||0)-(F[a].year||0);
-});
+   well-connected film is one you can travel from. The wall shows the first
+   240, so what happens AT THE CUT is the front page of the whole project, and
+   two things were deciding it that should not have been.
+ *
+ * A POSTER WAS WORTH THREE CONNECTIONS. The score was `degree + (poster?3:0)`
+ * on a scale whose middle half is 21–24, so a film with no artwork needed
+ * three more real connections than its neighbours to stand next to them.
+ * AGENTS rule 9 says the generated cell is not a fallback — it IS that film's
+ * visual identity — and a three-edge handicap says the opposite. The poster is
+ * a TIEBREAK now, which is what the old comment already claimed it was.
+ *
+ * THE YEAR TIEBREAK WAS ADVERTISING THE LAST FIVE YEARS. Measured on this
+ * corpus: 250 films tie at the cut and only 34 of them fit. Ranked by year,
+ * those 34 had a median of 2019 against 1986 for the 250 they were drawn
+ * from — a 33-year jump decided by a tiebreak nobody chose, on the front door
+ * of a lineage atlas. It is also the exact error AGENTS rule 1 forbids one
+ * level down: distance encodes bond strength, never recency or fame, and the
+ * wall should not contradict the map. Ties now break on the strongest single
+ * claim a film carries, which is the project's own idea of worth; the front
+ * page's median year moves 1983 -> 1977 against a corpus median of 1979.
+ * The final key comparison keeps the order total and deterministic. */
+const WALL_ORDER = KEYS.slice().sort((a,b)=>
+     (ADJ[b].length - ADJ[a].length)
+  || ((F[b].poster?1:0) - (F[a].poster?1:0))
+  || (BEST_BOND[b] - BEST_BOND[a])
+  || (a < b ? -1 : 1));
 
 function tile(k, note){
   const f=F[k];
@@ -1082,20 +1230,74 @@ function layout(){
      constant that fits a laptop overlaps on a short window. */
   const rw = Math.max(52, Math.min(narrow?70:104, W/6.4, H/7.4));
   const cw = Math.round(rw*1.46);
-  const boxH = w => w*1.5 + 34;                 // poster + caption
+  const sizeOf = n => (+n.dataset.i < 0 ? cw : rw);
+
+  /* THREE SCARCITIES, THREE ANSWERS, AND THEY WERE ALL ONE WIDTH TEST.
+     `narrow` above asks how big a poster can be. `compact` asks whether a
+     floating label has anywhere to stand: it is decided AFTER the cell size,
+     because cell size is what actually decides it. A width test alone called
+     the map at 1024x660 with the panel open roomy — 654px of stage, and 70px
+     posters, the same cells a phone gets — and 97 of 196 worst-case renders
+     there put a label across a title. Below the threshold the relationship
+     moves into the ring film's own caption, where it cannot collide with
+     anything because the separation pass already measures that box.
+     `widecap` is the purely VERTICAL question, and it is the case a width test
+     can never see: at 1280x700 — an ordinary laptop window whose stage is
+     SHORTER than a phone's — "Jeanne Dielman, 23 quai du Commerce, 1080
+     Bruxelles" set in a 104px gutter is seven lines reaching onto whatever is
+     below it. Such a stage keeps its labelled lines; it just stops setting
+     titles in a column narrower than the words. */
+  const compact = W < 500 || (rw <= 72 && H < 620);
+  const widecap = compact || H < 620;
+  stage.classList.toggle("compact", compact);
+  stage.classList.toggle("widecap", widecap);
+  /* One number, two consumers: the stylesheet sets the caption to it and the
+     separation pass below treats it as the node's real width. */
+  const CAP_W = Math.min(126, Math.max(96, Math.round(W*0.30)));
+  stage.style.setProperty("--capw", CAP_W+"px");
+
+  /* MEASURE THE CAPTION, DO NOT ASSUME IT.
+     The clearance budget was a flat w*1.5+34 — a poster plus exactly ONE line
+     of caption. "Letter from an Unknown Woman" wraps to four lines at 390px
+     and stands 28px taller than that, so the separation pass believed in
+     clearance that did not exist and the bottom of the caption was cut off by
+     the thread strip (measured: 9.5px of a node hanging below the stage at
+     390x780, and three of six edge labels landing on artwork because the same
+     constant is what drawEdges tests against).
+     Widths are written first and the real heights read back. transitionProperty
+     is suppressed across that one forced reflow, so what is measured is the new
+     width rather than a width halfway through animating to it; it is restored
+     before any position is written, so the move still animates — which is the
+     half of the motion that carries meaning. The old flat budget stays as a
+     floor: a node whose image has not laid out yet must never measure as zero. */
+  nodes.forEach(n=>{ n.style.transitionProperty="none"; n.style.width=sizeOf(n)+"px"; });
+  const HOF=new Map();
+  nodes.forEach(n=>HOF.set(n, Math.max(n.offsetHeight, sizeOf(n)*1.5+34)));
+  nodes.forEach(n=>{ n.style.transitionProperty=""; });
+  /* What the poster is, and what the whole cell occupies, are two numbers in
+     compact mode: the caption is deliberately wider than the image. */
+  const boxOf = n => !widecap ? sizeOf(n)
+    : Math.max(sizeOf(n), +n.dataset.i<0 ? CAP_W*1.4 : CAP_W);
+
+  let ringH=rw*1.5+34, ringW=rw;
+  nodes.forEach(n=>{ if(+n.dataset.i>=0){ ringH=Math.max(ringH, HOF.get(n)); ringW=Math.max(ringW, boxOf(n)); } });
+  const centreNode=nodes.find(n=>+n.dataset.i<0);
+  const centreW=centreNode?boxOf(centreNode):cw;
+
   const cx = W/2, cy = H/2;
-  const rx = Math.min(W/2 - rw/2 - 18, 350);
-  const ry = Math.min(H/2 - boxH(rw)/2 - 16, 268);
+  const rx = Math.min(W/2 - ringW/2 - 18, 350);
+  const ry = Math.min(H/2 - ringH/2 - 16, 268);
 
   const P = nodes.map(n=>{
     const i=+n.dataset.i;
-    if(i<0) return {n,i,x:cx,y:cy,w:cw,h:boxH(cw),fixed:true};
+    if(i<0) return {n,i,x:cx,y:cy,w:centreW,pw:cw,h:HOF.get(n),fixed:true};
     const total=Math.max(1,state.ring.length);
     /* start at the top and go round; the first connection is the strongest,
        and putting it at 12 o'clock makes the ranking legible rather than
        arbitrary */
     const a=-Math.PI/2 + (i/total)*Math.PI*2;
-    return {n,i,x:cx+Math.cos(a)*rx,y:cy+Math.sin(a)*ry,w:rw,h:boxH(rw),fixed:false};
+    return {n,i,x:cx+Math.cos(a)*rx,y:cy+Math.sin(a)*ry,
+            w:boxOf(n),pw:rw,h:HOF.get(n),fixed:false};
   });
 
   /* Separation pass. An ellipse alone cannot guarantee clearance: six boxes
@@ -1129,19 +1331,45 @@ function layout(){
   P.forEach(p=>{
     p.x=Math.max(p.w/2+6, Math.min(W-p.w/2-6, p.x));
     p.y=Math.max(p.h/2+6, Math.min(H-p.h/2-6, p.y));
-    p.n.style.left=p.x+"px"; p.n.style.top=p.y+"px"; p.n.style.width=p.w+"px";
+    p.n.style.left=p.x+"px"; p.n.style.top=p.y+"px"; p.n.style.width=p.pw+"px";
     p.n.style.zIndex = p.fixed ? 12 : 10;
   });
-  drawEdges();
+  drawEdges(compact);
 }
 
-function drawEdges(){
+function drawEdges(compact){
   const svg=$("#edges"), stage=$("#stage");
   svg.innerHTML="";
   [...stage.querySelectorAll(".edge-label")].forEach(n=>n.remove());
   const c=stage.querySelector('.node[data-i="-1"]');
   if(!c) return;
   const cx=parseFloat(c.style.left), cy=parseFloat(c.style.top);
+  /* LABELS HAVE TO CLEAR EACH OTHER TOO, AND THEY DID NOT.
+     The placer tested every candidate against the poster boxes and against
+     nothing else, so two labels could be pushed off two different posters onto
+     the same patch of empty field — measured across 96 worst-case seeds, that
+     was 29 of 196 renders at 900x820 with the panel open and 12 of 196 at
+     1280x700, against 0 at 1440x900 where there is room for the first choice
+     to work. Two words stacked on each other are less readable than one word
+     on a poster, which is why this is not a smaller version of the same bug.
+     Boxes already placed accumulate here and every later label avoids them. */
+  const laid=[];
+  /* THE OBSTACLES ARE MEASURED ONCE, AND THEY ARE THE WHOLE CELL.
+     This used to be recomputed inside the loop from `style.width` — the POSTER
+     width — which stopped being the cell's width the moment a caption was
+     allowed to run wider than the image it sits under. The result was a placer
+     confidently clearing a box that was 50px narrower than the thing on
+     screen, and 109 of 196 renders at 1280x700 putting a label across a title.
+     Real box, read once: position from the style (the TARGET, since a
+     getBoundingClientRect here would report a node halfway through moving to
+     it) and extent from the laid-out element. */
+  const boxes=[...stage.querySelectorAll(".node")].map(n=>{
+    const pw=parseFloat(n.style.width);
+    const lab=n.querySelector(".label");
+    return {x:parseFloat(n.style.left), y:parseFloat(n.style.top),
+            w:Math.max(pw, lab?lab.offsetWidth:0)+14,
+            h:Math.max(n.offsetHeight, pw*1.5+34)+6};
+  });
   state.ring.forEach((r,i)=>{
     const n=stage.querySelector('.node[data-i="'+i+'"]');
     if(!n) return;
@@ -1164,6 +1392,9 @@ function drawEdges(){
        means the map is decorative until you interrogate it, and on a touch
        screen there is no hover at all -- the one thing that makes this more
        than a pretty graph would simply never appear. */
+    /* In compact mode the relationship is already in the ring film's caption
+       (see .node .label .r) — drawing it twice would be the collision. */
+    if(compact) return;
     const lab=el("div","edge-label",edgeMeta(r.e));
     lab.style.setProperty("--lc",meta(r.e.type).color);
     lab.dataset.i=i;
@@ -1175,10 +1406,6 @@ function drawEdges(){
     const at=t=>[(1-t)*(1-t)*cx + 2*(1-t)*t*qx + t*t*x,
                  (1-t)*(1-t)*cy + 2*(1-t)*t*qy + t*t*y];
     let [lx,ly]=at(0.5);
-    const boxes=[...stage.querySelectorAll(".node")].map(n=>{
-      const w=parseFloat(n.style.width);
-      return {x:parseFloat(n.style.left),y:parseFloat(n.style.top),w:w+14,h:w*1.5+40};
-    });
     /* Measure the label rather than assuming it. The fixed ±30px margin here
        was narrower than half of "shares a hand" (~98px), so a label could pass
        the clearance test and still sit 20px inside a poster — which is why
@@ -1187,7 +1414,8 @@ function drawEdges(){
     stage.appendChild(lab);
     const lw=lab.offsetWidth/2 + 6, lh=lab.offsetHeight/2 + 4;
     const hits=(px,py)=>boxes.some(bx=>
-      Math.abs(px-bx.x)<bx.w/2+lw && Math.abs(py-bx.y)<bx.h/2+lh);
+        Math.abs(px-bx.x)<bx.w/2+lw && Math.abs(py-bx.y)<bx.h/2+lh)
+      || laid.some(L=>Math.abs(px-L.x)<L.w+lw && Math.abs(py-L.y)<L.h+lh);
     if(hits(lx,ly)){
       /* try further along the curve first — it keeps the label on its own line */
       let ok=false;
@@ -1199,8 +1427,15 @@ function drawEdges(){
            started. */
         const nx=-(y-cy), ny=(x-cx), nl=Math.hypot(nx,ny)||1;
         const [bx0,by0]=at(0.5);
+        /* Overlapping another label costs four times overlapping a poster: a
+           label is small, so a given area of collision destroys much more of
+           it, and losing both words is worse than dimming one corner of an
+           image. When nothing can be made clean this is what decides where
+           the least-bad position is. */
         const cost=(px,py)=>boxes.reduce((t,bx)=>t+
-          Math.max(0,bx.w/2+lw-Math.abs(px-bx.x))*Math.max(0,bx.h/2+lh-Math.abs(py-bx.y)),0);
+            Math.max(0,bx.w/2+lw-Math.abs(px-bx.x))*Math.max(0,bx.h/2+lh-Math.abs(py-bx.y)),0)
+          + laid.reduce((t,L)=>t+4*
+            Math.max(0,L.w+lw-Math.abs(px-L.x))*Math.max(0,L.h+lh-Math.abs(py-L.y)),0);
         let best=[lx,ly], bestC=cost(lx,ly);
         for(let d=26; d<=190 && !ok; d+=16){
           for(const sgn of [1,-1]){
@@ -1216,6 +1451,7 @@ function drawEdges(){
     }
     lab.style.left=lx+"px";
     lab.style.top =ly+"px";
+    laid.push({x:lx,y:ly,w:lw,h:lh});
     stage.appendChild(lab);
   });
 }
@@ -1255,7 +1491,8 @@ function renderMap(){
     n.innerHTML=`<div class="frame">${art(k,"",i<0?"high":"auto")}${
       state.seen.has(k)||state.loved.has(k)?'<span class="seen"></span>':""}</div>
       <div class="label"><span class="t">${esc(f.title)}</span>
-      <span class="y">${f.year||""}</span></div>`;
+      <span class="y">${f.year||""}</span>${
+        i<0?"":`<span class="r">${esc(edgeMeta(conn.e))}</span>`}</div>`;
     n.onclick=()=>{ if(i<0) openPanel(k); else openMap(k,true); };
     n.onmouseenter=()=>{ if(i>=0) hot(i,true); openPanelPreview(k, i<0?null:conn); };
     n.onmouseleave=()=>{ if(i>=0) hot(i,false); hideTip(); };
@@ -1337,25 +1574,26 @@ function openPanel(k){
   const f=F[k], p=$("#panel");
   const conns = k===state.centre ? state.ring : connections(k,6,[k]);
   p.style.setProperty("--accent", f.highlight);
+  /* READING ORDER IS AN ARGUMENT. Name, face, what you can do about it, then
+     WHY IT CONNECTS — the claims are the only thing here that is not already
+     on a hundred other film sites, so they come before the synopsis rather
+     than after it. The filing rows sit last because that is what they are. */
   p.innerHTML = `
     <button class="panel-x" aria-label="Close">&times;</button>
-    <div class="slate">film</div>
-    <h2>${esc(f.title)}</h2>
-    <div class="by">${f.year||""}${f.director?"  ·  "+esc(f.director):""}</div>
-    ${f.poster?`<img class="poster" src="${esc(f.poster)}" alt="" decoding="async">`:""}
-    ${f.description?`<p class="desc">${esc(f.description)}</p>`:""}
+    <div class="phead">
+      <div class="pmeta">
+        <div class="slate">film</div>
+        <h2>${esc(f.title)}</h2>
+        <div class="by">${f.year||""}${f.director?"  ·  "+esc(f.director):""}</div>
+      </div>
+      ${f.poster?`<img class="poster" src="${esc(f.poster)}" alt="" decoding="async">`:""}
+    </div>
     <div class="acts">
       <button class="btn${state.seen.has(k)?" on":""}" data-act="seen"
         aria-pressed="${state.seen.has(k)?"true":"false"}">Seen it</button>
       <button class="btn${state.loved.has(k)?" on":""}" data-act="loved"
         aria-pressed="${state.loved.has(k)?"true":"false"}">Love it</button>
     </div>
-    <div class="row"><span>connections</span><span>${ADJ[k].length}</span></div>
-    <div class="row"><span>palette</span><span>${f.paletteSource==="poster"?"from its poster":
-      f.paletteSource==="curated"?"observed":"era default"}</span></div>
-    ${f.wikipedia?`<div class="row"><span>read more</span><span><a style="color:var(--accent)"
-      target="_blank" rel="noopener"
-      href="https://en.wikipedia.org/wiki/${encodeURIComponent(f.wikipedia.replace(/ /g,"_"))}">Wikipedia</a></span></div>`:""}
     <div class="why"><h3>Why it connects</h3>${
       conns.map(c=>`<button type="button" class="why-item" data-k="${esc(c.key)}"
         style="--wc:${meta(c.e.type).color}">
@@ -1364,7 +1602,14 @@ function openPanel(k){
           c.e.source&&c.e.source!=="record"?" · "+claimStatus(c.e):""}</div>
         ${c.e.source==="attested"&&c.e.attribution?`<div class="src">${esc(c.e.attribution)}</div>`:""}
       </button>`).join("")
-    }</div>`;
+    }</div>
+    ${f.description?`<p class="desc">${esc(f.description)}</p>`:""}
+    <div class="row"><span>connections</span><span>${ADJ[k].length}</span></div>
+    <div class="row"><span>palette</span><span>${f.paletteSource==="poster"?"from its poster":
+      f.paletteSource==="curated"?"observed":"era default"}</span></div>
+    ${f.wikipedia?`<div class="row"><span>read more</span><span><a style="color:var(--accent)"
+      target="_blank" rel="noopener"
+      href="https://en.wikipedia.org/wiki/${encodeURIComponent(f.wikipedia.replace(/ /g,"_"))}">Wikipedia</a></span></div>`:""}`;
   p.classList.add("on");
   p.setAttribute("aria-hidden","false");
   p.removeAttribute("inert");
@@ -1426,7 +1671,26 @@ const sky = {
 
 const skyReduced = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
 const skyInHand = () => sky.hoverKey || sky.pinKey || null;
-const skyFitK = () => Math.max(1, Math.min(sky.w, sky.h) * 0.92);
+/* THE READOUT IS AN OVERLAY, SO "FIT" HAS TO MEAN THE PART YOU CAN SEE.
+   Exactly the correction layout() already makes for the detail panel, and for
+   the same reason: the canvas keeps its full size while a strip along the
+   bottom is covered by opaque chrome, and fitting to the canvas parks films
+   underneath it. Measured before this: 5.7% of the corpus at 390x780 and 6.1%
+   at 900x820 sat behind the readout and the zoom controls at the default view —
+   invisible, un-hoverable, and on a phone un-tappable. skyChrome() already
+   knows where those boxes are; this is the same rectangle asked a different
+   question. Falls back to the full height when the chrome has not laid out. */
+const skySafeH = () => {
+  const c = skyChrome();
+  return c.length ? Math.max(140, Math.min(...c.map(b => b.y))) : sky.h;
+};
+const skyFitK = () => Math.max(1, Math.min(sky.w, skySafeH()) * 0.92);
+/* The camera lands the world's centre on the centre of the VISIBLE rectangle,
+   not of the canvas — cy is offset by half the covered strip, in world units. */
+function skyFitCam(){
+  const k = skyFitK();
+  return { cx:0.5, cy:0.5 + ((sky.h - skySafeH()) / 2) / k, k };
+}
 
 /* ONE RADIUS FOR EVERY FILM, AT EVERY MOMENT.
    It is a function of zoom alone, so a disc keeps a physical size as you push
@@ -1434,7 +1698,30 @@ const skyFitK = () => Math.max(1, Math.min(sky.w, sky.h) * 0.92);
    either — AGENTS rule 1. A field that draws the well-connected larger is a
    popularity chart wearing a star map's clothes, and it would undo the one
    correction this project was founded on. */
-const skyRadius = zr => Math.min(6.2, 2.3 + Math.log2(Math.max(1, zr)) * 0.78);
+/* HOW BIG A DISC CAN BE IS A QUESTION ABOUT ROOM, AND THE ROOM IS SHRINKING.
+   The solver normalises into a fixed [0,1] box, so the median gap between two
+   films is 0.669/sqrt(N) world units at every corpus size measured — density
+   is a property of the frame, not of the solver. At 803 films that is 8.5px on
+   a 390px phone at the fit zoom and 0.2% of discs touch; at 2,008 it is 5.4px
+   and 24% of them merge into blobs. The field stops being a map of anything.
+
+   Scaling the radius by sqrt(803/N) — the arithmetic answer — fixes the phone
+   and also shrinks the DESKTOP disc, where 11.4px of gap at 2,008 films has no
+   problem to solve; the wide view would go quieter to pay for a defect it does
+   not have. So the base is tied to the gap IN PIXELS, which is what actually
+   varies, and capped at the value tuned for today: it gives ground only where
+   there is genuinely no room. Measured against the real baked layout, the
+   share of films closer than one diameter at 2,008 films goes 24.0% -> 0.3% on
+   a phone while desktop and tablet keep the full 2.3px they have now.
+   The 1.35px floor is deliberate and it is an admission: past roughly 4,000
+   films the honest answer is not a smaller dot, it is that "everything at once"
+   has stopped being a legible object on a phone and the view needs to arrive
+   somewhere else. Better a slightly crowded field than a field of dust.
+   Size is still identical for every film at every moment — AGENTS rule 1. */
+const SKY_GAP = 0.669;   /* median nearest-neighbour distance x sqrt(N), measured on the baked layout */
+const skyBaseR = () =>
+  Math.max(1.35, Math.min(2.3, SKY_GAP / Math.sqrt(Math.max(1, sky.n)) * skyFitK() * 0.28));
+const skyRadius = zr => Math.min(6.2, skyBaseR() + Math.log2(Math.max(1, zr)) * 0.78);
 
 /* The project's one camera curve, cubic-bezier(.22,.61,.36,1), solved rather
    than eyeballed: a move in this view has to feel like a move in the map or
@@ -1538,9 +1825,12 @@ function skyResize(){
   sky.w=w; sky.h=h; sky.dpr=dpr;
   c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
   sky.ctx=c.getContext("2d");
+  /* Cleared BEFORE the clamp, not after: the clamp asks skyFitK where the
+     chrome is, and a cache measured at the previous size would answer for a
+     viewport that no longer exists. */
+  sky.chrome=null;
   sky.cam.k=skyClampK(sky.cam.k);
   skyClampC(sky.cam);
-  sky.chrome=null;
 }
 
 /* CLAMPS. You cannot lose the constellation: the world point under the centre
@@ -1844,7 +2134,10 @@ function skyReadout(){
   if (key==null || !F[key]){
     box.style.removeProperty("--nc");
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
-      <span class="y" style="margin-top:7px">Drag to pan · scroll to zoom · pick a film to open its map</span>`;
+      <div class="sky-key">${SKY_TYPES.map(t=>
+        `<i style="--kc:${EDGE_META[t].color}">${EDGE_META[t].label}</i>`).join("")
+        }<i class="dash">reading, not record</i></div>
+      <span class="y" style="margin-top:9px">Drag to pan · scroll to zoom · pick a film to open its map</span>`;
     return;
   }
   const f=F[key];
@@ -1969,8 +2262,9 @@ function skyEnter(){
     /* The arrival is a settle, not a fade-from-nothing: the field opens a
        little tight and eases out to the whole atlas. One move, 950ms, the
        project's position-change duration. */
-    sky.cam.cx=0.5; sky.cam.cy=0.5; sky.cam.k=skyFitK()*1.12;
-    skyGo(0.5,0.5,skyFitK(),950);
+    const fit=skyFitCam();
+    sky.cam.cx=fit.cx; sky.cam.cy=fit.cy; sky.cam.k=fit.k*1.12;
+    skyGo(fit.cx,fit.cy,fit.k,950);
   } else {
     skyRender();
   }
@@ -2247,12 +2541,12 @@ if (SKY_POS){
     }
     if(e.key==="+"||e.key==="="){ e.preventDefault(); skyZoomCentre(1.45); }
     else if(e.key==="-"||e.key==="_"){ e.preventDefault(); skyZoomCentre(1/1.45); }
-    else if(e.key==="0"||e.key==="Home"){ e.preventDefault(); skyGo(0.5,0.5,skyFitK(),620); }
+    else if(e.key==="0"||e.key==="Home"){ e.preventDefault(); const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,620); }
   });
 
   $("#sky-in").onclick=()=>skyZoomCentre(1.45);
   $("#sky-out").onclick=()=>skyZoomCentre(1/1.45);
-  $("#sky-fit").onclick=()=>skyGo(0.5,0.5,skyFitK(),620);
+  $("#sky-fit").onclick=()=>{ const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,620); };
   $("#constellation").onclick=openSky;
   $("#sky-lede").onclick=openSky;
 }else{

@@ -1,0 +1,27 @@
+{
+  "_note": [
+    "Hand-pinned resolutions, consulted by harvest-sparql.js at the moment it picks",
+    "a Wikidata item for a seed line. Key = the seed line, lowercased, exactly as it",
+    "appears in seeds.txt. Value = the QID that line means.",
+    "",
+    "An override only ever selects among the candidates the resolve query already",
+    "returned; it cannot invent a film. If it matches nothing the run warns and falls",
+    "through to the ranked pick, so a stale pin degrades to the default rather than",
+    "poisoning a key with a label-less QID.",
+    "",
+    "Two entries below are corrections to films the OLD unordered pick got wrong and",
+    "shipped: corpus.json holds Q12280475 (a 1930 Macedonian short) under 'earth' and",
+    "Q17498893 (Chang Cheh's The Duel) under 'the duel'. Measured against live WDQS on",
+    "2026-08-08, the deterministic ranking now reaches both of these on its own --",
+    "Q55188 wins on the en.wikipedia sitelink, Q583407 wins on the exact rdfs:label --",
+    "so these pins are belt-and-braces, not the mechanism. They are here because",
+    "Wikidata is mutable: the day Q12280475 gains a sitelink, the ranking flips back,",
+    "and this corpus has already carried the wrong Earth through two generations.",
+    "",
+    "Add a line here for each '!! ambiguous ... by lowest QID' warning the run prints.",
+    "Those are genuine two-real-film ties and no rule settles them honestly."
+  ],
+
+  "earth (1930)": "Q55188",
+  "duel (1971)": "Q583407"
+}
