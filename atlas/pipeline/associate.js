@@ -664,7 +664,15 @@ function main() {
     also: (e.also || []).sort((x, y) => y.strength - x.strength).slice(0, 3),
   }));
 
-  /* films carry no attribute arrays into the app — only what it renders.
+  /* Films carry no attribute arrays into the app — only what it renders.
+   *
+   * An earlier version of this pass emitted genre/country/movement here so the
+   * constellation's filter had something to narrow by. That is superseded:
+   * static/discovery.json is the facet artifact now, with a normalised
+   * taxonomy (genre reduced from 258 raw Wikidata values to 19), an inverted
+   * index, provenance for movement membership, and content-hash versions tying
+   * it to the corpus it describes. Emitting a second, rawer copy from here
+   * would be a competing source of truth for the same question.
    *
    * Poster, description and poster-derived palette are folded in here from
    * pipeline/out/enrich.json when it exists. The app used to resolve posters

@@ -656,6 +656,45 @@ main{flex:1;position:relative;overflow:hidden}
 /* AGENTS rule 3: a reading is never handed over as a record, and the field
    draws it dashed. The key has to say so or the distinction is a mystery. */
 .sky-key i.dash::before{border-top-style:dashed;border-top-color:var(--faint)}
+/* The filter sits along the leading edge rather than in the bottom HUD: the
+   HUD is where the film in hand speaks, and a control that grows to a dozen
+   rows would push the readout off a phone. Its own scroll, capped to the
+   viewport, so a long genre list never becomes the page's scrollbar. */
+.sky-filter{position:absolute;z-index:9;top:14px;left:max(16px,env(safe-area-inset-left));
+  width:min(232px,52vw);max-height:min(62vh,520px);display:flex;flex-direction:column;
+  background:rgba(8,7,10,.9);backdrop-filter:blur(10px);border:1px solid var(--hair)}
+.sky-filter[hidden]{display:none}
+/* A HEADER ROW, NOT A BUTTON FLOATING OVER THE LIST.
+   Absolutely positioning the close control put it on top of the first facet's
+   heading, so "Genre" was hidden behind an x the moment the panel opened —
+   the one label that says what the list underneath it is. */
+.sky-filter-head{display:flex;align-items:center;justify-content:space-between;
+  gap:8px;padding:9px 8px 9px 12px;border-bottom:1px solid var(--hair);flex-shrink:0}
+.sky-filter-head h3{margin:0;font-family:var(--mono);font-size:8.5px;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--dim);font-weight:400}
+.sky-filter-x{width:28px;height:28px;flex-shrink:0;
+  background:none;border:0;color:var(--faint);font-size:16px;line-height:1;cursor:pointer}
+.sky-filter-x:hover,.sky-filter-x:focus-visible{color:var(--ink)}
+.sky-filter-body{overflow-y:auto;padding:11px 12px 12px;
+  scrollbar-width:thin;scrollbar-color:var(--hair) transparent}
+.sky-facet+.sky-facet{margin-top:13px}
+.sky-facet>h4{margin:0 0 6px;font-family:var(--mono);font-size:8.5px;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--faint);font-weight:400}
+.sky-opt{display:flex;width:100%;align-items:baseline;gap:7px;padding:3px 4px;
+  background:none;border:0;cursor:pointer;text-align:left;
+  font-family:var(--serif);font-size:12px;line-height:1.35;color:var(--dim)}
+.sky-opt:hover,.sky-opt:focus-visible{color:var(--ink);background:rgba(232,223,211,.06)}
+.sky-opt .n{margin-left:auto;font-family:var(--mono);font-size:8.5px;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+/* An active facet is marked by a rule in the accent, not by a filled pill:
+   this world has no rounded chips in it (see "Deliberately avoided"). */
+.sky-opt.on{color:var(--ink);box-shadow:inset 2px 0 0 var(--accent)}
+.sky-opt.on .n{color:var(--dim)}
+.sky-filter-sum{margin-top:12px;padding-top:10px;border-top:1px solid var(--hair);
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint);display:flex;align-items:center;gap:9px}
+.sky-filter-sum button{margin-left:auto;background:none;border:0;cursor:pointer;
+  font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--accent)}
 .sky-ctl{display:flex;gap:6px;align-items:flex-end;flex-shrink:0}
 .sky-ctl .btn{min-width:38px;text-align:center}
 .sky-ctl .ico{font-family:var(--mono);font-size:14px;letter-spacing:0;
@@ -844,6 +883,20 @@ main{flex:1;position:relative;overflow:hidden}
         <span class="sr-only" id="sky-help">Drag to pan, scroll or pinch to zoom,
           click a film to open its lineage map. Arrow keys step between films,
           Enter opens the one in hand, plus and minus zoom, zero refits.</span>
+        <!-- NARROWING THE FIELD, WITHOUT MOVING IT.
+             Positions stay exactly where the build solved them: a film's place
+             is the one thing the sky promises to a second person, and
+             re-solving for a subset would trade that for a denser picture.
+             So a filter dims rather than rearranges, and what you read is
+             where that tradition actually sits in the whole atlas — which
+             regions it occupies and which it never reaches. -->
+        <div class="sky-filter" id="sky-filter" hidden>
+          <div class="sky-filter-head">
+            <h3>Narrow the field</h3>
+            <button class="sky-filter-x" id="sky-filter-x" type="button" aria-label="Close filters">&times;</button>
+          </div>
+          <div class="sky-filter-body" id="sky-filter-body"></div>
+        </div>
         <div class="sky-hud">
           <div class="sky-read" id="sky-read">
             <span class="slate">The whole atlas</span>
@@ -852,6 +905,7 @@ main{flex:1;position:relative;overflow:hidden}
           <div class="sky-ctl">
             <button class="btn ico" id="sky-out" type="button" aria-label="Zoom out">&minus;</button>
             <button class="btn ico" id="sky-in" type="button" aria-label="Zoom in">+</button>
+            <button class="btn" id="sky-filter-open" type="button" aria-label="Narrow the constellation">Narrow</button>
             <button class="btn" id="sky-fit" type="button" aria-label="Fit the whole constellation on screen">Fit</button>
           </div>
         </div>
@@ -1808,7 +1862,41 @@ const SKY_DASH = [3,4], SKY_SOLID = [];
 const SKY_CELL = 0.02;          /* hit-test bucket, in world units */
 const SKY_LABEL_MAX = 12;       /* see skyNeighbours */
 const SKY_EDGE_FLOOR = 1500;    /* see the edge budget in skyDraw */
+/* Genre has 258 distinct values over 2,204 films and the tail is single
+   figures. Ten is the point where the list still reads as a set of choices
+   rather than a directory; anything already selected is shown regardless. */
+const SKY_FACET_MAX = 10;
 const TAU = Math.PI * 2;
+
+/* THE FACETS COME FROM discovery.json, NOT FROM THE CORPUS.
+   An earlier version of this filter read a genre/country/movement list emitted
+   per film by associate.js. DISCOVERY replaces that with a normalised taxonomy
+   (genre is 19 values here against 258 raw Wikidata ones), an inverted index,
+   and content-hash versions tying the artifact to the corpus it describes — so
+   a filter can no longer quietly describe a corpus that is not on screen.
+
+   `definitions` gives each facet a label and its values with counts;
+   `postings` maps a facet value to indices into `filmOrder`. Reading the
+   postings rather than testing every film is what keeps narrowing O(matches)
+   instead of O(films × facets) as the corpus grows.
+
+   `selectable` is the artifact's own statement about which facets are fit to
+   offer. It is honoured rather than second-guessed: a facet the generator
+   marks unselectable (thin coverage, an unreviewed taxonomy) must not appear
+   as a control, because a filter is a promise that the answer is complete. */
+const DISCO = typeof DISCOVERY === "object" && DISCOVERY ? DISCOVERY : null;
+const FACET_DEFS = DISCO?.facets?.definitions || {};
+const FACET_POST = DISCO?.facets?.postings || {};
+const FACET_ORDER = ["genre","country","movement","era","director"];
+const FACET_FIELDS = FACET_ORDER
+  .filter(k => FACET_DEFS[k] && Object.keys(FACET_DEFS[k].values||{}).length)
+  /* Until the artifact marks a facet selectable, offer the ones with a
+     reviewed taxonomy and enough coverage to mean something. director has 386
+     values over 800 films — a directory, not a filter — so it is excluded here
+     for the same reason studio never became a facet at all. */
+  .filter(k => k !== "director")
+  .map(k => ({key:k, label:FACET_DEFS[k].label || k}));
+const skyFilterOn = () => FACET_FIELDS.some(f => sky.filter[f.key]?.size);
 
 const sky = {
   ready:false, n:0, keys:[], at:null, wx:null, wy:null, fill:null,
@@ -1824,6 +1912,15 @@ const sky = {
      answers the question the sky could not previously answer: not just what
      that film is, but why it is attached to the one in your hand. */
   orbitKey:null, examineKey:null,
+  /* Selected facet indices per field, and the membership mask they produce.
+     `visible` is null when nothing is selected — the whole-field case must not
+     pay for a per-film test it does not need. */
+  /* One Set per facet the artifact actually offers, built from FACET_FIELDS
+     rather than hardcoded: which facets exist is discovery.json's decision,
+     and a hardcoded list here would silently ignore a new one or crash on a
+     removed one. */
+  filter:Object.fromEntries(FACET_FIELDS.map(f=>[f.key,new Set()])),
+  visible:null, visibleN:0,
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
   /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
      click a touch screen fires afterwards can be told apart from a real one.
@@ -1836,6 +1933,164 @@ const skyInHand = () => sky.hoverKey || sky.pinKey || null;
 
 /* The film whose neighbourhood is currently held open, if any. */
 const skyAnchor = () => sky.orbitKey && F[sky.orbitKey] ? sky.orbitKey : null;
+
+/* ── NARROWING ────────────────────────────────────────────────────────────
+   Facets arrive interned (CORPUS.facets is the string table; each film holds
+   indices). Selections are OR within a facet and AND across them, which is
+   what people mean: "horror or thriller, from Japan". */
+
+
+/* A facet value's films, as a Set of SKY indices.
+   `postings` indexes into DISCOVERY.filmOrder (permanent film ids), while the
+   field draws from its own `sky.keys`. The two orders are unrelated, so every
+   posting is translated once through keyByFilmId -> sky.at and cached. A film
+   the sky did not place (no layout position) simply drops out. */
+const skyPostCache = new Map();
+function skyPostingSet(field, value){
+  const cacheKey = field + " " + value;
+  let set = skyPostCache.get(cacheKey);
+  if (set) return set;
+  set = new Set();
+  const rows = FACET_POST[field] && FACET_POST[field][value];
+  if (Array.isArray(rows) && DISCO){
+    for (const idx of rows){
+      const filmId = DISCO.filmOrder[idx];
+      const key = filmId && DISCO.keyByFilmId[filmId];
+      const at = key!=null ? sky.at[key] : undefined;
+      if (at!==undefined) set.add(at);
+    }
+  }
+  skyPostCache.set(cacheKey,set);
+  return set;
+}
+
+/* Recomputed only when a selection changes — skyDraw runs per frame during a
+   pan and must not be re-deciding memberships inside it.
+
+   Built from the index rather than by testing every film: union the postings
+   within a facet (OR), intersect across facets (AND). At 803 films the
+   difference is academic; at the corpus this is heading toward it is the
+   difference between touching the matches and touching everything. */
+function skyRecomputeVisible(){
+  const on=skyFilterOn();
+  sky.visible = on ? new Uint8Array(sky.n) : null;
+  sky.visibleN = sky.n;
+  if (!on) return;
+
+  let acc=null;
+  for (const {key:field} of FACET_FIELDS){
+    const want=sky.filter[field];
+    if (!want || !want.size) continue;
+    const union=new Set();
+    for (const v of want) for (const i of skyPostingSet(field,v)) union.add(i);
+    acc = acc===null ? union : new Set([...acc].filter(i=>union.has(i)));
+    if (!acc.size) break;
+  }
+  if (acc) for (const i of acc) sky.visible[i]=1;
+  sky.visibleN = acc ? acc.size : 0;
+}
+
+/* Camera onto what survived. Films keep their places, so a narrow filter is
+   usually a scatter rather than a cluster — that scatter IS the finding, and
+   fitting to it is how you read it. */
+function skyFitFiltered(ms){
+  if (!sky.visible || !sky.visibleN) return;
+  let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
+  for (let i=0;i<sky.n;i++){
+    if (!sky.visible[i]) continue;
+    if (sky.wx[i]<x0)x0=sky.wx[i]; if (sky.wx[i]>x1)x1=sky.wx[i];
+    if (sky.wy[i]<y0)y0=sky.wy[i]; if (sky.wy[i]>y1)y1=sky.wy[i];
+  }
+  const pad=0.06, w=Math.max(1e-3,(x1-x0)+pad*2), h=Math.max(1e-3,(y1-y0)+pad*2);
+  const k=skyClampK(Math.min(sky.w/w, skySafeH()/h)*0.9);
+  const cy=(y0+y1)/2 + (sky.h-skySafeH())/2/k;
+  skyGo((x0+x1)/2, cy, k, ms);
+}
+
+function skyToggleFacet(field,idx){
+  const set=sky.filter[field];
+  set.has(idx) ? set.delete(idx) : set.add(idx);
+  skyRecomputeVisible();
+  /* An anchor whose film the filter just excluded is a held neighbourhood you
+     can no longer see — release rather than leave it dangling. */
+  if (sky.orbitKey && sky.visible && !sky.visible[sky.at[sky.orbitKey]]) skyOrbit(null);
+  skyFilterRender();
+  if (sky.visibleN) skyFitFiltered(620);
+  skyHand();
+}
+
+function skyClearFacets(){
+  for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+  skyRecomputeVisible();
+  skyFilterRender();
+  skyGo(...(f=>[f.cx,f.cy,f.k])(skyFitCam()), 620);
+  skyHand();
+}
+
+/* Counts are of what the OTHER facets already allow, so a number never
+   promises films that clicking it cannot produce. */
+/* Counts are of what the OTHER facets already allow, so a number never
+   promises films that clicking it cannot produce. Computed against the
+   postings index: build the set the other facets permit, then intersect each
+   candidate value's postings with it. */
+function skyFacetCounts(field){
+  let allowed=null;
+  for (const {key:other} of FACET_FIELDS){
+    if (other===field) continue;
+    const want=sky.filter[other];
+    if (!want || !want.size) continue;
+    const union=new Set();
+    for (const v of want) for (const i of skyPostingSet(other,v)) union.add(i);
+    allowed = allowed===null ? union : new Set([...allowed].filter(i=>union.has(i)));
+  }
+  const counts=new Map();
+  const values=FACET_DEFS[field]?.values || {};
+  for (const v of Object.keys(values)){
+    const post=skyPostingSet(field,v);
+    let n=0;
+    if (allowed===null) n=post.size;
+    else for (const i of post) if (allowed.has(i)) n++;
+    if (n) counts.set(v,n);
+  }
+  return counts;
+}
+
+/* A facet value's human label, from the artifact's own taxonomy. */
+const facetLabel=(field,value)=>FACET_DEFS[field]?.values?.[value]?.label || value;
+
+function skyFilterRender(){
+  const body=$("#sky-filter-body");
+  if (!body) return;
+  body.innerHTML="";
+  for (const {key:field,label} of FACET_FIELDS){
+    const counts=skyFacetCounts(field);
+    const sel=sky.filter[field];
+    /* Show the densest values plus anything already chosen, so a selection can
+       always be undone even after other facets push it out of the top slice. */
+    const rows=[...counts.entries()]
+      .sort((a,b)=> b[1]-a[1] || (facetLabel(field,a[0])<facetLabel(field,b[0])?-1:1))
+      .filter(([v],i)=> i<SKY_FACET_MAX || sel.has(v));
+    if (!rows.length) continue;
+    const sec=el("div","sky-facet");
+    sec.appendChild(el("h4",null,label));
+    for (const [v,n] of rows){
+      const b=el("button","sky-opt"+(sel.has(v)?" on":""));
+      b.type="button";
+      b.setAttribute("aria-pressed", sel.has(v)?"true":"false");
+      b.innerHTML=`<span>${esc(facetLabel(field,v))}</span><span class="n">${n}</span>`;
+      b.onclick=()=>skyToggleFacet(field,v);
+      sec.appendChild(b);
+    }
+    body.appendChild(sec);
+  }
+  const sum=el("div","sky-filter-sum");
+  sum.innerHTML = skyFilterOn()
+    ? `<span>${sky.visibleN} of ${sky.n} films</span><button type="button">Clear</button>`
+    : `<span>${sky.n} films</span>`;
+  const clear=sum.querySelector("button");
+  if (clear) clear.onclick=skyClearFacets;
+  body.appendChild(sum);
+}
 
 /* The strongest connection between two films, as the corpus states it.
    Returns the edge itself so the readout can quote its claim, name its
@@ -2102,6 +2357,7 @@ function skyDraw(){
   for (let i=0;i<n;i++){ SX[i]=sky.wx[i]*k+ox; SY[i]=sky.wy[i]*k+oy; }
 
   const zr=k/skyFitK(), r=skyRadius(zr);
+  const vis=sky.visible;
 
   /* THE EDGE BUDGET, AND WHY IT IS NOT A LIE ABOUT THE GRAPH.
      All 7,759 connections drawn at the fit zoom is not a map, it is a grey
@@ -2131,6 +2387,10 @@ function skyDraw(){
       const id=sky.eOrder[t];
       if (sky.eBucket[id]!==b) continue;
       const i=sky.ea[id], j=sky.eb[id];
+      /* A connection is only drawn when BOTH ends survived the filter. Drawing
+         a line to a film that is no longer on screen would assert a
+         relationship with nothing at the other end of it. */
+      if (vis && (!vis[i] || !vis[j])) continue;
       const x1=SX[i],y1=SY[i],x2=SX[j],y2=SY[j];
       if ((x1<0&&x2<0)||(x1>w&&x2>w)||(y1<0&&y2<0)||(y1>h&&y2>h)) continue;
       if (!started){ ctx.beginPath(); started=true; }
@@ -2172,15 +2432,21 @@ function skyDraw(){
 
   /* One disc per film, in that film's own measured highlight. The colour on
      screen comes from the photography of cinema, never from a house ramp. */
-  ctx.globalAlpha=0.82;
+  /* Filtered-out films are drawn faintly rather than removed. Erasing them
+     would hide the very thing keeping the positions bought us: you are meant
+     to see WHERE a tradition sits in the whole atlas — which regions it fills
+     and which it never reaches — and that needs the rest of the sky present
+     as ground. */
   for (let i=0;i<n;i++){
     const px=SX[i], py=SY[i];
     if (px<-r||py<-r||px>w+r||py>h+r) continue;
+    ctx.globalAlpha = vis && !vis[i] ? 0.09 : 0.82;
     ctx.beginPath();
     ctx.arc(px,py,r,0,TAU);
     ctx.fillStyle=sky.fill[i];
     ctx.fill();
   }
+  ctx.globalAlpha=0.82;
 
   /* Seen and loved: a ring, not a size and not a second colour scheme. The
      mark has to be findable when you are looking for it and invisible when
@@ -2363,7 +2629,7 @@ function skyReadout(){
       </div>`:""}
       <button class="btn" id="sky-open" type="button">Open its map</button>
       <button class="btn ghost" id="sky-anchor" type="button">Follow this film</button>`;
-    $("#sky-open").onclick=()=>openMap(key);
+    $("#sky-open").onclick=()=>openMap(key,true);
     $("#sky-anchor").onclick=()=>skyOrbit(key);
     return;
   }
@@ -2390,7 +2656,7 @@ function skyReadout(){
     ${held?`<span class="y sky-hint">Its connections are held open — pick one to see why they are joined.</span>`:""}
     ${(pinned||held)?`<button class="btn" id="sky-open" type="button">Open its map</button>`:""}
     ${held?`<button class="btn ghost" id="sky-release" type="button">Release</button>`:""}`;
-  if (pinned||held) $("#sky-open").onclick=()=>openMap(key);
+  if (pinned||held) $("#sky-open").onclick=()=>openMap(key,true);
   if (held) $("#sky-release").onclick=()=>skyOrbit(null);
 }
 
@@ -2426,6 +2692,10 @@ function skyPick(px,py){
     const b=sky.grid.get((gx+4)*4096+(gy+4));
     if (!b) continue;
     for (const i of b){
+      /* A film the filter has dimmed is not pickable. It is still drawn, as
+         ground, but a name that cannot be reached by any control on screen
+         should not answer a click either. */
+      if (sky.visible && !sky.visible[i]) continue;
       const dx=sky.wx[i]-wx, dy=sky.wy[i]-wy, d=dx*dx+dy*dy;
       if (d<bestD){ bestD=d; best=i; }
     }
@@ -2460,6 +2730,16 @@ function skyOrbit(key){
   sky.examineKey=null;
   sky.labelKey=undefined;          /* force the label layer to rebuild around the new anchor */
   if (key!=null){
+    /* ANCHORING IS A STEP OF THE JOURNEY, SO THE THREAD RECORDS IT.
+       Orbit-chaining and the map's "extend" are the same act — moving to a
+       neighbouring film because of a connection you just read — but only the
+       map used to leave a trace. Walking five films in the field and then
+       opening the map dropped the whole evening on the floor, because
+       openMap() clears state.trail unless told otherwise. The thread is the
+       one object that makes this an atlas you travelled rather than a series
+       of lookups; it has no business ending at a view boundary. */
+    if (state.trail[state.trail.length-1]!==key) state.trail.push(key);
+    renderTrail();
     skyPinKey(key);
     /* Ease in, but nothing like the 5.5x lunge openMap used to make: the
        point is to stay in the field and still see the neighbourhood, so the
@@ -2765,7 +3045,7 @@ if (SKY_POS){
        A film outside the held neighbourhood re-anchors immediately, because
        otherwise the field would be a cage rather than a place. */
     if (sky.orbitKey){
-      if (key===sky.orbitKey){ openMap(key); return; }      /* second click on the anchor leaves */
+      if (key===sky.orbitKey){ openMap(key,true); return; } /* second click on the anchor leaves */
       if (key===sky.examineKey){ skyOrbit(key); return; }   /* second click on a neighbour re-anchors */
       const held=skyOrbitSet();
       if (held && held.has(key)){ skyExamine(key); return; }
@@ -2819,7 +3099,7 @@ if (SKY_POS){
     if(step){ e.preventDefault(); skyStep(step[0],step[1]); return; }
     if(e.key==="Enter"||e.key===" "){
       const key=skyInHand();
-      if(key!=null){ e.preventDefault(); openMap(key); }
+      if(key!=null){ e.preventDefault(); openMap(key,true); }
       return;
     }
     if(e.key==="+"||e.key==="="){ e.preventDefault(); skyZoomCentre(1.45); }
@@ -2829,7 +3109,22 @@ if (SKY_POS){
 
   $("#sky-in").onclick=()=>skyZoomCentre(1.45);
   $("#sky-out").onclick=()=>skyZoomCentre(1/1.45);
-  $("#sky-fit").onclick=()=>{ const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,620); };
+  $("#sky-fit").onclick=()=>{
+    /* Fit means "fit what I am looking at". With a filter on, that is the
+       surviving films, not the whole sky they are scattered across. */
+    if (skyFilterOn() && sky.visibleN) return skyFitFiltered(620);
+    const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,620);
+  };
+  const skyFilterPanel=$("#sky-filter");
+  $("#sky-filter-open").onclick=()=>{
+    const open=!skyFilterPanel.hidden;
+    skyFilterPanel.hidden=open;
+    /* preventScroll, or focusing the first option scrolls the list and hides
+       the facet heading it belongs to behind the panel header — the one label
+       that says what the values underneath it are. */
+    if (!open){ skyFilterRender(); skyFilterPanel.querySelector(".sky-opt")?.focus({preventScroll:true}); }
+  };
+  $("#sky-filter-x").onclick=()=>{ skyFilterPanel.hidden=true; $("#sky-filter-open").focus(); };
   $("#constellation").onclick=openSky;
   $("#sky-lede").onclick=openSky;
 }else{
