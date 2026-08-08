@@ -33,7 +33,7 @@ to produce the same colours it produced last time. See the tie-break note in
 `dominant_hues` for the specific way an unpinned toolchain used to change them.
 """
 
-import io, json, sys, time, hashlib, colorsys
+import io, json, os, sys, time, hashlib, colorsys
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -71,9 +71,19 @@ SATURATION_FLOOR = 0.20  # how colourful that part actually is
 # as one summary integer. STATE.md already lists silent palette loss under
 # "Traps that have already cost time", so the pause, the retries and the
 # per-film failure list below all exist to make that loss impossible to miss.
-THROTTLE_S = 0.12          # after any attempt that touched the network; cache hits skip it
-FETCH_ATTEMPTS = 3         # total tries per URL, not retries-after-the-first
-BACKOFF_S = (1.0, 2.0)     # waits before attempt 2 and attempt 3
+# Overridable because the right pace depends on how cold the cache is, and the
+# defaults are tuned for a warm one. Measured 2026-08-08 on the 803 -> 2,204
+# growth run: 1,833 cold fetches at 0.12s produced 295 HTTP 429s -- "your bot is
+# making too many requests" -- and 295 films silently kept an era default. The
+# backoffs below are also too short once Wikimedia has started throttling: it
+# wants the client to stand down for much longer than two seconds. So a first
+# cold pass over a big harvest should run ATLAS_PALETTE_THROTTLE=1.5 (and the
+# recovery pass that picks up its failures, likewise), while an incremental
+# re-run over a warm cache is fine at the default.
+THROTTLE_S = float(os.environ.get("ATLAS_PALETTE_THROTTLE", "0.12"))
+FETCH_ATTEMPTS = int(os.environ.get("ATLAS_PALETTE_ATTEMPTS", "3"))
+BACKOFF_S = tuple(float(s) for s in
+                  os.environ.get("ATLAS_PALETTE_BACKOFF", "1.0,2.0").split(","))
 
 # A 404 is still a 404 in four seconds. Retrying every dead poster link three
 # times spends minutes across a 2,000-film run for no chance of a different
