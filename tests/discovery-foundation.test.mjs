@@ -12,6 +12,7 @@ const {
   attachIdentityToCorpus,
   buildIdentityManifest,
   canonicalJson,
+  candidateCorpusVersion,
   contentVersion,
   buildDiscovery,
   filmIdForQid,
@@ -38,6 +39,12 @@ const runPipeline = (script, args) => spawnSync(process.execPath, [script, ...ar
   cwd: repositoryRoot,
   encoding: "utf8",
 });
+const rehashDiscovery = (discovery) => {
+  const payload = structuredClone(discovery);
+  delete payload.discoveryVersion;
+  discovery.discoveryVersion = contentVersion("discovery", payload);
+  return discovery;
+};
 
 function legacyDiscoveryFixture() {
   const harvest = fixture("harvest.json");
@@ -61,7 +68,7 @@ function legacyDiscoveryFixture() {
   });
   const record = identity.films.find((film) => film.stableSlug === legacy.stableSlug);
   const corpus = {
-    meta: { corpusVersion: "corpus-legacy-fixture" },
+    meta: { corpusVersion: contentVersion("corpus", { fixture: "legacy-release" }) },
     films: {
       [legacy.stableSlug]: {
         ...releasedCorpus.films[legacy.stableSlug],
@@ -86,7 +93,7 @@ function discoveryFixture() {
     harvest,
     taxonomy: fixture("facet-taxonomy.json"),
     corpusKeys: ["old-key", "collision-one", "collision-two"],
-    corpusVersion: "corpus-fixture-v1",
+    corpusVersion: contentVersion("corpus", { fixture: "discovery-v1" }),
     layoutAlgorithmVersion: "fixture-layout-v1",
   };
 }
@@ -128,6 +135,12 @@ test("discovery manifest preserves reviewed facets and movement provenance", () 
   assert.equal(discovery.facets.definitions.director.values["director:Q700"].label, "Director One");
   assert.deepEqual(Object.values(discovery.facets.definitions).map((definition) => definition.selectable), [false, false, false, false, false]);
   assert.deepEqual(discovery.coverageWarnings, ["movement provenance is legacy-only for 1 film(s)"]);
+  assert.equal(discovery.layoutAlgorithmVersion, input.layoutAlgorithmVersion);
+  assert.equal(discovery.layoutVersion, contentVersion("layout", {
+    algorithm: input.layoutAlgorithmVersion,
+    corpusVersion: input.corpusVersion,
+    filmOrder: discovery.filmOrder,
+  }));
   assert.deepEqual(validateDiscovery(discovery, { identity: input.identity, corpusKeys: input.corpusKeys }), discovery);
 });
 
@@ -152,7 +165,17 @@ test("discovery facet output is canonical and validation rejects corrupt members
 test("discovery validation rejects facet, membership, coverage, provenance, warning, corpus, and layout mutations", () => {
   const input = discoveryFixture();
   const discovery = buildDiscovery(input);
-  const reject = (mutate) => { const value = structuredClone(discovery); mutate(value); const payload = structuredClone(value); delete payload.discoveryVersion; value.discoveryVersion = contentVersion("discovery", payload); assert.throws(() => validateDiscovery(value, { identity: input.identity, corpusKeys: input.corpusKeys, corpusVersion: input.corpusVersion, layoutAlgorithmVersion: input.layoutAlgorithmVersion })); };
+  const reject = (mutate, expected) => {
+    const value = structuredClone(discovery);
+    mutate(value);
+    rehashDiscovery(value);
+    assert.throws(() => validateDiscovery(value, {
+      identity: input.identity,
+      corpusKeys: input.corpusKeys,
+      corpusVersion: input.corpusVersion,
+      layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+    }), expected);
+  };
   reject((value) => { delete value.facets.definitions.director; });
   reject((value) => { value.keyByFilmId[value.filmOrder[0]] = "wrong-key"; });
   reject((value) => { delete value.facets.postings.era["era:1980-1999"]; });
@@ -162,6 +185,230 @@ test("discovery validation rejects facet, membership, coverage, provenance, warn
   reject((value) => { value.coverageWarnings = []; });
   reject((value) => { value.corpusVersion = "corpus-wrong"; });
   reject((value) => { value.layoutVersion = discovery.layoutVersion; value.filmOrder = value.filmOrder.slice(0, 2); });
+  reject((value) => {
+    value.layoutAlgorithmVersion = "fixture-layout-v2";
+    value.layoutVersion = contentVersion("layout", {
+      algorithm: value.layoutAlgorithmVersion,
+      corpusVersion: value.corpusVersion,
+      filmOrder: value.filmOrder,
+    });
+  }, /layoutAlgorithmVersion does not match the supplied layout basis/);
+  reject((value) => { value.layoutVersion = "layout-0000000000000000"; }, /layoutVersion is invalid/);
+  reject((value) => {
+    value.layoutAlgorithmVersion = "fixture layout v1";
+    value.layoutVersion = contentVersion("layout", {
+      algorithm: value.layoutAlgorithmVersion,
+      corpusVersion: value.corpusVersion,
+      filmOrder: value.filmOrder,
+    });
+  }, /layoutAlgorithmVersion must be a stable lowercase identifier/);
+});
+
+test("discovery validates exact per-film movement provenance and counters", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const validateMutation = (mutate) => {
+    const value = structuredClone(discovery);
+    mutate(value);
+    rehashDiscovery(value);
+    assert.throws(() => validateDiscovery(value, {
+      identity: input.identity,
+      corpusKeys: input.corpusKeys,
+      corpusVersion: input.corpusVersion,
+      layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+    }));
+  };
+
+  validateMutation((value) => {
+    const filmId = value.filmOrder[0];
+    value.movementProvenance[filmId]["movement:Q901"] = value.movementProvenance[filmId]["movement:Q900"];
+    delete value.movementProvenance[filmId]["movement:Q900"];
+  });
+  validateMutation((value) => {
+    value.movementProvenance[value.filmOrder[0]]["movement:Q900"][1] = "director:not-a-qid";
+  });
+  validateMutation((value) => {
+    value.movementProvenance[value.filmOrder[0]]["movement:Q900"] = ["director:Q700", "direct"];
+  });
+  validateMutation((value) => {
+    value.movementProvenance[value.filmOrder[0]]["movement:Q900"] = ["direct", "direct"];
+  });
+  validateMutation((value) => {
+    value.movementProvenance[value.filmOrder[0]]["movement:Q900"] = [];
+  });
+  validateMutation((value) => {
+    value.movementProvenance[value.filmOrder[2]]["movement:Q901"] = ["direct", "legacy"];
+  });
+  validateMutation((value) => { value.facets.definitions.movement.direct++; });
+  validateMutation((value) => { value.facets.definitions.movement.inherited++; });
+  validateMutation((value) => { value.facets.definitions.movement.legacy++; });
+  validateMutation((value) => { value.facets.definitions.movement.total++; });
+});
+
+test("discovery rejects ambiguous singular facets and derives the exact warning set", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const reject = (mutate, source = discovery) => {
+    const value = structuredClone(source);
+    mutate(value);
+    rehashDiscovery(value);
+    assert.throws(() => validateDiscovery(value, {
+      identity: input.identity,
+      corpusKeys: input.corpusKeys,
+      corpusVersion: input.corpusVersion,
+      layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+    }));
+  };
+
+  reject((value) => {
+    value.facets.postings.era["era:1960-1979"].push(0);
+    value.facets.postings.era["era:1960-1979"].sort((a, b) => a - b);
+    value.facets.definitions.era.values["era:1960-1979"].count++;
+  });
+  reject((value) => {
+    value.facets.postings.country["country:Q38"].push(2);
+    value.facets.definitions.country.values["country:Q38"].count++;
+  });
+  reject((value) => {
+    value.facets.postings.director["director:unknown"] = [0];
+    value.facets.definitions.director.values["director:unknown"].count = 1;
+    value.facets.definitions.director.known = 2;
+    value.facets.definitions.director.reviewedUnknown = 1;
+  });
+
+  const missingLabelInput = structuredClone(input);
+  delete missingLabelInput.harvest.labels.Q701;
+  const missingLabelDiscovery = buildDiscovery(missingLabelInput);
+  assert.deepEqual(missingLabelDiscovery.coverageWarnings, [
+    "missing label for director:Q701",
+    "movement provenance is legacy-only for 1 film(s)",
+  ]);
+  reject((value) => {
+    value.coverageWarnings = value.coverageWarnings.filter((warning) => warning !== "missing label for director:Q701");
+  }, missingLabelDiscovery);
+  reject((value) => { value.coverageWarnings.push("missing label for director:Q700"); });
+  reject((value) => { value.coverageWarnings.push("missing label for country:Q999"); });
+
+  const projected = projectDiscovery(missingLabelDiscovery, fixture("sample-keep.json"), "fixture-warning-sample-v1");
+  assert.deepEqual(projected.coverageWarnings, ["movement provenance is legacy-only for 1 film(s)"]);
+});
+
+test("discovery version fields require literal strings rather than coercible values", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const reject = (mutate) => {
+    const value = structuredClone(discovery);
+    mutate(value);
+    value.layoutVersion = contentVersion("layout", {
+      algorithm: value.layoutAlgorithmVersion,
+      corpusVersion: value.corpusVersion,
+      filmOrder: value.filmOrder,
+    });
+    rehashDiscovery(value);
+    assert.throws(() => validateDiscovery(value));
+  };
+
+  reject((value) => { value.corpusVersion = [value.corpusVersion]; });
+  reject((value) => { value.corpusVersion = { value: input.corpusVersion }; });
+  reject((value) => { value.layoutAlgorithmVersion = [value.layoutAlgorithmVersion]; });
+  reject((value) => { value.layoutAlgorithmVersion = { value: input.layoutAlgorithmVersion }; });
+  assert.throws(() => buildDiscovery({ ...input, corpusVersion: [input.corpusVersion] }));
+  assert.throws(() => buildDiscovery({ ...input, layoutAlgorithmVersion: [input.layoutAlgorithmVersion] }));
+});
+
+test("discovery build rejects noncanonical dynamic facet QIDs", () => {
+  const mutations = [
+    (input) => { input.harvest.films["old-key"].country = ["not-a-qid"]; },
+    (input) => { input.harvest.films["old-key"].crew.director = ["not-a-qid"]; },
+    (input) => { input.harvest.films["old-key"].movementDirect = ["not-a-qid"]; },
+    (input) => { input.harvest.films["old-key"].movementInherited[0].viaDirector = "not-a-qid"; },
+  ];
+  for (const mutate of mutations) {
+    const input = discoveryFixture();
+    mutate(input);
+    assert.throws(() => buildDiscovery(input), /invalid .*QID|invalid director route/);
+  }
+});
+
+test("discovery validation rejects rehashed noncanonical dynamic facet IDs", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const replacements = [
+    ["country", "country:Q142", "country:not-a-qid"],
+    ["director", "director:Q701", "director:not-a-qid"],
+    ["movement", "movement:Q900", "movement:not-a-qid"],
+  ];
+  for (const [facet, original, replacement] of replacements) {
+    const value = structuredClone(discovery);
+    value.facets.definitions[facet].values[replacement] = value.facets.definitions[facet].values[original];
+    delete value.facets.definitions[facet].values[original];
+    value.facets.postings[facet][replacement] = value.facets.postings[facet][original];
+    delete value.facets.postings[facet][original];
+    if (facet === "movement") for (const routes of Object.values(value.movementProvenance)) {
+      if (!routes[original]) continue;
+      routes[replacement] = routes[original];
+      delete routes[original];
+    }
+    rehashDiscovery(value);
+    assert.throws(() => validateDiscovery(value, {
+      identity: input.identity,
+      corpusKeys: input.corpusKeys,
+      corpusVersion: input.corpusVersion,
+      layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+    }), /dynamic value is invalid/);
+  }
+});
+
+test("discovery rejects duplicate canonical harvest QIDs before either preparation or build lookup", () => {
+  const input = discoveryFixture();
+  const harvest = structuredClone(input.harvest);
+  harvest.films["duplicate-qid-record"] = { ...structuredClone(harvest.films["old-key"]), title: "Duplicate" };
+
+  assert.throws(
+    () => prepareDiscoveryHarvest({ identity: input.identity, harvest, corpus: { films: {} } }),
+    /Q100 is assigned to more than one film/,
+  );
+  assert.throws(() => buildDiscovery({ ...input, harvest }), /Q100 is assigned to more than one film/);
+});
+
+test("candidate corpus versions are deterministic and malformed corpus versions are rejected", () => {
+  const input = discoveryFixture();
+  const expectedCorpusVersion = contentVersion("corpus", {
+    identityVersion: input.identity.identityVersion,
+    scope: "candidate",
+  });
+  assert.equal(typeof candidateCorpusVersion, "function");
+  assert.equal(candidateCorpusVersion(input.identity), expectedCorpusVersion);
+  assert.throws(() => buildDiscovery({ ...input, corpusVersion: "corpus-fixture-v1" }), /corpusVersion/);
+});
+
+test("candidate validation rejects an independently rehashed corpus-version substitute", () => {
+  const input = discoveryFixture();
+  const expectedCorpusVersion = contentVersion("corpus", {
+    identityVersion: input.identity.identityVersion,
+    scope: "candidate",
+  });
+  const directory = mkdtempSync(join(tmpdir(), "atlas-discovery-candidate-context-"));
+  const identityPath = join(directory, "identity.json");
+  const discoveryPath = join(directory, "discovery.json");
+  try {
+    const discovery = buildDiscovery({ ...input, corpusKeys: undefined, corpusVersion: expectedCorpusVersion });
+    discovery.corpusVersion = "corpus-0000000000000000";
+    discovery.layoutVersion = contentVersion("layout", {
+      algorithm: input.layoutAlgorithmVersion,
+      corpusVersion: discovery.corpusVersion,
+      filmOrder: discovery.filmOrder,
+    });
+    rehashDiscovery(discovery);
+    writeJson(identityPath, input.identity);
+    writeJson(discoveryPath, discovery);
+
+    const result = runPipeline("atlas/pipeline/validate-discovery.js", [discoveryPath, "--identity", identityPath]);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /corpusVersion does not match candidate identity/);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
 });
 
 test("discovery projection reindexes a non-contiguous sample without changing corpus version", () => {
@@ -173,8 +420,14 @@ test("discovery projection reindexes a non-contiguous sample without changing co
   assert.deepEqual(sample.facets.postings.country, { "country:Q38": [0], "country:Q142": [0], "country:unknown": [1] });
   assert.deepEqual(sample.facets.postings.movement, { "movement:Q900": [0], "movement:Q901": [1] });
   assert.equal(sample.corpusVersion, discovery.corpusVersion);
+  assert.equal(sample.layoutAlgorithmVersion, "fixture-sample-layout-v1");
+  assert.equal(sample.layoutVersion, contentVersion("layout", {
+    algorithm: sample.layoutAlgorithmVersion,
+    corpusVersion: sample.corpusVersion,
+    filmOrder: sample.filmOrder,
+  }));
   assert.notEqual(sample.layoutVersion, discovery.layoutVersion);
-  assert.throws(() => projectDiscovery(discovery, fixture("sample-keep.json"), discovery.layoutVersion));
+  assert.throws(() => projectDiscovery(discovery, fixture("sample-keep.json"), discovery.layoutAlgorithmVersion));
   assert.deepEqual(validateDiscovery(sample, { identity: input.identity, corpusKeys: ["old-key", "collision-two"] }), sample);
 });
 
@@ -190,7 +443,7 @@ test("discovery build rejects an active requested corpus film missing from harve
   delete harvest.films["old-key"];
   const record = input.identity.films.find((film) => film.stableSlug === "old-key");
   const corpus = {
-    meta: { corpusVersion: "corpus-active-missing-fixture" },
+    meta: { corpusVersion: contentVersion("corpus", { fixture: "active-missing" }) },
     films: {
       "old-key": { qid: record.wikidataQid, filmId: record.filmId, title: record.canonicalTitle, year: record.releaseYear },
     },

@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "identityVersion": "identity-5502023fcc089774",
   "corpusVersion": "corpus-e4b9c239e122eaeb",
+  "layoutAlgorithmVersion": "atlas-layout-v1",
   "layoutVersion": "layout-39075d49f93ac8d5",
   "filmOrder": [
     "film-000f251e0c6f5502",
@@ -10803,5 +10804,5 @@
     "missing label for director:Q9545711",
     "movement provenance is legacy-only for 173 film(s)"
   ],
-  "discoveryVersion": "discovery-1a6c8e372c21b3fa"
+  "discoveryVersion": "discovery-9e1671c70c8e9b5f"
 }

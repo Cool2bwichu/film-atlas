@@ -5,6 +5,9 @@ const path = require("path");
 const nodeCrypto = require("crypto");
 const { movementValues } = require("./movement-provenance");
 const FILM_ID = /^film-[0-9a-f]{16}$/;
+const CORPUS_VERSION = /^corpus-[0-9a-f]{16}$/;
+const LAYOUT_VERSION = /^layout-[0-9a-f]{16}$/;
+const LAYOUT_ALGORITHM_VERSION = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
 const ERA_BUCKETS = [
   { id: "era:silent-early", label: "Silent & early", maxExclusive: 1930 },
   { id: "era:1930-1959", label: "1930–59", minInclusive: 1930, maxExclusive: 1960 },
@@ -103,6 +106,24 @@ function canonicalJson(value) {
 
 function contentVersion(prefix, value) {
   return `${prefix}-${digest(canonicalJson(value)).slice(0, 16)}`;
+}
+
+function candidateCorpusVersion(identity) {
+  validateIdentityManifest(identity);
+  return contentVersion("corpus", { identityVersion: identity.identityVersion, scope: "candidate" });
+}
+
+function layoutVersionFor(layoutAlgorithmVersion, corpusVersion, filmOrder) {
+  return contentVersion("layout", { algorithm: layoutAlgorithmVersion, corpusVersion, filmOrder });
+}
+
+function assertDiscoveryVersions(corpusVersion, layoutAlgorithmVersion) {
+  if (typeof corpusVersion !== "string" || !CORPUS_VERSION.test(corpusVersion)) {
+    throw new CorpusIdentityError("Discovery corpusVersion must match corpus-<16 lowercase hex characters>");
+  }
+  if (typeof layoutAlgorithmVersion !== "string" || !LAYOUT_ALGORITHM_VERSION.test(layoutAlgorithmVersion)) {
+    throw new CorpusIdentityError("Discovery layoutAlgorithmVersion must be a stable lowercase identifier");
+  }
 }
 
 function filmIdForQid(qid) {
@@ -218,6 +239,32 @@ function discoveryFacetDefinition(label, values) {
   return { label, known: 0, reviewedUnknown: 0, total: 0, selectable: false, values };
 }
 
+function discoveryWarningsFor(discovery, legacyFilmCount) {
+  const warnings = new Set();
+  for (const facet of ["country", "director", "movement"]) {
+    for (const [value, indexes] of Object.entries(discovery.facets.postings[facet])) {
+      if (!indexes.length || !new RegExp(`^${facet}:Q\\d+$`).test(value)) continue;
+      const qid = value.slice(facet.length + 1);
+      if (discovery.facets.definitions[facet].values[value]?.label === qid) warnings.add(`missing label for ${value}`);
+    }
+  }
+  if (legacyFilmCount) warnings.add(`movement provenance is legacy-only for ${legacyFilmCount} film(s)`);
+  return [...warnings].sort();
+}
+
+function discoveryHarvestByQid(harvest) {
+  if (!harvest?.films || typeof harvest.films !== "object" || Array.isArray(harvest.films)) {
+    throw new CorpusIdentityError("Discovery harvest must contain film records");
+  }
+  const byQid = new Map();
+  for (const [key, film] of Object.entries(harvest.films)) {
+    if (!/^Q\d+$/.test(film?.qid || "")) throw new MissingQidError(key);
+    if (byQid.has(film.qid)) throw new DuplicateQidError(film.qid);
+    byQid.set(film.qid, { key, film });
+  }
+  return byQid;
+}
+
 function prepareDiscoveryHarvest({ identity, harvest, corpus }) {
   validateIdentityManifest(identity);
   if (!harvest?.films || !corpus?.films) {
@@ -225,7 +272,7 @@ function prepareDiscoveryHarvest({ identity, harvest, corpus }) {
   }
   const prepared = { ...harvest, films: { ...harvest.films } };
   const recordsBySlug = new Map(identity.films.map((record) => [record.stableSlug, record]));
-  const harvestedQids = new Set(Object.values(harvest.films).map((film) => film.qid).filter(Boolean));
+  const harvestedQids = new Set(discoveryHarvestByQid(harvest).keys());
   for (const [key, film] of Object.entries(corpus.films)) {
     const record = recordsBySlug.get(key);
     if (record && harvestedQids.has(record.wikidataQid)) continue;
@@ -250,8 +297,9 @@ function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion
   if (!harvest?.films || !harvest?.labels || !corpusVersion || !layoutAlgorithmVersion) {
     throw new CorpusIdentityError("Discovery requires identity, harvest films and labels, corpusVersion, and layoutAlgorithmVersion");
   }
+  assertDiscoveryVersions(corpusVersion, layoutAlgorithmVersion);
   const reviewedTaxonomy = normalizeFacetTaxonomy(taxonomy);
-  const harvestByQid = new Map(Object.entries(harvest.films).map(([key, film]) => [film.qid, { key, film }]));
+  const harvestByQid = discoveryHarvestByQid(harvest);
   const requestedKeys = corpusKeys ? new Set(corpusKeys) : null;
   const records = identity.films.filter((record) => (record.status === "active" || (requestedKeys && record.status === "legacy-release-only")) && (!requestedKeys || requestedKeys.has(record.stableSlug)))
     .map((record) => ({ record, harvested: harvestByQid.get(record.wikidataQid) }));
@@ -275,6 +323,9 @@ function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion
     if (!list.includes(index)) list.push(index);
   };
   const stableValue = (facet, qid) => {
+    if (typeof qid !== "string" || !/^Q\d+$/.test(qid)) {
+      throw new CorpusIdentityError(`Discovery ${facet} has invalid QID ${JSON.stringify(qid)}`);
+    }
     const value = `${facet}:${qid}`;
     if (!definitions[facet].values[value]) {
       const label = harvest.labels[qid] || qid;
@@ -319,6 +370,9 @@ function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion
     }
     for (const membership of film.movementInherited || []) {
       const value = stableValue("movement", membership.value);
+      if (typeof membership.viaDirector !== "string" || !/^Q\d+$/.test(membership.viaDirector)) {
+        throw new CorpusIdentityError(`Discovery movement has invalid director route QID ${JSON.stringify(membership.viaDirector)}`);
+      }
       (routes[value] = routes[value] || []).push(`director:${membership.viaDirector}`);
     }
     if (!hasAuthoritativeMovement) for (const movement of movementValues(film)) {
@@ -326,7 +380,7 @@ function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion
       (routes[value] = routes[value] || []).push("legacy");
     }
     for (const [value, provenance] of Object.entries(routes)) {
-      routes[value] = [...new Set(provenance)].sort((a, b) => a === "direct" ? -1 : b === "direct" ? 1 : a.localeCompare(b));
+      routes[value] = [...new Set(provenance)].sort();
       post("movement", value, index);
     }
     if (Object.keys(routes).length) {
@@ -349,7 +403,8 @@ function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion
     schemaVersion: 1,
     identityVersion: identity.identityVersion,
     corpusVersion,
-    layoutVersion: contentVersion("layout", { algorithm: layoutAlgorithmVersion, corpusVersion, filmOrder }),
+    layoutAlgorithmVersion,
+    layoutVersion: layoutVersionFor(layoutAlgorithmVersion, corpusVersion, filmOrder),
     filmOrder,
     keyByFilmId,
     facets: { definitions, postings },
@@ -357,12 +412,25 @@ function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion
     coverageWarnings: [...warnings].sort(),
   };
   discovery.discoveryVersion = contentVersion("discovery", discoveryVersionPayload(discovery));
-  return validateDiscovery(discovery, { identity, corpusKeys });
+  return validateDiscovery(discovery, { identity, corpusKeys, corpusVersion, layoutAlgorithmVersion });
 }
 
-function validateDiscovery(discovery, { identity, corpusKeys, corpusVersion, corpusFilmIds } = {}) {
+function validateDiscovery(discovery, {
+  identity,
+  corpusKeys,
+  corpusVersion,
+  corpusVersionContext = "corpus metadata",
+  corpusFilmIds,
+  layoutAlgorithmVersion,
+} = {}) {
   if (!discovery || discovery.schemaVersion !== 1 || !Array.isArray(discovery.filmOrder) || !discovery.facets?.definitions || !discovery.facets?.postings) {
     throw new CorpusIdentityError("Discovery manifest must use schemaVersion 1 with filmOrder and facets");
+  }
+  assertDiscoveryVersions(discovery.corpusVersion, discovery.layoutAlgorithmVersion);
+  if (layoutAlgorithmVersion) {
+    if (!LAYOUT_ALGORITHM_VERSION.test(layoutAlgorithmVersion) || discovery.layoutAlgorithmVersion !== layoutAlgorithmVersion) {
+      throw new CorpusIdentityError("Discovery layoutAlgorithmVersion does not match the supplied layout basis");
+    }
   }
   if (identity) {
     validateIdentityManifest(identity);
@@ -382,7 +450,9 @@ function validateDiscovery(discovery, { identity, corpusKeys, corpusVersion, cor
       }
     }
   }
-  if (corpusVersion && discovery.corpusVersion !== corpusVersion) throw new CorpusIdentityError("Discovery corpusVersion does not match corpus metadata");
+  if (corpusVersion && discovery.corpusVersion !== corpusVersion) {
+    throw new CorpusIdentityError(`Discovery corpusVersion does not match ${corpusVersionContext}`);
+  }
   if (new Set(discovery.filmOrder).size !== discovery.filmOrder.length || discovery.filmOrder.some((id) => !FILM_ID.test(id))) {
     throw new CorpusIdentityError("Discovery filmOrder must contain unique permanent film IDs");
   }
@@ -394,6 +464,14 @@ function validateDiscovery(discovery, { identity, corpusKeys, corpusVersion, cor
   }
   for (const [facet, values] of Object.entries(discovery.facets.postings)) {
     const definitions = discovery.facets.definitions[facet]?.values || {};
+    if (["country", "director", "movement"].includes(facet)) {
+      const dynamicValue = new RegExp(`^${facet}:Q\\d+$`);
+      const unknownValue = facet === "movement" ? null : `${facet}:unknown`;
+      if ([...new Set([...Object.keys(values), ...Object.keys(definitions)])]
+        .some((value) => value !== unknownValue && !dynamicValue.test(value))) {
+        throw new CorpusIdentityError(`Discovery ${facet} dynamic value is invalid`);
+      }
+    }
     for (const [value, indexes] of Object.entries(values)) {
       if (!definitions[value] || !Array.isArray(indexes) || indexes.some((index) => !Number.isInteger(index) || index < 0 || index >= discovery.filmOrder.length) ||
           new Set(indexes).size !== indexes.length || definitions[value].count !== indexes.length || canonicalJson(indexes) !== canonicalJson(indexes.slice().sort((a, b) => a - b))) {
@@ -402,36 +480,90 @@ function validateDiscovery(discovery, { identity, corpusKeys, corpusVersion, cor
     }
     for (const [value, definition] of Object.entries(definitions)) if ((values[value] || []).length !== definition.count) throw new CorpusIdentityError(`Discovery definition ${facet}:${value} is invalid`);
   }
-  for (let index = 0; index < discovery.filmOrder.length; index++) for (const facet of ["era", "country", "genre", "director"]) {
-    if (!Object.values(discovery.facets.postings[facet]).some((indexes) => indexes.includes(index))) throw new CorpusIdentityError(`Discovery film ${index} lacks ${facet}`);
-  }
+  const membershipsFor = (facet, index) => Object.entries(discovery.facets.postings[facet])
+    .filter(([, indexes]) => indexes.includes(index)).map(([value]) => value).sort();
   for (const [facet, unknown] of [["era", "era:unknown"], ["country", "country:unknown"], ["director", "director:unknown"]]) {
     const definition = discovery.facets.definitions[facet];
-    const reviewedUnknown = (discovery.facets.postings[facet][unknown] || []).length;
-    if (definition.total !== discovery.filmOrder.length || definition.reviewedUnknown !== reviewedUnknown || definition.known !== discovery.filmOrder.length - reviewedUnknown) throw new CorpusIdentityError(`Discovery ${facet} coverage is invalid`);
+    let known = 0;
+    let reviewedUnknown = 0;
+    for (let index = 0; index < discovery.filmOrder.length; index++) {
+      const memberships = membershipsFor(facet, index);
+      if ((facet === "era" && memberships.length !== 1) ||
+          (facet !== "era" && (!memberships.length || (memberships.includes(unknown) && memberships.length !== 1)))) {
+        throw new CorpusIdentityError(`Discovery film ${index} has invalid ${facet} membership`);
+      }
+      if (memberships[0] === unknown) reviewedUnknown++;
+      else known++;
+    }
+    if (definition.total !== discovery.filmOrder.length || definition.reviewedUnknown !== reviewedUnknown || definition.known !== known) {
+      throw new CorpusIdentityError(`Discovery ${facet} coverage is invalid`);
+    }
   }
   const genreDefinition = discovery.facets.definitions.genre;
   let genreKnown = 0, genreUnknown = 0;
   for (let index = 0; index < discovery.filmOrder.length; index++) {
-    const memberships = Object.entries(discovery.facets.postings.genre).filter(([, indexes]) => indexes.includes(index)).map(([value]) => value);
+    const memberships = membershipsFor("genre", index);
     if (memberships.some((value) => value !== "genre:uncategorized")) genreKnown++;
     else if (memberships.length === 1) genreUnknown++;
     else throw new CorpusIdentityError(`Discovery film ${index} has invalid genre membership`);
   }
   if (genreDefinition.total !== discovery.filmOrder.length || genreDefinition.known !== genreKnown || genreDefinition.reviewedUnknown !== genreUnknown || genreKnown + genreUnknown !== genreDefinition.total) throw new CorpusIdentityError("Discovery genre coverage is invalid");
-  const movementIndexes = new Set(Object.values(discovery.facets.postings.movement).flat());
-  const provenanceIndexes = new Set(Object.keys(discovery.movementProvenance || {}).map((id) => discovery.filmOrder.indexOf(id)));
-  if (canonicalJson([...movementIndexes].sort()) !== canonicalJson([...provenanceIndexes].sort()) || discovery.facets.definitions.movement.total !== movementIndexes.size) throw new CorpusIdentityError("Discovery movement provenance is invalid");
-  const legacy = Object.values(discovery.movementProvenance || {}).filter((routes) => Object.values(routes).flat().includes("legacy")).length;
-  if (discovery.facets.definitions.movement.legacy !== legacy || (legacy ? !discovery.coverageWarnings.includes(`movement provenance is legacy-only for ${legacy} film(s)`) : discovery.coverageWarnings.some((warning) => warning.startsWith("movement provenance is legacy-only")))) throw new CorpusIdentityError("Discovery movement warning is invalid");
-  if (!/^layout-[0-9a-f]{16}$/.test(discovery.layoutVersion || "")) throw new CorpusIdentityError("Discovery layoutVersion is invalid");
+  const movementProvenance = discovery.movementProvenance;
+  if (!movementProvenance || typeof movementProvenance !== "object" || Array.isArray(movementProvenance) ||
+      Object.keys(movementProvenance).some((filmId) => !discovery.filmOrder.includes(filmId))) {
+    throw new CorpusIdentityError("Discovery movement provenance is invalid");
+  }
+  const movementCoverage = { total: 0, direct: 0, inherited: 0, legacy: 0 };
+  for (let index = 0; index < discovery.filmOrder.length; index++) {
+    const filmId = discovery.filmOrder[index];
+    const expectedValues = membershipsFor("movement", index);
+    const hasProvenance = Object.prototype.hasOwnProperty.call(movementProvenance, filmId);
+    if (hasProvenance !== Boolean(expectedValues.length)) throw new CorpusIdentityError(`Discovery movement provenance for ${filmId} is invalid`);
+    if (!hasProvenance) continue;
+    const routesByValue = movementProvenance[filmId];
+    if (!routesByValue || typeof routesByValue !== "object" || Array.isArray(routesByValue) ||
+        canonicalJson(Object.keys(routesByValue).sort()) !== canonicalJson(expectedValues)) {
+      throw new CorpusIdentityError(`Discovery movement provenance for ${filmId} is invalid`);
+    }
+    const filmRoutes = [];
+    for (const value of expectedValues) {
+      const routes = routesByValue[value];
+      if (!Array.isArray(routes) || !routes.length || routes.some((route) => !/^(?:direct|legacy|director:Q\d+)$/.test(route)) ||
+          new Set(routes).size !== routes.length || canonicalJson(routes) !== canonicalJson(routes.slice().sort())) {
+        throw new CorpusIdentityError(`Discovery movement routes for ${filmId}:${value} are invalid`);
+      }
+      filmRoutes.push(...routes);
+    }
+    const hasLegacy = filmRoutes.includes("legacy");
+    const hasDirect = filmRoutes.includes("direct");
+    const hasInherited = filmRoutes.some((route) => route.startsWith("director:"));
+    if (hasLegacy && (hasDirect || hasInherited)) throw new CorpusIdentityError(`Discovery movement routes for ${filmId} mix legacy and authoritative provenance`);
+    movementCoverage.total++;
+    if (hasDirect) movementCoverage.direct++;
+    if (hasInherited) movementCoverage.inherited++;
+    if (hasLegacy) movementCoverage.legacy++;
+  }
+  const movementDefinition = discovery.facets.definitions.movement;
+  for (const counter of ["total", "direct", "inherited", "legacy"]) {
+    if (movementDefinition[counter] !== movementCoverage[counter]) throw new CorpusIdentityError(`Discovery movement ${counter} coverage is invalid`);
+  }
+  const expectedWarnings = discoveryWarningsFor(discovery, movementCoverage.legacy);
+  if (!Array.isArray(discovery.coverageWarnings) || canonicalJson(discovery.coverageWarnings) !== canonicalJson(expectedWarnings)) {
+    throw new CorpusIdentityError("Discovery coverage warnings are invalid");
+  }
+  if (typeof discovery.layoutVersion !== "string" || !LAYOUT_VERSION.test(discovery.layoutVersion) ||
+      discovery.layoutVersion !== layoutVersionFor(discovery.layoutAlgorithmVersion, discovery.corpusVersion, discovery.filmOrder)) {
+    throw new CorpusIdentityError("Discovery layoutVersion is invalid");
+  }
   if (discovery.discoveryVersion !== contentVersion("discovery", discoveryVersionPayload(discovery))) throw new CorpusIdentityError("Discovery discoveryVersion is invalid");
   return discovery;
 }
 
 function projectDiscovery(discovery, retainedFilmIds, sampleLayoutVersion) {
   validateDiscovery(discovery);
-  if (!sampleLayoutVersion || sampleLayoutVersion === discovery.layoutVersion) throw new CorpusIdentityError("Sample discovery requires a distinct layout algorithm version");
+  if (typeof sampleLayoutVersion !== "string" || !LAYOUT_ALGORITHM_VERSION.test(sampleLayoutVersion) || sampleLayoutVersion === discovery.layoutAlgorithmVersion) {
+    throw new CorpusIdentityError("Sample discovery requires a distinct stable layout algorithm version");
+  }
   const retained = new Set(retainedFilmIds);
   const sourceIndexes = discovery.filmOrder.map((id, index) => retained.has(id) ? index : -1).filter((index) => index >= 0);
   if (sourceIndexes.length !== retained.size) throw new CorpusIdentityError("Sample discovery retains an unknown film ID");
@@ -449,7 +581,8 @@ function projectDiscovery(discovery, retainedFilmIds, sampleLayoutVersion) {
   const movementProvenance = Object.fromEntries(filmOrder.filter((id) => discovery.movementProvenance[id]).map((id) => [id, structuredClone(discovery.movementProvenance[id])]));
   const projected = {
     ...structuredClone(discovery), filmOrder, keyByFilmId,
-    layoutVersion: contentVersion("layout", { algorithm: sampleLayoutVersion, corpusVersion: discovery.corpusVersion, filmOrder }),
+    layoutAlgorithmVersion: sampleLayoutVersion,
+    layoutVersion: layoutVersionFor(sampleLayoutVersion, discovery.corpusVersion, filmOrder),
     facets: { definitions: structuredClone(discovery.facets.definitions), postings }, movementProvenance,
   };
   for (const [facet, definition] of Object.entries(projected.facets.definitions)) for (const [value, details] of Object.entries(definition.values)) {
@@ -475,11 +608,9 @@ function projectDiscovery(discovery, retainedFilmIds, sampleLayoutVersion) {
   projected.facets.definitions.movement.direct = routeSets.filter((routes) => routes.includes("direct")).length;
   projected.facets.definitions.movement.inherited = routeSets.filter((routes) => routes.some((route) => route.startsWith("director:"))).length;
   projected.facets.definitions.movement.legacy = routeSets.filter((routes) => routes.includes("legacy")).length;
-  projected.coverageWarnings = projected.coverageWarnings.filter((warning) => !warning.startsWith("movement provenance is legacy-only"));
-  if (projected.facets.definitions.movement.legacy) projected.coverageWarnings.push(`movement provenance is legacy-only for ${projected.facets.definitions.movement.legacy} film(s)`);
-  projected.coverageWarnings.sort();
+  projected.coverageWarnings = discoveryWarningsFor(projected, projected.facets.definitions.movement.legacy);
   projected.discoveryVersion = contentVersion("discovery", discoveryVersionPayload(projected));
-  return validateDiscovery(projected);
+  return validateDiscovery(projected, { layoutAlgorithmVersion: sampleLayoutVersion });
 }
 
 function priorRecordByQid(previousIdentity) {
@@ -755,6 +886,7 @@ module.exports = {
   buildDiscovery,
   buildIdentityManifest,
   canonicalJson,
+  candidateCorpusVersion,
   contentVersion,
   filmIdForQid,
   normalizeFacetTaxonomy,

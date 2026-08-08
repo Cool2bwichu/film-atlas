@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { buildDiscovery, contentVersion, prepareDiscoveryHarvest, writeJsonAtomically } = require("./discovery-contract");
+const { buildDiscovery, candidateCorpusVersion, prepareDiscoveryHarvest, writeJsonAtomically } = require("./discovery-contract");
 
 const ROOT = path.join(__dirname, "..");
 const argument = (name, fallback) => {
@@ -26,7 +26,7 @@ const sourceHarvest = readJson(harvestPath);
 const corpus = corpusPath ? readJson(corpusPath) : null;
 const corpusKeys = corpus ? Object.keys(corpus.films || {}) : undefined;
 const harvest = corpus ? prepareDiscoveryHarvest({ identity, harvest: sourceHarvest, corpus }) : sourceHarvest;
-const corpusVersion = corpus?.meta?.corpusVersion || contentVersion("corpus", { identityVersion: identity.identityVersion, scope: "candidate" });
+const corpusVersion = corpus?.meta?.corpusVersion || candidateCorpusVersion(identity);
 const discovery = buildDiscovery({ identity, harvest, corpusKeys, taxonomy: readJson(taxonomyPath), corpusVersion, layoutAlgorithmVersion });
 writeJsonAtomically(outPath, discovery);
 console.log(`films: ${discovery.filmOrder.length}`);
