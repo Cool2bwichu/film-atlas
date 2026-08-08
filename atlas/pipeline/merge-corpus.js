@@ -17,13 +17,12 @@
 const fs = require("fs");
 const path = require("path");
 const pairKey = require("./pair-key");
-const { attachIdentityToCorpus, validateIdentityManifest } = require("./discovery-contract");
+const { attachIdentityToCorpus, parseMergeOptions, validateIdentityManifest } = require("./discovery-contract");
 
 const ROOT = path.join(__dirname, "..");
 const SPINE = path.join(ROOT, "pipeline", "out", "spine.json");
 const READINGS = path.join(ROOT, "static", "readings.json");
-const IDENTITY = path.join(ROOT, "pipeline", "out", "identity.json");
-const OUT = path.join(ROOT, "static", "corpus.json");
+const { identity: IDENTITY, out: OUT } = parseMergeOptions(process.argv.slice(2), ROOT);
 
 const spine = JSON.parse(fs.readFileSync(SPINE, "utf8"));
 const readings = fs.existsSync(READINGS)

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -14,6 +14,7 @@ const {
   canonicalJson,
   contentVersion,
   filmIdForQid,
+  parseMergeOptions,
   validateIdentityManifest,
   writeJsonAtomically,
 } = require("../atlas/pipeline/discovery-contract.js");
@@ -56,7 +57,10 @@ test("identity keeps the film ID while a QID receives corrected title, year, and
   assert.equal(corrected.keyByFilmId[first.byQid.Q100], "corrected-key");
   assert.ok(corrected.films.find((film) => film.wikidataQid === "Q100").slugAliases.includes("old-key"));
   assert.ok(corrected.films.find((film) => film.wikidataQid === "Q100").alternateTitles.includes("Old title"));
-  assert.notEqual(first.byQid.Q100, first.byQid.Q200);
+  const q200 = first.films.find((film) => film.wikidataQid === "Q200");
+  const q300 = first.films.find((film) => film.wikidataQid === "Q300");
+  assert.equal(q200.canonicalTitle, q300.canonicalTitle);
+  assert.notEqual(q200.filmId, q300.filmId);
   assert.equal(first.films.find((film) => film.wikidataQid === "Q100").admissionCohort, "core-803");
   assert.equal(first.films.find((film) => film.wikidataQid === "Q300").admissionCohort, "candidate-2204");
   assert.match(first.identityVersion, /^identity-[0-9a-f]{16}$/);
@@ -326,6 +330,11 @@ test("identity ledger validation rejects forged manifests and matches the commit
   const malformed = structuredClone(committed);
   malformed.films[0].filmId = "film-not-a-hash";
   assert.throws(() => validateIdentityManifest(malformed), { name: "InvalidFilmIdError" });
+
+  const invalidStatus = structuredClone(committed);
+  invalidStatus.films[0].status = "activ";
+  invalidStatus.identityVersion = contentVersion("identity", { schemaVersion: 1, films: invalidStatus.films });
+  assert.throws(() => validateIdentityManifest(invalidStatus), { name: "IdentityStatusError" });
 });
 
 test("identity ledger writes atomically beside its destination", () => {
@@ -342,19 +351,30 @@ test("identity ledger writes atomically beside its destination", () => {
 });
 
 test("merge rejects a forged committed identity ledger before consuming it", () => {
-  const identityPath = new URL("../atlas/pipeline/out/identity.json", import.meta.url);
-  const original = readFileSync(identityPath, "utf8");
-  const forged = JSON.parse(original);
+  const root = fileURLToPath(new URL("../", import.meta.url));
+  assert.equal(typeof parseMergeOptions, "function", "merge must expose injectable identity and output paths");
+  const directory = mkdtempSync(join(tmpdir(), "atlas-merge-test-"));
+  const identityPath = join(directory, "identity.json");
+  const outputPath = join(directory, "corpus.json");
+  const originalIdentity = fileURLToPath(new URL("../atlas/pipeline/out/identity.json", import.meta.url));
+  const originalCorpus = fileURLToPath(new URL("../atlas/static/corpus.json", import.meta.url));
+  const originalIdentityContents = readFileSync(originalIdentity, "utf8");
+  const originalCorpusContents = readFileSync(originalCorpus, "utf8");
+  copyFileSync(originalIdentity, identityPath);
+  const forged = JSON.parse(readFileSync(identityPath, "utf8"));
   forged.identityVersion = "identity-0000000000000000";
   try {
     writeFileSync(identityPath, `${JSON.stringify(forged)}\n`);
-    const result = spawnSync(process.execPath, ["atlas/pipeline/merge-corpus.js"], {
-      cwd: fileURLToPath(new URL("../", import.meta.url)),
+    const result = spawnSync(process.execPath, ["atlas/pipeline/merge-corpus.js", "--identity", identityPath, "--out", outputPath], {
+      cwd: root,
       encoding: "utf8",
     });
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, /IdentityVersionError/);
+    assert.equal(existsSync(outputPath), false);
+    assert.equal(readFileSync(originalIdentity, "utf8"), originalIdentityContents);
+    assert.equal(readFileSync(originalCorpus, "utf8"), originalCorpusContents);
   } finally {
-    writeFileSync(identityPath, original);
+    rmSync(directory, { recursive: true, force: true });
   }
 });

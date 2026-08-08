@@ -68,6 +68,13 @@ class IdentityVersionError extends Error {
   }
 }
 
+class IdentityStatusError extends Error {
+  constructor(status) {
+    super(`Identity record status ${JSON.stringify(status)} must be active or legacy-release-only`);
+    this.name = "IdentityStatusError";
+  }
+}
+
 class CorpusIdentityError extends Error {
   constructor(message) {
     super(message);
@@ -114,6 +121,9 @@ function indexIdentityRecords(records) {
   for (const record of records) {
     assertFilmId(record.filmId);
     assertQid(record.wikidataQid, record.stableSlug);
+    if (record.status !== "active" && record.status !== "legacy-release-only") {
+      throw new IdentityStatusError(record.status);
+    }
     if (typeof record.stableSlug !== "string" || !record.stableSlug) {
       throw new CorpusIdentityError("Every identity record requires a stableSlug");
     }
@@ -138,6 +148,23 @@ function indexIdentityRecords(records) {
     }
   }
   return { canonicalQids, canonicalSlugs, qidAliases, slugAliases };
+}
+
+function parseMergeOptions(argv, root) {
+  function pathFor(flag, fallback) {
+    const index = argv.indexOf(`--${flag}`);
+    if (index === -1) return fallback;
+    const value = argv[index + 1];
+    if (!value || value.startsWith("--")) {
+      throw new CorpusIdentityError(`--${flag} requires a path`);
+    }
+    return value;
+  }
+
+  return {
+    identity: pathFor("identity", path.join(root, "pipeline", "out", "identity.json")),
+    out: pathFor("out", path.join(root, "static", "corpus.json")),
+  };
 }
 
 function priorRecordByQid(previousIdentity) {
@@ -401,6 +428,7 @@ module.exports = {
   CorpusIdentityError,
   DuplicateFilmIdError,
   DuplicateQidError,
+  IdentityStatusError,
   IdentityVersionError,
   InvalidFilmIdError,
   MissingQidError,
@@ -413,6 +441,7 @@ module.exports = {
   canonicalJson,
   contentVersion,
   filmIdForQid,
+  parseMergeOptions,
   semanticCorpusProjection,
   validateIdentityManifest,
   writeJsonAtomically,
