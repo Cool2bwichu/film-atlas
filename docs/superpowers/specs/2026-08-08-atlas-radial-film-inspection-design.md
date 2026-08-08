@@ -1,6 +1,6 @@
 # Atlas Radial Film Inspection Design
 
-**Status:** Awaiting written-spec approval
+**Status:** Approved
 
 **Date:** 2026-08-08
 **Scope:** Change linked-film selection in the radial map from immediate traversal to contextual inspection, with an explicit action for opening the selected film's web.
