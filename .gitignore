@@ -45,8 +45,18 @@ yarn-error.log*
 # Pipeline query caches. Every networked stage is resumable by writing one file
 # per SPARQL response here; they are regenerable, large, and say nothing the
 # corpus does not already record.
+#
+# All FIVE cache directories belong here, not three. The growth run to ~2,200
+# films fills .cache-posters/ with roughly 190 MB of poster bytes and the other
+# four with tens of thousands of small JSON files; leaving any of them tracked
+# turns `git status` after a harvest into an unreadable wall and makes an
+# accidental `git add -A` commit the whole thing. .cache/ is written by
+# wikidata.js:20 (entity lookups, also used by enrich.js:141) and .cache-posters/
+# by palette.py -- neither was covered before the growth run.
+/atlas/pipeline/.cache/
 /atlas/pipeline/.cache-sparql/
 /atlas/pipeline/.cache-expand/
+/atlas/pipeline/.cache-posters/
 
 # Generated seed expansion. Regenerable with:
 #   node atlas/pipeline/expand-seeds.js --target N > atlas/pipeline/seeds-expansion.txt

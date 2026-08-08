@@ -281,6 +281,36 @@ function claimKey(out, base, filmQid, year) {
    included, which is where Wikidata keeps exactly those variants. Type and
    year still do the discriminating: the mollusc-genus failure mode is a
    property of unfiltered label search, not of which label field is read. */
+/* ?exact IS BOUND BY A `VALUES` PAIR, NOT BY TWO `BIND`s INSIDE A UNION, AND
+   THAT IS A PERFORMANCE CONSTRAINT RATHER THAN A STYLE CHOICE.
+
+   The obvious way to record which label field matched is
+     { ?f rdfs:label ?match . BIND(1 AS ?exact) }
+     UNION { ?f skos:altLabel ?match . BIND(0 AS ?exact) }
+   and it is correct. It is also fatal here: a BIND inside a UNION branch
+   changes Blazegraph's join plan, and at the real CHUNK of 120 seed titles the
+   query stops finishing. Measured against live WDQS, interleaved on the same
+   chunk of seeds-expansion.txt so a load blip cannot explain it:
+
+     this form (VALUES pair)            200 in  1.7s / 2.3s, 475 KB
+     BIND-inside-UNION form             502 after 39.3s, then 504 after 65.5s
+     pre-?exact form (no BIND at all)   200 in  1.2s
+
+   The responses carry Wikimedia's own edge headers, so this is WDQS's 60 s
+   limit, not the proxy. It is data-dependent as well as size-dependent -- it
+   also fires at 20 titles -- which is exactly why a 6- or 19-title smoke test
+   passes and hides it. Through the pipeline the consequence is silent: five
+   attempts and ~350 s burned per chunk, then the chunk is recorded as
+   "unresolved", the seed accounting balances because unresolved is a legitimate
+   bucket, and the run writes a harvest.json with zero films.
+
+   The two forms are equivalent, not merely similar. On the same 120 titles both
+   return 639 rows and the same 279 distinct (match, film) pairs -- 0 added, 0
+   dropped -- with ?exact bound on 639 of 639 rows, so the exact-label tier of
+   the ranking below reads the same input either way.
+
+   If ?exact ever needs a third source, extend the VALUES pair. Do not reach for
+   BIND. */
 async function resolveTitles(seeds, stats) {
   const overrides = loadOverrides();
   const byTitle = {};
@@ -292,7 +322,8 @@ async function resolveTitles(seeds, stats) {
 SELECT ?match ?f ?fLabel ?year ?article ?exact WHERE {
   VALUES ?match { ${values} }
   VALUES ?type { ${TYPE_VALUES} }
-  { ?f rdfs:label ?match . BIND(1 AS ?exact) } UNION { ?f skos:altLabel ?match . BIND(0 AS ?exact) }
+  VALUES (?lp ?exact) { (rdfs:label 1) (skos:altLabel 0) }
+  ?f ?lp ?match .
   ?f wdt:P31 ?type .
   OPTIONAL { ?f wdt:P577 ?date . BIND(YEAR(?date) AS ?year) }
   OPTIONAL { ?article schema:about ?f ; schema:isPartOf <https://en.wikipedia.org/> . }
@@ -480,6 +511,28 @@ async function main() {
     + " (" + stats.tied + " decided by QID alone, listed above)");
   if (stats.overridden) console.log("  pinned by qid-overrides.json: " + stats.overridden);
   if (stats.chunkFailures) console.log("  FAILED resolve chunks: " + stats.chunkFailures);
+  /* A FAILED CHUNK IS A HOLE, AND NOTHING ELSE IN THE RUN CAN SEE IT.
+
+     The accounting assertion below structurally cannot catch this: a chunk that
+     five times failed to answer leaves its seeds in the `unresolved` bucket,
+     which is a legitimate bucket, so the arithmetic balances perfectly while up
+     to CHUNK films are missing. `check-harvest.js` catches only holes that
+     swallow one of the films already in the corpus -- a chunk landing entirely
+     inside seeds-expansion.txt is 120 NEW films that no downstream check knows
+     to expect. And the REST fallback will then be handed those titles, which is
+     the rate-limited path this file exists to avoid.
+
+     So the site that knows refuses. Exiting before the property fetches also
+     saves the ~250 queries that would decorate a corpus with a hole in it; the
+     per-chunk responses that did succeed are already in .cache-sparql/, so a
+     re-run resumes rather than restarts. */
+  if (stats.chunkFailures) {
+    console.error("!! " + stats.chunkFailures + " resolve chunk(s) never answered. Up to "
+      + (stats.chunkFailures * CHUNK) + " films are missing from this harvest and nothing "
+      + "downstream can tell them from films Wikidata does not have. Re-run to resume "
+      + "from .cache-sparql/; nothing has been written.");
+    process.exit(1);
+  }
   if (accounted !== seeds.length) {
     console.error("!! seed accounting does not balance: " + accounted + " accounted for, "
       + seeds.length + " lines read. A film has been dropped without being counted.");
