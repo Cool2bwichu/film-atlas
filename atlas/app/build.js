@@ -137,6 +137,11 @@ const layoutMarker="/* __LAYOUT__ */";
 if(!html.includes(layoutMarker)) throw new Error("Atlas template is missing its layout marker");
 html=html.replace(layoutMarker,layoutBlock);
 if(html.includes(layoutMarker)) throw new Error("Atlas template contains more than one layout marker");
+const inspectionMarker="/* __RADIAL_INSPECTION__ */";
+if(!html.includes(inspectionMarker)) throw new Error("Atlas template is missing its radial inspection marker");
+const inspectionSource=fs.readFileSync(path.join(__dirname,"radial-inspection.js"),"utf8");
+html=html.replace(inspectionMarker,inspectionSource);
+if(html.includes(inspectionMarker)) throw new Error("Atlas template contains more than one radial inspection marker");
 if(ORIGIN!==null){
   /* Trailing slash trimmed because every template usage already supplies its
      own ("__ATLAS_ORIGIN__/", "__ATLAS_ORIGIN__/og.png"). */

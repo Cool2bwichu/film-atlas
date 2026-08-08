@@ -333,6 +333,12 @@ main{flex:1;position:relative;overflow:hidden}
    colour, so the line and the words still name each other. */
 .node .label .r{display:none;margin-top:4px;font-family:var(--mono);font-size:8px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--nc,var(--dim))}
+.node .inspect-mark{display:none;margin-top:6px;font-family:var(--mono);font-size:7.5px;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--ink)}
+.node.inspecting .inspect-mark{display:block}
+.node.inspecting .frame{
+  outline-color:var(--nc,var(--accent));outline-offset:3px;
+  box-shadow:inset 0 0 0 1px var(--nc,var(--accent)),0 18px 44px rgba(0,0,0,.72)}
 .stage.compact .node:not(.centre) .label .r{display:block}
 /* THE CAPTION IS WIDER THAN THE POSTER ON A PHONE, AND THAT IS THE FIX.
    At 390px a ring poster is 61px, and "Letter from an Unknown Woman" set to
@@ -496,6 +502,9 @@ main{flex:1;position:relative;overflow:hidden}
 .panel-x:hover{color:var(--ink)}
 .phead .slate{display:block;padding-bottom:11px;margin-bottom:13px;
   border-bottom:1px solid var(--hair)}
+.phead .panel-context{display:flex;align-items:center;gap:12px}
+.panel-inspecting{margin-left:auto;color:var(--ink);font-size:8px;
+  letter-spacing:.16em;opacity:.72}
 /* THE PANEL IS WHERE THE CLAIMS LIVE, AND THE POSTER WAS STANDING IN FRONT OF
    THEM. At 370px the one-sheet came out 322x483 and pushed "Why it connects"
    98px below the fold on a 1440x900 desktop and 526px below it on a phone —
@@ -529,6 +538,14 @@ main{flex:1;position:relative;overflow:hidden}
   cursor:pointer;transition:background var(--t-fast) var(--ease),
   transform var(--t-fast) var(--ease)}
 .why-item:hover,.why-item:focus-visible{background:var(--lift);transform:translateX(3px)}
+.why-item.inspect-claim{cursor:default;transform:none}
+.why-item.inspect-claim:hover{background:none;transform:none}
+.panel-travel{width:100%;min-height:44px;margin:5px 0 22px;
+  border-color:var(--accent);color:var(--ink);text-align:center}
+.panel-travel:hover,.panel-travel:focus-visible{
+  background:color-mix(in oklab,var(--accent) 14%,transparent)}
+.panel .generated-poster{width:min(100%,200px);aspect-ratio:2/3}
+.panel .generated-poster .gen{width:100%;height:100%}
 /* the claim is an argument, so it is set as prose; the line under it is
    filing, so it is slate */
 .why-item .c{font-family:var(--serif);font-size:13.5px;line-height:1.42}
@@ -849,6 +866,7 @@ main{flex:1;position:relative;overflow:hidden}
 <script>
 /* __CORPUS__ */
 /* __LAYOUT__ */
+/* __RADIAL_INSPECTION__ */
 
 /* ═══════════════════════════════════════════════════════════════════════
    ENGINE
@@ -1084,7 +1102,15 @@ function readPreferences(){
 const preferences=readPreferences();
 const state = {
   view:"wall", centre:null, ring:[], trail:[], drawn:new Set(),
-  seen:new Set(preferences.seen), loved:new Set(preferences.loved), filter:preferences.filter, sel:null,
+  seen:new Set(preferences.seen), loved:new Set(preferences.loved), filter:preferences.filter,
+  sel:null, panelContext:null,
+};
+const RADIAL_HISTORY_KEY="atlasRadial";
+const EDGE_INDEX=new WeakMap(E.map((edge,index)=>[edge,index]));
+const radialSnapshotOptions={
+  edgeAt:(index)=>E[index],
+  edgeIndex:(edge)=>EDGE_INDEX.get(edge),
+  filmExists:(key)=>Boolean(F[key]),
 };
 
 function persistPreferences(){
@@ -1473,18 +1499,74 @@ function drawEdges(compact){
   });
 }
 
-function openMap(key, keepTrail){
+function mapNode(key){
+  return [...$("#stage").querySelectorAll(".node")].find((node)=>node.dataset.k===key) || null;
+}
+
+function syncMapInspection(){
+  const active = $("#panel").classList.contains("on") && state.panelContext?.kind==="inspect"
+    ? state.sel : null;
+  $("#stage").querySelectorAll(".node").forEach((node)=>{
+    const selected = node.dataset.k===active;
+    node.classList.toggle("inspecting",selected);
+    if(node.dataset.i!=="-1") node.setAttribute("aria-pressed",selected?"true":"false");
+  });
+}
+
+function currentRadialSnapshot(){
+  return AtlasRadialInspection.createRadialSnapshot({
+    centreKey:state.centre,ring:state.ring,trail:state.trail,
+  },radialSnapshotOptions);
+}
+
+function radialHistoryState(snapshot){
+  const base=history.state&&typeof history.state==="object"?history.state:{};
+  return {...base,[RADIAL_HISTORY_KEY]:snapshot};
+}
+
+function writeRadialHistory(method, snapshot, url){
+  try{ history[method](radialHistoryState(snapshot),"",url); }catch(_error){}
+}
+
+function presentRadialMap(){
+  show("map");
+  renderMap();
+  openPanel(state.centre);
+  $("#sr-status").textContent=`${F[state.centre].title}. ${state.ring.length} connected films shown.`;
+  requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')
+    ?.focus({preventScroll:true}));
+}
+
+function restoreRadialMap(snapshot){
+  const restored=AtlasRadialInspection.restoreRadialSnapshot(snapshot,radialSnapshotOptions);
+  if(!restored || location.hash!=="#/film/"+encodeURIComponent(restored.centreKey)) return false;
+  state.sel=null;
+  state.panelContext=null;
+  state.centre=restored.centreKey;
+  state.ring=restored.ring;
+  state.trail=restored.trail;
+  presentRadialMap();
+  return true;
+}
+
+function openMap(key, keepTrail, historyMode="replace"){
   if(!F[key]) return;
+  if(historyMode==="push" && state.view==="map" && F[state.centre]){
+    const current=currentRadialSnapshot();
+    if(current) writeRadialHistory("replace",current,location.href);
+  }
+  state.sel=null;
+  state.panelContext=null;
   state.centre=key;
   state.ring=connections(key, 6, [key, ...(keepTrail?state.trail:[])]);
   if(!keepTrail) state.trail=[];
   if(state.trail[state.trail.length-1]!==key) state.trail.push(key);
-  show("map");
-  renderMap();
-  openPanel(key);
-  $("#sr-status").textContent=`${F[key].title}. ${state.ring.length} connected films shown.`;
-  requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')?.focus({preventScroll:true}));
-  try{ history.replaceState(null,"","#/film/"+encodeURIComponent(key)); }catch(e){}
+  presentRadialMap();
+  if(historyMode!=="none"){
+    const method=historyMode==="push"?"pushState":"replaceState";
+    const snapshot=currentRadialSnapshot();
+    if(snapshot) writeRadialHistory(method,snapshot,"#/film/"+encodeURIComponent(key));
+  }
 }
 
 function renderMap(){
@@ -1500,17 +1582,26 @@ function renderMap(){
     const n=el("button","node"+(i<0?" centre":""));
     n.type="button";
     n.dataset.i=i;
+    n.dataset.k=k;
+    if(i>=0) n.setAttribute("aria-pressed","false");
     n.setAttribute("aria-label",i<0
       ? `${f.title}${f.year?`, ${f.year}`:""}. Open film details.`
-      : `${f.title}${f.year?`, ${f.year}`:""}. ${edgeMeta(conn.e)}: ${conn.e.claim}`);
+      : `${f.title}${f.year?`, ${f.year}`:""}. Open film details. ${edgeMeta(conn.e)}: ${conn.e.claim}`);
     n.style.animationDelay=(i<0?0:60+i*55)+"ms";
     n.style.setProperty("--nc", i<0 ? f.highlight : meta(conn.e.type).color);
     n.innerHTML=`<div class="frame">${art(k,"",i<0?"high":"auto")}${
       state.seen.has(k)||state.loved.has(k)?'<span class="seen"></span>':""}</div>
       <div class="label"><span class="t">${esc(f.title)}</span>
       <span class="y">${f.year||""}</span>${
-        i<0?"":`<span class="r">${esc(edgeMeta(conn.e))}</span>`}</div>`;
-    n.onclick=()=>{ if(i<0) openPanel(k); else openMap(k,true); };
+        i<0?"":`<span class="r">${esc(edgeMeta(conn.e))}</span>
+          <span class="inspect-mark" aria-hidden="true">inspecting</span>`}</div>`;
+    n.onclick=()=>{
+      const intent=AtlasRadialInspection.selectRadialFilm({
+        centreKey:state.centre,ring:state.ring,selectedKey:k,
+      });
+      if(intent.kind==="centre") openPanel(k);
+      else if(intent.kind==="inspect") openPanel(k,intent);
+    };
     n.onmouseenter=()=>{ if(i>=0) hot(i,true); openPanelPreview(k, i<0?null:conn); };
     n.onmouseleave=()=>{ if(i>=0) hot(i,false); hideTip(); };
     n.onfocus=()=>{ if(i>=0) hot(i,true); };
@@ -1520,6 +1611,7 @@ function renderMap(){
   };
   mk(state.centre,-1,null);
   state.ring.forEach((r,i)=>mk(r.key,i,r));
+  syncMapInspection();
   /* Position immediately, then again after paint. Deferring the only call to
      requestAnimationFrame means that if the frame never arrives -- a
      background tab, a reduced-motion shim, an embedding frame that throttles
@@ -1577,69 +1669,110 @@ function renderTrail(){
 function closePanel(restoreFocus){
   const p=$("#panel");
   if(!p.classList.contains("on")) return;
+  const returnKey=state.sel;
   p.classList.remove("on");
   p.setAttribute("aria-hidden","true");
   p.setAttribute("inert","");
+  state.sel=null;
+  state.panelContext=null;
+  syncMapInspection();
   if(state.view==="map") requestAnimationFrame(layout);
   if(restoreFocus){
-    requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')?.focus({preventScroll:true}));
+    requestAnimationFrame(()=>(mapNode(returnKey)||$("#stage").querySelector('.node[data-i="-1"]'))
+      ?.focus({preventScroll:true}));
   }
 }
 
-function openPanel(k){
+function openPanel(k, context=null){
+  const p=$("#panel");
+  const previousKey=state.sel;
+  const previousScroll=p.scrollTop;
+  const inspection = context?.kind==="inspect" && context.centreKey===state.centre
+    ? context : null;
   state.sel=k;
-  const f=F[k], p=$("#panel");
-  const conns = k===state.centre ? state.ring : connections(k,6,[k]);
+  state.panelContext=inspection;
+  const f=F[k];
   p.style.setProperty("--accent", f.highlight);
-  /* READING ORDER IS AN ARGUMENT. Name, face, what you can do about it, then
-     WHY IT CONNECTS — the claims are the only thing here that is not already
-     on a hundred other film sites, so they come before the synopsis rather
-     than after it. The filing rows sit last because that is what they are. */
+  const actions=`<div class="acts">
+    <button class="btn${state.seen.has(k)?" on":""}" data-act="seen"
+      aria-pressed="${state.seen.has(k)?"true":"false"}">Seen it</button>
+    <button class="btn${state.loved.has(k)?" on":""}" data-act="loved"
+      aria-pressed="${state.loved.has(k)?"true":"false"}">Love it</button>
+  </div>`;
+  const description=f.description?`<p class="desc">${esc(f.description)}</p>`:"";
+  const why=inspection
+    ? `<div class="why"><h3>Why it appears here</h3>
+        <div class="why-item inspect-claim" style="--wc:${meta(inspection.connection.e.type).color}">
+          <div class="c">${esc(inspection.connection.e.claim)}</div>
+          <div class="m">${edgeMeta(inspection.connection.e)} · ${esc(F[state.centre].title)}${
+            inspection.connection.e.source&&inspection.connection.e.source!=="record"
+              ? " · "+claimStatus(inspection.connection.e):""}</div>
+          ${inspection.connection.e.source==="attested"&&inspection.connection.e.attribution
+            ? `<div class="src">${esc(inspection.connection.e.attribution)}</div>`:""}
+        </div></div>`
+    : `<div class="why"><h3>Why it connects</h3>${state.ring.map((c)=>
+        `<button type="button" class="why-item" data-k="${esc(c.key)}"
+          style="--wc:${meta(c.e.type).color}">
+          <div class="c">${esc(c.e.claim)}</div>
+          <div class="m">${edgeMeta(c.e)} · ${esc(F[c.key].title)}${
+            c.e.source&&c.e.source!=="record"?" · "+claimStatus(c.e):""}</div>
+          ${c.e.source==="attested"&&c.e.attribution
+            ? `<div class="src">${esc(c.e.attribution)}</div>`:""}
+        </button>`).join("")}</div>`;
+  const travel=inspection
+    ? `<button class="btn panel-travel" type="button" data-act="travel"
+        aria-label="Explore ${esc(f.title)}'s web">Explore this film's web</button>`:"";
   p.innerHTML = `
     <button class="panel-x" aria-label="Close">&times;</button>
     <div class="phead">
       <div class="pmeta">
-        <div class="slate">film</div>
+        <div class="slate panel-context">${inspection
+          ? `<span>Connected to ${esc(F[state.centre].title)}</span>
+             <span class="panel-inspecting">INSPECTING</span>`
+          : "film"}</div>
         <h2>${esc(f.title)}</h2>
         <div class="by">${f.year||""}${f.director?"  ·  "+esc(f.director):""}</div>
       </div>
-      ${f.poster?`<img class="poster" src="${esc(f.poster)}" alt="" decoding="async">`:""}
+      ${f.poster
+        ? `<img class="poster" src="${esc(f.poster)}" alt="" decoding="async">`
+        : `<div class="poster generated-poster" aria-hidden="true">${genArt(k)}</div>`}
     </div>
-    <div class="acts">
-      <button class="btn${state.seen.has(k)?" on":""}" data-act="seen"
-        aria-pressed="${state.seen.has(k)?"true":"false"}">Seen it</button>
-      <button class="btn${state.loved.has(k)?" on":""}" data-act="loved"
-        aria-pressed="${state.loved.has(k)?"true":"false"}">Love it</button>
-    </div>
-    <div class="why"><h3>Why it connects</h3>${
-      conns.map(c=>`<button type="button" class="why-item" data-k="${esc(c.key)}"
-        style="--wc:${meta(c.e.type).color}">
-        <div class="c">${esc(c.e.claim)}</div>
-        <div class="m">${edgeMeta(c.e)} · ${esc(F[c.key].title)}${
-          c.e.source&&c.e.source!=="record"?" · "+claimStatus(c.e):""}</div>
-        ${c.e.source==="attested"&&c.e.attribution?`<div class="src">${esc(c.e.attribution)}</div>`:""}
-      </button>`).join("")
-    }</div>
-    ${f.description?`<p class="desc">${esc(f.description)}</p>`:""}
+    ${inspection?why+description+actions+travel:actions+why+description}
     <div class="row"><span>connections</span><span>${ADJ[k].length}</span></div>
     <div class="row"><span>palette</span><span>${f.paletteSource==="poster"?"from its poster":
       f.paletteSource==="curated"?"observed":"era default"}</span></div>
     ${f.wikipedia?`<div class="row"><span>read more</span><span><a style="color:var(--accent)"
       target="_blank" rel="noopener"
       href="https://en.wikipedia.org/wiki/${encodeURIComponent(f.wikipedia.replace(/ /g,"_"))}">Wikipedia</a></span></div>`:""}`;
+  p.scrollTop=AtlasRadialInspection.panelScrollTarget(previousKey,k,previousScroll);
   p.classList.add("on");
   p.setAttribute("aria-hidden","false");
   p.removeAttribute("inert");
+  syncMapInspection();
   if(state.view==="map") requestAnimationFrame(layout);
   p.querySelector(".panel-x").onclick=()=>closePanel(true);
-  p.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{
-    const set = b.dataset.act==="seen" ? state.seen : state.loved;
-    if(set.has(k)) set.delete(k); else { set.add(k); if(b.dataset.act==="loved") state.seen.add(k); }
+  p.querySelectorAll('[data-act="seen"],[data-act="loved"]').forEach((button)=>button.onclick=()=>{
+    const context=state.panelContext;
+    const set=button.dataset.act==="seen"?state.seen:state.loved;
+    if(set.has(k)) set.delete(k);
+    else{
+      set.add(k);
+      if(button.dataset.act==="loved") state.seen.add(k);
+    }
     $("#loved-n").textContent=state.loved.size;
     persistPreferences();
-    openPanel(k); renderMap(); if(state.view==="wall") renderWall();
+    renderMap();
+    openPanel(k,context);
+    if(state.view==="wall") renderWall();
   });
-  p.querySelectorAll(".why-item").forEach(w=>w.onclick=()=>openMap(w.dataset.k,true));
+  p.querySelectorAll(".why-item[data-k]").forEach((row)=>row.onclick=()=>{
+    const intent=AtlasRadialInspection.selectRadialFilm({
+      centreKey:state.centre,ring:state.ring,selectedKey:row.dataset.k,
+    });
+    if(intent.kind==="inspect") openPanel(intent.selectedKey,intent);
+  });
+  const travelButton=p.querySelector('[data-act="travel"]');
+  if(travelButton) travelButton.onclick=()=>openMap(k,true,"push");
 }
 const openPanelPreview = (k)=>{};
 
@@ -2730,18 +2863,31 @@ addEventListener("keydown",e=>{
    #/film/<key> is a real address, so a map can be sent to someone. Without
    it every discovery dies in the tab it was made in, and sharing is how a
    thing like this travels. */
-function fromHash(){
+function fromHash(historyMode="replace"){
   const h=location.hash||"";
   /* #/sky is an address too: the whole map is a place worth sending someone */
   if(/^#\/sky\/?$/.test(h)){ if(!SKY_POS) return false; openSky(); return true; }
   const m=h.match(/^#\/film\/(.+)$/);
   if(!m) return false;
-  const k=decodeURIComponent(m[1]);
+  let k;
+  try{ k=decodeURIComponent(m[1]); }catch(_error){ return false; }
   if(!F[k]) return false;
-  openMap(k);
+  openMap(k,false,historyMode);
   return true;
 }
-addEventListener("hashchange",()=>{ if(!fromHash()){ show("wall"); renderWall(); } });
+let popstateLocation=null;
+addEventListener("popstate",(event)=>{
+  popstateLocation=location.href;
+  const snapshot=event.state&&typeof event.state==="object"
+    ? event.state[RADIAL_HISTORY_KEY] : null;
+  if(restoreRadialMap(snapshot)) return;
+  if(!fromHash("none")){ show("wall"); renderWall(); }
+});
+addEventListener("hashchange",()=>{
+  if(popstateLocation===location.href){ popstateLocation=null; return; }
+  popstateLocation=null;
+  if(!fromHash()){ show("wall"); renderWall(); }
+});
 
 renderFilters();
 renderWall();
