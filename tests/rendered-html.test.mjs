@@ -76,6 +76,15 @@ test("radial neighbours expose inspection before explicit traversal", async () =
   assert.match(html, /Explore this film's web/);
   assert.match(template, /data-act="travel"/);
   assert.match(template, /node\.setAttribute\("aria-pressed",selected\?"true":"false"\)/);
+  const ringLabel = template.match(
+    /n\.setAttribute\("aria-label",i<0[\s\S]*?\n\s*:\s*([\s\S]*?)\);\n\s*n\.style/,
+  );
+  assert.ok(ringLabel, "renderMap should define a distinct accessible label for ring nodes");
+  assert.match(
+    ringLabel[1],
+    /Open film details\.[\s\S]*edgeMeta\(conn\.e\)[\s\S]*conn\.e\.claim/,
+    "ring-node labels should announce inspection while preserving the exact relationship",
+  );
   assert.doesNotMatch(template, /else openMap\(k,true\)/);
 });
 

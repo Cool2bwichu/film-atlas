@@ -1537,7 +1537,7 @@ function renderMap(){
     if(i>=0) n.setAttribute("aria-pressed","false");
     n.setAttribute("aria-label",i<0
       ? `${f.title}${f.year?`, ${f.year}`:""}. Open film details.`
-      : `${f.title}${f.year?`, ${f.year}`:""}. ${edgeMeta(conn.e)}: ${conn.e.claim}`);
+      : `${f.title}${f.year?`, ${f.year}`:""}. Open film details. ${edgeMeta(conn.e)}: ${conn.e.claim}`);
     n.style.animationDelay=(i<0?0:60+i*55)+"ms";
     n.style.setProperty("--nc", i<0 ? f.highlight : meta(conn.e.type).color);
     n.innerHTML=`<div class="frame">${art(k,"",i<0?"high":"auto")}${
