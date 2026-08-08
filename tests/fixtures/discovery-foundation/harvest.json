@@ -3,7 +3,10 @@
     "old-key": {
       "qid": "Q100",
       "title": "Old title",
-      "year": 1980
+      "year": 1980,
+      "movementDirect": ["Q900"],
+      "movementInherited": [{ "value": "Q900", "viaDirector": "Q700" }],
+      "movement": ["Q900"]
     },
     "collision-one": {
       "qid": "Q200",

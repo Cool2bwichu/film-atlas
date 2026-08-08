@@ -34,6 +34,7 @@ const fs = require("fs");
 const path = require("path");
 const https = require("https");
 const zlib = require("zlib");
+const { addDirectMovement, addInheritedMovement } = require("./movement-provenance");
 
 const OUT = path.join(__dirname, "out");
 const CACHE = path.join(__dirname, ".cache-sparql");
@@ -549,7 +550,7 @@ async function main() {
       title: r.label, year: r.year, qid: r.qid, director: "",
       shadow: pal.shadow, highlight: pal.highlight, paletteSource: "era",
       enwiki: r.article || null,
-      crew: {}, genre: [], movement: [], setting: [], subject: [], cast: [],
+      crew: {}, genre: [], movementDirect: [], movementInherited: [], movement: [], setting: [], subject: [], cast: [],
       studio: [], country: [], basedOn: [], sourceAuthors: [],
     };
   }
@@ -574,7 +575,9 @@ async function main() {
       const lab = cell(r, "vLabel");
       if (lab && !/^Q\d+$/.test(lab)) labels[v] = lab;
       if (kind === "crew") { (f.crew[name] = f.crew[name] || []); if (f.crew[name].indexOf(v) < 0) f.crew[name].push(v); }
-      else {
+      else if (name === "movement") {
+        addDirectMovement(f, v);
+      } else {
         const target = name === "inspiredBy" ? "basedOn" : name;
         if (f[target].indexOf(v) < 0) f[target].push(v);
       }
@@ -614,7 +617,7 @@ async function main() {
     if (lab && !/^Q\d+$/.test(lab)) labels[m] = lab;
   }
   for (const f of Object.values(films)) {
-    for (const d of f.crew.director || []) for (const m of dirMove[d] || []) if (f.movement.indexOf(m) < 0) f.movement.push(m);
+    for (const d of f.crew.director || []) for (const m of dirMove[d] || []) addInheritedMovement(f, m, d);
   }
 
   /* ---- what kind of place is each setting ----

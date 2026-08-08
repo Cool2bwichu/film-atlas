@@ -15,6 +15,7 @@
 const fs = require("fs");
 const path = require("path");
 const wd = require("./wikidata");
+const { addDirectMovement, addInheritedMovement } = require("./movement-provenance");
 
 const OUT = path.join(__dirname, "out");
 
@@ -126,7 +127,7 @@ async function main() {
       shadow: pal.shadow, highlight: pal.highlight, paletteSource: "era",
       crew: crew,
       genre: ids(wd.P.genre),
-      movement: ids(wd.P.movement),
+      movementDirect: [], movementInherited: [], movement: [],
       setting: ids(wd.P.narrativeLocation),
       subject: ids(wd.P.mainSubject),
       cast: ids(wd.P.cast).slice(0, 12),
@@ -135,6 +136,7 @@ async function main() {
       basedOn: ids(wd.P.basedOn).concat(ids(wd.P.inspiredBy)),
       sourceAuthors: [],
     };
+    ids(wd.P.movement).forEach((movementQid) => addDirectMovement(rec, movementQid));
     films[key] = rec;
     [].concat(rec.genre, rec.movement, rec.setting, rec.subject, rec.cast, rec.studio,
       Object.values(crew).flat()).forEach((q) => referenced.add(q));
@@ -163,7 +165,7 @@ async function main() {
       const d = dirEnts[q];
       if (!d) continue;
       wd.claimIds(d, wd.P.movement).forEach((m) => {
-        if (rec.movement.indexOf(m) < 0) rec.movement.push(m);
+        addInheritedMovement(rec, m, q);
         referenced.add(m);
       });
     }

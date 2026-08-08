@@ -39,6 +39,7 @@
 const fs = require("fs");
 const path = require("path");
 const pairKey = require("./pair-key");
+const { movementValues } = require("./movement-provenance");
 
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(__dirname, "out");
@@ -234,7 +235,7 @@ function main() {
   for (const k of keys) {
     const f = films[k];
     (f.genre || []).forEach((v) => bump("genre", v));
-    (f.movement || []).forEach((v) => bump("movement", v));
+    movementValues(f).forEach((v) => bump("movement", v));
     (f.subject || []).forEach((v) => bump("subject", v));
     (f.setting || []).forEach((v) => bump("setting", v));
     (f.cast || []).forEach((v) => bump("cast", v));
@@ -266,8 +267,9 @@ function main() {
     return true;
   };
   const sharedBy = (a, b, field, prop) => {
-    const A = new Set(films[a][prop] || []);
-    return (films[b][prop] || [])
+    const values = (film) => prop === "movement" ? movementValues(film) : (film[prop] || []);
+    const A = new Set(values(films[a]));
+    return values(films[b])
       .filter((v) => A.has(v) && usable(field, v))
       .map((v) => ({ v: v, idf: rarity(field, v) }))
       .sort((x, y) => y.idf - x.idf);

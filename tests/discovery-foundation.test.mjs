@@ -27,6 +27,51 @@ const fixture = (name) => JSON.parse(readFileSync(
 const overrides = { schemaVersion: 1, films: {} };
 const source = "pipeline/seeds-expansion.txt";
 
+test("movement provenance records direct film membership once", () => {
+  const { addDirectMovement, movementValues } = require("../atlas/pipeline/movement-provenance.js");
+  const film = {};
+
+  addDirectMovement(film, "Q900");
+  addDirectMovement(film, "Q900");
+
+  assert.deepEqual(film.movementDirect, ["Q900"]);
+  assert.deepEqual(film.movementInherited, []);
+  assert.deepEqual(film.movement, ["Q900"]);
+  assert.deepEqual(movementValues(film), ["Q900"]);
+});
+
+test("movement provenance records inherited director membership once", () => {
+  const { addInheritedMovement, movementValues } = require("../atlas/pipeline/movement-provenance.js");
+  const film = {};
+
+  addInheritedMovement(film, "Q900", "Q700");
+  addInheritedMovement(film, "Q900", "Q700");
+
+  assert.deepEqual(film.movementDirect, []);
+  assert.deepEqual(film.movementInherited, [{ value: "Q900", viaDirector: "Q700" }]);
+  assert.deepEqual(film.movement, ["Q900"]);
+  assert.deepEqual(movementValues(film), ["Q900"]);
+});
+
+test("movement provenance preserves both paths for the same membership", () => {
+  const { addDirectMovement, addInheritedMovement, movementValues } = require("../atlas/pipeline/movement-provenance.js");
+  const film = fixture("harvest.json").films["old-key"];
+
+  addDirectMovement(film, "Q900");
+  addInheritedMovement(film, "Q900", "Q700");
+
+  assert.deepEqual(film.movementDirect, ["Q900"]);
+  assert.deepEqual(film.movementInherited, [{ value: "Q900", viaDirector: "Q700" }]);
+  assert.deepEqual(movementValues(film), ["Q900"]);
+});
+
+test("movement values use the legacy flat list only without authoritative provenance", () => {
+  const { movementValues } = require("../atlas/pipeline/movement-provenance.js");
+
+  assert.deepEqual(movementValues({ movement: ["Q902", "Q900", "Q902"] }), ["Q900", "Q902"]);
+  assert.deepEqual(movementValues({ movementDirect: [], movementInherited: [], movement: ["Q999"] }), []);
+});
+
 function correctedHarvest() {
   const harvest = fixture("harvest.json");
   harvest.films["corrected-key"] = {
