@@ -52,6 +52,10 @@ test("serves the Atlas experience directly at the site root", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>ATLAS — the shape of cinema<\/title>/i);
+  assert.match(html, /AtlasRadialInspection/);
+  assert.match(html, /function selectRadialFilm/);
+  assert.doesNotMatch(html, /__RADIAL_INSPECTION__/);
+  assert.equal((html.match(/function selectRadialFilm/g) ?? []).length, 1);
   assert.match(html, /content="https:\/\/atlas\.example\/og\.png"/);
   assert.doesNotMatch(html, /__ATLAS_ORIGIN__|codex-preview|SkeletonPreview|Your site is taking shape/);
   assert.match(html, /id="home"[^>]*aria-label="Return to the film wall"/);
