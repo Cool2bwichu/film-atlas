@@ -2335,19 +2335,6 @@ const EDGES = [
   r("my darling clementine", "the man who shot liberty valance", "rebuttal", "b", 0.7, 0.6,
     "One town raised by a dance on the bare floorboards of its church, answered by the same director with a newspaper choosing legend over what happened."),
 
-  /* Retained deliberately, though "the duel" is no longer an active corpus key.
-     The QID correction moved that key from Chang Cheh's wuxia film to
-     Spielberg's, and these two claims were written about the former. They are
-     kept because the identity ledger records the retired slug as
-     legacy-release-only precisely so authored claims naming a key that once
-     shipped still resolve rather than dangling. merge-corpus drops them from
-     the built corpus on their own merits -- the film is not in it -- so they
-     cost nothing downstream and preserve the provenance of a key that was
-     public for a release. Delete them only together with the ledger entry. */
-  r("once upon a time in china", "the duel", "convergence", "none", 0.56, 0.38,
-    "Martial cinema as national argument, the fight scenes staged to demonstrate a school and a discipline rather than a grudge."),
-  r("the duel", "seven samurai", "convergence", "none", 0.46, 0.3,
-    "Combat filmed as a demonstrable craft, each fight staged to show a technique rather than to advance a grudge."),
 ];
 
 /* ---------- assemble ---------- */

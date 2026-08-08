@@ -1121,9 +1121,32 @@ test("identity resolves every authored legacy endpoint without retargeting it", 
   });
   const byStableSlug = new Map(identity.films.map((film) => [film.stableSlug, film]));
 
-  assert.equal(identity.films.length, 2205);
-  assert.equal(identity.films.filter((film) => film.status === "active").length, 2204);
-  assert.equal(identity.films.filter((film) => film.status === "legacy-release-only").length, 1);
+  /* THE RETIRED KEY IS GONE, DELIBERATELY, AND THESE COUNTS ARE NOW DERIVED.
+     `the duel` (Chang Cheh, Q17498893) lived only in the 803-film release. The
+     QID correction moved that slug to Spielberg's Duel, the 2,204-film harvest
+     never carried Chang Cheh's, and 3491a2a left this test failing rather than
+     weakening it -- correctly, because it was reporting something true.
+
+     It has since been decided to retire the key rather than restore the film,
+     so the inert `legacyRetained` override and the two authored claims that
+     named the slug are both removed. With nothing retained, every identity
+     record is active and the ledger holds exactly the harvest.
+
+     Derived, not respelled as 2204/2204/0: hardcoding the new numbers would
+     reproduce the defect a8147b7 removed from the discovery embed assertion and
+     that the parity test above was just repaired for -- it goes stale on the
+     next harvest, and `npm test` runs `npm run build` first, so a stale count
+     is a hard stop on a change that is entirely correct. What this test is
+     actually for is the loop below: every authored endpoint resolves, and no
+     released QID is retargeted. The counts only need to hold the shape. */
+  const activeCount = identity.films.filter((film) => film.status === "active").length;
+  const retainedCount = identity.films.filter((film) => film.status === "legacy-release-only").length;
+  assert.equal(retainedCount, 0, "no identity record is retained now that the legacyRetained override is gone");
+  assert.equal(activeCount, identity.films.length, "every identity record should be active");
+  assert.equal(identity.films.length, Object.keys(harvest.films).length,
+    "the ledger should hold exactly the harvested films");
+  assert.ok(identity.films.length >= 803,
+    `identity manifest holds ${identity.films.length} films, below the 803 the first release carried`);
   assert.equal(identity.films.find((film) => film.stableSlug === "earth").wikidataQid, "Q55188");
   assert.equal(identity.qidAliasToFilmId.Q12280475, identity.byQid.Q55188);
 
