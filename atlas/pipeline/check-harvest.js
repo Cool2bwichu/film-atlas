@@ -100,6 +100,7 @@ function parseArgs(argv) {
   const files = [];
   /* key -> null (accept any destination) | "Q123" (accept only that one) */
   const allow = new Map();
+  const gone = new Set();
   let all = false;
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -114,14 +115,29 @@ function parseArgs(argv) {
       else allow.set(v.trim(), null);
       continue;
     }
+    /* An intended REMOVAL needs recording just as an intended move does.
+       A film can legitimately leave the corpus -- a seed that was resolving to
+       the wrong Wikidata item gets corrected and the old key has nothing behind
+       it any more. That is a repair, not a loss. But it costs the same thing a
+       genuine drop costs: merge-corpus.js drops every authored reading naming
+       the key, so the acceptance has to be deliberate and visible in the
+       command that made it, not a failure someone learned to ignore. */
+    if (a === "--allow-gone") {
+      const v = argv[++i];
+      if (!v || v.startsWith("--")) {
+        die("--allow-gone needs a key, e.g. --allow-gone \"the duel\"");
+      }
+      gone.add(v.trim());
+      continue;
+    }
     if (a.startsWith("-")) {
       die("unknown flag " + a + "\n  usage: node pipeline/check-harvest.js " +
-        "[--all] [--allow-move key[=QID]] [corpus.json] [harvest.json]");
+        "[--all] [--allow-move key[=QID]] [--allow-gone key] [corpus.json] [harvest.json]");
     }
     files.push(a);
   }
   if (files.length > 2) die("expected at most two file arguments, got " + files.length);
-  return { allow: allow, all: all, corpus: files[0] || DEFAULT_CORPUS, harvest: files[1] || DEFAULT_HARVEST };
+  return { allow: allow, gone: gone, all: all, corpus: files[0] || DEFAULT_CORPUS, harvest: files[1] || DEFAULT_HARVEST };
 }
 
 function loadFilms(label, file, hint) {
@@ -214,7 +230,7 @@ function main() {
     byTitleYear.get(tk).push(k);
   }
 
-  const missing = [], moved = [], accepted = [], unchecked = [];
+  const missing = [], moved = [], accepted = [], acceptedGone = [], unchecked = [];
   let rekeyed = 0;
 
   for (const key of Object.keys(corpusFilms).sort()) {
@@ -236,7 +252,8 @@ function main() {
             describe(harvestFilms[near[0]]) + " -- check whether that is this film re-keyed"
           : "  -- absent from the harvest entirely";
       }
-      missing.push(key + "  " + describe(f) + "  " + (f.qid || "(no qid)") + where);
+      if (args.gone.has(key)) acceptedGone.push(key + "  " + describe(f) + where);
+      else missing.push(key + "  " + describe(f) + "  " + (f.qid || "(no qid)") + where);
       continue;
     }
 
@@ -264,6 +281,7 @@ function main() {
 
   const present = total - missing.length;
 
+  if (acceptedGone.length) section("absent, accepted by --allow-gone (" + acceptedGone.length + ")", acceptedGone, args.all);
   if (missing.length) section("MISSING FROM THE HARVEST (" + missing.length + " of " + total + ")", missing, args.all);
   if (moved.length) section("QID MOVED UNDER AN EXISTING KEY (" + moved.length + ")", moved, args.all);
   if (accepted.length) section("qid moved, accepted by --allow-move (" + accepted.length + ")", accepted, args.all);
