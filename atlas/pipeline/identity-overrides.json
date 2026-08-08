@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "films": {},
+  "qidCorrections": [
+    {
+      "stableSlug": "earth",
+      "fromQid": "Q12280475",
+      "toQid": "Q55188",
+      "reason": "Correct the released misidentification so the existing Soviet-montage reading resolves to Oleksandr Dovzhenko's Earth."
+    }
+  ],
+  "legacyRetained": [
+    {
+      "stableSlug": "the duel",
+      "qid": "Q17498893",
+      "status": "legacy-release-only",
+      "reason": "Retain the released Chang Cheh identity and authored endpoint without confusing it with Spielberg's Duel; exclude it from the 2,204-film candidate release."
+    }
+  ]
+}
