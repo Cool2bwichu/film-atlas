@@ -15,6 +15,14 @@ const identityPath = argument("identity");
 if (!identityPath) throw new Error("--identity is required");
 const corpusPath = argument("corpus");
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
-const corpusKeys = corpusPath ? Object.keys(readJson(corpusPath).films || {}) : undefined;
-const discovery = validateDiscovery(readJson(discoveryPath), { identity: readJson(identityPath), corpusKeys });
+const corpus = corpusPath ? readJson(corpusPath) : null;
+if (corpus && !corpus.meta?.corpusVersion) throw new Error("Supplied corpus has no corpusVersion");
+const corpusKeys = corpus ? Object.keys(corpus.films || {}) : undefined;
+const corpusFilmIds = corpus ? Object.fromEntries(Object.entries(corpus.films || {}).map(([key, film]) => [key, film.filmId])) : undefined;
+const discovery = validateDiscovery(readJson(discoveryPath), {
+  identity: readJson(identityPath),
+  corpusKeys,
+  corpusVersion: corpus?.meta?.corpusVersion,
+  corpusFilmIds,
+});
 console.log(`discovery OK: ${discovery.filmOrder.length} films`);

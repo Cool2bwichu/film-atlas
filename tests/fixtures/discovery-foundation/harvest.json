@@ -6,7 +6,7 @@
       "year": 1980,
       "crew": { "director": ["Q700"] },
       "country": ["Q38", "Q142"],
-      "genre": ["Q1000", "Q1001"],
+      "genre": ["Q1000", "Q1001", "Q1002"],
       "movementDirect": ["Q900"],
       "movementInherited": [{ "value": "Q900", "viaDirector": "Q700" }],
       "movement": ["Q900"]

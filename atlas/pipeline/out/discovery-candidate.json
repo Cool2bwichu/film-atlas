@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "identityVersion": "identity-5502023fcc089774",
   "corpusVersion": "corpus-f71304cb0a9324a8",
-  "layoutVersion": "layout-f791b9081bbc4d09",
+  "layoutVersion": "layout-6e757cb23d806e4d",
   "filmOrder": [
     "film-000f251e0c6f5502",
     "film-00359adb822c3f5b",
@@ -4425,22 +4425,28 @@
         "selectable": false,
         "values": {
           "era:silent-early": {
-            "label": "Silent & early"
+            "label": "Silent & early",
+            "count": 50
           },
           "era:1930-1959": {
-            "label": "1930–59"
+            "label": "1930–59",
+            "count": 399
           },
           "era:1960-1979": {
-            "label": "1960–79"
+            "label": "1960–79",
+            "count": 722
           },
           "era:1980-1999": {
-            "label": "1980–99"
+            "label": "1980–99",
+            "count": 539
           },
           "era:2000-present": {
-            "label": "2000–now"
+            "label": "2000–now",
+            "count": 494
           },
           "era:unknown": {
-            "label": "Unknown"
+            "label": "Unknown",
+            "count": 0
           }
         }
       },
@@ -4452,427 +4458,561 @@
         "selectable": false,
         "values": {
           "country:unknown": {
-            "label": "Unknown"
+            "label": "Unknown",
+            "count": 1
           },
           "country:Q142": {
-            "label": "France"
+            "label": "France",
+            "count": 487
           },
           "country:Q148": {
-            "label": "People's Republic of China"
+            "label": "People's Republic of China",
+            "count": 40
           },
           "country:Q183": {
-            "label": "Germany"
+            "label": "Germany",
+            "count": 253
           },
           "country:Q38": {
-            "label": "Italy"
+            "label": "Italy",
+            "count": 389
           },
           "country:Q8646": {
-            "label": "Hong Kong"
+            "label": "Hong Kong",
+            "count": 31
           },
           "country:Q29": {
-            "label": "Spain"
+            "label": "Spain",
+            "count": 40
           },
           "country:Q34": {
-            "label": "Sweden"
+            "label": "Sweden",
+            "count": 98
           },
           "country:Q17": {
-            "label": "Japan"
+            "label": "Japan",
+            "count": 300
           },
           "country:Q145": {
-            "label": "United Kingdom"
+            "label": "United Kingdom",
+            "count": 230
           },
           "country:Q30": {
-            "label": "United States"
+            "label": "United States",
+            "count": 794
           },
           "country:Q27": {
-            "label": "Ireland"
+            "label": "Ireland",
+            "count": 13
           },
           "country:Q55": {
-            "label": "Netherlands"
+            "label": "Netherlands",
+            "count": 13
           },
           "country:Q668": {
-            "label": "India"
+            "label": "India",
+            "count": 46
           },
           "country:Q36": {
-            "label": "Poland"
+            "label": "Poland",
+            "count": 46
           },
           "country:Q16": {
-            "label": "Canada"
+            "label": "Canada",
+            "count": 35
           },
           "country:Q188712": {
-            "label": "Empire of Japan"
+            "label": "Empire of Japan",
+            "count": 2
           },
           "country:Q39": {
-            "label": "Switzerland"
+            "label": "Switzerland",
+            "count": 32
           },
           "country:Q15180": {
-            "label": "Soviet Union"
+            "label": "Soviet Union",
+            "count": 28
           },
           "country:Q41": {
-            "label": "Greece"
+            "label": "Greece",
+            "count": 13
           },
           "country:Q408": {
-            "label": "Australia"
+            "label": "Australia",
+            "count": 24
           },
           "country:Q713750": {
-            "label": "West Germany"
+            "label": "West Germany",
+            "count": 9
           },
           "country:Q40": {
-            "label": "Austria"
+            "label": "Austria",
+            "count": 10
           },
           "country:Q869": {
-            "label": "Thailand"
+            "label": "Thailand",
+            "count": 4
           },
           "country:Q20": {
-            "label": "Norway"
+            "label": "Norway",
+            "count": 10
           },
           "country:Q35": {
-            "label": "Denmark"
+            "label": "Denmark",
+            "count": 10
           },
           "country:Q96": {
-            "label": "Mexico"
+            "label": "Mexico",
+            "count": 26
           },
           "country:Q794": {
-            "label": "Iran"
+            "label": "Iran",
+            "count": 25
           },
           "country:Q28": {
-            "label": "Hungary"
+            "label": "Hungary",
+            "count": 16
           },
           "country:Q884": {
-            "label": "South Korea"
+            "label": "South Korea",
+            "count": 38
           },
           "country:Q865": {
-            "label": "Taiwan"
+            "label": "Taiwan",
+            "count": 26
           },
           "country:Q79": {
-            "label": "Egypt"
+            "label": "Egypt",
+            "count": 2
           },
           "country:Q739": {
-            "label": "Colombia"
+            "label": "Colombia",
+            "count": 2
           },
           "country:Q1041": {
-            "label": "Senegal"
+            "label": "Senegal",
+            "count": 8
           },
           "country:Q31": {
-            "label": "Belgium"
+            "label": "Belgium",
+            "count": 11
           },
           "country:Q155": {
-            "label": "Brazil"
+            "label": "Brazil",
+            "count": 10
           },
           "country:Q298": {
-            "label": "Chile"
+            "label": "Chile",
+            "count": 3
           },
           "country:Q172579": {
-            "label": "Kingdom of Italy"
+            "label": "Kingdom of Italy",
+            "count": 2
           },
           "country:Q262": {
-            "label": "Algeria"
+            "label": "Algeria",
+            "count": 2
           },
           "country:Q235": {
-            "label": "Monaco"
+            "label": "Monaco",
+            "count": 1
           },
           "country:Q801": {
-            "label": "Israel"
+            "label": "Israel",
+            "count": 2
           },
           "country:Q36704": {
-            "label": "Yugoslavia"
+            "label": "Yugoslavia",
+            "count": 5
           },
           "country:Q213": {
-            "label": "Czech Republic"
+            "label": "Czech Republic",
+            "count": 3
           },
           "country:Q219": {
-            "label": "Bulgaria"
+            "label": "Bulgaria",
+            "count": 1
           },
           "country:Q838261": {
-            "label": "Federal Republic of Yugoslavia"
+            "label": "Federal Republic of Yugoslavia",
+            "count": 2
           },
           "country:Q191": {
-            "label": "Estonia"
+            "label": "Estonia",
+            "count": 1
           },
           "country:Q211": {
-            "label": "Latvia"
+            "label": "Latvia",
+            "count": 2
           },
           "country:Q214": {
-            "label": "Slovakia"
+            "label": "Slovakia",
+            "count": 1
           },
           "country:Q215": {
-            "label": "Slovenia"
+            "label": "Slovenia",
+            "count": 1
           },
           "country:Q229": {
-            "label": "Cyprus"
+            "label": "Cyprus",
+            "count": 1
           },
           "country:Q233": {
-            "label": "Malta"
+            "label": "Malta",
+            "count": 1
           },
           "country:Q32": {
-            "label": "Luxembourg"
+            "label": "Luxembourg",
+            "count": 1
           },
           "country:Q33": {
-            "label": "Finland"
+            "label": "Finland",
+            "count": 4
           },
           "country:Q37": {
-            "label": "Lithuania"
+            "label": "Lithuania",
+            "count": 1
           },
           "country:Q45": {
-            "label": "Portugal"
+            "label": "Portugal",
+            "count": 7
           },
           "country:Q419": {
-            "label": "Peru"
+            "label": "Peru",
+            "count": 2
           },
           "country:Q33946": {
-            "label": "Czechoslovakia"
+            "label": "Czechoslovakia",
+            "count": 9
           },
           "country:Q664": {
-            "label": "New Zealand"
+            "label": "New Zealand",
+            "count": 3
           },
           "country:Q414": {
-            "label": "Argentina"
+            "label": "Argentina",
+            "count": 8
           },
           "country:Q948": {
-            "label": "Tunisia"
+            "label": "Tunisia",
+            "count": 2
           },
           "country:Q1206012": {
-            "label": "German Reich"
+            "label": "German Reich",
+            "count": 1
           },
           "country:Q41304": {
-            "label": "Weimar Republic"
+            "label": "Weimar Republic",
+            "count": 6
           },
           "country:Q237": {
-            "label": "Vatican City"
+            "label": "Vatican City",
+            "count": 1
           },
           "country:Q121932": {
-            "label": "People's Republic of Bulgaria"
+            "label": "People's Republic of Bulgaria",
+            "count": 1
           },
           "country:Q1005": {
-            "label": "The Gambia"
+            "label": "The Gambia",
+            "count": 1
           },
           "country:Q810": {
-            "label": "Jordan"
+            "label": "Jordan",
+            "count": 2
           },
           "country:Q878": {
-            "label": "United Arab Emirates"
+            "label": "United Arab Emirates",
+            "count": 2
           },
           "country:Q13426199": {
-            "label": "Republic of China"
+            "label": "Republic of China",
+            "count": 1
           },
           "country:Q912": {
-            "label": "Mali"
+            "label": "Mali",
+            "count": 1
           },
           "country:Q1054923": {
-            "label": "British Hong Kong"
+            "label": "British Hong Kong",
+            "count": 1
           },
           "country:Q1028": {
-            "label": "Morocco"
+            "label": "Morocco",
+            "count": 2
           },
           "country:Q822": {
-            "label": "Lebanon"
+            "label": "Lebanon",
+            "count": 1
           },
           "country:Q252": {
-            "label": "Indonesia"
+            "label": "Indonesia",
+            "count": 1
           },
           "country:Q29999": {
-            "label": "Kingdom of the Netherlands"
+            "label": "Kingdom of the Netherlands",
+            "count": 1
           },
           "country:Q1025": {
-            "label": "Mauritania"
+            "label": "Mauritania",
+            "count": 1
           },
           "country:Q83286": {
-            "label": "Socialist Federal Republic of Yugoslavia"
+            "label": "Socialist Federal Republic of Yugoslavia",
+            "count": 1
           },
           "country:Q221": {
-            "label": "North Macedonia"
+            "label": "North Macedonia",
+            "count": 1
           },
           "country:Q1009": {
-            "label": "Cameroon"
+            "label": "Cameroon",
+            "count": 1
           },
           "country:Q965": {
-            "label": "Burkina Faso"
+            "label": "Burkina Faso",
+            "count": 1
           },
           "country:Q159": {
-            "label": "Russia"
+            "label": "Russia",
+            "count": 2
           },
           "country:Q218": {
-            "label": "Romania"
+            "label": "Romania",
+            "count": 1
           },
           "country:Q189": {
-            "label": "Iceland"
+            "label": "Iceland",
+            "count": 1
           },
           "country:Q241": {
-            "label": "Cuba"
+            "label": "Cuba",
+            "count": 2
           },
           "country:Q717": {
-            "label": "Venezuela"
+            "label": "Venezuela",
+            "count": 1
           }
         }
       },
       "genre": {
         "label": "Genre",
-        "known": 2169,
-        "reviewedUnknown": 35,
+        "known": 2172,
+        "reviewedUnknown": 32,
         "total": 2204,
         "selectable": false,
         "values": {
           "genre:action": {
-            "label": "Action"
+            "label": "Action",
+            "count": 212
           },
           "genre:adventure": {
-            "label": "Adventure"
+            "label": "Adventure",
+            "count": 152
           },
           "genre:animation": {
-            "label": "Animation"
+            "label": "Animation",
+            "count": 26
           },
           "genre:comedy": {
-            "label": "Comedy"
+            "label": "Comedy",
+            "count": 382
           },
           "genre:crime": {
-            "label": "Crime"
+            "label": "Crime",
+            "count": 315
           },
           "genre:documentary": {
-            "label": "Documentary"
+            "label": "Documentary",
+            "count": 126
           },
           "genre:drama": {
             "label": "Drama",
             "broad": true,
-            "programmePriority": 0
+            "programmePriority": 0,
+            "count": 1552
           },
           "genre:experimental": {
-            "label": "Experimental"
+            "label": "Experimental",
+            "count": 22
           },
           "genre:fantasy": {
-            "label": "Fantasy"
+            "label": "Fantasy",
+            "count": 165
           },
           "genre:historical": {
-            "label": "Historical"
+            "label": "Historical & biographical",
+            "count": 165
           },
           "genre:horror": {
-            "label": "Horror"
+            "label": "Horror",
+            "count": 164
           },
           "genre:musical": {
-            "label": "Musical"
+            "label": "Musical",
+            "count": 56
           },
           "genre:mystery": {
-            "label": "Mystery"
+            "label": "Mystery",
+            "count": 162
           },
           "genre:romance": {
-            "label": "Romance"
+            "label": "Romance",
+            "count": 258
           },
           "genre:science-fiction": {
-            "label": "Science fiction"
+            "label": "Science fiction",
+            "count": 151
           },
           "genre:thriller": {
-            "label": "Thriller"
+            "label": "Thriller",
+            "count": 336
           },
           "genre:war": {
-            "label": "War"
+            "label": "War",
+            "count": 111
           },
           "genre:western": {
-            "label": "Western"
+            "label": "Western",
+            "count": 74
           },
           "genre:uncategorized": {
-            "label": "Uncategorized"
+            "label": "Uncategorized",
+            "count": 519
           }
         }
       },
       "movement": {
         "label": "Movement",
-        "total": 498,
+        "total": 454,
         "direct": 0,
         "inherited": 0,
-        "legacy": 498,
+        "legacy": 454,
         "selectable": false,
         "values": {
           "movement:Q16885381": {
-            "label": "Hong Kong Second Wave"
+            "label": "Hong Kong Second Wave",
+            "count": 14
           },
           "movement:Q837388": {
-            "label": "Hong Kong New Wave"
+            "label": "Hong Kong New Wave",
+            "count": 20
           },
           "movement:Q1246516": {
-            "label": "feminist art"
+            "label": "feminist art",
+            "count": 12
           },
           "movement:Q193541": {
-            "label": "French New Wave"
+            "label": "French New Wave",
+            "count": 118
           },
           "movement:Q377616": {
-            "label": "New Hollywood"
+            "label": "New Hollywood",
+            "count": 96
           },
           "movement:Q643782": {
-            "label": "New German Cinema"
+            "label": "New German Cinema",
+            "count": 123
           },
           "movement:Q95875016": {
-            "label": "sixth generation Chinese cinema"
+            "label": "sixth generation Chinese cinema",
+            "count": 16
           },
           "movement:Q39427": {
-            "label": "surrealism"
+            "label": "surrealism",
+            "count": 36
           },
           "movement:Q92787512": {
-            "label": "fifth generation Chinese cinema"
+            "label": "fifth generation Chinese cinema",
+            "count": 11
           },
           "movement:Q4824505": {
-            "label": "Australian New Wave"
+            "label": "Australian New Wave",
+            "count": 2
           },
           "movement:Q21015774": {
-            "label": "Laboratoire Agit'Art"
+            "label": "Laboratoire Agit'Art",
+            "count": 2
           },
           "movement:Q259620": {
-            "label": "Wiener Gruppe"
+            "label": "Wiener Gruppe",
+            "count": 2
           },
           "movement:Q732018": {
-            "label": "Group 47"
+            "label": "Group 47",
+            "count": 2
           },
           "movement:Q80113": {
-            "label": "Expressionism"
+            "label": "Expressionism",
+            "count": 12
           },
           "movement:Q62086465": {
-            "label": "Greek Weird Wave"
+            "label": "Greek Weird Wave",
+            "count": 7
           },
           "movement:Q102932": {
-            "label": "avant-garde"
+            "label": "avant-garde",
+            "count": 3
           },
           "movement:Q1092621": {
-            "label": "cinéma vérité"
+            "label": "cinéma vérité",
+            "count": 2
           },
           "movement:Q59104": {
-            "label": "continental philosophy"
+            "label": "continental philosophy",
+            "count": 1
           },
           "movement:Q191760": {
-            "label": "theatre of the absurd"
+            "label": "theatre of the absurd",
+            "count": 1
           },
           "movement:Q6034": {
-            "label": "Dada"
+            "label": "Dada",
+            "count": 1
           },
           "movement:Q727553": {
-            "label": "French Impressionist Cinema"
+            "label": "French Impressionist Cinema",
+            "count": 2
           },
           "movement:Q3393199": {
-            "label": "No Wave Cinema"
+            "label": "No Wave Cinema",
+            "count": 3
           },
           "movement:Q3408764": {
-            "label": "Pre-Code Hollywood"
+            "label": "Pre-Code Hollywood",
+            "count": 1
           },
           "movement:Q160476": {
-            "label": "German Expressionism"
+            "label": "German Expressionism",
+            "count": 1
           },
           "movement:Q96948661": {
-            "label": "second generation Chinese cinema"
+            "label": "second generation Chinese cinema",
+            "count": 1
           },
           "movement:Q2843729": {
-            "label": "New Argentine Cinema"
+            "label": "New Argentine Cinema",
+            "count": 3
           },
           "movement:Q1092442": {
-            "label": "Cinema Novo"
+            "label": "Cinema Novo",
+            "count": 2
           },
           "movement:Q134147": {
-            "label": "pop art"
+            "label": "pop art",
+            "count": 1
           },
           "movement:Q211481": {
-            "label": "Dogme 95"
+            "label": "Dogme 95",
+            "count": 1
           },
           "movement:Q186030": {
-            "label": "contemporary art"
+            "label": "contemporary art",
+            "count": 1
           },
           "movement:Q2356541": {
-            "label": "Czechoslovak New Wave"
+            "label": "Czechoslovak New Wave",
+            "count": 1
           }
         }
       },
@@ -4884,2668 +5024,3556 @@
         "selectable": false,
         "values": {
           "director:unknown": {
-            "label": "Unknown"
+            "label": "Unknown",
+            "count": 3
           },
           "director:Q55431": {
-            "label": "Wong Kar-wai"
+            "label": "Wong Kar-wai",
+            "count": 12
           },
           "director:Q345217": {
-            "label": "Lucio Fulci"
+            "label": "Lucio Fulci",
+            "count": 1
           },
           "director:Q229990": {
-            "label": "Agnès Varda"
+            "label": "Agnès Varda",
+            "count": 12
           },
           "director:Q55397": {
-            "label": "Kon Ichikawa"
+            "label": "Kon Ichikawa",
+            "count": 8
           },
           "director:Q7374": {
-            "label": "Alfred Hitchcock"
+            "label": "Alfred Hitchcock",
+            "count": 61
           },
           "director:Q55277": {
-            "label": "John Boorman"
+            "label": "John Boorman",
+            "count": 3
           },
           "director:Q8006": {
-            "label": "Akira Kurosawa"
+            "label": "Akira Kurosawa",
+            "count": 32
           },
           "director:Q55428": {
-            "label": "Neil Jordan"
+            "label": "Neil Jordan",
+            "count": 1
           },
           "director:Q167475": {
-            "label": "Jacques Rivette"
+            "label": "Jacques Rivette",
+            "count": 6
           },
           "director:Q721389": {
-            "label": "James Foley"
+            "label": "James Foley",
+            "count": 2
           },
           "director:Q129079": {
-            "label": "Paul Verhoeven"
+            "label": "Paul Verhoeven",
+            "count": 4
           },
           "director:Q522256": {
-            "label": "Sidney Hayers"
+            "label": "Sidney Hayers",
+            "count": 1
           },
           "director:Q381876": {
-            "label": "Jan Troell"
+            "label": "Jan Troell",
+            "count": 2
           },
           "director:Q539685": {
-            "label": "Michael Anderson"
+            "label": "Michael Anderson",
+            "count": 1
           },
           "director:Q503720": {
-            "label": "Andrew Bergman"
+            "label": "Andrew Bergman",
+            "count": 2
           },
           "director:Q44131": {
-            "label": "Werner Herzog"
+            "label": "Werner Herzog",
+            "count": 50
           },
           "director:Q38222": {
-            "label": "George Lucas"
+            "label": "George Lucas",
+            "count": 4
           },
           "director:Q53002": {
-            "label": "François Truffaut"
+            "label": "François Truffaut",
+            "count": 22
           },
           "director:Q461350": {
-            "label": "Céline Sciamma"
+            "label": "Céline Sciamma",
+            "count": 2
           },
           "director:Q8873": {
-            "label": "Satyajit Ray"
+            "label": "Satyajit Ray",
+            "count": 33
           },
           "director:Q366242": {
-            "label": "Adoor Gopalakrishnan"
+            "label": "Adoor Gopalakrishnan",
+            "count": 1
           },
           "director:Q41148": {
-            "label": "Martin Scorsese"
+            "label": "Martin Scorsese",
+            "count": 41
           },
           "director:Q7546": {
-            "label": "Ingmar Bergman"
+            "label": "Ingmar Bergman",
+            "count": 52
           },
           "director:Q1442590": {
-            "label": "Franco Giraldi"
+            "label": "Franco Giraldi",
+            "count": 4
           },
           "director:Q170256": {
-            "label": "Chris Marker"
+            "label": "Chris Marker",
+            "count": 3
           },
           "director:Q1007270": {
-            "label": "Roberto Faenza"
+            "label": "Roberto Faenza",
+            "count": 5
           },
           "director:Q692645": {
-            "label": "Arne Mattsson"
+            "label": "Arne Mattsson",
+            "count": 2
           },
           "director:Q24719455": {
-            "label": "Alice Diop"
+            "label": "Alice Diop",
+            "count": 1
           },
           "director:Q7371": {
-            "label": "Federico Fellini"
+            "label": "Federico Fellini",
+            "count": 24
           },
           "director:Q27351": {
-            "label": "Senkichi Taniguchi"
+            "label": "Senkichi Taniguchi",
+            "count": 3
           },
           "director:Q215478": {
-            "label": "Terrence Malick"
+            "label": "Terrence Malick",
+            "count": 11
           },
           "director:Q926034": {
-            "label": "Shinji Aoyama"
+            "label": "Shinji Aoyama",
+            "count": 1
           },
           "director:Q55165": {
-            "label": "Krzysztof Kieślowski"
+            "label": "Krzysztof Kieślowski",
+            "count": 25
           },
           "director:Q55391": {
-            "label": "Robert Bresson"
+            "label": "Robert Bresson",
+            "count": 13
           },
           "director:Q461079": {
-            "label": "Jia Zhangke"
+            "label": "Jia Zhangke",
+            "count": 12
           },
           "director:Q436861": {
-            "label": "Kelly Reichardt"
+            "label": "Kelly Reichardt",
+            "count": 7
           },
           "director:Q1386330": {
-            "label": "Ramesh Sippy"
+            "label": "Ramesh Sippy",
+            "count": 1
           },
           "director:Q314301": {
-            "label": "Peter Yates"
+            "label": "Peter Yates",
+            "count": 3
           },
           "director:Q189526": {
-            "label": "Brian De Palma"
+            "label": "Brian De Palma",
+            "count": 5
           },
           "director:Q445807": {
-            "label": "Masaki Kobayashi"
+            "label": "Masaki Kobayashi",
+            "count": 10
           },
           "director:Q1452243": {
-            "label": "Fred C. Newmeyer"
+            "label": "Fred C. Newmeyer",
+            "count": 1
           },
           "director:Q719427": {
-            "label": "Sam Taylor"
+            "label": "Sam Taylor",
+            "count": 1
           },
           "director:Q53044": {
-            "label": "Elio Petri"
+            "label": "Elio Petri",
+            "count": 10
           },
           "director:Q1350623": {
-            "label": "Frank Perry"
+            "label": "Frank Perry",
+            "count": 1
           },
           "director:Q53011": {
-            "label": "Dario Argento"
+            "label": "Dario Argento",
+            "count": 10
           },
           "director:Q55422": {
-            "label": "David Cronenberg"
+            "label": "David Cronenberg",
+            "count": 24
           },
           "director:Q53001": {
-            "label": "Jean-Luc Godard"
+            "label": "Jean-Luc Godard",
+            "count": 51
           },
           "director:Q604362": {
-            "label": "Jean-Pierre Gorin"
+            "label": "Jean-Pierre Gorin",
+            "count": 5
           },
           "director:Q55402": {
-            "label": "Yasujirō Ozu"
+            "label": "Yasujirō Ozu",
+            "count": 33
           },
           "director:Q25120": {
-            "label": "Pier Paolo Pasolini"
+            "label": "Pier Paolo Pasolini",
+            "count": 12
           },
           "director:Q3856438": {
-            "label": "Michelangelo Frammartino"
+            "label": "Michelangelo Frammartino",
+            "count": 1
           },
           "director:Q37001": {
-            "label": "Toshirō Mifune"
+            "label": "Toshirō Mifune",
+            "count": 1
           },
           "director:Q548823": {
-            "label": "Denis Villeneuve"
+            "label": "Denis Villeneuve",
+            "count": 6
           },
           "director:Q324937": {
-            "label": "Mikhail Kalatozov"
+            "label": "Mikhail Kalatozov",
+            "count": 3
           },
           "director:Q44426": {
-            "label": "Rainer Werner Fassbinder"
+            "label": "Rainer Werner Fassbinder",
+            "count": 31
           },
           "director:Q96024": {
-            "label": "Michael Fengler"
+            "label": "Michael Fengler",
+            "count": 3
           },
           "director:Q26208": {
-            "label": "Carlo Lizzani"
+            "label": "Carlo Lizzani",
+            "count": 5
           },
           "director:Q53037": {
-            "label": "Ettore Scola"
+            "label": "Ettore Scola",
+            "count": 1
           },
           "director:Q555703": {
-            "label": "Gian Luigi Polidoro"
+            "label": "Gian Luigi Polidoro",
+            "count": 2
           },
           "director:Q55410": {
-            "label": "Max Ophüls"
+            "label": "Max Ophüls",
+            "count": 4
           },
           "director:Q51545": {
-            "label": "Luis Buñuel"
+            "label": "Luis Buñuel",
+            "count": 17
           },
           "director:Q149136": {
-            "label": "Guru Dutt"
+            "label": "Guru Dutt",
+            "count": 1
           },
           "director:Q106685": {
-            "label": "Andrzej Wajda"
+            "label": "Andrzej Wajda",
+            "count": 7
           },
           "director:Q621818": {
-            "label": "Rian Johnson"
+            "label": "Rian Johnson",
+            "count": 1
           },
           "director:Q25191": {
-            "label": "Christopher Nolan"
+            "label": "Christopher Nolan",
+            "count": 11
           },
           "director:Q56094": {
-            "label": "Francis Ford Coppola"
+            "label": "Francis Ford Coppola",
+            "count": 26
           },
           "director:Q743907": {
-            "label": "Richard C. Sarafian"
+            "label": "Richard C. Sarafian",
+            "count": 1
           },
           "director:Q55168": {
-            "label": "Thodoros Angelopoulos"
+            "label": "Thodoros Angelopoulos",
+            "count": 10
           },
           "director:Q51461": {
-            "label": "Sam Peckinpah"
+            "label": "Sam Peckinpah",
+            "count": 4
           },
           "director:Q260969": {
-            "label": "Jules Dassin"
+            "label": "Jules Dassin",
+            "count": 2
           },
           "director:Q1361201": {
-            "label": "Frederick Wiseman"
+            "label": "Frederick Wiseman",
+            "count": 2
           },
           "director:Q8877": {
-            "label": "Steven Spielberg"
+            "label": "Steven Spielberg",
+            "count": 37
           },
           "director:Q725449": {
-            "label": "Brad Silberling"
+            "label": "Brad Silberling",
+            "count": 2
           },
           "director:Q287451": {
-            "label": "Martin Ritt"
+            "label": "Martin Ritt",
+            "count": 4
           },
           "director:Q84199": {
-            "label": "Michael Haneke"
+            "label": "Michael Haneke",
+            "count": 6
           },
           "director:Q95143": {
-            "label": "Carol Reed"
+            "label": "Carol Reed",
+            "count": 1
           },
           "director:Q2071": {
-            "label": "David Lynch"
+            "label": "David Lynch",
+            "count": 16
           },
           "director:Q164562": {
-            "label": "Sergio Leone"
+            "label": "Sergio Leone",
+            "count": 10
           },
           "director:Q445198": {
-            "label": "Apichatpong Weerasethakul"
+            "label": "Apichatpong Weerasethakul",
+            "count": 2
           },
           "director:Q51114": {
-            "label": "John Ford"
+            "label": "John Ford",
+            "count": 4
           },
           "director:Q2666954": {
-            "label": "Arne Skouen"
+            "label": "Arne Skouen",
+            "count": 1
           },
           "director:Q53018": {
-            "label": "Marco Ferreri"
+            "label": "Marco Ferreri",
+            "count": 3
           },
           "director:Q55230": {
-            "label": "Emeric Pressburger"
+            "label": "Emeric Pressburger",
+            "count": 12
           },
           "director:Q55234": {
-            "label": "Michael Powell"
+            "label": "Michael Powell",
+            "count": 14
           },
           "director:Q51541": {
-            "label": "Nicolas Roeg"
+            "label": "Nicolas Roeg",
+            "count": 3
           },
           "director:Q168693": {
-            "label": "Jean-Pierre Melville"
+            "label": "Jean-Pierre Melville",
+            "count": 12
           },
           "director:Q106709": {
-            "label": "Patrice Leconte"
+            "label": "Patrice Leconte",
+            "count": 1
           },
           "director:Q113628": {
-            "label": "Idrissa Ouédraogo"
+            "label": "Idrissa Ouédraogo",
+            "count": 2
           },
           "director:Q1495587": {
-            "label": "Gaston Kaboré"
+            "label": "Gaston Kaboré",
+            "count": 1
           },
           "director:Q1611435": {
-            "label": "Jaco Van Dormael"
+            "label": "Jaco Van Dormael",
+            "count": 1
           },
           "director:Q1624921": {
-            "label": "Merzak Allouache"
+            "label": "Merzak Allouache",
+            "count": 1
           },
           "director:Q191064": {
-            "label": "Liv Ullmann"
+            "label": "Liv Ullmann",
+            "count": 4
           },
           "director:Q2033788": {
-            "label": "Raymond Depardon"
+            "label": "Raymond Depardon",
+            "count": 2
           },
           "director:Q2476978": {
-            "label": "Yoshishige Yoshida"
+            "label": "Yoshishige Yoshida",
+            "count": 1
           },
           "director:Q266222": {
-            "label": "Nadine Trintignant"
+            "label": "Nadine Trintignant",
+            "count": 1
           },
           "director:Q295093": {
-            "label": "Claude Lelouch"
+            "label": "Claude Lelouch",
+            "count": 5
           },
           "director:Q296698": {
-            "label": "Costa-Gavras"
+            "label": "Costa-Gavras",
+            "count": 4
           },
           "director:Q312280": {
-            "label": "Alain Corneau"
+            "label": "Alain Corneau",
+            "count": 1
           },
           "director:Q312611": {
-            "label": "Youssef Chahine"
+            "label": "Youssef Chahine",
+            "count": 3
           },
           "director:Q316051": {
-            "label": "Lasse Hallström"
+            "label": "Lasse Hallström",
+            "count": 4
           },
           "director:Q381934": {
-            "label": "Fernando Trueba"
+            "label": "Fernando Trueba",
+            "count": 1
           },
           "director:Q41136": {
-            "label": "Arthur Penn"
+            "label": "Arthur Penn",
+            "count": 4
           },
           "director:Q453371": {
-            "label": "Claude Miller"
+            "label": "Claude Miller",
+            "count": 1
           },
           "director:Q468785": {
-            "label": "Bigas Luna"
+            "label": "Bigas Luna",
+            "count": 1
           },
           "director:Q513632": {
-            "label": "Cédric Klapisch"
+            "label": "Cédric Klapisch",
+            "count": 1
           },
           "director:Q51566": {
-            "label": "Spike Lee"
+            "label": "Spike Lee",
+            "count": 3
           },
           "director:Q51577": {
-            "label": "James Ivory"
+            "label": "James Ivory",
+            "count": 1
           },
           "director:Q538578": {
-            "label": "Hugh Hudson"
+            "label": "Hugh Hudson",
+            "count": 1
           },
           "director:Q55208": {
-            "label": "Andrei Konchalovsky"
+            "label": "Andrei Konchalovsky",
+            "count": 3
           },
           "director:Q55210": {
-            "label": "Abbas Kiarostami"
+            "label": "Abbas Kiarostami",
+            "count": 13
           },
           "director:Q55282": {
-            "label": "Peter Greenaway"
+            "label": "Peter Greenaway",
+            "count": 2
           },
           "director:Q553819": {
-            "label": "Gabriel Axel"
+            "label": "Gabriel Axel",
+            "count": 1
           },
           "director:Q55411": {
-            "label": "Wim Wenders"
+            "label": "Wim Wenders",
+            "count": 31
           },
           "director:Q55430": {
-            "label": "Zhang Yimou"
+            "label": "Zhang Yimou",
+            "count": 8
           },
           "director:Q67903": {
-            "label": "Helma Sanders-Brahms"
+            "label": "Helma Sanders-Brahms",
+            "count": 1
           },
           "director:Q693189": {
-            "label": "Sarah Moon"
+            "label": "Sarah Moon",
+            "count": 1
           },
           "director:Q704576": {
-            "label": "Vicente Aranda"
+            "label": "Vicente Aranda",
+            "count": 1
           },
           "director:Q711984": {
-            "label": "Francis Girod"
+            "label": "Francis Girod",
+            "count": 1
           },
           "director:Q732397": {
-            "label": "Ismail Merchant"
+            "label": "Ismail Merchant",
+            "count": 1
           },
           "director:Q935852": {
-            "label": "Jerry Schatzberg"
+            "label": "Jerry Schatzberg",
+            "count": 1
           },
           "director:Q951570": {
-            "label": "Régis Wargnier"
+            "label": "Régis Wargnier",
+            "count": 1
           },
           "director:Q967207": {
-            "label": "Lucian Pintilie"
+            "label": "Lucian Pintilie",
+            "count": 1
           },
           "director:Q115803783": {
-            "label": "Charlotte Wells"
+            "label": "Charlotte Wells",
+            "count": 1
           },
           "director:Q1750712": {
-            "label": "Scott Cooper"
+            "label": "Scott Cooper",
+            "count": 1
           },
           "director:Q240677": {
-            "label": "Nicholas Ray"
+            "label": "Nicholas Ray",
+            "count": 8
           },
           "director:Q372394": {
-            "label": "Martin McDonagh"
+            "label": "Martin McDonagh",
+            "count": 5
           },
           "director:Q13595311": {
-            "label": "Joel Coen"
+            "label": "Joel Coen",
+            "count": 21
           },
           "director:Q13595531": {
-            "label": "Ethan Coen"
+            "label": "Ethan Coen",
+            "count": 22
           },
           "director:Q374678": {
-            "label": "Paolo Sorrentino"
+            "label": "Paolo Sorrentino",
+            "count": 2
           },
           "director:Q314142": {
-            "label": "Edward Zwick"
+            "label": "Edward Zwick",
+            "count": 2
           },
           "director:Q51552": {
-            "label": "Roman Polanski"
+            "label": "Roman Polanski",
+            "count": 22
           },
           "director:Q285084": {
-            "label": "Mamoru Oshii"
+            "label": "Mamoru Oshii",
+            "count": 2
           },
           "director:Q309214": {
-            "label": "Norman Jewison"
+            "label": "Norman Jewison",
+            "count": 4
           },
           "director:Q705405": {
-            "label": "Yoshitarō Nomura"
+            "label": "Yoshitarō Nomura",
+            "count": 3
           },
           "director:Q1371306": {
-            "label": "Mikio Naruse"
+            "label": "Mikio Naruse",
+            "count": 23
           },
           "director:Q1232980": {
-            "label": "Luigi Chiarini"
+            "label": "Luigi Chiarini",
+            "count": 1
           },
           "director:Q3018459": {
-            "label": "David Michôd"
+            "label": "David Michôd",
+            "count": 1
           },
           "director:Q178713": {
-            "label": "Isao Takahata"
+            "label": "Isao Takahata",
+            "count": 6
           },
           "director:Q53048": {
-            "label": "Francesco Maselli"
+            "label": "Francesco Maselli",
+            "count": 3
           },
           "director:Q516987": {
-            "label": "Elem Klimov"
+            "label": "Elem Klimov",
+            "count": 1
           },
           "director:Q1041896": {
-            "label": "Carlo Borghesio"
+            "label": "Carlo Borghesio",
+            "count": 1
           },
           "director:Q312944": {
-            "label": "Béla Tarr"
+            "label": "Béla Tarr",
+            "count": 9
           },
           "director:Q95125": {
-            "label": "James L. Brooks"
+            "label": "James L. Brooks",
+            "count": 3
           },
           "director:Q563542": {
-            "label": "Richard Dembo"
+            "label": "Richard Dembo",
+            "count": 1
           },
           "director:Q42574": {
-            "label": "James Cameron"
+            "label": "James Cameron",
+            "count": 10
           },
           "director:Q3442731": {
-            "label": "Rospo Pallenberg"
+            "label": "Rospo Pallenberg",
+            "count": 1
           },
           "director:Q309950": {
-            "label": "Shohei Imamura"
+            "label": "Shohei Imamura",
+            "count": 7
           },
           "director:Q1335528": {
-            "label": "Luca Guadagnino"
+            "label": "Luca Guadagnino",
+            "count": 4
           },
           "director:Q17220313": {
-            "label": "Ryusuke Hamaguchi"
+            "label": "Ryusuke Hamaguchi",
+            "count": 1
           },
           "director:Q218022": {
-            "label": "Alain Resnais"
+            "label": "Alain Resnais",
+            "count": 9
           },
           "director:Q238616": {
-            "label": "Joris Ivens"
+            "label": "Joris Ivens",
+            "count": 1
           },
           "director:Q723892": {
-            "label": "William Klein"
+            "label": "William Klein",
+            "count": 1
           },
           "director:Q55424": {
-            "label": "Peter Weir"
+            "label": "Peter Weir",
+            "count": 2
           },
           "director:Q720293": {
-            "label": "David S. Ward"
+            "label": "David S. Ward",
+            "count": 1
           },
           "director:Q740758": {
-            "label": "Hirokazu Koreeda"
+            "label": "Hirokazu Koreeda",
+            "count": 15
           },
           "director:Q59204": {
-            "label": "Alberto Lattuada"
+            "label": "Alberto Lattuada",
+            "count": 7
           },
           "director:Q51582": {
-            "label": "William Friedkin"
+            "label": "William Friedkin",
+            "count": 4
           },
           "director:Q380846": {
-            "label": "Kaneto Shindō"
+            "label": "Kaneto Shindō",
+            "count": 14
           },
           "director:Q239656": {
-            "label": "Lee Chang-dong"
+            "label": "Lee Chang-dong",
+            "count": 3
           },
           "director:Q5886394": {
-            "label": "Ivar Johansson"
+            "label": "Ivar Johansson",
+            "count": 3
           },
           "director:Q31637": {
-            "label": "Jafar Panahi"
+            "label": "Jafar Panahi",
+            "count": 2
           },
           "director:Q55443": {
-            "label": "Sergio Corbucci"
+            "label": "Sergio Corbucci",
+            "count": 11
           },
           "director:Q3017469": {
-            "label": "David Beaird"
+            "label": "David Beaird",
+            "count": 1
           },
           "director:Q716700": {
-            "label": "Edward Yang"
+            "label": "Edward Yang",
+            "count": 7
           },
           "director:Q313497": {
-            "label": "Danis Tanović"
+            "label": "Danis Tanović",
+            "count": 1
           },
           "director:Q432709": {
-            "label": "Samira Makhmalbaf"
+            "label": "Samira Makhmalbaf",
+            "count": 2
           },
           "director:Q44221": {
-            "label": "Sean Penn"
+            "label": "Sean Penn",
+            "count": 1
           },
           "director:Q466320": {
-            "label": "Mira Nair"
+            "label": "Mira Nair",
+            "count": 2
           },
           "director:Q474262": {
-            "label": "Amos Gitai"
+            "label": "Amos Gitai",
+            "count": 2
           },
           "director:Q55215": {
-            "label": "Alejandro González Iñárritu"
+            "label": "Alejandro González Iñárritu",
+            "count": 3
           },
           "director:Q55238": {
-            "label": "Ken Loach"
+            "label": "Ken Loach",
+            "count": 3
           },
           "director:Q55384": {
-            "label": "Henri-Georges Clouzot"
+            "label": "Henri-Georges Clouzot",
+            "count": 3
           },
           "director:Q495879": {
-            "label": "Jang Hoon"
+            "label": "Jang Hoon",
+            "count": 1
           },
           "director:Q350717": {
-            "label": "Michael Apted"
+            "label": "Michael Apted",
+            "count": 1
           },
           "director:Q53016": {
-            "label": "Giuseppe De Santis"
+            "label": "Giuseppe De Santis",
+            "count": 2
           },
           "director:Q55403": {
-            "label": "Nagisa Ōshima"
+            "label": "Nagisa Ōshima",
+            "count": 8
           },
           "director:Q64392": {
-            "label": "Edgar Reitz"
+            "label": "Edgar Reitz",
+            "count": 2
           },
           "director:Q504503": {
-            "label": "Andrew Dominik"
+            "label": "Andrew Dominik",
+            "count": 2
           },
           "director:Q560108": {
-            "label": "Gordon Willis"
+            "label": "Gordon Willis",
+            "count": 1
           },
           "director:Q51133": {
-            "label": "King Vidor"
+            "label": "King Vidor",
+            "count": 4
           },
           "director:Q7508959": {
-            "label": "Sidney Bernstein, Baron Bernstein"
+            "label": "Sidney Bernstein, Baron Bernstein",
+            "count": 1
           },
           "director:Q53050": {
-            "label": "Francesco Rosi"
+            "label": "Francesco Rosi",
+            "count": 11
           },
           "director:Q2001": {
-            "label": "Stanley Kubrick"
+            "label": "Stanley Kubrick",
+            "count": 14
           },
           "director:Q259687": {
-            "label": "Alex Proyas"
+            "label": "Alex Proyas",
+            "count": 1
           },
           "director:Q504722": {
-            "label": "George P. Cosmatos"
+            "label": "George P. Cosmatos",
+            "count": 2
           },
           "director:Q3474009": {
-            "label": "Satsuo Yamamoto"
+            "label": "Satsuo Yamamoto",
+            "count": 1
           },
           "director:Q2052995": {
-            "label": "Kajirō Yamamoto"
+            "label": "Kajirō Yamamoto",
+            "count": 2
           },
           "director:Q10877243": {
-            "label": "Seiji Maruyama"
+            "label": "Seiji Maruyama",
+            "count": 1
           },
           "director:Q6314417": {
-            "label": "Junya Satō"
+            "label": "Junya Satō",
+            "count": 1
           },
           "director:Q26372": {
-            "label": "Takeshi Kitano"
+            "label": "Takeshi Kitano",
+            "count": 9
           },
           "director:Q55404": {
-            "label": "Ritwik Ghatak"
+            "label": "Ritwik Ghatak",
+            "count": 2
           },
           "director:Q490406": {
-            "label": "Na Hong-jin"
+            "label": "Na Hong-jin",
+            "count": 1
           },
           "director:Q1886953": {
-            "label": "Masahiro Shinoda"
+            "label": "Masahiro Shinoda",
+            "count": 4
           },
           "director:Q882": {
-            "label": "Charlie Chaplin"
+            "label": "Charlie Chaplin",
+            "count": 8
           },
           "director:Q1040240": {
-            "label": "Franco Rossi"
+            "label": "Franco Rossi",
+            "count": 2
           },
           "director:Q13888": {
-            "label": "Luchino Visconti"
+            "label": "Luchino Visconti",
+            "count": 5
           },
           "director:Q53004": {
-            "label": "Vittorio De Sica"
+            "label": "Vittorio De Sica",
+            "count": 7
           },
           "director:Q53008": {
-            "label": "Mauro Bolognini"
+            "label": "Mauro Bolognini",
+            "count": 13
           },
           "director:Q53009": {
-            "label": "Bernardo Bertolucci"
+            "label": "Bernardo Bertolucci",
+            "count": 7
           },
           "director:Q949023": {
-            "label": "Ettore Maria Fizzarotti"
+            "label": "Ettore Maria Fizzarotti",
+            "count": 3
           },
           "director:Q1232197": {
-            "label": "Djibril Diop Mambéty"
+            "label": "Djibril Diop Mambéty",
+            "count": 2
           },
           "director:Q7441419": {
-            "label": "Sean Baker"
+            "label": "Sean Baker",
+            "count": 3
           },
           "director:Q524278": {
-            "label": "Jay Roach"
+            "label": "Jay Roach",
+            "count": 1
           },
           "director:Q55444": {
-            "label": "Damiano Damiani"
+            "label": "Damiano Damiani",
+            "count": 1
           },
           "director:Q1411603": {
-            "label": "George Hickenlooper"
+            "label": "George Hickenlooper",
+            "count": 1
           },
           "director:Q4943414": {
-            "label": "Eleanor Coppola"
+            "label": "Eleanor Coppola",
+            "count": 1
           },
           "director:Q3080378": {
-            "label": "Yasuo Furuhata"
+            "label": "Yasuo Furuhata",
+            "count": 1
           },
           "director:Q44107": {
-            "label": "Peter Handke"
+            "label": "Peter Handke",
+            "count": 2
           },
           "director:Q55412": {
-            "label": "F. W. Murnau"
+            "label": "F. W. Murnau",
+            "count": 4
           },
           "director:Q315484": {
-            "label": "Park Chan-wook"
+            "label": "Park Chan-wook",
+            "count": 14
           },
           "director:Q95008": {
-            "label": "John Carpenter"
+            "label": "John Carpenter",
+            "count": 18
           },
           "director:Q153018": {
-            "label": "Maximilian Schell"
+            "label": "Maximilian Schell",
+            "count": 1
           },
           "director:Q60858": {
-            "label": "Douglas Sirk"
+            "label": "Douglas Sirk",
+            "count": 9
           },
           "director:Q363989": {
-            "label": "Paul Schrader"
+            "label": "Paul Schrader",
+            "count": 1
           },
           "director:Q55401": {
-            "label": "Kenji Mizoguchi"
+            "label": "Kenji Mizoguchi",
+            "count": 20
           },
           "director:Q446960": {
-            "label": "George Miller"
+            "label": "George Miller",
+            "count": 5
           },
           "director:Q55400": {
-            "label": "Hayao Miyazaki"
+            "label": "Hayao Miyazaki",
+            "count": 12
           },
           "director:Q56005": {
-            "label": "Ridley Scott"
+            "label": "Ridley Scott",
+            "count": 12
           },
           "director:Q19504": {
-            "label": "Fritz Lang"
+            "label": "Fritz Lang",
+            "count": 12
           },
           "director:Q725451": {
-            "label": "Graham Cutts"
+            "label": "Graham Cutts",
+            "count": 3
           },
           "director:Q278657": {
-            "label": "A. Edward Sutherland"
+            "label": "A. Edward Sutherland",
+            "count": 1
           },
           "director:Q269505": {
-            "label": "Henry King"
+            "label": "Henry King",
+            "count": 1
           },
           "director:Q286104": {
-            "label": "Jean Negulesco"
+            "label": "Jean Negulesco",
+            "count": 1
           },
           "director:Q457250": {
-            "label": "Henry Hathaway"
+            "label": "Henry Hathaway",
+            "count": 2
           },
           "director:Q51581": {
-            "label": "Howard Hawks"
+            "label": "Howard Hawks",
+            "count": 6
           },
           "director:Q61859": {
-            "label": "Henry Koster"
+            "label": "Henry Koster",
+            "count": 1
           },
           "director:Q51808923": {
-            "label": "RaMell Ross"
+            "label": "RaMell Ross",
+            "count": 1
           },
           "director:Q1351715": {
-            "label": "Georges Lautner"
+            "label": "Georges Lautner",
+            "count": 1
           },
           "director:Q3437083": {
-            "label": "Robin Hardy"
+            "label": "Robin Hardy",
+            "count": 1
           },
           "director:Q975410": {
-            "label": "Yorgos Lanthimos"
+            "label": "Yorgos Lanthimos",
+            "count": 7
           },
           "director:Q239823": {
-            "label": "Chantal Akerman"
+            "label": "Chantal Akerman",
+            "count": 2
           },
           "director:Q458696": {
-            "label": "Walter Salles"
+            "label": "Walter Salles",
+            "count": 3
           },
           "director:Q55473": {
-            "label": "Luigi Zampa"
+            "label": "Luigi Zampa",
+            "count": 8
           },
           "director:Q2347045": {
-            "label": "Steve James"
+            "label": "Steve James",
+            "count": 1
           },
           "director:Q295445": {
-            "label": "Frank Darabont"
+            "label": "Frank Darabont",
+            "count": 1
           },
           "director:Q3105938": {
-            "label": "Gilberto Martínez Solares"
+            "label": "Gilberto Martínez Solares",
+            "count": 1
           },
           "director:Q55394": {
-            "label": "Henri Verneuil"
+            "label": "Henri Verneuil",
+            "count": 3
           },
           "director:Q458455": {
-            "label": "Suzanne Schiffman"
+            "label": "Suzanne Schiffman",
+            "count": 1
           },
           "director:Q51559": {
-            "label": "Sidney Lumet"
+            "label": "Sidney Lumet",
+            "count": 6
           },
           "director:Q953627": {
-            "label": "Mark Rydell"
+            "label": "Mark Rydell",
+            "count": 3
           },
           "director:Q3297155": {
-            "label": "Masami Hata"
+            "label": "Masami Hata",
+            "count": 1
           },
           "director:Q3568984": {
-            "label": "William T. Hurtz"
+            "label": "William T. Hurtz",
+            "count": 1
           },
           "director:Q77890": {
-            "label": "Kurt Hoffmann"
+            "label": "Kurt Hoffmann",
+            "count": 5
           },
           "director:Q969527": {
-            "label": "Heinosuke Gosho"
+            "label": "Heinosuke Gosho",
+            "count": 1
           },
           "director:Q5295445": {
-            "label": "Kazuo Mori"
+            "label": "Kazuo Mori",
+            "count": 2
           },
           "director:Q59210": {
-            "label": "Mario Soldati"
+            "label": "Mario Soldati",
+            "count": 4
           },
           "director:Q158250": {
-            "label": "Peter Bogdanovich"
+            "label": "Peter Bogdanovich",
+            "count": 1
           },
           "director:Q3435756": {
-            "label": "Robert Lieberman"
+            "label": "Robert Lieberman",
+            "count": 1
           },
           "director:Q742622": {
-            "label": "Pierre Schoendoerffer"
+            "label": "Pierre Schoendoerffer",
+            "count": 3
           },
           "director:Q103646": {
-            "label": "Ron Howard"
+            "label": "Ron Howard",
+            "count": 3
           },
           "director:Q263730": {
-            "label": "Alejandro Jodorowsky"
+            "label": "Alejandro Jodorowsky",
+            "count": 3
           },
           "director:Q51506": {
-            "label": "Richard Attenborough"
+            "label": "Richard Attenborough",
+            "count": 1
           },
           "director:Q1370780": {
-            "label": "Monkey Punch"
+            "label": "Monkey Punch",
+            "count": 1
           },
           "director:Q25132": {
-            "label": "Paul Thomas Anderson"
+            "label": "Paul Thomas Anderson",
+            "count": 12
           },
           "director:Q28028": {
-            "label": "Alfonso Cuarón"
+            "label": "Alfonso Cuarón",
+            "count": 9
           },
           "director:Q103949": {
-            "label": "Buster Keaton"
+            "label": "Buster Keaton",
+            "count": 1
           },
           "director:Q726107": {
-            "label": "Clyde Bruckman"
+            "label": "Clyde Bruckman",
+            "count": 1
           },
           "director:Q1008721": {
-            "label": "Domenico Paolella"
+            "label": "Domenico Paolella",
+            "count": 1
           },
           "director:Q55420": {
-            "label": "Fred Zinnemann"
+            "label": "Fred Zinnemann",
+            "count": 2
           },
           "director:Q435626": {
-            "label": "Hou Hsiao-Hsien"
+            "label": "Hou Hsiao-Hsien",
+            "count": 18
           },
           "director:Q361336": {
-            "label": "Bill Condon"
+            "label": "Bill Condon",
+            "count": 1
           },
           "director:Q547485": {
-            "label": "John Badham"
+            "label": "John Badham",
+            "count": 1
           },
           "director:Q926946": {
-            "label": "Kōji Wakamatsu"
+            "label": "Kōji Wakamatsu",
+            "count": 1
           },
           "director:Q1381702": {
-            "label": "Rob Epstein"
+            "label": "Rob Epstein",
+            "count": 1
           },
           "director:Q722032": {
-            "label": "Jeffrey Friedman"
+            "label": "Jeffrey Friedman",
+            "count": 1
           },
           "director:Q8003": {
-            "label": "Sergei Eisenstein"
+            "label": "Sergei Eisenstein",
+            "count": 7
           },
           "director:Q53015": {
-            "label": "Luigi Comencini"
+            "label": "Luigi Comencini",
+            "count": 4
           },
           "director:Q274411": {
-            "label": "Édouard Molinaro"
+            "label": "Édouard Molinaro",
+            "count": 3
           },
           "director:Q95119": {
-            "label": "Delmer Daves"
+            "label": "Delmer Daves",
+            "count": 1
           },
           "director:Q166405": {
-            "label": "Jean Rouch"
+            "label": "Jean Rouch",
+            "count": 2
           },
           "director:Q317880": {
-            "label": "Edgar Morin"
+            "label": "Edgar Morin",
+            "count": 1
           },
           "director:Q91508": {
-            "label": "Maren Ade"
+            "label": "Maren Ade",
+            "count": 1
           },
           "director:Q25089": {
-            "label": "Woody Allen"
+            "label": "Woody Allen",
+            "count": 5
           },
           "director:Q6495014": {
-            "label": "László Nemes"
+            "label": "László Nemes",
+            "count": 1
           },
           "director:Q18058226": {
-            "label": "Yim Pil-sung"
+            "label": "Yim Pil-sung",
+            "count": 1
           },
           "director:Q360737": {
-            "label": "Andrew Niccol"
+            "label": "Andrew Niccol",
+            "count": 1
           },
           "director:Q599392": {
-            "label": "Yoshifumi Kondō"
+            "label": "Yoshifumi Kondō",
+            "count": 1
           },
           "director:Q2055700": {
-            "label": "Pasquale Festa Campanile"
+            "label": "Pasquale Festa Campanile",
+            "count": 1
           },
           "director:Q558149": {
-            "label": "Don Taylor"
+            "label": "Don Taylor",
+            "count": 3
           },
           "director:Q53003": {
-            "label": "Roberto Rossellini"
+            "label": "Roberto Rossellini",
+            "count": 8
           },
           "director:Q2296663": {
-            "label": "Seijun Suzuki"
+            "label": "Seijun Suzuki",
+            "count": 4
           },
           "director:Q51491": {
-            "label": "Michael Curtiz"
+            "label": "Michael Curtiz",
+            "count": 3
           },
           "director:Q660352": {
-            "label": "Tadashi Imai"
+            "label": "Tadashi Imai",
+            "count": 2
           },
           "director:Q5162592": {
-            "label": "Conrad Rooks"
+            "label": "Conrad Rooks",
+            "count": 1
           },
           "director:Q1387412": {
-            "label": "James Toback"
+            "label": "James Toback",
+            "count": 2
           },
           "director:Q53026": {
-            "label": "Mario Monicelli"
+            "label": "Mario Monicelli",
+            "count": 10
           },
           "director:Q53040": {
-            "label": "Franco Zeffirelli"
+            "label": "Franco Zeffirelli",
+            "count": 1
           },
           "director:Q223233": {
-            "label": "Sam Mendes"
+            "label": "Sam Mendes",
+            "count": 5
           },
           "director:Q55392": {
-            "label": "Louis Malle"
+            "label": "Louis Malle",
+            "count": 6
           },
           "director:Q698710": {
-            "label": "Tsai Ming-liang"
+            "label": "Tsai Ming-liang",
+            "count": 5
           },
           "director:Q119348": {
-            "label": "Irvin Kershner"
+            "label": "Irvin Kershner",
+            "count": 3
           },
           "director:Q14940022": {
-            "label": "Kleber Mendonça Filho"
+            "label": "Kleber Mendonça Filho",
+            "count": 2
           },
           "director:Q55258": {
-            "label": "Stephen Frears"
+            "label": "Stephen Frears",
+            "count": 1
           },
           "director:Q3181135": {
-            "label": "John Bruno"
+            "label": "John Bruno",
+            "count": 1
           },
           "director:Q320211": {
-            "label": "Stan Winston"
+            "label": "Stan Winston",
+            "count": 1
           },
           "director:Q55418": {
-            "label": "Margarethe von Trotta"
+            "label": "Margarethe von Trotta",
+            "count": 3
           },
           "director:Q57316": {
-            "label": "Volker Schlöndorff"
+            "label": "Volker Schlöndorff",
+            "count": 7
           },
           "director:Q778017": {
-            "label": "Rolf Husberg"
+            "label": "Rolf Husberg",
+            "count": 2
           },
           "director:Q853": {
-            "label": "Andrei Tarkovsky"
+            "label": "Andrei Tarkovsky",
+            "count": 10
           },
           "director:Q51519": {
-            "label": "Alan J. Pakula"
+            "label": "Alan J. Pakula",
+            "count": 8
           },
           "director:Q72756": {
-            "label": "Raoul Walsh"
+            "label": "Raoul Walsh",
+            "count": 1
           },
           "director:Q323243": {
-            "label": "Irving Rapper"
+            "label": "Irving Rapper",
+            "count": 2
           },
           "director:Q495980": {
-            "label": "Bong Joon-ho"
+            "label": "Bong Joon-ho",
+            "count": 8
           },
           "director:Q55375": {
-            "label": "Claude Chabrol"
+            "label": "Claude Chabrol",
+            "count": 3
           },
           "director:Q55454": {
-            "label": "Ugo Gregoretti"
+            "label": "Ugo Gregoretti",
+            "count": 2
           },
           "director:Q982339": {
-            "label": "Jörn Donner"
+            "label": "Jörn Donner",
+            "count": 2
           },
           "director:Q1202851": {
-            "label": "Kihachi Okamoto"
+            "label": "Kihachi Okamoto",
+            "count": 5
           },
           "director:Q53045": {
-            "label": "Giuseppe Tornatore"
+            "label": "Giuseppe Tornatore",
+            "count": 2
           },
           "director:Q189081": {
-            "label": "Howard Hughes"
+            "label": "Howard Hughes",
+            "count": 1
           },
           "director:Q1336850": {
-            "label": "Frank Pierson"
+            "label": "Frank Pierson",
+            "count": 1
           },
           "director:Q3136272": {
-            "label": "Hiromichi Horikawa"
+            "label": "Hiromichi Horikawa",
+            "count": 1
           },
           "director:Q691515": {
-            "label": "Vittorio Caprioli"
+            "label": "Vittorio Caprioli",
+            "count": 1
           },
           "director:Q542634": {
-            "label": "Alex Garland"
+            "label": "Alex Garland",
+            "count": 2
           },
           "director:Q116286260": {
-            "label": "Celine Song"
+            "label": "Celine Song",
+            "count": 1
           },
           "director:Q1358863": {
-            "label": "John M. Stahl"
+            "label": "John M. Stahl",
+            "count": 1
           },
           "director:Q51547": {
-            "label": "Billy Wilder"
+            "label": "Billy Wilder",
+            "count": 4
           },
           "director:Q469233": {
-            "label": "Stephen Gyllenhaal"
+            "label": "Stephen Gyllenhaal",
+            "count": 2
           },
           "director:Q138950471": {
-            "label": "Q138950471"
+            "label": "Q138950471",
+            "count": 1
           },
           "director:Q53031": {
-            "label": "Gillo Pontecorvo"
+            "label": "Gillo Pontecorvo",
+            "count": 3
           },
           "director:Q55421": {
-            "label": "Georg Wilhelm Pabst"
+            "label": "Georg Wilhelm Pabst",
+            "count": 1
           },
           "director:Q1819968": {
-            "label": "Leopoldo Savona"
+            "label": "Leopoldo Savona",
+            "count": 1
           },
           "director:Q506183": {
-            "label": "Andrew Marton"
+            "label": "Andrew Marton",
+            "count": 1
           },
           "director:Q707321": {
-            "label": "Guy Green"
+            "label": "Guy Green",
+            "count": 2
           },
           "director:Q269692": {
-            "label": "Barry Levinson"
+            "label": "Barry Levinson",
+            "count": 1
           },
           "director:Q55211": {
-            "label": "Mohsen Makhmalbaf"
+            "label": "Mohsen Makhmalbaf",
+            "count": 2
           },
           "director:Q449349": {
-            "label": "Barbara Kopple"
+            "label": "Barbara Kopple",
+            "count": 1
           },
           "director:Q312258": {
-            "label": "Jacques Demy"
+            "label": "Jacques Demy",
+            "count": 9
           },
           "director:Q124992": {
-            "label": "Anne-Marie Miéville"
+            "label": "Anne-Marie Miéville",
+            "count": 2
           },
           "director:Q361670": {
-            "label": "John Sturges"
+            "label": "John Sturges",
+            "count": 1
           },
           "director:Q457559": {
-            "label": "John Mackenzie"
+            "label": "John Mackenzie",
+            "count": 2
           },
           "director:Q7175427": {
-            "label": "Peter Lennon"
+            "label": "Peter Lennon",
+            "count": 1
           },
           "director:Q57265516": {
-            "label": "Hu Bo"
+            "label": "Hu Bo",
+            "count": 1
           },
           "director:Q270097": {
-            "label": "Michael Mann"
+            "label": "Michael Mann",
+            "count": 2
           },
           "director:Q365141": {
-            "label": "Philippe de Broca"
+            "label": "Philippe de Broca",
+            "count": 3
           },
           "director:Q383420": {
-            "label": "Roger Vadim"
+            "label": "Roger Vadim",
+            "count": 2
           },
           "director:Q46706": {
-            "label": "Eugène Ionesco"
+            "label": "Eugène Ionesco",
+            "count": 1
           },
           "director:Q86018": {
-            "label": "Helmut Ashley"
+            "label": "Helmut Ashley",
+            "count": 1
           },
           "director:Q55281915": {
-            "label": "Amanzio Todini"
+            "label": "Amanzio Todini",
+            "count": 1
           },
           "director:Q450601": {
-            "label": "Paul Wendkos"
+            "label": "Paul Wendkos",
+            "count": 1
           },
           "director:Q55198": {
-            "label": "Oleksandr Dovzhenko"
+            "label": "Oleksandr Dovzhenko",
+            "count": 1
           },
           "director:Q15734533": {
-            "label": "David Maysles"
+            "label": "David Maysles",
+            "count": 3
           },
           "director:Q15782045": {
-            "label": "Albert Maysles"
+            "label": "Albert Maysles",
+            "count": 3
           },
           "director:Q615768": {
-            "label": "Claude de Givray"
+            "label": "Claude de Givray",
+            "count": 1
           },
           "director:Q334242": {
-            "label": "Asghar Farhadi"
+            "label": "Asghar Farhadi",
+            "count": 5
           },
           "director:Q4707232": {
-            "label": "Alan Mak"
+            "label": "Alan Mak",
+            "count": 1
           },
           "director:Q715330": {
-            "label": "Andrew Lau"
+            "label": "Andrew Lau",
+            "count": 2
           },
           "director:Q653645": {
-            "label": "Ari Folman"
+            "label": "Ari Folman",
+            "count": 1
           },
           "director:Q2495073": {
-            "label": "Kōji Morimoto"
+            "label": "Kōji Morimoto",
+            "count": 1
           },
           "director:Q378710": {
-            "label": "Katsuhiro Otomo"
+            "label": "Katsuhiro Otomo",
+            "count": 3
           },
           "director:Q926096": {
-            "label": "Tensai Okamura"
+            "label": "Tensai Okamura",
+            "count": 1
           },
           "director:Q51522": {
-            "label": "Sydney Pollack"
+            "label": "Sydney Pollack",
+            "count": 2
           },
           "director:Q50764": {
-            "label": "Éric Rohmer"
+            "label": "Éric Rohmer",
+            "count": 7
           },
           "director:Q137489": {
-            "label": "John Guillermin"
+            "label": "John Guillermin",
+            "count": 2
           },
           "director:Q15069824": {
-            "label": "John Payson"
+            "label": "John Payson",
+            "count": 1
           },
           "director:Q1010375": {
-            "label": "Tonino Valerii"
+            "label": "Tonino Valerii",
+            "count": 2
           },
           "director:Q653571": {
-            "label": "Joachim Trier"
+            "label": "Joachim Trier",
+            "count": 1
           },
           "director:Q10392130": {
-            "label": "Vittorio Taviani"
+            "label": "Vittorio Taviani",
+            "count": 1
           },
           "director:Q351697": {
-            "label": "Paolo and Vittorio Taviani"
+            "label": "Paolo and Vittorio Taviani",
+            "count": 1
           },
           "director:Q7008165": {
-            "label": "Paolo Taviani"
+            "label": "Paolo Taviani",
+            "count": 1
           },
           "director:Q2846620": {
-            "label": "Andrew Haigh"
+            "label": "Andrew Haigh",
+            "count": 1
           },
           "director:Q723042": {
-            "label": "Teinosuke Kinugasa"
+            "label": "Teinosuke Kinugasa",
+            "count": 1
           },
           "director:Q134867": {
-            "label": "Danny Boyle"
+            "label": "Danny Boyle",
+            "count": 4
           },
           "director:Q313572": {
-            "label": "Abel Gance"
+            "label": "Abel Gance",
+            "count": 2
           },
           "director:Q202597": {
-            "label": "Chen Kaige"
+            "label": "Chen Kaige",
+            "count": 4
           },
           "director:Q1261335": {
-            "label": "Yōji Yamada"
+            "label": "Yōji Yamada",
+            "count": 2
           },
           "director:Q55433": {
-            "label": "Michelangelo Antonioni"
+            "label": "Michelangelo Antonioni",
+            "count": 21
           },
           "director:Q94882": {
-            "label": "Emir Kusturica"
+            "label": "Emir Kusturica",
+            "count": 3
           },
           "director:Q1056063": {
-            "label": "Ágnes Hranitzky"
+            "label": "Ágnes Hranitzky",
+            "count": 4
           },
           "director:Q1084396": {
-            "label": "Christoffer Boe"
+            "label": "Christoffer Boe",
+            "count": 1
           },
           "director:Q12359782": {
-            "label": "Arvo Iho"
+            "label": "Arvo Iho",
+            "count": 1
           },
           "director:Q127481": {
-            "label": "Tony Gatlif"
+            "label": "Tony Gatlif",
+            "count": 1
           },
           "director:Q1396054": {
-            "label": "Stijn Coninx"
+            "label": "Stijn Coninx",
+            "count": 1
           },
           "director:Q205456": {
-            "label": "Theo van Gogh"
+            "label": "Theo van Gogh",
+            "count": 1
           },
           "director:Q2443145": {
-            "label": "Aisling Walsh"
+            "label": "Aisling Walsh",
+            "count": 1
           },
           "director:Q274265": {
-            "label": "Małgorzata Szumowska"
+            "label": "Małgorzata Szumowska",
+            "count": 1
           },
           "director:Q276186": {
-            "label": "Aki Kaurismäki"
+            "label": "Aki Kaurismäki",
+            "count": 2
           },
           "director:Q3216358": {
-            "label": "Laila Pakalniņa"
+            "label": "Laila Pakalniņa",
+            "count": 1
           },
           "director:Q391277": {
-            "label": "Šarūnas Bartas"
+            "label": "Šarūnas Bartas",
+            "count": 1
           },
           "director:Q440218": {
-            "label": "Teresa Villaverde"
+            "label": "Teresa Villaverde",
+            "count": 1
           },
           "director:Q457170": {
-            "label": "Francesca Comencini"
+            "label": "Francesca Comencini",
+            "count": 1
           },
           "director:Q5212653": {
-            "label": "Damjan Kozole"
+            "label": "Damjan Kozole",
+            "count": 1
           },
           "director:Q525305": {
-            "label": "Andy Bausch"
+            "label": "Andy Bausch",
+            "count": 1
           },
           "director:Q5756121": {
-            "label": "Christos Georgiou"
+            "label": "Christos Georgiou",
+            "count": 1
           },
           "director:Q6014472": {
-            "label": "Miguel Hermoso"
+            "label": "Miguel Hermoso",
+            "count": 1
           },
           "director:Q670399": {
-            "label": "Konstantinos Giannaris"
+            "label": "Konstantinos Giannaris",
+            "count": 1
           },
           "director:Q709032": {
-            "label": "Saša Gedeon"
+            "label": "Saša Gedeon",
+            "count": 1
           },
           "director:Q77061": {
-            "label": "Fatih Akin"
+            "label": "Fatih Akin",
+            "count": 1
           },
           "director:Q78756": {
-            "label": "Barbara Albert"
+            "label": "Barbara Albert",
+            "count": 1
           },
           "director:Q920040": {
-            "label": "Martin Šulík"
+            "label": "Martin Šulík",
+            "count": 1
           },
           "director:Q55303": {
-            "label": "John Schlesinger"
+            "label": "John Schlesinger",
+            "count": 2
           },
           "director:Q333643": {
-            "label": "Satoshi Kon"
+            "label": "Satoshi Kon",
+            "count": 4
           },
           "director:Q185421": {
-            "label": "Takashi Miike"
+            "label": "Takashi Miike",
+            "count": 2
           },
           "director:Q704027": {
-            "label": "Fruit Chan"
+            "label": "Fruit Chan",
+            "count": 1
           },
           "director:Q897115": {
-            "label": "Brady Corbet"
+            "label": "Brady Corbet",
+            "count": 1
           },
           "director:Q721662": {
-            "label": "Steven Shainberg"
+            "label": "Steven Shainberg",
+            "count": 1
           },
           "director:Q21078321": {
-            "label": "Chloé Zhao"
+            "label": "Chloé Zhao",
+            "count": 2
           },
           "director:Q313256": {
-            "label": "Bob Fosse"
+            "label": "Bob Fosse",
+            "count": 2
           },
           "director:Q51511": {
-            "label": "George A. Romero"
+            "label": "George A. Romero",
+            "count": 2
           },
           "director:Q960868": {
-            "label": "Hiroshi Inagaki"
+            "label": "Hiroshi Inagaki",
+            "count": 3
           },
           "director:Q470798": {
-            "label": "Gérard Oury"
+            "label": "Gérard Oury",
+            "count": 1
           },
           "director:Q4104608": {
-            "label": "Dmitri Vasilyev"
+            "label": "Dmitri Vasilyev",
+            "count": 1
           },
           "director:Q463565": {
-            "label": "Takashi Shimizu"
+            "label": "Takashi Shimizu",
+            "count": 1
           },
           "director:Q1804597": {
-            "label": "Lesley Selander"
+            "label": "Lesley Selander",
+            "count": 1
           },
           "director:Q728214": {
-            "label": "Christian-Jaque"
+            "label": "Christian-Jaque",
+            "count": 2
           },
           "director:Q282033": {
-            "label": "Martin Campbell"
+            "label": "Martin Campbell",
+            "count": 1
           },
           "director:Q43203": {
-            "label": "Clint Eastwood"
+            "label": "Clint Eastwood",
+            "count": 2
           },
           "director:Q3218125": {
-            "label": "Lars-Eric Kjellgren"
+            "label": "Lars-Eric Kjellgren",
+            "count": 2
           },
           "director:Q259913": {
-            "label": "Spike Jonze"
+            "label": "Spike Jonze",
+            "count": 3
           },
           "director:Q55163": {
-            "label": "Robert Altman"
+            "label": "Robert Altman",
+            "count": 9
           },
           "director:Q313190": {
-            "label": "René Clément"
+            "label": "René Clément",
+            "count": 2
           },
           "director:Q504627": {
-            "label": "Barbet Schroeder"
+            "label": "Barbet Schroeder",
+            "count": 3
           },
           "director:Q459078": {
-            "label": "Gorō Miyazaki"
+            "label": "Gorō Miyazaki",
+            "count": 2
           },
           "director:Q471552": {
-            "label": "Mark Waters"
+            "label": "Mark Waters",
+            "count": 1
           },
           "director:Q1264208": {
-            "label": "Duilio Coletti"
+            "label": "Duilio Coletti",
+            "count": 1
           },
           "director:Q95039": {
-            "label": "Bob Rafelson"
+            "label": "Bob Rafelson",
+            "count": 3
           },
           "director:Q39792": {
-            "label": "Jack Nicholson"
+            "label": "Jack Nicholson",
+            "count": 2
           },
           "director:Q945041": {
-            "label": "Michael Caton-Jones"
+            "label": "Michael Caton-Jones",
+            "count": 3
           },
           "director:Q374792": {
-            "label": "Alf Sjöberg"
+            "label": "Alf Sjöberg",
+            "count": 5
           },
           "director:Q716069": {
-            "label": "Jiang Wen"
+            "label": "Jiang Wen",
+            "count": 4
           },
           "director:Q36844092": {
-            "label": "Nathaniel Gutman"
+            "label": "Nathaniel Gutman",
+            "count": 1
           },
           "director:Q450728": {
-            "label": "Tobe Hooper"
+            "label": "Tobe Hooper",
+            "count": 3
           },
           "director:Q1166019": {
-            "label": "Dariush Mehrjui"
+            "label": "Dariush Mehrjui",
+            "count": 1
           },
           "director:Q510194": {
-            "label": "Alice Rohrwacher"
+            "label": "Alice Rohrwacher",
+            "count": 2
           },
           "director:Q1033656": {
-            "label": "Hans Alfredson"
+            "label": "Hans Alfredson",
+            "count": 1
           },
           "director:Q116760": {
-            "label": "Vilgot Sjöman"
+            "label": "Vilgot Sjöman",
+            "count": 2
           },
           "director:Q1365463": {
-            "label": "Gustaf Molander"
+            "label": "Gustaf Molander",
+            "count": 3
           },
           "director:Q1384021": {
-            "label": "Tage Danielsson"
+            "label": "Tage Danielsson",
+            "count": 1
           },
           "director:Q5541648": {
-            "label": "Hans Abramson"
+            "label": "Hans Abramson",
+            "count": 2
           },
           "director:Q5559472": {
-            "label": "Arne Arnbom"
+            "label": "Arne Arnbom",
+            "count": 1
           },
           "director:Q5780541": {
-            "label": "Lars Görling"
+            "label": "Lars Görling",
+            "count": 1
           },
           "director:Q3933034": {
-            "label": "Renzo Marignano"
+            "label": "Renzo Marignano",
+            "count": 1
           },
           "director:Q51127": {
-            "label": "Carl Theodor Dreyer"
+            "label": "Carl Theodor Dreyer",
+            "count": 4
           },
           "director:Q1757165": {
-            "label": "Jack Hulbert"
+            "label": "Jack Hulbert",
+            "count": 1
           },
           "director:Q4759851": {
-            "label": "André Charlot"
+            "label": "André Charlot",
+            "count": 1
           },
           "director:Q599483": {
-            "label": "Yves Boisset"
+            "label": "Yves Boisset",
+            "count": 2
           },
           "director:Q184903": {
-            "label": "David Fincher"
+            "label": "David Fincher",
+            "count": 2
           },
           "director:Q508182": {
-            "label": "Michael Gordon"
+            "label": "Michael Gordon",
+            "count": 1
           },
           "director:Q51575": {
-            "label": "John Huston"
+            "label": "John Huston",
+            "count": 2
           },
           "director:Q51525": {
-            "label": "Miloš Forman"
+            "label": "Miloš Forman",
+            "count": 6
           },
           "director:Q3308247": {
-            "label": "Michael Henry Wilson"
+            "label": "Michael Henry Wilson",
+            "count": 1
           },
           "director:Q236656": {
-            "label": "Mai Zetterling"
+            "label": "Mai Zetterling",
+            "count": 2
           },
           "director:Q655494": {
-            "label": "Yuri Ozerov"
+            "label": "Yuri Ozerov",
+            "count": 1
           },
           "director:Q74899": {
-            "label": "Michael Pfleghar"
+            "label": "Michael Pfleghar",
+            "count": 2
           },
           "director:Q773523": {
-            "label": "Terence Davies"
+            "label": "Terence Davies",
+            "count": 1
           },
           "director:Q2409726": {
-            "label": "Norman Foster"
+            "label": "Norman Foster",
+            "count": 2
           },
           "director:Q55260": {
-            "label": "David Lean"
+            "label": "David Lean",
+            "count": 2
           },
           "director:Q3197370": {
-            "label": "Kirio Urayama"
+            "label": "Kirio Urayama",
+            "count": 1
           },
           "director:Q428834": {
-            "label": "Italo Zingarelli"
+            "label": "Italo Zingarelli",
+            "count": 1
           },
           "director:Q605924": {
-            "label": "Harold Prince"
+            "label": "Harold Prince",
+            "count": 1
           },
           "director:Q55407": {
-            "label": "Raj Kapoor"
+            "label": "Raj Kapoor",
+            "count": 1
           },
           "director:Q533492": {
-            "label": "Hideo Nakata"
+            "label": "Hideo Nakata",
+            "count": 1
           },
           "director:Q346976": {
-            "label": "Pasquale Squitieri"
+            "label": "Pasquale Squitieri",
+            "count": 1
           },
           "director:Q237659": {
-            "label": "Penny Marshall"
+            "label": "Penny Marshall",
+            "count": 1
           },
           "director:Q2092903": {
-            "label": "William Keighley"
+            "label": "William Keighley",
+            "count": 1
           },
           "director:Q240872": {
-            "label": "Lawrence Kasdan"
+            "label": "Lawrence Kasdan",
+            "count": 1
           },
           "director:Q191755": {
-            "label": "Jim Jarmusch"
+            "label": "Jim Jarmusch",
+            "count": 3
           },
           "director:Q20826736": {
-            "label": "Robert Eggers"
+            "label": "Robert Eggers",
+            "count": 4
           },
           "director:Q508248": {
-            "label": "Andrew V. McLaglen"
+            "label": "Andrew V. McLaglen",
+            "count": 1
           },
           "director:Q6180007": {
-            "label": "Gunnar Skoglund"
+            "label": "Gunnar Skoglund",
+            "count": 1
           },
           "director:Q25078": {
-            "label": "Terry Gilliam"
+            "label": "Terry Gilliam",
+            "count": 2
           },
           "director:Q53010": {
-            "label": "Marco Bellocchio"
+            "label": "Marco Bellocchio",
+            "count": 2
           },
           "director:Q262820": {
-            "label": "John Frankenheimer"
+            "label": "John Frankenheimer",
+            "count": 1
           },
           "director:Q53028": {
-            "label": "Giuliano Montaldo"
+            "label": "Giuliano Montaldo",
+            "count": 8
           },
           "director:Q1325171": {
-            "label": "Jūzō Itami"
+            "label": "Jūzō Itami",
+            "count": 1
           },
           "director:Q991798": {
-            "label": "Bruce Robinson"
+            "label": "Bruce Robinson",
+            "count": 1
           },
           "director:Q19815594": {
-            "label": "David Robert Mitchell"
+            "label": "David Robert Mitchell",
+            "count": 1
           },
           "director:Q1150524": {
-            "label": "Luigi Cozzi"
+            "label": "Luigi Cozzi",
+            "count": 1
           },
           "director:Q1335540": {
-            "label": "Franco Indovina"
+            "label": "Franco Indovina",
+            "count": 5
           },
           "director:Q3473390": {
-            "label": "Sarah Maldoror"
+            "label": "Sarah Maldoror",
+            "count": 1
           },
           "director:Q726095": {
-            "label": "John Flynn"
+            "label": "John Flynn",
+            "count": 1
           },
           "director:Q3132678": {
-            "label": "Henry Cass"
+            "label": "Henry Cass",
+            "count": 1
           },
           "director:Q75576": {
-            "label": "Edoardo Anton"
+            "label": "Edoardo Anton",
+            "count": 1
           },
           "director:Q24829": {
-            "label": "Orson Welles"
+            "label": "Orson Welles",
+            "count": 8
           },
           "director:Q271284": {
-            "label": "Alan Parker"
+            "label": "Alan Parker",
+            "count": 2
           },
           "director:Q311311": {
-            "label": "Sergei Parajanov"
+            "label": "Sergei Parajanov",
+            "count": 2
           },
           "director:Q314966": {
-            "label": "Ousmane Sembène"
+            "label": "Ousmane Sembène",
+            "count": 4
           },
           "director:Q352030": {
-            "label": "Jiří Menzel"
+            "label": "Jiří Menzel",
+            "count": 2
           },
           "director:Q51537": {
-            "label": "Mike Nichols"
+            "label": "Mike Nichols",
+            "count": 7
           },
           "director:Q966198": {
-            "label": "Jean Eustache"
+            "label": "Jean Eustache",
+            "count": 1
           },
           "director:Q179497": {
-            "label": "Oliver Stone"
+            "label": "Oliver Stone",
+            "count": 3
           },
           "director:Q726925": {
-            "label": "Juan J. Campanella"
+            "label": "Juan J. Campanella",
+            "count": 1
           },
           "director:Q270560": {
-            "label": "Paul Mazursky"
+            "label": "Paul Mazursky",
+            "count": 1
           },
           "director:Q312290": {
-            "label": "Sven Nykvist"
+            "label": "Sven Nykvist",
+            "count": 1
           },
           "director:Q1167568": {
-            "label": "Leslie Fenton"
+            "label": "Leslie Fenton",
+            "count": 1
           },
           "director:Q225852": {
-            "label": "D. A. Pennebaker"
+            "label": "D. A. Pennebaker",
+            "count": 1
           },
           "director:Q2484418": {
-            "label": "Vittorio Metz"
+            "label": "Vittorio Metz",
+            "count": 1
           },
           "director:Q364681": {
-            "label": "Marino Girolami"
+            "label": "Marino Girolami",
+            "count": 1
           },
           "director:Q912206": {
-            "label": "Marcello Marchesi"
+            "label": "Marcello Marchesi",
+            "count": 1
           },
           "director:Q2263": {
-            "label": "Tom Hanks"
+            "label": "Tom Hanks",
+            "count": 1
           },
           "director:Q5212638": {
-            "label": "Damián Szifron"
+            "label": "Damián Szifron",
+            "count": 2
           },
           "director:Q977546": {
-            "label": "Errol Morris"
+            "label": "Errol Morris",
+            "count": 1
           },
           "director:Q1760253": {
-            "label": "Léonide Moguy"
+            "label": "Léonide Moguy",
+            "count": 1
           },
           "director:Q150840": {
-            "label": "Ishirō Honda"
+            "label": "Ishirō Honda",
+            "count": 1
           },
           "director:Q4250213": {
-            "label": "Sebastián Lelio"
+            "label": "Sebastián Lelio",
+            "count": 1
           },
           "director:Q18688012": {
-            "label": "Jennifer Kent"
+            "label": "Jennifer Kent",
+            "count": 1
           },
           "director:Q3544725": {
-            "label": "Park Kwang-hyun"
+            "label": "Park Kwang-hyun",
+            "count": 1
           },
           "director:Q446580": {
-            "label": "Todd Haynes"
+            "label": "Todd Haynes",
+            "count": 2
           },
           "director:Q263148": {
-            "label": "Robert J. Flaherty"
+            "label": "Robert J. Flaherty",
+            "count": 1
           },
           "director:Q1063846": {
-            "label": "Charles Burnett"
+            "label": "Charles Burnett",
+            "count": 1
           },
           "director:Q532444": {
-            "label": "Fabián Bielinsky"
+            "label": "Fabián Bielinsky",
+            "count": 1
           },
           "director:Q5799656": {
-            "label": "Gunnar Hellström"
+            "label": "Gunnar Hellström",
+            "count": 1
           },
           "director:Q670296": {
-            "label": "Todd Field"
+            "label": "Todd Field",
+            "count": 1
           },
           "director:Q470601": {
-            "label": "Michael Radford"
+            "label": "Michael Radford",
+            "count": 2
           },
           "director:Q1703182": {
-            "label": "Jonathan Glazer"
+            "label": "Jonathan Glazer",
+            "count": 2
           },
           "director:Q106508": {
-            "label": "Gérard Depardieu"
+            "label": "Gérard Depardieu",
+            "count": 1
           },
           "director:Q223992": {
-            "label": "Wes Craven"
+            "label": "Wes Craven",
+            "count": 1
           },
           "director:Q232273": {
-            "label": "Isabel Coixet"
+            "label": "Isabel Coixet",
+            "count": 1
           },
           "director:Q25186": {
-            "label": "Gus Van Sant"
+            "label": "Gus Van Sant",
+            "count": 4
           },
           "director:Q259348": {
-            "label": "Gurinder Chadha"
+            "label": "Gurinder Chadha",
+            "count": 1
           },
           "director:Q269670": {
-            "label": "Richard LaGravenese"
+            "label": "Richard LaGravenese",
+            "count": 1
           },
           "director:Q3014918": {
-            "label": "Daniela Thomas"
+            "label": "Daniela Thomas",
+            "count": 1
           },
           "director:Q3089589": {
-            "label": "Frédéric Auburtin"
+            "label": "Frédéric Auburtin",
+            "count": 1
           },
           "director:Q313566": {
-            "label": "Alexander Payne"
+            "label": "Alexander Payne",
+            "count": 1
           },
           "director:Q3342570": {
-            "label": "Nobuhiro Suwa"
+            "label": "Nobuhiro Suwa",
+            "count": 1
           },
           "director:Q457890": {
-            "label": "Christopher Doyle"
+            "label": "Christopher Doyle",
+            "count": 1
           },
           "director:Q545274": {
-            "label": "Sylvain Chomet"
+            "label": "Sylvain Chomet",
+            "count": 1
           },
           "director:Q550717": {
-            "label": "Olivier Assayas"
+            "label": "Olivier Assayas",
+            "count": 2
           },
           "director:Q57231": {
-            "label": "Tom Tykwer"
+            "label": "Tom Tykwer",
+            "count": 1
           },
           "director:Q610764": {
-            "label": "Vincenzo Natali"
+            "label": "Vincenzo Natali",
+            "count": 1
           },
           "director:Q822240": {
-            "label": "Oliver Schmitz"
+            "label": "Oliver Schmitz",
+            "count": 1
           },
           "director:Q993671": {
-            "label": "Bruno Podalydès"
+            "label": "Bruno Podalydès",
+            "count": 1
           },
           "director:Q310960": {
-            "label": "Brad Bird"
+            "label": "Brad Bird",
+            "count": 3
           },
           "director:Q81770": {
-            "label": "Majid Majidi"
+            "label": "Majid Majidi",
+            "count": 1
           },
           "director:Q716064": {
-            "label": "Peter Chan"
+            "label": "Peter Chan",
+            "count": 1
           },
           "director:Q484572": {
-            "label": "Hong Sang-soo"
+            "label": "Hong Sang-soo",
+            "count": 2
           },
           "director:Q460095": {
-            "label": "Tonino Guerra"
+            "label": "Tonino Guerra",
+            "count": 1
           },
           "director:Q55432": {
-            "label": "John Woo"
+            "label": "John Woo",
+            "count": 5
           },
           "director:Q60637": {
-            "label": "Alexander Kluge"
+            "label": "Alexander Kluge",
+            "count": 4
           },
           "director:Q3521531": {
-            "label": "S. S. Rajamouli"
+            "label": "S. S. Rajamouli",
+            "count": 1
           },
           "director:Q75718299": {
-            "label": "Ellen Horde"
+            "label": "Ellen Horde",
+            "count": 1
           },
           "director:Q230448": {
-            "label": "Jane Campion"
+            "label": "Jane Campion",
+            "count": 5
           },
           "director:Q2415435": {
-            "label": "Lars-Magnus Lindgren"
+            "label": "Lars-Magnus Lindgren",
+            "count": 1
           },
           "director:Q433290": {
-            "label": "Gianni Puccini"
+            "label": "Gianni Puccini",
+            "count": 1
           },
           "director:Q269796": {
-            "label": "Walter Lang"
+            "label": "Walter Lang",
+            "count": 1
           },
           "director:Q19947205": {
-            "label": "Yeon Sang-ho"
+            "label": "Yeon Sang-ho",
+            "count": 1
           },
           "director:Q353501": {
-            "label": "Rob Marshall"
+            "label": "Rob Marshall",
+            "count": 1
           },
           "director:Q53013": {
-            "label": "Mario Camerini"
+            "label": "Mario Camerini",
+            "count": 1
           },
           "director:Q55438": {
-            "label": "Mario Bava"
+            "label": "Mario Bava",
+            "count": 4
           },
           "director:Q21091613": {
-            "label": "Shim Sung-bo"
+            "label": "Shim Sung-bo",
+            "count": 1
           },
           "director:Q53005": {
-            "label": "Alessandro Blasetti"
+            "label": "Alessandro Blasetti",
+            "count": 2
           },
           "director:Q51530": {
-            "label": "Jerzy Skolimowski"
+            "label": "Jerzy Skolimowski",
+            "count": 1
           },
           "director:Q3135268": {
-            "label": "Hideo Sekigawa"
+            "label": "Hideo Sekigawa",
+            "count": 1
           },
           "director:Q1314250": {
-            "label": "Robert Shaye"
+            "label": "Robert Shaye",
+            "count": 1
           },
           "director:Q3013752": {
-            "label": "Daniel Bergman"
+            "label": "Daniel Bergman",
+            "count": 1
           },
           "director:Q506247": {
-            "label": "Raoul Lévy"
+            "label": "Raoul Lévy",
+            "count": 1
           },
           "director:Q536537": {
-            "label": "Charlotte Zwerin"
+            "label": "Charlotte Zwerin",
+            "count": 1
           },
           "director:Q491809": {
-            "label": "Mike Hodges"
+            "label": "Mike Hodges",
+            "count": 1
           },
           "director:Q1066169": {
-            "label": "Charles Sturridge"
+            "label": "Charles Sturridge",
+            "count": 1
           },
           "director:Q282787": {
-            "label": "Derek Jarman"
+            "label": "Derek Jarman",
+            "count": 1
           },
           "director:Q2903137": {
-            "label": "Bill Bryden"
+            "label": "Bill Bryden",
+            "count": 1
           },
           "director:Q348059": {
-            "label": "Franc Roddam"
+            "label": "Franc Roddam",
+            "count": 1
           },
           "director:Q449220": {
-            "label": "Bruce Beresford"
+            "label": "Bruce Beresford",
+            "count": 1
           },
           "director:Q55249": {
-            "label": "Ken Russell"
+            "label": "Ken Russell",
+            "count": 2
           },
           "director:Q722023": {
-            "label": "Julien Temple"
+            "label": "Julien Temple",
+            "count": 1
           },
           "director:Q3442775": {
-            "label": "Ross McElwee"
+            "label": "Ross McElwee",
+            "count": 1
           },
           "director:Q74013": {
-            "label": "Hans W. Geißendörfer"
+            "label": "Hans W. Geißendörfer",
+            "count": 3
           },
           "director:Q940107": {
-            "label": "Matteo Garrone"
+            "label": "Matteo Garrone",
+            "count": 2
           },
           "director:Q2833712": {
-            "label": "Aleksandr Gordon"
+            "label": "Aleksandr Gordon",
+            "count": 2
           },
           "director:Q114917941": {
-            "label": "Eric Zala"
+            "label": "Eric Zala",
+            "count": 1
           },
           "director:Q329972": {
-            "label": "John Hubley"
+            "label": "John Hubley",
+            "count": 1
           },
           "director:Q976133": {
-            "label": "Martin Rosen"
+            "label": "Martin Rosen",
+            "count": 1
           },
           "director:Q9544977": {
-            "label": "Lilly Wachowski"
+            "label": "Lilly Wachowski",
+            "count": 1
           },
           "director:Q9545711": {
-            "label": "Q9545711"
+            "label": "Q9545711",
+            "count": 1
           },
           "director:Q55264": {
-            "label": "Charles Laughton"
+            "label": "Charles Laughton",
+            "count": 1
           },
           "director:Q28746830": {
-            "label": "Dan Kwan"
+            "label": "Dan Kwan",
+            "count": 1
           },
           "director:Q28746848": {
-            "label": "Daniel Scheinert"
+            "label": "Daniel Scheinert",
+            "count": 1
           },
           "director:Q55442": {
-            "label": "Liliana Cavani"
+            "label": "Liliana Cavani",
+            "count": 2
           },
           "director:Q52411": {
-            "label": "Tony Richardson"
+            "label": "Tony Richardson",
+            "count": 1
           },
           "director:Q2729701": {
-            "label": "Jean-Louis Richard"
+            "label": "Jean-Louis Richard",
+            "count": 1
           },
           "director:Q61954995": {
-            "label": "Paul Helmick"
+            "label": "Paul Helmick",
+            "count": 3
           },
           "director:Q1405474": {
-            "label": "Phillip Borsos"
+            "label": "Phillip Borsos",
+            "count": 1
           },
           "director:Q5365602": {
-            "label": "Jeffrey Lau"
+            "label": "Jeffrey Lau",
+            "count": 1
           },
           "director:Q2865325": {
-            "label": "Arthur Rosson"
+            "label": "Arthur Rosson",
+            "count": 1
           },
           "director:Q697591": {
-            "label": "Giorgio Pàstina"
+            "label": "Giorgio Pàstina",
+            "count": 1
           },
           "director:Q544016": {
-            "label": "Norman Panama"
+            "label": "Norman Panama",
+            "count": 1
           },
           "director:Q321344": {
-            "label": "Erland Josephson"
+            "label": "Erland Josephson",
+            "count": 1
           },
           "director:Q363653": {
-            "label": "Guy Hamilton"
+            "label": "Guy Hamilton",
+            "count": 1
           },
           "director:Q317567": {
-            "label": "Barry Sonnenfeld"
+            "label": "Barry Sonnenfeld",
+            "count": 1
           },
           "director:Q727810": {
-            "label": "Lewis Teague"
+            "label": "Lewis Teague",
+            "count": 1
           },
           "director:Q525463": {
-            "label": "Vadim Perelman"
+            "label": "Vadim Perelman",
+            "count": 1
           },
           "director:Q51123": {
-            "label": "D. W. Griffith"
+            "label": "D. W. Griffith",
+            "count": 1
           },
           "director:Q59085": {
-            "label": "Robert Benton"
+            "label": "Robert Benton",
+            "count": 1
           },
           "director:Q24833063": {
-            "label": "Bi Gan"
+            "label": "Bi Gan",
+            "count": 1
           },
           "director:Q31225": {
-            "label": "Mark Robson"
+            "label": "Mark Robson",
+            "count": 2
           },
           "director:Q561459": {
-            "label": "Grigori Aleksandrov"
+            "label": "Grigori Aleksandrov",
+            "count": 3
           },
           "director:Q442740": {
-            "label": "Simon West"
+            "label": "Simon West",
+            "count": 1
           },
           "director:Q7786709": {
-            "label": "Thom Andersen"
+            "label": "Thom Andersen",
+            "count": 1
           },
           "director:Q1372360": {
-            "label": "Mehdi Charef"
+            "label": "Mehdi Charef",
+            "count": 1
           },
           "director:Q3033796": {
-            "label": "Kátia Lund"
+            "label": "Kátia Lund",
+            "count": 2
           },
           "director:Q3972765": {
-            "label": "Stefano Veneruso"
+            "label": "Stefano Veneruso",
+            "count": 1
           },
           "director:Q452925": {
-            "label": "Jordan Scott"
+            "label": "Jordan Scott",
+            "count": 1
           },
           "director:Q532263": {
-            "label": "Ching Siu-tung"
+            "label": "Ching Siu-tung",
+            "count": 1
           },
           "director:Q1385379": {
-            "label": "Wilfred Jackson"
+            "label": "Wilfred Jackson",
+            "count": 3
           },
           "director:Q1758110": {
-            "label": "William Cottrell"
+            "label": "William Cottrell",
+            "count": 1
           },
           "director:Q2549739": {
-            "label": "Ben Sharpsteen"
+            "label": "Ben Sharpsteen",
+            "count": 3
           },
           "director:Q3218086": {
-            "label": "Larry Morey"
+            "label": "Larry Morey",
+            "count": 1
           },
           "director:Q3375098": {
-            "label": "Percival C. Pearce"
+            "label": "Percival C. Pearce",
+            "count": 1
           },
           "director:Q928976": {
-            "label": "David Hand"
+            "label": "David Hand",
+            "count": 1
           },
           "director:Q394208": {
-            "label": "Aglauco Casadio"
+            "label": "Aglauco Casadio",
+            "count": 1
           },
           "director:Q3371986": {
-            "label": "Jordan Peele"
+            "label": "Jordan Peele",
+            "count": 2
           },
           "director:Q51490": {
-            "label": "George Stevens"
+            "label": "George Stevens",
+            "count": 1
           },
           "director:Q126633": {
-            "label": "Marjane Satrapi"
+            "label": "Marjane Satrapi",
+            "count": 1
           },
           "director:Q1890346": {
-            "label": "Vincent Paronnaud"
+            "label": "Vincent Paronnaud",
+            "count": 1
           },
           "director:Q3186524": {
-            "label": "José Pinheiro"
+            "label": "José Pinheiro",
+            "count": 1
           },
           "director:Q697834": {
-            "label": "Luciano Salce"
+            "label": "Luciano Salce",
+            "count": 3
           },
           "director:Q53041": {
-            "label": "Valerio Zurlini"
+            "label": "Valerio Zurlini",
+            "count": 1
           },
           "director:Q705561": {
-            "label": "Fei Mu"
+            "label": "Fei Mu",
+            "count": 1
           },
           "director:Q254152": {
-            "label": "Lucrecia Martel"
+            "label": "Lucrecia Martel",
+            "count": 3
           },
           "director:Q2032881": {
-            "label": "Ron Fricke"
+            "label": "Ron Fricke",
+            "count": 1
           },
           "director:Q513402": {
-            "label": "Ed Solomon"
+            "label": "Ed Solomon",
+            "count": 1
           },
           "director:Q50003": {
-            "label": "Alberto Sordi"
+            "label": "Alberto Sordi",
+            "count": 2
           },
           "director:Q1710546": {
-            "label": "Juan Luis Buñuel"
+            "label": "Juan Luis Buñuel",
+            "count": 1
           },
           "director:Q741623": {
-            "label": "Hiroshi Teshigahara"
+            "label": "Hiroshi Teshigahara",
+            "count": 2
           },
           "director:Q55426": {
-            "label": "Glauber Rocha"
+            "label": "Glauber Rocha",
+            "count": 2
           },
           "director:Q40039676": {
-            "label": "Kogonada"
+            "label": "Kogonada",
+            "count": 2
           },
           "director:Q176126": {
-            "label": "Philip Kaufman"
+            "label": "Philip Kaufman",
+            "count": 1
           },
           "director:Q75079": {
-            "label": "Chris Columbus"
+            "label": "Chris Columbus",
+            "count": 3
           },
           "director:Q235555": {
-            "label": "Nancy Meyers"
+            "label": "Nancy Meyers",
+            "count": 2
           },
           "director:Q466155": {
-            "label": "Grigori Chukhrai"
+            "label": "Grigori Chukhrai",
+            "count": 1
           },
           "director:Q1312565": {
-            "label": "JR"
+            "label": "JR",
+            "count": 1
           },
           "director:Q18228446": {
-            "label": "Yōichi Fujita"
+            "label": "Yōichi Fujita",
+            "count": 1
           },
           "director:Q3026306": {
-            "label": "Diao Yinan"
+            "label": "Diao Yinan",
+            "count": 1
           },
           "director:Q298352": {
-            "label": "Lindsay Anderson"
+            "label": "Lindsay Anderson",
+            "count": 1
           },
           "director:Q280187": {
-            "label": "Norm Ferguson"
+            "label": "Norm Ferguson",
+            "count": 2
           },
           "director:Q28109058": {
-            "label": "Ford Beebe Jr."
+            "label": "Ford Beebe Jr.",
+            "count": 1
           },
           "director:Q28109065": {
-            "label": "Jim Handley"
+            "label": "Jim Handley",
+            "count": 1
           },
           "director:Q28439679": {
-            "label": "Paul Satterfield"
+            "label": "Paul Satterfield",
+            "count": 1
           },
           "director:Q2903332": {
-            "label": "Bill Roberts"
+            "label": "Bill Roberts",
+            "count": 2
           },
           "director:Q3077064": {
-            "label": "Ford Beebe"
+            "label": "Ford Beebe",
+            "count": 1
           },
           "director:Q3471034": {
-            "label": "Samuel Armstrong"
+            "label": "Samuel Armstrong",
+            "count": 1
           },
           "director:Q3525855": {
-            "label": "T. Hee"
+            "label": "T. Hee",
+            "count": 2
           },
           "director:Q715807": {
-            "label": "James Algar"
+            "label": "James Algar",
+            "count": 1
           },
           "director:Q926614": {
-            "label": "Hamilton Luske"
+            "label": "Hamilton Luske",
+            "count": 2
           },
           "director:Q978075": {
-            "label": "Renato Castellani"
+            "label": "Renato Castellani",
+            "count": 3
           },
           "director:Q234212": {
-            "label": "Sarah Polley"
+            "label": "Sarah Polley",
+            "count": 1
           },
           "director:Q315062": {
-            "label": "Bille August"
+            "label": "Bille August",
+            "count": 2
           },
           "director:Q55409": {
-            "label": "Mehboob Khan"
+            "label": "Mehboob Khan",
+            "count": 1
           },
           "director:Q263104": {
-            "label": "Kinuyo Tanaka"
+            "label": "Kinuyo Tanaka",
+            "count": 3
           },
           "director:Q53834": {
-            "label": "Kiyoshi Kurosawa"
+            "label": "Kiyoshi Kurosawa",
+            "count": 3
           },
           "director:Q982878": {
-            "label": "Sergio Sollima"
+            "label": "Sergio Sollima",
+            "count": 2
           },
           "director:Q543779": {
-            "label": "Marcello Pagliero"
+            "label": "Marcello Pagliero",
+            "count": 3
           },
           "director:Q3077378": {
-            "label": "Pim de la Parra"
+            "label": "Pim de la Parra",
+            "count": 1
           },
           "director:Q76392": {
-            "label": "Peter Fleischmann"
+            "label": "Peter Fleischmann",
+            "count": 1
           },
           "director:Q465139": {
-            "label": "Antoine Fuqua"
+            "label": "Antoine Fuqua",
+            "count": 1
           },
           "director:Q6290103": {
-            "label": "Joshua Oppenheimer"
+            "label": "Joshua Oppenheimer",
+            "count": 2
           },
           "director:Q95672884": {
-            "label": "Christine Cynn"
+            "label": "Christine Cynn",
+            "count": 1
           },
           "director:Q65321": {
-            "label": "Wolfgang Petersen"
+            "label": "Wolfgang Petersen",
+            "count": 1
           },
           "director:Q317814": {
-            "label": "Tsui Hark"
+            "label": "Tsui Hark",
+            "count": 1
           },
           "director:Q55462": {
-            "label": "Antonio Pietrangeli"
+            "label": "Antonio Pietrangeli",
+            "count": 2
           },
           "director:Q60784779": {
-            "label": "Bob Persichetti"
+            "label": "Bob Persichetti",
+            "count": 1
           },
           "director:Q7176523": {
-            "label": "Peter Ramsey"
+            "label": "Peter Ramsey",
+            "count": 1
           },
           "director:Q7357051": {
-            "label": "Rodney Rothman"
+            "label": "Rodney Rothman",
+            "count": 1
           },
           "director:Q548602": {
-            "label": "Luigi Bazzoni"
+            "label": "Luigi Bazzoni",
+            "count": 1
           },
           "director:Q3049366": {
-            "label": "Eiichi Yamamoto"
+            "label": "Eiichi Yamamoto",
+            "count": 1
           },
           "director:Q1232294": {
-            "label": "Giuseppe Patroni Griffi"
+            "label": "Giuseppe Patroni Griffi",
+            "count": 2
           },
           "director:Q494258": {
-            "label": "Kim Ki-young"
+            "label": "Kim Ki-young",
+            "count": 1
           },
           "director:Q15069938": {
-            "label": "Justine Triet"
+            "label": "Justine Triet",
+            "count": 1
           },
           "director:Q722418": {
-            "label": "Giulio Petroni"
+            "label": "Giulio Petroni",
+            "count": 2
           },
           "director:Q332632": {
-            "label": "Eduardo De Filippo"
+            "label": "Eduardo De Filippo",
+            "count": 3
           },
           "director:Q3133373": {
-            "label": "Kitarō Kōsaka"
+            "label": "Kitarō Kōsaka",
+            "count": 1
           },
           "director:Q43676009": {
-            "label": "Benny Safdie"
+            "label": "Benny Safdie",
+            "count": 2
           },
           "director:Q56604143": {
-            "label": "Josh Safdie"
+            "label": "Josh Safdie",
+            "count": 2
           },
           "director:Q387098": {
-            "label": "Gianni Franciolini"
+            "label": "Gianni Franciolini",
+            "count": 2
           },
           "director:Q561255": {
-            "label": "Claude Autant-Lara"
+            "label": "Claude Autant-Lara",
+            "count": 1
           },
           "director:Q53012": {
-            "label": "Guido Brignone"
+            "label": "Guido Brignone",
+            "count": 1
           },
           "director:Q750983": {
-            "label": "Riccardo Freda"
+            "label": "Riccardo Freda",
+            "count": 1
           },
           "director:Q1229038": {
-            "label": "Marco Tullio Giordana"
+            "label": "Marco Tullio Giordana",
+            "count": 1
           },
           "director:Q463855": {
-            "label": "Francesco Barilli"
+            "label": "Francesco Barilli",
+            "count": 1
           },
           "director:Q988072": {
-            "label": "Giuseppe Bertolucci"
+            "label": "Giuseppe Bertolucci",
+            "count": 1
           },
           "director:Q511590": {
-            "label": "Luigi Filippo D'Amico"
+            "label": "Luigi Filippo D'Amico",
+            "count": 1
           },
           "director:Q1095790": {
-            "label": "Wojciech Jerzy Has"
+            "label": "Wojciech Jerzy Has",
+            "count": 2
           },
           "director:Q953683": {
-            "label": "Ulu Grosbard"
+            "label": "Ulu Grosbard",
+            "count": 1
           },
           "director:Q238315": {
-            "label": "Claire Denis"
+            "label": "Claire Denis",
+            "count": 1
           },
           "director:Q1248110": {
-            "label": "Souleymane Cissé"
+            "label": "Souleymane Cissé",
+            "count": 1
           },
           "director:Q731760": {
-            "label": "Morton DaCosta"
+            "label": "Morton DaCosta",
+            "count": 1
           },
           "director:Q269975": {
-            "label": "Anthony Mann"
+            "label": "Anthony Mann",
+            "count": 1
           },
           "director:Q706451": {
-            "label": "František Vláčil"
+            "label": "František Vláčil",
+            "count": 1
           },
           "director:Q467785": {
-            "label": "Robert Mulligan"
+            "label": "Robert Mulligan",
+            "count": 1
           },
           "director:Q314935": {
-            "label": "Paul Haggis"
+            "label": "Paul Haggis",
+            "count": 1
           },
           "director:Q19581779": {
-            "label": "Juliano Ribeiro Salgado"
+            "label": "Juliano Ribeiro Salgado",
+            "count": 1
           },
           "director:Q103871": {
-            "label": "Beate Mainka-Jellinghaus"
+            "label": "Beate Mainka-Jellinghaus",
+            "count": 1
           },
           "director:Q1736658": {
-            "label": "Katja Rupé"
+            "label": "Katja Rupé",
+            "count": 1
           },
           "director:Q3126919": {
-            "label": "Hans-Peter Cloos"
+            "label": "Hans-Peter Cloos",
+            "count": 1
           },
           "director:Q88370995": {
-            "label": "Maximiliane Mainka"
+            "label": "Maximiliane Mainka",
+            "count": 1
           },
           "director:Q90430": {
-            "label": "Alf Brustellin"
+            "label": "Alf Brustellin",
+            "count": 1
           },
           "director:Q95335548": {
-            "label": "Peter Schubert"
+            "label": "Peter Schubert",
+            "count": 1
           },
           "director:Q97713": {
-            "label": "Bernhard Sinkel"
+            "label": "Bernhard Sinkel",
+            "count": 1
           },
           "director:Q433893": {
-            "label": "James Mangold"
+            "label": "James Mangold",
+            "count": 1
           },
           "director:Q503696": {
-            "label": "Kei Kumai"
+            "label": "Kei Kumai",
+            "count": 1
           },
           "director:Q1151683": {
-            "label": "Kazuo Ikehiro"
+            "label": "Kazuo Ikehiro",
+            "count": 1
           },
           "director:Q561332": {
-            "label": "Jerzy Kawalerowicz"
+            "label": "Jerzy Kawalerowicz",
+            "count": 1
           },
           "director:Q388328": {
-            "label": "Carlos Reygadas"
+            "label": "Carlos Reygadas",
+            "count": 3
           },
           "director:Q366703": {
-            "label": "Christian Nyby"
+            "label": "Christian Nyby",
+            "count": 1
           },
           "director:Q125874301": {
-            "label": "Gints Zilbalodis"
+            "label": "Gints Zilbalodis",
+            "count": 1
           },
           "director:Q2829867": {
-            "label": "Alain Gomis"
+            "label": "Alain Gomis",
+            "count": 1
           },
           "director:Q3482378": {
-            "label": "Shirō Moritani"
+            "label": "Shirō Moritani",
+            "count": 1
           },
           "director:Q2839609": {
-            "label": "Anurag Kashyap"
+            "label": "Anurag Kashyap",
+            "count": 1
           },
           "director:Q1455793": {
-            "label": "Jan Pinkava"
+            "label": "Jan Pinkava",
+            "count": 1
           },
           "director:Q54864392": {
-            "label": "Q54864392"
+            "label": "Q54864392",
+            "count": 2
           },
           "director:Q433979": {
-            "label": "Philippe Garrel"
+            "label": "Philippe Garrel",
+            "count": 2
           },
           "director:Q449087": {
-            "label": "Jean Delannoy"
+            "label": "Jean Delannoy",
+            "count": 1
           },
           "director:Q2630715": {
-            "label": "Hiromasa Yonebayashi"
+            "label": "Hiromasa Yonebayashi",
+            "count": 1
           },
           "director:Q1349456": {
-            "label": "John Patrick Shanley"
+            "label": "John Patrick Shanley",
+            "count": 1
           },
           "director:Q262130": {
-            "label": "Richard Donner"
+            "label": "Richard Donner",
+            "count": 4
           },
           "director:Q53039": {
-            "label": "Lina Wertmüller"
+            "label": "Lina Wertmüller",
+            "count": 2
           },
           "director:Q1661386": {
-            "label": "Mojtaba Mirtahmasb"
+            "label": "Mojtaba Mirtahmasb",
+            "count": 1
           },
           "director:Q60837652": {
-            "label": "Coralie Fargeat"
+            "label": "Coralie Fargeat",
+            "count": 1
           },
           "director:Q103917": {
-            "label": "Steven Soderbergh"
+            "label": "Steven Soderbergh",
+            "count": 1
           },
           "director:Q262735": {
-            "label": "Richard Fleischer"
+            "label": "Richard Fleischer",
+            "count": 3
           },
           "director:Q3177199": {
-            "label": "Toshio Masuda"
+            "label": "Toshio Masuda",
+            "count": 1
           },
           "director:Q470779": {
-            "label": "Kinji Fukasaku"
+            "label": "Kinji Fukasaku",
+            "count": 1
           },
           "director:Q1561788": {
-            "label": "Michael Ritchie"
+            "label": "Michael Ritchie",
+            "count": 1
           },
           "director:Q8045213": {
-            "label": "Xue Xiaolu"
+            "label": "Xue Xiaolu",
+            "count": 1
           },
           "director:Q340062": {
-            "label": "George Dunning"
+            "label": "George Dunning",
+            "count": 1
           },
           "director:Q256958": {
-            "label": "Ann Hui"
+            "label": "Ann Hui",
+            "count": 2
           },
           "director:Q231019": {
-            "label": "Agnieszka Holland"
+            "label": "Agnieszka Holland",
+            "count": 1
           },
           "director:Q725003": {
-            "label": "Shunya Itō"
+            "label": "Shunya Itō",
+            "count": 1
           },
           "director:Q7770779": {
-            "label": "Takeshi Shirato"
+            "label": "Takeshi Shirato",
+            "count": 1
           },
           "director:Q4944043": {
-            "label": "Boots Riley"
+            "label": "Boots Riley",
+            "count": 1
           },
           "director:Q383764": {
-            "label": "Paul Morrissey"
+            "label": "Paul Morrissey",
+            "count": 1
           },
           "director:Q5603": {
-            "label": "Andy Warhol"
+            "label": "Andy Warhol",
+            "count": 1
           },
           "director:Q603216": {
-            "label": "Antonio Margheriti"
+            "label": "Antonio Margheriti",
+            "count": 1
           },
           "director:Q104013227": {
-            "label": "Darius Marder"
+            "label": "Darius Marder",
+            "count": 1
           },
           "director:Q38849": {
-            "label": "Shintarō Ishihara"
+            "label": "Shintarō Ishihara",
+            "count": 1
           },
           "director:Q3933059": {
-            "label": "Renzo Rossellini"
+            "label": "Renzo Rossellini",
+            "count": 1
           },
           "director:Q711420": {
-            "label": "Marcel Ophuls"
+            "label": "Marcel Ophuls",
+            "count": 1
           },
           "director:Q308097": {
-            "label": "Abderrahmane Sissako"
+            "label": "Abderrahmane Sissako",
+            "count": 2
           },
           "director:Q1348531": {
-            "label": "Godfrey Reggio"
+            "label": "Godfrey Reggio",
+            "count": 1
           },
           "director:Q912327": {
-            "label": "Brian Helgeland"
+            "label": "Brian Helgeland",
+            "count": 1
           },
           "director:Q2420942": {
-            "label": "H. Bruce Humberstone"
+            "label": "H. Bruce Humberstone",
+            "count": 1
           },
           "director:Q126098": {
-            "label": "Michel Gondry"
+            "label": "Michel Gondry",
+            "count": 1
           },
           "director:Q737693": {
-            "label": "Leos Carax"
+            "label": "Leos Carax",
+            "count": 1
           },
           "director:Q1040407": {
-            "label": "Stig Olin"
+            "label": "Stig Olin",
+            "count": 1
           },
           "director:Q731331": {
-            "label": "George Pal"
+            "label": "George Pal",
+            "count": 1
           },
           "director:Q313506": {
-            "label": "Stephen Daldry"
+            "label": "Stephen Daldry",
+            "count": 1
           },
           "director:Q55193": {
-            "label": "Dziga Vertov"
+            "label": "Dziga Vertov",
+            "count": 1
           },
           "director:Q2832478": {
-            "label": "Alek Keshishian"
+            "label": "Alek Keshishian",
+            "count": 1
           },
           "director:Q51549": {
-            "label": "Jacques Tati"
+            "label": "Jacques Tati",
+            "count": 2
           },
           "director:Q3569123": {
-            "label": "Willis Hall"
+            "label": "Willis Hall",
+            "count": 1
           },
           "director:Q963015": {
-            "label": "Keith Waterhouse"
+            "label": "Keith Waterhouse",
+            "count": 1
           },
           "director:Q95111": {
-            "label": "Norman Taurog"
+            "label": "Norman Taurog",
+            "count": 1
           },
           "director:Q3371978": {
-            "label": "Paul Paviot"
+            "label": "Paul Paviot",
+            "count": 1
           },
           "director:Q1361200": {
-            "label": "John Lee Hancock"
+            "label": "John Lee Hancock",
+            "count": 1
           },
           "director:Q518995": {
-            "label": "Alf Kjellin"
+            "label": "Alf Kjellin",
+            "count": 1
           },
           "director:Q72083389": {
-            "label": "Tamara Kotevska"
+            "label": "Tamara Kotevska",
+            "count": 1
           },
           "director:Q72083502": {
-            "label": "Ljubomir Stefanov"
+            "label": "Ljubomir Stefanov",
+            "count": 1
           },
           "director:Q2850562": {
-            "label": "Anna Maria Tatò"
+            "label": "Anna Maria Tatò",
+            "count": 1
           },
           "director:Q515904": {
-            "label": "Andrzej Żuławski"
+            "label": "Andrzej Żuławski",
+            "count": 1
           },
           "director:Q3018326": {
-            "label": "David Lowell Rich"
+            "label": "David Lowell Rich",
+            "count": 1
           },
           "director:Q23844": {
-            "label": "George Clooney"
+            "label": "George Clooney",
+            "count": 1
           },
           "director:Q40912": {
-            "label": "Frank Sinatra"
+            "label": "Frank Sinatra",
+            "count": 1
           },
           "director:Q259240": {
-            "label": "Miklós Jancsó"
+            "label": "Miklós Jancsó",
+            "count": 1
           },
           "director:Q456979": {
-            "label": "J. Lee Thompson"
+            "label": "J. Lee Thompson",
+            "count": 2
           },
           "director:Q76552": {
-            "label": "Robert Wiene"
+            "label": "Robert Wiene",
+            "count": 1
           },
           "director:Q73089": {
-            "label": "Gene Kelly"
+            "label": "Gene Kelly",
+            "count": 1
           },
           "director:Q53024": {
-            "label": "Raffaello Matarazzo"
+            "label": "Raffaello Matarazzo",
+            "count": 1
           },
           "director:Q5216570": {
-            "label": "Daniel Birt"
+            "label": "Daniel Birt",
+            "count": 1
           },
           "director:Q5049046": {
-            "label": "Caspar Wrede"
+            "label": "Caspar Wrede",
+            "count": 2
           },
           "director:Q16880393": {
-            "label": "Yang Woo-seok"
+            "label": "Yang Woo-seok",
+            "count": 1
           },
           "director:Q1384404": {
-            "label": "Rick Rosenthal"
+            "label": "Rick Rosenthal",
+            "count": 1
           },
           "director:Q309715": {
-            "label": "Roland Joffé"
+            "label": "Roland Joffé",
+            "count": 1
           },
           "director:Q471402": {
-            "label": "Richard Marquand"
+            "label": "Richard Marquand",
+            "count": 1
           },
           "director:Q614697": {
-            "label": "Sang-il Lee"
+            "label": "Sang-il Lee",
+            "count": 1
           },
           "director:Q51489": {
-            "label": "M. Night Shyamalan"
+            "label": "M. Night Shyamalan",
+            "count": 1
           },
           "director:Q53052": {
-            "label": "Steno"
+            "label": "Steno",
+            "count": 1
           },
           "director:Q63258127": {
-            "label": "Kent Jones"
+            "label": "Kent Jones",
+            "count": 1
           },
           "director:Q1985090": {
-            "label": "Pablo Larraín"
+            "label": "Pablo Larraín",
+            "count": 1
           },
           "director:Q4565890": {
-            "label": "Schamyl Bauman"
+            "label": "Schamyl Bauman",
+            "count": 2
           },
           "director:Q106669": {
-            "label": "Claude Sautet"
+            "label": "Claude Sautet",
+            "count": 1
           },
           "director:Q122425": {
-            "label": "Andrey Zvyagintsev"
+            "label": "Andrey Zvyagintsev",
+            "count": 2
           },
           "director:Q1377022": {
-            "label": "Paweł Pawlikowski"
+            "label": "Paweł Pawlikowski",
+            "count": 2
           },
           "director:Q203215": {
-            "label": "Max von Sydow"
+            "label": "Max von Sydow",
+            "count": 1
           },
           "director:Q2837668": {
-            "label": "Allan Arkush"
+            "label": "Allan Arkush",
+            "count": 1
           },
           "director:Q11535915": {
-            "label": "Tomio Kuriyama"
+            "label": "Tomio Kuriyama",
+            "count": 1
           },
           "director:Q3571542": {
-            "label": "Yang Fengliang"
+            "label": "Yang Fengliang",
+            "count": 1
           },
           "director:Q188137": {
-            "label": "J. J. Abrams"
+            "label": "J. J. Abrams",
+            "count": 1
           },
           "director:Q11882667": {
-            "label": "Mike Road"
+            "label": "Mike Road",
+            "count": 1
           },
           "director:Q3189195": {
-            "label": "Julie Dash"
+            "label": "Julie Dash",
+            "count": 1
           },
           "director:Q160726": {
-            "label": "Ang Lee"
+            "label": "Ang Lee",
+            "count": 1
           },
           "director:Q133730": {
-            "label": "Lars von Trier"
+            "label": "Lars von Trier",
+            "count": 1
           },
           "director:Q13455488": {
-            "label": "Jean-Pierre Dardenne"
+            "label": "Jean-Pierre Dardenne",
+            "count": 1
           },
           "director:Q212167": {
-            "label": "Atom Egoyan"
+            "label": "Atom Egoyan",
+            "count": 1
           },
           "director:Q25100": {
-            "label": "Nanni Moretti"
+            "label": "Nanni Moretti",
+            "count": 1
           },
           "director:Q3361624": {
-            "label": "Luc Dardenne"
+            "label": "Luc Dardenne",
+            "count": 1
           },
           "director:Q43264": {
-            "label": "Manoel de Oliveira"
+            "label": "Manoel de Oliveira",
+            "count": 1
           },
           "director:Q459299": {
-            "label": "Raúl Ruiz"
+            "label": "Raúl Ruiz",
+            "count": 1
           },
           "director:Q577569": {
-            "label": "Elia Suleiman"
+            "label": "Elia Suleiman",
+            "count": 1
           },
           "director:Q59129": {
-            "label": "Michael Cimino"
+            "label": "Michael Cimino",
+            "count": 2
           },
           "director:Q366956": {
-            "label": "Robert Montgomery"
+            "label": "Robert Montgomery",
+            "count": 1
           },
           "director:Q1066361": {
-            "label": "Juraj Herz"
+            "label": "Juraj Herz",
+            "count": 1
           },
           "director:Q2717537": {
-            "label": "Amir Naderi"
+            "label": "Amir Naderi",
+            "count": 1
           },
           "director:Q1203444": {
-            "label": "Yasuzō Masumura"
+            "label": "Yasuzō Masumura",
+            "count": 1
           },
           "director:Q16935094": {
-            "label": "David Lowery"
+            "label": "David Lowery",
+            "count": 1
           },
           "director:Q2898736": {
-            "label": "Bernard Vorhaus"
+            "label": "Bernard Vorhaus",
+            "count": 1
           },
           "director:Q269214": {
-            "label": "John Lasseter"
+            "label": "John Lasseter",
+            "count": 1
           },
           "director:Q1479869": {
-            "label": "Gordon Douglas"
+            "label": "Gordon Douglas",
+            "count": 2
           },
           "director:Q235032": {
-            "label": "Věra Chytilová"
+            "label": "Věra Chytilová",
+            "count": 2
           },
           "director:Q95388360": {
-            "label": "Rudolf Jaroš"
+            "label": "Rudolf Jaroš",
+            "count": 1
           },
           "director:Q2960106": {
-            "label": "Charles Reisner"
+            "label": "Charles Reisner",
+            "count": 1
           },
           "director:Q3903392": {
-            "label": "Piero Zuffi"
+            "label": "Piero Zuffi",
+            "count": 1
           },
           "director:Q3157236": {
-            "label": "Jack Kinney"
+            "label": "Jack Kinney",
+            "count": 1
           },
           "director:Q925178": {
-            "label": "Mario Bonnard"
+            "label": "Mario Bonnard",
+            "count": 1
           },
           "director:Q551512": {
-            "label": "Claude Lanzmann"
+            "label": "Claude Lanzmann",
+            "count": 1
           },
           "director:Q373474": {
-            "label": "Adrian Lyne"
+            "label": "Adrian Lyne",
+            "count": 1
           },
           "director:Q110768653": {
-            "label": "Sara Dosa"
+            "label": "Sara Dosa",
+            "count": 1
           },
           "director:Q53034": {
-            "label": "Dino Risi"
+            "label": "Dino Risi",
+            "count": 2
           },
           "director:Q53815755": {
-            "label": "Lukas Dhont"
+            "label": "Lukas Dhont",
+            "count": 1
           },
           "director:Q214677": {
-            "label": "Nora Ephron"
+            "label": "Nora Ephron",
+            "count": 2
           },
           "director:Q358322": {
-            "label": "Don Siegel"
+            "label": "Don Siegel",
+            "count": 1
           },
           "director:Q193648": {
-            "label": "Tony Scott"
+            "label": "Tony Scott",
+            "count": 1
           },
           "director:Q3179875": {
-            "label": "Takashi Koizumi"
+            "label": "Takashi Koizumi",
+            "count": 1
           },
           "director:Q606380": {
-            "label": "Jack Smight"
+            "label": "Jack Smight",
+            "count": 1
           },
           "director:Q706475": {
-            "label": "Steve McQueen"
+            "label": "Steve McQueen",
+            "count": 1
           },
           "director:Q541368": {
-            "label": "Michael Almereyda"
+            "label": "Michael Almereyda",
+            "count": 1
           },
           "director:Q315756": {
-            "label": "Mike Leigh"
+            "label": "Mike Leigh",
+            "count": 1
           },
           "director:Q36970": {
-            "label": "Jackie Chan"
+            "label": "Jackie Chan",
+            "count": 1
           },
           "director:Q6514075": {
-            "label": "Lee Isaac Chung"
+            "label": "Lee Isaac Chung",
+            "count": 1
           },
           "director:Q174648": {
-            "label": "Mani Ratnam"
+            "label": "Mani Ratnam",
+            "count": 1
           },
           "director:Q1158442": {
-            "label": "Damian Harris"
+            "label": "Damian Harris",
+            "count": 1
           },
           "director:Q702546": {
-            "label": "Li Yang"
+            "label": "Li Yang",
+            "count": 1
           },
           "director:Q455043": {
-            "label": "Arthur Hiller"
+            "label": "Arthur Hiller",
+            "count": 1
           },
           "director:Q5990919": {
-            "label": "Jan Molander"
+            "label": "Jan Molander",
+            "count": 1
           },
           "director:Q1388372": {
-            "label": "Keisuke Kinoshita"
+            "label": "Keisuke Kinoshita",
+            "count": 1
           },
           "director:Q597230": {
-            "label": "Marcel Camus"
+            "label": "Marcel Camus",
+            "count": 1
           },
           "director:Q31509858": {
-            "label": "Hlynur Pálmason"
+            "label": "Hlynur Pálmason",
+            "count": 1
           },
           "director:Q166887": {
-            "label": "Thelma Schoonmaker"
+            "label": "Thelma Schoonmaker",
+            "count": 1
           },
           "director:Q1929690": {
-            "label": "Michael Wadleigh"
+            "label": "Michael Wadleigh",
+            "count": 1
           },
           "director:Q722461": {
-            "label": "Tomás Gutiérrez Alea"
+            "label": "Tomás Gutiérrez Alea",
+            "count": 1
           },
           "director:Q496429": {
-            "label": "Yu Hyun-mok"
+            "label": "Yu Hyun-mok",
+            "count": 1
           },
           "director:Q538608": {
-            "label": "Héctor Babenco"
+            "label": "Héctor Babenco",
+            "count": 1
           },
           "director:Q2331385": {
-            "label": "Stanislaw Mucha"
+            "label": "Stanislaw Mucha",
+            "count": 1
           },
           "director:Q455279": {
-            "label": "Joe Dante"
+            "label": "Joe Dante",
+            "count": 1
           },
           "director:Q51564": {
-            "label": "John Landis"
+            "label": "John Landis",
+            "count": 1
           },
           "director:Q13909": {
-            "label": "Angelina Jolie"
+            "label": "Angelina Jolie",
+            "count": 1
           },
           "director:Q1389817": {
-            "label": "Hideo Gosha"
+            "label": "Hideo Gosha",
+            "count": 1
           },
           "director:Q138477": {
-            "label": "Larisa Shepitko"
+            "label": "Larisa Shepitko",
+            "count": 2
           },
           "director:Q574983": {
-            "label": "Tommy Lee Wallace"
+            "label": "Tommy Lee Wallace",
+            "count": 1
           },
           "director:Q51495": {
-            "label": "William Wyler"
+            "label": "William Wyler",
+            "count": 1
           },
           "director:Q3241648": {
-            "label": "Shinji Takamatsu"
+            "label": "Shinji Takamatsu",
+            "count": 1
           },
           "director:Q942796": {
-            "label": "Harold Becker"
+            "label": "Harold Becker",
+            "count": 1
           },
           "director:Q51535": {
-            "label": "Vincente Minnelli"
+            "label": "Vincente Minnelli",
+            "count": 1
           },
           "director:Q343293": {
-            "label": "Fernando Meirelles"
+            "label": "Fernando Meirelles",
+            "count": 1
           },
           "director:Q78508": {
-            "label": "Erich von Stroheim"
+            "label": "Erich von Stroheim",
+            "count": 1
           },
           "director:Q958483": {
-            "label": "René Laloux"
+            "label": "René Laloux",
+            "count": 1
           },
           "director:Q6205847": {
-            "label": "Joanna Hogg"
+            "label": "Joanna Hogg",
+            "count": 1
           },
           "director:Q1010436": {
-            "label": "Carlo Vanzina"
+            "label": "Carlo Vanzina",
+            "count": 1
           },
           "director:Q6529244": {
-            "label": "Les Blank"
+            "label": "Les Blank",
+            "count": 1
           },
           "director:Q26821227": {
-            "label": "Barry Jenkins"
+            "label": "Barry Jenkins",
+            "count": 1
           },
           "director:Q469164": {
-            "label": "Cesare Zavattini"
+            "label": "Cesare Zavattini",
+            "count": 1
           },
           "director:Q328723": {
-            "label": "Andrew Stanton"
+            "label": "Andrew Stanton",
+            "count": 1
           },
           "director:Q2602324": {
-            "label": "Jaromil Jireš"
+            "label": "Jaromil Jireš",
+            "count": 2
           },
           "director:Q1341142": {
-            "label": "Evald Schorm"
+            "label": "Evald Schorm",
+            "count": 1
           },
           "director:Q82022": {
-            "label": "Jan Němec"
+            "label": "Jan Němec",
+            "count": 1
           },
           "director:Q1348309": {
-            "label": "John Cromwell"
+            "label": "John Cromwell",
+            "count": 1
           },
           "director:Q60100": {
-            "label": "Roland Emmerich"
+            "label": "Roland Emmerich",
+            "count": 1
           },
           "director:Q543563": {
-            "label": "Phillip Noyce"
+            "label": "Phillip Noyce",
+            "count": 2
           },
           "director:Q270639": {
-            "label": "John McTiernan"
+            "label": "John McTiernan",
+            "count": 1
           },
           "director:Q3350953": {
-            "label": "Sandip Ray"
+            "label": "Sandip Ray",
+            "count": 1
           },
           "director:Q442192": {
-            "label": "Rebecca Horn"
+            "label": "Rebecca Horn",
+            "count": 1
           },
           "director:Q295463": {
-            "label": "Gore Verbinski"
+            "label": "Gore Verbinski",
+            "count": 1
           },
           "director:Q30312551": {
-            "label": "Brett Kelly"
+            "label": "Brett Kelly",
+            "count": 1
           },
           "director:Q2974216": {
-            "label": "Ciro Guerra"
+            "label": "Ciro Guerra",
+            "count": 1
           },
           "director:Q350422": {
-            "label": "Walter Hill"
+            "label": "Walter Hill",
+            "count": 1
           },
           "director:Q179576": {
-            "label": "Gael García Bernal"
+            "label": "Gael García Bernal",
+            "count": 1
           },
           "director:Q347950": {
-            "label": "Gaspar Noé"
+            "label": "Gaspar Noé",
+            "count": 1
           },
           "director:Q716398": {
-            "label": "Jan Kounen"
+            "label": "Jan Kounen",
+            "count": 1
           },
           "director:Q113496177": {
-            "label": "Simon Hesera"
+            "label": "Simon Hesera",
+            "count": 1
           },
           "director:Q171601": {
-            "label": "Daisuke Itō"
+            "label": "Daisuke Itō",
+            "count": 1
           },
           "director:Q1888272": {
-            "label": "Phil Karlson"
+            "label": "Phil Karlson",
+            "count": 1
           },
           "director:Q320036": {
-            "label": "Richard Widmark"
+            "label": "Richard Widmark",
+            "count": 1
           },
           "director:Q951493": {
-            "label": "Charles Jarrott"
+            "label": "Charles Jarrott",
+            "count": 1
           },
           "director:Q335080": {
-            "label": "Makoto Shinkai"
+            "label": "Makoto Shinkai",
+            "count": 1
           },
           "director:Q945188": {
-            "label": "Monte Hellman"
+            "label": "Monte Hellman",
+            "count": 1
           },
           "director:Q112183700": {
-            "label": "Shaunak Sen"
+            "label": "Shaunak Sen",
+            "count": 1
           },
           "director:Q336024": {
-            "label": "Jeannot Szwarc"
+            "label": "Jeannot Szwarc",
+            "count": 1
           },
           "director:Q2720543": {
-            "label": "James Marsh"
+            "label": "James Marsh",
+            "count": 1
           },
           "director:Q550658": {
-            "label": "Harry Winer"
+            "label": "Harry Winer",
+            "count": 1
           },
           "director:Q3299073": {
-            "label": "Mati Diop"
+            "label": "Mati Diop",
+            "count": 1
           },
           "director:Q53046": {
-            "label": "Carlo Verdone"
+            "label": "Carlo Verdone",
+            "count": 1
           },
           "director:Q1532445": {
-            "label": "Jean-Daniel Pollet"
+            "label": "Jean-Daniel Pollet",
+            "count": 1
           },
           "director:Q918681": {
-            "label": "Jean Douchet"
+            "label": "Jean Douchet",
+            "count": 1
           },
           "director:Q977453": {
-            "label": "James Bridges"
+            "label": "James Bridges",
+            "count": 1
           },
           "director:Q788070": {
-            "label": "Yōjirō Takita"
+            "label": "Yōjirō Takita",
+            "count": 1
           },
           "director:Q1644506": {
-            "label": "Alfio Caltabiano"
+            "label": "Alfio Caltabiano",
+            "count": 1
           },
           "director:Q193628": {
-            "label": "Sofia Coppola"
+            "label": "Sofia Coppola",
+            "count": 1
           },
           "director:Q109354786": {
-            "label": "Park Chan-kyong"
+            "label": "Park Chan-kyong",
+            "count": 1
           },
           "director:Q327346": {
-            "label": "Eriprando Visconti"
+            "label": "Eriprando Visconti",
+            "count": 1
           }
         }
       }
@@ -13233,7 +14261,6 @@
           92,
           94,
           95,
-          96,
           97,
           99,
           100,
@@ -13315,6 +14342,7 @@
           206,
           209,
           210,
+          212,
           214,
           215,
           216,
@@ -13796,7 +14824,6 @@
           868,
           869,
           870,
-          871,
           872,
           873,
           876,
@@ -13872,7 +14899,6 @@
           968,
           969,
           972,
-          973,
           974,
           975,
           976,
@@ -13881,7 +14907,6 @@
           981,
           983,
           986,
-          987,
           988,
           989,
           991,
@@ -14213,7 +15238,6 @@
           1472,
           1473,
           1474,
-          1475,
           1476,
           1477,
           1478,
@@ -14409,8 +15433,8 @@
           1761,
           1762,
           1763,
+          1764,
           1765,
-          1766,
           1767,
           1768,
           1769,
@@ -14521,6 +15545,7 @@
           1928,
           1929,
           1930,
+          1931,
           1932,
           1934,
           1935,
@@ -14997,6 +16022,7 @@
           100,
           104,
           115,
+          116,
           119,
           120,
           121,
@@ -15054,6 +16080,7 @@
           379,
           388,
           390,
+          399,
           402,
           429,
           432,
@@ -15064,6 +16091,7 @@
           465,
           466,
           493,
+          495,
           500,
           511,
           515,
@@ -15119,6 +16147,7 @@
           845,
           848,
           865,
+          867,
           869,
           870,
           871,
@@ -15400,6 +16429,7 @@
           580,
           584,
           591,
+          604,
           607,
           662,
           710,
@@ -15503,6 +16533,7 @@
           2083,
           2092,
           2095,
+          2145,
           2156,
           2162,
           2177
@@ -15540,7 +16571,6 @@
           211,
           215,
           227,
-          230,
           257,
           266,
           276,
@@ -15562,7 +16592,6 @@
           351,
           352,
           369,
-          372,
           373,
           384,
           387,
@@ -15573,6 +16602,7 @@
           419,
           423,
           427,
+          429,
           432,
           445,
           456,
@@ -15591,7 +16621,6 @@
           536,
           541,
           548,
-          570,
           572,
           589,
           602,
@@ -15627,7 +16656,6 @@
           812,
           816,
           817,
-          833,
           836,
           851,
           853,
@@ -15639,7 +16667,6 @@
           931,
           932,
           936,
-          944,
           949,
           950,
           963,
@@ -15722,11 +16749,13 @@
           1429,
           1432,
           1433,
+          1435,
           1462,
           1467,
           1470,
           1474,
           1503,
+          1505,
           1521,
           1534,
           1540,
@@ -15756,6 +16785,7 @@
           1734,
           1736,
           1744,
+          1755,
           1759,
           1760,
           1762,
@@ -15960,6 +16990,7 @@
           990,
           996,
           999,
+          1001,
           1006,
           1010,
           1014,
@@ -16028,16 +17059,19 @@
           1353,
           1354,
           1358,
+          1365,
           1372,
           1380,
           1384,
           1390,
           1397,
           1413,
+          1416,
           1432,
           1433,
           1434,
           1451,
+          1462,
           1463,
           1467,
           1470,
@@ -16051,6 +17085,7 @@
           1540,
           1544,
           1552,
+          1556,
           1565,
           1570,
           1577,
@@ -16147,6 +17182,7 @@
           2119,
           2122,
           2131,
+          2134,
           2136,
           2144,
           2150,
@@ -16169,16 +17205,12 @@
           85,
           92,
           95,
-          111,
           146,
           183,
-          185,
           193,
-          247,
           273,
           279,
           283,
-          284,
           308,
           311,
           318,
@@ -16199,11 +17231,8 @@
           591,
           597,
           604,
-          617,
-          630,
           658,
           660,
-          667,
           670,
           674,
           675,
@@ -16211,12 +17240,9 @@
           698,
           710,
           759,
-          773,
-          786,
           788,
           801,
           804,
-          811,
           828,
           838,
           841,
@@ -16236,7 +17262,6 @@
           987,
           1019,
           1023,
-          1026,
           1062,
           1070,
           1105,
@@ -16252,7 +17277,6 @@
           1249,
           1276,
           1281,
-          1298,
           1301,
           1304,
           1330,
@@ -16275,7 +17299,6 @@
           1601,
           1606,
           1618,
-          1626,
           1628,
           1637,
           1647,
@@ -16332,8 +17355,10 @@
           13,
           14,
           16,
+          21,
           25,
           28,
+          37,
           42,
           45,
           47,
@@ -16341,19 +17366,24 @@
           53,
           55,
           68,
+          70,
           80,
+          85,
           88,
           96,
           98,
-          107,
           110,
+          111,
           114,
-          116,
+          117,
           121,
+          124,
           126,
           146,
+          149,
+          150,
           153,
-          160,
+          167,
           172,
           182,
           183,
@@ -16362,31 +17392,32 @@
           195,
           201,
           203,
-          205,
           206,
+          210,
           213,
           215,
           224,
           225,
           230,
           234,
-          244,
           246,
+          247,
           249,
           252,
           253,
           255,
           265,
           266,
+          273,
           278,
           279,
           280,
           281,
           282,
           283,
+          284,
           286,
           287,
-          290,
           299,
           302,
           305,
@@ -16409,9 +17440,11 @@
           380,
           386,
           389,
+          396,
           399,
           400,
           403,
+          404,
           408,
           410,
           413,
@@ -16423,6 +17456,7 @@
           443,
           455,
           466,
+          470,
           471,
           476,
           478,
@@ -16430,10 +17464,12 @@
           487,
           489,
           490,
-          495,
+          502,
+          508,
           513,
           517,
           522,
+          524,
           530,
           533,
           541,
@@ -16444,6 +17480,7 @@
           554,
           555,
           560,
+          566,
           570,
           576,
           578,
@@ -16458,49 +17495,57 @@
           604,
           606,
           612,
+          617,
           620,
           621,
-          622,
           624,
+          630,
           636,
           638,
           639,
+          641,
           642,
           643,
           650,
-          652,
           660,
           666,
+          667,
+          669,
           676,
           677,
           678,
           693,
           696,
+          698,
           701,
           704,
           708,
           710,
           711,
+          714,
+          716,
           717,
-          721,
+          730,
           752,
           755,
           759,
           760,
           767,
           768,
+          773,
           775,
           776,
           786,
           788,
           789,
           790,
+          792,
+          811,
           812,
           814,
           815,
           816,
           818,
-          826,
           828,
           829,
           831,
@@ -16509,9 +17554,10 @@
           839,
           849,
           853,
-          865,
-          867,
+          854,
           870,
+          871,
+          876,
           881,
           890,
           895,
@@ -16519,46 +17565,58 @@
           909,
           912,
           916,
+          919,
           927,
+          932,
+          934,
           935,
           938,
           939,
           944,
           947,
+          948,
           954,
           955,
           958,
           960,
           962,
           963,
+          967,
+          973,
           977,
           981,
+          987,
           988,
           998,
           999,
           1000,
           1001,
-          1004,
           1006,
           1011,
           1018,
           1020,
+          1026,
           1034,
           1035,
-          1044,
+          1042,
           1046,
+          1047,
           1048,
+          1064,
           1070,
           1071,
           1072,
+          1076,
           1078,
+          1079,
           1080,
           1084,
           1100,
           1105,
-          1116,
+          1112,
           1118,
           1125,
+          1126,
           1130,
           1137,
           1140,
@@ -16574,13 +17632,11 @@
           1177,
           1178,
           1187,
-          1195,
           1201,
           1203,
           1211,
           1220,
           1234,
-          1240,
           1241,
           1243,
           1248,
@@ -16592,10 +17648,13 @@
           1267,
           1275,
           1276,
-          1281,
+          1290,
           1293,
+          1298,
           1304,
           1305,
+          1309,
+          1316,
           1323,
           1324,
           1325,
@@ -16605,6 +17664,7 @@
           1338,
           1340,
           1343,
+          1352,
           1354,
           1365,
           1367,
@@ -16616,22 +17676,25 @@
           1400,
           1402,
           1406,
+          1410,
           1411,
           1413,
-          1416,
           1418,
           1420,
           1423,
-          1428,
           1430,
+          1431,
           1432,
-          1433,
           1434,
+          1436,
+          1437,
           1458,
-          1462,
           1465,
+          1475,
           1476,
+          1477,
           1480,
+          1483,
           1492,
           1493,
           1495,
@@ -16651,20 +17714,24 @@
           1551,
           1552,
           1553,
-          1556,
+          1557,
           1569,
           1570,
+          1574,
           1577,
           1580,
           1588,
           1597,
           1599,
           1601,
+          1604,
+          1609,
           1610,
           1612,
           1615,
           1618,
           1624,
+          1626,
           1632,
           1634,
           1635,
@@ -16672,7 +17739,6 @@
           1641,
           1645,
           1648,
-          1650,
           1656,
           1660,
           1662,
@@ -16686,15 +17752,14 @@
           1694,
           1697,
           1712,
+          1713,
           1715,
-          1720,
+          1727,
           1731,
           1732,
-          1736,
           1741,
           1743,
           1744,
-          1750,
           1759,
           1762,
           1765,
@@ -16710,7 +17775,6 @@
           1798,
           1802,
           1805,
-          1817,
           1824,
           1825,
           1826,
@@ -16722,17 +17786,22 @@
           1842,
           1843,
           1844,
-          1847,
+          1846,
           1848,
           1850,
           1863,
-          1867,
+          1865,
+          1869,
           1870,
           1871,
+          1880,
           1885,
           1887,
           1889,
+          1891,
+          1894,
           1897,
+          1901,
           1910,
           1911,
           1914,
@@ -16740,14 +17809,15 @@
           1926,
           1930,
           1931,
+          1951,
           1952,
           1955,
+          1960,
           1963,
           1964,
           1969,
           1972,
           1974,
-          1977,
           1989,
           1992,
           1997,
@@ -16758,13 +17828,13 @@
           2012,
           2013,
           2019,
+          2020,
           2024,
-          2026,
           2032,
           2036,
+          2040,
           2041,
           2042,
-          2049,
           2052,
           2054,
           2056,
@@ -16774,7 +17844,6 @@
           2068,
           2072,
           2073,
-          2074,
           2080,
           2088,
           2093,
@@ -16784,11 +17853,9 @@
           2118,
           2119,
           2126,
-          2134,
-          2136,
+          2133,
           2138,
           2141,
-          2145,
           2150,
           2161,
           2162,
@@ -16796,6 +17863,7 @@
           2166,
           2172,
           2173,
+          2179,
           2188,
           2195,
           2197
@@ -16983,16 +18051,13 @@
           127,
           144,
           146,
-          150,
           171,
           179,
           183,
           194,
           205,
-          210,
           217,
           247,
-          253,
           256,
           260,
           273,
@@ -17026,7 +18091,6 @@
           500,
           501,
           504,
-          508,
           513,
           528,
           536,
@@ -17038,7 +18102,6 @@
           637,
           647,
           675,
-          698,
           700,
           708,
           716,
@@ -17079,7 +18142,6 @@
           1109,
           1117,
           1123,
-          1126,
           1128,
           1131,
           1142,
@@ -17128,7 +18190,6 @@
           1688,
           1693,
           1724,
-          1727,
           1732,
           1740,
           1743,
@@ -17212,6 +18273,7 @@
           334,
           354,
           367,
+          372,
           395,
           399,
           403,
@@ -17367,7 +18429,6 @@
           170,
           207,
           208,
-          212,
           245,
           262,
           293,
@@ -17418,8 +18479,6 @@
           1059,
           1065,
           1073,
-          1080,
-          1087,
           1107,
           1110,
           1115,
@@ -17436,11 +18495,9 @@
           1290,
           1297,
           1315,
-          1316,
           1318,
           1335,
           1347,
-          1361,
           1379,
           1388,
           1405,
@@ -17459,7 +18516,6 @@
           1634,
           1641,
           1646,
-          1648,
           1669,
           1680,
           1704,
@@ -17473,7 +18529,6 @@
           1856,
           1861,
           1924,
-          1931,
           1933,
           1954,
           1975,
@@ -17487,73 +18542,6 @@
           2147,
           2157,
           2171
-        ],
-        "genre:experimental": [
-          37,
-          149,
-          172,
-          206,
-          395,
-          396,
-          404,
-          422,
-          498,
-          502,
-          517,
-          566,
-          641,
-          714,
-          716,
-          776,
-          792,
-          853,
-          854,
-          863,
-          876,
-          932,
-          939,
-          948,
-          967,
-          1036,
-          1042,
-          1047,
-          1064,
-          1078,
-          1079,
-          1137,
-          1309,
-          1324,
-          1352,
-          1384,
-          1388,
-          1410,
-          1425,
-          1431,
-          1436,
-          1437,
-          1477,
-          1483,
-          1557,
-          1609,
-          1610,
-          1634,
-          1697,
-          1731,
-          1791,
-          1837,
-          1846,
-          1869,
-          1891,
-          1901,
-          1933,
-          1951,
-          1960,
-          2020,
-          2040,
-          2061,
-          2064,
-          2133,
-          2179
         ],
         "genre:musical": [
           42,
@@ -17582,7 +18570,6 @@
           982,
           1045,
           1054,
-          1112,
           1174,
           1223,
           1262,
@@ -17706,7 +18693,6 @@
           196,
           205,
           206,
-          215,
           217,
           223,
           230,
@@ -17731,7 +18717,6 @@
           500,
           510,
           514,
-          536,
           548,
           606,
           611,
@@ -17786,7 +18771,6 @@
           1195,
           1203,
           1205,
-          1208,
           1234,
           1239,
           1272,
@@ -17804,14 +18788,12 @@
           1421,
           1432,
           1434,
-          1435,
           1451,
           1463,
           1505,
           1524,
           1563,
           1570,
-          1577,
           1591,
           1599,
           1604,
@@ -17822,12 +18804,9 @@
           1685,
           1694,
           1699,
-          1734,
           1735,
           1736,
           1740,
-          1755,
-          1759,
           1762,
           1771,
           1799,
@@ -17842,13 +18821,11 @@
           1889,
           1920,
           1926,
-          1936,
           1944,
           1950,
           1965,
           1974,
           1993,
-          1999,
           2008,
           2010,
           2057,
@@ -18081,7 +19058,6 @@
           1234,
           1255,
           1260,
-          1290,
           1331,
           1337,
           1383,
@@ -18172,6 +19148,30 @@
           1674,
           1964,
           2044
+        ],
+        "genre:experimental": [
+          172,
+          206,
+          395,
+          422,
+          498,
+          776,
+          853,
+          863,
+          1036,
+          1078,
+          1324,
+          1384,
+          1388,
+          1425,
+          1634,
+          1697,
+          1731,
+          1791,
+          1837,
+          1933,
+          1951,
+          2064
         ]
       },
       "movement": {
@@ -25565,7 +26565,7 @@
     "missing label for director:Q138950471",
     "missing label for director:Q54864392",
     "missing label for director:Q9545711",
-    "movement provenance is legacy-only for 498 film(s)"
+    "movement provenance is legacy-only for 454 film(s)"
   ],
-  "discoveryVersion": "discovery-de4c4ab4a5b28e75"
+  "discoveryVersion": "discovery-9be1d187ed1a31d8"
 }

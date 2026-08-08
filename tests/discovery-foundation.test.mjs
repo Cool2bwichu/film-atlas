@@ -17,6 +17,7 @@ const {
   filmIdForQid,
   normalizeFacetTaxonomy,
   parseMergeOptions,
+  prepareDiscoveryHarvest,
   projectDiscovery,
   validateDiscovery,
   validateIdentityManifest,
@@ -30,6 +31,47 @@ const fixture = (name) => JSON.parse(readFileSync(
 
 const overrides = { schemaVersion: 1, films: {} };
 const source = "pipeline/seeds-expansion.txt";
+const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
+
+const writeJson = (destination, value) => writeFileSync(destination, `${JSON.stringify(value, null, 2)}\n`);
+const runPipeline = (script, args) => spawnSync(process.execPath, [script, ...args], {
+  cwd: repositoryRoot,
+  encoding: "utf8",
+});
+
+function legacyDiscoveryFixture() {
+  const harvest = fixture("harvest.json");
+  const releasedCorpus = fixture("corpus.json");
+  const legacy = {
+    stableSlug: "the duel",
+    qid: "Q17498893",
+    status: "legacy-release-only",
+    reason: "Keep the authored endpoint.",
+  };
+  releasedCorpus.films[legacy.stableSlug] = {
+    qid: legacy.qid,
+    title: "The Duel",
+    year: 1971,
+  };
+  const identity = buildIdentityManifest({
+    harvest,
+    releasedCorpus,
+    overrides: { schemaVersion: 1, films: {}, qidCorrections: [], legacyRetained: [legacy] },
+    source,
+  });
+  const record = identity.films.find((film) => film.stableSlug === legacy.stableSlug);
+  const corpus = {
+    meta: { corpusVersion: "corpus-legacy-fixture" },
+    films: {
+      [legacy.stableSlug]: {
+        ...releasedCorpus.films[legacy.stableSlug],
+        filmId: record.filmId,
+      },
+    },
+    edges: [],
+  };
+  return { corpus, harvest, identity, record };
+}
 
 function discoveryFixture() {
   const harvest = fixture("harvest.json");
@@ -58,6 +100,17 @@ test("facet taxonomy explicitly assigns every raw genre exactly once", () => {
   assert.equal(taxonomy.families["genre:drama"].broad, true);
   assert.equal(taxonomy.families["genre:drama"].programmePriority, 0);
   assert.throws(() => normalizeFacetTaxonomy({ ...fixture("facet-taxonomy.json"), rawGenreToFamily: { Q1000: "genre:not-reviewed" } }));
+});
+
+test("facet taxonomy retains reviewed high-risk genre decisions", () => {
+  const taxonomy = JSON.parse(readFileSync(new URL("../atlas/pipeline/facet-taxonomy.json", import.meta.url), "utf8"));
+  const expected = {
+    Q1135802: "genre:uncategorized", Q622370: "genre:drama", Q853630: "genre:horror",
+    Q2297927: "genre:thriller", Q130130466: "genre:fantasy", Q104765957: "genre:science-fiction",
+    Q138603203: "genre:comedy", Q1332055: "genre:horror", Q4184: "genre:uncategorized",
+  };
+  assert.deepEqual(Object.fromEntries(Object.keys(expected).map((qid) => [qid, taxonomy.rawGenreToFamily[qid]])), expected);
+  assert.equal(taxonomy.families["genre:historical"].label, "Historical & biographical");
 });
 
 test("discovery manifest preserves reviewed facets and movement provenance", () => {
@@ -96,6 +149,21 @@ test("discovery facet output is canonical and validation rejects corrupt members
   assert.throws(() => buildDiscovery({ ...input, taxonomy: unmapped }));
 });
 
+test("discovery validation rejects facet, membership, coverage, provenance, warning, corpus, and layout mutations", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const reject = (mutate) => { const value = structuredClone(discovery); mutate(value); const payload = structuredClone(value); delete payload.discoveryVersion; value.discoveryVersion = contentVersion("discovery", payload); assert.throws(() => validateDiscovery(value, { identity: input.identity, corpusKeys: input.corpusKeys, corpusVersion: input.corpusVersion, layoutAlgorithmVersion: input.layoutAlgorithmVersion })); };
+  reject((value) => { delete value.facets.definitions.director; });
+  reject((value) => { value.keyByFilmId[value.filmOrder[0]] = "wrong-key"; });
+  reject((value) => { delete value.facets.postings.era["era:1980-1999"]; });
+  reject((value) => { value.facets.definitions.country.values["country:unused"] = { label: "Unused", count: 1 }; });
+  reject((value) => { value.facets.definitions.genre.known++; });
+  reject((value) => { delete value.movementProvenance[value.filmOrder[0]]; });
+  reject((value) => { value.coverageWarnings = []; });
+  reject((value) => { value.corpusVersion = "corpus-wrong"; });
+  reject((value) => { value.layoutVersion = discovery.layoutVersion; value.filmOrder = value.filmOrder.slice(0, 2); });
+});
+
 test("discovery projection reindexes a non-contiguous sample without changing corpus version", () => {
   const input = discoveryFixture();
   const discovery = buildDiscovery(input);
@@ -108,6 +176,171 @@ test("discovery projection reindexes a non-contiguous sample without changing co
   assert.notEqual(sample.layoutVersion, discovery.layoutVersion);
   assert.throws(() => projectDiscovery(discovery, fixture("sample-keep.json"), discovery.layoutVersion));
   assert.deepEqual(validateDiscovery(sample, { identity: input.identity, corpusKeys: ["old-key", "collision-two"] }), sample);
+});
+
+test("discovery build rejects an active requested corpus film missing from harvest", () => {
+  const input = discoveryFixture();
+  const directory = mkdtempSync(join(tmpdir(), "atlas-discovery-missing-active-"));
+  const identityPath = join(directory, "identity.json");
+  const harvestPath = join(directory, "harvest.json");
+  const corpusPath = join(directory, "corpus.json");
+  const taxonomyPath = join(directory, "taxonomy.json");
+  const outputPath = join(directory, "discovery.json");
+  const harvest = structuredClone(input.harvest);
+  delete harvest.films["old-key"];
+  const record = input.identity.films.find((film) => film.stableSlug === "old-key");
+  const corpus = {
+    meta: { corpusVersion: "corpus-active-missing-fixture" },
+    films: {
+      "old-key": { qid: record.wikidataQid, filmId: record.filmId, title: record.canonicalTitle, year: record.releaseYear },
+    },
+    edges: [],
+  };
+  try {
+    writeJson(identityPath, input.identity);
+    writeJson(harvestPath, harvest);
+    writeJson(corpusPath, corpus);
+    writeJson(taxonomyPath, input.taxonomy);
+    const result = runPipeline("atlas/pipeline/build-discovery.js", [
+      "--identity", identityPath,
+      "--harvest", harvestPath,
+      "--corpus", corpusPath,
+      "--taxonomy", taxonomyPath,
+      "--out", outputPath,
+    ]);
+
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /Active corpus film old-key is missing from harvest/);
+    assert.equal(existsSync(outputPath), false);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("discovery build synthesizes only an exact legacy release without mutating its source harvest", () => {
+  assert.equal(typeof prepareDiscoveryHarvest, "function", "discovery build must expose its harvest preparation policy");
+  const input = legacyDiscoveryFixture();
+  const before = structuredClone(input.harvest);
+  const prepared = prepareDiscoveryHarvest({ identity: input.identity, harvest: input.harvest, corpus: input.corpus });
+
+  assert.deepEqual(input.harvest, before);
+  assert.notEqual(prepared, input.harvest);
+  assert.notEqual(prepared.films, input.harvest.films);
+  assert.deepEqual(prepared.films[input.record.stableSlug], {
+    qid: input.record.wikidataQid,
+    title: "The Duel",
+    year: 1971,
+    crew: { director: [] },
+    country: [],
+    genre: [],
+    movement: [],
+  });
+
+  const directory = mkdtempSync(join(tmpdir(), "atlas-discovery-legacy-release-"));
+  const identityPath = join(directory, "identity.json");
+  const harvestPath = join(directory, "harvest.json");
+  const corpusPath = join(directory, "corpus.json");
+  const taxonomyPath = join(directory, "taxonomy.json");
+  const outputPath = join(directory, "discovery.json");
+  try {
+    writeJson(identityPath, input.identity);
+    writeJson(harvestPath, input.harvest);
+    writeJson(corpusPath, input.corpus);
+    writeJson(taxonomyPath, fixture("facet-taxonomy.json"));
+    const sourceBytes = readFileSync(harvestPath, "utf8");
+    const result = runPipeline("atlas/pipeline/build-discovery.js", [
+      "--identity", identityPath,
+      "--harvest", harvestPath,
+      "--corpus", corpusPath,
+      "--taxonomy", taxonomyPath,
+      "--out", outputPath,
+    ]);
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.deepEqual(JSON.parse(readFileSync(harvestPath, "utf8")), before);
+    assert.equal(readFileSync(harvestPath, "utf8"), sourceBytes);
+    assert.deepEqual(JSON.parse(readFileSync(outputPath, "utf8")).filmOrder, [input.record.filmId]);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("committed core and candidate discovery manifests equal fresh canonical regeneration", () => {
+  const directory = mkdtempSync(join(tmpdir(), "atlas-discovery-parity-"));
+  const coreOutput = join(directory, "core.json");
+  const candidateOutput = join(directory, "candidate.json");
+  const identityPath = fileURLToPath(new URL("../atlas/pipeline/out/identity.json", import.meta.url));
+  const harvestPath = fileURLToPath(new URL("../atlas/pipeline/out/harvest.json", import.meta.url));
+  const taxonomyPath = fileURLToPath(new URL("../atlas/pipeline/facet-taxonomy.json", import.meta.url));
+  const corpusPath = fileURLToPath(new URL("../atlas/static/corpus.json", import.meta.url));
+  const committedCore = fileURLToPath(new URL("../atlas/static/discovery.json", import.meta.url));
+  const committedCandidate = fileURLToPath(new URL("../atlas/pipeline/out/discovery-candidate.json", import.meta.url));
+  const harvestBytes = readFileSync(harvestPath, "utf8");
+  try {
+    const core = runPipeline("atlas/pipeline/build-discovery.js", [
+      "--identity", identityPath,
+      "--harvest", harvestPath,
+      "--corpus", corpusPath,
+      "--taxonomy", taxonomyPath,
+      "--out", coreOutput,
+    ]);
+    const candidate = runPipeline("atlas/pipeline/build-discovery.js", [
+      "--identity", identityPath,
+      "--harvest", harvestPath,
+      "--taxonomy", taxonomyPath,
+      "--out", candidateOutput,
+    ]);
+
+    assert.equal(core.status, 0, core.stderr);
+    assert.equal(candidate.status, 0, candidate.stderr);
+    assert.equal(JSON.parse(readFileSync(coreOutput, "utf8")).filmOrder.length, 803);
+    assert.equal(JSON.parse(readFileSync(candidateOutput, "utf8")).filmOrder.length, 2204);
+    assert.equal(readFileSync(coreOutput, "utf8"), readFileSync(committedCore, "utf8"));
+    assert.equal(readFileSync(candidateOutput, "utf8"), readFileSync(committedCandidate, "utf8"));
+    assert.equal(readFileSync(harvestPath, "utf8"), harvestBytes);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("discovery validation rejects rehashed stale artifacts and supplied corpus film-ID mismatches", () => {
+  const directory = mkdtempSync(join(tmpdir(), "atlas-discovery-context-"));
+  const committedDiscovery = JSON.parse(readFileSync(new URL("../atlas/static/discovery.json", import.meta.url), "utf8"));
+  const committedCorpus = JSON.parse(readFileSync(new URL("../atlas/static/corpus.json", import.meta.url), "utf8"));
+  const identityPath = fileURLToPath(new URL("../atlas/pipeline/out/identity.json", import.meta.url));
+  const corpusPath = join(directory, "corpus.json");
+  const discoveryPath = join(directory, "discovery.json");
+  try {
+    const stale = structuredClone(committedDiscovery);
+    stale.corpusVersion = "corpus-0000000000000000";
+    const stalePayload = structuredClone(stale);
+    delete stalePayload.discoveryVersion;
+    stale.discoveryVersion = contentVersion("discovery", stalePayload);
+    writeJson(discoveryPath, stale);
+    writeJson(corpusPath, committedCorpus);
+    const staleResult = runPipeline("atlas/pipeline/validate-discovery.js", [
+      discoveryPath,
+      "--identity", identityPath,
+      "--corpus", corpusPath,
+    ]);
+    assert.notEqual(staleResult.status, 0);
+    assert.match(staleResult.stderr, /corpusVersion does not match corpus metadata/);
+
+    const wrongFilmIdCorpus = structuredClone(committedCorpus);
+    const [firstKey, secondKey] = Object.keys(wrongFilmIdCorpus.films);
+    wrongFilmIdCorpus.films[firstKey].filmId = wrongFilmIdCorpus.films[secondKey].filmId;
+    writeJson(discoveryPath, committedDiscovery);
+    writeJson(corpusPath, wrongFilmIdCorpus);
+    const filmIdResult = runPipeline("atlas/pipeline/validate-discovery.js", [
+      discoveryPath,
+      "--identity", identityPath,
+      "--corpus", corpusPath,
+    ]);
+    assert.notEqual(filmIdResult.status, 0);
+    assert.match(filmIdResult.stderr, /film ID does not match identity/);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
 });
 
 test("movement provenance records direct film membership once", () => {

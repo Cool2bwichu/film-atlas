@@ -3,7 +3,7 @@
   "postings": {
     "era": { "era:1960-1979": [1], "era:1980-1999": [0], "era:unknown": [2] },
     "country": { "country:Q38": [0, 1], "country:Q142": [0], "country:unknown": [2] },
-    "genre": { "genre:action": [0], "genre:drama": [0, 1], "genre:uncategorized": [2] },
+    "genre": { "genre:action": [0], "genre:drama": [0, 1], "genre:uncategorized": [0, 2] },
     "movement": { "movement:Q900": [0, 1], "movement:Q901": [2] },
     "director": { "director:Q700": [0, 2], "director:Q701": [1] }
   },

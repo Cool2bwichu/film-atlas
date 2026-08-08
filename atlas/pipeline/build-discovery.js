@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { buildDiscovery, contentVersion, writeJsonAtomically } = require("./discovery-contract");
+const { buildDiscovery, contentVersion, prepareDiscoveryHarvest, writeJsonAtomically } = require("./discovery-contract");
 
 const ROOT = path.join(__dirname, "..");
 const argument = (name, fallback) => {
@@ -22,14 +22,10 @@ const taxonomyPath = argument("taxonomy", path.join(ROOT, "pipeline", "facet-tax
 const outPath = argument("out", corpusPath ? path.join(ROOT, "static", "discovery.json") : path.join(ROOT, "pipeline", "out", "discovery-candidate.json"));
 const layoutAlgorithmVersion = argument("layout-algorithm", "atlas-layout-v1");
 const identity = readJson(identityPath);
-const harvest = readJson(harvestPath);
+const sourceHarvest = readJson(harvestPath);
 const corpus = corpusPath ? readJson(corpusPath) : null;
 const corpusKeys = corpus ? Object.keys(corpus.films || {}) : undefined;
-if (corpus) for (const [key, film] of Object.entries(corpus.films || {})) {
-  if (!harvest.films[key]) harvest.films[key] = {
-    qid: film.qid, title: film.title, year: film.year, crew: { director: [] }, country: [], genre: [], movement: [],
-  };
-}
+const harvest = corpus ? prepareDiscoveryHarvest({ identity, harvest: sourceHarvest, corpus }) : sourceHarvest;
 const corpusVersion = corpus?.meta?.corpusVersion || contentVersion("corpus", { identityVersion: identity.identityVersion, scope: "candidate" });
 const discovery = buildDiscovery({ identity, harvest, corpusKeys, taxonomy: readJson(taxonomyPath), corpusVersion, layoutAlgorithmVersion });
 writeJsonAtomically(outPath, discovery);
