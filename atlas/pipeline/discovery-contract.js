@@ -1,6 +1,9 @@
 "use strict";
 
+const fs = require("fs");
+const path = require("path");
 const nodeCrypto = require("crypto");
+const FILM_ID = /^film-[0-9a-f]{16}$/;
 
 class MissingQidError extends Error {
   constructor(key) {
@@ -23,10 +26,45 @@ class DuplicateFilmIdError extends Error {
   }
 }
 
+class InvalidFilmIdError extends Error {
+  constructor(filmId) {
+    super(`Permanent film ID ${filmId} must match film-<16 lowercase hex characters>`);
+    this.name = "InvalidFilmIdError";
+  }
+}
+
 class SlugRetargetError extends Error {
   constructor(slug, previousQid, incomingQid) {
     super(`Stable slug ${slug} belonged to ${previousQid} and cannot be retargeted to ${incomingQid}`);
     this.name = "SlugRetargetError";
+  }
+}
+
+class SlugOwnershipError extends Error {
+  constructor(slug) {
+    super(`Stable slug or alias ${slug} has more than one identity owner`);
+    this.name = "SlugOwnershipError";
+  }
+}
+
+class QidOwnershipError extends Error {
+  constructor(qid) {
+    super(`Wikidata QID or alias ${qid} has more than one identity owner`);
+    this.name = "QidOwnershipError";
+  }
+}
+
+class QidCorrectionIdentityError extends Error {
+  constructor(slug) {
+    super(`Reviewed QID correction for ${slug} must preserve the released film ID`);
+    this.name = "QidCorrectionIdentityError";
+  }
+}
+
+class IdentityVersionError extends Error {
+  constructor() {
+    super("Identity manifest version does not match its canonical film records");
+    this.name = "IdentityVersionError";
   }
 }
 
@@ -59,12 +97,56 @@ function uniqueSorted(values) {
   return [...new Set(values.filter(Boolean))].sort();
 }
 
+function assertFilmId(filmId) {
+  if (typeof filmId !== "string" || !FILM_ID.test(filmId)) throw new InvalidFilmIdError(filmId);
+}
+
+function assertQid(qid, key) {
+  if (typeof qid !== "string" || !/^Q\d+$/.test(qid)) throw new MissingQidError(key || String(qid));
+}
+
+function indexIdentityRecords(records) {
+  const filmIds = new Map();
+  const canonicalQids = new Map();
+  const canonicalSlugs = new Map();
+  const qidAliases = new Map();
+  const slugAliases = new Map();
+  for (const record of records) {
+    assertFilmId(record.filmId);
+    assertQid(record.wikidataQid, record.stableSlug);
+    if (typeof record.stableSlug !== "string" || !record.stableSlug) {
+      throw new CorpusIdentityError("Every identity record requires a stableSlug");
+    }
+    if (filmIds.has(record.filmId)) throw new DuplicateFilmIdError(record.filmId);
+    if (canonicalQids.has(record.wikidataQid)) throw new QidOwnershipError(record.wikidataQid);
+    if (canonicalSlugs.has(record.stableSlug)) throw new SlugOwnershipError(record.stableSlug);
+    filmIds.set(record.filmId, record);
+    canonicalQids.set(record.wikidataQid, record.filmId);
+    canonicalSlugs.set(record.stableSlug, record.filmId);
+  }
+  for (const record of records) {
+    for (const qid of record.qidAliases || []) {
+      assertQid(qid, record.stableSlug);
+      if (canonicalQids.has(qid) || qidAliases.has(qid)) throw new QidOwnershipError(qid);
+      qidAliases.set(qid, record.filmId);
+    }
+    for (const slug of record.slugAliases || []) {
+      if (typeof slug !== "string" || !slug || canonicalSlugs.has(slug) || slugAliases.has(slug)) {
+        throw new SlugOwnershipError(slug);
+      }
+      slugAliases.set(slug, record.filmId);
+    }
+  }
+  return { canonicalQids, canonicalSlugs, qidAliases, slugAliases };
+}
+
 function priorRecordByQid(previousIdentity) {
   const records = new Map();
   for (const record of previousIdentity?.films || []) {
+    assertFilmId(record.filmId);
     for (const qid of [record.wikidataQid, ...(record.qidAliases || [])]) {
       const prior = records.get(qid);
-      if (prior && prior.filmId !== record.filmId) throw new DuplicateQidError(qid);
+      if (prior && prior.filmId !== record.filmId) throw new QidOwnershipError(qid);
       records.set(qid, record);
     }
   }
@@ -77,7 +159,7 @@ function priorSlugOwners(previousIdentity) {
     for (const slug of [record.stableSlug, ...(record.slugAliases || [])]) {
       if (!slug) continue;
       const owner = owners.get(slug);
-      if (owner && owner !== record.wikidataQid) throw new SlugRetargetError(slug, owner, record.wikidataQid);
+      if (owner && owner !== record.wikidataQid) throw new SlugOwnershipError(slug);
       owners.set(slug, record.wikidataQid);
     }
   }
@@ -95,6 +177,7 @@ function explicitOverride(overrides, qid) {
   for (const key of Object.keys(value)) {
     if (!allowed.has(key)) throw new CorpusIdentityError(`Identity override for ${qid} contains unsupported field ${key}`);
   }
+  if (value.filmId !== undefined) assertFilmId(value.filmId);
   return value;
 }
 
@@ -136,8 +219,9 @@ function buildIdentityManifest({ harvest, releasedCorpus, overrides = { schemaVe
 
   const correctionsBySlug = correctionBySlug(overrides);
   const legacyBySlug = retainedBySlug(overrides);
-  const priorByQid = priorRecordByQid(previousIdentity);
-  const slugOwners = priorSlugOwners(previousIdentity);
+  const validatedPrevious = previousIdentity ? validateIdentityManifest(previousIdentity) : undefined;
+  const priorByQid = priorRecordByQid(validatedPrevious);
+  const slugOwners = priorSlugOwners(validatedPrevious);
   const coreQids = releasedQids(releasedCorpus, correctionsBySlug);
   const incoming = [];
   const incomingByQid = new Map();
@@ -198,7 +282,13 @@ function buildIdentityManifest({ harvest, releasedCorpus, overrides = { schemaVe
 
     const prior = priorByQid.get(qid);
     const override = explicitOverride(overrides, qid);
-    const filmId = prior?.filmId || override.filmId || filmIdForQid(preservedFilmIdQid || qid);
+    const correctionFilmId = preservedFilmIdQid ? filmIdForQid(preservedFilmIdQid) : null;
+    if (correctionFilmId && ((prior && prior.filmId !== correctionFilmId) ||
+        (override.filmId && override.filmId !== correctionFilmId))) {
+      throw new QidCorrectionIdentityError(stableSlug);
+    }
+    const filmId = correctionFilmId || prior?.filmId || override.filmId || filmIdForQid(qid);
+    assertFilmId(filmId);
     if (filmIds.has(filmId)) throw new DuplicateFilmIdError(filmId);
     filmIds.add(filmId);
 
@@ -235,19 +325,44 @@ function buildIdentityManifest({ harvest, releasedCorpus, overrides = { schemaVe
   }
 
   records.sort((a, b) => a.filmId.localeCompare(b.filmId));
-  const byQid = {};
-  const qidAliasToFilmId = {};
-  const keyByFilmId = {};
-  for (const record of records) {
-    byQid[record.wikidataQid] = record.filmId;
-    for (const qid of record.qidAliases) {
-      if (byQid[qid] || qidAliasToFilmId[qid]) throw new DuplicateQidError(qid);
-      qidAliasToFilmId[qid] = record.filmId;
-    }
-    if (record.status === "active") keyByFilmId[record.filmId] = record.stableSlug;
-  }
+  const indexes = indexIdentityRecords(records);
+  const byQid = Object.fromEntries(indexes.canonicalQids);
+  const qidAliasToFilmId = Object.fromEntries(indexes.qidAliases);
+  const keyByFilmId = Object.fromEntries(records.filter((record) => record.status === "active")
+    .map((record) => [record.filmId, record.stableSlug]));
   const identityVersion = contentVersion("identity", { schemaVersion: 1, films: records });
-  return { schemaVersion: 1, identityVersion, films: records, byQid, qidAliasToFilmId, keyByFilmId };
+  return validateIdentityManifest({ schemaVersion: 1, identityVersion, films: records, byQid, qidAliasToFilmId, keyByFilmId });
+}
+
+function validateIdentityManifest(manifest) {
+  if (!manifest || manifest.schemaVersion !== 1 || !Array.isArray(manifest.films)) {
+    throw new CorpusIdentityError("Identity manifest must use schemaVersion 1 with a films array");
+  }
+  const indexes = indexIdentityRecords(manifest.films);
+  const byQid = Object.fromEntries(indexes.canonicalQids);
+  const qidAliasToFilmId = Object.fromEntries(indexes.qidAliases);
+  const keyByFilmId = Object.fromEntries(manifest.films.filter((record) => record.status === "active")
+    .map((record) => [record.filmId, record.stableSlug]));
+  if (canonicalJson(manifest.byQid || {}) !== canonicalJson(byQid) ||
+      canonicalJson(manifest.qidAliasToFilmId || {}) !== canonicalJson(qidAliasToFilmId) ||
+      canonicalJson(manifest.keyByFilmId || {}) !== canonicalJson(keyByFilmId)) {
+    throw new CorpusIdentityError("Identity manifest indexes do not match its film records");
+  }
+  const expectedVersion = contentVersion("identity", { schemaVersion: 1, films: manifest.films });
+  if (manifest.identityVersion !== expectedVersion) throw new IdentityVersionError();
+  return manifest;
+}
+
+function writeJsonAtomically(destination, value) {
+  const directory = path.dirname(destination);
+  const temporary = path.join(directory, `.${path.basename(destination)}.${process.pid}.${Date.now()}.tmp`);
+  fs.mkdirSync(directory, { recursive: true });
+  try {
+    fs.writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`);
+    fs.renameSync(temporary, destination);
+  } finally {
+    fs.rmSync(temporary, { force: true });
+  }
 }
 
 function semanticCorpusProjection(corpus) {
@@ -286,7 +401,12 @@ module.exports = {
   CorpusIdentityError,
   DuplicateFilmIdError,
   DuplicateQidError,
+  IdentityVersionError,
+  InvalidFilmIdError,
   MissingQidError,
+  QidCorrectionIdentityError,
+  QidOwnershipError,
+  SlugOwnershipError,
   SlugRetargetError,
   attachIdentityToCorpus,
   buildIdentityManifest,
@@ -294,4 +414,6 @@ module.exports = {
   contentVersion,
   filmIdForQid,
   semanticCorpusProjection,
+  validateIdentityManifest,
+  writeJsonAtomically,
 };

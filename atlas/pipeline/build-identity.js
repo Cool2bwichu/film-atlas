@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { buildIdentityManifest } = require("./discovery-contract");
+const { buildIdentityManifest, writeJsonAtomically } = require("./discovery-contract");
 
 const ROOT = path.join(__dirname, "..");
 const flag = (name, fallback) => {
@@ -25,8 +25,7 @@ const manifest = buildIdentityManifest({
   source: "pipeline/seeds-expansion.txt",
 });
 
-fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, `${JSON.stringify(manifest, null, 2)}\n`);
+writeJsonAtomically(OUT, manifest);
 console.log(`identity records: ${manifest.films.length}`);
 console.log(`identity version: ${manifest.identityVersion}`);
 console.log(`wrote ${OUT}`);

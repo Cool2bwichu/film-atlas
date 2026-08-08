@@ -17,7 +17,7 @@
 const fs = require("fs");
 const path = require("path");
 const pairKey = require("./pair-key");
-const { attachIdentityToCorpus } = require("./discovery-contract");
+const { attachIdentityToCorpus, validateIdentityManifest } = require("./discovery-contract");
 
 const ROOT = path.join(__dirname, "..");
 const SPINE = path.join(ROOT, "pipeline", "out", "spine.json");
@@ -32,7 +32,7 @@ const readings = fs.existsSync(READINGS)
 if (!fs.existsSync(IDENTITY)) {
   throw new Error("no pipeline/out/identity.json — run: node pipeline/build-identity.js");
 }
-const identity = JSON.parse(fs.readFileSync(IDENTITY, "utf8"));
+const identity = validateIdentityManifest(JSON.parse(fs.readFileSync(IDENTITY, "utf8")));
 
 const films = JSON.parse(JSON.stringify(spine.films));
 const edges = spine.edges.slice();

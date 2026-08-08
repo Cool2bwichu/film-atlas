@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const require = createRequire(import.meta.url);
@@ -10,6 +14,8 @@ const {
   canonicalJson,
   contentVersion,
   filmIdForQid,
+  validateIdentityManifest,
+  writeJsonAtomically,
 } = require("../atlas/pipeline/discovery-contract.js");
 
 const fixture = (name) => JSON.parse(readFileSync(
@@ -87,8 +93,8 @@ test("identity rejects invalid source identities and slug retargeting", () => {
       overrides: {
         schemaVersion: 1,
         films: {
-          Q100: { filmId: "film-override" },
-          Q200: { filmId: "film-override" },
+          Q100: { filmId: filmIdForQid("Q999") },
+          Q200: { filmId: filmIdForQid("Q999") },
         },
       },
     }),
@@ -101,12 +107,86 @@ test("identity rejects invalid source identities and slug retargeting", () => {
   assert.throws(
     () => buildIdentityManifest({
       harvest: retargeted,
-      releasedCorpus: fixture("corpus.json"),
+      releasedCorpus: { films: {}, edges: [] },
       overrides,
       previousIdentity: first,
       source,
     }),
     { name: "SlugRetargetError" },
+  );
+});
+
+test("identity rejects malformed IDs and correction overrides that replace a released identity", () => {
+  const releasedCorpus = { films: { earth: { qid: "Q12280475", title: "Earth", year: 1930 } }, edges: [] };
+  const harvest = { films: { earth: { qid: "Q55188", title: "Earth", year: 1930 } } };
+  const correction = {
+    stableSlug: "earth",
+    fromQid: "Q12280475",
+    toQid: "Q55188",
+    reason: "Correct the released misidentification.",
+  };
+
+  assert.throws(
+    () => buildIdentityManifest({
+      harvest: fixture("harvest.json"),
+      releasedCorpus: fixture("corpus.json"),
+      source,
+      overrides: { schemaVersion: 1, films: { Q100: { filmId: "film-not-a-hash" } } },
+    }),
+    { name: "InvalidFilmIdError" },
+  );
+
+  const first = buildIdentityManifest({ harvest: fixture("harvest.json"), releasedCorpus: fixture("corpus.json"), overrides, source });
+  const malformedPrior = structuredClone(first);
+  malformedPrior.films[0].filmId = "film-not-a-hash";
+  assert.throws(
+    () => buildIdentityManifest({ harvest: fixture("harvest.json"), releasedCorpus: fixture("corpus.json"), overrides, previousIdentity: malformedPrior, source }),
+    { name: "InvalidFilmIdError" },
+  );
+
+  assert.throws(
+    () => buildIdentityManifest({
+      harvest,
+      releasedCorpus,
+      source,
+      overrides: {
+        schemaVersion: 1,
+        films: { Q55188: { filmId: filmIdForQid("Q55188") } },
+        qidCorrections: [correction],
+        legacyRetained: [],
+      },
+    }),
+    { name: "QidCorrectionIdentityError" },
+  );
+});
+
+test("identity rejects canonical and alias ownership collisions independent of input order", () => {
+  const first = buildIdentityManifest({ harvest: fixture("harvest.json"), releasedCorpus: fixture("corpus.json"), overrides, source });
+  const reversedHarvest = { films: Object.fromEntries(Object.entries(fixture("harvest.json").films).reverse()) };
+
+  for (const harvest of [fixture("harvest.json"), reversedHarvest]) {
+    assert.throws(
+      () => buildIdentityManifest({
+        harvest,
+        releasedCorpus: fixture("corpus.json"),
+        source,
+        overrides: { schemaVersion: 1, films: { Q100: { slugAliases: ["collision-one"] } } },
+      }),
+      { name: "SlugOwnershipError" },
+    );
+  }
+
+  const qidCollision = structuredClone(first);
+  qidCollision.films.find((film) => film.wikidataQid === "Q100").qidAliases = ["Q200"];
+  assert.throws(
+    () => buildIdentityManifest({
+      harvest: fixture("harvest.json"),
+      releasedCorpus: { films: {}, edges: [] },
+      overrides,
+      previousIdentity: qidCollision,
+      source,
+    }),
+    { name: "QidOwnershipError" },
   );
 });
 
@@ -215,7 +295,66 @@ test("identity resolves every authored legacy endpoint without retargeting it", 
     const b = byStableSlug.get(edge.b);
     assert.ok(a, `authored endpoint ${edge.a} is missing from the identity manifest`);
     assert.ok(b, `authored endpoint ${edge.b} is missing from the identity manifest`);
-    assert.equal(identity.byQid[a.wikidataQid], a.filmId);
-    assert.equal(identity.byQid[b.wikidataQid], b.filmId);
+    for (const [slug, record] of [[edge.a, a], [edge.b, b]]) {
+      const released = releasedCorpus.films[slug];
+      assert.ok(released, `authored endpoint ${slug} is absent from the released corpus`);
+      const resolvedId = identity.byQid[released.qid] || identity.qidAliasToFilmId[released.qid];
+      assert.equal(resolvedId, released.filmId, `released QID ${released.qid} was retargeted for ${slug}`);
+      assert.equal(record.filmId, released.filmId, `manifest film ID changed for ${slug}`);
+    }
+  }
+});
+
+test("identity ledger validation rejects forged manifests and matches the committed regeneration", () => {
+  const harvest = JSON.parse(readFileSync(new URL("../atlas/pipeline/out/harvest.json", import.meta.url), "utf8"));
+  const releasedCorpus = JSON.parse(readFileSync(new URL("../atlas/static/corpus.json", import.meta.url), "utf8"));
+  const productionOverrides = JSON.parse(readFileSync(new URL("../atlas/pipeline/identity-overrides.json", import.meta.url), "utf8"));
+  const committed = JSON.parse(readFileSync(new URL("../atlas/pipeline/out/identity.json", import.meta.url), "utf8"));
+  const regenerated = buildIdentityManifest({ harvest, releasedCorpus, overrides: productionOverrides, source: "pipeline/seeds-expansion.txt" });
+
+  assert.equal(canonicalJson(regenerated), canonicalJson(committed));
+  assert.deepEqual(validateIdentityManifest(committed), committed);
+
+  const forgedVersion = structuredClone(committed);
+  forgedVersion.identityVersion = "identity-0000000000000000";
+  assert.throws(() => validateIdentityManifest(forgedVersion), { name: "IdentityVersionError" });
+
+  const duplicate = structuredClone(committed);
+  duplicate.films.push(structuredClone(duplicate.films[0]));
+  assert.throws(() => validateIdentityManifest(duplicate), { name: "DuplicateFilmIdError" });
+
+  const malformed = structuredClone(committed);
+  malformed.films[0].filmId = "film-not-a-hash";
+  assert.throws(() => validateIdentityManifest(malformed), { name: "InvalidFilmIdError" });
+});
+
+test("identity ledger writes atomically beside its destination", () => {
+  const directory = mkdtempSync(join(tmpdir(), "atlas-identity-test-"));
+  const destination = join(directory, "identity.json");
+  try {
+    writeJsonAtomically(destination, { schemaVersion: 1, films: [] });
+    assert.equal(existsSync(destination), true);
+    assert.deepEqual(JSON.parse(readFileSync(destination, "utf8")), { schemaVersion: 1, films: [] });
+    assert.deepEqual(readdirSync(directory), ["identity.json"]);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("merge rejects a forged committed identity ledger before consuming it", () => {
+  const identityPath = new URL("../atlas/pipeline/out/identity.json", import.meta.url);
+  const original = readFileSync(identityPath, "utf8");
+  const forged = JSON.parse(original);
+  forged.identityVersion = "identity-0000000000000000";
+  try {
+    writeFileSync(identityPath, `${JSON.stringify(forged)}\n`);
+    const result = spawnSync(process.execPath, ["atlas/pipeline/merge-corpus.js"], {
+      cwd: fileURLToPath(new URL("../", import.meta.url)),
+      encoding: "utf8",
+    });
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /IdentityVersionError/);
+  } finally {
+    writeFileSync(identityPath, original);
   }
 });
