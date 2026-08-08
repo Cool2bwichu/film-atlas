@@ -150,8 +150,11 @@ test("embeds versioned discovery and permanent-ID layout data in full and sample
     assert.equal(full.DISCOVERY.layoutVersion, full.LAYOUT.version);
     assert.equal(full.LAYOUT.algorithmVersion, "sky-fr-bh-v1");
     assert.equal(full.LAYOUT.corpusVersion, full.DISCOVERY.corpusVersion);
-    assert.equal(Object.keys(full.LAYOUT.positions).length, 803);
-    assert.equal(new Set(full.DISCOVERY.filmOrder).size, 803);
+    /* Derived, not hardcoded: this file's contract is that every count comes
+       from the corpus the build actually read, so a growth run moves it. */
+    const fullFilmCount = Object.keys(full.CORPUS.films).length;
+    assert.equal(Object.keys(full.LAYOUT.positions).length, fullFilmCount);
+    assert.equal(new Set(full.DISCOVERY.filmOrder).size, fullFilmCount);
     assert.deepEqual(
       Object.keys(full.LAYOUT.positions).sort(),
       full.DISCOVERY.filmOrder.slice().sort(),
