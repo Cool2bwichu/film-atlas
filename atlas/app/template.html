@@ -502,6 +502,9 @@ main{flex:1;position:relative;overflow:hidden}
 .panel-x:hover{color:var(--ink)}
 .phead .slate{display:block;padding-bottom:11px;margin-bottom:13px;
   border-bottom:1px solid var(--hair)}
+.phead .panel-context{display:flex;align-items:center;gap:12px}
+.panel-inspecting{margin-left:auto;color:var(--ink);font-size:8px;
+  letter-spacing:.16em;opacity:.72}
 /* THE PANEL IS WHERE THE CLAIMS LIVE, AND THE POSTER WAS STANDING IN FRONT OF
    THEM. At 370px the one-sheet came out 322x483 and pushed "Why it connects"
    98px below the fold on a 1440x900 desktop and 526px below it on a phone —
@@ -1102,6 +1105,13 @@ const state = {
   seen:new Set(preferences.seen), loved:new Set(preferences.loved), filter:preferences.filter,
   sel:null, panelContext:null,
 };
+const RADIAL_HISTORY_KEY="atlasRadial";
+const EDGE_INDEX=new WeakMap(E.map((edge,index)=>[edge,index]));
+const radialSnapshotOptions={
+  edgeAt:(index)=>E[index],
+  edgeIndex:(edge)=>EDGE_INDEX.get(edge),
+  filmExists:(key)=>Boolean(F[key]),
+};
 
 function persistPreferences(){
   try{
@@ -1503,21 +1513,60 @@ function syncMapInspection(){
   });
 }
 
+function currentRadialSnapshot(){
+  return AtlasRadialInspection.createRadialSnapshot({
+    centreKey:state.centre,ring:state.ring,trail:state.trail,
+  },radialSnapshotOptions);
+}
+
+function radialHistoryState(snapshot){
+  const base=history.state&&typeof history.state==="object"?history.state:{};
+  return {...base,[RADIAL_HISTORY_KEY]:snapshot};
+}
+
+function writeRadialHistory(method, snapshot, url){
+  try{ history[method](radialHistoryState(snapshot),"",url); }catch(_error){}
+}
+
+function presentRadialMap(){
+  show("map");
+  renderMap();
+  openPanel(state.centre);
+  $("#sr-status").textContent=`${F[state.centre].title}. ${state.ring.length} connected films shown.`;
+  requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')
+    ?.focus({preventScroll:true}));
+}
+
+function restoreRadialMap(snapshot){
+  const restored=AtlasRadialInspection.restoreRadialSnapshot(snapshot,radialSnapshotOptions);
+  if(!restored || location.hash!=="#/film/"+encodeURIComponent(restored.centreKey)) return false;
+  state.sel=null;
+  state.panelContext=null;
+  state.centre=restored.centreKey;
+  state.ring=restored.ring;
+  state.trail=restored.trail;
+  presentRadialMap();
+  return true;
+}
+
 function openMap(key, keepTrail, historyMode="replace"){
   if(!F[key]) return;
+  if(historyMode==="push" && state.view==="map" && F[state.centre]){
+    const current=currentRadialSnapshot();
+    if(current) writeRadialHistory("replace",current,location.href);
+  }
   state.sel=null;
   state.panelContext=null;
   state.centre=key;
   state.ring=connections(key, 6, [key, ...(keepTrail?state.trail:[])]);
   if(!keepTrail) state.trail=[];
   if(state.trail[state.trail.length-1]!==key) state.trail.push(key);
-  show("map");
-  renderMap();
-  openPanel(key);
-  $("#sr-status").textContent=`${F[key].title}. ${state.ring.length} connected films shown.`;
-  requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')?.focus({preventScroll:true}));
-  const method=historyMode==="push"?"pushState":"replaceState";
-  try{ history[method](null,"","#/film/"+encodeURIComponent(key)); }catch(e){}
+  presentRadialMap();
+  if(historyMode!=="none"){
+    const method=historyMode==="push"?"pushState":"replaceState";
+    const snapshot=currentRadialSnapshot();
+    if(snapshot) writeRadialHistory(method,snapshot,"#/film/"+encodeURIComponent(key));
+  }
 }
 
 function renderMap(){
@@ -1635,11 +1684,14 @@ function closePanel(restoreFocus){
 }
 
 function openPanel(k, context=null){
+  const p=$("#panel");
+  const previousKey=state.sel;
+  const previousScroll=p.scrollTop;
   const inspection = context?.kind==="inspect" && context.centreKey===state.centre
     ? context : null;
   state.sel=k;
   state.panelContext=inspection;
-  const f=F[k], p=$("#panel");
+  const f=F[k];
   p.style.setProperty("--accent", f.highlight);
   const actions=`<div class="acts">
     <button class="btn${state.seen.has(k)?" on":""}" data-act="seen"
@@ -1674,7 +1726,10 @@ function openPanel(k, context=null){
     <button class="panel-x" aria-label="Close">&times;</button>
     <div class="phead">
       <div class="pmeta">
-        <div class="slate">${inspection?`Connected to ${esc(F[state.centre].title)}`:"film"}</div>
+        <div class="slate panel-context">${inspection
+          ? `<span>Connected to ${esc(F[state.centre].title)}</span>
+             <span class="panel-inspecting">INSPECTING</span>`
+          : "film"}</div>
         <h2>${esc(f.title)}</h2>
         <div class="by">${f.year||""}${f.director?"  ·  "+esc(f.director):""}</div>
       </div>
@@ -1689,6 +1744,7 @@ function openPanel(k, context=null){
     ${f.wikipedia?`<div class="row"><span>read more</span><span><a style="color:var(--accent)"
       target="_blank" rel="noopener"
       href="https://en.wikipedia.org/wiki/${encodeURIComponent(f.wikipedia.replace(/ /g,"_"))}">Wikipedia</a></span></div>`:""}`;
+  p.scrollTop=AtlasRadialInspection.panelScrollTarget(previousKey,k,previousScroll);
   p.classList.add("on");
   p.setAttribute("aria-hidden","false");
   p.removeAttribute("inert");
@@ -2807,18 +2863,31 @@ addEventListener("keydown",e=>{
    #/film/<key> is a real address, so a map can be sent to someone. Without
    it every discovery dies in the tab it was made in, and sharing is how a
    thing like this travels. */
-function fromHash(){
+function fromHash(historyMode="replace"){
   const h=location.hash||"";
   /* #/sky is an address too: the whole map is a place worth sending someone */
   if(/^#\/sky\/?$/.test(h)){ if(!SKY_POS) return false; openSky(); return true; }
   const m=h.match(/^#\/film\/(.+)$/);
   if(!m) return false;
-  const k=decodeURIComponent(m[1]);
+  let k;
+  try{ k=decodeURIComponent(m[1]); }catch(_error){ return false; }
   if(!F[k]) return false;
-  openMap(k);
+  openMap(k,false,historyMode);
   return true;
 }
-addEventListener("hashchange",()=>{ if(!fromHash()){ show("wall"); renderWall(); } });
+let popstateLocation=null;
+addEventListener("popstate",(event)=>{
+  popstateLocation=location.href;
+  const snapshot=event.state&&typeof event.state==="object"
+    ? event.state[RADIAL_HISTORY_KEY] : null;
+  if(restoreRadialMap(snapshot)) return;
+  if(!fromHash("none")){ show("wall"); renderWall(); }
+});
+addEventListener("hashchange",()=>{
+  if(popstateLocation===location.href){ popstateLocation=null; return; }
+  popstateLocation=null;
+  if(!fromHash()){ show("wall"); renderWall(); }
+});
 
 renderFilters();
 renderWall();

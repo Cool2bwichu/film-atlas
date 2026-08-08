@@ -74,7 +74,11 @@ test("radial neighbours expose inspection before explicit traversal", async () =
   assert.match(html, /Connected to/);
   assert.match(html, /Why it appears here/);
   assert.match(html, /Explore this film's web/);
+  assert.match(html, /panel-inspecting[^>]*>INSPECTING</);
   assert.match(template, /data-act="travel"/);
+  assert.match(template, /addEventListener\("popstate"/);
+  assert.match(template, /restoreRadialSnapshot/);
+  assert.match(template, /panelScrollTarget/);
   assert.match(template, /node\.setAttribute\("aria-pressed",selected\?"true":"false"\)/);
   const ringLabel = template.match(
     /n\.setAttribute\("aria-label",i<0[\s\S]*?\n\s*:\s*([\s\S]*?)\);\n\s*n\.style/,
