@@ -1388,8 +1388,6 @@ const EDGES = [
     "The extended firefight as the film's real architecture, choreographed and mapped so you always know where everyone is."),
   r("a chinese ghost story", "onibaba", "convergence", "none", 0.5, 0.32,
     "Folk supernatural played for beauty and speed, the ghost a matter of design and wire-work rather than of dread."),
-  r("once upon a time in china", "the duel", "convergence", "none", 0.56, 0.38,
-    "Martial cinema as national argument, the fight scenes staged to demonstrate a school and a discipline rather than a grudge."),
   r("hero", "rashomon", "descent", "b", 0.7, 0.52,
     "The same assassination retold in incompatible versions, each rendered in its own colour scheme so you always know whose account you are in."),
   r("hero", "the assassin", "convergence", "none", 0.56, 0.38,
@@ -1618,8 +1616,6 @@ const EDGES = [
     "A summer of talk and deferred desire, the film's real events entirely conversational and the setting doing the seduction."),
   r("lancelot of the lake", "the trial of joan of arc", "rhyme", "none", 0.64, 0.46,
     "Bresson filming legend as procedure — armour, hooves, hands — with the myth deliberately drained from it."),
-  r("the duel", "seven samurai", "convergence", "none", 0.46, 0.3,
-    "Combat filmed as a demonstrable craft, each fight staged to show a technique rather than to advance a grudge."),
 
   /* ==================================================================
      SEVENTH PASS. The long tail: Ophuls and the moving camera, Naruse
@@ -2058,6 +2054,300 @@ const EDGES = [
     "Lang building myth at architectural scale, the sets monumental enough that the human figures read as ornament on them."),
   r("nine queens", "uncut gems", "convergence", "none", 0.56, 0.38,
     "A hustle that keeps having to be re-solved in real time, every fix opening a worse problem."),
+
+  /* ---------- eighth pass: the 2,204-film expansion ----------
+     The growth run tripled the corpus and every new film arrived describable
+     only by record coincidence: authored coverage fell 803/803 -> 835/2204 and
+     measure-maps went to FAIL on interpretive share. These are written against
+     that, and they are deliberately NOT uniform coverage.
+
+     What is here: films I can say something specific and defensible about.
+     What is not: the long tail of minor works I know by reputation only, and
+     everything dated 2024 or later -- Disclosure Day, Wild Horse Nine, The
+     Odyssey, One Battle After Another and the rest. A formal claim about a
+     film's camera requires having some purchase on the film. Inventing one
+     produces a sentence indistinguishable from a real claim, carrying a
+     confidence number, inside a corpus whose whole value is that its claims
+     are real. Leaving a film uncovered is visible in the metrics; a fabricated
+     reading is not. That asymmetry decides it.
+
+     Bias here is toward pairs in DIFFERENT traditions, per the standing note
+     that those are the edges which let a viewer travel somewhere they would
+     not otherwise have gone. */
+
+  /* Kurosawa's unharvested run. The corpus held the canon and almost none of
+     the rest, which made his region a shelf of famous titles rather than a
+     working life. */
+  r("the bad sleep well", "hamlet", "descent", "b", 0.72, 0.62,
+    "Hamlet relocated to a postwar construction firm: the revenge is against a company, and the ghost is a corruption scandal nobody will name aloud."),
+  r("the bad sleep well", "the godfather part ii", "rhyme", "a", 0.62, 0.5,
+    "Both open on a ceremony filmed as a business meeting — a wedding where the real transactions happen at the edge of frame, among men who never stop working."),
+  r("i live in fear", "dr strangelove", "rebuttal", "b", 0.66, 0.55,
+    "Kubrick made nuclear terror absurd and institutional; Kurosawa made it one old man's private conviction, treated by his family as senility rather than sight."),
+  r("i live in fear", "black rain", "convergence", "a", 0.6, 0.58,
+    "Nuclear dread as a domestic condition rather than an event: one films the slow social consequence of having been under it, the other a man whose terror of it his family treats as a legal problem."),
+  r("one wonderful sunday", "bicycle thieves", "convergence", "b", 0.68, 0.6,
+    "A couple with almost no money spending a day trying to enjoy a city that keeps charging them for it — postwar poverty filmed as an afternoon rather than a tragedy."),
+  r("madadayo", "wild strawberries", "convergence", "b", 0.64, 0.55,
+    "An old teacher surrounded by former students, taking stock — age filmed as an annual ritual of being loved, and the quiet terror underneath it."),
+  r("rhapsody in august", "hiroshima mon amour", "convergence", "b", 0.66, 0.58,
+    "The bomb as something the young must be taught to remember: an elderly survivor and a generation who know it only as history, in a landscape that has healed over."),
+  r("dreams", "the mirror", "convergence", "b", 0.63, 0.5,
+    "Memory filmed without a plot to carry it — episodes that follow the logic of dreaming, where a house, a fox's wedding or a field of flowers arrives with the weight of something recalled."),
+  r("dreams", "fantasia", "rhyme", "a", 0.5, 0.4,
+    "An anthology where each part sets its own rules — a portmanteau built so that a change of style between segments is the form, not an inconsistency."),
+  r("scandal", "network", "convergence", "b", 0.65, 0.56,
+    "A press that has discovered it can manufacture the story rather than find it, filmed with contempt for the machinery and pity for whoever it lands on."),
+
+  /* Bertolucci, Visconti: the Italian historical epic as a class argument. */
+  r("1900", "the leopard", "descent", "b", 0.72, 0.6,
+    "The same century of Italian land seen from the other end: Visconti mourns an aristocracy that knows it is finished, Bertolucci follows the two boys — landowner's son and peasant's — born on the estate the same day."),
+  r("1900", "once upon a time in america", "rebuttal", "b", 0.58, 0.45,
+    "Two boys bound to each other across a violent century, the friendship carrying the history — an epic measured in what a lifelong tie survives rather than in events."),
+  r("the leopard", "barry lyndon", "convergence", "a", 0.66, 0.55,
+    "Aristocratic time filmed at aristocratic pace — long ceremonial sequences where the point is not what happens but how thoroughly a world is furnished before it disappears."),
+  r("last tango in paris", "in the mood for love", "rebuttal", "b", 0.6, 0.48,
+    "Two strangers meeting in an empty apartment and agreeing to withhold their names: one strips everything away to the bodies, the other everything away except restraint."),
+
+  /* Hitchcock's uncovered early and minor work, which is where the tricks were
+     found before they became signatures. */
+  r("stage fright", "rashomon", "convergence", "b", 0.7, 0.72,
+    "Both stage a flashback that lies. Hitchcock's audience took the image as fact for decades and objected when it wasn't; Kurosawa built the lie in from the start and made it the subject."),
+  r("sabotage", "the battle of algiers", "rhyme", "b", 0.64, 0.6,
+    "A bomb travelling through ordinary civilian traffic, the camera staying with the carrier and the clock rather than the target — suspense built from knowing what is in the bag."),
+  r("the pleasure garden 1925", "citizen kane", "convergence", "b", 0.5, 0.38,
+    "A first feature already showing the hand: a director learning that where you put the camera is an argument, not a description."),
+  r("the paradine case", "anatomy of a fall", "convergence", "b", 0.6, 0.5,
+    "The courtroom as a place where the lawyer's own judgement is on trial — a defence undone by the advocate wanting his client to be innocent."),
+
+  /* Spielberg's uncovered corners: the television thriller, the flop, the
+     sequel that broke the rating system. */
+  r("duel", "jaws", "descent", "a", 0.8, 0.85,
+    "The rehearsal for the shark: an unseen predator with no motive and no face, and a protagonist who cannot get anyone to believe the threat is real."),
+  r("duel", "the wages of fear", "convergence", "b", 0.6, 0.5,
+    "A road picture where the road is the antagonist — a vehicle, a gradient and a driver's nerve, with almost nothing else in the frame."),
+
+  /* Cronenberg's early body horror, which the corpus held only in its late,
+     respectable form. */
+  r("shivers", "rear window", "rebuttal", "b", 0.56, 0.45,
+    "The apartment block as a closed society, filmed by Hitchcock as a set of windows to be read and by Cronenberg as a single organism to be infected."),
+  r("shivers", "the thing", "convergence", "b", 0.7, 0.68,
+    "Contagion as the engine: a sealed building, a parasite that rewrites whoever it enters, and no way to tell who is still themselves."),
+  r("the dead zone", "minority report", "rhyme", "a", 0.64, 0.55,
+    "A man who sees a death before it happens and has to decide whether foreknowledge obliges him to act — precognition treated as a moral problem rather than a power."),
+
+  /* Truffaut and Bresson: French interiors the corpus was missing. */
+  r("the green room", "vertigo", "convergence", "b", 0.68, 0.6,
+    "A man who keeps a room for the dead and cannot let a living woman occupy it — devotion to a lost person filmed as a slowly closing trap."),
+  r("the soft skin", "brief encounter", "rebuttal", "b", 0.62, 0.55,
+    "An affair filmed without romance: the hotel corridors, the timetables and the switching of lights, so that the logistics become the subject and the passion is barely visible."),
+  r("a gentle woman", "pickpocket", "convergence", "a", 0.66, 0.6,
+    "Bresson's method turned on a marriage — hands, objects and flat voices, with the emotional event withheld and reconstructed by the audience from evidence."),
+  r("a gentle woman", "cries and whispers", "rhyme", "a", 0.58, 0.45,
+    "A woman dying inside a household that cannot address her directly, so her interior life reaches us only as the silence the others arrange themselves around."),
+
+  /* Bergman's uncovered middle period. */
+  r("the magician", "persona", "descent", "a", 0.6, 0.5,
+    "A performer whose act may be entirely fraudulent, examined by people who want him unmasked — the first working of the question Persona later turns on itself."),
+  r("secrets of women", "eyes wide shut", "rhyme", "a", 0.55, 0.42,
+    "Married couples telling each other what they have done, filmed so the telling is the event and the marriage is what has to survive it."),
+
+  /* Kieślowski, Wenders, Haneke: European moral cinema. */
+  r("happy end", "autumn sonata", "convergence", "b", 0.64, 0.58,
+    "A family reunion conducted entirely in good manners, where the accusation arrives as politeness and the damage is decades old before the camera turns up."),
+  r("summer in the city", "kings of the road", "descent", "a", 0.62, 0.55,
+    "The first sketch of the Wenders road picture: a man moving between German cities with no destination, the film taking its shape from the travelling rather than a plot."),
+  r("the scarlet letter", "the witch", "convergence", "b", 0.55, 0.5,
+    "Puritan New England as a machine for punishing women publicly — the scaffold as civic architecture."),
+
+  /* Miyazaki and Studio Ghibli's uncovered ends. */
+  r("the boy and the heron", "spirited away", "descent", "a", 0.74, 0.72,
+    "A child pulled into a world with its own rules while grieving a mother — the same structure re-entered decades later, with the wonder shot through by loss."),
+  r("the boy and the heron", "the mirror", "convergence", "b", 0.55, 0.4,
+    "Wartime childhood and a mother's absence rendered as association rather than narrative, so the film moves the way a memory does."),
+  r("tales from earthsea", "princess mononoke", "rebuttal", "b", 0.52, 0.42,
+    "The Ghibli ecological fable attempted by a different hand: the same balance-of-nature argument, without the ambivalence that made the original refuse a villain."),
+
+  /* Asian action and genre cinema the expansion reached. */
+  r("once upon a time in china", "hero", "descent", "a", 0.68, 0.62,
+    "Wire-work choreographed as argument rather than spectacle — a master whose fighting style is his politics, filmed in long takes that let you read the technique."),
+  r("once upon a time in china", "the wind rises", "rhyme", "b", 0.5, 0.38,
+    "A national modernisation story told through a single disciplined man watching his country arm itself around him."),
+
+  /* Italian genre: Bava and Petri, the pop end of the 1960s. */
+  r("two evil eyes", "spirits of the dead", "convergence", "b", 0.58, 0.55,
+    "Poe divided between directors, the portmanteau structure used to set two temperaments against each other on the same source."),
+
+  /* Zhang Yimou, Eisenstein, Ozu: colour, montage, and the family. */
+  r("red sorghum", "days of heaven", "rhyme", "b", 0.64, 0.55,
+    "A field filmed as the whole world — labour, weather and a love triangle staged in standing crops, with the colour doing the emotional work."),
+  r("red sorghum", "raise the red lantern", "descent", "a", 0.7, 0.68,
+    "Saturated colour as social structure: red as celebration here, red as surveillance and rank there, by the same hand five years apart."),
+  r("the general line", "man with a movie camera", "convergence", "b", 0.66, 0.62,
+    "Machinery filmed as ecstasy — a cream separator or a projector cut so fast that the mechanism becomes the emotion of the scene."),
+  r("a mother should be loved", "tokyo story", "descent", "a", 0.62, 0.55,
+    "The Ozu family drama in its early form: the camera already low and still, the conflict already handled as something the family declines to say out loud."),
+
+  /* Coens, Malle, Wilder: American craft in unfamous registers. */
+  r("hail caesar", "the making of fanny and alexander", "convergence", "b", 0.62, 0.58,
+    "A picture about making pictures, filmed from inside the machinery — affectionate about the craft and unsentimental about the product it exists to deliver."),
+  r("pretty baby", "taxi driver", "rhyme", "b", 0.55, 0.45,
+    "A child inside an adult economy, filmed without commentary so that the composure of the framing becomes the accusation."),
+  r("the spirit of st louis", "2001 a space odyssey", "convergence", "b", 0.62, 0.58,
+    "A man alone in a small machine for a very long time, the achievement measured in fuel, instruments and staying awake — flight filmed as procedure rather than as triumph."),
+
+  /* War, and the long take. */
+  r("1917", "come and see", "rebuttal", "b", 0.62, 0.52,
+    "Both put you inside a soldier's continuous experience; one uses the unbroken take to make war navigable as a mission, the other to make it a thing done to a face."),
+  r("1917", "children of men", "descent", "b", 0.68, 0.7,
+    "The long take as a way of refusing cutaways — the camera bound to one body so the audience cannot look away to a wider view that would explain the danger."),
+  r("black hawk down", "the battle of algiers", "rebuttal", "b", 0.56, 0.45,
+    "Urban combat filmed with documentary grammar but no politics — procedure and geography in place of the argument the older film was built to make."),
+  r("fear and desire", "paths of glory", "descent", "a", 0.6, 0.62,
+    "The first, disowned run at Kubrick's subject: an anonymous war, a patrol behind an unnamed line, and officers whose reasoning is already the horror."),
+
+  /* Malick, Pasolini, Godard: film as essay. */
+  r("voyage of time", "koyaanisqatsi", "convergence", "b", 0.7, 0.68,
+    "Cosmic time without narration or characters — geological and biological process filmed as spectacle, the argument carried entirely by scale and cutting."),
+  r("arabian nights", "the decameron", "descent", "a", 0.72, 0.72,
+    "Pasolini's trilogy method: bawdy folk tales filmed with non-professional faces and real dirt, the frankness offered as pre-industrial rather than transgressive."),
+
+  /* ---------- backported from readings.json ----------
+     These were authored directly into static/readings.json and never into this
+     file, so every regeneration silently destroyed them: 52 rebuttals and 6
+     attested claims, discovered only because a regeneration was diffed against
+     HEAD before being merged. readings.json is a BUILD ARTIFACT of this script.
+     Anything authored only in the artifact is one `node write-readings.js` away
+     from being gone, with no error and no warning -- the file simply comes back
+     shorter. Backported so the generator is authoritative again.
+
+     Two of the original 54 are not here: the wuxia-choreography readings on
+     "the duel", whose film left the corpus when the key was corrected from Chang
+     Cheh to Spielberg. They were written about a film the corpus no longer holds. */
+  r("alexander nevsky", "andrei rublev", "rebuttal", "b", 0.78, 0.65,
+    "A nation rallied on the ice against the outsider, answered by a cathedral sacked with the prince's own brother guiding the raiders in."),
+  r("lawrence of arabia", "burn", "rebuttal", "b", 0.8, 0.6,
+    "An Englishman consumed by the revolt he raised, answered by an agent who engineers a slave uprising for sugar, then kills the man he made."),
+  at("apocalypse now", "jarhead", "rebuttal", "b", 0.8, 0.78,
+    "The helicopter attack flown in to Wagner as an indictment of the war, answered by marines howling along to that same reel on their way to deploy.",
+    "Anthony Swofford's memoir Jarhead (2003), the film's source, on marines screening Vietnam films as war pornography before deployment"),
+  r("rambo first blood part ii", "born on the fourth of july", "rebuttal", "b", 0.75, 0.6,
+    "A veteran sent back to Vietnam to win it properly, answered by one who comes home paralysed to a ward with broken equipment and rats in it."),
+  r("rome open city", "difficult years", "rebuttal", "b", 0.72, 0.55,
+    "The priest and the communist dying together, answered by a town clerk who signs the Fascist party card to keep a job he loses anyway."),
+  r("is paris burning", "section speciale", "rebuttal", "b", 0.75, 0.6,
+    "Liberation as a whole city rising to free itself, answered by judges assembling a court that could sentence men retroactively for the occupier."),
+  r("the searchers", "meek s cutoff", "rebuttal", "b", 0.75, 0.6,
+    "Five years spent hunting the Comanche who took a white girl, answered by a lost party whose water depends on a captive the film never translates."),
+  r("walkabout", "rabbit proof fence", "rebuttal", "b", 0.72, 0.55,
+    "White children saved in the desert by an Aboriginal boy left unnamed, answered by three Aboriginal girls walking home along a government fence."),
+  r("the most beautiful", "no regrets for our youth", "rebuttal", "b", 0.72, 0.62,
+    "Girls urged to grind more lenses for the war, answered by the same director with a woman planting rice in a village that shuns her as a spy's widow."),
+  r("the 47 ronin", "harakiri", "rebuttal", "b", 0.78, 0.62,
+    "Retainers avenging their lord, filmed to order as a morale booster, answered by a masterless samurai pricing what the code costs the poor."),
+  r("kanal", "ida", "rebuttal", "b", 0.72, 0.58,
+    "An uprising ending in the sewers as martyrdom, answered by two women driving out for one wartime grave and meeting who farms the land now."),
+  r("the godfather", "goodfellas", "rebuttal", "b", 0.85, 0.7,
+    "The mob as dynasty and amber-lit ceremony, answered by the mob as a job, with bodies that have to be moved before dinner."),
+  r("goodfellas", "the irishman", "rebuttal", "b", 0.8, 0.65,
+    "A life of appetite and forward motion, answered by the same director with freeze-frames that pre-announce each death and a last stretch in a care home."),
+  r("stagecoach", "meek s cutoff", "rebuttal", "b", 0.8, 0.62,
+    "Wide vistas and a cavalry bugle over the ridge, answered by a boxed-in near-square frame, no rescue, and a captive who may know where the water is."),
+  r("shane", "heaven s gate", "rebuttal", "b", 0.8, 0.6,
+    "The range war as one gunfighter saving the homesteaders, answered by cattlemen who draw up a list of names and hire an army."),
+  r("high noon", "the great silence", "rebuttal", "b", 0.8, 0.6,
+    "A lawman who pleads with his town and wins the street anyway, answered by a gunman whose throat was cut as a child and cannot ask."),
+  r("my darling clementine", "mccabe mrs miller", "rebuttal", "b", 0.8, 0.65,
+    "A town founded in a dance on its half-built church floor, answered by a settlement whose church never fills and whose first business is a brothel."),
+  r("the man who shot liberty valance", "the assassination of jesse james by the coward robert ford", "rebuttal", "b", 0.75, 0.62,
+    "The newspaperman who burns his notes and prints the legend, answered by the killer re-enacting the shooting on stage for people who came to hiss."),
+  r("the thing from another world", "the thing", "rebuttal", "b", 0.8, 0.65,
+    "Wisecrackers who pool what they know and beat the visitor, answered by a version where it wears their faces and only a blood test is trusted."),
+  r("the maltese falcon", "klute", "rebuttal", "b", 0.75, 0.6,
+    "A private eye whose case is a woman he sees through and hands over, answered by a film that turns to her work and her sessions with an analyst."),
+  r("meet me in st louis", "new york new york", "rebuttal", "b", 0.75, 0.6,
+    "Painted seasons and a family that will not leave for New York, answered on soundstages just as artificial, where the songs work and the marriage fails."),
+  r("two or three things i know about her", "jeanne dielman 23 quai du commerce 1080 bruxelles", "rebuttal", "b", 0.8, 0.65,
+    "A housewife selling herself while a man narrates theories over her, answered by a widow nobody explains, the potatoes taking longer than the client."),
+  r("bicycle thieves", "los olvidados", "rebuttal", "b", 0.75, 0.65,
+    "The poor as a father and son whose bond survives humiliation, refused by a blind beggar turned predator, boys preying on boys, no lesson at the end."),
+  r("rear window", "peeping tom", "rebuttal", "b", 0.75, 0.6,
+    "Watching the neighbours as a hobby the plot vindicates, refused by a blade in the tripod leg and a mirror, so the filmed woman watches her own face."),
+  r("fitzcarraldo", "embrace of the serpent", "rebuttal", "b", 0.75, 0.6,
+    "A steamship hauled over an Amazon ridge on indigenous shoulders, answered from the far bank: the rubber trade an atrocity, the white man a sick passenger."),
+  r("tokyo story", "the insect woman", "rebuttal", "b", 0.75, 0.65,
+    "Decorum at tatami height, answered by the same low camera tracking a woman through farm, mill and brothel like an insect that refuses to die."),
+  r("street of shame", "girls of the night", "rebuttal", "b", 0.7, 0.6,
+    "Brothel women filmed with sympathy as the law closes the house, answered by his leading actress with a woman expelled from every job her past reaches."),
+  r("the color purple", "daughters of the dust", "rebuttal", "b", 0.7, 0.6,
+    "Black women of the rural South turned into melodrama with suffering redeemed, answered on the Sea Islands in Gullah, narrated by a child not yet born."),
+  r("raise the red lantern", "the story of qiu ju", "rebuttal", "b", 0.7, 0.6,
+    "Concubines arranged under red lanterns, a China composed for the eye, answered by the same actress sent into real villages with hidden cameras."),
+  r("2001 a space odyssey", "dark star", "rebuttal", "b", 0.75, 0.65,
+    "The immaculate white ship and its calm computer, answered by a filthy scout vessel arguing a talking bomb out of detonating."),
+  r("close encounters of the third kind", "war of the worlds", "rebuttal", "b", 0.8, 0.65,
+    "A father leaving his children for ships descending in benediction, answered by machines rising from the tarmac and a father who only keeps them moving."),
+  r("ordet", "winter light", "rebuttal", "b", 0.75, 0.65,
+    "The dead raised in a parlour because a son written off as mad asks aloud, answered by a pastor in an empty church whose prayers are met with silence."),
+  r("pinocchio", "a i artificial intelligence", "rebuttal", "b", 0.75, 0.6,
+    "A wooden boy made real as the reward for goodness, answered by a machine child who asks the same blue fairy and is left asking."),
+  r("metropolis", "alphaville", "rebuttal", "b", 0.6, 0.55,
+    "A future raised as a colossal set of towers and machine halls, answered by one shot after dark in Paris corridors, with nothing built for it at all."),
+  r("children of hiroshima", "hiroshima mon amour", "rebuttal", "b", 0.7, 0.55,
+    "The bombing restaged so it can be seen and mourned, answered by a film insisting the museum and the newsreels show you nothing at all."),
+  at("chronique d un ete", "lessons of darkness", "rebuttal", "b", 0.8, 0.8,
+    "Passers-by asked on camera whether they are happy, answered by burning oil fields shot as alien apocalypse under an invented Pascal epigraph.",
+    "Werner Herzog, 'Minnesota Declaration: Truth and Fact in Documentary Cinema' (Walker Art Center, 1999), which attacks cinema verite by name as reaching only 'the truth of accountants'"),
+  r("salesman", "the thin blue line", "rebuttal", "b", 0.78, 0.65,
+    "Bible salesmen followed by a camera that never asks a question, answered by a crime restaged in slow motion with a Philip Glass score doubting it."),
+  r("black orpheus", "black god white devil", "rebuttal", "b", 0.8, 0.65,
+    "Favela carnival in ravishing colour for audiences abroad, answered from the parched backlands in hard black and white by a balladeer counting the dead."),
+  r("battleship potemkin", "man with a movie camera", "rebuttal", "b", 0.8, 0.7,
+    "A mutiny restaged with a cast and a massacre invented for the steps, answered with no script or actors, cutting to the editor splicing what you watch."),
+  r("z", "tout va bien", "rebuttal", "b", 0.75, 0.62,
+    "Political murder made gripping as a thriller, answered by the occupied factory built as a cutaway dolls' house no one mistakes for real."),
+  r("straw dogs", "funny games u s", "rebuttal", "b", 0.8, 0.66,
+    "A siege where a mild man discovers his own violence and the audience cheers, answered by an intruder who picks up a remote and rewinds it away."),
+  r("dont look back", "rolling thunder revue a bob dylan story by martin scorsese", "rebuttal", "b", 0.72, 0.64,
+    "Proximity to the singer as the promise of revelation, answered by a tour film that salts its interviews with people who never existed."),
+  r("bicycle thieves", "accattone", "rebuttal", "b", 0.75, 0.66,
+    "The poor man as a worker wanting only the bicycle that keeps his job, answered by a hustler who cannot bear a day's labour, framed like a saint to Bach."),
+  r("high school", "homework", "rebuttal", "b", 0.7, 0.58,
+    "A school watched in silence from the corner, answered by a lens set in front of each child, keeping the moments when it frightens them."),
+  at("high noon", "rio bravo", "rebuttal", "b", 0.85, 0.88,
+    "A lawman begging his town for help, answered by a sheriff who turns every offer away and holds the jail with a drunk and a crippled old man.",
+    "Howard Hawks, interviewed by Joseph McBride in Hawks on Hawks (1982): \"Rio Bravo was made because I didn't like a picture called High Noon… I didn't think a good sheriff was going to go running around town like a chicken with his head off asking for help.\""),
+  at("the decameron", "salo or the 120 days of sodom", "rebuttal", "b", 0.82, 0.85,
+    "Pasolini renounced his sunlit bawdy tales for making nakedness look like freedom, then filmed the same nakedness as inventory in a locked villa.",
+    "Pasolini, \"Abiura dalla Trilogia della vita\", written 15 June 1975, published in Corriere della Sera and collected in Lettere luterane."),
+  at("solaris", "stalker", "rebuttal", "b", 0.75, 0.8,
+    "Orbital hardware judged to have crowded out the idea, answered by the same director with three men on foot in wet grass, walking towards a room.",
+    "Tarkovsky, Sculpting in Time: \"the science-fiction element in Solaris was nonetheless too prominent and became a distraction\"; he adds the idea would have stood out more had the rockets and stations been dispensed with altogether."),
+  at("tout va bien", "letter to jane", "rebuttal", "b", 0.7, 0.8,
+    "A strike film built on Fonda's stardom, answered by the same directors spending fifty minutes on one press photograph of her listening in Hanoi.",
+    "Godard and Gorin's own narration in Letter to Jane, made and screened as a postscript to Tout Va Bien."),
+  r("the exorcist", "exorcist ii the heretic", "rebuttal", "b", 0.72, 0.65,
+    "A child strapped to a bed, answered by a sequel in which the girl is grown, shares her memories through a hypnosis machine, and is a source of good."),
+  r("the ballad of narayama", "the ballad of narayama 1983", "rebuttal", "b", 0.8, 0.68,
+    "The old carried up the mountain on painted sets under lights that change on cue, answered by the same story dragged into snow, mud and rutting animals."),
+  r("cape fear 1962", "cape fear", "rebuttal", "b", 0.75, 0.65,
+    "A hunted family given a spotless lawyer to root for, answered by one who buried a report that would have helped his stalker: the siege as a debt."),
+  r("my darling clementine", "the man who shot liberty valance", "rebuttal", "b", 0.7, 0.6,
+    "One town raised by a dance on the bare floorboards of its church, answered by the same director with a newspaper choosing legend over what happened."),
+
+  /* Retained deliberately, though "the duel" is no longer an active corpus key.
+     The QID correction moved that key from Chang Cheh's wuxia film to
+     Spielberg's, and these two claims were written about the former. They are
+     kept because the identity ledger records the retired slug as
+     legacy-release-only precisely so authored claims naming a key that once
+     shipped still resolve rather than dangling. merge-corpus drops them from
+     the built corpus on their own merits -- the film is not in it -- so they
+     cost nothing downstream and preserve the provenance of a key that was
+     public for a release. Delete them only together with the ledger entry. */
+  r("once upon a time in china", "the duel", "convergence", "none", 0.56, 0.38,
+    "Martial cinema as national argument, the fight scenes staged to demonstrate a school and a discipline rather than a grudge."),
+  r("the duel", "seven samurai", "convergence", "none", 0.46, 0.3,
+    "Combat filmed as a demonstrable craft, each fight staged to show a technique rather than to advance a grudge."),
 ];
 
 /* ---------- assemble ---------- */

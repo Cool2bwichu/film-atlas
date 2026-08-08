@@ -45371,38 +45371,6 @@
    "bId": "film-70554d8189a628ad"
   },
   {
-   "a": "spirited away",
-   "b": "the boy and the heron",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Hayao Miyazaki directing; Atsushi Okui shooting; Takeshi Seyama cutting; Joe Hisaishi scoring; Hayao Miyazaki writing on both.",
-   "evidence": [
-    "wikidata:Q55400#director",
-    "wikidata:Q9019103#cinematographer",
-    "wikidata:Q1379022#editor",
-    "wikidata:Q275900#composer",
-    "wikidata:Q55400#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "studio",
-     "claim": "Both produced by Studio Ghibli.",
-     "strength": 0.405
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are fantasy film.",
-     "strength": 0.257
-    }
-   ],
-   "aId": "film-4d4b4a8fa1466e4f",
-   "bId": "film-70554d8189a628ad"
-  },
-  {
    "a": "princess mononoke",
    "b": "howl s moving castle",
    "type": "hand",
@@ -68007,42 +67975,6 @@
    ],
    "aId": "film-0e882cdbcd2369f0",
    "bId": "film-41eb038786520d9c"
-  },
-  {
-   "a": "kings of the road",
-   "b": "summer in the city",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Wim Wenders directing; Robby Müller shooting; Peter Przygodda cutting; Wim Wenders writing on both.",
-   "evidence": [
-    "wikidata:Q55411#director",
-    "wikidata:Q384784#cinematographer",
-    "wikidata:Q91260#editor",
-    "wikidata:Q55411#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Hanns Zischler and Wim Wenders both appear in both films.",
-     "strength": 0.552
-    },
-    {
-     "signal": "movement",
-     "claim": "Both belong to New German Cinema.",
-     "strength": 0.547
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Germany, within 6 years of each other.",
-     "strength": 0.216
-    }
-   ],
-   "aId": "film-174846c79f627e1a",
-   "bId": "film-72e9818b6e17dbe6"
   },
   {
    "a": "beyond the clouds",
@@ -130491,40 +130423,6 @@
    ],
    "aId": "film-df40421fe0cb62d3",
    "bId": "film-43f0ab310012fef2"
-  },
-  {
-   "a": "raise the red lantern",
-   "b": "red sorghum",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.692,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Zhang Yimou directing; Zhao Jiping scoring on both.",
-   "evidence": [
-    "wikidata:Q55430#director",
-    "wikidata:Q127740#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to fifth generation Chinese cinema.",
-     "strength": 0.654
-    },
-    {
-     "signal": "cast",
-     "claim": "Gong Li appears in both films.",
-     "strength": 0.54
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are romantic drama film, made 3 years apart.",
-     "strength": 0.497
-    }
-   ],
-   "aId": "film-a49cb62a9bbc6c0d",
-   "bId": "film-7848f19e9a31bc90"
   },
   {
    "a": "the story of qiu ju",
@@ -203037,34 +202935,6 @@
    ],
    "aId": "film-d7e62cd154f3cf65",
    "bId": "film-5b75801bcd35cfc8"
-  },
-  {
-   "a": "hero",
-   "b": "once upon a time in china",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Jet Li appears in both films.",
-   "evidence": [
-    "wikidata:Q159577#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "genreEra",
-     "claim": "Both are martial arts film, made 11 years apart.",
-     "strength": 0.474
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are martial arts film.",
-     "strength": 0.337
-    }
-   ],
-   "aId": "film-1285d0e6cacd3e02",
-   "bId": "film-994baf69f6dd1859"
   },
   {
    "a": "once upon a time in china",
@@ -325977,35 +325847,6 @@
    "also": [],
    "aId": "film-4687fc61bf4b7065",
    "bId": "film-0e33ad79dcebb05f"
-  },
-  {
-   "a": "the decameron",
-   "b": "arabian nights",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.559,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Franco Citti and Ninetto Davoli both appear in both films.",
-   "evidence": [
-    "wikidata:Q554430#P161",
-    "wikidata:Q372481#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Pier Paolo Pasolini directing; Nino Baragli cutting; Ennio Morricone scoring; Pier Paolo Pasolini writing on both.",
-     "strength": 0.82
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Italy, within 3 years of each other.",
-     "strength": 0.205
-    }
-   ],
-   "aId": "film-061d091a0a8930b1",
-   "bId": "film-d772b210617a8e46"
   },
   {
    "a": "todo modo",
@@ -542079,6 +541920,643 @@
    "bId": "film-b3adb12d221b7629"
   },
   {
+   "a": "the bad sleep well",
+   "b": "hamlet",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.62,
+   "claim": "Hamlet relocated to a postwar construction firm: the revenge is against a company, and the ghost is a corruption scandal nobody will name aloud.",
+   "source": "reading",
+   "aId": "film-229735c761afa137",
+   "bId": "film-e090729ab2c92333"
+  },
+  {
+   "a": "the bad sleep well",
+   "b": "the godfather part ii",
+   "type": "rhyme",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.5,
+   "claim": "Both open on a ceremony filmed as a business meeting — a wedding where the real transactions happen at the edge of frame, among men who never stop working.",
+   "source": "reading",
+   "aId": "film-229735c761afa137",
+   "bId": "film-89f14467af7a6fb0"
+  },
+  {
+   "a": "i live in fear",
+   "b": "dr strangelove",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.55,
+   "claim": "Kubrick made nuclear terror absurd and institutional; Kurosawa made it one old man's private conviction, treated by his family as senility rather than sight.",
+   "source": "reading",
+   "aId": "film-7f50202fe988e8ac",
+   "bId": "film-e7b2b86c2d6cd02d"
+  },
+  {
+   "a": "i live in fear",
+   "b": "black rain",
+   "type": "convergence",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.58,
+   "claim": "Nuclear dread as a domestic condition rather than an event: one films the slow social consequence of having been under it, the other a man whose terror of it his family treats as a legal problem.",
+   "source": "reading",
+   "aId": "film-7f50202fe988e8ac",
+   "bId": "film-e0fcb2b33bf13008"
+  },
+  {
+   "a": "one wonderful sunday",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.6,
+   "claim": "A couple with almost no money spending a day trying to enjoy a city that keeps charging them for it — postwar poverty filmed as an afternoon rather than a tragedy.",
+   "source": "reading",
+   "aId": "film-f7063ea48d4e49c3",
+   "bId": "film-dbc80e129d3ec54b"
+  },
+  {
+   "a": "madadayo",
+   "b": "wild strawberries",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.55,
+   "claim": "An old teacher surrounded by former students, taking stock — age filmed as an annual ritual of being loved, and the quiet terror underneath it.",
+   "source": "reading",
+   "aId": "film-848da7a738d264c4",
+   "bId": "film-e678b1fe3dffd136"
+  },
+  {
+   "a": "rhapsody in august",
+   "b": "hiroshima mon amour",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.58,
+   "claim": "The bomb as something the young must be taught to remember: an elderly survivor and a generation who know it only as history, in a landscape that has healed over.",
+   "source": "reading",
+   "aId": "film-deef5599957a4418",
+   "bId": "film-981680ac563ae775"
+  },
+  {
+   "a": "dreams",
+   "b": "the mirror",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.63,
+   "confidence": 0.5,
+   "claim": "Memory filmed without a plot to carry it — episodes that follow the logic of dreaming, where a house, a fox's wedding or a field of flowers arrives with the weight of something recalled.",
+   "source": "reading",
+   "aId": "film-6d9be2ae57358cd2",
+   "bId": "film-32aa631798486cee"
+  },
+  {
+   "a": "dreams",
+   "b": "fantasia",
+   "type": "rhyme",
+   "from": "a",
+   "strength": 0.5,
+   "confidence": 0.4,
+   "claim": "An anthology where each part sets its own rules — a portmanteau built so that a change of style between segments is the form, not an inconsistency.",
+   "source": "reading",
+   "aId": "film-6d9be2ae57358cd2",
+   "bId": "film-93dd6d0cddc248d6"
+  },
+  {
+   "a": "scandal",
+   "b": "network",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.65,
+   "confidence": 0.56,
+   "claim": "A press that has discovered it can manufacture the story rather than find it, filmed with contempt for the machinery and pity for whoever it lands on.",
+   "source": "reading",
+   "aId": "film-c8c7f56bec746332",
+   "bId": "film-60df78d0a1b5909a"
+  },
+  {
+   "a": "1900",
+   "b": "the leopard",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.72,
+   "confidence": 0.6,
+   "claim": "The same century of Italian land seen from the other end: Visconti mourns an aristocracy that knows it is finished, Bertolucci follows the two boys — landowner's son and peasant's — born on the estate the same day.",
+   "source": "reading",
+   "aId": "film-1bcc44891818acd5",
+   "bId": "film-248f5b94ffaa1dbf"
+  },
+  {
+   "a": "1900",
+   "b": "once upon a time in america",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.45,
+   "claim": "Two boys bound to each other across a violent century, the friendship carrying the history — an epic measured in what a lifelong tie survives rather than in events.",
+   "source": "reading",
+   "aId": "film-1bcc44891818acd5",
+   "bId": "film-7091eabf0ee03633"
+  },
+  {
+   "a": "the leopard",
+   "b": "barry lyndon",
+   "type": "convergence",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.55,
+   "claim": "Aristocratic time filmed at aristocratic pace — long ceremonial sequences where the point is not what happens but how thoroughly a world is furnished before it disappears.",
+   "source": "reading",
+   "aId": "film-248f5b94ffaa1dbf",
+   "bId": "film-62be1926183a041e"
+  },
+  {
+   "a": "last tango in paris",
+   "b": "in the mood for love",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.48,
+   "claim": "Two strangers meeting in an empty apartment and agreeing to withhold their names: one strips everything away to the bodies, the other everything away except restraint.",
+   "source": "reading",
+   "aId": "film-1f0e6cdda45ae902",
+   "bId": "film-5bf23f825cd58bc2"
+  },
+  {
+   "a": "stage fright",
+   "b": "rashomon",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.72,
+   "claim": "Both stage a flashback that lies. Hitchcock's audience took the image as fact for decades and objected when it wasn't; Kurosawa built the lie in from the start and made it the subject.",
+   "source": "reading",
+   "aId": "film-8c1b1fe5337e1476",
+   "bId": "film-08a33cc704c1fa09"
+  },
+  {
+   "a": "sabotage",
+   "b": "the battle of algiers",
+   "type": "rhyme",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.6,
+   "claim": "A bomb travelling through ordinary civilian traffic, the camera staying with the carrier and the clock rather than the target — suspense built from knowing what is in the bag.",
+   "source": "reading",
+   "aId": "film-0e2ebc1d31feb472",
+   "bId": "film-387d8fb9b0af8032"
+  },
+  {
+   "a": "the pleasure garden 1925",
+   "b": "citizen kane",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.5,
+   "confidence": 0.38,
+   "claim": "A first feature already showing the hand: a director learning that where you put the camera is an argument, not a description.",
+   "source": "reading",
+   "aId": "film-9494d3507c19fad9",
+   "bId": "film-8ea89ccf112a80c2"
+  },
+  {
+   "a": "the paradine case",
+   "b": "anatomy of a fall",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.5,
+   "claim": "The courtroom as a place where the lawyer's own judgement is on trial — a defence undone by the advocate wanting his client to be innocent.",
+   "source": "reading",
+   "aId": "film-f8df2ce13924f6bf",
+   "bId": "film-9bc7c323ebc986b1"
+  },
+  {
+   "a": "duel",
+   "b": "jaws",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.8,
+   "confidence": 0.85,
+   "claim": "The rehearsal for the shark: an unseen predator with no motive and no face, and a protagonist who cannot get anyone to believe the threat is real.",
+   "source": "reading",
+   "aId": "film-1ed255081b9ae50a",
+   "bId": "film-e2637ff98b1c33b5"
+  },
+  {
+   "a": "duel",
+   "b": "the wages of fear",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.5,
+   "claim": "A road picture where the road is the antagonist — a vehicle, a gradient and a driver's nerve, with almost nothing else in the frame.",
+   "source": "reading",
+   "aId": "film-1ed255081b9ae50a",
+   "bId": "film-17e876473bcea5d2"
+  },
+  {
+   "a": "shivers",
+   "b": "rear window",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.56,
+   "confidence": 0.45,
+   "claim": "The apartment block as a closed society, filmed by Hitchcock as a set of windows to be read and by Cronenberg as a single organism to be infected.",
+   "source": "reading",
+   "aId": "film-09b49c7af661a9f3",
+   "bId": "film-f9ae84d1e42b25c0"
+  },
+  {
+   "a": "shivers",
+   "b": "the thing",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.68,
+   "claim": "Contagion as the engine: a sealed building, a parasite that rewrites whoever it enters, and no way to tell who is still themselves.",
+   "source": "reading",
+   "aId": "film-09b49c7af661a9f3",
+   "bId": "film-e6987c7238fcc682"
+  },
+  {
+   "a": "the dead zone",
+   "b": "minority report",
+   "type": "rhyme",
+   "from": "a",
+   "strength": 0.64,
+   "confidence": 0.55,
+   "claim": "A man who sees a death before it happens and has to decide whether foreknowledge obliges him to act — precognition treated as a moral problem rather than a power.",
+   "source": "reading",
+   "aId": "film-305af648b8b14642",
+   "bId": "film-0a542d349f4f2916"
+  },
+  {
+   "a": "the green room",
+   "b": "vertigo",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.6,
+   "claim": "A man who keeps a room for the dead and cannot let a living woman occupy it — devotion to a lost person filmed as a slowly closing trap.",
+   "source": "reading",
+   "aId": "film-7588e9e5a4efa854",
+   "bId": "film-a72b0c4f67711b42"
+  },
+  {
+   "a": "the soft skin",
+   "b": "brief encounter",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.55,
+   "claim": "An affair filmed without romance: the hotel corridors, the timetables and the switching of lights, so that the logistics become the subject and the passion is barely visible.",
+   "source": "reading",
+   "aId": "film-6ac4b4f7661e8a3a",
+   "bId": "film-57ce841f4bc0a610"
+  },
+  {
+   "a": "a gentle woman",
+   "b": "pickpocket",
+   "type": "convergence",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.6,
+   "claim": "Bresson's method turned on a marriage — hands, objects and flat voices, with the emotional event withheld and reconstructed by the audience from evidence.",
+   "source": "reading",
+   "aId": "film-ef55258591af586a",
+   "bId": "film-dee7e68577904f0c"
+  },
+  {
+   "a": "a gentle woman",
+   "b": "cries and whispers",
+   "type": "rhyme",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.45,
+   "claim": "A woman dying inside a household that cannot address her directly, so her interior life reaches us only as the silence the others arrange themselves around.",
+   "source": "reading",
+   "aId": "film-ef55258591af586a",
+   "bId": "film-e081b7045ecfb94d"
+  },
+  {
+   "a": "the magician",
+   "b": "persona",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.5,
+   "claim": "A performer whose act may be entirely fraudulent, examined by people who want him unmasked — the first working of the question Persona later turns on itself.",
+   "source": "reading",
+   "aId": "film-a5559551df512dca",
+   "bId": "film-b28079f0d239fb6c"
+  },
+  {
+   "a": "secrets of women",
+   "b": "eyes wide shut",
+   "type": "rhyme",
+   "from": "a",
+   "strength": 0.55,
+   "confidence": 0.42,
+   "claim": "Married couples telling each other what they have done, filmed so the telling is the event and the marriage is what has to survive it.",
+   "source": "reading",
+   "aId": "film-ff9906db5708d704",
+   "bId": "film-fece31f547d50aa7"
+  },
+  {
+   "a": "happy end",
+   "b": "autumn sonata",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.58,
+   "claim": "A family reunion conducted entirely in good manners, where the accusation arrives as politeness and the damage is decades old before the camera turns up.",
+   "source": "reading",
+   "aId": "film-586fffc0fd0339e6",
+   "bId": "film-397f38bb9e7a534a"
+  },
+  {
+   "a": "summer in the city",
+   "b": "kings of the road",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.55,
+   "claim": "The first sketch of the Wenders road picture: a man moving between German cities with no destination, the film taking its shape from the travelling rather than a plot.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Wim Wenders directing; Robby Müller shooting; Peter Przygodda cutting; Wim Wenders writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-72e9818b6e17dbe6",
+   "bId": "film-174846c79f627e1a"
+  },
+  {
+   "a": "the scarlet letter",
+   "b": "the witch",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.55,
+   "confidence": 0.5,
+   "claim": "Puritan New England as a machine for punishing women publicly — the scaffold as civic architecture.",
+   "source": "reading",
+   "aId": "film-522de1d7f9f0e8dd",
+   "bId": "film-c5bc64aaf87e9056"
+  },
+  {
+   "a": "the boy and the heron",
+   "b": "spirited away",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.74,
+   "confidence": 0.72,
+   "claim": "A child pulled into a world with its own rules while grieving a mother — the same structure re-entered decades later, with the wonder shot through by loss.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Hayao Miyazaki directing; Atsushi Okui shooting; Takeshi Seyama cutting; Joe Hisaishi scoring; Hayao Miyazaki writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-70554d8189a628ad",
+   "bId": "film-4d4b4a8fa1466e4f"
+  },
+  {
+   "a": "the boy and the heron",
+   "b": "the mirror",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "Wartime childhood and a mother's absence rendered as association rather than narrative, so the film moves the way a memory does.",
+   "source": "reading",
+   "aId": "film-70554d8189a628ad",
+   "bId": "film-32aa631798486cee"
+  },
+  {
+   "a": "tales from earthsea",
+   "b": "princess mononoke",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.52,
+   "confidence": 0.42,
+   "claim": "The Ghibli ecological fable attempted by a different hand: the same balance-of-nature argument, without the ambivalence that made the original refuse a villain.",
+   "source": "reading",
+   "aId": "film-4f1d4d45091c0d28",
+   "bId": "film-9ff1f6355dd58f69"
+  },
+  {
+   "a": "once upon a time in china",
+   "b": "hero",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.68,
+   "confidence": 0.62,
+   "claim": "Wire-work choreographed as argument rather than spectacle — a master whose fighting style is his politics, filmed in long takes that let you read the technique.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Jet Li appears in both films.",
+    "strength": 0.6
+   },
+   "aId": "film-994baf69f6dd1859",
+   "bId": "film-1285d0e6cacd3e02"
+  },
+  {
+   "a": "once upon a time in china",
+   "b": "the wind rises",
+   "type": "rhyme",
+   "from": "b",
+   "strength": 0.5,
+   "confidence": 0.38,
+   "claim": "A national modernisation story told through a single disciplined man watching his country arm itself around him.",
+   "source": "reading",
+   "aId": "film-994baf69f6dd1859",
+   "bId": "film-a7dfd815e2075cde"
+  },
+  {
+   "a": "two evil eyes",
+   "b": "spirits of the dead",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.55,
+   "claim": "Poe divided between directors, the portmanteau structure used to set two temperaments against each other on the same source.",
+   "source": "reading",
+   "aId": "film-4a0a388751644235",
+   "bId": "film-7767a63e27156802"
+  },
+  {
+   "a": "red sorghum",
+   "b": "days of heaven",
+   "type": "rhyme",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.55,
+   "claim": "A field filmed as the whole world — labour, weather and a love triangle staged in standing crops, with the colour doing the emotional work.",
+   "source": "reading",
+   "aId": "film-7848f19e9a31bc90",
+   "bId": "film-68ddcd917dff15dc"
+  },
+  {
+   "a": "red sorghum",
+   "b": "raise the red lantern",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.68,
+   "claim": "Saturated colour as social structure: red as celebration here, red as surveillance and rank there, by the same hand five years apart.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Zhang Yimou directing; Zhao Jiping scoring on both.",
+    "strength": 0.692
+   },
+   "aId": "film-7848f19e9a31bc90",
+   "bId": "film-a49cb62a9bbc6c0d"
+  },
+  {
+   "a": "the general line",
+   "b": "man with a movie camera",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.62,
+   "claim": "Machinery filmed as ecstasy — a cream separator or a projector cut so fast that the mechanism becomes the emotion of the scene.",
+   "source": "reading",
+   "aId": "film-84d1bb75ba986858",
+   "bId": "film-bd3371b7eed1762b"
+  },
+  {
+   "a": "a mother should be loved",
+   "b": "tokyo story",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.55,
+   "claim": "The Ozu family drama in its early form: the camera already low and still, the conflict already handled as something the family declines to say out loud.",
+   "source": "reading",
+   "aId": "film-d8b72504cc9ebcf7",
+   "bId": "film-dd9cde11a2dd8ec6"
+  },
+  {
+   "a": "hail caesar",
+   "b": "the making of fanny and alexander",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.58,
+   "claim": "A picture about making pictures, filmed from inside the machinery — affectionate about the craft and unsentimental about the product it exists to deliver.",
+   "source": "reading",
+   "aId": "film-b36e30a105b72b6e",
+   "bId": "film-0aa56b9fc7eb403f"
+  },
+  {
+   "a": "pretty baby",
+   "b": "taxi driver",
+   "type": "rhyme",
+   "from": "b",
+   "strength": 0.55,
+   "confidence": 0.45,
+   "claim": "A child inside an adult economy, filmed without commentary so that the composure of the framing becomes the accusation.",
+   "source": "reading",
+   "aId": "film-addfa6aeff50ef07",
+   "bId": "film-8c003caa91602c8d"
+  },
+  {
+   "a": "the spirit of st louis",
+   "b": "2001 a space odyssey",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.58,
+   "claim": "A man alone in a small machine for a very long time, the achievement measured in fuel, instruments and staying awake — flight filmed as procedure rather than as triumph.",
+   "source": "reading",
+   "aId": "film-e6694247ee61ee1d",
+   "bId": "film-5fa1f80cb8a5cb71"
+  },
+  {
+   "a": "1917",
+   "b": "come and see",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.52,
+   "claim": "Both put you inside a soldier's continuous experience; one uses the unbroken take to make war navigable as a mission, the other to make it a thing done to a face.",
+   "source": "reading",
+   "aId": "film-308c0fbb402c6bb9",
+   "bId": "film-11bf4a64440c2179"
+  },
+  {
+   "a": "1917",
+   "b": "children of men",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.7,
+   "claim": "The long take as a way of refusing cutaways — the camera bound to one body so the audience cannot look away to a wider view that would explain the danger.",
+   "source": "reading",
+   "aId": "film-308c0fbb402c6bb9",
+   "bId": "film-66e7c9cc55361511"
+  },
+  {
+   "a": "black hawk down",
+   "b": "the battle of algiers",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.56,
+   "confidence": 0.45,
+   "claim": "Urban combat filmed with documentary grammar but no politics — procedure and geography in place of the argument the older film was built to make.",
+   "source": "reading",
+   "aId": "film-65a1e5976eefbb74",
+   "bId": "film-387d8fb9b0af8032"
+  },
+  {
+   "a": "fear and desire",
+   "b": "paths of glory",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.62,
+   "claim": "The first, disowned run at Kubrick's subject: an anonymous war, a patrol behind an unnamed line, and officers whose reasoning is already the horror.",
+   "source": "reading",
+   "aId": "film-3181bc846b461a85",
+   "bId": "film-9005732ca328afd9"
+  },
+  {
+   "a": "voyage of time",
+   "b": "koyaanisqatsi",
+   "type": "convergence",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.68,
+   "claim": "Cosmic time without narration or characters — geological and biological process filmed as spectacle, the argument carried entirely by scale and cutting.",
+   "source": "reading",
+   "aId": "film-153fd9a99729b760",
+   "bId": "film-b8ca4262da0e3d6e"
+  },
+  {
+   "a": "arabian nights",
+   "b": "the decameron",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.72,
+   "confidence": 0.72,
+   "claim": "Pasolini's trilogy method: bawdy folk tales filmed with non-professional faces and real dirt, the frankness offered as pre-industrial rather than transgressive.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Franco Citti and Ninetto Davoli both appear in both films.",
+    "strength": 0.559
+   },
+   "aId": "film-d772b210617a8e46",
+   "bId": "film-061d091a0a8930b1"
+  },
+  {
    "a": "alexander nevsky",
    "b": "andrei rublev",
    "type": "rebuttal",
@@ -542787,6 +543265,6 @@
  "meta": {
   "schemaVersion": 2,
   "identityVersion": "identity-2249bcb9a060c319",
-  "corpusVersion": "corpus-bc11d9f0c9770113"
+  "corpusVersion": "corpus-f777aa7e51564ff6"
  }
 }
