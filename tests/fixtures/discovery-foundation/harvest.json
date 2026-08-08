@@ -1,0 +1,39 @@
+{
+  "films": {
+    "old-key": {
+      "qid": "Q100",
+      "title": "Old title",
+      "year": 1980,
+      "crew": { "director": ["Q700"] },
+      "country": ["Q38", "Q142"],
+      "genre": ["Q1000", "Q1001", "Q1002"],
+      "movementDirect": ["Q900"],
+      "movementInherited": [{ "value": "Q900", "viaDirector": "Q700" }],
+      "movement": ["Q900"]
+    },
+    "collision-one": {
+      "qid": "Q200",
+      "title": "Shared display title",
+      "year": 1960,
+      "crew": { "director": ["Q701"] },
+      "country": ["Q38"],
+      "genre": ["Q1001"],
+      "movementDirect": [],
+      "movementInherited": [{ "value": "Q900", "viaDirector": "Q700" }],
+      "movement": ["Q900"]
+    },
+    "collision-two": {
+      "qid": "Q300",
+      "title": "Shared display title",
+      "year": null,
+      "crew": { "director": ["Q700"] },
+      "country": [],
+      "genre": ["Q1002"],
+      "movement": ["Q901"]
+    }
+  },
+  "labels": {
+    "Q38": "Italy", "Q142": "France", "Q700": "Director One", "Q701": "Director Two",
+    "Q900": "Direct Wave", "Q901": "Legacy Wave"
+  }
+}

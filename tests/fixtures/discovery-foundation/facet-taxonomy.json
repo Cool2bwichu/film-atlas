@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "families": {
+    "genre:action": { "label": "Action" },
+    "genre:adventure": { "label": "Adventure" },
+    "genre:animation": { "label": "Animation" },
+    "genre:comedy": { "label": "Comedy" },
+    "genre:crime": { "label": "Crime" },
+    "genre:documentary": { "label": "Documentary" },
+    "genre:drama": { "label": "Drama", "broad": true, "programmePriority": 0 },
+    "genre:experimental": { "label": "Experimental" },
+    "genre:fantasy": { "label": "Fantasy" },
+    "genre:historical": { "label": "Historical" },
+    "genre:horror": { "label": "Horror" },
+    "genre:musical": { "label": "Musical" },
+    "genre:mystery": { "label": "Mystery" },
+    "genre:romance": { "label": "Romance" },
+    "genre:science-fiction": { "label": "Science fiction" },
+    "genre:thriller": { "label": "Thriller" },
+    "genre:war": { "label": "War" },
+    "genre:western": { "label": "Western" },
+    "genre:uncategorized": { "label": "Uncategorized" }
+  },
+  "rawGenreToFamily": {
+    "Q1000": "genre:action",
+    "Q1001": "genre:drama",
+    "Q1002": "genre:uncategorized"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "films": {
+    "old-key": {
+      "qid": "Q100",
+      "title": "Old title",
+      "year": 1980
+    },
+    "collision-one": {
+      "qid": "Q200",
+      "title": "Shared display title",
+      "year": 1981
+    }
+  },
+  "edges": [
+    {
+      "a": "old-key",
+      "b": "collision-one",
+      "type": "hand",
+      "strength": 0.7,
+      "claim": "A deliberately precise legacy connection."
+    }
+  ]
+}

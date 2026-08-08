@@ -73,6 +73,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { movementValues } = require("./movement-provenance");
 
 const OUT = path.join(__dirname, "out");
 
@@ -109,6 +110,10 @@ function mulberry32(seed) {
 }
 const hash32 = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
 
+function valuesFor(film, prop) {
+  return prop === "movement" ? movementValues(film) : (film[prop] || []);
+}
+
 /* Subsample by hashing the film key and taking the lowest hashes. Stable
    (a film's membership does not depend on corpus order) and nested (the N=200
    sample is a subset of the N=400 sample), so consecutive ladder rows differ
@@ -124,7 +129,7 @@ function measure(films, keys, pairCount) {
   for (const k of keys) {
     const f = films[k];
     (f.genre || []).forEach((v) => bump("genre", v));
-    (f.movement || []).forEach((v) => bump("movement", v));
+    valuesFor(f, "movement").forEach((v) => bump("movement", v));
     (f.subject || []).forEach((v) => bump("subject", v));
     (f.setting || []).forEach((v) => bump("setting", v));
     (f.cast || []).forEach((v) => bump("cast", v));
@@ -169,7 +174,7 @@ function measure(films, keys, pairCount) {
     const a = keys[i], b = keys[j];
 
     for (const g of GATED) {
-      const A = films[a][g.prop] || [], B = new Set(films[b][g.prop] || []);
+      const A = valuesFor(films[a], g.prop), B = new Set(valuesFor(films[b], g.prop));
       let best = -1;
       for (const v of A) if (B.has(v)) { const r = idf(freq[g.field + ":" + v] || 1, N); if (r > best) best = r; }
       if (best >= g.floorIdf) fired[g.signal]++;
@@ -320,4 +325,6 @@ function main() {
     "above that was tuned at one corpus size and is being read at another.\n");
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { measure };
