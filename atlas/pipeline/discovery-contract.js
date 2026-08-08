@@ -701,6 +701,34 @@ function correctionBySlug(overrides) {
   return corrections;
 }
 
+/* A QID correction is a transition, and transitions are spent once they land.
+ * While one is pending, `qidCorrections` both authorises the retarget and
+ * records the old QID as an alias. Once the corrected edition IS the released
+ * corpus, the correction can no longer validate — released and harvested now
+ * agree — so it must be retired, and retiring it destroyed the only durable
+ * record of the alias. The ledger then failed to regenerate from (harvest,
+ * releasedCorpus, overrides) alone, because the alias survived only by being
+ * carried forward from the previous ledger, which is exactly the state the
+ * reproducibility invariant forbids relying on.
+ *
+ * `retiredQidAliases` is that terminal state: a landed correction's old QID,
+ * recorded durably and reviewably, independent of any pending transition. */
+function retiredAliasesBySlug(overrides) {
+  const aliases = new Map();
+  for (const entry of overrides.retiredQidAliases || []) {
+    if (!entry?.stableSlug || !/^Q\d+$/.test(entry.qid || "") || !entry.reason) {
+      throw new CorpusIdentityError("Every retiredQidAliases entry requires stableSlug, qid, and reason");
+    }
+    const list = aliases.get(entry.stableSlug) || [];
+    if (list.includes(entry.qid)) {
+      throw new CorpusIdentityError(`Duplicate retired QID alias ${entry.qid} for ${entry.stableSlug}`);
+    }
+    list.push(entry.qid);
+    aliases.set(entry.stableSlug, list);
+  }
+  return aliases;
+}
+
 function retainedBySlug(overrides) {
   const retained = new Map();
   for (const legacy of overrides.legacyRetained || []) {
@@ -724,6 +752,7 @@ function buildIdentityManifest({ harvest, releasedCorpus, overrides = { schemaVe
 
   const correctionsBySlug = correctionBySlug(overrides);
   const legacyBySlug = retainedBySlug(overrides);
+  const retiredAliases = retiredAliasesBySlug(overrides);
   const validatedPrevious = previousIdentity ? validateIdentityManifest(previousIdentity) : undefined;
   const priorByQid = priorRecordByQid(validatedPrevious);
   const slugOwners = priorSlugOwners(validatedPrevious);
@@ -801,7 +830,8 @@ function buildIdentityManifest({ harvest, releasedCorpus, overrides = { schemaVe
     records.push({
       filmId,
       wikidataQid: qid,
-      qidAliases: uniqueSorted([...(prior?.qidAliases || []), ...qidAliases]),
+      qidAliases: uniqueSorted([...(prior?.qidAliases || []), ...qidAliases,
+        ...(retiredAliases.get(stableSlug) || [])]),
       canonicalTitle: film.title || qid,
       alternateTitles: uniqueSorted([
         ...(prior?.alternateTitles || []),
