@@ -69,3 +69,10 @@ yarn-error.log*
 /atlas/atlas.html
 __pycache__/
 /atlas/pipeline/.cache-enrich/
+
+# Derived: `cat seeds.txt seeds-expansion.txt > seeds-all.txt`, regenerated at
+# the top of every harvest (see pipeline/RUN.md stage 1). Committing it would
+# create a second, staler copy of a list that already has two sources of truth,
+# and the concatenation ORDER is load-bearing -- seeds.txt must come first so
+# `psycho` stays Hitchcock. RUN.md is where that order is enforced, not here.
+/atlas/pipeline/seeds-all.txt
