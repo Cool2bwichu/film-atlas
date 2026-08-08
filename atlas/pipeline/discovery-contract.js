@@ -15,6 +15,7 @@ const ERA_BUCKETS = [
   { id: "era:1980-1999", label: "1980–99", minInclusive: 1980, maxExclusive: 2000 },
   { id: "era:2000-present", label: "2000–now", minInclusive: 2000 },
 ];
+const ERA_VALUES = [...ERA_BUCKETS.map((era) => era.id), "era:unknown"];
 const GENRE_FAMILIES = ["action", "adventure", "animation", "comedy", "crime", "documentary", "drama", "experimental", "fantasy", "historical", "horror", "musical", "mystery", "romance", "science-fiction", "thriller", "war", "western", "uncategorized"]
   .map((name) => `genre:${name}`);
 
@@ -265,16 +266,45 @@ function discoveryHarvestByQid(harvest) {
   return byQid;
 }
 
-function prepareDiscoveryHarvest({ identity, harvest, corpus }) {
+function selectDiscoveryIdentity(identity, corpusKeys) {
   validateIdentityManifest(identity);
+  const ownerByKey = new Map();
+  for (const record of identity.films) for (const key of [record.stableSlug, ...(record.slugAliases || [])]) {
+    const owner = ownerByKey.get(key);
+    if (owner && owner.filmId !== record.filmId) throw new SlugOwnershipError(key);
+    ownerByKey.set(key, record);
+  }
+  if (corpusKeys === undefined || corpusKeys === null) {
+    return identity.films.filter((record) => record.status === "active")
+      .map((record) => ({ key: record.stableSlug, record }))
+      .sort((a, b) => a.record.filmId.localeCompare(b.record.filmId));
+  }
+  if (!Array.isArray(corpusKeys)) throw new CorpusIdentityError("Discovery corpus keys must be an array");
+  const selectedKeyByFilmId = new Map();
+  const selections = [];
+  for (const key of corpusKeys) {
+    const record = ownerByKey.get(key);
+    if (!record) throw new CorpusIdentityError(`Discovery corpus key ${key} does not resolve to an identity record`);
+    const previousKey = selectedKeyByFilmId.get(record.filmId);
+    if (previousKey) {
+      throw new CorpusIdentityError(`Discovery corpus keys ${previousKey} and ${key} select the same film more than once`);
+    }
+    selectedKeyByFilmId.set(record.filmId, key);
+    selections.push({ key, record });
+  }
+  return selections.sort((a, b) => a.record.filmId.localeCompare(b.record.filmId));
+}
+
+function prepareDiscoveryHarvest({ identity, harvest, corpus }) {
   if (!harvest?.films || !corpus?.films) {
     throw new CorpusIdentityError("Discovery harvest preparation requires harvest and corpus films");
   }
+  const selections = selectDiscoveryIdentity(identity, Object.keys(corpus.films));
+  const selectionByKey = new Map(selections.map((selection) => [selection.key, selection.record]));
   const prepared = { ...harvest, films: { ...harvest.films } };
-  const recordsBySlug = new Map(identity.films.map((record) => [record.stableSlug, record]));
   const harvestedQids = new Set(discoveryHarvestByQid(harvest).keys());
   for (const [key, film] of Object.entries(corpus.films)) {
-    const record = recordsBySlug.get(key);
+    const record = selectionByKey.get(key);
     if (record && harvestedQids.has(record.wikidataQid)) continue;
     const exactLegacy = record?.status === "legacy-release-only" &&
       record.wikidataQid === film.qid && (!film.filmId || film.filmId === record.filmId);
@@ -293,17 +323,14 @@ function prepareDiscoveryHarvest({ identity, harvest, corpus }) {
 }
 
 function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion, layoutAlgorithmVersion = "atlas-layout-v1" }) {
-  validateIdentityManifest(identity);
   if (!harvest?.films || !harvest?.labels || !corpusVersion || !layoutAlgorithmVersion) {
     throw new CorpusIdentityError("Discovery requires identity, harvest films and labels, corpusVersion, and layoutAlgorithmVersion");
   }
   assertDiscoveryVersions(corpusVersion, layoutAlgorithmVersion);
+  const selections = selectDiscoveryIdentity(identity, corpusKeys);
   const reviewedTaxonomy = normalizeFacetTaxonomy(taxonomy);
   const harvestByQid = discoveryHarvestByQid(harvest);
-  const requestedKeys = corpusKeys ? new Set(corpusKeys) : null;
-  const records = identity.films.filter((record) => (record.status === "active" || (requestedKeys && record.status === "legacy-release-only")) && (!requestedKeys || requestedKeys.has(record.stableSlug)))
-    .map((record) => ({ record, harvested: harvestByQid.get(record.wikidataQid) }));
-  if (requestedKeys && records.length !== requestedKeys.size) throw new CorpusIdentityError("Discovery corpus keys do not resolve to active identity records");
+  const records = selections.map(({ key, record }) => ({ key, record, harvested: harvestByQid.get(record.wikidataQid) }));
   for (const entry of records) if (!entry.harvested) throw new CorpusIdentityError(`Identity ${entry.record.filmId} has no harvested record`);
   records.sort((a, b) => a.record.filmId.localeCompare(b.record.filmId));
 
@@ -398,7 +425,7 @@ function buildDiscovery({ identity, harvest, corpusKeys, taxonomy, corpusVersion
     definition.count = (postings[facet][value] || []).length;
   }
   const filmOrder = records.map(({ record }) => record.filmId);
-  const keyByFilmId = Object.fromEntries(records.map(({ record }) => [record.filmId, record.stableSlug]));
+  const keyByFilmId = Object.fromEntries(records.map(({ key, record }) => [record.filmId, key]));
   const discovery = {
     schemaVersion: 1,
     identityVersion: identity.identityVersion,
@@ -433,18 +460,15 @@ function validateDiscovery(discovery, {
     }
   }
   if (identity) {
-    validateIdentityManifest(identity);
+    const selections = selectDiscoveryIdentity(identity, corpusKeys);
     if (discovery.identityVersion !== identity.identityVersion) throw new CorpusIdentityError("Discovery identityVersion does not match identity ledger");
-    const keys = corpusKeys ? new Set(corpusKeys) : null;
-    const expected = identity.films.filter((record) => (record.status === "active" || (keys && record.status === "legacy-release-only")) && (!keys || keys.has(record.stableSlug)))
-      .map((record) => record.filmId).sort();
+    const expected = selections.map(({ record }) => record.filmId);
     if (canonicalJson(discovery.filmOrder) !== canonicalJson(expected)) throw new CorpusIdentityError("Discovery filmOrder does not match its identity selection");
-    const expectedKeys = Object.fromEntries(identity.films.filter((record) => expected.includes(record.filmId)).map((record) => [record.filmId, record.stableSlug]));
+    const expectedKeys = Object.fromEntries(selections.map(({ key, record }) => [record.filmId, key]));
     if (canonicalJson(discovery.keyByFilmId || {}) !== canonicalJson(expectedKeys)) throw new CorpusIdentityError("Discovery keyByFilmId does not match identity");
     if (corpusFilmIds) {
-      const recordsBySlug = new Map(identity.films.map((record) => [record.stableSlug, record]));
-      for (const [key, filmId] of Object.entries(corpusFilmIds)) {
-        if (recordsBySlug.get(key)?.filmId !== filmId) {
+      for (const { key, record } of selectDiscoveryIdentity(identity, Object.keys(corpusFilmIds))) {
+        if (record.filmId !== corpusFilmIds[key]) {
           throw new CorpusIdentityError(`Corpus film ${key} film ID does not match identity`);
         }
       }
@@ -458,6 +482,14 @@ function validateDiscovery(discovery, {
   }
   const facetNames = ["country", "director", "era", "genre", "movement"];
   if (canonicalJson(Object.keys(discovery.facets.definitions).sort()) !== canonicalJson(facetNames) || canonicalJson(Object.keys(discovery.facets.postings).sort()) !== canonicalJson(facetNames)) throw new CorpusIdentityError("Discovery facets must contain exactly five facets");
+  for (const [facet, expectedValues] of [["era", ERA_VALUES], ["genre", GENRE_FAMILIES]]) {
+    const definitionValues = Object.keys(discovery.facets.definitions[facet].values || {}).sort();
+    const postingValues = Object.keys(discovery.facets.postings[facet] || {});
+    if (canonicalJson(definitionValues) !== canonicalJson(expectedValues.slice().sort()) ||
+        postingValues.some((value) => !expectedValues.includes(value))) {
+      throw new CorpusIdentityError(`Discovery ${facet} values are invalid`);
+    }
+  }
   if (canonicalJson(Object.keys(discovery.keyByFilmId || {}).sort()) !== canonicalJson(discovery.filmOrder.slice().sort()) || discovery.filmOrder.some((id) => !discovery.keyByFilmId[id])) throw new CorpusIdentityError("Discovery keyByFilmId is invalid");
   for (const definition of Object.values(discovery.facets.definitions)) if (definition.selectable !== false) {
     throw new CorpusIdentityError("Discovery facets are not selectable at this checkpoint");

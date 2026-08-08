@@ -98,6 +98,46 @@ function discoveryFixture() {
   };
 }
 
+function aliasDiscoveryFixture() {
+  const previousIdentity = buildIdentityManifest({
+    harvest: fixture("harvest.json"),
+    releasedCorpus: fixture("corpus.json"),
+    overrides,
+    source,
+  });
+  const harvest = correctedHarvest();
+  const identity = buildIdentityManifest({
+    harvest,
+    releasedCorpus: fixture("corpus.json"),
+    overrides,
+    previousIdentity,
+    source,
+  });
+  const record = identity.films.find((film) => film.wikidataQid === "Q100");
+  const alias = "old-key";
+  const corpus = {
+    meta: { corpusVersion: contentVersion("corpus", { fixture: "alias-selection" }) },
+    films: {
+      [alias]: {
+        qid: record.wikidataQid,
+        filmId: record.filmId,
+        title: record.canonicalTitle,
+        year: record.releaseYear,
+      },
+    },
+    edges: [],
+  };
+  return {
+    alias,
+    corpus,
+    harvest,
+    identity,
+    layoutAlgorithmVersion: "fixture-layout-v1",
+    record,
+    taxonomy: fixture("facet-taxonomy.json"),
+  };
+}
+
 test("facet taxonomy explicitly assigns every raw genre exactly once", () => {
   const taxonomy = normalizeFacetTaxonomy(fixture("facet-taxonomy.json"));
 
@@ -202,6 +242,145 @@ test("discovery validation rejects facet, membership, coverage, provenance, warn
       filmOrder: value.filmOrder,
     });
   }, /layoutAlgorithmVersion must be a stable lowercase identifier/);
+});
+
+test("discovery validation rejects a rehashed renamed era value", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const original = "era:1980-1999";
+  const replacement = "era:not-reviewed";
+  discovery.facets.definitions.era.values[replacement] = discovery.facets.definitions.era.values[original];
+  delete discovery.facets.definitions.era.values[original];
+  discovery.facets.postings.era[replacement] = discovery.facets.postings.era[original];
+  delete discovery.facets.postings.era[original];
+  rehashDiscovery(discovery);
+
+  assert.throws(() => validateDiscovery(discovery, {
+    identity: input.identity,
+    corpusKeys: input.corpusKeys,
+    corpusVersion: input.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  }), /Discovery era values are invalid/);
+});
+
+test("discovery validation rejects a rehashed renamed genre value", () => {
+  const input = discoveryFixture();
+  const discovery = buildDiscovery(input);
+  const original = "genre:action";
+  const replacement = "genre:not-reviewed";
+  discovery.facets.definitions.genre.values[replacement] = discovery.facets.definitions.genre.values[original];
+  delete discovery.facets.definitions.genre.values[original];
+  discovery.facets.postings.genre[replacement] = discovery.facets.postings.genre[original];
+  delete discovery.facets.postings.genre[original];
+  rehashDiscovery(discovery);
+
+  assert.throws(() => validateDiscovery(discovery, {
+    identity: input.identity,
+    corpusKeys: input.corpusKeys,
+    corpusVersion: input.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  }), /Discovery genre values are invalid/);
+});
+
+test("discovery corpus selection preserves a requested released slug alias", () => {
+  const input = aliasDiscoveryFixture();
+  const prepared = prepareDiscoveryHarvest({ identity: input.identity, harvest: input.harvest, corpus: input.corpus });
+  const discovery = buildDiscovery({
+    identity: input.identity,
+    harvest: prepared,
+    corpusKeys: [input.alias],
+    taxonomy: input.taxonomy,
+    corpusVersion: input.corpus.meta.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  });
+
+  assert.deepEqual(discovery.filmOrder, [input.record.filmId]);
+  assert.deepEqual(discovery.keyByFilmId, { [input.record.filmId]: input.alias });
+  assert.deepEqual(validateDiscovery(discovery, {
+    identity: input.identity,
+    corpusKeys: [input.alias],
+    corpusVersion: input.corpus.meta.corpusVersion,
+    corpusFilmIds: { [input.alias]: input.record.filmId },
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  }), discovery);
+
+  const candidate = buildDiscovery({
+    identity: input.identity,
+    harvest: input.harvest,
+    taxonomy: input.taxonomy,
+    corpusVersion: contentVersion("corpus", { fixture: "alias-candidate" }),
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  });
+  assert.equal(candidate.keyByFilmId[input.record.filmId], input.record.stableSlug);
+});
+
+test("discovery rejects duplicate stable-and-alias selection at every corpus seam", () => {
+  const input = aliasDiscoveryFixture();
+  const duplicateKeys = [input.record.stableSlug, input.alias];
+  const duplicateCorpus = structuredClone(input.corpus);
+  duplicateCorpus.films[input.record.stableSlug] = structuredClone(input.corpus.films[input.alias]);
+  assert.throws(
+    () => prepareDiscoveryHarvest({ identity: input.identity, harvest: input.harvest, corpus: duplicateCorpus }),
+    /select the same film more than once/,
+  );
+  assert.throws(() => buildDiscovery({
+    identity: input.identity,
+    harvest: input.harvest,
+    corpusKeys: duplicateKeys,
+    taxonomy: input.taxonomy,
+    corpusVersion: input.corpus.meta.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  }), /select the same film more than once/);
+
+  const validDiscovery = buildDiscovery({
+    identity: input.identity,
+    harvest: input.harvest,
+    corpusKeys: [input.record.stableSlug],
+    taxonomy: input.taxonomy,
+    corpusVersion: input.corpus.meta.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  });
+  assert.throws(() => validateDiscovery(validDiscovery, {
+    identity: input.identity,
+    corpusKeys: duplicateKeys,
+    corpusVersion: input.corpus.meta.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  }), /select the same film more than once/);
+});
+
+test("discovery rejects an unknown requested corpus key at every corpus seam", () => {
+  const input = aliasDiscoveryFixture();
+  const unknownKey = "missing-key";
+  const unknownCorpus = structuredClone(input.corpus);
+  unknownCorpus.films = { [unknownKey]: structuredClone(input.corpus.films[input.alias]) };
+  const expected = /Discovery corpus key missing-key does not resolve to an identity record/;
+  assert.throws(
+    () => prepareDiscoveryHarvest({ identity: input.identity, harvest: input.harvest, corpus: unknownCorpus }),
+    expected,
+  );
+  assert.throws(() => buildDiscovery({
+    identity: input.identity,
+    harvest: input.harvest,
+    corpusKeys: [unknownKey],
+    taxonomy: input.taxonomy,
+    corpusVersion: input.corpus.meta.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  }), expected);
+
+  const validDiscovery = buildDiscovery({
+    identity: input.identity,
+    harvest: input.harvest,
+    corpusKeys: [input.record.stableSlug],
+    taxonomy: input.taxonomy,
+    corpusVersion: input.corpus.meta.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  });
+  assert.throws(() => validateDiscovery(validDiscovery, {
+    identity: input.identity,
+    corpusKeys: [unknownKey],
+    corpusVersion: input.corpus.meta.corpusVersion,
+    layoutAlgorithmVersion: input.layoutAlgorithmVersion,
+  }), expected);
 });
 
 test("discovery validates exact per-film movement provenance and counters", () => {
