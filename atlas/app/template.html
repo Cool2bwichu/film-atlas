@@ -606,6 +606,23 @@ main{flex:1;position:relative;overflow:hidden}
   text-transform:uppercase;color:var(--faint);display:block;margin-top:6px;
   font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
 .sky-read .btn{margin-top:11px}
+.sky-read .btn.ghost{margin-left:7px;border-color:var(--hair);color:var(--dim)}
+.sky-read .sky-hint{color:var(--dim);letter-spacing:.1em;text-transform:none;
+  font-family:var(--serif);font-size:11.5px;line-height:1.45}
+/* WHY THESE TWO ARE JOINED, IN THE FIELD, WITHOUT LEAVING IT.
+   The constellation could draw a connection but never state one: to read a
+   claim you had to abandon the sky for the radial map, which is exactly what
+   made the field feel like a launcher. The claim is quoted verbatim in the
+   serif the rest of the project reads claims in, behind a rule in that
+   relationship's own colour, and the dashed/`reading, not record` marker
+   travels with it — rule 3 does not stop applying because the surface is a
+   canvas. */
+.sky-why{margin-top:10px;padding-left:11px;border-left:2px solid var(--wc,var(--hair))}
+.sky-why .rel{display:block;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--wc,var(--dim))}
+.sky-why .rel i{font-style:normal;color:var(--faint)}
+.sky-why .claim{display:block;margin-top:5px;font-family:var(--serif);
+  font-size:12.5px;line-height:1.5;color:var(--ink)}
 /* FIVE COLOURS WERE BEING PAINTED AND NOTHING SAID WHAT THEY WERE.
    On the radial map every line writes its own name next to it; on the field
    there is no room for that, so the only thing carrying the grammar was hue,
@@ -1662,6 +1679,14 @@ const sky = {
   grid:null, sx:null, sy:null,
   cam:{cx:0.5,cy:0.5,k:1}, w:0, h:0, dpr:0, ctx:null,
   hoverKey:null, pinKey:null, labelKey:undefined, labels:[],
+  /* ORBIT: the film whose neighbourhood is held open.
+     Without it the constellation was a launcher — one click and you were in
+     the radial map, so the field itself never got to be the place you explore.
+     While an anchor is held its edges and its neighbours' names stay drawn no
+     matter what the pointer is doing, and picking one of those neighbours
+     answers the question the sky could not previously answer: not just what
+     that film is, but why it is attached to the one in your hand. */
+  orbitKey:null, examineKey:null,
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
   /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
      click a touch screen fires afterwards can be told apart from a real one.
@@ -1671,6 +1696,34 @@ const sky = {
 
 const skyReduced = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
 const skyInHand = () => sky.hoverKey || sky.pinKey || null;
+
+/* The film whose neighbourhood is currently held open, if any. */
+const skyAnchor = () => sky.orbitKey && F[sky.orbitKey] ? sky.orbitKey : null;
+
+/* The strongest connection between two films, as the corpus states it.
+   Returns the edge itself so the readout can quote its claim, name its
+   relationship and say whether it is a record or a reading — rule 3 again:
+   the sky may not present an argument with a record's authority. */
+function skyEdgeBetween(a,b){
+  const ia=sky.at[a], ib=sky.at[b];
+  if (ia===undefined || ib===undefined) return null;
+  let best=null, bestS=-1;
+  for (const id of sky.inc[ia]){
+    const other = sky.ea[id]===ia ? sky.eb[id] : sky.ea[id];
+    if (other!==ib) continue;
+    const s=sky.eStrength[id];
+    if (s>bestS){ bestS=s; best=E[sky.eSrc[id]]; }
+  }
+  return best;
+}
+
+/* Which films the anchor holds open. Same ranking the labels use, so the ring
+   you can read and the ring you can click are the same set. */
+function skyOrbitSet(){
+  const a=skyAnchor();
+  if (!a) return null;
+  return new Set(skyNeighbours(a));
+}
 /* THE READOUT IS AN OVERLAY, SO "FIT" HAS TO MEAN THE PART YOU CAN SEE.
    Exactly the correction layout() already makes for the detail panel, and for
    the same reason: the canvas keeps its full size while a strip along the
@@ -1755,9 +1808,14 @@ function skyBuild(){
   const wx=new Float64Array(n), wy=new Float64Array(n), fill=new Array(n);
   for (let i=0;i<n;i++){ const p=SKY_POS[keys[i]]; wx[i]=p[0]; wy[i]=p[1]; fill[i]=F[keys[i]].highlight; }
 
-  const ea=[], eb=[], bucket=[], strength=[], inc=new Array(n);
+  /* eSrc maps a sky edge id back to its index in E. The ids here are assigned
+     by position and skip any edge whose endpoints are not both placed, so they
+     are NOT E indices — without this the field can draw a connection but can
+     never say what it claims, which is the whole of orbit mode. */
+  const ea=[], eb=[], bucket=[], strength=[], src=[], inc=new Array(n);
   for (let i=0;i<n;i++) inc[i]=[];
-  for (const e of E){
+  for (let ei=0; ei<E.length; ei++){
+    const e=E[ei];
     const i=at[e.a], j=at[e.b];
     if (i===undefined || j===undefined || i===j) continue;
     const ti = SKY_TYPES.indexOf(e.type);
@@ -1769,6 +1827,7 @@ function skyBuild(){
     ea.push(i); eb.push(j);
     bucket.push((ti<0?2:ti) + (dashed?5:0));
     strength.push(e.strength||0);
+    src.push(ei);
     inc[i].push(id); inc[j].push(id);
   }
   const m = ea.length;
@@ -1806,6 +1865,7 @@ function skyBuild(){
     ready:true, n, keys, at, wx, wy, fill,
     ea:Int32Array.from(ea), eb:Int32Array.from(eb),
     eBucket:Uint8Array.from(bucket), eStrength:Float32Array.from(strength),
+    eSrc:Int32Array.from(src),
     eOrder:order, eN:m, inc, grid,
     sx:new Float64Array(n), sy:new Float64Array(n),
   });
@@ -1947,7 +2007,11 @@ function skyDraw(){
   }
   ctx.setLineDash(SKY_SOLID);
 
-  const hand=skyInHand();
+  /* An anchor outranks the pointer: while one is held it is the film the
+     field is lit around, so grazing another disc previews without stealing
+     the lamp. */
+  const anchorKey=skyAnchor();
+  const hand=anchorKey || skyInHand();
   const hi=hand!=null ? sky.at[hand] : undefined;
   if (hi!==undefined){
     for (let b=0;b<10;b++){
@@ -1998,6 +2062,17 @@ function skyDraw(){
   };
   for (const key of state.seen) if(!state.loved.has(key)) ringed(key,"#F0EAE0",2.4,1,0.3);
   for (const key of state.loved) ringed(key,"#E8C87A",2.6,1.2,0.72);
+
+  /* The held neighbourhood gets a quiet ring so the films you can actually
+     pick are findable without hovering every disc. Deliberately not a size
+     change and not a second fill: rule 1 forbids drawing the well-connected
+     larger, and the discs' colour is already the photography's. */
+  if (anchorKey){
+    const held=skyOrbitSet();
+    if (held) for (const key of held) ringed(key, "#E8DFD3", 3.2, 1, 0.5);
+    if (sky.examineKey && held && held.has(sky.examineKey))
+      ringed(sky.examineKey, F[sky.examineKey].highlight, 4.6, 1.5, 0.95);
+  }
 
   if (hi!==undefined){
     const px=SX[hi], py=SY[hi];
@@ -2129,8 +2204,33 @@ function skyPlaceLabels(){
 }
 
 function skyReadout(){
-  const box=$("#sky-read"), key=skyInHand();
+  const box=$("#sky-read");
+  const anchor=skyAnchor();
+  /* While orbiting, the readout is about the neighbour being examined, or the
+     anchor itself when none is. Hover still previews, but it may not evict a
+     held anchor from the panel. */
+  const key = anchor ? (sky.examineKey || sky.hoverKey || anchor) : skyInHand();
   sky.chrome=null;                      /* the readout changes height as it fills */
+
+  if (anchor && key && F[key] && key!==anchor){
+    const f=F[key], e=skyEdgeBetween(anchor,key);
+    box.style.setProperty("--nc", f.highlight);
+    const rel = e ? (edgeMeta(e)||"") : "";
+    const reading = e && isLowConfidence(e);
+    box.innerHTML=`<span class="slate">connected to ${esc(F[anchor].title)}</span>
+      <span class="t">${esc(f.title)}</span>
+      <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${ADJ[key].length} connections</span>
+      ${e?`<div class="sky-why" style="--wc:${EDGE_META[e.type].color}">
+        <span class="rel">${esc(rel)}${reading?` · <i>reading, not record</i>`:""}</span>
+        <span class="claim">${esc(e.claim)}</span>
+      </div>`:""}
+      <button class="btn" id="sky-open" type="button">Open its map</button>
+      <button class="btn ghost" id="sky-anchor" type="button">Follow this film</button>`;
+    $("#sky-open").onclick=()=>openMap(key);
+    $("#sky-anchor").onclick=()=>skyOrbit(key);
+    return;
+  }
+
   if (key==null || !F[key]){
     box.style.removeProperty("--nc");
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
@@ -2146,11 +2246,15 @@ function skyReadout(){
      a tap and a keyboard step. A mouse already has the shorter route: the
      disc itself. */
   const pinned = sky.pinKey===key;
-  box.innerHTML=`<span class="slate">in hand</span>
+  const held = anchor===key;
+  box.innerHTML=`<span class="slate">${held?"holding":"in hand"}</span>
     <span class="t">${esc(f.title)}</span>
     <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${ADJ[key].length} connections</span>
-    ${pinned?`<button class="btn" id="sky-open" type="button">Open its map</button>`:""}`;
-  if (pinned) $("#sky-open").onclick=()=>openMap(key);
+    ${held?`<span class="y sky-hint">Its connections are held open — pick one to see why they are joined.</span>`:""}
+    ${(pinned||held)?`<button class="btn" id="sky-open" type="button">Open its map</button>`:""}
+    ${held?`<button class="btn ghost" id="sky-release" type="button">Release</button>`:""}`;
+  if (pinned||held) $("#sky-open").onclick=()=>openMap(key);
+  if (held) $("#sky-release").onclick=()=>skyOrbit(null);
 }
 
 function skyHand(){
@@ -2162,7 +2266,11 @@ function skyHand(){
      because there is nothing under the pointer to click */
   const c=$("#sky-c");
   if (c) c.classList.toggle("over", sky.hoverKey!=null);
-  skyLabels(key);
+  /* While an anchor is held the names belong to ITS neighbourhood and stay put
+     — a label layer that re-rendered around whatever the pointer grazed would
+     make the held ring impossible to read, which is the thing orbit exists
+     to fix. */
+  skyLabels(skyAnchor() || key);
   skyReadout();
   skyRender();
 }
@@ -2208,6 +2316,29 @@ function skyPinKey(key){
    answer to "where is Tokyo Story" is a PLACE, not a different screen, so the
    camera travels to it and names it; from the wall or the map the same search
    opens the radial map exactly as before. */
+/* Hold a film's neighbourhood open. Passing null releases it. */
+function skyOrbit(key){
+  if (key!=null && (!F[key] || sky.at[key]===undefined)) return;
+  sky.orbitKey=key;
+  sky.examineKey=null;
+  sky.labelKey=undefined;          /* force the label layer to rebuild around the new anchor */
+  if (key!=null){
+    skyPinKey(key);
+    /* Ease in, but nothing like the 5.5x lunge openMap used to make: the
+       point is to stay in the field and still see the neighbourhood, so the
+       camera only closes to where the held names are comfortably readable. */
+    const i=sky.at[key];
+    skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()*2.2), 620);
+  }
+  skyHand();
+}
+
+/* Look at one of the held neighbours without giving up the anchor. */
+function skyExamine(key){
+  sky.examineKey = key===sky.examineKey ? null : key;
+  skyHand();
+}
+
 function skyFocus(key){
   if (!sky.ready || !F[key]) return false;
   const i=sky.at[key];
@@ -2487,7 +2618,22 @@ if (SKY_POS){
        started on a film ended by opening it. */
     if(!d||d.moved>=7) return;
     const p=at(e), key=skyPick(p[0],p[1]);
-    if(key==null){ sky.hoverKey=null; skyPinKey(null); return; }
+    if(key==null){ sky.hoverKey=null; skyPinKey(null); skyOrbit(null); return; }
+
+    /* ORBIT, BEFORE THE OLD OPEN-ON-CLICK PATH.
+       The state machine is: nothing -> anchor -> examine a neighbour ->
+       re-anchor onto it. Leaving for the radial map stays available and is
+       now a decision rather than the unavoidable consequence of a click:
+       "Open its map" in the readout, or clicking the anchor a second time.
+       A film outside the held neighbourhood re-anchors immediately, because
+       otherwise the field would be a cage rather than a place. */
+    if (sky.orbitKey){
+      if (key===sky.orbitKey){ openMap(key); return; }      /* second click on the anchor leaves */
+      if (key===sky.examineKey){ skyOrbit(key); return; }   /* second click on a neighbour re-anchors */
+      const held=skyOrbitSet();
+      if (held && held.has(key)){ skyExamine(key); return; }
+      skyOrbit(key); return;
+    }
     /* A MOUSE OPENS ON THE FIRST CLICK. A FINGER NAMES FIRST, THEN OPENS.
        There is no hover on a touch screen, so a single tap that jumped
        straight to the radial map would make the field unreadable on a phone:
@@ -2505,7 +2651,7 @@ if (SKY_POS){
          taps opened a neighbour — always a plausible one, which is what made
          it read as the map being wrong rather than the tap. */
       if(d.type!=="mouse") sky.ghost=[e.clientX,e.clientY,performance.now()];
-      openMap(key);
+      skyOrbit(key);
     }
     else skyPinKey(key);
   });
@@ -2568,7 +2714,15 @@ addEventListener("keydown",e=>{
        view rather than an overlay, so it is the one place where Escape has
        nothing to close and somewhere to go instead. The search box handles its
        own Escape first and must keep it. */
-    if(state.view==="sky"&&document.activeElement!==$("#q")) goHome();
+    if(state.view==="sky"&&document.activeElement!==$("#q")){
+      /* Escape now unwinds one step at a time: a neighbour being examined,
+         then the held anchor, then the view. Jumping straight out of the sky
+         from inside a held neighbourhood threw away the exploration the hold
+         exists to support. */
+      if(sky.examineKey){ skyExamine(sky.examineKey); return; }
+      if(sky.orbitKey){ skyOrbit(null); return; }
+      goHome();
+    }
   }
 });
 
