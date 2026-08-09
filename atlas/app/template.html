@@ -815,12 +815,16 @@ main{flex:1;position:relative;overflow:hidden}
    FIELD — that is the whole argument for putting it in the constellation
    rather than in a document — so a panel that covers the field has eaten the
    thing it is describing.
-   The rail is left visible rather than hidden the way the worlds strip's is:
-   there, the perforations already say "this travels sideways"; here, nothing
-   else would tell a reader that claim four of eight exists — so the rail is
-   the only affordance and it has to clear the 3:1 floor a control is held to,
-   not the 1.9:1 a tasteful hairline would have given it. --faint computes to
-   5.0:1 on this ground and is already the app's quietest legal ink. */
+   The rail is left visible rather than hidden the way the worlds strip's is,
+   and it is --faint rather than a tasteful hairline: measured, a 26%-white
+   thumb on this ground computes to 1.9:1, under the 3:1 a control is held to,
+   while --faint computes to 5.0:1 and is already the app's quietest legal ink.
+   It is not the only cue and must not be treated as one — Chromium here draws
+   an OVERLAY scrollbar (measured: clientWidth === offsetWidth on a box with
+   752px of content in 567px), so at rest there is no rail at all on this
+   platform. What always says the panel continues is the readout's own
+   "8 CROSSINGS", printed above the first claim, and the claim the bottom edge
+   cuts through. The rail is the third cue where a platform draws one. */
 .sky-read{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;
   padding:2px 13px 11px;scrollbar-width:thin;
   scrollbar-color:var(--faint) transparent}
