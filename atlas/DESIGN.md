@@ -21,38 +21,104 @@ Warm near-black rather than the neutral grey dark interfaces default to. The
 interface has no accent colour of its own beyond one: colour on screen comes
 from the films, each cell carrying its own measured highlight.
 
-| Token         | Hex       | On `--base` | Role                                        |
-|---------------|-----------|-------------|---------------------------------------------|
-| `--base`      | `#08070A` | —           | Ground. Warm film base, never pure black.    |
-| `--lift`      | `#100E13` | —           | Raised surfaces, inputs, tiles.              |
-| `--panel`     | `#15121A` | —           | Detail panel ground.                         |
-| `--hair`      | `#221E28` | —           | Borders. Never text.                         |
-| `--ink`       | `#F0EAE0` | 16.8:1      | Primary text, warm off-white.                |
-| `--dim`       | `#A89E95` | 7.6:1       | Secondary prose, button labels.              |
-| `--faint`     | `#877D75` | 5.0:1       | Slate metadata. **The floor, not a mood.**   |
-| `--accent`    | `#E8C87A` | 12.4:1      | The only interactive accent; also `--nc` default. |
-| `--accent-dim`| `#8A7440` | 4.5:1       | Focus and hover borders.                     |
+**The ground is almost pure black, and it is warm — settled 2026-08.** The
+previous values were `#08070A` / `#100E13` / `#15121A`, and every one of them
+has **more blue than red**: this table called them a warm film base and the
+tokens said violet. `body::before` was worse — a full-viewport wash running
+from `#1A1523`, which is a purple gradient, which is on the list of things this
+project explicitly will not ship, and which had got in through the background
+rather than through the chrome. Measured off the composited page, the resting
+field read `(15,14,19)` with a blue-minus-red of **+4**; it now reads
+`(11,10,9)`, blue-minus-red **−2**.
+
+| Token         | Hex       | On `--base` | On `--panel` | Role                                   |
+|---------------|-----------|-------------|--------------|----------------------------------------|
+| `--base`      | `#050404` | —           | —            | Ground. Warm, near-black, never violet. |
+| `--lift`      | `#0D0B09` | —           | —            | Raised surfaces, inputs, tiles.         |
+| `--panel`     | `#110E0C` | —           | —            | Detail panel ground.                    |
+| `--hair`      | `#231F1B` | —           | —            | Borders. Never text.                    |
+| `--ink`       | `#F0EAE0` | 17.11:1     | 16.07:1      | Primary text, warm off-white.           |
+| `--dim`       | `#A89E95` | 7.79:1      | 7.32:1       | Secondary prose, button labels.         |
+| `--faint`     | `#877D75` | 5.09:1      | 4.78:1       | Slate metadata. **The floor, not a mood.** |
+| `--accent`    | `#E8C87A` | 12.65:1     | 11.88:1      | The only interactive accent; also `--nc` default. |
+| `--accent-dim`| `#8A7440` | 4.54:1      | 4.26:1       | Focus and hover borders (3:1, graphical). |
 
 Edge colours are keyed to type (AGENTS rule 2) and double as the 8.5px label
-set in them, so every one clears 4.5:1 on `--base`:
+set in them, so every one clears 4.5:1 — **on `--base` AND on `--panel`, which
+is the stricter ground and which this table was not being measured against**:
 
-| Type          | Hex       | Ratio  |
-|---------------|-----------|--------|
-| `descent`     | `#C9873F` | 6.72:1 |
-| `rebuttal`    | `#C8544A` | 4.61:1 |
-| `convergence` | `#4E8C7A` | 5.13:1 |
-| `rhyme`       | `#8A6FA8` | 4.71:1 |
-| `hand`        | `#867C6C` | 4.89:1 |
+| Type          | Hex       | On `--base` | On `--panel` |
+|---------------|-----------|-------------|--------------|
+| `descent`     | `#C9873F` | 6.85:1      | 6.43:1       |
+| `rebuttal`    | `#D15D53` | 5.27:1      | 4.95:1       |
+| `convergence` | `#4E8C7A` | 5.22:1      | 4.91:1       |
+| `rhyme`       | `#9075AF` | 5.22:1      | 4.90:1       |
+| `hand`        | `#867C6C` | 4.99:1      | 4.68:1       |
+
+`rebuttal` was `#C8544A` and `rhyme` `#8A6FA8`: **4.26:1 and 4.44:1 on
+`--panel`**, a real AA failure on the surface that carries the claim text,
+sitting under a comment asserting the opposite. Both lifted without moving hue.
 
 **Contrast is a correctness property here, not a preference — settled 2026-08.**
 `--faint` was `#5C5550`, 2.53:1 on `--base`: below the WCAG AA text floor of
 4.5 and below even the 3:1 large-text floor, at 8.5–9.5px, and it carried
-almost every piece of metadata in the app — the year under every poster, the
-panel's director line, the relationship under every claim, the era chips at
-rest. `rebuttal` was 3.77:1 and `hand` 4.38:1 as label text. Quiet is a ratio,
-a size and a tracking decision; it is not a licence to go under the floor.
-**Any new colour that carries type must be measured against `--base` AND
-`--panel` before it ships.** Nothing here is allowed below 4.5:1 for text.
+almost every piece of metadata in the app. Quiet is a ratio, a size and a
+tracking decision; it is not a licence to go under the floor.
+
+**The table is now enforced, not asserted.** `pipeline/build-registers.js`
+parses `--base` and `--panel` **out of `app/template.html`** — the same
+discipline `measure-claims.js` uses on the ranking table, because a copy of a
+hex value in a checker is a copy that goes stale the moment somebody darkens
+the page — and fails the build if any string drops under its floor on either
+ground. Proven by breaking each of the three gated properties in turn.
+
+**Two floors, because there are two kinds of object.** A disc on the canvas is
+a graphical object (3:1); an 8.5px glyph is type (4.5:1). Gothic's oxblood is
+3.5:1 and the killer's deep red 4.2:1 — right on the canvas, illegal as
+lettering — so each register also ships an `inkHue`, the same hue lifted in
+**lightness only** until it clears the type floor.
+
+**Perceptual steps, not ratios, between two near-blacks.** The first version of
+the surface gate demanded a 1.15 contrast ratio between `--panel` and `--base`
+and failed; the gate was wrong, not the palette. The shipped design has always
+been 1.084, because the `+0.05` flare term in the WCAG formula swamps any
+difference down here and the ratio simply cannot see this distinction. The step
+is measured in Oklab lightness: `--panel` sits `+0.058` above `--base`, `--lift`
+`+0.042`, and the floor is set below both.
+
+## The room, and the light in it
+
+**The resting constellation is dark. Light arrives when something is being
+looked at — settled 2026-08.** `.sky-field::before` burned at `.085` in the
+house accent with nothing in hand, which put a permanent amber bloom in the
+middle of the frame: a lamp with no light source, lighting nothing. Measured,
+it lifted the centre of the field from `(16,14,18)` to `(31,27,26)`. It is now
+`opacity:0` and comes on only with `.lit`, which `skyHand` sets when a film or
+an anchor is actually held. A field with a lamp in it reads as a space *only
+when the lamp is on something*.
+
+**A chosen world tints the room from the centre of its own films.** One soft
+radial rise in the register's own hue, anchored in WORLD coordinates at the
+centroid of the live films and falling to nothing well before the rim. Measured
+at 1440×900, sampling the darkest pixel in a 9×9 patch outward from the
+centroid:
+
+| | centre | +120px | +200px | +300px | corner |
+|---|---|---|---|---|---|
+| *Something is out there* | `(33,15,14)` | `(24,13,11)` | `(14,9,8)` | `(10,8,7)` | 0 |
+| *Cyberpunk mood* | `(7,27,40)` | `(9,20,27)` | `(8,12,14)` | `(8,8,8)` | 0 |
+| *Faith and its silence* | `(37,32,19)` | `(25,22,15)` | `(15,13,9)` | `(9,8,8)` | 0 |
+
+Anchored in the world, never in the viewport: a gradient pinned to the middle
+of the window is a vignette, and a vignette is decoration that happens to be
+coloured. This one travels with the camera and sits off to one side when you
+pan, which is what makes it read as light coming off the constellation. It
+introduces no second colour source — the hue is the register's own, and the
+readout is saying in the same breath how much of it was measured.
+
+It is one `drawImage` of a 128px sprite. A full-screen `createRadialGradient`
+per frame is 5.2 million gradient texels a frame at dpr 2 in software, for a
+wash the owner asked to keep slight.
 
 ## Typography
 
