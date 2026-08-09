@@ -186,11 +186,149 @@ opaque overlays; fitting to the canvas parked 5.7% of the corpus underneath
 them at 390×780. The camera fits and centres on the visible rectangle — the
 same correction `layout()` already makes for the detail panel.
 
+**Narrowing re-forms it** — see "The atlas re-forms" above. The note in that
+section supersedes anything here that reads as though a filter dims.
+
 **The key lives in the readout.** Five colours were being painted and nothing
 said what they were; the resting readout was answering "what am I looking at"
 with mouse instructions. It now carries the five relationship names and the
 dashed swatch for `reading, not record`, and is replaced by the film's own
 details the moment one is in hand.
+
+## The atlas re-forms — settled 2026-08
+
+**The films move.** Narrowing used to dim: every film kept its whole-atlas
+position and anything outside the selection dropped to 9% alpha, on the
+argument that a film's place is the one thing the sky promises to a second
+person. The owner overruled it — *"yea let the atlas change"* — and the
+argument for dimming was answered rather than ignored: **every stratum's
+constellation is solved at build time and baked** (`app/layout-strata.js`, 44
+strata, 54 KB), so "Japanese cinema sits in a long arc" is still something one
+person can say to another. It is now a statement about that stratum's own sky
+rather than about a slice of the whole one.
+
+### Density is the invariant; extent is the variable
+
+Every solved layout — the whole atlas, every stratum, every live solve —
+normalises into the same [0,1] box. Dropped in unchanged, a 152-film stratum
+would spread 152 films across the space 2,204 occupy and narrowing would read
+as *blowing the atlas up*. So a re-formed constellation is scaled about the
+centre by **√(N/N_all)**, and that factor is arithmetic rather than taste: the
+solver's median nearest-neighbour distance is `0.669/√N` world units at every
+corpus size measured, so the scale makes it `0.669/√N_all` — identical to the
+whole atlas's.
+
+> **At its fitted zoom, every re-formed sky has the same star spacing in pixels
+> as the whole atlas does.** Narrowing never changes the density of the field.
+> It changes its extent, and the extent is honestly the size of the selection.
+
+That is also the "grow and shrink" the feature was asked for, and it is not a
+rule 1 problem: the factor is a property of the SELECTION — a number already
+printed beside it — applied identically to every film in it.
+
+### The flight, in three beats
+
+1. **0 → 0.34 · the field clears.** Films outside the selection travel outward
+   along their own radius from the centre of the world and fade to nothing.
+   Their destination is computed from their HOME position, never from where
+   they currently are, so repeated re-forms cannot walk a film to infinity and
+   a film that leaves and returns retraces its own path. Their *lines* go
+   first (gone by 0.26): a stretched line is a much bigger object than the disc
+   at either end of it.
+2. **0.13 → 1.0 · the survivors travel.** Staggered by distance from the point
+   the camera is looking at, so the change starts under your eye and rolls
+   outward — the same sonar wave the radial map's ring reveal uses. The
+   stagger carries no graph information: it depends on where the camera happens
+   to be, never on degree, strength or year. Survivors are held for the first
+   eighth so the atlas is seen to empty *around* them.
+3. **0.28 → 1.0 · the camera closes.** Closing in it LAGS, so the atlas is
+   seen to gather before the frame closes on it; opening out it LEADS, so the
+   frame is already wide when the films reach the edges of it.
+
+Total 1,150 ms. Edges redraw live throughout — watching a bond stretch and
+re-settle is most of what makes a re-form legible as the same graph seen
+differently.
+
+**"Out" means gone, and that is a reversal.** Faint ground was meaningful when
+the survivors stayed put: the dim dots were the rest of a layout the bright
+ones still belonged to. Once the survivors move, a dim dot is a coordinate in a
+layout nothing on screen is using — two pictures superimposed, distinguishable
+only by brightness. Better gone, and one click from coming back.
+
+`prefers-reduced-motion` **still changes state**; it simply arrives instead of
+flying. Someone who asked for less motion did not ask for less atlas.
+
+### The intersection path
+
+One selected value re-forms into a baked constellation. Two or more has no
+baked answer and cannot have one — there are combinatorially many and they are
+small — so the app solves them live with **`layout-sky.js` embedded verbatim by
+the build** (`/* __SKY_SOLVER__ */`, the same discipline `radial-inspection.js`
+ships under). Not a second hand-written solver: a second copy of a force solver
+is a copy that drifts, and the day it drifts an intersection stops being drawn
+by the same rules as the stratum it sits inside.
+
+Measured on this corpus: median intersection 31 films / 30 ms, p90 116 / 76 ms,
+worst reachable in two clicks 518 / ~490 ms. Above roughly a frame the readout
+and the standing strip say *"solving N films…"* on the frame before the solve
+runs, exactly as `sky.passage.pending` already does.
+
+**The rule 7 caveat, which is real.** The baked strata are data and are
+identical on every machine. A *live* solve is identical for a given reader on a
+given engine — verified byte-identical across two fresh page loads for both
+paths — but is not guaranteed identical between JS engines, because ECMAScript
+does not require `Math.pow`/`cos`/`sin` to be correctly rounded and **a force
+solve is chaotic**. Measured: the browser and Node disagree by mean 3.1e-2 per
+film, and perturbing a single edge strength by ONE ULP in Node produces mean
+3.3e-2 — the same magnitude. So the disagreement is exactly "one ulp of input",
+which is the best two implementations can do. This is why baking is the right
+call for a stronger reason than performance, and it is a live argument against
+ever computing a shareable position at runtime.
+
+### What the reader is told
+
+A re-formed atlas is a different picture of the same corpus and that must not
+be silent. Three places, because the readout is taken over the moment a film is
+in hand:
+
+- **`#sky-stratum`**, a standing slate strip above the readout: `RE-FORMED ·
+  DRAMA · 1552 / 2204`, with the way back printed as a mark. It persists for as
+  long as the state does.
+- **The resting readout**: *"These 488 films have been placed again, against
+  only each other. Your selection chose who is here; the connections still
+  choose where — these are not their places in the whole atlas."*
+- **The panel that caused it**, in prose, at the moment it becomes true.
+
+AGENTS rule 8 governs the voice. The strip is slate lettering and says what the
+picture IS — a filing fact and a count. It never says why two films in it are
+near each other; that answer stays on the edges, where it is argued.
+
+The same honesty runs one level down: a film's readout says **"4 of 20
+connections here"** once the atlas is re-formed. `ADJ[key].length` is its degree
+in the whole corpus, and printing that under a stratum reads "20 connections"
+while one line is drawn.
+
+### Measured cost
+
+Frame timings, real Chromium, 2,204 discs and the full edge budget:
+
+| | frames | mean JS/frame | worst |
+|---|---|---|---|
+| re-form → drama (1,552) | 68–70 | 2.4 ms | 13.4 ms (first frame) |
+| re-form → whole atlas | 71 | 2.2 ms | 5.2 ms |
+| re-form → horror (164) | 65 | 2.0 ms | 6.6 ms |
+| live solve, drama × 1960–79 (488) | 38 | 1.6 ms | 5.2 ms + 484 ms solve |
+
+The tween's own cost is the difference between the existing camera-only
+animation (2.16 ms/frame) and a full re-form (2.44 ms/frame): **~0.3 ms** for
+2,204 position writes, two eased interpolations each. `skyEase` is a Newton
+solve and was going to be called 4,408 times a frame for a fixed curve, so the
+form loop reads a 513-sample table instead.
+
+Everything holds 57–61 fps at dpr 1 in the sandbox. At dpr 2 the *existing*
+camera animation drops to 23 fps and a re-form to 17, on a software rasteriser
+with no GPU — the bottleneck is rasterising 2,204 arcs at 2880×1800, not the
+tween, and it is a property of the harness rather than of a real machine.
 
 ## Deliberately avoided
 
@@ -201,6 +339,13 @@ world is made of film and paper, not plastic.
 
 ## Open questions
 
+0. **A re-formed atlas has no address.** `#/sky` and `#/passage/a/b` are real
+   URLs; a selection is not. The whole point of the feature is that people
+   arrive at configurations worth showing someone, and right now they cannot.
+   `#/sky/genre:drama+era:1960-1979` is cheap for the baked path and honest for
+   it too; for a live-solved intersection it would promise a picture the
+   caveat above says may differ slightly on another engine, so a shared
+   intersection would need to say so or be refused.
 1. **The constellation still has no job.** It is legible, it is honest and it
    is beautiful, and at the fit zoom it says nothing the wall does not say
    better — it duplicates "start anywhere" while showing less. Everything it
