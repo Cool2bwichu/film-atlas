@@ -44,7 +44,7 @@
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
-const crypto = require("crypto");
+const nodeCrypto = require("node:crypto");
 
 const ROOT = path.join(__dirname, "..");
 const CACHE_WIKITEXT = path.join(__dirname, ".cache-plots");
@@ -184,7 +184,7 @@ function args() {
 
 function cachePath(dir, key) {
   const safe = key.replace(/[^A-Za-z0-9_.-]/g, "_").slice(0, 120);
-  const h = crypto.createHash("sha1").update(key).digest("hex").slice(0, 10);
+  const h = nodeCrypto.createHash("sha1").update(key).digest("hex").slice(0, 10);
   return path.join(dir, safe + "_" + h + ".json");
 }
 
@@ -546,7 +546,7 @@ function eraOf(year) {
    every machine and every rerun, so a gate number is reproducible and a cache
    built by one run is reused by the next. */
 function hashKey(s) {
-  return crypto.createHash("sha1").update("plot-source:" + s).digest("hex");
+  return nodeCrypto.createHash("sha1").update("plot-source:" + s).digest("hex");
 }
 
 function stratifiedSample(films, n) {

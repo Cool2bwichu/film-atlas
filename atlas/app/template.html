@@ -806,7 +806,8 @@ main{flex:1;position:relative;overflow:hidden}
    HUD is where the film in hand speaks, and a control that grows to a dozen
    rows would push the readout off a phone. Its own scroll, capped to the
    viewport, so a long genre list never becomes the page's scrollbar. */
-.sky-filter{position:absolute;z-index:9;top:14px;left:max(16px,env(safe-area-inset-left));
+.sky-filter{position:absolute;z-index:9;top:calc(14px + var(--worlds-h,0px));
+  left:max(16px,env(safe-area-inset-left));
   width:min(232px,52vw);max-height:min(62vh,520px);display:flex;flex-direction:column;
   background:rgba(8,7,10,.9);backdrop-filter:blur(10px);border:1px solid var(--hair)}
 .sky-filter[hidden]{display:none}
@@ -3160,6 +3161,192 @@ function skyStratumRender(){
   if (x) x.onclick=skyClearFacets;
 }
 
+/* ══ THE WORLDS STRIP ═════════════════════════════════════════════════════
+   Each frame holds that register's OWN constellation, decoded from the layout
+   the build baked for it — the same coordinates the field will fly to. Not a
+   diagram of the door, the room behind it, at 104x66. That is the whole reason
+   the strip is worth its height: it converts "Cyberpunk mood, 47 films" from a
+   label into a picture you can already read the shape of.
+
+   Drawn once, on the frame the strip is first built, and never again. 28
+   registers averaging 90 films is ~2,500 arcs total — less than one frame of
+   the main field — and after that the canvases are static bitmaps the browser
+   composites for free. */
+function skyWorldMini(id, cvs){
+  const def=REG_DEFS[id];
+  if (!def) return;
+  const flat=SKY_STRATA[id] ? skyDecodeStratum(SKY_STRATA[id]) : null;
+  const rows=REG_POST[id]||[];
+  const dpr=Math.min(2,window.devicePixelRatio||1);
+  const W=104, H=66;
+  cvs.width=Math.round(W*dpr); cvs.height=Math.round(H*dpr);
+  cvs.style.width=W+"px"; cvs.style.height=H+"px";
+  const g=cvs.getContext("2d");
+  g.setTransform(dpr,0,0,dpr,0,0);
+  g.fillStyle="#0B0910";
+  g.fillRect(0,0,W,H);
+  if (!flat || flat.length!==rows.length*2) return;
+  const t=def.treatment||{}, hue=t.hue||"#E8C87A";
+  /* The stratum solves into [0,1]; the frame keeps its aspect by fitting the
+     LONGER axis, exactly as skyFitTarget does, so a miniature is never a
+     stretched version of the picture it is promising. */
+  const pad=7, side=Math.min(W-pad*2,H-pad*2);
+  const ox=(W-side)/2, oy=(H-side)/2;
+  const n=rows.length;
+  const rad=Math.max(0.9,Math.min(2.1,10/Math.sqrt(Math.max(1,n))));
+  if (t.glow>0){
+    const sprite=skyGlowSprite(hue), R=rad*(2.4+t.glow*3);
+    g.globalCompositeOperation="lighter";
+    g.globalAlpha=0.26*t.glow;
+    for (let i=0;i<n;i++){
+      const x=ox+flat[i*2]*side, y=oy+flat[i*2+1]*side;
+      g.drawImage(sprite,x-R,y-R,R*2,R*2);
+    }
+    g.globalCompositeOperation="source-over";
+  }
+  g.globalAlpha=0.9;
+  for (let i=0;i<n;i++){
+    const x=ox+flat[i*2]*side, y=oy+flat[i*2+1]*side;
+    if (t.mono){
+      const key=DISCO && DISCO.keyByFilmId[DISCO.filmOrder[rows[i]]];
+      g.fillStyle = key && F[key] ? skyMonoFill(F[key].highlight) : hue;
+    } else g.fillStyle=hue;
+    g.beginPath(); g.arc(x,y,rad,0,TAU); g.fill();
+  }
+  g.globalAlpha=1;
+}
+
+/* Which films a register holds, as a mask over sky indices. Built on first
+   graze and cached: the preview has to be ready inside a hover, and 28 masks
+   over 2,204 films is 62 KB held for the life of the page. */
+const skyRegMask=new Map();
+function skyRegisterMask(id){
+  let m=skyRegMask.get(id);
+  if (m) return m;
+  m=new Uint8Array(sky.n);
+  for (const i of skyPostingSet("register",id)) m[i]=1;
+  skyRegMask.set(id,m);
+  return m;
+}
+
+/* GRAZING A FRAME LIGHTS THAT WORLD WHERE IT ACTUALLY IS.
+   Nothing moves, nothing is committed: the register's films come up in its own
+   colour at their current positions and the rest of the atlas recedes. So
+   before you spend a re-form you can already see whether folk horror is one
+   tight knot or scattered across the whole sky — which is a real fact about
+   the corpus, and one the atlas could not previously tell anybody. */
+function skyWorldPreview(id){
+  if (skyRegisterId()) return;        /* a chosen world owns the field */
+  const next=id&&REG_DEFS[id]?REG_DEFS[id]:null;
+  if ((sky.preview&&sky.preview.id)===(next&&id)) return;
+  sky.preview=next?Object.assign({id},next):null;
+  sky.previewSet=next?skyRegisterMask(id):null;
+  if (next) sky.treatT0=performance.now();
+  skyRender();
+}
+
+let skyWorldsBuilt=false;
+function skyWorldsRender(){
+  const rail=$("#sky-worlds-rail");
+  if (!rail || !REG_IDS.length) return;
+  if (!skyWorldsBuilt){
+    skyWorldsBuilt=true;
+    /* Ordered by size, largest first. That is a property of the DOOR — how
+       much of the atlas is behind it — and never of the films behind it: no
+       register is promoted for holding famous work, and nothing inside a
+       register is ordered at all. */
+    const ids=REG_IDS.slice().sort((a,b)=>
+      (REG_DEFS[b].count||0)-(REG_DEFS[a].count||0) ||
+      (REG_DEFS[a].label<REG_DEFS[b].label?-1:1));
+    for (const id of ids){
+      const def=REG_DEFS[id], t=def.treatment||{};
+      const b=el("button","wframe");
+      b.type="button";
+      b.dataset.reg=id;
+      b.setAttribute("aria-pressed","false");
+      b.title=def.blurb||"";
+      const cvs=document.createElement("canvas");
+      cvs.className="wcell";
+      cvs.setAttribute("aria-hidden","true");
+      b.appendChild(cvs);
+      const name=el("span","wname",def.label);
+      b.appendChild(name);
+      const meta=el("span","wmeta");
+      meta.innerHTML=`<i class="wtier" style="--wc:${esc(t.hue||"#877D75")}">`+
+        `${REG_MARK[t.tier]||"○"}</i>${def.count} films`;
+      b.appendChild(meta);
+      /* The accessible name carries what the glyph carries, because a mark a
+         screen reader reads as "black circle" is not a mark. */
+      b.setAttribute("aria-label",
+        `${def.label}, ${def.count} films. ${def.blurb||""} `+
+        `Colour ${REG_TIER_WORD[t.tier]||"authored"}.`);
+      b.onclick=()=>skyWorldChoose(id);
+      b.onpointerenter=e=>{ if(e.pointerType!=="touch") skyWorldPreview(id); };
+      b.onpointerleave=e=>{ if(e.pointerType!=="touch") skyWorldPreview(null); };
+      b.onfocus=()=>skyWorldPreview(id);
+      b.onblur=()=>skyWorldPreview(null);
+      rail.appendChild(b);
+      skyWorldMini(id,cvs);
+    }
+  }
+  const on=skyRegisterId();
+  for (const b of rail.children){
+    const is=b.dataset.reg===on;
+    b.classList.toggle("on",is);
+    b.setAttribute("aria-pressed",is?"true":"false");
+  }
+}
+
+function skyWorldChoose(id){
+  const set=sky.filter.register;
+  if (!set) return;
+  const was=set.has(id);
+  set.clear();
+  if (!was) set.add(id);
+  sky.preview=null; sky.previewSet=null;
+  skyApplySelection();
+  skyFilterRender();
+  skyStratumRender();
+  skyWorldsOpen(!set.size);
+  skyWorldsRender();
+}
+
+/* The strip is the ARRIVAL state, not permanent chrome. It is open when the
+   atlas is whole and nothing has been asked of it; the moment a world is
+   chosen it rolls up, because from then on the field itself is the thing and
+   a hundred pixels of index across the top of a phone is a hundred pixels of
+   atlas. The way back is a tab printed the same way. */
+function skyWorldsOpen(open){
+  const box=$("#sky-worlds"), tab=$("#sky-worlds-tab"), field=$("#sky-field");
+  if (!box||!tab||!field) return;
+  const can=REG_IDS.length>0;
+  box.hidden=!(can&&open);
+  tab.hidden=!(can&&!open);
+  if (can&&open){
+    skyWorldsRender();
+    /* Re-run the unspool whenever the strip is brought back, so returning to
+       the index is the same gesture as arriving at it. */
+    const rail=$("#sky-worlds-rail");
+    if (rail && !skyReduced()){
+      rail.style.animation="none";
+      void rail.offsetWidth;
+      rail.style.animation="";
+    }
+  } else {
+    skyWorldPreview(null);
+  }
+  /* The filter panel and the label placer both have to know how tall the
+     leading edge is now. Measured rather than assumed — the head wraps at
+     narrow widths and a hardcoded offset would put the panel under the strip
+     on exactly the viewport with least room. */
+  requestAnimationFrame(()=>{
+    const h=box.hidden?(tab.hidden?0:tab.getBoundingClientRect().height):box.getBoundingClientRect().height;
+    field.style.setProperty("--worlds-h",Math.round(h)+"px");
+    sky.chrome=null;
+    skyPlaceLabels();
+  });
+}
+
 /* ── APPLYING A SELECTION ─────────────────────────────────────────────────
    One entry point, so the baked path, the live path and the reset cannot
    drift apart in how they announce themselves or what they release. */
@@ -3294,6 +3481,11 @@ function skyFilterRender(){
   if (!body) return;
   body.innerHTML="";
   for (const {key:field,label} of FACET_FIELDS){
+    /* The worlds strip owns the registers. Listing them here too would offer
+       the same door twice, in two vocabularies, and this panel's job is the
+       RECORDED facets — the filing facts. A register is a reading over themes
+       and belongs on the surface that says so. */
+    if (field==="register") continue;
     const counts=skyFacetCounts(field);
     const sel=sky.filter[field];
     /* Show the densest values plus anything already chosen, so a selection can
@@ -4027,7 +4219,7 @@ function skyChrome(){
   const c=$("#sky-c");
   if (!c) return (sky.chrome=[]);
   const base=c.getBoundingClientRect(), out=[];
-  for (const sel of ["#sky-read","#sky-stratum",".sky-ctl"]){
+  for (const sel of ["#sky-read","#sky-stratum",".sky-ctl","#sky-worlds","#sky-worlds-tab"]){
     const node=$(sel);
     if (!node) continue;
     const r=node.getBoundingClientRect();
@@ -4140,6 +4332,29 @@ function skyPassageTo(key){
   }));
 }
 
+/* HOW MUCH OF THIS WORLD'S COLOUR IS A MEASUREMENT, IN WORDS.
+   The glyph on the strip is a reminder; this is where it is said. A hand-picked
+   red for horror is legitimate cartography and a hand-picked red PRESENTED AS
+   A FINDING is not, and the only thing standing between the two is that the
+   interface keeps saying which it is. The numbers ship with it, so the claim
+   can be checked rather than believed: sigma is the register's displacement
+   from the corpus mean highlight in units of the null SD of same-size random
+   samples, and the degrees are the hue of that displacement in Oklab. */
+function skyTierNote(){
+  const id=skyRegisterId();
+  if (!id) return "";
+  const d=REG_DEFS[id], t=d.treatment||{};
+  const word=REG_TIER_WORD[t.tier]||"authored";
+  const detail = t.tier==="recorded"
+    ? "these films' prints are monochrome on the record, and the field reports it"
+    : t.tier==="amplified"
+    ? `these ${d.count} films' own poster colours sit ${t.sigma}σ off the corpus mean, `+
+      `toward ${t.measuredHueDeg}° — that direction is measured, this intensity is chosen`
+    : "no measured colour separates these films; this one was chosen for the map";
+  return `<span class="sky-tier" style="--wc:${esc(t.hue||"#877D75")}">`+
+    `<i>${REG_MARK[t.tier]||"○"}</i> ${esc(word)} · ${esc(detail)}</span>`;
+}
+
 function skyReadout(){
   const box=$("#sky-read");
   const P=sky.passage;
@@ -4246,15 +4461,29 @@ function skyReadout(){
       /* The strip above already carries the name and the count, so this does
          not repeat them — it answers the question the strip raises. */
       box.innerHTML=`<span class="slate">a different picture of the same corpus</span>
+        ${skyTierNote()}
         <span class="y sky-hint">These ${live} films have been placed again, against only each
           other. Your selection chose who is here; the connections still choose where —
           these are not their places in the whole atlas.</span>
         ${key5}`;
       return;
     }
+    /* THE RESTING STATE OF THE WHOLE ATLAS.
+       It used to answer "what am I looking at" with "drag to pan · scroll to
+       zoom" — the mechanics of a control, where a reader needs a reason to
+       look. The worlds are the reason, and they are printed above this box as
+       actual pictures; what belongs here is what the field IS, and the one
+       honest caveat about the index: it is a set of doors and not a partition
+       of the corpus. */
+    const rn=REG_IDS.length;
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
       ${key5}
-      <span class="y" style="margin-top:9px">Drag to pan · scroll to zoom · pick a film to open its map</span>`;
+      ${rn?`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what it
+        is joined to and nothing else. Start with a world along the top — ${rn} named regions of
+        the atlas — or pick any film and open its map. Roughly two in five films are behind no
+        world at all; those are found by looking.</span>`
+      :`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what it is
+        joined to and nothing else. Pick one and the atlas opens its map.</span>`}`;
     return;
   }
   const f=F[key];
