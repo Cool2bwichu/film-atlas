@@ -350,6 +350,20 @@ main{flex:1;position:relative;overflow:hidden}
   letter-spacing:.16em;text-transform:uppercase;color:var(--nc,var(--dim))}
 .node .inspect-mark{display:none;margin-top:6px;font-family:var(--mono);font-size:7.5px;
   letter-spacing:.19em;text-transform:uppercase;color:var(--ink)}
+/* THE ONE PIECE OF TYPE IN THIS PROJECT THAT NAMES A GESTURE.
+   The map arrives without its sheet, so the way to the claims has to be
+   visible on the thing you click. Set in --accent (12.65:1 on --base, and the
+   file's only interactive colour) so it reads as an invitation rather than as
+   more metadata, and underlined on hover the way the rest of the interactive
+   type is. It lives inside the caption box the separation pass already
+   measures, so it can collide with nothing. */
+.node .label .cue{display:block;margin-top:7px;font-family:var(--mono);font-size:8px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+  text-decoration:underline;text-underline-offset:4px;
+  text-decoration-color:rgba(232,200,122,.34);
+  transition:text-decoration-color var(--t-fast) var(--ease)}
+.node:hover .label .cue,.node:focus-visible .label .cue{
+  text-decoration-color:var(--accent)}
 .node.inspecting .inspect-mark{display:block}
 .node.inspecting .frame{
   outline-color:var(--nc,var(--accent));outline-offset:3px;
@@ -681,9 +695,32 @@ main{flex:1;position:relative;overflow:hidden}
    and both stack the same way on a phone. */
 .sky-hud-main{flex:1;min-width:0;max-width:min(520px,64vw);
   display:flex;flex-direction:column;align-items:stretch;gap:8px}
-.sky-read{background:rgba(5,4,4,.82);backdrop-filter:blur(10px);
-  border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent));
-  padding:10px 13px 11px}
+/* THE READOUT COLLAPSES, AND THE FIELD GETS THE ROOM BACK.
+   The box carries the five relationship colours, the count and the re-form
+   sentence, and it is opaque — skyChrome() seeds it into the label placer AND
+   into the camera's safe band, so this is not a cosmetic fold: collapsed, the
+   atlas is fitted to a taller rectangle and re-centres on it.
+   The chrome moved from .sky-read to this shell so the fold header and the
+   body read as one box; --nc is set on the shell for the same reason. */
+.sky-readbox{background:rgba(5,4,4,.82);backdrop-filter:blur(10px);
+  border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent))}
+/* Slate lettering, because folded this line is the whole orientation: what
+   picture you are in and how many films are in it. --dim is 7.6:1 here. */
+.sky-fold{display:flex;align-items:center;gap:10px;width:100%;
+  padding:8px 12px 8px 13px;background:none;border:0;cursor:pointer;text-align:left;
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dim);line-height:1.35;transition:color var(--t-fast) var(--ease)}
+.sky-fold:hover,.sky-fold:focus-visible{color:var(--ink)}
+.sky-fold-sum{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* A triangle, not a chevron glyph: drawn from borders so it is the same mark
+   at every font stack, and nothing in this world has a radius on it. */
+.sky-fold-mark{margin-left:auto;flex-shrink:0;width:0;height:0;
+  border-left:4.5px solid transparent;border-right:4.5px solid transparent;
+  border-top:5px solid currentColor;
+  transition:transform var(--t-fast) var(--ease)}
+.sky-readbox.folded .sky-fold-mark{transform:rotate(-90deg)}
+.sky-read{padding:2px 13px 11px}
+.sky-read[hidden]{display:none}
 /* THE ATLAS IS SHOWING SOMETHING OTHER THAN THE ATLAS, AND SAYS SO.
    Slate lettering, because this is metadata about the picture rather than a
    claim inside it — AGENTS rule 8: a stratum colours the ground, it never
@@ -961,7 +998,8 @@ main{flex:1;position:relative;overflow:hidden}
     calc(10px + env(safe-area-inset-bottom))}
   .sky-ctl{justify-content:flex-end}
   .sky-hud-main{max-width:none;gap:7px}
-  .sky-read{padding:9px 11px 10px}
+  .sky-fold{padding:7px 10px 7px 11px}
+  .sky-read{padding:1px 11px 10px}
   .sky-read .t{font-size:17px}
   .sky-label{font-size:12px}
   .sky-label.near{font-size:11px}
@@ -1003,6 +1041,9 @@ main{flex:1;position:relative;overflow:hidden}
   .filters{gap:12px 2px}
   .linky{padding-top:10px}
   .sky-ctl .btn{min-width:44px}
+  /* The fold is the readout's only control and it is a full-width row, so it
+     reaches the target by growing rather than through an overlay. */
+  .sky-fold{min-height:44px}
   .sky-stratum-x::after{content:"";position:absolute;left:50%;top:50%;
     transform:translate(-50%,-50%);width:44px;height:44px}
   .panel-x{width:44px;height:44px;top:4px;right:4px}
@@ -1125,9 +1166,24 @@ main{flex:1;position:relative;overflow:hidden}
                  cannot be the only place this is said. This strip persists for
                  as long as the atlas is re-formed. -->
             <div class="sky-stratum" id="sky-stratum" role="status" hidden></div>
-            <div class="sky-read" id="sky-read">
-              <span class="slate">The whole atlas</span>
-              <span class="y" style="margin-top:7px">Drag to pan · scroll to zoom · pick a film to open its map</span>
+            <!-- THE READOUT IS COLLAPSIBLE, AND THE FOLD ROW IS THE ORIENTATION.
+                 Folded, this line is all that is left, so it has to answer
+                 "what am I looking at" on its own: the world's name and its
+                 count, or the film in hand, or the state of a passage. The
+                 body underneath is display:none when folded, which is what
+                 makes skyChrome() measure a shorter box and hands the band
+                 back to the camera. Remembered in atlas-preferences-v1. -->
+            <div class="sky-readbox" id="sky-readbox">
+              <button class="sky-fold" id="sky-fold" type="button"
+                aria-expanded="true" aria-controls="sky-read"
+                aria-label="Hide the readout and the colour key">
+                <span class="sky-fold-sum" id="sky-fold-sum">The whole atlas</span>
+                <span class="sky-fold-mark" aria-hidden="true"></span>
+              </button>
+              <div class="sky-read" id="sky-read">
+                <span class="slate">The whole atlas</span>
+                <span class="y" style="margin-top:7px">Drag to pan · scroll to zoom · pick a film to open its map</span>
+              </div>
             </div>
           </div>
           <div class="sky-ctl">
@@ -1583,8 +1639,13 @@ function readPreferences(){
       seen:Array.isArray(raw.seen)?raw.seen.filter(k=>Object.prototype.hasOwnProperty.call(F,k)):[],
       loved:Array.isArray(raw.loved)?raw.loved.filter(k=>Object.prototype.hasOwnProperty.call(F,k)):[],
       filter:["all","silent","golden","new","modern","now"].includes(raw.filter)?raw.filter:"all",
+      /* `===true`, not a truthy read, for the same reason the two arrays above
+         are filtered through hasOwnProperty: this object came out of a store a
+         reader can hand-edit, and the one thing a boolean preference must never
+         do is arrive as a string that folds the readout on every load. */
+      skyFolded:raw.skyFolded===true,
     };
-  }catch(_error){ return {seen:[],loved:[],filter:"all"}; }
+  }catch(_error){ return {seen:[],loved:[],filter:"all",skyFolded:false}; }
 }
 const preferences=readPreferences();
 const state = {
@@ -1594,6 +1655,10 @@ const state = {
   trailPin:null, trailFolded:false,
   seen:new Set(preferences.seen), loved:new Set(preferences.loved), filter:preferences.filter,
   sel:null, panelContext:null,
+  /* The constellation's readout, folded down to its slate line. Device-local
+     like the rest of this store — a preference about the chrome, not about the
+     journey, so it is the kind of thing that survives a reload. */
+  skyFolded:preferences.skyFolded,
 };
 const RADIAL_HISTORY_KEY="atlasRadial";
 const EDGE_INDEX=new WeakMap(E.map((edge,index)=>[edge,index]));
@@ -1607,6 +1672,7 @@ function persistPreferences(){
   try{
     localStorage.setItem(STORAGE_KEY,JSON.stringify({
       seen:[...state.seen],loved:[...state.loved],filter:state.filter,
+      skyFolded:state.skyFolded===true,
     }));
   }catch(_error){}
 }
@@ -2018,11 +2084,33 @@ function writeRadialHistory(method, snapshot, url){
   try{ history[method](radialHistoryState(snapshot),"",url); }catch(_error){}
 }
 
+/* OPENING A FILM OPENS ITS BRANCHES, NOT A WALL OF TEXT.
+   This used to call openPanel(state.centre) as well, so the first thing a
+   reader saw when they asked "what is this film connected to" was the answer
+   covered by the detail sheet — 370px of the ring on a desktop and 72% of the
+   viewport on a phone, where the sheet is a bottom sheet and the map is behind
+   it. The owner's ruling: the map arrives on the map. The panel is one click
+   away and the click is the obvious one — the centre poster, which now says so
+   in its own caption.
+
+   EVERY WAY IN LANDS HERE. openMap() is the single door for a click on a
+   ring film, a click in the constellation, the search box, "Surprise me",
+   "Resume here" on the thread, #/film/<key> and the back button, so the
+   address and the gesture cannot mean different things. */
 function presentRadialMap(){
   show("map");
   renderMap();
-  openPanel(state.centre);
-  $("#sr-status").textContent=`${F[state.centre].title}. ${state.ring.length} connected films shown.`;
+  /* THE ARRIVAL STILL HAS TO BE ANNOUNCED, and it used to be announced by the
+     panel: aria-live on #panel spoke the whole sheet as it opened. With the
+     sheet closed this line is the only arrival a screen reader gets, so it
+     carries what the panel's opening carried — the film, the count, and where
+     the claims are. The claims themselves are on each ring node's own
+     aria-label ("<title>. Open film details. <relationship>: <claim>"), so
+     tabbing the ring reads the argument without opening anything. */
+  const f=F[state.centre], n=state.ring.length;
+  $("#sr-status").textContent=`${f.title}${f.year?", "+f.year:""}. Lineage map open with `+
+    `${n} connected film${n===1?"":"s"}. Each connected film announces the claim that joins it. `+
+    `Open ${f.title} itself for all ${n} claims together.`;
   requestAnimationFrame(()=>$("#stage").querySelector('.node[data-i="-1"]')
     ?.focus({preventScroll:true}));
 }
@@ -2045,6 +2133,11 @@ function openMap(key, keepTrail, historyMode="replace"){
     const current=currentRadialSnapshot();
     if(current) writeRadialHistory("replace",current,location.href);
   }
+  /* Travelling closes the sheet rather than refilling it. It used to be
+     refilled a line later by presentRadialMap's openPanel(); now that the map
+     arrives bare, clearing state.sel alone would leave the previous film's
+     sheet standing open over the new film's ring with nothing selected. */
+  closePanel(false);
   state.sel=null;
   state.panelContext=null;
   state.centre=key;
@@ -2079,17 +2172,36 @@ function renderMap(){
       : `${f.title}${f.year?`, ${f.year}`:""}. Open film details. ${edgeMeta(conn.e)}: ${conn.e.claim}`);
     n.style.animationDelay=(i<0?0:60+i*55)+"ms";
     n.style.setProperty("--nc", i<0 ? f.highlight : meta(conn.e.type).color);
+    /* THE CENTRE POSTER IS THE DOOR TO THE CLAIMS, SO IT SAYS SO.
+       The map no longer arrives with the sheet open, and an affordance nobody
+       can see is a feature that has been removed. The cue is one slate line in
+       the caption the centre already has — no new chrome, nothing floating for
+       the label placer to collide with, and it is printed in the interactive
+       accent because clicking this cell is the one thing it invites.
+       aria-hidden: the node's own aria-label already ends "Open film details",
+       and a screen reader should not hear the instruction twice. */
     n.innerHTML=`<div class="frame">${art(k,"",i<0?"high":"auto")}${
       state.seen.has(k)||state.loved.has(k)?'<span class="seen"></span>':""}</div>
       <div class="label"><span class="t">${esc(f.title)}</span>
       <span class="y">${f.year||""}</span>${
-        i<0?"":`<span class="r">${esc(edgeMeta(conn.e))}</span>
+        i<0?`<span class="cue" aria-hidden="true">${state.ring.length
+          ? "why it connects":"film details"}</span>`
+        :`<span class="r">${esc(edgeMeta(conn.e))}</span>
           <span class="inspect-mark" aria-hidden="true">inspecting</span>`}</div>`;
     n.onclick=()=>{
       const intent=AtlasRadialInspection.selectRadialFilm({
         centreKey:state.centre,ring:state.ring,selectedKey:k,
       });
-      if(intent.kind==="centre") openPanel(k);
+      /* The poster is the handle for the sheet in both directions. Clicking it
+         while its own sheet is open closes it, which is the same gesture the
+         reader has just learned from clicking outside — and without it the
+         second click on the centre is the one click on this screen that does
+         nothing at all. An inspect context is a different film's sheet, so it
+         is replaced rather than dismissed. */
+      if(intent.kind==="centre"){
+        if($("#panel").classList.contains("on") && state.sel===k && !state.panelContext) closePanel(true);
+        else openPanel(k);
+      }
       else if(intent.kind==="inspect") openPanel(k,intent);
     };
     n.onmouseenter=()=>{ if(i>=0) hot(i,true); openPanelPreview(k, i<0?null:conn); };
@@ -2837,7 +2949,15 @@ const skySelectionLabel = sel => sel.map(([f,v])=>facetLabel(f,v)).join(" + ");
    back because it is legal in a fragment and it is what makes these
    addresses worth looking at. */
 const skyAddrEnc = s => encodeURIComponent(s).replace(/%3A/gi,":");
-const SKY_ADDR_PREFIX = {world:"register", register:"register"};
+/* Object.create(null), and every lookup below goes through Object.hasOwn, for
+   one reason: the tokens come off the URL bar and `constructor`, `toString`
+   and `__proto__` are all truthy on an ordinary object literal. Nothing here
+   crashes without it — the checks downstream refuse the value anyway — but a
+   hash of `genre:constructor` would take the "this value exists" branch and be
+   reported to the reader as a selection that emptied rather than as a name
+   this edition does not have, and those are different sentences. */
+const SKY_ADDR_PREFIX = Object.assign(Object.create(null),
+  {world:"register", register:"register"});
 
 const skyAddrToken = (field,value) =>
   field==="register" ? "world:"+skyAddrEnc(value) : skyAddrEnc(value);
@@ -2855,8 +2975,9 @@ function skyAddrParseToken(tok){
   const prefixed=SKY_ADDR_PREFIX[head];
   const field = prefixed || head;
   const value = prefixed ? raw.slice(i+1) : raw;
-  if (!sky.filter[field]) return null;                 /* facet not offered here */
-  if (!FACET_DEFS[field] || !FACET_DEFS[field].values[value]) return null;
+  if (!Object.hasOwn(sky.filter,field)) return null;   /* facet not offered here */
+  const defs=FACET_DEFS[field];
+  if (!defs || !defs.values || !Object.hasOwn(defs.values,value)) return null;
   return [field,value];
 }
 
@@ -2917,6 +3038,11 @@ let skyHashWrite=null;
 /* Restoring an address. Arrives rather than flies: the flight exists to show
    an atlas you were watching become another one, and nobody watched this. */
 function skyRestoreSelection(pairs){
+  /* skyBuild returns false for a layout with no placeable film in it, which
+     leaves sky.at null — and every posting is translated through sky.at. An
+     address must not be the one thing on the page that can throw during load;
+     an unbuildable sky falls back with the stale cases. */
+  if (!sky.ready) return false;
   for (const {key} of FACET_FIELDS) sky.filter[key].clear();
   for (const [field,value] of pairs) sky.filter[field].add(value);
   skyRecomputeVisible();
@@ -5097,7 +5223,10 @@ function skyChrome(){
   const c=$("#sky-c");
   if (!c) return (sky.chrome=[]);
   const base=c.getBoundingClientRect(), out=[];
-  for (const sel of ["#sky-read","#sky-stratum",".sky-ctl","#sky-worlds","#sky-worlds-tab"]){
+  /* #sky-readbox rather than #sky-read: the fold header is part of the opaque
+     box and stands while the body is collapsed. Measuring the body alone would
+     report a zero-height obstacle and put labels under the summary line. */
+  for (const sel of ["#sky-readbox","#sky-stratum",".sky-ctl","#sky-worlds","#sky-worlds-tab"]){
     const node=$(sel);
     if (!node) continue;
     const r=node.getBoundingClientRect();
@@ -5246,15 +5375,95 @@ function skySolveNote(live){
     the same solve measured on another engine moves a film about 3% of the field.</span>`;
 }
 
+/* ── THE FOLD ─────────────────────────────────────────────────────────────
+   The readout is the largest opaque object in the field and it is on the one
+   edge a phone has least of. Folded, everything below the slate line goes
+   away and skyChrome() reports a box ~80% shorter, which is what makes this a
+   change to the PICTURE and not just to the panel: the safe band grows, the
+   camera re-fits to it, and the label placer gets the corner back.
+
+   FOLDED MEANS FOLDED — no state re-opens it behind the reader's back. That
+   costs the readout's buttons ("Open its map", "Route from here…") a tap
+   while it is down, and the alternative — springing open whenever something
+   is in hand — makes the box flicker under a mouse moving across the field,
+   which is the thing the fold was asked for in order to stop. Nothing is
+   unreachable: a second tap on a held film still opens its map, Escape still
+   releases, and the summary line names whatever the body is holding. */
+function skyFoldSummary(){
+  const P=sky.passage;
+  if (P.from && F[P.from]){
+    if (P.pending) return "Passage · finding the route…";
+    if (!P.to) return "Passage · pick a second film";
+    if (!P.route) return "Passage · no route";
+    const n=P.route.hops;
+    return `Passage · ${n} crossing${n===1?"":"s"}`;
+  }
+  const anchor=skyAnchor();
+  const key = anchor ? (sky.examineKey || sky.hoverKey || anchor) : skyInHand();
+  if (key!=null && F[key]) return F[key].title;
+  const sel=skySelected();
+  if (sel.length){
+    if (sky.formPending) return `${skySelectionLabel(sel)} · solving ${sky.formPending} films…`;
+    const live=skyLiveCount();
+    return live
+      ? `${skySelectionLabel(sel)} · ${live} films`
+      : `${skySelectionLabel(sel)} · nothing matches`;
+  }
+  return `The whole atlas · ${sky.keys.length} films`;
+}
+
+function skyFoldApply(){
+  const shell=$("#sky-readbox"), body=$("#sky-read"), btn=$("#sky-fold"), sum=$("#sky-fold-sum");
+  if (!shell||!body||!btn) return;
+  const folded=state.skyFolded===true;
+  shell.classList.toggle("folded",folded);
+  body.hidden=folded;
+  btn.setAttribute("aria-expanded",folded?"false":"true");
+  btn.setAttribute("aria-label",folded
+    ? "Show the readout and the colour key"
+    : "Hide the readout and the colour key");
+  /* Not before the field exists: at boot sky.keys is empty and the summary
+     would print "0 films" over the honest string the markup ships with.
+     skyEnter's own skyReadout() fills it on the frame the view opens. */
+  if (sum && (sky.ready || sky.keys.length)) sum.textContent=skyFoldSummary();
+}
+
+/* The box changed height, so the fit did — the same correction skyWorldsOpen
+   makes when the strip rolls up, and for the same reason. Only when nothing
+   else owns the camera: a reader who has panned somewhere has said where they
+   want to be, and a fold is not a request to be moved. */
+function skyFoldToggle(){
+  state.skyFolded=!(state.skyFolded===true);
+  persistPreferences();
+  skyFoldApply();
+  requestAnimationFrame(()=>{
+    sky.chrome=null;
+    if (state.view==="sky" && sky.ready && !sky.anim && !sky.form
+        && !skyInHand() && !sky.orbitKey && !sky.passage.from){
+      if (skyFilterOn() && sky.visibleN) skyFitFiltered(620);
+      else { const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,620); }
+    }
+    skyPlaceLabels();
+    skyRender();
+  });
+}
+
+/* One entry point, so no caller can repaint the readout without the summary
+   line above it being brought to the same frame. */
 function skyReadout(){
-  const box=$("#sky-read");
+  skyReadoutBody();
+  skyFoldApply();
+}
+
+function skyReadoutBody(){
+  const box=$("#sky-read"), shell=$("#sky-readbox");
   const P=sky.passage;
 
   /* PASSAGE OWNS THE READOUT WHILE IT IS ACTIVE. The claims in order ARE the
      feature — the drawn line is the index, the sentences are the argument —
      so they get the panel rather than a tooltip. */
   if (P.from){
-    box.style.setProperty("--nc", F[P.from].highlight);
+    shell.style.setProperty("--nc", F[P.from].highlight);
     const head = `<span class="slate">passage</span>`;
     if (P.pending){
       box.innerHTML = head + `<span class="t">${esc(F[P.from].title)} \u2192 ${esc(F[P.to].title)}</span>
@@ -5303,7 +5512,7 @@ function skyReadout(){
 
   if (anchor && key && F[key] && key!==anchor){
     const f=F[key], e=skyEdgeBetween(anchor,key);
-    box.style.setProperty("--nc", f.highlight);
+    shell.style.setProperty("--nc", f.highlight);
     const rel = e ? (edgeMeta(e)||"") : "";
     const reading = e && isLowConfidence(e);
     box.innerHTML=`<span class="slate">connected to ${esc(F[anchor].title)}</span>
@@ -5323,7 +5532,7 @@ function skyReadout(){
   }
 
   if (key==null || !F[key]){
-    box.style.removeProperty("--nc");
+    shell.style.removeProperty("--nc");
     const sel=skySelected();
     const key5=`<div class="sky-key">${SKY_TYPES.map(t=>
         `<i style="--kc:${EDGE_META[t].color}">${EDGE_META[t].label}</i>`).join("")
@@ -5388,7 +5597,7 @@ function skyReadout(){
     return;
   }
   const f=F[key];
-  box.style.setProperty("--nc", f.highlight);
+  shell.style.setProperty("--nc", f.highlight);
   /* The button appears for the ways of choosing a film that are not a click —
      a tap and a keyboard step. A mouse already has the shorter route: the
      disc itself. */
@@ -5744,6 +5953,59 @@ document.addEventListener("click",e=>{
   if(!e.target.closest(".search")) setSuggestions(false);
 });
 
+/* ── DISMISSING THE SHEET ─────────────────────────────────────────────────
+   The × is not the only way out. A click or a tap anywhere outside the panel
+   closes it — the empty field above it, the thread, the header, the map's own
+   background. Escape and the × both stay.
+
+   FOUR THINGS MAKE THIS EITHER INVISIBLE OR INFURIATING, and all four are
+   about deciding what counts as "outside":
+
+   1. A CLICK ON A FILM IS ONE GESTURE, NOT TWO. The node's own handler runs
+      first and opens that film's sheet; a naive outside test would then close
+      the sheet the same click just opened, and the reader would have to click
+      twice for every film. `.node` is excluded by name rather than by timing.
+   2. A DRAG IS NOT A DISMISSAL. The gesture is anchored at pointerdown and
+      only counts if it ended within 8px of where it started, so a pan, a
+      swipe or a text selection that begins and ends outside the panel leaves
+      it alone. A gesture that STARTS inside the panel is never a dismissal
+      either, however far outside it ends.
+   3. A TOUCH TAP FIRES A SYNTHETIC CLICK AFTERWARDS. The constellation
+      already carries a guard for exactly this (search `sky.ghost`): a tap that
+      navigates re-hit-tests the page as it stands ~100ms later, by which time
+      the radial map is on screen. That guard swallows the click in the capture
+      phase, so it never reaches this listener; the arming was widened to cover
+      every touch pick for the same reason.
+   4. FOCUS HAS TO LAND SOMEWHERE. If the reader was inside the panel and
+      dismissed it by tapping bare ground, focus is handed back to the film in
+      the map the way the × path does. If they clicked something focusable, it
+      has taken focus already and moving it again would be theft.
+
+   Bound at window level in the BUBBLE phase on purpose: capture would run
+   before the node handlers and inspection would be unreachable. */
+let panelGesture=null;
+const panelHolds = (node) => node instanceof Node && $("#panel").contains(node);
+addEventListener("pointerdown",(e)=>{
+  const p=$("#panel");
+  panelGesture = p.classList.contains("on") && !panelHolds(e.target)
+    ? { x:e.clientX, y:e.clientY, hadFocus:p.contains(document.activeElement) }
+    : null;
+},true);
+addEventListener("click",(e)=>{
+  const g=panelGesture;
+  panelGesture=null;
+  if(!g || !$("#panel").classList.contains("on")) return;
+  /* detail 0 is a click synthesised by the keyboard, which has no position to
+     compare and belongs to whatever control was activated. */
+  if(!e.detail) return;
+  if(panelHolds(e.target)) return;
+  if(Math.abs(e.clientX-g.x)+Math.abs(e.clientY-g.y)>=8) return;
+  const t=e.target instanceof Element ? e.target : null;
+  if(t&&t.closest(".node")) return;
+  const took = t&&t.closest('a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])');
+  closePanel(g.hadFocus&&!took);
+});
+
 $("#surprise").onclick=()=>{
   /* weighted toward films with somewhere to go: landing on a dead end makes
      the whole thing feel empty on the very first click */
@@ -5840,6 +6102,22 @@ if (SKY_POS){
        started on a film ended by opening it. */
     if(!d||d.moved>=7) return;
     const p=at(e), key=skyPick(p[0],p[1]);
+    /* ARM THE GHOST-CLICK GUARD BEFORE ANYTHING MOVES UNDER THE FINGER.
+       A touch screen dispatches compatibility mousedown/mouseup/click AFTER
+       touchend and re-hit-tests the page as it stands at THAT moment — by
+       which time this handler has already anchored a film, grown the readout
+       under the finger, or replaced the whole canvas with the radial map. The
+       synthetic click then lands on whatever moved into that spot. Measured in
+       Chromium before the guard existed: 5 of 10 taps opened a neighbouring
+       film instead of the one touched.
+       Armed for EVERY touch pick, not only the branch that navigates. It used
+       to be armed inside the pin-then-open branch alone, which left the anchor
+       branch below — a second tap on a held film, which calls openMap() —
+       unguarded, and now that the map arrives with no sheet over it that ghost
+       lands on a ring node and opens a film nobody chose. The click a tap
+       synthesises is redundant by construction: pointerup has already done the
+       work, so discarding it is always the correct answer. */
+    if(d.type!=="mouse") sky.ghost=[e.clientX,e.clientY,performance.now()];
     if(key==null){ sky.hoverKey=null; skyPinKey(null); skyOrbit(null); return; }
 
     /* ORBIT, BEFORE THE OLD OPEN-ON-CLICK PATH.
@@ -5869,18 +6147,7 @@ if (SKY_POS){
        and silently does something else under a finger is the bug this file
        already fixed once. */
     if(sky.passage.from&&!sky.passage.to){ skyPassageTo(key); return; }
-    if(d.type==="mouse"||sky.pinKey===key){
-      /* ARM THE GHOST-CLICK GUARD BEFORE NAVIGATING, NOT AFTER.
-         A touch screen dispatches compatibility mousedown/mouseup/click AFTER
-         touchend, and re-hit-tests the page as it stands at that moment. By
-         then openMap() has replaced the canvas with the radial map, so the
-         ghost click lands on whichever ring node happens to sit under the
-         finger and opens THAT film instead. Measured in Chromium: 5 of 10
-         taps opened a neighbour — always a plausible one, which is what made
-         it read as the map being wrong rather than the tap. */
-      if(d.type!=="mouse") sky.ghost=[e.clientX,e.clientY,performance.now()];
-      skyOrbit(key);
-    }
+    if(d.type==="mouse"||sky.pinKey===key) skyOrbit(key);
     else skyPinKey(key);
   });
   /* Swallow exactly the ghost click armed above: same place, same moment.
@@ -5935,6 +6202,7 @@ if (SKY_POS){
        that says what the values underneath it are. */
     if (!open){ skyFilterRender(); skyFilterPanel.querySelector(".sky-opt")?.focus({preventScroll:true}); }
   };
+  $("#sky-fold").onclick=skyFoldToggle;
   $("#sky-filter-x").onclick=()=>{ skyFilterPanel.hidden=true; $("#sky-filter-open").focus(); };
   $("#sky-worlds-x").onclick=()=>{ skyWorldsOpen(false); $("#sky-worlds-tab").focus(); };
   $("#sky-worlds-tab").onclick=()=>{
@@ -5994,8 +6262,25 @@ addEventListener("keydown",e=>{
    thing like this travels. */
 function fromHash(historyMode="replace"){
   const h=location.hash||"";
-  /* #/sky is an address too: the whole map is a place worth sending someone */
-  if(/^#\/sky\/?$/.test(h)){ if(!SKY_POS) return false; openSky(); return true; }
+  /* #/sky is an address too: the whole map is a place worth sending someone.
+     IT NAMES THE WHOLE ATLAS, NOT MERELY THE SKY VIEW, and that distinction
+     only started to matter the moment a selection got an address of its own.
+     This branch used to just open the view, which was harmless while every
+     sky was #/sky and became a lie the day it was not: navigating from
+     #/sky/world:gothic to #/sky left gothic on the screen under a link
+     promising 2,204 films. Whatever is being held is put down.
+
+     Only from an ADDRESS. The CONSTELLATION button still calls openSky
+     directly and still returns you to the picture you left (skyEnter says so
+     in as many words) — a button is "take me back there", a URL is "show me
+     this". */
+  if(/^#\/sky\/?$/.test(h)){
+    if(!SKY_POS) return false;
+    openSky();
+    if(sky.passage.from) skyPassageClear();
+    if(skyFilterOn()) skyClearFacets();
+    return true;
+  }
   /* A RE-FORMED ATLAS. #/sky/world:gothic, #/sky/genre:drama+era:1960-1979 —
      see skyAddress for the grammar and for what it does and does not promise.
 
@@ -6054,6 +6339,9 @@ addEventListener("hashchange",()=>{
 });
 
 renderFilters();
+/* The readout's fold is a stored preference, so the box has to arrive in the
+   state it was left in — before any camera is fitted against it. */
+skyFoldApply();
 renderWall();
 $("#loved-n").textContent=state.loved.size;
 if (typeof window.__ATLAS_OPEN__ === "string" && F[window.__ATLAS_OPEN__]) openMap(window.__ATLAS_OPEN__);

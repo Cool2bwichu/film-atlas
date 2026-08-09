@@ -5,6 +5,7 @@
  *   node .claude/skills/run-film-atlas/driver.mjs shot '#/sky'
  *   node .claude/skills/run-film-atlas/driver.mjs eval 'KEYS.length'
  *   node .claude/skills/run-film-atlas/driver.mjs repl
+ *   node .claude/skills/run-film-atlas/driver.mjs film reform|return|meteor|all
  *
  * WHY THIS EXISTS AND WHY IT CHECKS PIXELS.
  * atlas/STATE.md records the trap this project keeps falling into, twice
@@ -78,6 +79,10 @@ async function openCtx({ route = "", video = null, viewport = { width: 1440, hei
     ...(video ? { recordVideo: { dir: video, size: viewport } } : {}),
   });
   const page = await ctx.newPage();
+  /* When the recording starts, for the "the action begins Ns in" offset. The
+     page load is inside the file too, so this has to be taken here and not
+     after openCtx returns. */
+  const videoStart = Date.now();
   const errors = [];
   /* When we abort the poster requests ourselves, Chromium logs one
      "Failed to load resource" per image. Those are OUR errors, not the
@@ -90,7 +95,7 @@ async function openCtx({ route = "", video = null, viewport = { width: 1440, hei
   /* The app's own readiness signal: it logs film and connection counts at the
      end of its script. Waiting on KEYS beats waiting on a timer. */
   await page.waitForFunction("typeof KEYS !== 'undefined' && KEYS.length > 0", null, { timeout: LOAD_MS });
-  return { browser, ctx, page, errors };
+  return { browser, ctx, page, errors, videoStart };
 }
 
 async function open(route) { return openCtx({ route }); }
@@ -234,22 +239,25 @@ async function cmdSmoke() {
 
    ── HOW THE FRAMES ARE GOT ───────────────────────────────────────────────
    CDP Page.startScreencast, not screenshots. A screenshot costs 60-150 ms and
-   would sample a 1,150 ms flight eight times; the screencast emits a frame
-   per compositor swap, which is ~45 fps here, and each frame carries a swap
-   timestamp. It also captures what the SCREEN got — canvas and DOM together —
-   rather than what the app computed, which is the distinction that matters
-   when the question is whether a tween was smooth.
+   would sample a 1,150 ms flight eight times; the screencast emits a frame per
+   compositor swap — 20-45 fps here depending on what else the box is doing —
+   and each frame carries a swap timestamp. It also captures what the SCREEN
+   got, canvas and DOM together, rather than what the app computed, which is
+   the distinction that matters when the question is whether a tween was
+   smooth.
 
    Two consequences worth knowing before reading any number out of this:
 
    1. The screencast emits ONLY WHEN THE PAGE CHANGES. A static page produces
-      exactly one frame. So a stalled tween does not show up as a zero delta,
-      it shows up as a GAP BETWEEN TIMESTAMPS, and both are reported.
-   2. Capturing costs the page something. Presented fps here is ~45 against
-      the ~52 the app measures for itself (sky.lastForm.frames), so the
-      absolute frame rate under capture is a floor, not the app's real rate.
-      The SHAPE of the profile is what is being judged, and the app's own
-      count is printed beside it as the uninstrumented control.
+      exactly one frame. So a stalled tween does not necessarily show up as a
+      zero delta; it shows up as a GAP BETWEEN TIMESTAMPS. Both are reported,
+      and so are the app's own paints, which is what tells a product stall
+      apart from a compositor one.
+   2. Capturing costs the page something. Measured on the re-form: 39 frames
+      presented against the 37 the app counts for itself, so the two agree —
+      but both fall together under load (46 on an idle box, 21 with three other
+      Chromiums running). The absolute rate is therefore a floor, not a
+      certification. The SHAPE of the profile is what is judged.
 
    ── WHAT IS MEASURED ─────────────────────────────────────────────────────
    Consecutive frames are downsampled to 320x200 luma and differenced:
@@ -258,32 +266,54 @@ async function cmdSmoke() {
      moved%  share of pixels that changed by more than 8. Tells a whole field
              sliding apart from a meteor crossing an otherwise still one.
 
-   From that series, four threshold-free readings decide whether the motion is
-   a tween or a lie:
+   From that series, plus the app's own accounting, six readings decide whether
+   the motion is a tween or a lie:
 
-     centroid    Sum(t*delta)/Sum(delta), as a share of the nominal duration.
-                 A real ease lands somewhere in the middle of its window. A
-                 snap lands on frame one.
      peak share  the largest single frame's delta over the total. A tween
                  spreads its motion; a snap puts ~all of it in one frame.
      to 50%      how many frames it takes to account for half the motion.
                  A snap: one.
-     worst gap   the longest interval between presented frames inside the
-                 window. This is the dropped frame / stall detector.
+     centroid    Sum(t*delta)/Sum(delta), timed from the FIRST PRESENTED FRAME
+                 and read as a share of nominal. A real ease lands somewhere in
+                 the middle of its window; a snap lands on frame one.
+     identical   frames pixel-identical to the one before, INSIDE the motion.
+                 Painted, presented, and carrying nothing.
+     gaps        worst single skyDraw, worst paint-to-paint, worst presented
+                 gap — three thresholds loosening as the blame moves away from
+                 the app. The freeze detector.
+     flight      sky.lastForm.ms against nominal. The only honest gate on
+                 "finishes early", because a flight cut short still paints a
+                 decelerating curve into whatever time it is given.
 
-   Proven by breaking it: forcing skyFormStep's p to 1 makes the flight snap,
-   and the numbers move from centroid 30% / peak share 0.30 / to-50% 7 frames
-   to centroid 1% / peak share 0.97 / to-50% 1 frame. See SKILL.md. */
+   PROVEN BY BREAKING IT, three ways, each against the real artifact:
+
+     p = 1                    peak share 0.29 -> 0.99, to-50% 5 frames -> 1,
+     (it snaps)               centroid 27% -> 0.4% of nominal, and the flight
+                              reports itself landing in 18ms
+     p over ms*0.45           flight lands at 519ms against 1150 nominal;
+     (it finishes early)      pixel side agrees, motion ends at 51% of nominal
+     320ms block mid-flight   worst paint-to-paint 67ms -> 346ms, and NOTHING
+     (it stalls)              else moves: it still lands at 1151ms with a
+                              healthy peak share, spread and centroid
+
+   Each break is caught by a DIFFERENT subset, which is why all six stay: the
+   early landing trips only the flight check, the stall trips only the gap
+   check, and all three broken artifacts pass `smoke` with identical ink,
+   identical counts and a clean console. */
 
 const FILM_W = Number(process.env.ATLAS_FILM_W || 640);       /* capture width  */
 const FILM_H = Math.round((FILM_W * 900) / 1440);
 const FILM_Q = 78;                                            /* jpeg quality   */
-/* Differenced at the capture's own resolution rather than downsampled again.
-   A meteor is a ~2px streak: at half size it is sub-pixel and its delta sinks
-   into the scintillation floor. Measured at 640x400 the streak's `moved` share
-   separates cleanly from the background (0.11% against 0.00%), which is the
-   whole reason the meteor scene is judgeable at all. */
-const ANA_W = Number(process.env.ATLAS_FILM_ANA || FILM_W), ANA_H = Math.round((ANA_W * 900) / 1440);
+/* HALF THE CAPTURE SIZE, AND THE HALVING IS THE POINT — it was tried both ways
+   on the meteor scene, which is the hardest thing here to see. Differencing at
+   the full 640x400 leaves each of the 760 scintillating stars changing its own
+   pixel by more than the `moved` threshold, so the background floor comes up to
+   meet the streak: 0.16% of pixels moved while a meteor crossed against 0.08%
+   with none. Averaged down to 320x200 the stars fall under the threshold and
+   the 1,200px streak does not, because it is long rather than bright: 0.11%
+   against 0.00%. The downsample is a low-pass filter that happens to separate
+   weather from event. */
+const ANA_W = Number(process.env.ATLAS_FILM_ANA || 320), ANA_H = Math.round((ANA_W * 900) / 1440);
 /* A flight is allowed to finish slightly late: the frame that lands it is
    presented after the deadline, and skyFormStep does its regrid on it. */
 const FILM_GRACE = 200;
@@ -404,6 +434,37 @@ function scene(name, arg) {
   return null;
 }
 
+/* ── WHY THERE ARE TWO PASSES ─────────────────────────────────────────────
+   MEASURED, because it was going to be assumed otherwise: recording the video
+   HALVES the frame rate of the thing being filmed. Same machine, same scene,
+   same artifact, reading the app's own sky.lastForm.frames — 43 frames for the
+   1,150 ms re-form with recordVideo off, 22 with it on. Playwright's recorder
+   is itself a screencast plus an ffmpeg encode, so with our own screencast up
+   there are two of them competing with the page's rAF.
+
+   Filming and measuring in one pass would therefore make the harness the
+   biggest source of jank in its own report, and "worst gap 132 ms" would be
+   OUR gap. So the scene is driven twice: once with the screencast alone, which
+   is where every number below comes from, and once with recordVideo alone,
+   which is the video a person watches.
+
+   That only works if both passes film the SAME event, so Math.random is
+   replaced with a seeded PRNG at the moment the action fires — after setup, so
+   the sequence consumed from that point is identical in both passes. The
+   generator is untouched: skyMeteorStep still draws its own angle and its own
+   parallel, it just draws the same ones twice. It also makes `film meteor`
+   reproducible run to run, which a distribution sampled live never was. */
+const SEED_RANDOM = `(() => {
+  let a = 0x9e3779b9;
+  Math.random = () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  return true;
+})()`;
+
 /* ── the paint tap ────────────────────────────────────────────────────────
    A gap in the presented frames has two possible authors and they call for
    opposite responses: either the APP did not paint, which is a stall in the
@@ -446,6 +507,12 @@ async function screencast(ctx, page, sc) {
     { format: "jpeg", quality: FILM_Q, maxWidth: FILM_W, maxHeight: FILM_H, everyNthFrame: 1 });
   await page.waitForTimeout(500);
   await page.evaluate("window.__paints && (window.__paints.length = 0)");
+  /* SEEDED HERE, NOT EARLIER. The pre-roll is 500ms of a live night sky, and
+     anything in it that draws from Math.random advances the stream — so
+     seeding before the pre-roll left the two passes on different numbers and
+     filmed two different meteors. Caught by the path length moving between
+     runs (1167px, then 1281px) when the seed was supposed to pin it. */
+  await page.evaluate(SEED_RANDOM);
   const r = await sc.act(page);
   await page.waitForTimeout(r.nominal + sc.tail);
   await client.send("Page.stopScreencast").catch(() => {});
@@ -527,12 +594,22 @@ async function strip(browser, series, sel, meta, out) {
       g.fillRect(T(s.t), py + ph - h, 2, h);
     }
     g.strokeStyle = "#8a7f76"; g.lineWidth = 1;
+    /* The background floor, drawn where it is subtracted. On the night sky it
+       is most of the bar height between meteors, and a plot without it invites
+       the reader to see the weather as the event. */
+    if (a.bg > 0) {
+      const by = py + ph - Math.max(1, (a.bg / Math.max(1e-6, a.peak)) * ph);
+      g.strokeStyle = "#4b423b"; g.setLineDash([4, 4]);
+      g.beginPath(); g.moveTo(x0, by + 0.5); g.lineTo(x1, by + 0.5); g.stroke();
+      g.setLineDash([]);
+    }
     for (const [t, lab] of [[0, "action"], [a.nominal, `nominal +${a.nominal}ms`]]) {
       g.beginPath(); g.moveTo(T(t) + 0.5, py); g.lineTo(T(t) + 0.5, py + ph); g.stroke();
       g.fillStyle = "#8a7f76"; g.font = "11px ui-monospace, monospace"; g.fillText(lab, T(t) + 4, py + ph + 14);
     }
     g.fillStyle = "#6d645c"; g.font = "11px ui-monospace, monospace";
-    g.fillText(`per-frame delta, one bar per presented frame at its real timestamp — peak ${a.peak.toFixed(2)}`, x0, py + ph + 28);
+    g.fillText(`per-frame delta, one bar per presented frame at its real timestamp — peak ${a.peak.toFixed(2)}`
+      + (a.bg > 0 ? `, dashed line is the ${a.bg.toFixed(2)} background subtracted before judging` : ""), x0, py + ph + 28);
     const blob = await c.convertToBlob({ type: "image/png" });
     const buf = new Uint8Array(await blob.arrayBuffer());
     let s = ""; for (let i = 0; i < buf.length; i++) s += String.fromCharCode(buf[i]);
@@ -556,37 +633,6 @@ function sparkline(series, from, to, cols = 56) {
   return out;
 }
 
-/* ── WHY THERE ARE TWO PASSES ─────────────────────────────────────────────
-   MEASURED, because it was going to be assumed otherwise: recording the video
-   HALVES the frame rate of the thing being filmed. Same machine, same scene,
-   same artifact, reading the app's own sky.lastForm.frames — 43 frames for the
-   1,150 ms re-form with recordVideo off, 22 with it on. Playwright's recorder
-   is itself a screencast plus an ffmpeg encode, so with our own screencast up
-   there are two of them competing with the page's rAF.
-
-   Filming and measuring in one pass would therefore make the harness the
-   biggest source of jank in its own report, and "worst gap 132 ms" would be
-   OUR gap. So the scene is driven twice: once with the screencast alone, which
-   is where every number below comes from, and once with recordVideo alone,
-   which is the video a person watches.
-
-   That only works if both passes film the SAME event, so Math.random is
-   replaced with a seeded PRNG at the moment the action fires — after setup, so
-   the sequence consumed from that point is identical in both passes. The
-   generator is untouched: skyMeteorStep still draws its own angle and its own
-   parallel, it just draws the same ones twice. It also makes `film meteor`
-   reproducible run to run, which a distribution sampled live never was. */
-const SEED_RANDOM = `(() => {
-  let a = 0x9e3779b9;
-  Math.random = () => {
-    a |= 0; a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-  return true;
-})()`;
-
 const appFrames = (page) =>
   page.evaluate("typeof sky!=='undefined' && sky.lastForm ? JSON.stringify(sky.lastForm) : null");
 
@@ -596,9 +642,15 @@ const appFrames = (page) =>
 async function recordPass(sc, slug) {
   const vdir = join(FILMS, ".vid-" + slug);
   rmSync(vdir, { recursive: true, force: true });
-  const { browser, ctx, page, errors } = await openCtx({ route: "#/sky", video: vdir });
+  const { browser, ctx, page, errors, videoStart } = await openCtx({ route: "#/sky", video: vdir });
+  /* Recording starts with the page, so the file opens with the 9 MB load and
+     the scene's setup — several seconds of front door before anything being
+     judged happens. Rather than trim (and depend on the bundled ffmpeg's
+     keyframes) the offset is measured and printed, so the reader knows where
+     to drag the scrubber to. */
   await sc.setup(page);
   await page.evaluate(SEED_RANDOM);
+  const at = Date.now() - videoStart;
   const r = await sc.act(page);
   await page.waitForTimeout(r.nominal + sc.tail);
   const lf = await appFrames(page);
@@ -608,7 +660,7 @@ async function recordPass(sc, slug) {
   if (src && existsSync(src)) { renameSync(src, out); }
   rmSync(vdir, { recursive: true, force: true });
   await browser.close();
-  return { path: existsSync(out) ? out : null, lastForm: lf ? JSON.parse(lf) : null, errors };
+  return { path: existsSync(out) ? out : null, at, lastForm: lf ? JSON.parse(lf) : null, errors };
 }
 
 async function cmdFilm(name, arg, label) {
@@ -622,8 +674,7 @@ async function cmdFilm(name, arg, label) {
 
   const { browser, ctx, page, errors } = await openCtx({ route: "#/sky" });
   await sc.setup(page);
-  await page.evaluate(SEED_RANDOM);
-  const cap = await screencast(ctx, page, sc);
+  const cap = await screencast(ctx, page, sc);      /* seeds just before acting */
   /* The app's own accounting for the flight it just flew, read before the
      context dies. Uninstrumented by us: skyFrame has always kept it. */
   const lastForm = await appFrames(page);
@@ -639,7 +690,7 @@ async function cmdFilm(name, arg, label) {
   const win = all.filter((f) => f.t >= 0 && f.t <= winEnd && f.delta !== null);
   const after = all.filter((f) => f.t > winEnd && f.delta !== null);
 
-  let ok = true;
+  let ok = true, bg = 0;
   const F = (m) => { ok = fail(m); };
   log(`film        ${sc.label}${cap.note ? "  (" + cap.note + ")" : ""}`);
   log(`window      0 to +${Math.round(cap.nominal)}ms nominal, judged to +${Math.round(winEnd)}ms (grace ${FILM_GRACE}ms)`);
@@ -651,6 +702,7 @@ async function cmdFilm(name, arg, label) {
     const tot = win.reduce((p, c) => p + c.delta, 0);
     log(`frames      ${win.length} presented in the window (a still register should present almost none)`);
     log(`motion      total delta ${f2(tot)}, peak ${f2(Math.max(0, ...win.map((f) => f.delta)))}`);
+    log(`identical   ${win.filter((f) => f.delta < 0.001).length} of them were pixel-identical to the frame before`);
     if (win.length > 6) F(`a register declared "still" presented ${win.length} frames — something is repainting`);
   } else if (!win.length) {
     F("no frames were presented inside the window — nothing moved at all");
@@ -669,6 +721,7 @@ async function cmdFilm(name, arg, label) {
        doing whatever it does when nothing is being asked of it. Tween scenes
        only — for a `loop` scene the background IS the subject. */
     const floor = sc.judge === "tween" && after.length ? med(after.map((f) => f.delta)) : 0;
+    bg = floor;
     const adj = win.map((f) => ({ t: f.t, d: Math.max(0, f.delta - floor) }));
     const total = adj.reduce((p, c) => p + c.d, 0);
     const peak = Math.max(...adj.map((f) => f.d));
@@ -709,7 +762,22 @@ async function cmdFilm(name, arg, label) {
     log(`gaps        first presented frame +${Math.round(win[0].t)}ms, then median ${Math.round(gm)}ms, worst ${Math.round(gap)}ms`);
     log(`background  ${f2(floor)} median delta after the window — the view's own weather, subtracted below`);
     log(`delta       raw median ${f2(med(win.map((f) => f.delta)))}; above background: peak ${f2(peak)}, peak share ${f2(peakShare * 100)}% of the window's motion`);
+    /* Where the motion stops, as a share of the window it was promised. Read
+       rather than gated: a decelerating ease genuinely spends its last third
+       moving less than 5% of peak per frame, so the honest gate on "finishes
+       early" is the app's own landing time, below. */
+    const active = adj.filter((f) => f.d >= 0.05 * peak);
+    const endsAt = active.length ? active[active.length - 1].t : 0;
     log(`spread      half the motion is in ${to50} of ${win.length} frames; centroid +${Math.round(centroid)}ms into the observed motion = ${f1((100 * centroid) / cap.nominal)}% of nominal`);
+    log(`ends        last frame above 5% of peak is +${Math.round(endsAt)}ms = ${f1((100 * endsAt) / cap.nominal)}% of nominal`);
+    /* ZERO IS THE WORD THE BRIEF USED: "a frame-to-frame delta of zero in the
+       middle of a 1,150ms flight is a dropped frame". Counted twice, because
+       the two places mean different things — one at the tail is a flight that
+       has landed and is waiting out the grace, one inside the flight is a
+       frame the reader paid for and got nothing back from. */
+    const idAll = win.filter((f) => f.delta < 0.001).length;
+    const idIn = win.filter((f) => f.delta < 0.001 && f.t <= cap.nominal).length;
+    log(`identical   ${idAll} frames were pixel-identical to the one before, ${idIn} of them inside the ${Math.round(cap.nominal)}ms motion itself`);
     log(`moved       peak ${f2(Math.max(...win.map((f) => f.moved)))}% of pixels in one frame, median ${f2(med(win.map((f) => f.moved)))}% in window against ${f2(med(after.map((f) => f.moved)))}% after it`);
     log(`after       ${after.length} frames past the window, median delta ${f2(med(after.map((f) => f.delta)))}`);
     log(`profile     ${sparkline(win, 0, winEnd)}`);
@@ -727,6 +795,18 @@ async function cmdFilm(name, arg, label) {
          The presented gap adds the compositor and our own screencast on top.
          None of these certify a frame RATE — see SKILL.md; they catch a
          freeze. Smoothness is the delta profile's shape, above. */
+      /* FINISHES EARLY, ASKED OF THE APP RATHER THAN OF THE PIXELS. A flight
+         cut short still paints a decelerating curve into whatever time it is
+         given, so the delta profile alone cannot separate "landed at 575ms"
+         from "eased hard". sky.lastForm.ms is the flight's own measured
+         landing, and it cannot be argued with. */
+      if (sc.form && lastForm) {
+        const lf = JSON.parse(lastForm), off = (lf.ms - cap.nominal) / cap.nominal;
+        log(`flight      the app reports the flight landing at ${Math.round(lf.ms)}ms against a ${Math.round(cap.nominal)}ms nominal (${off >= 0 ? "+" : ""}${f1(off * 100)}%)`);
+        if (Math.abs(off) > 0.15) F(`the flight landed at ${Math.round(lf.ms)}ms against a nominal ${Math.round(cap.nominal)}ms — it did not run its stated duration`);
+        if (lf.reduced) F("the flight reported itself as reduced-motion — nothing was animated");
+      }
+      if (idIn > 0) F(`${idIn} frame(s) inside the flight were pixel-identical to the one before — painted, presented, and carrying no motion`);
       if (pcost > 60) F(`one skyDraw took ${f1(pcost)}ms — a hitch the reader sees whatever the machine`);
       if (pgap > 250) F(`the app went ${Math.round(pgap)}ms without a paint inside the flight — a freeze, not container noise`);
       if (gap > 350) F(`a ${Math.round(gap)}ms gap between presented frames, with the app's worst paint gap at ${Math.round(pgap)}ms`);
@@ -762,8 +842,8 @@ async function cmdFilm(name, arg, label) {
        spend a third of the plot on nothing. */
     const series = all.filter((f) => f.delta !== null && f.t >= -160);
     await strip(browser, series, sel,
-      { title: sc.label, sub: `${ARTIFACT.split("/").pop()} — nominal ${cap.nominal}ms, ${win.length} frames in window, peak delta ${f2(peak)}`,
-        nominal: cap.nominal, t0: -160, t1: all.length ? all[all.length - 1].t : winEnd,
+      { title: sc.label, sub: `${ARTIFACT.split("/").pop()} — nominal ${Math.round(cap.nominal)}ms, ${win.length} frames in window, peak delta ${f2(peak)}, background ${f2(bg)}`,
+        nominal: Math.round(cap.nominal), t0: -160, t1: all.length ? all[all.length - 1].t : winEnd, bg,
         peak: Math.max(...series.map((f) => f.delta)) },
       join(FILMS, slug + "-strip.png"));
   }
@@ -778,10 +858,11 @@ async function cmdFilm(name, arg, label) {
   if (process.env.ATLAS_FILM_VIDEO !== "0") {
     vid = await recordPass(sc, slug);
     if (vid.errors.length) { log("console errors (recording pass):\n  " + vid.errors.join("\n  ")); F(`${vid.errors.length} console error(s) while recording`); }
-    if (lastForm && vid.lastForm) {
+    if (lastForm && vid.lastForm && sc.form) {
       const a = JSON.parse(lastForm);
-      log(`recorder    the app painted ${a.frames} frames measuring and ${vid.lastForm.frames} while recording — recordVideo costs ${f1(100 - (100 * vid.lastForm.frames) / Math.max(1, a.frames))}% of the frame rate, which is why these are two passes`);
+      log(`recorder    the app painted ${a.frames} frames measuring and ${vid.lastForm.frames} while recording — recordVideo costs ${f1(100 - (100 * vid.lastForm.frames) / Math.max(1, a.frames))}% of this flight's frame rate, which is why these are two passes`);
     }
+    if (vid.path) log(`video       recorded in a second pass on the same seed; the action begins about ${f1(vid.at / 1000)}s in`);
   }
 
   log(`wrote       ${vid && vid.path ? vid.path : "(no video — ATLAS_FILM_VIDEO=0)"}`);

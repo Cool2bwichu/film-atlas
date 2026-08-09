@@ -761,6 +761,65 @@ closed: zero labels over chrome, zero label collisions, zero blurred labels
 (rule 4), every new piece of type at or above 5.0:1 on its own ground, the
 clear mark reaching 44 px on a coarse pointer, and no console errors.
 
+### The address — settled 2026-08
+
+A re-formed atlas now has a URL. `#/sky/world:gothic`,
+`#/sky/genre:drama+era:1960-1979`. Recorded facet values already carry their
+field in their id, so a token *is* the value; register ids do not, so theirs
+takes a `world:` prefix — the word on screen rather than `register`, the word
+in the data. Tokens are sorted, so one selection has one address however it
+was clicked.
+
+> **The address names the SELECTION, never the picture.**
+
+That one line settles everything else. A selection is a handful of stable ids
+and set arithmetic over baked posting lists — no float touches it — so the
+membership an address restores is exact on every machine. The positions are
+then recomputed on arrival, by whatever means the receiving artifact has.
+Nothing about how the sender's machine drew it is serialised, because the
+receiver can work that out for itself and a copy of a derived fact goes stale.
+
+**Rule 7, and what is done about it.** A register or a recorded stratum has a
+baked layout, so its address promises a byte-identical picture and the
+interface adds no caveat. An intersection is solved live and two engines
+disagree by about one ULP of input, so it **is** still serialised — refusing
+would make the feature's best output unsendable — and the picture it restores
+says so: the strip reads `SOLVED HERE` instead of `RE-FORMED`, and the readout
+separates the two halves rather than hedging both. *Who* is in it is exact;
+*where* each film sits is this engine's answer, worth about 3% of the field.
+That sentence is computed from `sky.formKind` on the machine reading the link,
+never carried in it — so it is right for a stale address, and right for the
+case a flag in the URL would miss, a single stratum too small to have been
+baked.
+
+**A stale link falls to the whole atlas, and says which names it dropped.**
+All of the tokens or none: honouring the half that still resolve would draw a
+selection neither person asked for, under the sender's link, with a count that
+looks authoritative. A selection that is valid but empty in this corpus falls
+back too — an empty sky is an honest answer to a *click*, because you watched
+it empty and can undo it, and a dead end when it arrives from a link.
+`#/passage` still falls to the wall instead, and correctly: half a route is
+nothing, where half an atlas is the atlas.
+
+**One selection had two cameras, and that is what an address exposed.** The
+strip is 147 px of the top of the field and `skyFormTo` fits the camera to the
+chrome at the moment it is called, so retracting the strip *after* applying a
+selection fitted the frame with the index in it and then removed the index —
+the door landed at k=1418 where its own fit is k=1795, the atlas drawn 1.27×
+outside itself on the view whose whole job is to be fitted to the part you can
+see. The filter panel did not retract the strip at all, so the same selection
+had two chromes. The strip is now open **iff the atlas is whole**, at every
+control, and it moves *before* the flight is fitted. Camera moves also land on
+their target rather than on `exp(log(target))`: one ULP, invisible on screen,
+and the difference between two routes to one picture agreeing and not.
+
+Verified in real Chromium (`.claude/skills/run-film-atlas/address-probe.mjs`):
+compose by clicking, read the address, cold-load it in a fresh page, and
+membership, every position and the camera compare identical for a register, a
+recorded stratum and a live-solved intersection alike; every restored sky was
+measured for ink. Seven corrupted addresses all land on the whole atlas with
+the notice shown.
+
 ## Deliberately avoided
 
 The generic AI-design tells: interchangeable rounded cards, purple-blue
@@ -770,13 +829,12 @@ world is made of film and paper, not plastic.
 
 ## Open questions
 
-0. **A re-formed atlas has no address.** `#/sky` and `#/passage/a/b` are real
-   URLs; a selection is not. The whole point of the feature is that people
-   arrive at configurations worth showing someone, and right now they cannot.
-   `#/sky/genre:drama+era:1960-1979` is cheap for the baked path and honest for
-   it too; for a live-solved intersection it would promise a picture the
-   caveat above says may differ slightly on another engine, so a shared
-   intersection would need to say so or be refused.
+0. ~~**A re-formed atlas has no address.**~~ **Answered — see "The address"
+   above.** What survives of it: a passage composed *inside* a re-formed sky
+   still serialises as `#/passage/a/b`, which is a route through the whole
+   atlas. Choosing a selection clears the route, so the pair only exists in one
+   direction, and the fix is a second grammar for a state that lasts until the
+   next click. Not worth it yet; worth saying out loud.
 1. ~~**The constellation still has no job.**~~ **Answered by the worlds — see
    "The worlds" above.** What survives of it: the strip is an index of 28 doors
    and 43% of the corpus is behind none of them. That is stated on screen but
@@ -795,10 +853,9 @@ world is made of film and paper, not plastic.
    degree) at eight viewports: 7 of 704 renders still place a caption on a
    neighbouring poster, all of them at 1024×660 — a 516px stage, shorter than
    a phone's — with 40-plus-character titles. Everything else is clean.
-4. **A world has no address either.** Same shape as question 0 and cheaper:
-   every register is a baked stratum, so `#/sky/world:gothic` promises a
-   picture that is byte-identical on every machine. The strip is now the best
-   thing in the view to arrive *at*, and you cannot send anyone to one.
+4. ~~**A world has no address either.**~~ **Answered — `#/sky/world:gothic`,
+   see "The address" above.** It promises a byte-identical picture and carries
+   no caveat, because a register is a baked stratum.
 5. **Twenty-eight doors is near the ceiling for one flat rail.** It is 3,300px
    of horizontal scroll at 1440, and an index stops being an index somewhere
    around forty. The spec already groups registers into families — horror &

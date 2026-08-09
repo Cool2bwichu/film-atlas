@@ -204,16 +204,59 @@ for (const [what, r, wantSolved] of [["world", rWorld, false], ["stratum", rStra
   else pass(`${what.padEnd(12)} kind=${r.restored.kind}, caveat ${wantSolved ? "printed" : "absent"}`);
 }
 
-/* ── 3 · canonical order ──────────────────────────────────────────────── */
+/* ── 2b · #/sky means the WHOLE atlas ─────────────────────────────────────
+   Not "the sky view, with whatever you were holding". This is the one case a
+   cold-load probe cannot see, because a fresh page has nothing to hold: it
+   only appears when you navigate from one sky address to another inside a
+   session, which is exactly what following two links in a row looks like. */
+log("\nwhole     · #/sky puts down whatever the previous address was holding");
+{
+  const { page, errors } = await load(browser, "#/sky/world:" + FIX.reg);
+  const out = await page.evaluate(`(async () => {
+    const before = __ATLAS_SKY__.state();
+    location.hash = "#/sky";
+    await new Promise(r => setTimeout(r, 2600));
+    const after = __ATLAS_SKY__.state();
+    /* and a route is a held thing too */
+    const keys = __ATLAS_SKY__.keys();
+    skyPassageStart(keys[0]); skyPassageTo(keys[1]);
+    await new Promise(r => setTimeout(r, 900));
+    const routed = location.hash;
+    location.hash = "#/sky";
+    await new Promise(r => setTimeout(r, 1200));
+    return { beforeN: before.live, beforeKind: before.kind, afterN: after.live,
+             afterKind: after.kind, hash: location.hash, routed,
+             passage: !!sky.passage.from };
+  })()`);
+  await page.context().close();
+  if (out.afterKind !== "whole" || out.afterN !== 2204)
+    fail(`#/sky after ${out.beforeN} films left ${out.afterN} films, kind="${out.afterKind}"`);
+  else if (out.passage) fail(`#/sky left a route drawn (was ${out.routed})`);
+  else if (out.hash !== "#/sky") fail(`#/sky rewrote itself to ${out.hash}`);
+  else pass(`${out.beforeN} films (${out.beforeKind}) -> #/sky -> ${out.afterN} (${out.afterKind}), route put down`);
+  for (const e of errors) fail("console: " + e);
+}
+
+/* ── 3 · canonical order ──────────────────────────────────────────────────
+   TWO VALUES IN THE SAME FACET, which is the only case that can fail. Across
+   facets skySelected() already walks FACET_FIELDS in a fixed order, so the
+   first version of this check compared genre+era and passed with the sort
+   deleted — it was testing an ordering nothing could disturb. Within one
+   facet the selection is a Set and Sets are insertion-ordered, so drama-then-
+   horror and horror-then-drama are two different orders of the same thing. */
 log("\ncanonical · one selection, one address, whatever order it was clicked");
 {
   const { page } = await load(browser, "#/sky");
-  const a = await page.evaluate(`(() => { skyToggleFacet("genre", ${JSON.stringify(FIX.inter[0])});
-    skyToggleFacet("era", ${JSON.stringify(FIX.inter[1])}); return __ATLAS_SKY__.address(); })()`);
-  const b = await page.evaluate(`(() => { skyClearFacets(); skyToggleFacet("era", ${JSON.stringify(FIX.inter[1])});
-    skyToggleFacet("genre", ${JSON.stringify(FIX.inter[0])}); return __ATLAS_SKY__.address(); })()`);
+  const two = await page.evaluate(`[...skyFacetCounts("genre").entries()]
+    .sort((a,b) => b[1]-a[1]).slice(0,2).map(r => r[0])`);
+  const one = async (order) => page.evaluate(`(() => { skyClearFacets();
+    ${order.map(v => `skyToggleFacet("genre", ${JSON.stringify(v)});`).join("")}
+    return __ATLAS_SKY__.address(); })()`);
+  const a = await one(two);
+  const b = await one([...two].reverse());
   await page.context().close();
-  a === b ? pass(`both orders -> ${a}`) : fail(`click order changed the address: ${a} vs ${b}`);
+  a === b ? pass(`${two.join(" / ")} in both orders -> ${a}`)
+          : fail(`click order changed the address: ${a} vs ${b}`);
 }
 
 /* ── 4 · a passage inside a world does not eat the world's address ─────── */
@@ -248,6 +291,11 @@ const corruptions = [
   ["unparseable escape          ", "#/sky/%E0%A4%A"],
   ["stray path segment          ", `#/sky/world:${FIX.reg}/zoom`],
   ["register named as a bare id ", `#/sky/${FIX.reg}`],
+  /* Every one of these is truthy on an ordinary object literal, so a lookup
+     table without Object.hasOwn would take the "this value exists" branch. */
+  ["a key off Object.prototype ", "#/sky/genre:constructor"],
+  ["__proto__ as a world       ", "#/sky/world:__proto__"],
+  ["__proto__ as a field       ", "#/sky/__proto__:x"],
 ];
 if (FIX.empty) corruptions.push(["valid, but empty in this corpus", `#/sky/${FIX.empty[0]}+${FIX.empty[1]}`]);
 for (const [what, hash] of corruptions) {

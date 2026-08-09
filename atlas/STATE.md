@@ -54,6 +54,16 @@ Sites edition, 2026-08-06:
   close/recenter, hash navigation, and device-local Seen/Love persistence were
   exercised directly. A physical phone remains untested.
 
+- **A re-formed atlas has an address** — `#/sky/world:gothic`,
+  `#/sky/genre:drama+era:1960-1979`; DESIGN.md, "The address". Verified in real
+  Chromium (`.claude/skills/run-film-atlas/address-probe.mjs`): compose by
+  clicking, cold-load the address in a fresh page, and membership, every
+  position and the camera compare identical for a register, a recorded stratum
+  and a live-solved intersection — at 1440×900, 900×820, 390×780 and under
+  `prefers-reduced-motion`. Ten corrupted addresses land on the whole atlas
+  with a notice naming what was dropped. A live-solved intersection is
+  serialised and labelled `SOLVED HERE`, never presented as exact.
+
 - Renders in a real browser (Chrome, macOS): wall paints, map draws 7 films and
   6 labelled curves, no overlap, panel clears the ring.
 - Harness: 0 overlapping pairs, 0 nodes off-stage, extend runs 5 deep,
