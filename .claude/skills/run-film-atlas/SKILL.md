@@ -126,6 +126,32 @@ wrong, a **one-token** address for a value too small to have been baked.
 ~5 min; every restored sky is measured for ink as well, for the reason above.
 Nine negative controls are recorded in `atlas/DESIGN.md`, "The address".
 
+### Is the aperture on screen, and is the route's own title readable
+
+```bash
+node .claude/skills/run-film-atlas/gate-probe.mjs
+```
+
+**Asks the page what it drew, not the model what it would draw.** Reads
+`sky.gate` and the four `--ap-*` custom properties off the live page and
+compares both against a fresh `skyGate()` on that same page, at nine states ×
+three viewports: cold `#/sky`, the `CONSTELLATION` button, the lede link, a cold
+world address, the round trip into a world and back, and a Passage — arriving,
+with the strip re-opened by hand over it, and cleared.
+
+This exists because the aperture shipped **317px wrong on every ordinary route
+into the whole atlas** under a build gate that called `skyGate()` and compared
+it with itself. That check proved the function was deterministic; it could not
+see that the rectangle on screen was a different rectangle. ~4 min.
+
+It also fails on chrome that eats the reading: the worlds strip overlapping the
+readout at all, the Passage title being covered or off-window (hit-tested with
+`elementFromPoint`, not inferred from a box), opaque chrome at or over 100% of a
+phone viewport, and the strip failing to come back when a route is cleared.
+
+**Proven by breaking it** — the exact patch is in the file's own header; it puts
+9 of the 27 states back over the line at 316.7 / 293.8 / 176.4px.
+
 ## Film — motion capture, and how to judge it
 
 Everything above ends in a **still**. This app does not: a selection flies

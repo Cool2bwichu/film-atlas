@@ -1306,6 +1306,16 @@ actually measured; `skyGateV` records which measurement `sky.gate` came from;
 can be re-measured and then never painted again (a cold world address retracts
 the strip after its last draw).
 
+One consequence, deliberate: with the Passage readout now correctly measured
+(it never invalidated `sky.chrome` before, so the band was computed from a
+readout five times shorter than the one on screen), the leftover band during a
+route falls under `skySafeBand`'s 140px floor and the aperture opens to the
+whole canvas. That is the existing fallback doing its job and it is the kind
+outcome — the alternative is a 396×289 aperture inscribed in the sliver beside
+the panel, with the gate's crop shadow lying across the route, because nothing
+re-fits the camera for a Passage. **The gate closes down to what the chrome
+leaves until there is nothing to leave, and then it stops pretending.**
+
 **Verified by asking the page, and by re-breaking it.** `.judge/gate-probe.mjs`
 walks eight routes into the sky × three viewports and compares `sky.gate` and
 the four `--ap-*` custom properties against a fresh `skyGate()` on the same
