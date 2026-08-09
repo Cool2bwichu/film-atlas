@@ -278,7 +278,12 @@ async function cmdSmoke() {
 const FILM_W = Number(process.env.ATLAS_FILM_W || 640);       /* capture width  */
 const FILM_H = Math.round((FILM_W * 900) / 1440);
 const FILM_Q = 78;                                            /* jpeg quality   */
-const ANA_W = 320, ANA_H = 200;                               /* delta grid     */
+/* Differenced at the capture's own resolution rather than downsampled again.
+   A meteor is a ~2px streak: at half size it is sub-pixel and its delta sinks
+   into the scintillation floor. Measured at 640x400 the streak's `moved` share
+   separates cleanly from the background (0.11% against 0.00%), which is the
+   whole reason the meteor scene is judgeable at all. */
+const ANA_W = Number(process.env.ATLAS_FILM_ANA || FILM_W), ANA_H = Math.round((ANA_W * 900) / 1440);
 /* A flight is allowed to finish slightly late: the frame that lands it is
    presented after the deadline, and skyFormStep does its regrid on it. */
 const FILM_GRACE = 200;
@@ -306,7 +311,7 @@ function scene(name, arg) {
   const S = {
     /* The 1,150 ms flight of 2,204 films between two baked layouts. */
     reform: {
-      label: `re-form into "${world}"`, judge: "tween", tail: 900,
+      label: `re-form into "${world}"`, judge: "tween", form: true, tail: 900,
       setup: async (page) => { await skyReady(page); },
       act: (page) => page.evaluate((id) => {
         const t = performance.now(); skyWorldChoose(id);
@@ -316,7 +321,7 @@ function scene(name, arg) {
     /* The way back: every film that left flies in from beyond the frame, and
        the worlds strip unspools again on top of it. */
     return: {
-      label: `whole-atlas return from "${world}"`, judge: "tween", tail: 1200,
+      label: `whole-atlas return from "${world}"`, judge: "tween", form: true, tail: 1200,
       setup: async (page) => {
         await skyReady(page);
         await page.evaluate((id) => skyWorldChoose(id), world);
@@ -637,7 +642,7 @@ async function cmdFilm(name, arg, label) {
   let ok = true;
   const F = (m) => { ok = fail(m); };
   log(`film        ${sc.label}${cap.note ? "  (" + cap.note + ")" : ""}`);
-  log(`window      0 to +${cap.nominal}ms nominal, judged to +${winEnd}ms (grace ${FILM_GRACE}ms)`);
+  log(`window      0 to +${Math.round(cap.nominal)}ms nominal, judged to +${Math.round(winEnd)}ms (grace ${FILM_GRACE}ms)`);
 
   if (sc.judge === "quiet") {
     /* The negative control. A register whose signature is `still` must not be
@@ -692,23 +697,27 @@ async function cmdFilm(name, arg, label) {
     const pcost = Math.max(0, ...pw.map((p) => p.cost));
 
     log(`frames      ${win.length} presented over ${Math.round(span)}ms (${f1((win.length / Math.max(1, span)) * 1000)} fps under capture)`);
-    if (lastForm) {
+    /* sky.lastForm describes the last RE-FORM, so it is only this scene's
+       flight when this scene caused one. On a meteor it is whatever flight
+       brought the world in, and printing it there would be a stale number
+       wearing this scene's label. */
+    if (lastForm && sc.form) {
       const lf = JSON.parse(lastForm);
       log(`app's own   ${lf.frames} frames in ${Math.round(lf.ms)}ms, mean ${f2(lf.mean)}ms worst ${f2(lf.worst)}ms per frame  [sky.lastForm, uninstrumented]`);
     }
-    log(`paints      ${pw.length} skyDraw calls, first at +${pw.length ? Math.round(pw[0].t) : "-"}ms, worst single draw ${f1(pcost)}ms, worst paint-to-paint ${Math.round(pgap)}ms`);
+    log(`paints      ${pw.length} skyDraw calls = ${f1((pw.length / Math.max(1, winEnd)) * 1000)}/s, first at +${pw.length ? Math.round(pw[0].t) : "-"}ms, worst single draw ${f1(pcost)}ms, worst paint-to-paint ${Math.round(pgap)}ms`);
     log(`gaps        first presented frame +${Math.round(win[0].t)}ms, then median ${Math.round(gm)}ms, worst ${Math.round(gap)}ms`);
-    log(`background  ${f2(floor)} median delta after the window — the view's own weather, subtracted before judging`);
-    log(`delta       median ${f2(med(win.map((f) => f.delta)))}, peak ${f2(peak)}, peak share ${f2(peakShare * 100)}% of the window's motion`);
-    log(`spread      half the motion is in ${to50} of ${win.length} frames; centroid +${Math.round(centroid)}ms = ${f1((100 * centroid) / cap.nominal)}% of nominal`);
-    log(`moved       peak ${f2(Math.max(...win.map((f) => f.moved)))}% of pixels in one frame`);
+    log(`background  ${f2(floor)} median delta after the window — the view's own weather, subtracted below`);
+    log(`delta       raw median ${f2(med(win.map((f) => f.delta)))}; above background: peak ${f2(peak)}, peak share ${f2(peakShare * 100)}% of the window's motion`);
+    log(`spread      half the motion is in ${to50} of ${win.length} frames; centroid +${Math.round(centroid)}ms into the observed motion = ${f1((100 * centroid) / cap.nominal)}% of nominal`);
+    log(`moved       peak ${f2(Math.max(...win.map((f) => f.moved)))}% of pixels in one frame, median ${f2(med(win.map((f) => f.moved)))}% in window against ${f2(med(after.map((f) => f.moved)))}% after it`);
     log(`after       ${after.length} frames past the window, median delta ${f2(med(after.map((f) => f.delta)))}`);
     log(`profile     ${sparkline(win, 0, winEnd)}`);
 
     if (win.length < 8) F(`only ${win.length} frames were presented across a ${cap.nominal}ms motion`);
     if (peakShare > 0.5) F(`one frame carries ${f1(peakShare * 100)}% of the motion — that is a snap, not a tween`);
     if (sc.judge === "tween") {
-      if (centroid < cap.nominal * 0.12) F(`motion centroid is +${Math.round(centroid)}ms of ${cap.nominal}ms — the picture jumped and then sat still`);
+      if (centroid < cap.nominal * 0.12) F(`motion centroid is +${Math.round(centroid)}ms into a ${cap.nominal}ms motion — the picture jumped and then sat still`);
       if (to50 < 3) F(`half the motion is in ${to50} frame(s) — no gradient`);
       /* THREE GAP THRESHOLDS, LOOSENING AS THE BLAME MOVES AWAY FROM THE APP.
          A single draw's cost is the app's own work and nothing else, so it is
