@@ -336,7 +336,7 @@ const GUARDS = {
 };
 
 /* Negation / distancing cues, scanned in the clause window before the term. */
-const NEG = /\b(not|never|no|nor|neither|hardly|scarcely|barely|without|less|least|lack|lacks|lacking|lacked|far from|anything but|rather than|instead of|refuse[sd]?|refusing|refusal|avoid(?:s|ed|ing)?|eschew(?:s|ed|ing)?|resist(?:s|ed|ing)?|reject(?:s|ed|ing)?|abandon(?:s|ed|ing)?|aspir(?:es?|ing|ation)|striv(?:es?|ing)|attempt(?:s|ed|ing)?|tries to|trying to|wants? to|wanted to|would-be|pseudo|quasi|faux|supposedly|allegedly|ostensibly)\b/i;
+const NEG = /\b(not|never|no|nor|neither|hardly|scarcely|barely|without|less|least|lack|lacks|lacking|lacked|far from|anything but|rather than|instead of|refuse[sd]?|refusing|refusal|avoid(?:s|ed|ing)?|eschew(?:s|ed|ing)?|resist(?:s|ed|ing)?|reject(?:s|ed|ing)?|abandon(?:s|ed|ing)?|aspir(?:es?|ing|ation)|striv(?:es?|ing)|attempt(?:s|ed|ing)?|tries to|trying to|wants? to|wanted to|would-be|pseudo|quasi|faux|supposedly|allegedly|ostensibly|devoid of|bereft of|might be seen as|expect(?:s|ed|ing)?)\b/i;
 const NEG_OK = /\b(not only|not just|not merely|not simply|no less|nothing if not|nothing short of)\b/i;
 /* œuvre-comparison cues: sentence predicates of the director's work at large */
 const OEUVRE = /\b(earlier|previous|later|subsequent|next|other|another|preceding|prior)\s+(films?|features?|works?|pictures?|movies?|efforts?)\b|\b(his|her|their|whose|the director[’']s?)\s+(work|works|films|movies|oeuvre|œuvre|filmography|career|adaptations?|body of work)\b|\b(?:better|best|lesser|less|least|most)[- ]known\s+(?:films?|works?|movies?)\b/i;
