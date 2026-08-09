@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "note": "Hand-written, closed, and git-tracked. This file is the ONLY vocabulary a motif pass may recognise; nothing may extend it except a human editing this file. A motif is a BEAT, not a theme: 'grief' is a theme and matches half of cinema, while 'a dead partner who keeps returning inside a world the living one controls' is a beat and matches Solaris and Inception. Each entry carries a `test` a reader could apply to a film and a `notThis` naming the false positive that would otherwise swallow it. If an entry cannot be refused, it is a genre and does not belong here. Membership is never asserted from a title or a tag: it requires a verbatim span from the film's own plot prose, and that span ships as evidence. Claims derived from these land in the `reading` tier (AGENTS rule 8), because recognising a beat is an interpretation, not a record.",
+  "motifs": [
+    {
+      "id": "returning-dead-partner",
+      "label": "the dead partner who keeps coming back",
+      "test": "A dead or long-lost spouse or lover reappears repeatedly to the protagonist inside a space that is dreamed, simulated, or otherwise under someone's control.",
+      "notThis": "An ordinary ghost story, or a single flashback to a lost partner. The returning must recur, and the space must be authored by someone in the film."
+    },
+    {
+      "id": "two-women-one-self",
+      "label": "two women collapsing into one",
+      "test": "Two women's identities merge, swap, or become impossible to tell apart, and the film's form participates rather than merely reporting it.",
+      "notThis": "Twins, doubles played for plot, or a simple impersonation with a stable truth underneath."
+    },
+    {
+      "id": "remade-in-her-image",
+      "label": "a woman remade to match a memory",
+      "test": "A man deliberately restyles a living woman — hair, clothes, name, voice — to resemble one who is gone.",
+      "notThis": "An ordinary makeover, or a resemblance the film treats as coincidence."
+    },
+    {
+      "id": "investigator-falls-for-subject",
+      "label": "the watcher who falls for the watched",
+      "test": "Someone paid or assigned to observe a person becomes attached to them, and the surveillance itself becomes the intimacy.",
+      "notThis": "A romance that merely begins at work, where the watching is not the mechanism of the attachment."
+    },
+    {
+      "id": "confession-withheld",
+      "label": "the confession that never arrives",
+      "test": "Two people repeatedly stage the conditions for an admission of feeling, and the film ends without it being spoken.",
+      "notThis": "A misunderstanding resolved late. The withholding must be a choice, not an obstacle."
+    },
+    {
+      "id": "long-walk-to-nothing",
+      "label": "a journey toward a promise that may be empty",
+      "test": "A small group travels a long way toward a place said to grant a wish, and the film declines to confirm that the place works.",
+      "notThis": "A quest that delivers or explicitly denies its object. The ambiguity is the beat."
+    },
+    {
+      "id": "child-alone-in-adult-machinery",
+      "label": "a child moving through an adult system",
+      "test": "A child navigates an institution built for adults — a court, a bureaucracy, a war, a labour market — without an adult reliably mediating it.",
+      "notThis": "A coming-of-age story with a guiding parent or mentor present."
+    },
+    {
+      "id": "errand-that-reveals-a-country",
+      "label": "a small errand that opens onto a whole society",
+      "test": "A trivial practical task — recovering an object, filing a complaint, finding one person — takes the protagonist through the strata of a society, and the errand is the film's structure.",
+      "notThis": "An episodic road film whose stops are unrelated to the task."
+    },
+    {
+      "id": "the-room-you-cannot-leave",
+      "label": "a room that will not release them",
+      "test": "Characters remain in one space past the point where leaving is obviously possible, and the film treats the not-leaving as the subject.",
+      "notThis": "A literal lock-in, siege or prison where an external force prevents exit."
+    },
+    {
+      "id": "work-shown-as-work",
+      "label": "the job filmed at its real duration",
+      "test": "A film gives ordinary labour its actual length — peeling, waiting, driving, processing — refusing to compress it into montage.",
+      "notThis": "A single long take used for spectacle. This is about duration granted to routine."
+    },
+    {
+      "id": "procedure-replaces-drama",
+      "label": "procedure standing in for feeling",
+      "test": "A crisis is handled almost entirely through forms, meetings, protocols or paperwork, and the emotional content is legible only through the procedure.",
+      "notThis": "A courtroom or newsroom drama with conventional emotional scenes alongside the process."
+    },
+    {
+      "id": "institution-eats-its-own",
+      "label": "the institution that consumes the person who serves it",
+      "test": "A character's loyalty to an organisation is repaid with their destruction, and the organisation continues undisturbed.",
+      "notThis": "A corrupt-boss story where the institution is reformed or exposed at the end."
+    },
+    {
+      "id": "code-that-costs-the-poor",
+      "label": "an honour code priced in other people's lives",
+      "test": "A formal code of conduct is upheld by those who can afford it and paid for by those who cannot, and the film itemises the cost.",
+      "notThis": "A straightforward tragedy of honour where the code is presented as noble throughout."
+    },
+    {
+      "id": "the-witness-who-stops-working",
+      "label": "the artist who falls silent",
+      "test": "A maker of images or words witnesses something and responds by ceasing to make them, and the silence occupies real running time.",
+      "notThis": "Writer's block, or a temporary crisis resolved by a return to work."
+    },
+    {
+      "id": "prayer-met-with-silence",
+      "label": "a prayer that receives no answer",
+      "test": "A believer addresses God directly and the film holds on the absence of a reply rather than supplying a sign.",
+      "notThis": "A crisis of faith resolved by a late miracle or a clear act of grace."
+    },
+    {
+      "id": "miracle-taken-literally",
+      "label": "a miracle the film simply allows",
+      "test": "An event with no natural explanation occurs and the film presents it plainly, without a rational frame or a dream escape.",
+      "notThis": "Fantasy or genre supernatural, where the impossible is the established rule of the world."
+    },
+    {
+      "id": "the-double-life-kept-separate",
+      "label": "two lives that must never touch",
+      "test": "A character maintains two incompatible identities and the film's tension is administrative — the labour of keeping them apart.",
+      "notThis": "A secret revealed early that then drives a conventional plot."
+    },
+    {
+      "id": "performance-consumes-performer",
+      "label": "the part that eats the person playing it",
+      "test": "An actor or performer's role progressively replaces their life, and the film blurs which register a scene belongs to.",
+      "notThis": "Backstage drama where the boundary between role and life stays clear."
+    },
+    {
+      "id": "restaging-the-past",
+      "label": "the past rebuilt and played again",
+      "test": "Characters deliberately reconstruct an earlier event — same room, same clothes, same words — in order to change or understand it.",
+      "notThis": "Ordinary flashback, or a reenactment used only as exposition."
+    },
+    {
+      "id": "the-film-shows-its-own-making",
+      "label": "the apparatus admitted on screen",
+      "test": "The film reveals its own machinery — camera, crew, editor, splice — as part of its argument rather than as a joke.",
+      "notThis": "A behind-the-scenes framing story that keeps its own camera invisible."
+    },
+    {
+      "id": "narration-that-cannot-be-trusted",
+      "label": "a narrator the film quietly contradicts",
+      "test": "A voice tells us what we are seeing while the images disagree, and the gap is never closed by an explanation.",
+      "notThis": "A twist that retroactively explains the narration as a lie."
+    },
+    {
+      "id": "photograph-interrogated",
+      "label": "a single image examined until it breaks",
+      "test": "The film stops to study one photograph or frame at length, and that scrutiny carries the argument.",
+      "notThis": "A photograph used as a plot clue and then set aside."
+    },
+    {
+      "id": "the-untranslated-speaker",
+      "label": "speech the film refuses to translate",
+      "test": "A character speaks at length in a language the film declines to subtitle, and the withholding is deliberate rather than incidental.",
+      "notThis": "Brief untranslated dialogue for texture, or a language barrier resolved by an interpreter."
+    },
+    {
+      "id": "landscape-that-will-not-cooperate",
+      "label": "a landscape that refuses to be crossed",
+      "test": "Terrain defeats a party's plans over an extended stretch, and the film gives the defeat its full duration rather than cutting past it.",
+      "notThis": "A perilous journey where the landscape is an obstacle course the heroes beat."
+    },
+    {
+      "id": "colonial-cargo-inverted",
+      "label": "the expedition seen from the far bank",
+      "test": "A European or metropolitan expedition is filmed from the position of the people whose land and labour it consumes.",
+      "notThis": "A sympathetic adventure film that keeps the outsider as the point of view."
+    },
+    {
+      "id": "occupier-served-by-locals",
+      "label": "the occupation administered by its own citizens",
+      "test": "A foreign occupation is shown functioning through the willing paperwork of local officials rather than through foreign soldiers.",
+      "notThis": "A resistance film where collaboration is embodied in a single villain."
+    },
+    {
+      "id": "veteran-returns-to-nothing",
+      "label": "the soldier returned to a country with no use for him",
+      "test": "A combatant comes home to institutional neglect, and the film stays with the administrative texture of that neglect.",
+      "notThis": "A homecoming drama centred on a family reunion or a personal reconciliation."
+    },
+    {
+      "id": "war-as-boredom",
+      "label": "a war spent waiting",
+      "test": "Soldiers train, wait and are moved about without the engagement the film has promised, and the anticlimax is the point.",
+      "notThis": "A combat film with a slow first act."
+    },
+    {
+      "id": "massacre-off-screen",
+      "label": "the atrocity kept just out of frame",
+      "test": "A mass killing is conveyed entirely by sound, aftermath, or the faces of those nearby, and is never shown.",
+      "notThis": "A cutaway for censorship or squeamishness, where the film shows comparable violence elsewhere."
+    },
+    {
+      "id": "perpetrator-domestic",
+      "label": "the perpetrator filmed at home",
+      "test": "Someone responsible for atrocity is shown mainly through domestic routine — meals, gardening, children — with the crime audible at the edges.",
+      "notThis": "A villain given a sympathetic backstory scene."
+    },
+    {
+      "id": "crime-as-clerical",
+      "label": "organised crime filmed as administration",
+      "test": "Criminal enterprise is shown as scheduling, bookkeeping and logistics rather than as ceremony or dynasty.",
+      "notThis": "A heist film's planning sequence."
+    },
+    {
+      "id": "the-fixed-camera-witness",
+      "label": "a camera that will not move to help you",
+      "test": "The film holds a fixed frame through action that conventional coverage would cut into, forcing the viewer to choose where to look.",
+      "notThis": "Static shots used for compositional beauty in an otherwise conventionally cut film."
+    },
+    {
+      "id": "sound-of-a-place-as-score",
+      "label": "a place's own noise instead of music",
+      "test": "A film systematically substitutes environmental sound for score at moments that conventionally call for music.",
+      "notThis": "A film that simply has little music."
+    },
+    {
+      "id": "one-night-one-decision",
+      "label": "a single night that decides a life",
+      "test": "The film's action is compressed into one night, and a decision taken in it is presented as irreversible.",
+      "notThis": "A film that merely takes place over one night without a hinge decision."
+    },
+    {
+      "id": "real-time-body",
+      "label": "time measured on a body",
+      "test": "The film's duration tracks a physical process — a wait for a diagnosis, a walk, a labour — close to real time, and the body is the clock.",
+      "notThis": "A ticking-clock thriller, where the clock is a plot device rather than a physical experience."
+    },
+    {
+      "id": "the-inheritance-nobody-wants",
+      "label": "an inheritance that traps the heir",
+      "test": "A character inherits property, a business or a duty that fixes them in a place or role they were trying to leave.",
+      "notThis": "An inheritance plot resolved by selling up or by a legal fight."
+    },
+    {
+      "id": "house-that-outlasts-the-family",
+      "label": "the house that survives the household",
+      "test": "A building persists across the dispersal or death of the family in it, and the film returns to the empty rooms.",
+      "notThis": "A haunted house, where the building has agency."
+    },
+    {
+      "id": "the-visit-that-exposes-neglect",
+      "label": "the visit that reveals how little room there is",
+      "test": "Elderly parents or relatives visit adult children and are politely passed along, and the film measures the neglect in logistics rather than cruelty.",
+      "notThis": "A family drama with an explicit confrontation about duty."
+    },
+    {
+      "id": "obsessive-reconstruction-of-a-place",
+      "label": "an impossible structure willed into existence",
+      "test": "A character commits enormous labour and other people's bodies to building or moving something whose purpose is personal and disproportionate.",
+      "notThis": "An engineering or disaster film where the structure serves a public need."
+    },
+    {
+      "id": "the-machine-that-answers-back",
+      "label": "the made thing that refuses its maker",
+      "test": "A constructed intelligence or system declines its instructions, and the film treats the refusal as reasoned rather than malfunctioning.",
+      "notThis": "A monster or malfunction plot where the machine is simply dangerous."
+    },
+    {
+      "id": "first-contact-as-labour",
+      "label": "contact as work rather than wonder",
+      "test": "Encounter with the unknown is rendered as grinding technical or linguistic labour, displacing awe with process.",
+      "notThis": "An invasion or spectacle film with a briefing scene."
+    },
+    {
+      "id": "the-body-that-will-not-stay-fixed",
+      "label": "a body that keeps changing against its owner",
+      "test": "A character's flesh transforms progressively and irreversibly, and the film stays with the practical management of it.",
+      "notThis": "A single transformation used as a reveal, or a costume-level change."
+    },
+    {
+      "id": "the-town-that-agrees-to-forget",
+      "label": "a community that agrees not to remember",
+      "test": "A group tacitly settles on a version of a past event, and the film follows the pressure applied to whoever will not hold the line.",
+      "notThis": "A conspiracy thriller with an organised cover-up and a culprit."
+    },
+    {
+      "id": "the-list-of-names",
+      "label": "the bureaucratic list that decides who lives",
+      "test": "A written list of people determines survival or ruin, and the film gives weight to the making of it.",
+      "notThis": "A film in which a list appears but the selection happens elsewhere."
+    }
+  ]
+}
