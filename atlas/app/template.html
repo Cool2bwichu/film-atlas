@@ -1196,8 +1196,22 @@ function readPreferences(){
   try{
     const raw=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null")||{};
     return {
-      seen:Array.isArray(raw.seen)?raw.seen.filter(k=>F[k]):[],
-      loved:Array.isArray(raw.loved)?raw.loved.filter(k=>F[k]):[],
+      /* hasOwnProperty, not F[k] -- the difference is a black page.
+         F is a plain parsed object, so it inherits Object.prototype, and
+         F["constructor"] is the Object function: truthy, therefore a stored
+         key of "constructor" passes a `F[k]` membership test and lands in
+         state.seen. It then reaches recommend(), where `for (const i of
+         ADJ[L]||[])` iterates ADJ["constructor"] -- the Object function, not
+         an array -- and throws. renderWall() calls recommend() unguarded and
+         boot calls renderWall(), so the throw happens before the wall paints.
+         The symptom is the one STATE.md records as never being diagnosed
+         correctly: a blank screen with no obvious cause.
+         Only reachable through corrupted or hand-edited localStorage, so this
+         is robustness rather than an attack path -- but Latent Image is about
+         to read and write this same store with more fields, and skyBuild
+         already defends itself with Object.create(null) at its own index. */
+      seen:Array.isArray(raw.seen)?raw.seen.filter(k=>Object.prototype.hasOwnProperty.call(F,k)):[],
+      loved:Array.isArray(raw.loved)?raw.loved.filter(k=>Object.prototype.hasOwnProperty.call(F,k)):[],
       filter:["all","silent","golden","new","modern","now"].includes(raw.filter)?raw.filter:"all",
     };
   }catch(_error){ return {seen:[],loved:[],filter:"all"}; }
