@@ -90,7 +90,7 @@
 
 const { layout } = require("./layout-sky.js");
 
-const STRATA_LAYOUT_VERSION = "atlas-strata-v1";
+const STRATA_LAYOUT_VERSION = "atlas-strata-v2";
 
 /* Below this a re-form is a scatter, not a constellation. See the note above:
    a coverage floor, never a popularity one. */
@@ -118,16 +118,50 @@ function quantise(positions, order) {
   return Buffer.from(out.buffer, out.byteOffset, out.byteLength).toString("base64");
 }
 
+/* THE CIRCULAR EDGE, AND WHY IT MUST NOT SHAPE THE PICTURE.
+   Filter to Documentary and 81.2% of the surviving connections say some version
+   of "both are documentaries." That was tolerable when narrowing only dimmed:
+   a redundant line is clutter. It stopped being tolerable the moment narrowing
+   started RE-FORMING the field, because now those edges are springs, and a
+   spring whose entire content is the filter you just applied is a force with no
+   information in it. The documentary constellation would be 81% positioned by
+   the one fact every film in it shares.
+
+   Measured across the 25 strata of 100+ films, before this exclusion:
+
+       documentary  81.2%     fantasy      56.4%     historical  53.9%
+       war          44.8%     2000-present 44.4%     1980-1999   41.1%
+       Japan        33.1%     thriller     30.4%
+       ALL LENSES   25.7% of surviving edges are made of the thing you filtered on
+
+   So a stratum is solved WITHOUT the signals its own selection manufactures.
+   The cost is much smaller than the saving, because these edges are mostly
+   redundant — they sit on pairs already joined by something with content.
+   Films left with no edge at all inside their stratum: 1-3% for every era and
+   country lens, worst case 15% (fantasy, historical). Those films drift to the
+   rim, which is the honest place for a film whose only tie to a tradition is
+   belonging to it.
+
+   Note this is a LAYOUT decision and not a corpus one. Nothing is deleted;
+   these edges still exist, still ship, and still draw. They just do not get to
+   vote on where a film sits inside a stratum they define. */
+const CIRCULAR = {
+  genre: new Set(["genre", "genreEra"]),
+  country: new Set(["countryEra"]),
+  era: new Set(["countryEra", "genreEra"]),
+};
+
 /* One stratum: solve over its own films and ONLY the edges with both ends
    inside it. An edge to a film that is not on screen must not pull anything —
    it would bend the constellation toward a film the reader cannot see, which
    is a force with no visible cause. */
-function solveStratum(corpus, keys) {
+function solveStratum(corpus, keys, circular) {
   const inside = new Set(keys);
   const films = {};
   for (const k of keys) films[k] = corpus.films[k];
-  const edges = corpus.edges.filter((e) => inside.has(e.a) && inside.has(e.b));
-  return { positions: layout(films, edges), edges: edges.length };
+  const all = corpus.edges.filter((e) => inside.has(e.a) && inside.has(e.b));
+  const edges = circular && circular.size ? all.filter((e) => !circular.has(e.signal)) : all;
+  return { positions: layout(films, edges), edges: edges.length, dropped: all.length - edges.length };
 }
 
 /* postingsByField: { field: { value: [filmOrderIndex, ...] } }. Pass extra
@@ -153,12 +187,15 @@ function strataLayouts(corpus, discovery, extraPostings, options) {
       if (keys.some((k) => !k || !corpus.films[k])) {
         throw new Error(`Stratum ${value} posts a film index that is not in the corpus`);
       }
-      const { positions, edges } = solveStratum(corpus, keys);
+      /* A derived stratum (mood, and whatever follows it) manufactures no
+         record signal of its own, so it excludes nothing — CIRCULAR is keyed by
+         field and an unknown field correctly yields undefined. */
+      const { positions, edges, dropped } = solveStratum(corpus, keys, CIRCULAR[field]);
       strata[value] = quantise(positions, keys);
-      report.push({ field, value, films: keys.length, edges });
+      report.push({ field, value, films: keys.length, edges, dropped });
     }
   }
   return { strata, report };
 }
 
-module.exports = { STRATA_LAYOUT_VERSION, MIN_FILMS, BAKED_FACETS, strataLayouts };
+module.exports = { STRATA_LAYOUT_VERSION, MIN_FILMS, BAKED_FACETS, CIRCULAR, strataLayouts };
