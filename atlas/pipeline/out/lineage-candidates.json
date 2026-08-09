@@ -1,0 +1,79 @@
+{
+ "note": "Film-to-film edges recorded by Wikidata lineage properties swept 2026-08-09, absent from corpus.json. Every entry is a citable record (evidence = statement subject). Input for a future associate.js pass; nothing consumes this automatically.",
+ "generated": "2026-08-09",
+ "existingEdges": 22217,
+ "candidates": [
+  {
+   "a": "interstellar",
+   "b": "jaws",
+   "property": "P737",
+   "kind": "influenced-by",
+   "evidence": "wikidata:Q13417189#P737",
+   "note": "interstellar is recorded as influenced by jaws"
+  },
+  {
+   "a": "interstellar",
+   "b": "close encounters of the third kind",
+   "property": "P737",
+   "kind": "influenced-by",
+   "evidence": "wikidata:Q13417189#P737",
+   "note": "interstellar is recorded as influenced by close encounters of the third kind"
+  },
+  {
+   "a": "interstellar",
+   "b": "the mirror",
+   "property": "P737",
+   "kind": "influenced-by",
+   "evidence": "wikidata:Q13417189#P737",
+   "note": "interstellar is recorded as influenced by the mirror"
+  },
+  {
+   "a": "wings of desire",
+   "b": "faraway so close",
+   "property": "P156",
+   "kind": "series-followed-by",
+   "evidence": "wikidata:Q156911#P156",
+   "note": "wings of desire and faraway so close are recorded as consecutive works in one series"
+  },
+  {
+   "a": "scenes from a marriage",
+   "b": "saraband",
+   "property": "P156",
+   "kind": "series-followed-by",
+   "evidence": "wikidata:Q98098574#P156",
+   "note": "scenes from a marriage and saraband are recorded as consecutive works in one series"
+  },
+  {
+   "a": "dark city",
+   "b": "metropolis",
+   "property": "P737",
+   "kind": "influenced-by",
+   "evidence": "wikidata:Q1127281#P737",
+   "note": "dark city is recorded as influenced by metropolis"
+  },
+  {
+   "a": "made in u s a",
+   "b": "masculin feminin",
+   "property": "P155",
+   "kind": "series-follows",
+   "evidence": "wikidata:Q1647641#P155",
+   "note": "made in u s a and masculin feminin are recorded as consecutive works in one series"
+  },
+  {
+   "a": "made in u s a",
+   "b": "two or three things i know about her",
+   "property": "P156",
+   "kind": "series-followed-by",
+   "evidence": "wikidata:Q1647641#P156",
+   "note": "made in u s a and two or three things i know about her are recorded as consecutive works in one series"
+  },
+  {
+   "a": "star wars episode iii revenge of the sith",
+   "b": "solo a star wars story",
+   "property": "P156",
+   "kind": "series-followed-by",
+   "evidence": "wikidata:Q42051#P156",
+   "note": "star wars episode iii revenge of the sith and solo a star wars story are recorded as consecutive works in one series"
+  }
+ ]
+}

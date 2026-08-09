@@ -29,9 +29,24 @@
  * These guards trade recall for precision deliberately.
  *
  * NEGATION / DISTANCE: a term is dropped when the preceding clause window
- * carries a negating or distancing cue — never / not / less / far from /
- * eschews / aspires to / rather than / pseudo- ... — unless the cue is an
- * intensifier idiom (not only / not just / no less). Questions are dropped.
+ * carries a negating or distancing cue — never / not / n't / less / far from /
+ * eschews / aspires to / rather than / verges on / pseudo- ... — unless the
+ * cue is an intensifier idiom (not only / not just / no less). Post-term
+ * negation ("static it isn't") and long quoted spans are dropped too.
+ * Questions are dropped.
+ *
+ * AUDIT REPAIRS (2026-08-09): the first independent audit measured ~20%
+ * misattribution and named four classes. Each now has a dedicated guard:
+ *   a. remake collisions -> the OTHER-VERSION essay guard (a foreign
+ *      possessive on our own title, or our title dated to a different year,
+ *      drops the essay), plus remake/the-original cues at sentence level;
+ *   b. negation leaks   -> n't contractions, post-term copular negation,
+ *      hedges (verges on / almost / would have been), and the clause window
+ *      no longer loses cues across a colon or em-dash;
+ *   c. homographs       -> noun-phrase guards (austerity measures, poetic
+ *      justice, savage reviews, muted response, ...);
+ *   d. theory register  -> broader THEORY / CITATION cues (cinema-in-general
+ *      claims, quoted critics, interviews).
  */
 
 const fs = require("fs");
@@ -326,33 +341,59 @@ const GUARDS = {
   saturated: { after: /^\s*(market|media)/i },
   static: { after: /^\s*(electricity|noise|on the|radio)/i },
   pastoral: { after: /^\s*(care|letter|visit)/i },
-  stark: { after: /^\s*contrast/i },
+  stark: { after: /^\s*(contrast|reminder|choice|realit|terms|warning)/i },
   starkly: { after: /^\s*(contrast|literal)/i },
   understatement: { before: /\ban\s*$/i },
   sculptural: { after: /^\s*(exhibit|exhibition)/i },
-  brutal: { after: /^\s*(crackdown|repression|regime|war\b|occupation|dictatorship|suppression|massacre)/i },
+  brutal: { after: /^\s*(crackdown|repression|regime|war\b|occupation|dictatorship|suppression|massacre|honesty|frankness|murder|killing|slaying|rape|beating)/i },
+  /* the audit's class c: a style word predicated of economics, politics or a
+     plot idiom is not a style label. Each guard names the non-style noun
+     phrase that disqualifies the reading. */
+  austerity: { before: /\b(economic|fiscal|financial|post-?war|wartime|national)\s*$/i,
+               after: /^\s*(measures?|programme?s?|budgets?|polic|drive|regime|era|britain|of\s+(?:the\s+)?(?:post-?war|national|economic|recovery|reconstruction|rationing))/i },
+  poetic: { after: /^\s*(justice|licen[cs]e)\b/i },
+  restrained: { after: /^\s*(by|from)\b/i },
+  oppressive: { after: /^\s*(regime|government|state\b|heat|humidity|dictatorship|rule|system)/i },
+  suffocating: { after: /^\s*(dissent|censorship|debate|opposition)/i },
+  savage: { after: /^\s*(review|attack|critiqu|cuts?\b|beating|repression|reprisal)/i },
+  muted: { after: /^\s*(response|reception|reaction|criticism|applause)/i },
+  chilly: { after: /^\s*(reception|welcome|relations)/i },
+  icy: { after: /^\s*(reception|relations)/i },
+  lavish: { after: /^\s*(praise|attention)/i },
+  elliptical: { after: /^\s*(orbit|machine)/i },
+  episodic: { after: /^\s*(television|tv\b|series|memory)/i },
+  fragmented: { after: /^\s*(society|nation\b|market|industry|audience)/i },
+  barren: { after: /^\s*(woman|women|wife|marriage)/i },
+  atmospheric: { after: /^\s*(pressure|condition|pollution)/i },
+  cerebral: { after: /^\s*(probe|cortex|h(?:a?e)morrhage|palsy)/i },
+  restless: { after: /^\s*(night|sleep|leg)/i },
   hazy: { before: /\b(facts?|details?|memory|memories|recollections)\b[^.;]{0,40}$/i },
   lyrical: { before: /\bwax(?:es|ed|ing)?\s*$/i },
 };
 
 /* Negation / distancing cues, scanned in the clause window before the term. */
-const NEG = /\b(not|never|no|nor|neither|hardly|scarcely|barely|without|less|least|lack|lacks|lacking|lacked|far from|anything but|rather than|instead of|refuse[sd]?|refusing|refusal|avoid(?:s|ed|ing)?|eschew(?:s|ed|ing)?|resist(?:s|ed|ing)?|reject(?:s|ed|ing)?|abandon(?:s|ed|ing)?|aspir(?:es?|ing|ation)|striv(?:es?|ing)|attempt(?:s|ed|ing)?|tries to|trying to|wants? to|wanted to|would-be|pseudo|quasi|faux|supposedly|allegedly|ostensibly|devoid of|bereft of|might be seen as|expect(?:s|ed|ing)?)\b/i;
+const NEG = /\b(not|never|no|nor|neither|none|nothing|nobody|hardly|scarcely|barely|without|less|least|lack|lacks|lacking|lacked|far from|anything but|rather than|instead of|refuse[sd]?|refusing|refusal|avoid(?:s|ed|ing)?|eschew(?:s|ed|ing)?|resist(?:s|ed|ing)?|reject(?:s|ed|ing)?|abandon(?:s|ed|ing)?|shun(?:s|ned|ning)?|spurn(?:s|ed|ing)?|forgo(?:es|ne|ing)?|forsak(?:es?|en|ing)|abjur(?:es?|ed|ing)|dispens(?:es?|ed|ing) with|steers? clear|sh(?:ies|ied|ying) away|shorn of|stripped of|drained of|emptied of|purged of|free of|freed (?:of|from)|beli(?:es|ed)|aspir(?:es?|ing|ation)|striv(?:es?|ing)|attempt(?:s|ed|ing)?|tries to|trying to|wants? to|wanted to|would-be|pseudo|quasi|faux|supposedly|allegedly|ostensibly|devoid of|bereft of|might be seen as|expect(?:s|ed|ing)?|(?:would|could|might) (?:otherwise )?have (?:been|made|felt|seemed|turned)|risk(?:s|ed|ing)? (?:of )?(?:becoming|being|turning)|verg(?:es?|ed|ing) on|border(?:s|ed|ing) on|threaten(?:s|ed|ing) to|flirt(?:s|ed|ing) with|comes? close to|close to being|almost|nearly|near-)\b/i;
+/* contractions carry negation the word-list cannot see: isn't, doesn't, won't */
+const NEG_CONTRACTION = /n[’']t\b/i;
 const NEG_OK = /\b(not only|not just|not merely|not simply|no less|nothing if not|nothing short of)\b/i;
 /* œuvre-comparison cues: sentence predicates of the director's work at large */
 const OEUVRE = /\b(earlier|previous|later|subsequent|next|other|another|preceding|prior)\s+(films?|features?|works?|pictures?|movies?|efforts?)\b|\b(his|her|their|whose|the director[’']s?)\s+(work|works|films|movies|oeuvre|œuvre|filmography|career|adaptations?|body of work)\b|\b(?:better|best|lesser|less|least|most)[- ]known\s+(?:films?|works?|movies?)\b/i;
 /* comparative frame: the predication may belong to the other side of it */
-const COMPARATIVE = /\b(unlike|as opposed to|in contrast (?:to|with)|by contrast with|whereas|compared (?:to|with)|in comparison (?:to|with))\b/i;
+const COMPARATIVE = /\b(unlike|as opposed to|in contrast (?:to|with)|by contrast with|whereas|compared (?:to|with)|in comparison (?:to|with)|the original\b|remakes?|remade|reworking of|the \d{4} (?:version|film|original))\b/i;
 /* generic register: claims about films/directors at large, or received ideas */
 const GENERIC = /\bfilms that\b|\btends? to be\b|\bmany (?:directors|filmmakers|films|movies)\b|\bso-called\b|\bare often\b|\bis often (?:depicted|described|seen|said)\b|\bthe novel\b|\bexpect(?:ing|s)?\b[^.;]*\bdisappoint|\bI (?:had|was|did|am|have|will|would|could)\b/i;
 /* citation / theory register: the sentence reports someone else's general
    claim, or talks about cinema/art in the abstract, not this film */
-const CITATION = /\b(argu(?:es|ed|ing)|according to|et al|as [A-Z]\w+(?: [A-Z]\w+)? (?:has |have )?(?:says?|said|writes?|wrote|notes?|noted|puts?|argues?|argued|observes?|observed)|for [A-Z][\w’']+,\s|(?:s?he|they) (?:argues|writes|says|notes|claims|suggests)|identifi(?:es|ed)|characteris(?:es|ed)|characteriz(?:es|ed)|defin(?:es|ed|ition)|observ(?:es|ed) that|suggest(?:s|ed) that|claim(?:s|ed) that|writes that|notes that|puts it)\b/i;
-const THEORY = /\b(modernis[mt]|postmodernis\w*|meta-?textual\w*|representation|signifiers?|signifieds?|discourse|dialectic\w*|paradigm|ontolog\w*|epistemolog\w*|phenomenolog\w*|spectatorship|spectators?|a work of art|watching a (?:movie|film)|this model|theor(?:y|ies|ist|ists|etical))\b/i;
+const CITATION = /\b(argu(?:es|ed|ing)|according to|et al|as [A-Z]\w+(?: [A-Z]\w+)? (?:has |have )?(?:says?|said|writes?|wrote|notes?|noted|puts?|argues?|argued|observes?|observed)|for [A-Z][\w’']+,\s|(?:s?he|they) (?:argues|writes|says|notes|claims|suggests)|identifi(?:es|ed)|characteris(?:es|ed)|characteriz(?:es|ed)|defin(?:es|ed|ition)|observ(?:es|ed) that|suggest(?:s|ed) that|claim(?:s|ed) that|writes that|notes that|puts it|assert(?:s|ed)|contend(?:s|ed)|maintain(?:s|ed) that|insist(?:s|ed)|declar(?:es|ed)|remark(?:s|ed)|famously|once (?:said|wrote|remarked|observed|called|described)|in the words of|interviews?)\b/i;
+const THEORY = /\b(modernis[mt]|postmodernis\w*|meta-?textual\w*|representation|signifiers?|signifieds?|discourse|dialectic\w*|paradigm|ontolog\w*|epistemolog\w*|phenomenolog\w*|spectatorship|spectators?|a work of art|watching a (?:movie|film)|this model|theor(?:y|ies|ist|ists|etical)|cinema (?:is|can|has|does|itself)|the medium\b|film as (?:an? )?(?:art|form|medium)|(?:all|every|any) (?:great |good |true )?(?:films?|movies?|cinema|art)\b|the seventh art|the (?:language|history|art|grammar) of (?:film|cinema)|the genre\b|genre conventions?|by definition|films? in general)\b/i;
+/* a long quoted span is someone else's sentence, whatever frames it */
+const LONG_QUOTE = /[“"][^”"]{60,}[”"]/;
 /* another author's work invoked possessively: "McElwee's sonorous voice" */
 const POSSESSIVE_WORK = /\b([A-ZÀ-Þ][a-zà-ÿ’'-]+)[’']s\s+(work|films|movies|works|oeuvre|œuvre|filmography|career|cinema|voice|style|approach|aesthetics?|camera|documentaries|narration|body of work)\b/g;
 const OEUVRE_NOUN = /^(work|films|movies|works|oeuvre|œuvre|filmography|career|body of work)$/i;
-/* post-copula negation after the term: "... are not truly static" */
-const POST_NEG = /\b(?:is|are|was|were|be|been|seems?|remains?)\s+(?:not|never|hardly|scarcely|anything but)\b/i;
+/* post-copula negation after the term: "... are not truly static",
+   "static it isn't", "hypnotic in name only" */
+const POST_NEG = /\b(?:is|are|was|were|be|been|seems?|remains?|feels?|looks?|sounds?)(?:n[’']t\b|\s+(?:not|never|hardly|scarcely|anything but|far from)\b)|\bin name only\b|\bonly in name\b|\bwould be (?:wrong|a mistake|misleading)\b/i;
 /* first-person openings are usually interview quotes or critic memoir */
 const FIRST_PERSON = /^["“‘']?(when\s+)?i\b/i;
 
@@ -481,7 +522,7 @@ const fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 const foldedPostText = new Map();
 
 const out = {};
-const dropStats = { italic: 0, otherFilm: 0, otherDirector: 0, oeuvre: 0, notNamed: 0, negated: 0, postNeg: 0, guard: 0, question: 0, citation: 0, theory: 0, comparative: 0, generic: 0, possessive: 0, firstPerson: 0, essayNoDirector: 0, essayPossessive: 0 };
+const dropStats = { italic: 0, otherFilm: 0, otherDirector: 0, oeuvre: 0, notNamed: 0, negated: 0, postNeg: 0, guard: 0, question: 0, citation: 0, theory: 0, comparative: 0, generic: 0, possessive: 0, firstPerson: 0, essayNoDirector: 0, essayPossessive: 0, essayOtherVersion: 0 };
 
 /* words of a film's own titles, for the essay-title possessive exception
    (so "Rosemary's Baby: ..." does not disqualify Rosemary's Baby's essay) */
@@ -518,6 +559,41 @@ for (const key of surface) {
     }
     if (essayBad) { dropStats.essayPossessive++; continue; }
 
+    /* OTHER-VERSION GUARD (remake collisions, the audit's class a). An essay
+       that attributes this film's own title to a different filmmaker's hand
+       ("Soderbergh's Solaris") or dates the title to a different year
+       ("Solaris (2002)") is discussing another version — a remake, an earlier
+       original, or a comparison of the two. Sentence guards cannot save these:
+       most descriptive sentences name neither director, so terms describing
+       the other version leak onto ours. The essay is dropped for this film
+       entirely; precision over recall, as everywhere in this harvester. */
+    const myYear = parseInt(corpus.films[key].year, 10) || 0;
+    let otherVersion = false;
+    for (const t of myTitles) {
+      if (otherVersion) break;
+      if (t.length < 3) continue;
+      const titleRe = new RegExp(
+        "\\b" + t.split(" ").map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("[^A-Za-z0-9]{1,3}") + "\\b", "gi");
+      let tm;
+      while ((tm = titleRe.exec(meta.text)) !== null) {
+        if (!/[A-ZÀ-Þ]/.test(tm[0])) continue; /* lowercased common-word titles ("ran") are prose */
+        const afterT = meta.text.slice(tm.index + tm[0].length, tm.index + tm[0].length + 12);
+        const ym = afterT.match(/^\s*\(\s*((?:18|19|20)\d\d)/);
+        if (ym && myYear && Math.abs(Number(ym[1]) - myYear) > 1) { otherVersion = true; break; }
+        const beforeT = meta.text.slice(Math.max(0, tm.index - 48), tm.index);
+        const pm2 = beforeT.match(/([A-ZÀ-Þ][A-Za-zà-ÿ.’'-]{2,})[’']s?\s+(?:(?:18|19|20)\d\d\s+)?(?:film\s+|movie\s+|version(?:\s+of)?\s+|remake(?:\s+of)?\s+|adaptation(?:\s+of)?\s+|original\s+)?$/);
+        if (pm2) {
+          const name = pm2[1].replace(/[’']s?$/, "");
+          /* our own director or a word of our own title: fine. A name that
+             directs some OTHER corpus film: this title has two hands in this
+             essay — another version is in play. (Novelists — "Lem's Solaris"
+             as the source book — are not corpus directors and do not trip.) */
+          if (!myDirToks.has(name) && !myTitleWords.has(norm(name)) && surnameFilms.has(name)) { otherVersion = true; break; }
+        }
+      }
+    }
+    if (otherVersion) { dropStats.essayOtherVersion++; continue; }
+
     /* if this essay is ABOUT more than one corpus film ("Alphaville /
        Playtime"), a sentence only counts when it names this one */
     const multiAbout = (postAboutFilms.get(e.id) || new Set()).size > 1;
@@ -551,7 +627,7 @@ for (const key of surface) {
       if ((!e.about || multiAbout) && !namesFilm) { dropStats.notNamed++; continue; }
 
       if (FIRST_PERSON.test(plain)) { dropStats.firstPerson++; continue; }
-      if (CITATION.test(plain)) { dropStats.citation++; continue; }
+      if (CITATION.test(plain) || LONG_QUOTE.test(plain)) { dropStats.citation++; continue; }
       if (THEORY.test(plain)) { dropStats.theory++; continue; }
       if (COMPARATIVE.test(plain)) { dropStats.comparative++; continue; }
       if (GENERIC.test(plain)) { dropStats.generic++; continue; }
@@ -612,8 +688,13 @@ for (const key of surface) {
           if (/[-\u2011]$/.test(beforeAll)) continue; /* "ill-mannered" is a different word */
           /* capitalised mid-sentence: proper noun ("Chilly Billy"), not a descriptor */
           if (m.index > 1 && /^[A-Z\u00c0-\u00de]/.test(term)) continue;
-          const win = beforeAll.split(/[.;:\u2014]/).pop().slice(-70);
-          if (NEG.test(win) && !NEG_OK.test(win)) { dropStats.negated++; continue; }
+          /* The window no longer cuts at colon or em-dash: "one thing it is
+             not: static" and "never \u2014 not once \u2014 static" both carry their
+             negation across those marks, and the audit caught the leak. A
+             negation imported from an unrelated aside now kills a good term
+             occasionally; that costs recall, never precision. */
+          const win = beforeAll.split(/[.;]/).pop().slice(-90);
+          if ((NEG.test(win) || NEG_CONTRACTION.test(win)) && !NEG_OK.test(win)) { dropStats.negated++; continue; }
           if (POST_NEG.test(after.slice(0, 80))) { dropStats.postNeg++; continue; }
           const g = GUARDS[normalised] || GUARDS[term.toLowerCase()];
           if (g) {
