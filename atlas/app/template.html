@@ -676,6 +676,8 @@ main{flex:1;position:relative;overflow:hidden}
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sky-stratum .n{margin-left:auto;flex-shrink:0;color:var(--faint);
   font-variant-numeric:tabular-nums}
+.sky-stratum-tier{font-style:normal;flex-shrink:0;color:var(--wc,var(--faint));
+  letter-spacing:0;margin:0 -4px 0 -4px}
 /* The way back to the whole atlas, printed as a mark rather than a chip —
    nothing in this world has a rounded corner on it. On a coarse pointer the
    target grows through an invisible overlay, the same correction the era
@@ -695,6 +697,15 @@ main{flex:1;position:relative;overflow:hidden}
 .sky-read .btn.ghost{margin-left:7px;border-color:var(--hair);color:var(--dim)}
 .sky-read .sky-hint{color:var(--dim);letter-spacing:.1em;text-transform:none;
   font-family:var(--serif);font-size:11.5px;line-height:1.45}
+/* The tier sentence. Slate lettering because it is metadata about the PICTURE
+   — how much of what you are seeing was measured — and never a claim about a
+   film. --dim is 7.6:1 on this ground; the glyph carries the register's own
+   hue, and every one of the 28 clears 3.4:1 there (it is a mark, not type). */
+.sky-read .sky-tier{display:block;margin-top:7px;font-family:var(--mono);
+  font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
+  line-height:1.5}
+.sky-read .sky-tier i{font-style:normal;color:var(--wc,var(--faint));
+  letter-spacing:0;margin-right:3px}
 /* WHY THESE TWO ARE JOINED, IN THE FIELD, WITHOUT LEAVING IT.
    The constellation could draw a connection but never state one: to read a
    claim you had to abandon the sky for the radial map, which is exactly what
@@ -740,10 +751,10 @@ main{flex:1;position:relative;overflow:hidden}
 .sky-worlds{position:absolute;z-index:9;left:0;right:0;top:0;
   background:rgba(8,7,10,.9);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--hair);
-  padding:9px 0 0;overflow:hidden}
+  padding:8px 0 0;overflow:hidden}
 .sky-worlds[hidden]{display:none}
 .sky-worlds-head{display:flex;align-items:baseline;gap:11px;
-  padding:0 max(16px,env(safe-area-inset-left)) 8px}
+  padding:0 max(16px,env(safe-area-inset-left)) 6px}
 .sky-worlds-head h3{margin:0;font-family:var(--mono);font-size:8.5px;
   letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:400}
 .sky-worlds-sub{font-family:var(--serif);font-size:11.5px;line-height:1.35;
@@ -756,7 +767,7 @@ main{flex:1;position:relative;overflow:hidden}
    are: a background does not scroll with the content of its scroll container,
    so the holes stay registered while the frames travel past them. */
 .sky-worlds-rail{display:flex;gap:0;overflow-x:auto;overflow-y:hidden;
-  scrollbar-width:none;padding:5px max(16px,env(safe-area-inset-left)) 7px;
+  scrollbar-width:none;padding:5px max(16px,env(safe-area-inset-left)) 6px;
   scroll-snap-type:x proximity;
   background-image:repeating-linear-gradient(90deg,
     transparent 0 9px,rgba(240,234,224,.07) 9px 18px,transparent 18px 27px);
@@ -775,12 +786,12 @@ main{flex:1;position:relative;overflow:hidden}
 /* The miniature is a real drawing of the destination, so it gets the frame's
    proportions and nothing else — no rounding, no shadow, no border on the
    image itself. The cell IS the picture. */
-.wcell{display:block;width:104px;height:66px;margin:0 7px}
-.wname{display:block;padding:5px 7px 0;font-family:var(--serif);font-size:12px;
-  line-height:1.25;color:var(--dim);white-space:nowrap;overflow:hidden;
+.wcell{display:block;margin:0 7px}
+.wname{display:block;padding:4px 7px 0;font-family:var(--serif);font-size:12px;
+  line-height:1.2;color:var(--dim);white-space:nowrap;overflow:hidden;
   text-overflow:ellipsis}
 .wframe:hover .wname,.wframe:focus-visible .wname{color:var(--ink)}
-.wmeta{display:block;padding:2px 7px 8px;font-family:var(--mono);font-size:8.5px;
+.wmeta{display:block;padding:2px 7px 6px;font-family:var(--mono);font-size:8.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
   font-variant-numeric:tabular-nums;white-space:nowrap}
 /* HOW MUCH OF THIS COLOUR IS A MEASUREMENT, IN ONE GLYPH.
@@ -882,6 +893,10 @@ main{flex:1;position:relative;overflow:hidden}
   .sky-hud-main{max-width:none}
 }
 @media (max-width:720px){
+  /* The index gives up plate before the atlas gives up field. */
+  .sky-worlds-sub{display:none}
+  .wframe{width:98px}
+  .sky-worlds-head{padding-bottom:5px}
   header{gap:10px;padding:calc(11px + env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) 11px max(14px,env(safe-area-inset-left));flex-wrap:wrap}
   .wordmark{font-size:17px;letter-spacing:.26em;padding-right:13px}
   .search{order:3;flex-basis:100%;max-width:none}
@@ -2484,7 +2499,7 @@ const sky = {
      pass, no sprite, and no idle repaint at all. `preview` is the register the
      pointer is grazing on the strip — its films light up WHERE THEY ARE, in
      the picture currently on screen, before anything is committed to. */
-  treat:null, treatT0:0, idle:0, preview:null, previewSet:null,
+  treat:null, treatT0:0, idle:0, preview:null, previewSet:null, worldsH:-1, enterPending:false,
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
   /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
      click a touch screen fires afterwards can be told apart from a real one.
@@ -2876,7 +2891,7 @@ function skyFitTarget(live,x,y,count){
   const raw=Math.min(sky.w, skySafeH())*0.92/span;
   const f=skyFitK();
   const k=Math.max(f*0.82, Math.min(f/span*26, raw));
-  return { cx:(x0+x1)/2, cy:(y0+y1)/2 + (sky.h-skySafeH())/2/k, k };
+  return { cx:(x0+x1)/2, cy:(y0+y1)/2 + (sky.h/2 - skySafeMid())/k, k };
 }
 
 /* Fit what is actually on screen. With the atlas re-formed that is the
@@ -3146,6 +3161,14 @@ function skyStratumRender(){
      thing that persists for as long as the state does, and on a phone a
      second button in the readout was 50px of a 575px field. */
   const out=`<button type="button" class="sky-stratum-x" aria-label="Show the whole atlas again">&times;</button>`;
+  /* A register also carries how much of its colour was measured, because this
+     strip stands for as long as the treatment is on screen and the readout is
+     taken over the moment a film is in hand. One glyph here, the sentence in
+     the readout. */
+  const rid=skyRegisterId();
+  const rt=rid?(REG_DEFS[rid].treatment||{}):null;
+  const mark=rt?`<i class="sky-stratum-tier" style="--wc:${esc(rt.inkHue||rt.hue||"#877D75")}" `+
+    `title="Colour ${REG_TIER_WORD[rt.tier]||"authored"}">${REG_MARK[rt.tier]||"○"}</i>`:"";
   box.hidden=false;
   const live=skyLiveCount();
   box.innerHTML = sky.formPending
@@ -3155,63 +3178,96 @@ function skyStratumRender(){
        would be the interface describing a picture that is not there. */
     : !live
     ? `<span>no films</span><b>${esc(label)}</b><span class="n">0 / ${sky.n}</span>${out}`
-    : `<span>re-formed</span><b>${esc(label)}</b>`+
+    : `<span>re-formed</span>${mark}<b>${esc(label)}</b>`+
       `<span class="n">${live} / ${sky.n}</span>${out}`;
   const x=box.querySelector(".sky-stratum-x");
   if (x) x.onclick=skyClearFacets;
 }
 
 /* ══ THE WORLDS STRIP ═════════════════════════════════════════════════════
-   Each frame holds that register's OWN constellation, decoded from the layout
-   the build baked for it — the same coordinates the field will fly to. Not a
-   diagram of the door, the room behind it, at 104x66. That is the whole reason
-   the strip is worth its height: it converts "Cyberpunk mood, 47 films" from a
-   label into a picture you can already read the shape of.
+   A CONTACT SHEET OF ONE NEGATIVE, EXPOSED IN 28 PLACES.
 
-   Drawn once, on the frame the strip is first built, and never again. 28
-   registers averaging 90 films is ~2,500 arcs total — less than one frame of
-   the main field — and after that the canvases are static bitmaps the browser
-   composites for free. */
+   The first version drew each frame as that register's OWN re-formed
+   constellation — the exact layout the door flies to. It was honest and it was
+   useless: the solver normalises every stratum into the same box, so 28 frames
+   came out as 28 discs of the same size, differing only in colour and in a
+   density the count beside them already prints. A thumbnail that is redundant
+   with its own caption is not worth 66 pixels.
+
+   So each frame is instead THE WHOLE ATLAS, drawn once as faint ground, with
+   that register's films exposed on top in its own colour and at their real
+   whole-atlas positions. Now every frame is a different picture, and the
+   difference is information nothing else in the app can show: whether a world
+   is one tight knot or is scattered through everything. Folk horror is a
+   handful of grains in one corner. Family drama is weather across the whole
+   plate. That is a fact about the corpus, and it is legible at 104x66.
+
+   The ground is rasterised ONCE and blitted into all 28 frames, so the total
+   cost is 28 drawImage calls plus ~2,500 arcs — less than one frame of the
+   main field, paid once, after which these are static bitmaps. */
+/* The frame, in CSS pixels. A phone gets a smaller plate — 160 px of index
+   across the top of a 780 px viewport is a fifth of the atlas spent before it
+   has said anything — and the miniature is still legible at 84x48 because what
+   it has to convey is a distribution, not a picture of a film. */
+const SKY_MINI = matchMedia("(max-width:720px)").matches ? [84,48] : [104,60];
+let skyMiniGround=null;
+function skyMiniGroundCanvas(W,H,pad,dpr){
+  if (skyMiniGround) return skyMiniGround;
+  const c=document.createElement("canvas");
+  c.width=Math.round(W*dpr); c.height=Math.round(H*dpr);
+  const g=c.getContext("2d");
+  g.setTransform(dpr,0,0,dpr,0,0);
+  g.fillStyle="#0B0910"; g.fillRect(0,0,W,H);
+  const side=Math.min(W-pad*2,H-pad*2), ox=(W-side)/2, oy=(H-side)/2;
+  g.fillStyle="#E8DFD3";
+  g.globalAlpha=0.10;
+  for (const filmId of DISCO.filmOrder){
+    const p=LAYOUT.positions[filmId];
+    if (!p) continue;
+    g.fillRect(ox+p[0]*side-0.5, oy+p[1]*side-0.5, 1, 1);
+  }
+  g.globalAlpha=1;
+  skyMiniGround=c;
+  return c;
+}
+
 function skyWorldMini(id, cvs){
   const def=REG_DEFS[id];
-  if (!def) return;
-  const flat=SKY_STRATA[id] ? skyDecodeStratum(SKY_STRATA[id]) : null;
+  if (!def || !DISCO || typeof LAYOUT!=="object" || !LAYOUT.positions) return;
   const rows=REG_POST[id]||[];
   const dpr=Math.min(2,window.devicePixelRatio||1);
-  const W=104, H=66;
+  const W=SKY_MINI[0], H=SKY_MINI[1], pad=6;
   cvs.width=Math.round(W*dpr); cvs.height=Math.round(H*dpr);
   cvs.style.width=W+"px"; cvs.style.height=H+"px";
   const g=cvs.getContext("2d");
+  g.drawImage(skyMiniGroundCanvas(W,H,pad,dpr),0,0);
   g.setTransform(dpr,0,0,dpr,0,0);
-  g.fillStyle="#0B0910";
-  g.fillRect(0,0,W,H);
-  if (!flat || flat.length!==rows.length*2) return;
   const t=def.treatment||{}, hue=t.hue||"#E8C87A";
-  /* The stratum solves into [0,1]; the frame keeps its aspect by fitting the
-     LONGER axis, exactly as skyFitTarget does, so a miniature is never a
-     stretched version of the picture it is promising. */
-  const pad=7, side=Math.min(W-pad*2,H-pad*2);
-  const ox=(W-side)/2, oy=(H-side)/2;
-  const n=rows.length;
-  const rad=Math.max(0.9,Math.min(2.1,10/Math.sqrt(Math.max(1,n))));
+  /* The same similarity fit skyFitTarget uses — longer axis — so a miniature is
+     never a stretched version of the picture it is promising. */
+  const side=Math.min(W-pad*2,H-pad*2), ox=(W-side)/2, oy=(H-side)/2;
+  const rad=1.55;
   if (t.glow>0){
-    const sprite=skyGlowSprite(hue), R=rad*(2.4+t.glow*3);
+    const sprite=skyGlowSprite(hue), R=rad*(2.6+t.glow*3.4);
     g.globalCompositeOperation="lighter";
-    g.globalAlpha=0.26*t.glow;
-    for (let i=0;i<n;i++){
-      const x=ox+flat[i*2]*side, y=oy+flat[i*2+1]*side;
-      g.drawImage(sprite,x-R,y-R,R*2,R*2);
+    g.globalAlpha=Math.min(0.5,0.30*t.glow);
+    for (const row of rows){
+      const p=LAYOUT.positions[DISCO.filmOrder[row]];
+      if (!p) continue;
+      g.drawImage(sprite,ox+p[0]*side-R,oy+p[1]*side-R,R*2,R*2);
     }
     g.globalCompositeOperation="source-over";
   }
-  g.globalAlpha=0.9;
-  for (let i=0;i<n;i++){
-    const x=ox+flat[i*2]*side, y=oy+flat[i*2+1]*side;
+  g.globalAlpha=0.95;
+  for (const row of rows){
+    const filmId=DISCO.filmOrder[row];
+    const p=LAYOUT.positions[filmId];
+    if (!p) continue;
     if (t.mono){
-      const key=DISCO && DISCO.keyByFilmId[DISCO.filmOrder[rows[i]]];
+      const key=DISCO.keyByFilmId[filmId];
       g.fillStyle = key && F[key] ? skyMonoFill(F[key].highlight) : hue;
     } else g.fillStyle=hue;
-    g.beginPath(); g.arc(x,y,rad,0,TAU); g.fill();
+    g.beginPath(); g.arc(ox+p[0]*side,oy+p[1]*side,rad,0,TAU); g.fill();
   }
   g.globalAlpha=1;
 }
@@ -3272,7 +3328,10 @@ function skyWorldsRender(){
       const name=el("span","wname",def.label);
       b.appendChild(name);
       const meta=el("span","wmeta");
-      meta.innerHTML=`<i class="wtier" style="--wc:${esc(t.hue||"#877D75")}">`+
+      /* inkHue, not hue: the disc on the canvas is a graphical object with a
+         3:1 floor, this glyph is 8.5px type with a 4.5:1 one. Same hue, lifted
+         in lightness at build time until it is legal as lettering. */
+      meta.innerHTML=`<i class="wtier" style="--wc:${esc(t.inkHue||t.hue||"#877D75")}">`+
         `${REG_MARK[t.tier]||"○"}</i>${def.count} films`;
       b.appendChild(meta);
       /* The accessible name carries what the glyph carries, because a mark a
@@ -3342,7 +3401,32 @@ function skyWorldsOpen(open){
   requestAnimationFrame(()=>{
     const h=box.hidden?(tab.hidden?0:tab.getBoundingClientRect().height):box.getBoundingClientRect().height;
     field.style.setProperty("--worlds-h",Math.round(h)+"px");
+    const moved=sky.worldsH!==h;
+    sky.worldsH=h;
     sky.chrome=null;
+    /* THE LEADING EDGE MOVED, SO THE FIT DID. `fit` means the part you can
+       see, and the strip is 148 px of the part you cannot; without this the
+       atlas keeps the camera it was given while the strip was still measuring
+       itself and is drawn at 1.5x its own fit — fatter discs, heavier ink, a
+       field that reads as zoomed in on the one view that should read as
+       zoomed out. Only when nothing else owns the camera: a reader who has
+       panned somewhere has said where they want to be. */
+    if (sky.enterPending && sky.ready){
+      sky.enterPending=false;
+      /* The arrival is a settle, not a fade-from-nothing: the field opens a
+         little tight and eases out to the whole atlas. One move, 950 ms, the
+         project's position-change duration. */
+      const fit = (skyFilterOn() && sky.visibleN)
+        ? skyFitTarget(sky.live, sky.wx, sky.wy, skyLiveCount()) : skyFitCam();
+      if (fit){
+        sky.cam.cx=fit.cx; sky.cam.cy=fit.cy; sky.cam.k=fit.k*1.12;
+        skyGo(fit.cx,fit.cy,fit.k,950);
+      }
+    } else if (moved && sky.ready && !sky.anim && !sky.form && !skyInHand()
+        && !sky.orbitKey && !sky.passage.from){
+      if (skyFilterOn() && sky.visibleN) skyFitFiltered(620);
+      else { const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,620); }
+    }
     skyPlaceLabels();
   });
 }
@@ -3443,6 +3527,10 @@ function skyClearFacets(){
   skyApplySelection();
   skyFilterRender();
   skyStratumRender();
+  /* Back to the whole atlas is back to the arrival, so the index comes back
+     with it — otherwise the way in exists only once per page load. */
+  skyWorldsOpen(true);
+  skyWorldsRender();
 }
 
 /* Counts are of what the OTHER facets already allow, so a number never
@@ -3585,10 +3673,29 @@ function skyOrbitSet(){
    invisible, un-hoverable, and on a phone un-tappable. skyChrome() already
    knows where those boxes are; this is the same rectangle asked a different
    question. Falls back to the full height when the chrome has not laid out. */
-const skySafeH = () => {
-  const c = skyChrome();
-  return c.length ? Math.max(140, Math.min(...c.map(b => b.y))) : sky.h;
+/* FIT MEANS THE PART YOU CAN SEE, AND THE CHROME IS NO LONGER ALL AT THE
+   BOTTOM. The readout and the zoom controls stand along the lower edge; the
+   worlds strip stands along the upper one. Taking the minimum top edge of all
+   of them — which is what this did while every box was at the bottom —
+   collapses to the strip's own top edge the moment the strip exists, and the
+   atlas fits itself to a 140px floor and parks under the index. So the band is
+   computed from both directions and the camera centres on ITS middle. */
+const skySafeBand = () => {
+  const c = skyChrome(), h = sky.h || 1;
+  let top = 0, bot = h;
+  for (const b of c){
+    if (b.y + b.h / 2 < h * 0.42) top = Math.max(top, b.y + b.h);
+    else bot = Math.min(bot, b.y);
+  }
+  if (bot - top < 140) return { top:0, bot:h };
+  return { top, bot };
 };
+const skySafeH = () => {
+  const { top, bot } = skySafeBand();
+  return Math.max(140, bot - top);
+};
+/* Where the middle of the visible band sits on screen, in canvas pixels. */
+const skySafeMid = () => { const b = skySafeBand(); return (b.top + b.bot) / 2; };
 const skyFitK = () => Math.max(1, Math.min(sky.w, skySafeH()) * 0.92);
 /* Zoom, measured against the fit of THE PICTURE THAT IS ON SCREEN rather than
    of the whole atlas. 1 means "as far out as this sky goes", whatever this sky
@@ -3599,7 +3706,7 @@ const skyZoomRatio = () => sky.cam.k * Math.max(1e-6, sky.extent || 1) / skyFitK
    not of the canvas — cy is offset by half the covered strip, in world units. */
 function skyFitCam(){
   const k = skyFitK();
-  return { cx:0.5, cy:0.5 + ((sky.h - skySafeH()) / 2) / k, k };
+  return { cx:0.5, cy:0.5 + (sky.h / 2 - skySafeMid()) / k, k };
 }
 
 /* ONE RADIUS FOR EVERY FILM, AT EVERY MOMENT.
@@ -3928,7 +4035,12 @@ function skyDraw(){
      is wired, gothic is smothered — but it may NOT recolour them: the five
      relationship hues are the argument's grammar (rule 2), and a mood does not
      get to overwrite an argument. */
-  const alpha=(0.34-0.19*spread)*(T&&T.edge?T.edge:1);
+  let alpha=(0.34-0.19*spread)*(T&&T.edge?T.edge:1);
+  /* Grazing a frame on the strip is a rack focus onto a SET, so the lines have
+     to fall back with the discs. Left at full weight they are the brightest
+     thing on screen and the 47 films being previewed disappear inside their
+     own atlas. */
+  if (sky.previewSet) alpha*=0.34;
 
   /* THE LINES REDRAW DURING THE FLIGHT, THEY DO NOT CUT AND COME BACK.
      Watching a bond stretch and re-settle is most of what makes a re-form
@@ -4046,7 +4158,7 @@ function skyDraw(){
           ? 1+pdDepth*(Math.sin(TAU*pdRate*tsec+ph)*0.5+Math.sin(TAU*pdRate*1.7*tsec+ph*2)*0.5)
           : 1+pdDepth*Math.sin(TAU*pdRate*tsec+ph);
       }
-      ctx.globalAlpha=Math.max(0,Math.min(1,0.30*glow*m*a));
+      ctx.globalAlpha=Math.max(0,Math.min(1,0.44*glow*m*a));
       ctx.drawImage(sprite,px-R,py-R,R*2,R*2);
     }
     ctx.globalCompositeOperation="source-over";
@@ -4348,10 +4460,13 @@ function skyTierNote(){
   const detail = t.tier==="recorded"
     ? "these films' prints are monochrome on the record, and the field reports it"
     : t.tier==="amplified"
-    ? `these ${d.count} films' own poster colours sit ${t.sigma}σ off the corpus mean, `+
-      `toward ${t.measuredHueDeg}° — that direction is measured, this intensity is chosen`
+    /* No Greek and no degree sign: this line is set in the slate voice, which
+       is uppercased in CSS, and `σ` uppercases to `Σ` — the interface would be
+       printing a different symbol from the one the measurement is named by. */
+    ? `these ${d.count} films' own poster colours sit ${t.sigma} SD off the corpus `+
+      `mean, toward hue ${t.measuredHueDeg} — that direction is measured, this intensity is chosen`
     : "no measured colour separates these films; this one was chosen for the map";
-  return `<span class="sky-tier" style="--wc:${esc(t.hue||"#877D75")}">`+
+  return `<span class="sky-tier" style="--wc:${esc(t.inkHue||t.hue||"#877D75")}">`+
     `<i>${REG_MARK[t.tier]||"○"}</i> ${esc(word)} · ${esc(detail)}</span>`;
 }
 
@@ -4478,10 +4593,9 @@ function skyReadout(){
     const rn=REG_IDS.length;
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
       ${key5}
-      ${rn?`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what it
-        is joined to and nothing else. Start with a world along the top — ${rn} named regions of
-        the atlas — or pick any film and open its map. Roughly two in five films are behind no
-        world at all; those are found by looking.</span>`
+      ${rn?`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what
+        it is joined to and nothing else. Start with one of the ${rn} worlds along the top, or pick
+        any film to open its map. Two films in five are behind no world at all.</span>`
       :`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what it is
         joined to and nothing else. Pick one and the atlas opens its map.</span>`}`;
     return;
@@ -4655,19 +4769,22 @@ function skyEnter(){
   if (!skyBuild()) return;
   if (!sky.liveEdges) skySettleWhole();
   skyResize();
-  if (!sky.entered){
-    sky.entered=true;
-    /* The arrival is a settle, not a fade-from-nothing: the field opens a
-       little tight and eases out to the whole atlas. One move, 950ms, the
-       project's position-change duration. */
-    const fit=skyFitCam();
-    sky.cam.cx=fit.cx; sky.cam.cy=fit.cy; sky.cam.k=fit.k*1.12;
-    skyGo(fit.cx,fit.cy,fit.k,950);
-  } else {
-    skyRender();
-  }
+  /* THE ARRIVAL FIT WAITS FOR THE STRIP TO BE MEASURED.
+     It used to be computed here, which was correct while every piece of chrome
+     was at the bottom and its height was known. The worlds strip is 160 px of
+     the top of the field and it is laid out on the NEXT frame, so a fit taken
+     now is a fit to a frame 160 px taller than the one that exists — and the
+     camera lands 1.5x inside its own fit, which draws the whole atlas as
+     though it were zoomed in. skyWorldsOpen performs it once it has a
+     measurement. */
+  if (!sky.entered){ sky.entered=true; sky.enterPending=true; }
+  else skyRender();
   skyReadout();
   skyStratumRender();
+  /* THE STRIP IS THE ARRIVAL, so it opens with the whole atlas and stays shut
+     once something has been asked of the field. Coming back to a re-formed
+     sky returns you to the picture you left, not to the index. */
+  skyWorldsOpen(!skyFilterOn());
   /* Once more after paint: entering is a class change, so on this frame the
      field can still be reporting the size it had while it was hidden. */
   requestAnimationFrame(()=>{ skyResize(); skyRender(); });
@@ -4675,6 +4792,10 @@ function skyEnter(){
 
 function skyExit(){
   sky.anim=null;
+  /* A view that is not on screen must not be repainting. The idle clock is the
+     one thing here that would otherwise run for ever. */
+  if (sky.idle){ clearTimeout(sky.idle); sky.idle=0; }
+  skyWorldPreview(null);
   /* A flight abandoned half-way would leave every film parked between two
      layouts, and coming back would show a sky that is not any solved answer.
      Land it. */
@@ -5010,6 +5131,11 @@ if (SKY_POS){
     if (!open){ skyFilterRender(); skyFilterPanel.querySelector(".sky-opt")?.focus({preventScroll:true}); }
   };
   $("#sky-filter-x").onclick=()=>{ skyFilterPanel.hidden=true; $("#sky-filter-open").focus(); };
+  $("#sky-worlds-x").onclick=()=>{ skyWorldsOpen(false); $("#sky-worlds-tab").focus(); };
+  $("#sky-worlds-tab").onclick=()=>{
+    skyWorldsOpen(true);
+    $("#sky-worlds-rail")?.querySelector(".wframe")?.focus({preventScroll:true});
+  };
   $("#constellation").onclick=openSky;
   $("#sky-lede").onclick=openSky;
 }else{
@@ -5021,8 +5147,22 @@ if (SKY_POS){
 
 let rt; addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(()=>{
   if(state.view==="map") layout();
-  else if(state.view==="sky"){ skyResize(); skyRender(); }
+  else if(state.view==="sky"){
+    /* The strip's height is measured, not assumed — its head wraps at narrow
+       widths — so a resize has to re-measure it before the label placer and
+       the filter panel are told where the leading edge is. */
+    skyWorldsOpen(!$("#sky-worlds").hidden);
+    skyResize(); skyRender();
+  }
 },110); });
+/* A hidden tab must not animate. The idle clock is stopped rather than left to
+   fire into a document nobody is looking at; coming back restarts it from the
+   frame it is restarted on, which is the correct behaviour for a signature
+   whose phase is a property of the register and not of wall-clock time. */
+addEventListener("visibilitychange",()=>{
+  if (document.hidden){ if (sky.idle){ clearTimeout(sky.idle); sky.idle=0; } }
+  else if (state.view==="sky") skyRender();
+});
 addEventListener("keydown",e=>{
   if(e.key==="/"&&document.activeElement!==$("#q")){ e.preventDefault(); $("#q").focus(); }
   if(e.key==="Escape"){

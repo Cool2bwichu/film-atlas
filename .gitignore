@@ -46,7 +46,7 @@ yarn-error.log*
 # per SPARQL response here; they are regenerable, large, and say nothing the
 # corpus does not already record.
 #
-# All SEVEN cache directories belong here, not three. The growth run to ~2,200
+# All EIGHT cache directories belong here, not three. The growth run to ~2,200
 # films fills .cache-posters/ with roughly 190 MB of poster bytes and the other
 # four with tens of thousands of small JSON files; leaving any of them tracked
 # turns `git status` after a harvest into an unreadable wall and makes an
@@ -59,6 +59,7 @@ yarn-error.log*
 /atlas/pipeline/.cache-posters/
 /atlas/pipeline/.cache-plots/
 /atlas/pipeline/.cache-views/
+/atlas/pipeline/.cache-axes/
 
 # Generated seed expansion. Regenerable with:
 #   node atlas/pipeline/expand-seeds.js --target N > atlas/pipeline/seeds-expansion.txt

@@ -30,7 +30,7 @@
     "aching-romance":        { "hue": "#C85A6E", "glow": 0.55, "scale": 1.08, "edge": 0.95, "motion": { "kind": "pulse",   "rate": 0.10, "depth": 0.22 } },
     "melancholy-drift":      { "hue": "#6E93A8", "glow": 0.40, "scale": 1.04, "edge": 0.75, "motion": { "kind": "drift",   "rate": 0.07, "depth": 0.18 } },
     "paranoid-thriller":     { "hue": "#93A75C", "glow": 0.45, "scale": 1.08, "edge": 0.85, "motion": { "kind": "flicker", "rate": 0.80, "depth": 0.16 } },
-    "noir-fatalism":         { "hue": "#AAB0B8", "glow": 0.35, "scale": 1.06, "edge": 0.80, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "noir-fatalism":         { "hue": "#7F97AA", "glow": 0.35, "scale": 1.06, "edge": 0.80, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
     "the-professional-job":  { "hue": "#B9A46C", "glow": 0.35, "scale": 1.06, "edge": 1.05, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
     "the-institution":       { "hue": "#8E8C7E", "glow": 0.30, "scale": 1.04, "edge": 1.10, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
     "cyberpunk-mood":        { "hue": "#B45BD8", "glow": 1.00, "scale": 1.16, "edge": 1.25, "motion": { "kind": "drift",   "rate": 0.34, "depth": 0.30 } },

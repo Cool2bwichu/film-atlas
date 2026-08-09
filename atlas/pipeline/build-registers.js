@@ -215,6 +215,30 @@ function separation(memberKeys) {
    near-identical purples. Three doors that look the same is the failure the
    whole treatment layer exists to fix, and "purple-blue gradient" is on the
    list of things this project will not ship. */
+/* TWO FLOORS, BECAUSE THERE ARE TWO KINDS OF OBJECT.
+   A disc on the canvas is a graphical object and WCAG's floor for one is 3:1.
+   The tier glyph beside a register's name is 8.5px type in the slate voice, and
+   DESIGN.md's rule for type in this project is 4.5:1 with no exceptions —
+   `--faint` was raised from 2.53:1 for exactly this reason. Gothic's oxblood
+   is 3.4:1 and the killer's deep red is 4.1:1: both are right on the canvas and
+   both are illegal as lettering.
+
+   So the hue is not compromised — the glyph gets `inkHue`, the same hue in
+   Oklab lifted in LIGHTNESS ONLY until it clears the floor. Same colour, legal
+   value, and the association between the mark and the field survives. */
+const TYPE_FLOOR = 4.5;
+function inkHue(hex) {
+  const [L, a, b] = hexToOklab(hex);
+  let lo = L, hi = 1, out = hex;
+  if (contrast(hex, "#08070A") >= TYPE_FLOOR) return hex;
+  for (let i = 0; i < 24; i++) {
+    const mid = (lo + hi) / 2;
+    const cand = oklabToHex([mid, a, b]);
+    if (contrast(cand, "#08070A") >= TYPE_FLOOR) { out = cand; hi = mid; } else lo = mid;
+  }
+  return out;
+}
+
 const AMPLIFY_SIGMA = 3.0;
 function amplify(mean, authoredHex) {
   const dev = [mean[1] - corpusMean[1], mean[2] - corpusMean[2]];
@@ -263,11 +287,13 @@ for (const reg of RULES.registers) {
   }
   treat.tier = tier;
   treat.sigma = Number(sep.sigma.toFixed(2));
+  treat.inkHue = inkHue(treat.hue);
 
   rows.push({
     id: reg.id, label: reg.label, n: members.length, share: members.length / N,
     worstJ, worstV, fail, tier, sigma: sep.sigma, hue: treat.hue, devDeg,
     onBase: contrast(treat.hue, "#08070A"),
+    inkOnBase: contrast(treat.inkHue, "#08070A"), lifted: treat.inkHue !== treat.hue,
   });
 
   if (fail.length) { rejected.push({ id: reg.id, why: fail }); continue; }
@@ -303,9 +329,17 @@ console.log(`${noThemes} films (${(noThemes / N * 100).toFixed(1)}%) carry no th
 const tiers = rows.filter((r) => !r.fail.length).reduce((a, r) => (a[r.tier] = (a[r.tier] || 0) + 1, a), {});
 console.log("tiers:", JSON.stringify(tiers));
 const dim = rows.filter((r) => !r.fail.length && r.onBase < 3);
-if (dim.length) console.log("WARNING — hues under 3:1 on --base:", dim.map((r) => r.label + " " + r.onBase.toFixed(1)).join(", "));
+if (dim.length) console.log("WARNING — disc hues under the 3:1 graphical floor on --base:",
+  dim.map((r) => r.label + " " + r.onBase.toFixed(1)).join(", "));
+const lifted = rows.filter((r) => !r.fail.length && r.lifted);
+console.log(`tier glyph: ${lifted.length} hues lifted to clear ${TYPE_FLOOR}:1 as type — ` +
+  (lifted.map((r) => `${r.label} ${r.onBase.toFixed(1)}->${r.inkOnBase.toFixed(1)}`).join(", ") || "none needed"));
+const stillDim = rows.filter((r) => !r.fail.length && r.inkOnBase < TYPE_FLOOR - 0.01);
+if (stillDim.length) { console.error("FAIL — tier glyph under the type floor:", stillDim.map((r) => r.label).join(", ")); process.exitCode = 1; }
 
-if (REPORT_ONLY) process.exit(0);
+/* --report must exit non-zero on a failed gate too. A reporting mode that
+   always exits 0 is how a red build gets read as a green one. */
+if (REPORT_ONLY) process.exit(process.exitCode || 0);
 
 const out = {
   version: RULES.version,

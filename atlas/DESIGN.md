@@ -96,6 +96,210 @@ to a second person.
 
 `prefers-reduced-motion` collapses all transitions and skips camera animation.
 
+## The worlds — the constellation's answer to "what is this for" — settled 2026-08
+
+Open question 1 said the constellation had no job: at the fit zoom it said
+nothing the wall did not say better, and at rest it answered *what am I looking
+at* with **"drag to pan · scroll to zoom"** — the mechanics of a control where
+a reader needs a reason to look. 2,204 dots is not a proposition. *"Show me
+folk horror"* is.
+
+**A register is a named region of the atlas, defined by a rule.** 28 of them,
+computed at build time by `pipeline/build-registers.js` from
+`pipeline/registers.json`, shipped as `static/registers.json` and merged into
+the sky's existing facet machinery as a field called `register`. Choosing one
+re-forms the atlas into that world's own baked constellation — the same flight,
+the same three beats, nothing new in the tween.
+
+### The rule that made them computable, and the line that decides what dies
+
+The fingerprint spec defines its ~43 registers on AXES, and the axis layer was
+cut from 24 axes to 5 because 42.7% of films carry no behavioural terms about
+light, camera or sound at all. Measured against that spec as written: **3 of 43
+computable, 16 partial, 24 dead.**
+
+The registers were re-derived on a **widened rule — themes plus the five
+recorded facets, as well as axes.** Themes stand in as TMDB keywords until the
+closed vocabulary lands; a theme is evidenced by a plot summary and plot
+sections exist for 88.4% of films, where an axis is inferred from one. Under
+that rule, rewriting the 43 as 27 candidates and gating them:
+
+| gate | |
+|---|---|
+| size 8–264 | a stratum under 8 is a scatter, over 12% of the corpus is a mood |
+| Jaccard < 0.80 vs **every** recorded facet value | a register that is `genre:war` renamed is a duplicate control, not a door |
+| every fixture film in the spec must land in its own register | a rule that misses its own example is wrong |
+
+**28 pass, 0 rejected.** (27 rewritten, plus one the spec did not have.)
+
+> **A register lives if it is about WHAT A FILM IS ABOUT, and dies if it is
+> about HOW A FILM BEHAVES.**
+
+That line is the whole finding. *Slow cinema, near-wordless, talk-driven,
+deadpan, chamber drama, domestic realism, landscape reverie, visual symphony,
+operatic excess, sun-bleached dread, cosmic dread* are all still dead, because
+a plot summary never states a cutting rate, a dialogue density or where the
+light falls. **"Dialogue rich" is on the dead side**, and no amount of theme
+data recovers it — it needs the axis build or a script source. They are absent
+rather than faked.
+
+### The limit that must never be hidden
+
+Themes reach 1,839 of 2,204 films (83.4%); **365 carry none at all** and no
+theme rule can ever reach them. 1,251 films (56.8%) are behind at least one
+door. **The register list is a set of doors and never a partition**, so the
+resting readout says so in its own sentence and the whole atlas is one click
+from everywhere.
+
+Coverage per register is honest about its own size too: **folk horror is 10
+films** in this corpus, and ten films is a real answer to "show me folk
+horror". A register is baked down to 8 films where a recorded stratum needs 20,
+and that is not a double standard — a genre with 15 films is a thin slice of a
+taxonomy, a register with 15 films is the honest size of that region of cinema.
+
+## Colour at field scale is a data channel — a deliberate restatement of AGENTS 5
+
+AGENTS rule 5 says the colour on screen comes from the films, each disc in its
+own measured highlight. That is exactly right for the radial map, where one
+film lights one room, and it is the best thing in the product.
+
+**At field scale it inverts.** Measured across the solved whole-atlas layout,
+the nearest-neighbour hue difference between adjacent discs is **67.6°** against
+**69.0°** for a random shuffle — a ratio of **0.979**. Two thousand measured
+highlights side by side carry *no spatial information whatsoever*: they are the
+generic rainbow rule 5 was written to forbid, arriving through the front door.
+
+> **The film provides the colour when a film is in hand. At field scale colour
+> must carry the stratum.**
+
+So a register renders its own field: `hue`, `glow`, `scale`, `edge`, `mono`, and
+a **motion signature**. The whole atlas at rest is untouched — per-film
+highlights, no glow pass, no idle repaint. A treatment exists only while
+exactly one register governs the picture; two registers is an intersection no
+single mood describes, and blending them would be the interface asserting
+something nobody measured.
+
+### The three tiers, which are what make this cartography rather than decoration
+
+A map's colour key is legitimate. A colour key **dressed as a measurement** is
+not, and the only thing between the two is that the interface keeps saying
+which it is. `build-registers.js` decides the tier **by measurement** — the
+register's mean member highlight against the corpus mean in Oklab, in units of
+the null SD of same-size random samples:
+
+| | mark | what it means | count |
+|---|---|---|---|
+| **recorded** | ● | reports a fact about the print | 1 |
+| **amplified** | ◐ | the films measurably separate; the DIRECTION is measured, the intensity is authored | 4 |
+| **authored** | ○ | they do not separate; the colour was chosen | 23 |
+
+*The silver print* desaturates because 194 of its films carry a recorded
+`black and white` or `silent film` term — and it desaturates each film to **its
+own** measured value, so it is 194 prints in 194 greys, not one house grey.
+*Cyberpunk mood*, *cold science fiction*, *artificial life* and *cerebral
+horror* separate at 3.5–6.8 SD; the readout prints the number and the hue angle
+so the claim can be checked rather than believed. Everything else says
+**"○ authored · no measured colour separates these films; this one was chosen
+for the map"**, in the readout, every time it is on screen.
+
+**Amplify by rotating the authored hue to the measured angle, not by pushing
+the measured colour's chroma.** The chroma-gain version was built first and is
+wrong twice: it clips (cerebral horror came out `#ff4353`, a colour no poster
+in the register contains) and, because the corpus mean sits at hue 42°, every
+register that deviates deviates the same way — cyberpunk, cold science fiction
+and artificial life all resolved within 8° of each other. Three doors that look
+identical is the failure the treatment layer exists to fix.
+
+### What a treatment may not do
+
+- **Rule 1.** `scale` is one number for the whole register, so no disc is ever
+  larger for being better connected. `motion.kind: pulse` moves every disc in
+  unison for the same reason; `drift` and `flicker` take a phase from the film's
+  index in the corpus, which is arbitrary and carries no graph information.
+- **Rule 2.** Edge COLOUR is untouched. The five relationship hues are the
+  argument's grammar and a mood does not overwrite an argument; a treatment may
+  only make those lines brighter or quieter (`edge`, 0.70–1.25).
+- **Rule 4.** The glow is painted on the canvas; every caption is DOM type on
+  its own opaque ground. Verified: 0 blurred labels at three viewports, with a
+  film held so labels actually exist to measure.
+- **Two contrast floors, because there are two kinds of object.** A disc is a
+  graphical object (3:1); the tier glyph beside a register's name is 8.5px type
+  (4.5:1, no exceptions — `--faint` was raised from 2.53:1 for this). Gothic's
+  oxblood is 3.4:1 and the killer's deep red 4.1:1: correct on the canvas,
+  illegal as lettering. The glyph uses `inkHue` — the same hue lifted in
+  **lightness only** until it clears 4.5:1. The build fails if any does not.
+
+### Motion is a budget, not a freebie
+
+`still` is as expressive as a pulse and costs nothing — gothic, noir, the
+institution and faith do not move at all. The idle clock runs **only** while a
+register with motion governs the picture, stops when the tab is hidden or the
+view is not the sky, is skipped entirely under `prefers-reduced-motion`, and
+ticks at **~20 fps** rather than the display's, because every signature is
+under 2 Hz. Measured draws in 3 seconds: **drifting 45, whole atlas at rest 0,
+a still register 0.**
+
+## The worlds strip — a contact sheet of one negative
+
+Across the top of the field, printed the way the thread is: perforations as the
+rail's own background so they stay registered while the frames travel past,
+frame lines between cells, no radius. It **unspools** — the rail translates in
+from the left on the camera curve — and that is the one piece of literal
+apparatus in the project, here because this is the moment the reader is handed
+the whole atlas and needs to be told it is a machine with doors.
+
+**Each frame is the whole atlas with that register exposed on it.** The first
+version drew each register's own re-formed constellation — the exact layout the
+door flies to. It was honest and useless: the solver normalises every stratum
+into the same box, so 28 frames came out as 28 discs of the same size differing
+only in colour and in a density the count beside them already prints. **A
+thumbnail redundant with its own caption is not worth 66 pixels.** Drawn
+instead as one negative exposed in 28 places, every frame is a different
+picture and the difference is information nothing else in the app can show:
+whether a world is one tight knot or scattered through everything.
+
+**Grazing a frame lights that world where it actually is** — its films come up
+in its colour at their current positions, everything else recedes, lines
+included. That is the project's own rack focus asked of a SET rather than of
+one film, and it lets you see the dispersion before spending a re-form.
+
+The strip is the **arrival state, not permanent chrome**: it rolls up the moment
+a world is chosen, leaving a printed tab, and comes back with the whole atlas.
+147px on desktop, 134px on a phone (17% of the viewport), and the field
+visibly opens out when it retracts.
+
+**Fit means the part you can see, and the chrome is no longer all at the
+bottom.** `skySafeH` took the minimum top edge of every chrome box, which
+collapses to the strip's own top edge the moment the strip exists — the atlas
+fitted itself to a 140px floor and parked under the index. The safe band is now
+computed from both directions and the camera centres on ITS middle. The arrival
+fit also **waits for the strip to be measured**: taken a frame early it is a
+fit to a viewport 147px taller than the one that exists, and the camera lands
+1.5× inside its own fit — the whole atlas drawn as though zoomed in, on the one
+view that should read as zoomed out. Verified by negative control: with the
+strip removed from the chrome list, **137 films (6.2%) sit under the index**;
+with it, 0 at all three viewports.
+
+### Measured cost
+
+`skyDraw`, real Chromium at devicePixelRatio 2, 1440×900, software rasteriser
+(no GPU in the sandbox), 40 frames each:
+
+| | mean | worst |
+|---|---|---|
+| whole atlas, no treatment (2,204) *(control)* | 1.91 ms | 2.5 ms |
+| family as a trap — still, glow .35 (194) | 1.37 ms | 2.1 ms |
+| noir fatalism — still, glow .35 (167) | 1.31 ms | 2.1 ms |
+| cyberpunk — drift, glow 1.0 (47) | 1.24 ms | 2.1 ms |
+| whole atlas + strip preview of 194 | 2.92 ms | 6.9 ms |
+
+A treatment is **cheaper than the untreated whole atlas**, because a register
+is a fraction of it. The one case that costs more is the strip preview, which
+draws 2,204 discs plus 194 halos and is still inside a frame. The halo is a
+pre-rendered 64px sprite blitted with `lighter`, never a `createRadialGradient`
+inside the loop; the 28 miniatures are drawn once at mount over a shared ground
+raster and are static bitmaps afterwards.
+
 ## The signature
 
 Rack focus. The focused cell is sharp; one hop out is slightly soft; two hops
@@ -373,17 +577,37 @@ world is made of film and paper, not plastic.
    it too; for a live-solved intersection it would promise a picture the
    caveat above says may differ slightly on another engine, so a shared
    intersection would need to say so or be refused.
-1. **The constellation still has no job.** It is legible, it is honest and it
-   is beautiful, and at the fit zoom it says nothing the wall does not say
-   better — it duplicates "start anywhere" while showing less. Everything it
-   knows becomes visible only once a film is in hand. Arrival is the state
-   that needs an answer.
+1. ~~**The constellation still has no job.**~~ **Answered by the worlds — see
+   "The worlds" above.** What survives of it: the strip is an index of 28 doors
+   and 43% of the corpus is behind none of them. That is stated on screen but
+   not solved, and the honest fix is more themes, not more rules — a rule
+   invented to catch the remainder would be a rule fitted to a gap rather than
+   to cinema.
 2. **The field is an even disc because the corpus is.** 84% of edges are
    convergence + hand, so no tradition separates from any other at low zoom.
    That is the material, not the layout; the layout can only choose whether to
    impose an axis on it. `descent` is 91% forward in time (181 of 199), which
-   is the one honest axis available.
+   is the one honest axis available. **The registers give the disc regions
+   without imposing an axis on it** — grazing the strip shows that folk horror
+   is a corner and family drama is weather across the whole plate — but only
+   while a frame is being grazed. At rest the disc is still even.
 3. **Residual geometry.** Across 44 worst-case seeds (longest titles + highest
    degree) at eight viewports: 7 of 704 renders still place a caption on a
    neighbouring poster, all of them at 1024×660 — a 516px stage, shorter than
    a phone's — with 40-plus-character titles. Everything else is clean.
+4. **A world has no address either.** Same shape as question 0 and cheaper:
+   every register is a baked stratum, so `#/sky/world:gothic` promises a
+   picture that is byte-identical on every machine. The strip is now the best
+   thing in the view to arrive *at*, and you cannot send anyone to one.
+5. **Twenty-eight doors is near the ceiling for one flat rail.** It is 3,300px
+   of horizontal scroll at 1440, and an index stops being an index somewhere
+   around forty. The spec already groups registers into families — horror &
+   dread, mind & meaning, city & crime, future & machine — and the next form is
+   probably one family at a time, which is also how the strip earns a second
+   row of information without getting taller.
+6. **The strip is where a world can be seen but not read.** A frame says a
+   name, a count and a distribution. It does not say *which* films, and the one
+   question a grazed frame provokes — "what is that knot in the corner?" — has
+   no answer short of committing to the re-form. Three named fixture films per
+   frame would answer it in the space the blurb currently spends on a `title`
+   attribute nobody sees on a phone.

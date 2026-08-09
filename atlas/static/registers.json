@@ -28,7 +28,8 @@
      "rate": 1.6,
      "depth": 0.14
     },
-    "sigma": 1.49
+    "sigma": 1.49,
+    "inkHue": "#C6C4C0"
    }
   },
   "folk-horror": {
@@ -46,7 +47,8 @@
      "depth": 0.22
     },
     "tier": "authored",
-    "sigma": -0.62
+    "sigma": -0.62,
+    "inkHue": "#C8A24A"
    }
   },
   "haunted-house": {
@@ -64,7 +66,8 @@
      "depth": 0.26
     },
     "tier": "authored",
-    "sigma": 1.27
+    "sigma": 1.27,
+    "inkHue": "#9FB4BC"
    }
   },
   "cerebral-horror": {
@@ -84,7 +87,8 @@
     "authoredHue": "#B8894F",
     "measuredHueDeg": 294,
     "tier": "amplified",
-    "sigma": 3.46
+    "sigma": 3.46,
+    "inkHue": "#9688c8"
    }
   },
   "body-horror": {
@@ -102,7 +106,8 @@
      "depth": 0.26
     },
     "tier": "authored",
-    "sigma": 0.87
+    "sigma": 0.87,
+    "inkHue": "#C4707C"
    }
   },
   "gothic": {
@@ -120,7 +125,8 @@
      "depth": 0
     },
     "tier": "authored",
-    "sigma": -0.55
+    "sigma": -0.55,
+    "inkHue": "#be575d"
    }
   },
   "the-killer-outside": {
@@ -138,7 +144,8 @@
      "depth": 0.3
     },
     "tier": "authored",
-    "sigma": 1.24
+    "sigma": 1.24,
+    "inkHue": "#d64337"
    }
   },
   "dream-logic": {
@@ -156,7 +163,8 @@
      "depth": 0.3
     },
     "tier": "authored",
-    "sigma": 1.79
+    "sigma": 1.79,
+    "inkHue": "#9A7BC8"
    }
   },
   "films-about-films": {
@@ -174,7 +182,8 @@
      "depth": 0.18
     },
     "tier": "authored",
-    "sigma": -0.53
+    "sigma": -0.53,
+    "inkHue": "#E8E2D6"
    }
   },
   "argument-as-plot": {
@@ -192,7 +201,8 @@
      "depth": 0
     },
     "tier": "authored",
-    "sigma": 2.28
+    "sigma": 2.28,
+    "inkHue": "#7E9AC0"
    }
   },
   "faith-and-silence": {
@@ -210,7 +220,8 @@
      "depth": 0
     },
     "tier": "authored",
-    "sigma": -1.22
+    "sigma": -1.22,
+    "inkHue": "#D2B25E"
    }
   },
   "family-as-trap": {
@@ -228,7 +239,8 @@
      "depth": 0
     },
     "tier": "authored",
-    "sigma": 0.08
+    "sigma": 0.08,
+    "inkHue": "#C9873F"
    }
   },
   "marriage-in-decay": {
@@ -246,7 +258,8 @@
      "depth": 0.16
     },
     "tier": "authored",
-    "sigma": -0.36
+    "sigma": -0.36,
+    "inkHue": "#B87C86"
    }
   },
   "coming-of-age": {
@@ -264,7 +277,8 @@
      "depth": 0.22
     },
     "tier": "authored",
-    "sigma": -1
+    "sigma": -1,
+    "inkHue": "#7FB268"
    }
   },
   "aching-romance": {
@@ -282,7 +296,8 @@
      "depth": 0.22
     },
     "tier": "authored",
-    "sigma": -1.15
+    "sigma": -1.15,
+    "inkHue": "#C85A6E"
    }
   },
   "melancholy-drift": {
@@ -300,7 +315,8 @@
      "depth": 0.18
     },
     "tier": "authored",
-    "sigma": 1.68
+    "sigma": 1.68,
+    "inkHue": "#6E93A8"
    }
   },
   "paranoid-thriller": {
@@ -318,7 +334,8 @@
      "depth": 0.16
     },
     "tier": "authored",
-    "sigma": -0.86
+    "sigma": -0.86,
+    "inkHue": "#93A75C"
    }
   },
   "noir-fatalism": {
@@ -326,7 +343,7 @@
    "blurb": "A man who has already lost, walking toward the reason why.",
    "count": 167,
    "treatment": {
-    "hue": "#AAB0B8",
+    "hue": "#7F97AA",
     "glow": 0.35,
     "scale": 1.06,
     "edge": 0.8,
@@ -336,7 +353,8 @@
      "depth": 0
     },
     "tier": "authored",
-    "sigma": 0.6
+    "sigma": 0.6,
+    "inkHue": "#7F97AA"
    }
   },
   "the-professional-job": {
@@ -354,7 +372,8 @@
      "depth": 0
     },
     "tier": "authored",
-    "sigma": 1.01
+    "sigma": 1.01,
+    "inkHue": "#B9A46C"
    }
   },
   "the-institution": {
@@ -372,7 +391,8 @@
      "depth": 0
     },
     "tier": "authored",
-    "sigma": 0.16
+    "sigma": 0.16,
+    "inkHue": "#8E8C7E"
    }
   },
   "cyberpunk-mood": {
@@ -392,7 +412,8 @@
     "authoredHue": "#B45BD8",
     "measuredHueDeg": 243,
     "tier": "amplified",
-    "sigma": 4.99
+    "sigma": 4.99,
+    "inkHue": "#0090f3"
    }
   },
   "cold-science-fiction": {
@@ -412,7 +433,8 @@
     "authoredHue": "#5EA8D8",
     "measuredHueDeg": 243,
     "tier": "amplified",
-    "sigma": 6.75
+    "sigma": 6.75,
+    "inkHue": "#64a6da"
    }
   },
   "artificial-life": {
@@ -432,7 +454,8 @@
     "authoredHue": "#54C0B0",
     "measuredHueDeg": 247,
     "tier": "amplified",
-    "sigma": 4.57
+    "sigma": 4.57,
+    "inkHue": "#74b1e8"
    }
   },
   "after-the-end": {
@@ -450,7 +473,8 @@
      "depth": 0.2
     },
     "tier": "authored",
-    "sigma": 2.83
+    "sigma": 2.83,
+    "inkHue": "#C87A45"
    }
   },
   "dystopian-satire": {
@@ -468,7 +492,8 @@
      "depth": 0.2
     },
     "tier": "authored",
-    "sigma": 1.06
+    "sigma": 1.06,
+    "inkHue": "#D8A83F"
    }
   },
   "war-as-attrition": {
@@ -486,7 +511,8 @@
      "depth": 0.18
     },
     "tier": "authored",
-    "sigma": 0.41
+    "sigma": 0.41,
+    "inkHue": "#8E8058"
    }
   },
   "wilderness-obsession": {
@@ -504,7 +530,8 @@
      "depth": 0.22
     },
     "tier": "authored",
-    "sigma": -0.74
+    "sigma": -0.74,
+    "inkHue": "#6FA07A"
    }
   },
   "new-wave-restlessness": {
@@ -522,7 +549,8 @@
      "depth": 0.22
     },
     "tier": "authored",
-    "sigma": 0.7
+    "sigma": 0.7,
+    "inkHue": "#E0DCCF"
    }
   }
  },
