@@ -745,7 +745,19 @@ main{flex:1;position:relative;overflow:hidden}
   padding:2px 6px 3px}
 .sky-label.near .y{display:none}
 
-.sky-hud{position:absolute;left:0;right:0;bottom:0;z-index:8;
+/* THE HUD IS BOUNDED BY THE ROOM IT IS ALLOWED, AND IT GROWS UPWARD INTO IT.
+   `top` is the strip's own measured leading edge — the same --worlds-h the
+   filter panel already sits under — so the readout CANNOT reach the strip
+   whatever it is asked to print. It used to be bottom-anchored with no ceiling
+   and grew until it ran out of world: a Passage's eight claims made a 794px
+   box on a 780px phone, which put its title 61px ABOVE the top of the screen
+   and its first claim underneath the worlds strip. A panel that has to be
+   scrolled off-window to be read is not a panel.
+
+   The box stays pointer-transparent and bottom-aligned, so this changes no
+   click target and no resting composition — every readout short enough to fit
+   is laid out exactly where it was. */
+.sky-hud{position:absolute;left:0;right:0;top:var(--worlds-h,0px);bottom:0;z-index:8;
   display:flex;align-items:flex-end;gap:14px;pointer-events:none;
   padding:14px max(16px,env(safe-area-inset-right))
           calc(14px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
@@ -753,9 +765,12 @@ main{flex:1;position:relative;overflow:hidden}
 /* One column, so the standing "re-formed" notice sits directly above the
    readout instead of floating somewhere else in the field and having to be
    found. Both are opaque, both are seeded into the label placer as obstacles,
-   and both stack the same way on a phone. */
-.sky-hud-main{flex:1;min-width:0;max-width:min(520px,64vw);
-  display:flex;flex-direction:column;align-items:stretch;gap:8px}
+   and both stack the same way on a phone.
+
+   max-height, never height: a short readout is still exactly as tall as what
+   it says. The ceiling only ever binds on the long ones. */
+.sky-hud-main{flex:1;min-width:0;max-width:min(520px,64vw);max-height:100%;
+  min-height:0;display:flex;flex-direction:column;align-items:stretch;gap:8px}
 /* THE READOUT COLLAPSES, AND THE FIELD GETS THE ROOM BACK.
    The box carries the five relationship colours, the count and the re-form
    sentence, and it is opaque — skyChrome() seeds it into the label placer AND
@@ -764,10 +779,11 @@ main{flex:1;position:relative;overflow:hidden}
    The chrome moved from .sky-read to this shell so the fold header and the
    body read as one box; --nc is set on the shell for the same reason. */
 .sky-readbox{background:rgba(5,4,4,.82);backdrop-filter:blur(10px);
-  border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent))}
+  border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent));
+  display:flex;flex-direction:column;min-height:0}
 /* Slate lettering, because folded this line is the whole orientation: what
    picture you are in and how many films are in it. --dim is 7.6:1 here. */
-.sky-fold{display:flex;align-items:center;gap:10px;width:100%;
+.sky-fold{flex-shrink:0;display:flex;align-items:center;gap:10px;width:100%;
   padding:8px 12px 8px 13px;background:none;border:0;cursor:pointer;text-align:left;
   font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--dim);line-height:1.35;transition:color var(--t-fast) var(--ease)}
@@ -780,7 +796,24 @@ main{flex:1;position:relative;overflow:hidden}
   border-top:5px solid currentColor;
   transition:transform var(--t-fast) var(--ease)}
 .sky-readbox.folded .sky-fold-mark{transform:rotate(-90deg)}
-.sky-read{padding:2px 13px 11px}
+/* THE CLAIMS SCROLL INSIDE THE BOX; THE BOX DOES NOT GROW INTO THE PICTURE.
+   A Passage prints one paragraph per crossing and a route has no fixed length,
+   so this is the one surface in the app whose content cannot be bounded by
+   design. It is bounded by geometry instead: whatever room .sky-hud leaves,
+   the reading takes, and the rest is scrolled to. The route is DRAWN ON THE
+   FIELD — that is the whole argument for putting it in the constellation
+   rather than in a document — so a panel that covers the field has eaten the
+   thing it is describing.
+   The rail is left visible rather than hidden the way the worlds strip's is:
+   there, the perforations already say "this travels sideways"; here, nothing
+   else would tell a reader that claim four of eight exists. */
+.sky-read{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;
+  padding:2px 13px 11px;scrollbar-width:thin;
+  scrollbar-color:rgba(232,223,211,.26) transparent}
+.sky-read::-webkit-scrollbar{width:7px}
+.sky-read::-webkit-scrollbar-track{background:transparent}
+.sky-read::-webkit-scrollbar-thumb{background:rgba(232,223,211,.26)}
+.sky-read::-webkit-scrollbar-thumb:hover{background:rgba(232,223,211,.42)}
 .sky-read[hidden]{display:none}
 /* THE ATLAS IS SHOWING SOMETHING OTHER THAN THE ATLAS, AND SAYS SO.
    Slate lettering, because this is metadata about the picture rather than a
@@ -4579,7 +4612,19 @@ function skyWorldChoose(id){
    atlas is whole and nothing has been asked of it; the moment a world is
    chosen it rolls up, because from then on the field itself is the thing and
    a hundred pixels of index across the top of a phone is a hundred pixels of
-   atlas. The way back is a tab printed the same way. */
+   atlas. The way back is a tab printed the same way.
+
+   A ROUTE COUNTS AS SOMETHING ASKED OF THE FIELD. The rule above was written
+   for selections and applied one case short: during a Passage the atlas is
+   still whole, so the strip stayed open — and 28 doors to somewhere else sat
+   across the top of the chain the reader had just asked for, hiding 520x115px
+   of its own title and first claim at desktop and pushing the panel off the
+   top of a phone entirely. A route is a reading posture, not a browsing one.
+   The tab stays, so the doors are one click away rather than gone; and the
+   readout is now bounded by the strip's leading edge (see .sky-hud), so
+   re-opening the strip mid-route moves the reading down instead of burying
+   it. Two answers to the same question, because the geometry has to hold even
+   when the posture rule is overridden by hand. */
 function skyWorldsOpen(open){
   const box=$("#sky-worlds"), tab=$("#sky-worlds-tab"), field=$("#sky-field");
   if (!box||!tab||!field) return;
@@ -5126,11 +5171,27 @@ function skyGate(){
   return { x:(w-aw)/2, y:cy-ah/2, w:aw, h:ah, cy };
 }
 let skyGateSig="";
+/* THE APERTURE IS KEYED TO THE CHROME MEASUREMENT, NOT TO THE CACHE BEING COLD.
+   skyChromeV counts how many times the chrome has actually been measured;
+   skyGateV records which of those measurements sky.gate was computed from. The
+   two are compared once a frame — one integer compare, no layout read — so the
+   gate still never joins the draw loop, and it can no longer be left describing
+   a frame that has since changed shape.
+
+   The regression this replaces (`if (!sky.chrome || !sky.gate)`) was invisible
+   to every check because sky.chrome does not go cold where you would think.
+   skyPlaceLabels, skyFitCam and skyClampK all call skyChrome() themselves, so
+   an invalidation raised between two frames was routinely CONSUMED by one of
+   them before the next skyDraw ran: the cache came back warm and correct, the
+   gate stayed stale, and the two numbers DESIGN.md promises cannot disagree
+   disagreed by 317px on every ordinary route into the whole atlas. */
+let skyChromeV=0, skyGateV=-1;
 function skyGateApply(){
   const f=$("#sky-field");
   if (!f || !sky.w) return;
   const g=skyGate();
   sky.gate=g;
+  skyGateV=skyChromeV;
   /* Written only when the rectangle actually moves. Setting four custom
      properties on every frame of a pan is four style recalculations a frame
      for a rectangle that has not changed — the gate is chrome, and chrome must
@@ -5430,13 +5491,14 @@ function skyDraw(){
   const ctx=sky.ctx;
   if (!ctx || !sky.n) return;
   /* The aperture is inscribed in the safe band, and the safe band moves when
-     the readout folds, the strip rolls up or a notice appears — all of which
-     clear sky.chrome. So the gate is recomputed when that cache is cold and
-     not otherwise: computing it on every frame cost a measured 0.18ms, which
-     took the night sky's meteor frame from 0.74x the untreated whole atlas to
-     1.12x and broke a standing cost claim in DESIGN.md. Chrome must not join
-     the draw loop. */
-  if (!sky.chrome || !sky.gate) skyGateApply();
+     the readout folds, the strip rolls up or a notice appears. So the gate is
+     recomputed when the CHROME HAS BEEN RE-MEASURED since the gate was last
+     computed, and not otherwise: computing it on every frame cost a measured
+     0.18ms, which took the night sky's meteor frame from 0.74x the untreated
+     whole atlas to 1.12x and broke a standing cost claim in DESIGN.md. Chrome
+     must not join the draw loop. This test is an integer compare — see
+     skyGateApply for why the previous "is the cache cold" test was not. */
+  if (!sky.gate || skyGateV!==skyChromeV) skyGateApply();
   const w=sky.w, h=sky.h, n=sky.n, cam=sky.cam, k=cam.k;
   ctx.setTransform(sky.dpr,0,0,sky.dpr,0,0);
   ctx.clearRect(0,0,w,h);
@@ -6012,7 +6074,7 @@ function skyLabels(key){
 function skyChrome(){
   if (sky.chrome) return sky.chrome;
   const c=$("#sky-c");
-  if (!c) return (sky.chrome=[]);
+  if (!c){ skyChromeV++; return (sky.chrome=[]); }
   const base=c.getBoundingClientRect(), out=[];
   /* #sky-readbox rather than #sky-read: the fold header is part of the opaque
      box and stands while the body is collapsed. Measuring the body alone would
@@ -6024,7 +6086,17 @@ function skyChrome(){
     if (!r.width||!r.height) continue;
     out.push({x:r.left-base.left-6, y:r.top-base.top-6, w:r.width+12, h:r.height+12});
   }
-  return (sky.chrome=out);
+  sky.chrome=out;
+  skyChromeV++;
+  /* THE APERTURE FOLLOWS THE MEASUREMENT, ON THE MEASUREMENT'S OWN FRAME.
+     Not left to the next skyDraw: a view can be re-measured and then never
+     painted again — cold-loading #/sky/world:gothic retracts the strip after
+     its last draw, and the gate sat 120px away from the band it is supposed to
+     be inscribed in until something else moved. Recursion is one level and
+     terminates: sky.chrome is assigned above, so skyGate -> skySafeBand ->
+     skyChrome returns the cache it was just given. */
+  skyGateApply();
+  return out;
 }
 
 function skyPlaceLabels(){
@@ -6100,10 +6172,18 @@ function skyPassageHash(){ skySyncHash(); }
 function skyPassageClear(){
   sky.passage={from:null,to:null,route:null,pending:false,onEdge:null};
   skyPassageHash();
+  /* The reading is over, so the index comes back — but only to a whole atlas,
+     which is the same condition skyClearFacets uses. Clearing a route inside a
+     chosen world returns you to that world, not to the front of the strip. */
+  skyWorldsOpen(!skyFilterOn());
   skyReadout(); skyRender();
 }
 function skyPassageStart(key){
   sky.passage={from:key,to:null,route:null,pending:false,onEdge:null};
+  /* From the first film, not from the second: "pick a second film" is already
+     an instruction the reader has to be able to read, and the strip covers the
+     line that gives it. */
+  skyWorldsOpen(false);
   skyReadout(); skyRender();
 }
 function skyPassageTo(key){
@@ -6262,6 +6342,14 @@ function skyReadout(){
 function skyReadoutBody(){
   const box=$("#sky-read"), shell=$("#sky-readbox");
   const P=sky.passage;
+  /* THE READOUT CHANGES HEIGHT AS IT FILLS — INCLUDING WHEN A PASSAGE FILLS
+     IT. This used to sit two hundred lines down, below every Passage return,
+     so the ONE readout that can be five times the height of any other was also
+     the one the safe band, the camera and the label placer never heard about.
+     Raised to the top of the function, where it covers every branch. It costs
+     one re-measure per repaint, which is what the ordinary path has always
+     paid. */
+  sky.chrome=null;
 
   /* PASSAGE OWNS THE READOUT WHILE IT IS ACTIVE. The claims in order ARE the
      feature — the drawn line is the index, the sentences are the argument —
@@ -6312,7 +6400,6 @@ function skyReadoutBody(){
      anchor itself when none is. Hover still previews, but it may not evict a
      held anchor from the panel. */
   const key = anchor ? (sky.examineKey || sky.hoverKey || anchor) : skyInHand();
-  sky.chrome=null;                      /* the readout changes height as it fills */
 
   if (anchor && key && F[key] && key!==anchor){
     const f=F[key], e=skyEdgeBetween(anchor,key);
@@ -6627,9 +6714,10 @@ function skyEnter(){
   skyReadout();
   skyStratumRender();
   /* THE STRIP IS THE ARRIVAL, so it opens with the whole atlas and stays shut
-     once something has been asked of the field. Coming back to a re-formed
-     sky returns you to the picture you left, not to the index. */
-  skyWorldsOpen(!skyFilterOn());
+     once something has been asked of the field — a selection or a live route.
+     Coming back to a re-formed sky, or to a route still being read, returns
+     you to the picture you left, not to the index. */
+  skyWorldsOpen(!skyFilterOn() && !sky.passage.from);
   /* Once more after paint: entering is a class change, so on this frame the
      field can still be reporting the size it had while it was hidden. */
   requestAnimationFrame(()=>{ skyResize(); skyRender(); });

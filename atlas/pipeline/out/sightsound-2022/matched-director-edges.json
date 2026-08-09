@@ -1,7 +1,7 @@
 {
  "note": "Sight & Sound 2022 directors poll: ballots where the voting director and the voted film are both in the ATLAS corpus. Facts of votes as published by BFI; assembled via the MIT-licensed serve-and-volley/sight-and-sound-poll-data compilation and spot-verified against live bfi.org.uk ballot pages 2026-08-09.",
  "directorVoters": 480,
- "corpusDirectorVoters": 60,
+ "corpusDirectorVoters": 61,
  "edges": [
   {
    "voter": "Olivier Assayas",
@@ -196,6 +196,18 @@
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/charles-burnett"
   },
   {
+   "voter": "Charles Burnett",
+   "voterSlug": "charles-burnett",
+   "film": "Breathless",
+   "filmYear": 1960,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-6e687faa9ff97f5f",
+   "ballotTitle": "À bout de souffle",
+   "ballotYear": "1960",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/charles-burnett"
+  },
+  {
    "voter": "John Carpenter",
    "voterSlug": "john-carpenter",
    "film": "Rio Bravo",
@@ -216,7 +228,7 @@
    "filmId": "film-67ff69ba0c643db7",
    "ballotTitle": "Le Charme discret de la bourgeoisie",
    "ballotYear": "1972",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/john-carpenter"
   },
   {
@@ -266,6 +278,54 @@
    "ballotYear": "1958",
    "match": "title+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/john-carpenter"
+  },
+  {
+   "voter": "Peter Chan",
+   "voterSlug": "peter-ho-sun-chan",
+   "film": "Apocalypse Now",
+   "filmYear": 1979,
+   "filmDirector": "Francis Ford Coppola",
+   "filmId": "film-30296027af4c6b53",
+   "ballotTitle": "Apocalypse Now",
+   "ballotYear": "1979",
+   "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/peter-ho-sun-chan"
+  },
+  {
+   "voter": "Peter Chan",
+   "voterSlug": "peter-ho-sun-chan",
+   "film": "The Godfather Part II",
+   "filmYear": 1974,
+   "filmDirector": "Francis Ford Coppola",
+   "filmId": "film-89f14467af7a6fb0",
+   "ballotTitle": "The Godfather Part II",
+   "ballotYear": "1974",
+   "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/peter-ho-sun-chan"
+  },
+  {
+   "voter": "Peter Chan",
+   "voterSlug": "peter-ho-sun-chan",
+   "film": "In the Heat of the Sun",
+   "filmYear": 1994,
+   "filmDirector": "Jiang Wen",
+   "filmId": "film-a4d40896904e9c1b",
+   "ballotTitle": "Yangguang Canlan De Rizi",
+   "ballotYear": "1994",
+   "match": "director+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/peter-ho-sun-chan"
+  },
+  {
+   "voter": "Peter Chan",
+   "voterSlug": "peter-ho-sun-chan",
+   "film": "Goodfellas",
+   "filmYear": 1990,
+   "filmDirector": "Martin Scorsese",
+   "filmId": "film-c94839938019227a",
+   "ballotTitle": "GoodFellas",
+   "ballotYear": "1990",
+   "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/peter-ho-sun-chan"
   },
   {
    "voter": "Sofia Coppola",
@@ -366,18 +426,6 @@
   {
    "voter": "Joe Dante",
    "voterSlug": "joe-dante",
-   "film": "Stagecoach",
-   "filmYear": 1939,
-   "filmDirector": "John Ford",
-   "filmId": "film-84357f0e30bd9d31",
-   "ballotTitle": "The Grapes of Wrath",
-   "ballotYear": "1940",
-   "match": "director+year",
-   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/joe-dante"
-  },
-  {
-   "voter": "Joe Dante",
-   "voterSlug": "joe-dante",
    "film": "Citizen Kane",
    "filmYear": 1941,
    "filmDirector": "Orson Welles",
@@ -396,7 +444,7 @@
    "filmId": "film-e7b2b86c2d6cd02d",
    "ballotTitle": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
    "ballotYear": "1963",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/joe-dante"
   },
   {
@@ -457,6 +505,18 @@
    "ballotTitle": "The Piano",
    "ballotYear": "1992",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/julie-dash"
+  },
+  {
+   "voter": "Julie Dash",
+   "voterSlug": "julie-dash",
+   "film": "Raise the Red Lantern",
+   "filmYear": 1991,
+   "filmDirector": "Zhang Yimou",
+   "filmId": "film-a49cb62a9bbc6c0d",
+   "ballotTitle": "Dà Hóng Dēnglóng Gāogāo Guà",
+   "ballotYear": "1991",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/julie-dash"
   },
   {
@@ -684,7 +744,7 @@
    "filmId": "film-35727b3b54096948",
    "ballotTitle": "Ugetsu Monogatari",
    "ballotYear": "1953",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/atom-egoyan"
   },
   {
@@ -697,6 +757,18 @@
    "ballotTitle": "Pather Panchali",
    "ballotYear": "1955",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/atom-egoyan"
+  },
+  {
+   "voter": "Atom Egoyan",
+   "voterSlug": "atom-egoyan",
+   "film": "The Color of Pomegranates",
+   "filmYear": 1969,
+   "filmDirector": "Sergei Parajanov",
+   "filmId": "film-63ae5628908162aa",
+   "ballotTitle": "The Colour of Pomegranates",
+   "ballotYear": "1968",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/atom-egoyan"
   },
   {
@@ -846,25 +918,25 @@
   {
    "voter": "Michelangelo Frammartino",
    "voterSlug": "michelangelo-frammartino",
-   "film": "L'Amore",
-   "filmYear": 1948,
+   "film": "Rome, Open City",
+   "filmYear": 1945,
    "filmDirector": "Roberto Rossellini",
-   "filmId": "film-b057b2dca62438ff",
-   "ballotTitle": "Germania, Anno Zero",
-   "ballotYear": "1948",
-   "match": "director+year",
+   "filmId": "film-30644d8f8a0387a3",
+   "ballotTitle": "Roma città aperta",
+   "ballotYear": "1945",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/michelangelo-frammartino"
   },
   {
    "voter": "Michelangelo Frammartino",
    "voterSlug": "michelangelo-frammartino",
-   "film": "The Flowers of St. Francis",
-   "filmYear": 1950,
+   "film": "Paisà",
+   "filmYear": 1946,
    "filmDirector": "Roberto Rossellini",
-   "filmId": "film-91b83f990906c248",
-   "ballotTitle": "Stromboli, Terra Di Dio",
-   "ballotYear": "1950",
-   "match": "director+year",
+   "filmId": "film-2ff2382c2c2267aa",
+   "ballotTitle": "Paisan",
+   "ballotYear": "1946",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/michelangelo-frammartino"
   },
   {
@@ -876,7 +948,7 @@
    "filmId": "film-91b83f990906c248",
    "ballotTitle": "Francesco Giullare Di Dio",
    "ballotYear": "1950",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/michelangelo-frammartino"
   },
   {
@@ -888,20 +960,8 @@
    "filmId": "film-43cfd3fe86dd387c",
    "ballotTitle": "Europa '51",
    "ballotYear": "1952",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/michelangelo-frammartino"
-  },
-  {
-   "voter": "Amos Gitai",
-   "voterSlug": "amos-gitai",
-   "film": "L'Amore",
-   "filmYear": 1948,
-   "filmDirector": "Roberto Rossellini",
-   "filmId": "film-b057b2dca62438ff",
-   "ballotTitle": "Germania, Anno Zero",
-   "ballotYear": "1948",
-   "match": "director+year",
-   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/amos-gitai"
   },
   {
    "voter": "Amos Gitai",
@@ -925,6 +985,18 @@
    "ballotTitle": "Stalker",
    "ballotYear": "1979",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/amos-gitai"
+  },
+  {
+   "voter": "Amos Gitai",
+   "voterSlug": "amos-gitai",
+   "film": "Contempt",
+   "filmYear": 1963,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-c38b9c144842b3a6",
+   "ballotTitle": "Le Mépris",
+   "ballotYear": "1963",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/amos-gitai"
   },
   {
@@ -1044,7 +1116,19 @@
    "filmId": "film-c4a60c6e9ba4ff3a",
    "ballotTitle": "Szegénylegények",
    "ballotYear": "1966",
-   "match": "director+year",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/adoor-gopalakrishnan"
+  },
+  {
+   "voter": "Adoor Gopalakrishnan",
+   "voterSlug": "adoor-gopalakrishnan",
+   "film": "Boy",
+   "filmYear": 1969,
+   "filmDirector": "Nagisa Ōshima",
+   "filmId": "film-6df9f809e344af42",
+   "ballotTitle": "Shonen",
+   "ballotYear": "1969",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/adoor-gopalakrishnan"
   },
   {
@@ -1110,6 +1194,18 @@
   {
    "voter": "Peter Greenaway",
    "voterSlug": "peter-greenaway",
+   "film": "Breathless",
+   "filmYear": 1960,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-6e687faa9ff97f5f",
+   "ballotTitle": "À bout de souffle",
+   "ballotYear": "1960",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/peter-greenaway"
+  },
+  {
+   "voter": "Peter Greenaway",
+   "voterSlug": "peter-greenaway",
    "film": "Blade Runner",
    "filmYear": 1982,
    "filmDirector": "Ridley Scott",
@@ -1140,20 +1236,8 @@
    "filmId": "film-3f69d7b08b34afc1",
    "ballotTitle": "Jules et Jim",
    "ballotYear": "1962",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/peter-greenaway"
-  },
-  {
-   "voter": "Luca Guadagnino",
-   "voterSlug": "luca-guadagnino",
-   "film": "L'Amore",
-   "filmYear": 1948,
-   "filmDirector": "Roberto Rossellini",
-   "filmId": "film-b057b2dca62438ff",
-   "ballotTitle": "Germania, Anno Zero",
-   "ballotYear": "1948",
-   "match": "director+year",
-   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/luca-guadagnino"
   },
   {
    "voter": "Luca Guadagnino",
@@ -1164,7 +1248,7 @@
    "filmId": "film-43cfd3fe86dd387c",
    "ballotTitle": "Europa '51",
    "ballotYear": "1952",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/luca-guadagnino"
   },
   {
@@ -1176,7 +1260,7 @@
    "filmId": "film-1f0e6cdda45ae902",
    "ballotTitle": "Ultimo Tango A Parigi",
    "ballotYear": "1972",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/luca-guadagnino"
   },
   {
@@ -1188,7 +1272,7 @@
    "filmId": "film-eda27961223f54a0",
    "ballotTitle": "L' Empire Des Sens",
    "ballotYear": "1976",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/luca-guadagnino"
   },
   {
@@ -1374,13 +1458,13 @@
   {
    "voter": "Mike Hodges",
    "voterSlug": "mike-hodges",
-   "film": "Sunset Boulevard",
-   "filmYear": 1950,
-   "filmDirector": "Billy Wilder",
-   "filmId": "film-de56704f5d710509",
-   "ballotTitle": "Ace in the Hole",
-   "ballotYear": "1951",
-   "match": "director+year",
+   "film": "The Bad Sleep Well",
+   "filmYear": 1960,
+   "filmDirector": "Akira Kurosawa",
+   "filmId": "film-229735c761afa137",
+   "ballotTitle": "Warui yatsu hodo yoku nemuru",
+   "ballotYear": "1960",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/mike-hodges"
   },
   {
@@ -1418,18 +1502,6 @@
    "ballotYear": "1967",
    "match": "title+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/mike-hodges"
-  },
-  {
-   "voter": "Joanna Hogg",
-   "voterSlug": "joanna-hogg",
-   "film": "Sweetie",
-   "filmYear": 1989,
-   "filmDirector": "Jane Campion",
-   "filmId": "film-75a754a4d552f4ca",
-   "ballotTitle": "An Angel at My Table",
-   "ballotYear": "1990",
-   "match": "director+year",
-   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/joanna-hogg"
   },
   {
    "voter": "Joanna Hogg",
@@ -1554,13 +1626,25 @@
   {
    "voter": "Alejandro González Iñárritu",
    "voterSlug": "alejandro-gonzalez-inarritu",
+   "film": "Contempt",
+   "filmYear": 1963,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-c38b9c144842b3a6",
+   "ballotTitle": "Le Mépris",
+   "ballotYear": "1963",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alejandro-gonzalez-inarritu"
+  },
+  {
+   "voter": "Alejandro González Iñárritu",
+   "voterSlug": "alejandro-gonzalez-inarritu",
    "film": "The Discreet Charm of the Bourgeoisie",
    "filmYear": 1972,
    "filmDirector": "Luis Buñuel",
    "filmId": "film-67ff69ba0c643db7",
    "ballotTitle": "Le Charme discret de la bourgeoisie",
    "ballotYear": "1972",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alejandro-gonzalez-inarritu"
   },
   {
@@ -1632,7 +1716,7 @@
    "filmId": "film-c4a60c6e9ba4ff3a",
    "ballotTitle": "Szegénylegények",
    "ballotYear": "1966",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/barry-jenkins"
   },
   {
@@ -1656,7 +1740,7 @@
    "filmId": "film-0b1773e614ebcabf",
    "ballotTitle": "Hidden",
    "ballotYear": "2004",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/barry-jenkins"
   },
   {
@@ -1704,7 +1788,7 @@
    "filmId": "film-9b9020e7a53e1f0f",
    "ballotTitle": "Hanyo",
    "ballotYear": "1960",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/bong-joon-ho"
   },
   {
@@ -1716,7 +1800,7 @@
    "filmId": "film-c8c7573dce39b4ec",
    "ballotTitle": "Rocco E I Suoi Fratelli",
    "ballotYear": "1960",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/bong-joon-ho"
   },
   {
@@ -1728,7 +1812,7 @@
    "filmId": "film-b65099ba23530ac7",
    "ballotTitle": "Fukushû Suru Wa Ware Ni Ari",
    "ballotYear": "1979",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/bong-joon-ho"
   },
   {
@@ -1788,7 +1872,7 @@
    "filmId": "film-5164a33ae485c2fb",
    "ballotTitle": "Lazzaro felice",
    "ballotYear": "2018",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/bong-joon-ho"
   },
   {
@@ -1848,7 +1932,19 @@
    "filmId": "film-57cdf112ce33de0c",
    "ballotTitle": "Madame de...",
    "ballotYear": "1953",
-   "match": "director+year",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/neil-jordan"
+  },
+  {
+   "voter": "Neil Jordan",
+   "voterSlug": "neil-jordan",
+   "film": "Contempt",
+   "filmYear": 1963,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-c38b9c144842b3a6",
+   "ballotTitle": "Le Mépris",
+   "ballotYear": "1963",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/neil-jordan"
   },
   {
@@ -2016,7 +2112,7 @@
    "filmId": "film-40cbcecec6858d45",
    "ballotTitle": "Akahige",
    "ballotYear": "1965",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/aki-kaurismaki"
   },
   {
@@ -2052,7 +2148,7 @@
    "filmId": "film-648936a1f17bed94",
    "ballotTitle": "Wandafuru Raifu",
    "ballotYear": "1998",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/kogonada"
   },
   {
@@ -2076,7 +2172,19 @@
    "filmId": "film-168d33b8ab8691d3",
    "ballotTitle": "Beoning",
    "ballotYear": "2018",
-   "match": "director+year",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/kogonada"
+  },
+  {
+   "voter": "Kogonada",
+   "voterSlug": "kogonada",
+   "film": "Early Summer",
+   "filmYear": 1951,
+   "filmDirector": "Yasujirō Ozu",
+   "filmId": "film-5eb8d28f84fd2364",
+   "ballotTitle": "Bakushû",
+   "ballotYear": "1951",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/kogonada"
   },
   {
@@ -2101,6 +2209,18 @@
    "ballotTitle": "La Jetée",
    "ballotYear": "1962",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/kogonada"
+  },
+  {
+   "voter": "Kogonada",
+   "voterSlug": "kogonada",
+   "film": "Platform",
+   "filmYear": 2000,
+   "filmDirector": "Jia Zhangke",
+   "filmId": "film-f21471dcb9c79acd",
+   "ballotTitle": "Zhantai",
+   "ballotYear": "2000",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/kogonada"
   },
   {
@@ -2220,7 +2340,7 @@
    "filmId": "film-88a36b3f1c3400f7",
    "ballotTitle": "Lásky jedné plavovlásky",
    "ballotYear": "1965",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/mike-leigh"
   },
   {
@@ -2472,7 +2592,7 @@
    "filmId": "film-e7b2b86c2d6cd02d",
    "ballotTitle": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
    "ballotYear": "1963",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/michael-mann"
   },
   {
@@ -2509,6 +2629,18 @@
    "ballotTitle": "Raging Bull",
    "ballotYear": "1980",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/michael-mann"
+  },
+  {
+   "voter": "Michael Mann",
+   "voterSlug": "michael-mann",
+   "film": "Pale Flower",
+   "filmYear": 1964,
+   "filmDirector": "Masahiro Shinoda",
+   "filmId": "film-493a139d3c61e4e5",
+   "ballotTitle": "Kawaita Hana",
+   "ballotYear": "1964",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/michael-mann"
   },
   {
@@ -2646,6 +2778,18 @@
   {
    "voter": "Steve McQueen",
    "voterSlug": "steve-mcqueen",
+   "film": "Contempt",
+   "filmYear": 1963,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-c38b9c144842b3a6",
+   "ballotTitle": "Le Mépris",
+   "ballotYear": "1963",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/steve-mcqueen"
+  },
+  {
+   "voter": "Steve McQueen",
+   "voterSlug": "steve-mcqueen",
    "film": "Do the Right Thing",
    "filmYear": 1989,
    "filmDirector": "Spike Lee",
@@ -2724,7 +2868,7 @@
    "filmId": "film-e87b3957ba1fa91a",
    "ballotTitle": "Pixote A Lei Do Mais Fraco",
    "ballotYear": "1981",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/kleber-mendonca-filho"
   },
   {
@@ -2892,7 +3036,7 @@
    "filmId": "film-35727b3b54096948",
    "ballotTitle": "Ugetsu Monogatari",
    "ballotYear": "1953",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/amir-naderi"
   },
   {
@@ -2917,6 +3061,18 @@
    "ballotTitle": "Throne of Blood",
    "ballotYear": "1957",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/amir-naderi"
+  },
+  {
+   "voter": "Amir Naderi",
+   "voterSlug": "amir-naderi",
+   "film": "The Silence",
+   "filmYear": 1963,
+   "filmDirector": "Ingmar Bergman",
+   "filmId": "film-5609a3afdd059a21",
+   "ballotTitle": "Tystnaden",
+   "ballotYear": "1963",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/amir-naderi"
   },
   {
@@ -3036,7 +3192,7 @@
    "filmId": "film-680d1b4e9e06470f",
    "ballotTitle": "Le notti di Cabiria",
    "ballotYear": "1957",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/laszlo-nemes"
   },
   {
@@ -3108,7 +3264,7 @@
    "filmId": "film-66652dc9fef55a1f",
    "ballotTitle": "La Maman et la Putain",
    "ballotYear": "1973",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/gaspar-noe"
   },
   {
@@ -3174,6 +3330,18 @@
   {
    "voter": "Hlynur Pálmason",
    "voterSlug": "hlynur-palmason",
+   "film": "Scenes from a Marriage",
+   "filmYear": 1974,
+   "filmDirector": "Ingmar Bergman",
+   "filmId": "film-6073a4735323db4a",
+   "ballotTitle": "Scener ur ett äktenskap",
+   "ballotYear": "1974",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/hlynur-palmason"
+  },
+  {
+   "voter": "Hlynur Pálmason",
+   "voterSlug": "hlynur-palmason",
    "film": "L'Argent",
    "filmYear": 1983,
    "filmDirector": "Robert Bresson",
@@ -3204,7 +3372,7 @@
    "filmId": "film-0b1773e614ebcabf",
    "ballotTitle": "Hidden",
    "ballotYear": "2004",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/hlynur-palmason"
   },
   {
@@ -3372,7 +3540,7 @@
    "filmId": "film-de56704f5d710509",
    "ballotTitle": "Sunset Blvd.",
    "ballotYear": "1950",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alexander-payne"
   },
   {
@@ -3474,6 +3642,18 @@
   {
    "voter": "Mani Ratnam",
    "voterSlug": "mani-ratnam",
+   "film": "Autumn Sonata",
+   "filmYear": 1978,
+   "filmDirector": "Ingmar Bergman",
+   "filmId": "film-397f38bb9e7a534a",
+   "ballotTitle": "Herbstsonate",
+   "ballotYear": "1978",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/mani-ratnam"
+  },
+  {
+   "voter": "Mani Ratnam",
+   "voterSlug": "mani-ratnam",
    "film": "Citizen Kane",
    "filmYear": 1941,
    "filmDirector": "Orson Welles",
@@ -3493,6 +3673,18 @@
    "ballotTitle": "The Godfather",
    "ballotYear": "1972",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/mani-ratnam"
+  },
+  {
+   "voter": "Mani Ratnam",
+   "voterSlug": "mani-ratnam",
+   "film": "Breathless",
+   "filmYear": 1960,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-6e687faa9ff97f5f",
+   "ballotTitle": "À bout de souffle",
+   "ballotYear": "1960",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/mani-ratnam"
   },
   {
@@ -3558,13 +3750,37 @@
   {
    "voter": "Alice Rohrwacher",
    "voterSlug": "alice-rohrwacher",
+   "film": "Strike",
+   "filmYear": 1925,
+   "filmDirector": "Sergei Eisenstein",
+   "filmId": "film-41df9b5f750a4877",
+   "ballotTitle": "Stachka",
+   "ballotYear": "1925",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alice-rohrwacher"
+  },
+  {
+   "voter": "Alice Rohrwacher",
+   "voterSlug": "alice-rohrwacher",
    "film": "Nights of Cabiria",
    "filmYear": 1957,
    "filmDirector": "Federico Fellini",
    "filmId": "film-680d1b4e9e06470f",
    "ballotTitle": "Le notti di Cabiria",
    "ballotYear": "1957",
-   "match": "director+year",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alice-rohrwacher"
+  },
+  {
+   "voter": "Alice Rohrwacher",
+   "voterSlug": "alice-rohrwacher",
+   "film": "The Witches",
+   "filmYear": 1967,
+   "filmDirector": "Luchino Visconti, Pier Paolo Pasolini, Vittorio De Sica, Mauro Bolognini, Franco Rossi",
+   "filmId": "film-1b9ff198497c93c2",
+   "ballotTitle": "Le STREGHE",
+   "ballotYear": "1967",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alice-rohrwacher"
   },
   {
@@ -3577,6 +3793,18 @@
    "ballotTitle": "Vagabond",
    "ballotYear": "1985",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alice-rohrwacher"
+  },
+  {
+   "voter": "Alice Rohrwacher",
+   "voterSlug": "alice-rohrwacher",
+   "film": "The Color of Pomegranates",
+   "filmYear": 1969,
+   "filmDirector": "Sergei Parajanov",
+   "filmId": "film-63ae5628908162aa",
+   "ballotTitle": "The Colour of Pomegranates",
+   "ballotYear": "1968",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/alice-rohrwacher"
   },
   {
@@ -3600,7 +3828,7 @@
    "filmId": "film-0e882cdbcd2369f0",
    "ballotTitle": "Alice In Den Städten",
    "ballotYear": "1974",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/benny-safdie"
   },
   {
@@ -3688,6 +3916,18 @@
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/josh-safdie"
   },
   {
+   "voter": "Josh Safdie",
+   "voterSlug": "josh-safdie",
+   "film": "Camera Buff",
+   "filmYear": 1979,
+   "filmDirector": "Krzysztof Kieślowski",
+   "filmId": "film-a95d7b175da772f2",
+   "ballotTitle": "Amator",
+   "ballotYear": "1979",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/josh-safdie"
+  },
+  {
    "voter": "Walter Salles",
    "voterSlug": "walter-salles",
    "film": "Tokyo Story",
@@ -3714,18 +3954,6 @@
   {
    "voter": "Walter Salles",
    "voterSlug": "walter-salles",
-   "film": "The General",
-   "filmYear": 1926,
-   "filmDirector": "Buster Keaton, Clyde Bruckman",
-   "filmId": "film-2a7ab58de88c4211",
-   "ballotTitle": "Seven Chances",
-   "ballotYear": "1925",
-   "match": "director+year",
-   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/walter-salles"
-  },
-  {
-   "voter": "Walter Salles",
-   "voterSlug": "walter-salles",
    "film": "The Searchers",
    "filmYear": 1956,
    "filmDirector": "John Ford",
@@ -3744,7 +3972,7 @@
    "filmId": "film-5121247385e22187",
    "ballotTitle": "Professione: reporter",
    "ballotYear": "1974",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/walter-salles"
   },
   {
@@ -3769,6 +3997,30 @@
    "ballotTitle": "The Battle of Algiers",
    "ballotYear": "1966",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/walter-salles"
+  },
+  {
+   "voter": "Walter Salles",
+   "voterSlug": "walter-salles",
+   "film": "Breathless",
+   "filmYear": 1960,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-6e687faa9ff97f5f",
+   "ballotTitle": "À bout de souffle",
+   "ballotYear": "1960",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/walter-salles"
+  },
+  {
+   "voter": "Walter Salles",
+   "voterSlug": "walter-salles",
+   "film": "Rome, Open City",
+   "filmYear": 1945,
+   "filmDirector": "Roberto Rossellini",
+   "filmId": "film-30644d8f8a0387a3",
+   "ballotTitle": "Roma città aperta",
+   "ballotYear": "1945",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/walter-salles"
   },
   {
@@ -3805,18 +4057,6 @@
    "ballotTitle": "Tampopo",
    "ballotYear": "1986",
    "match": "title+year",
-   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/daniel-scheinert"
-  },
-  {
-   "voter": "Daniel Scheinert",
-   "voterSlug": "daniel-scheinert",
-   "film": "Being John Malkovich",
-   "filmYear": 1999,
-   "filmDirector": "Spike Jonze",
-   "filmId": "film-cf8f47c575066c74",
-   "ballotTitle": "Praise You - Fatboy Slim (Music Video)",
-   "ballotYear": "1999",
-   "match": "director+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/daniel-scheinert"
   },
   {
@@ -4020,7 +4260,7 @@
    "filmId": "film-30a45089821ea7c0",
    "ballotTitle": "Popiol I Diament",
    "ballotYear": "1958",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/martin-scorsese"
   },
   {
@@ -4044,7 +4284,7 @@
    "filmId": "film-0337c3129e5199b6",
    "ballotTitle": "Journal D'Un Curé De Campagne",
    "ballotYear": "1951",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/martin-scorsese"
   },
   {
@@ -4086,6 +4326,18 @@
   {
    "voter": "Martin Scorsese",
    "voterSlug": "martin-scorsese",
+   "film": "Paisà",
+   "filmYear": 1946,
+   "filmDirector": "Roberto Rossellini",
+   "filmId": "film-2ff2382c2c2267aa",
+   "ballotTitle": "Paisan",
+   "ballotYear": "1946",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/martin-scorsese"
+  },
+  {
+   "voter": "Martin Scorsese",
+   "voterSlug": "martin-scorsese",
    "film": "The Red Shoes",
    "filmYear": 1948,
    "filmDirector": "Emeric Pressburger, Michael Powell",
@@ -4116,7 +4368,7 @@
    "filmId": "film-35727b3b54096948",
    "ballotTitle": "Ugetsu Monogatari",
    "ballotYear": "1953",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/martin-scorsese"
   },
   {
@@ -4224,7 +4476,7 @@
    "filmId": "film-e7b2b86c2d6cd02d",
    "ballotTitle": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
    "ballotYear": "1963",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/oliver-stone"
   },
   {
@@ -4452,7 +4704,7 @@
    "filmId": "film-c4a60c6e9ba4ff3a",
    "ballotTitle": "Szegénylegények",
    "ballotYear": "1966",
-   "match": "director+year",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/bela-tarr"
   },
   {
@@ -4465,6 +4717,18 @@
    "ballotTitle": "Tokyo Story",
    "ballotYear": "1953",
    "match": "title+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/bela-tarr"
+  },
+  {
+   "voter": "Béla Tarr",
+   "voterSlug": "bela-tarr",
+   "film": "My Life to Live",
+   "filmYear": 1962,
+   "filmDirector": "Jean-Luc Godard",
+   "filmId": "film-f153178e0c8083cb",
+   "ballotTitle": "Vivre sa vie",
+   "ballotYear": "1962",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/bela-tarr"
   },
   {
@@ -4614,6 +4878,18 @@
   {
    "voter": "Apichatpong Weerasethakul",
    "voterSlug": "apichatpong-weerasethakul",
+   "film": "The Chess Players",
+   "filmYear": 1977,
+   "filmDirector": "Satyajit Ray",
+   "filmId": "film-0c1c43d1db35dace",
+   "ballotTitle": "Shatranj Ke Khilari",
+   "ballotYear": "1977",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/apichatpong-weerasethakul"
+  },
+  {
+   "voter": "Apichatpong Weerasethakul",
+   "voterSlug": "apichatpong-weerasethakul",
    "film": "Mad Max: Fury Road",
    "filmYear": 2015,
    "filmDirector": "George Miller",
@@ -4622,6 +4898,18 @@
    "ballotYear": "2015",
    "match": "title+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/apichatpong-weerasethakul"
+  },
+  {
+   "voter": "Wim Wenders",
+   "voterSlug": "wim-wenders",
+   "film": "Good Morning",
+   "filmYear": 1959,
+   "filmDirector": "Yasujirō Ozu",
+   "filmId": "film-3e3acef66a61c6be",
+   "ballotTitle": "Ohayo",
+   "ballotYear": "1959",
+   "match": "alias+year",
+   "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/wim-wenders"
   },
   {
    "voter": "Wim Wenders",
@@ -4644,7 +4932,7 @@
    "filmId": "film-f83cdb71987ee4ca",
    "ballotTitle": "La Sirène Du Mississippi",
    "ballotYear": "1969",
-   "match": "director+year+tokens",
+   "match": "alias+year",
    "source": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/wim-wenders"
   },
   {

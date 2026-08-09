@@ -37,6 +37,13 @@
  * has no usable duration, and `colour` is [] when it records no P462. Do not
  * write a consumer that assumes they are always there, because the REST
  * fallback exists precisely for the runs where the endpoint is unreachable.
+ *
+ * The same optionality applies to the EXTENSION SWEEP fields (see EXTEND_PROPS
+ * below): aspect/format/language/filmingLocation and the lineage lists on each
+ * film, productionDesigner/artDirector/costumeDesigner inside crew, and the
+ * top-level `makers` map. A full run produces them; the REST fallback and any
+ * harvest.json written before 2026-08-09 do not. `--extend` retrofits them
+ * onto an existing harvest.json without re-running the resolve.
  */
 
 const fs = require("fs");
@@ -517,7 +524,7 @@ async function fetchMakers(directors, labels, stats) {
       const lab = cell(r, "vLabel");
       if (lab && !/^Q\d+$/.test(lab)) labels[v] = lab;
     }
-    console.log("  " + name.padEnd(18) + n + " statements across " + directors.length + " directors");
+    console.log("  " + name.padEnd(19) + n + " statements across " + directors.length + " directors");
   }
   return makers;
 }
@@ -864,12 +871,107 @@ async function main() {
   console.log("\nDONE -- wrote pipeline/out/harvest.json");
 }
 
+/* --------------------------------------------------------------- --extend
+ *
+ *   node pipeline/harvest-sparql.js --extend
+ *
+ * Sweeps ONLY the extension properties (EXTEND_PROPS, maker formation, plus
+ * colour/runtime if the file predates them) across the films already in
+ * out/harvest.json, and writes the same file back with the new fields filled
+ * in. No seed resolution, no re-fetch of the original PROPS: the resolve is
+ * the fragile, human-checked half of a harvest (qid-overrides, slug claims,
+ * check-harvest.js), and re-running it to add an aspect ratio would put every
+ * settled key back on the table. Keying off the existing file cannot move a
+ * film.
+ *
+ * Same cache, same chunking, same query text as a full run would produce, so
+ * the two paths stay warm for each other: an --extend today makes the
+ * extension queries free in the next full harvest, and vice versa.
+ *
+ * Refuses to write when any chunk failed all retries, for the same reason the
+ * resolve guard does: a film in a dead chunk is indistinguishable downstream
+ * from a film Wikidata records nothing for, and every coverage number computed
+ * over the output would silently read low. Re-run to resume from the cache.
+ */
+async function extendExisting() {
+  const file = path.join(OUT, "harvest.json");
+  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  const films = data.films;
+  const labels = data.labels = data.labels || {};
+  const keys = Object.keys(films);
+  const qids = keys.map((k) => films[k].qid);
+  const byQid = {};
+  for (const k of keys) byQid[films[k].qid] = films[k];
+  console.log("extending harvest: " + keys.length + " films");
+
+  const stats = { failedChunks: 0 };
+  for (const f of Object.values(films)) {
+    for (const n of EXTEND_FLAT_FIELDS) if (!Array.isArray(f[n])) f[n] = [];
+    if (!Array.isArray(f.colour)) f.colour = [];
+    if (!("runtime" in f)) { f.runtime = null; f.runtimeCuts = 0; }
+  }
+
+  /* colour first: the extension brief's "colour-process detail" question is
+     answered by P462's own value space (Technicolor and Eastmancolor are P462
+     values, not a separate property), so a harvest.json written before P462
+     landed in PROPS gets it filled here rather than by a full re-run. */
+  const sweep = [["colour", "P462", "flat"]].concat(EXTEND_PROPS);
+  for (const [name, prop, kind] of sweep) {
+    const rows = await fetchProp(name, prop, qids, stats);
+    let n = 0;
+    for (const r of rows) {
+      const f = byQid[qid(cell(r, "f"))];
+      const v = qid(cell(r, "v"));
+      if (!f || !v) continue;
+      const lab = cell(r, "vLabel");
+      if (lab && !/^Q\d+$/.test(lab)) labels[v] = lab;
+      if (kind === "crew") { (f.crew[name] = f.crew[name] || []); if (f.crew[name].indexOf(v) < 0) { f.crew[name].push(v); n++; } }
+      else if (f[name].indexOf(v) < 0) { f[name].push(v); n++; }
+    }
+    console.log("  " + name.padEnd(19) + n + " statements");
+  }
+
+  /* runtime, when this file predates fetchDuration. Statement-level with unit
+     handling — see the P2047 comment above for why wdt: would be wrong. */
+  if (!keys.some((k) => films[k].runtime != null)) {
+    const durStats = { deprecated: 0, badUnit: 0, badAmount: 0 };
+    const durations = await fetchDuration(qids, durStats);
+    let withRuntime = 0;
+    for (const k of keys) {
+      const d = durations[films[k].qid];
+      if (!d || d.value == null) continue;
+      films[k].runtime = d.value;
+      films[k].runtimeCuts = d.cuts;
+      withRuntime++;
+    }
+    console.log("  " + "runtime".padEnd(19) + withRuntime + " films"
+      + (durStats.badUnit || durStats.deprecated ? " (rejected: " + durStats.deprecated + " deprecated, " + durStats.badUnit + " unusable unit)" : ""));
+  }
+
+  const directors = [...new Set(Object.values(films).flatMap((f) => (f.crew.director || [])))];
+  console.log("maker formation for " + directors.length + " directors ...");
+  const makers = await fetchMakers(directors, labels, stats);
+  data.makers = makers;
+
+  if (stats.failedChunks) {
+    console.error("!! " + stats.failedChunks + " chunk(s) never answered after retries. Coverage "
+      + "numbers computed over a harvest with holes read low with no way to tell. "
+      + "Nothing written — re-run to resume from .cache-sparql/.");
+    process.exit(1);
+  }
+  fs.writeFileSync(file, JSON.stringify(data, null, 1));
+  console.log("\nDONE -- rewrote pipeline/out/harvest.json with extension fields"
+    + " (films " + keys.length + ", labels " + Object.keys(labels).length
+    + ", makers " + Object.keys(makers).length + ")");
+}
+
 /* Exported so a measurement of a harvested field runs the SAME fetcher the
    harvest runs, against the same .cache-sparql/ keys — the reason plot-source.js
    exports runGate1 to axis-gates.js. A field measured by a second copy of the
    query is a field whose coverage number can disagree with the corpus. */
-module.exports = { fetchProp, fetchDuration, pickRuntime, sparql, DURATION_UNITS, CHUNK };
+module.exports = { fetchProp, fetchDuration, pickRuntime, sparql, DURATION_UNITS, CHUNK, EXTEND_PROPS, MAKER_PROPS };
 
 if (require.main === module) {
-  main().catch((e) => { console.error(e); process.exit(1); });
+  const run = process.argv.indexOf("--extend") > -1 ? extendExisting : main;
+  run().catch((e) => { console.error(e); process.exit(1); });
 }
