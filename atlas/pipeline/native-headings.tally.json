@@ -1,0 +1,4886 @@
+{
+ "rows": {
+  "fr": [
+   {
+    "heading": "fiche technique",
+    "raw": "Fiche technique",
+    "n": 100,
+    "pos": 1.0,
+    "chars": 597,
+    "list": 1.0
+   },
+   {
+    "heading": "synopsis",
+    "raw": "Synopsis",
+    "n": 96,
+    "pos": 0.0,
+    "chars": 732,
+    "list": 0.0
+   },
+   {
+    "heading": "distribution",
+    "raw": "Distribution",
+    "n": 93,
+    "pos": 2,
+    "chars": 311,
+    "list": 1.0
+   },
+   {
+    "heading": "notes et références",
+    "raw": "Notes et références",
+    "n": 85,
+    "pos": 5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "liens externes",
+    "raw": "Liens externes",
+    "n": 56,
+    "pos": 5.0,
+    "chars": 493,
+    "list": 0.01
+   },
+   {
+    "heading": "voir aussi",
+    "raw": "Voir aussi",
+    "n": 41,
+    "pos": 6,
+    "chars": 662,
+    "list": 0.14
+   },
+   {
+    "heading": "production",
+    "raw": "Production",
+    "n": 33,
+    "pos": 3,
+    "chars": 941,
+    "list": 0.0
+   },
+   {
+    "heading": "distinctions",
+    "raw": "Distinctions",
+    "n": 26,
+    "pos": 4.0,
+    "chars": 183,
+    "list": 1.0
+   },
+   {
+    "heading": "autour du film",
+    "raw": "Autour du film",
+    "n": 21,
+    "pos": 4,
+    "chars": 339,
+    "list": 1.0
+   },
+   {
+    "heading": "analyse",
+    "raw": "Analyse",
+    "n": 10,
+    "pos": 4.0,
+    "chars": 1054,
+    "list": 0.0
+   },
+   {
+    "heading": "accueil critique",
+    "raw": "Accueil critique",
+    "n": 9,
+    "pos": 4,
+    "chars": 484,
+    "list": 0.0
+   },
+   {
+    "heading": "annexes",
+    "raw": "Annexes",
+    "n": 9,
+    "pos": 8,
+    "chars": 1063,
+    "list": 0.21
+   },
+   {
+    "heading": "références",
+    "raw": "Références",
+    "n": 8,
+    "pos": 5.0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "accueil",
+    "raw": "Accueil",
+    "n": 8,
+    "pos": 4.0,
+    "chars": 34,
+    "list": 0.0
+   },
+   {
+    "heading": "exploitation",
+    "raw": "Exploitation",
+    "n": 5,
+    "pos": 4,
+    "chars": 2104,
+    "list": 0.0
+   },
+   {
+    "heading": "récompenses et distinctions",
+    "raw": "Récompenses et distinctions",
+    "n": 4,
+    "pos": 4.0,
+    "chars": 166,
+    "list": 0.88
+   },
+   {
+    "heading": "postérité",
+    "raw": "Postérité",
+    "n": 4,
+    "pos": 5.0,
+    "chars": 935,
+    "list": 0.0
+   },
+   {
+    "heading": "tournage",
+    "raw": "Tournage",
+    "n": 3,
+    "pos": 4,
+    "chars": 254,
+    "list": 0.23
+   },
+   {
+    "heading": "musique",
+    "raw": "Musique",
+    "n": 3,
+    "pos": 3,
+    "chars": 163,
+    "list": 0.0
+   },
+   {
+    "heading": "sujet",
+    "raw": "Sujet",
+    "n": 3,
+    "pos": 0,
+    "chars": 480,
+    "list": 0.0
+   },
+   {
+    "heading": "distinction",
+    "raw": "Distinction",
+    "n": 3,
+    "pos": 5,
+    "chars": 77,
+    "list": 1.0
+   },
+   {
+    "heading": "sélection",
+    "raw": "Sélection",
+    "n": 3,
+    "pos": 5,
+    "chars": 67,
+    "list": 1.0
+   },
+   {
+    "heading": "fiche technique générale",
+    "raw": "Fiche technique générale",
+    "n": 3,
+    "pos": 1,
+    "chars": 399,
+    "list": 1.0
+   },
+   {
+    "heading": "articles connexes",
+    "raw": "Articles connexes",
+    "n": 3,
+    "pos": 4,
+    "chars": 33,
+    "list": 1.0
+   },
+   {
+    "heading": "bibliographie",
+    "raw": "Bibliographie",
+    "n": 3,
+    "pos": 5,
+    "chars": 125,
+    "list": 1.0
+   },
+   {
+    "heading": "influence",
+    "raw": "Influence",
+    "n": 2,
+    "pos": 6.0,
+    "chars": 848,
+    "list": 0.0
+   },
+   {
+    "heading": "réception",
+    "raw": "Réception",
+    "n": 2,
+    "pos": 3.0,
+    "chars": 127,
+    "list": 0.0
+   },
+   {
+    "heading": "lieux de tournage",
+    "raw": "Lieux de tournage",
+    "n": 2,
+    "pos": 4.0,
+    "chars": 614,
+    "list": 0.48
+   },
+   {
+    "heading": "commentaire",
+    "raw": "Commentaire",
+    "n": 2,
+    "pos": 2.5,
+    "chars": 765,
+    "list": 0.4
+   },
+   {
+    "heading": "sortie et accueil",
+    "raw": "Sortie et accueil",
+    "n": 2,
+    "pos": 3.5,
+    "chars": 948,
+    "list": 0.0
+   },
+   {
+    "heading": "genèse du film",
+    "raw": "Genèse du film",
+    "n": 2,
+    "pos": 4.0,
+    "chars": 2135,
+    "list": 0.0
+   },
+   {
+    "heading": "résumé",
+    "raw": "Résumé",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 1929,
+    "list": 0.0
+   },
+   {
+    "heading": "commentaires",
+    "raw": "Commentaires",
+    "n": 1,
+    "pos": 3,
+    "chars": 669,
+    "list": 0.0
+   },
+   {
+    "heading": "éditions vidéo",
+    "raw": "Éditions vidéo",
+    "n": 1,
+    "pos": 5,
+    "chars": 167,
+    "list": 0.0
+   },
+   {
+    "heading": "références au film",
+    "raw": "Références au film",
+    "n": 1,
+    "pos": 9,
+    "chars": 825,
+    "list": 0.0
+   },
+   {
+    "heading": "description de lœuvre",
+    "raw": "Description de l'œuvre",
+    "n": 1,
+    "pos": 3,
+    "chars": 813,
+    "list": 0.0
+   },
+   {
+    "heading": "sortie et réception du public",
+    "raw": "Sortie et réception du public",
+    "n": 1,
+    "pos": 4,
+    "chars": 1413,
+    "list": 0.0
+   },
+   {
+    "heading": "controverse",
+    "raw": "Controverse",
+    "n": 1,
+    "pos": 5,
+    "chars": 2223,
+    "list": 0.0
+   },
+   {
+    "heading": "postérité et influences",
+    "raw": "Postérité et influences",
+    "n": 1,
+    "pos": 6,
+    "chars": 715,
+    "list": 0.0
+   },
+   {
+    "heading": "photos du film",
+    "raw": "Photos du film",
+    "n": 1,
+    "pos": 7,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "technique de tournage",
+    "raw": "Technique de tournage",
+    "n": 1,
+    "pos": 1,
+    "chars": 710,
+    "list": 0.0
+   },
+   {
+    "heading": "renaissance du tableau glaneuses à chambaudoin",
+    "raw": "Renaissance du tableau ''Glaneuses à Chambaudoin''",
+    "n": 1,
+    "pos": 2,
+    "chars": 1714,
+    "list": 0.0
+   },
+   {
+    "heading": "mise à disposition du film et des rushes pour les étudiants",
+    "raw": "Mise à disposition du film et des rushes, pour les étudiants",
+    "n": 1,
+    "pos": 3,
+    "chars": 1213,
+    "list": 0.0
+   },
+   {
+    "heading": "bandeson",
+    "raw": "Bande-son",
+    "n": 1,
+    "pos": 6,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "hommages",
+    "raw": "Hommages",
+    "n": 1,
+    "pos": 5,
+    "chars": 311,
+    "list": 0.5
+   },
+   {
+    "heading": "lieu de tournage",
+    "raw": "Lieu de tournage",
+    "n": 1,
+    "pos": 3,
+    "chars": 253,
+    "list": 0.0
+   },
+   {
+    "heading": "bande son",
+    "raw": "Bande son",
+    "n": 1,
+    "pos": 6,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "critique",
+    "raw": "Critique",
+    "n": 1,
+    "pos": 4,
+    "chars": 1397,
+    "list": 0.0
+   },
+   {
+    "heading": "sortie vidéo",
+    "raw": "Sortie vidéo",
+    "n": 1,
+    "pos": 6,
+    "chars": 153,
+    "list": 0.0
+   },
+   {
+    "heading": "restauration",
+    "raw": "Restauration",
+    "n": 1,
+    "pos": 3,
+    "chars": 503,
+    "list": 0.0
+   },
+   {
+    "heading": "lieux de tournage et intervenants",
+    "raw": "Lieux de tournage et intervenants",
+    "n": 1,
+    "pos": 2,
+    "chars": 1927,
+    "list": 0.95
+   },
+   {
+    "heading": "les cinq bienfaiteurs de fumiko horikawa",
+    "raw": "Les Cinq Bienfaiteurs de Fumiko (Horikawa)",
+    "n": 1,
+    "pos": 1,
+    "chars": 546,
+    "list": 0.64
+   },
+   {
+    "heading": "la rivière de diamants polanski",
+    "raw": "La Rivière de diamants (Polanski)",
+    "n": 1,
+    "pos": 2,
+    "chars": 636,
+    "list": 0.67
+   },
+   {
+    "heading": "la feuille de route gregoretti",
+    "raw": "La Feuille de route (Gregoretti)",
+    "n": 1,
+    "pos": 3,
+    "chars": 776,
+    "list": 0.64
+   },
+   {
+    "heading": "lhomme qui vendit la tour eiffel chabrol",
+    "raw": "L'Homme qui vendit la tour Eiffel (Chabrol)",
+    "n": 1,
+    "pos": 4,
+    "chars": 724,
+    "list": 0.81
+   },
+   {
+    "heading": "le grand escroc godard",
+    "raw": "Le Grand Escroc (Godard)",
+    "n": 1,
+    "pos": 5,
+    "chars": 523,
+    "list": 0.69
+   },
+   {
+    "heading": "héritage",
+    "raw": "Héritage",
+    "n": 1,
+    "pos": 6,
+    "chars": 1471,
+    "list": 0.5
+   },
+   {
+    "heading": "concept",
+    "raw": "Concept",
+    "n": 1,
+    "pos": 0,
+    "chars": 740,
+    "list": 0.0
+   },
+   {
+    "heading": "les dixhuit sketches",
+    "raw": "Les dix-huit sketches",
+    "n": 1,
+    "pos": 2,
+    "chars": 20111,
+    "list": 0.6
+   },
+   {
+    "heading": "critiques",
+    "raw": "Critiques",
+    "n": 1,
+    "pos": 3,
+    "chars": 1291,
+    "list": 0.0
+   },
+   {
+    "heading": "boxoffice",
+    "raw": "Box-office",
+    "n": 1,
+    "pos": 4,
+    "chars": 36,
+    "list": 1.0
+   },
+   {
+    "heading": "paris vu par",
+    "raw": "''Paris vu par…''",
+    "n": 1,
+    "pos": 0,
+    "chars": 445,
+    "list": 0.0
+   },
+   {
+    "heading": "les six sketches",
+    "raw": "Les six sketches",
+    "n": 1,
+    "pos": 2,
+    "chars": 4480,
+    "list": 0.0
+   },
+   {
+    "heading": "divers",
+    "raw": "Divers",
+    "n": 1,
+    "pos": 3,
+    "chars": 219,
+    "list": 1.0
+   },
+   {
+    "heading": "épisodes",
+    "raw": "Épisodes",
+    "n": 1,
+    "pos": 3,
+    "chars": 383,
+    "list": 0.92
+   },
+   {
+    "heading": "réception critique",
+    "raw": "Réception critique",
+    "n": 1,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "bande originale",
+    "raw": "Bande originale",
+    "n": 1,
+    "pos": 4,
+    "chars": 243,
+    "list": 1.0
+   },
+   {
+    "heading": "censure",
+    "raw": "Censure",
+    "n": 1,
+    "pos": 3,
+    "chars": 462,
+    "list": 0.0
+   },
+   {
+    "heading": "production du film",
+    "raw": "Production du film",
+    "n": 1,
+    "pos": 3,
+    "chars": 2135,
+    "list": 0.0
+   },
+   {
+    "heading": "influence du film",
+    "raw": "Influence du film",
+    "n": 1,
+    "pos": 5,
+    "chars": 442,
+    "list": 0.0
+   },
+   {
+    "heading": "citations",
+    "raw": "Citations",
+    "n": 1,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "contexte",
+    "raw": "Contexte",
+    "n": 1,
+    "pos": 0,
+    "chars": 587,
+    "list": 0.0
+   },
+   {
+    "heading": "œuvre connexe",
+    "raw": "Œuvre connexe",
+    "n": 1,
+    "pos": 4,
+    "chars": 107,
+    "list": 1.0
+   },
+   {
+    "heading": "caractéristiques générales",
+    "raw": "Caractéristiques générales",
+    "n": 1,
+    "pos": 0,
+    "chars": 1114,
+    "list": 0.0
+   },
+   {
+    "heading": "production et formation du groupe dziga vertov",
+    "raw": "Production et formation du groupe Dziga Vertov",
+    "n": 1,
+    "pos": 2,
+    "chars": 693,
+    "list": 0.0
+   },
+   {
+    "heading": "participants",
+    "raw": "Participants",
+    "n": 1,
+    "pos": 2,
+    "chars": 304,
+    "list": 1.0
+   },
+   {
+    "heading": "historique de lœuvre",
+    "raw": "Historique de l'œuvre",
+    "n": 1,
+    "pos": 3,
+    "chars": 797,
+    "list": 0.0
+   },
+   {
+    "heading": "vidéographie",
+    "raw": "Vidéographie",
+    "n": 1,
+    "pos": 5,
+    "chars": 109,
+    "list": 1.0
+   },
+   {
+    "heading": "thèmes et contexte",
+    "raw": "Thèmes et contexte",
+    "n": 1,
+    "pos": 1,
+    "chars": 634,
+    "list": 0.0
+   },
+   {
+    "heading": "appréciation critique",
+    "raw": "Appréciation critique",
+    "n": 1,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "adaptations",
+    "raw": "Adaptations",
+    "n": 1,
+    "pos": 3,
+    "chars": 172,
+    "list": 1.0
+   },
+   {
+    "heading": "le contexte",
+    "raw": "Le contexte",
+    "n": 1,
+    "pos": 1,
+    "chars": 1259,
+    "list": 0.5
+   },
+   {
+    "heading": "personnages",
+    "raw": "Personnages",
+    "n": 1,
+    "pos": 1,
+    "chars": 239,
+    "list": 0.0
+   },
+   {
+    "heading": "réception critique et publique",
+    "raw": "Réception critique et publique",
+    "n": 1,
+    "pos": 4,
+    "chars": 71,
+    "list": 0.0
+   },
+   {
+    "heading": "à noter",
+    "raw": "À noter",
+    "n": 1,
+    "pos": 3,
+    "chars": 726,
+    "list": 0.8
+   },
+   {
+    "heading": "thème",
+    "raw": "Thème",
+    "n": 1,
+    "pos": 0,
+    "chars": 742,
+    "list": 0.8
+   },
+   {
+    "heading": "commentaires généraux sur le film",
+    "raw": "Commentaires généraux sur le film",
+    "n": 1,
+    "pos": 3,
+    "chars": 1902,
+    "list": 0.31
+   },
+   {
+    "heading": "origine et reconnaissance internationale",
+    "raw": "Origine et reconnaissance internationale",
+    "n": 1,
+    "pos": 3,
+    "chars": 765,
+    "list": 0.0
+   },
+   {
+    "heading": "réception critique récente",
+    "raw": "Réception critique récente",
+    "n": 1,
+    "pos": 4,
+    "chars": 1051,
+    "list": 0.0
+   },
+   {
+    "heading": "autour de jeanne dielman",
+    "raw": "Autour de ''Jeanne Dielman''",
+    "n": 1,
+    "pos": 5,
+    "chars": 451,
+    "list": 1.0
+   },
+   {
+    "heading": "ouvrages",
+    "raw": "Ouvrages",
+    "n": 1,
+    "pos": 6,
+    "chars": 5,
+    "list": 1.0
+   }
+  ],
+  "de": [
+   {
+    "heading": "weblinks",
+    "raw": "Weblinks",
+    "n": 62,
+    "pos": 4.0,
+    "chars": 49,
+    "list": 1.0
+   },
+   {
+    "heading": "einzelnachweise",
+    "raw": "Einzelnachweise",
+    "n": 56,
+    "pos": 5.0,
+    "chars": 129,
+    "list": 0.0
+   },
+   {
+    "heading": "handlung",
+    "raw": "Handlung",
+    "n": 48,
+    "pos": 0.0,
+    "chars": 1747,
+    "list": 0.0
+   },
+   {
+    "heading": "kritiken",
+    "raw": "Kritiken",
+    "n": 26,
+    "pos": 2.0,
+    "chars": 71,
+    "list": 0.0
+   },
+   {
+    "heading": "hintergrund",
+    "raw": "Hintergrund",
+    "n": 22,
+    "pos": 1.0,
+    "chars": 859,
+    "list": 0.0
+   },
+   {
+    "heading": "auszeichnungen",
+    "raw": "Auszeichnungen",
+    "n": 21,
+    "pos": 3,
+    "chars": 229,
+    "list": 0.56
+   },
+   {
+    "heading": "literatur",
+    "raw": "Literatur",
+    "n": 21,
+    "pos": 4,
+    "chars": 243,
+    "list": 1.0
+   },
+   {
+    "heading": "kritik",
+    "raw": "Kritik",
+    "n": 19,
+    "pos": 2,
+    "chars": 252,
+    "list": 0.0
+   },
+   {
+    "heading": "inhalt",
+    "raw": "Inhalt",
+    "n": 11,
+    "pos": 0,
+    "chars": 1279,
+    "list": 0.0
+   },
+   {
+    "heading": "produktionsnotizen",
+    "raw": "Produktionsnotizen",
+    "n": 9,
+    "pos": 1,
+    "chars": 438,
+    "list": 0.0
+   },
+   {
+    "heading": "rezeption",
+    "raw": "Rezeption",
+    "n": 8,
+    "pos": 2.0,
+    "chars": 1833,
+    "list": 0.0
+   },
+   {
+    "heading": "produktion",
+    "raw": "Produktion",
+    "n": 6,
+    "pos": 1.0,
+    "chars": 777,
+    "list": 0.0
+   },
+   {
+    "heading": "veröffentlichung",
+    "raw": "Veröffentlichung",
+    "n": 3,
+    "pos": 2,
+    "chars": 438,
+    "list": 0.0
+   },
+   {
+    "heading": "anmerkungen",
+    "raw": "Anmerkungen",
+    "n": 3,
+    "pos": 4,
+    "chars": 128,
+    "list": 0.0
+   },
+   {
+    "heading": "entstehungsgeschichte",
+    "raw": "Entstehungsgeschichte",
+    "n": 3,
+    "pos": 1,
+    "chars": 4370,
+    "list": 0.0
+   },
+   {
+    "heading": "trivia",
+    "raw": "Trivia",
+    "n": 2,
+    "pos": 4.5,
+    "chars": 621,
+    "list": 0.0
+   },
+   {
+    "heading": "auszeichnung",
+    "raw": "Auszeichnung",
+    "n": 2,
+    "pos": 3.5,
+    "chars": 68,
+    "list": 0.5
+   },
+   {
+    "heading": "entstehung",
+    "raw": "Entstehung",
+    "n": 2,
+    "pos": 1.0,
+    "chars": 907,
+    "list": 0.0
+   },
+   {
+    "heading": "synchronisation",
+    "raw": "Synchronisation",
+    "n": 2,
+    "pos": 2.0,
+    "chars": 173,
+    "list": 0.0
+   },
+   {
+    "heading": "dvdveröffentlichung",
+    "raw": "DVD-Veröffentlichung",
+    "n": 2,
+    "pos": 4.0,
+    "chars": 88,
+    "list": 0.0
+   },
+   {
+    "heading": "musik",
+    "raw": "Musik",
+    "n": 2,
+    "pos": 2.5,
+    "chars": 607,
+    "list": 0.4
+   },
+   {
+    "heading": "quellen",
+    "raw": "Quellen",
+    "n": 2,
+    "pos": 5.5,
+    "chars": 261,
+    "list": 0.5
+   },
+   {
+    "heading": "adaption",
+    "raw": "Adaption",
+    "n": 1,
+    "pos": 1,
+    "chars": 361,
+    "list": 0.0
+   },
+   {
+    "heading": "siehe auch",
+    "raw": "Siehe auch",
+    "n": 1,
+    "pos": 5,
+    "chars": 20,
+    "list": 1.0
+   },
+   {
+    "heading": "prolog",
+    "raw": "Prolog",
+    "n": 1,
+    "pos": 0,
+    "chars": 942,
+    "list": 0.0
+   },
+   {
+    "heading": "epilog",
+    "raw": "Epilog",
+    "n": 1,
+    "pos": 2,
+    "chars": 1359,
+    "list": 0.0
+   },
+   {
+    "heading": "produktion und hintergrund",
+    "raw": "Produktion und Hintergrund",
+    "n": 1,
+    "pos": 3,
+    "chars": 3667,
+    "list": 0.0
+   },
+   {
+    "heading": "zitate",
+    "raw": "Zitate",
+    "n": 1,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "kritik und auszeichnungen",
+    "raw": "Kritik und Auszeichnungen",
+    "n": 1,
+    "pos": 2,
+    "chars": 826,
+    "list": 0.0
+   },
+   {
+    "heading": "festivals",
+    "raw": "Festivals",
+    "n": 1,
+    "pos": 1,
+    "chars": 453,
+    "list": 0.89
+   },
+   {
+    "heading": "konflikt um nacktszene",
+    "raw": "Konflikt um Nacktszene",
+    "n": 1,
+    "pos": 2,
+    "chars": 1691,
+    "list": 0.0
+   },
+   {
+    "heading": "darstellung",
+    "raw": "Darstellung",
+    "n": 1,
+    "pos": 1,
+    "chars": 1467,
+    "list": 0.0
+   },
+   {
+    "heading": "stil",
+    "raw": "Stil",
+    "n": 1,
+    "pos": 0,
+    "chars": 341,
+    "list": 0.0
+   },
+   {
+    "heading": "hintergrund veröffentlichung",
+    "raw": "Hintergrund, Veröffentlichung",
+    "n": 1,
+    "pos": 1,
+    "chars": 1986,
+    "list": 0.0
+   },
+   {
+    "heading": "bedeutung und stil",
+    "raw": "Bedeutung und Stil",
+    "n": 1,
+    "pos": 1,
+    "chars": 1266,
+    "list": 0.57
+   },
+   {
+    "heading": "entstehung und veröffentlichung",
+    "raw": "Entstehung und Veröffentlichung",
+    "n": 1,
+    "pos": 2,
+    "chars": 1178,
+    "list": 0.0
+   },
+   {
+    "heading": "filmanalyse",
+    "raw": "Filmanalyse",
+    "n": 1,
+    "pos": 3,
+    "chars": 8867,
+    "list": 0.0
+   },
+   {
+    "heading": "drehorte",
+    "raw": "Drehorte",
+    "n": 1,
+    "pos": 3,
+    "chars": 1077,
+    "list": 0.0
+   },
+   {
+    "heading": "darsteller",
+    "raw": "Darsteller",
+    "n": 1,
+    "pos": 4,
+    "chars": 1108,
+    "list": 0.0
+   },
+   {
+    "heading": "gekürzte szenen",
+    "raw": "Gekürzte Szenen",
+    "n": 1,
+    "pos": 5,
+    "chars": 925,
+    "list": 0.0
+   },
+   {
+    "heading": "hintergrundnotizen",
+    "raw": "Hintergrundnotizen",
+    "n": 1,
+    "pos": 1,
+    "chars": 3208,
+    "list": 0.0
+   },
+   {
+    "heading": "hintergrund und produktionsnotizen",
+    "raw": "Hintergrund und Produktionsnotizen",
+    "n": 1,
+    "pos": 1,
+    "chars": 1339,
+    "list": 0.0
+   },
+   {
+    "heading": "fassbinder über den film",
+    "raw": "Fassbinder über den Film",
+    "n": 1,
+    "pos": 2,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "adaptierte titelübernahmen",
+    "raw": "Adaptierte Titelübernahmen",
+    "n": 1,
+    "pos": 5,
+    "chars": 493,
+    "list": 1.0
+   },
+   {
+    "heading": "dvd",
+    "raw": "DVD",
+    "n": 1,
+    "pos": 6,
+    "chars": 388,
+    "list": 1.0
+   },
+   {
+    "heading": "theateraufführungen",
+    "raw": "Theateraufführungen",
+    "n": 1,
+    "pos": 4,
+    "chars": 1163,
+    "list": 1.0
+   },
+   {
+    "heading": "vertonung",
+    "raw": "Vertonung",
+    "n": 1,
+    "pos": 4,
+    "chars": 51,
+    "list": 0.0
+   },
+   {
+    "heading": "auszeichnungen und nominierungen",
+    "raw": "Auszeichnungen und Nominierungen",
+    "n": 1,
+    "pos": 2,
+    "chars": 81,
+    "list": 0.0
+   },
+   {
+    "heading": "zitat",
+    "raw": "Zitat",
+    "n": 1,
+    "pos": 5,
+    "chars": 191,
+    "list": 0.0
+   },
+   {
+    "heading": "hintergründe",
+    "raw": "Hintergründe",
+    "n": 1,
+    "pos": 1,
+    "chars": 436,
+    "list": 0.0
+   },
+   {
+    "heading": "wissenswertes",
+    "raw": "Wissenswertes",
+    "n": 1,
+    "pos": 2,
+    "chars": 285,
+    "list": 0.0
+   },
+   {
+    "heading": "überlieferung",
+    "raw": "Überlieferung",
+    "n": 1,
+    "pos": 2,
+    "chars": 120,
+    "list": 0.0
+   },
+   {
+    "heading": "weiteres",
+    "raw": "Weiteres",
+    "n": 1,
+    "pos": 1,
+    "chars": 904,
+    "list": 0.0
+   },
+   {
+    "heading": "buchausgabe",
+    "raw": "Buchausgabe",
+    "n": 1,
+    "pos": 4,
+    "chars": 105,
+    "list": 0.0
+   },
+   {
+    "heading": "hörbuch",
+    "raw": "Hörbuch",
+    "n": 1,
+    "pos": 5,
+    "chars": 159,
+    "list": 1.0
+   }
+  ],
+  "ru": [
+   {
+    "heading": "сюжет",
+    "raw": "Сюжет",
+    "n": 4,
+    "pos": 0.5,
+    "chars": 576,
+    "list": 0.0
+   },
+   {
+    "heading": "примечания",
+    "raw": "Примечания",
+    "n": 2,
+    "pos": 3.5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "литература",
+    "raw": "Литература",
+    "n": 2,
+    "pos": 4.5,
+    "chars": 385,
+    "list": 0.16
+   },
+   {
+    "heading": "ссылки",
+    "raw": "Ссылки",
+    "n": 2,
+    "pos": 5.5,
+    "chars": 459,
+    "list": 0.1
+   },
+   {
+    "heading": "в ролях",
+    "raw": "В ролях",
+    "n": 2,
+    "pos": 1.0,
+    "chars": 187,
+    "list": 0.5
+   },
+   {
+    "heading": "авторский замысел",
+    "raw": "Авторский замысел",
+    "n": 1,
+    "pos": 0,
+    "chars": 916,
+    "list": 0.0
+   },
+   {
+    "heading": "симфония монтажа",
+    "raw": "Симфония монтажа",
+    "n": 1,
+    "pos": 2,
+    "chars": 1327,
+    "list": 0.0
+   },
+   {
+    "heading": "звуковое сопровождение",
+    "raw": "Звуковое сопровождение",
+    "n": 1,
+    "pos": 3,
+    "chars": 346,
+    "list": 0.0
+   },
+   {
+    "heading": "источники",
+    "raw": "Источники",
+    "n": 1,
+    "pos": 5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "история создания",
+    "raw": "История создания",
+    "n": 1,
+    "pos": 0,
+    "chars": 937,
+    "list": 0.0
+   },
+   {
+    "heading": "монтаж",
+    "raw": "Монтаж",
+    "n": 1,
+    "pos": 2,
+    "chars": 2937,
+    "list": 0.0
+   },
+   {
+    "heading": "комментарии",
+    "raw": "Комментарии",
+    "n": 1,
+    "pos": 2,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "съёмочная группа",
+    "raw": "Съёмочная группа",
+    "n": 1,
+    "pos": 2,
+    "chars": 740,
+    "list": 0.25
+   }
+  ],
+  "ja": [
+   {
+    "heading": "外部リンク",
+    "raw": "外部リンク",
+    "n": 94,
+    "pos": 6.0,
+    "chars": 222,
+    "list": 0.2
+   },
+   {
+    "heading": "脚注",
+    "raw": "脚注",
+    "n": 83,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "スタッフ",
+    "raw": "スタッフ",
+    "n": 81,
+    "pos": 2,
+    "chars": 133,
+    "list": 1.0
+   },
+   {
+    "heading": "キャスト",
+    "raw": "キャスト",
+    "n": 66,
+    "pos": 1.0,
+    "chars": 251,
+    "list": 1.0
+   },
+   {
+    "heading": "あらすじ",
+    "raw": "あらすじ",
+    "n": 51,
+    "pos": 0,
+    "chars": 406,
+    "list": 0.0
+   },
+   {
+    "heading": "関連項目",
+    "raw": "関連項目",
+    "n": 33,
+    "pos": 6,
+    "chars": 40,
+    "list": 1.0
+   },
+   {
+    "heading": "参考文献",
+    "raw": "参考文献",
+    "n": 31,
+    "pos": 6,
+    "chars": 11,
+    "list": 1.0
+   },
+   {
+    "heading": "概要",
+    "raw": "概要",
+    "n": 22,
+    "pos": 0.0,
+    "chars": 415,
+    "list": 0.0
+   },
+   {
+    "heading": "ストーリー",
+    "raw": "ストーリー",
+    "n": 16,
+    "pos": 0.0,
+    "chars": 227,
+    "list": 0.0
+   },
+   {
+    "heading": "受賞",
+    "raw": "受賞",
+    "n": 14,
+    "pos": 3.0,
+    "chars": 86,
+    "list": 1.0
+   },
+   {
+    "heading": "テレビドラマ",
+    "raw": "テレビドラマ",
+    "n": 13,
+    "pos": 4,
+    "chars": 350,
+    "list": 0.5
+   },
+   {
+    "heading": "映画",
+    "raw": "映画",
+    "n": 13,
+    "pos": 2,
+    "chars": 1671,
+    "list": 0.6
+   },
+   {
+    "heading": "受賞歴",
+    "raw": "受賞歴",
+    "n": 11,
+    "pos": 3,
+    "chars": 109,
+    "list": 1.0
+   },
+   {
+    "heading": "エピソード",
+    "raw": "エピソード",
+    "n": 9,
+    "pos": 4,
+    "chars": 208,
+    "list": 0.0
+   },
+   {
+    "heading": "出演者",
+    "raw": "出演者",
+    "n": 8,
+    "pos": 2.0,
+    "chars": 462,
+    "list": 0.96
+   },
+   {
+    "heading": "同時上映",
+    "raw": "同時上映",
+    "n": 7,
+    "pos": 3,
+    "chars": 42,
+    "list": 0.67
+   },
+   {
+    "heading": "製作",
+    "raw": "製作",
+    "n": 6,
+    "pos": 3.0,
+    "chars": 1416,
+    "list": 0.0
+   },
+   {
+    "heading": "評価",
+    "raw": "評価",
+    "n": 5,
+    "pos": 4,
+    "chars": 928,
+    "list": 0.0
+   },
+   {
+    "heading": "登場人物",
+    "raw": "登場人物",
+    "n": 5,
+    "pos": 1,
+    "chars": 926,
+    "list": 0.0
+   },
+   {
+    "heading": "作品の評価",
+    "raw": "作品の評価",
+    "n": 4,
+    "pos": 4.0,
+    "chars": 477,
+    "list": 0.66
+   },
+   {
+    "heading": "舞台",
+    "raw": "舞台",
+    "n": 4,
+    "pos": 3.5,
+    "chars": 45,
+    "list": 0.0
+   },
+   {
+    "heading": "作品解説",
+    "raw": "作品解説",
+    "n": 4,
+    "pos": 3.0,
+    "chars": 595,
+    "list": 0.0
+   },
+   {
+    "heading": "映像ソフト",
+    "raw": "映像ソフト",
+    "n": 4,
+    "pos": 5.0,
+    "chars": 67,
+    "list": 1.0
+   },
+   {
+    "heading": "公開",
+    "raw": "公開",
+    "n": 3,
+    "pos": 3,
+    "chars": 238,
+    "list": 0.0
+   },
+   {
+    "heading": "小説",
+    "raw": "小説",
+    "n": 3,
+    "pos": 0,
+    "chars": 168,
+    "list": 0.0
+   },
+   {
+    "heading": "その他",
+    "raw": "その他",
+    "n": 3,
+    "pos": 5,
+    "chars": 235,
+    "list": 1.0
+   },
+   {
+    "heading": "出演",
+    "raw": "出演",
+    "n": 3,
+    "pos": 1,
+    "chars": 302,
+    "list": 1.0
+   },
+   {
+    "heading": "撮影",
+    "raw": "撮影",
+    "n": 3,
+    "pos": 3,
+    "chars": 830,
+    "list": 0.0
+   },
+   {
+    "heading": "解説",
+    "raw": "解説",
+    "n": 2,
+    "pos": 2.5,
+    "chars": 1416,
+    "list": 0.0
+   },
+   {
+    "heading": "ロケ地",
+    "raw": "ロケ地",
+    "n": 2,
+    "pos": 3.5,
+    "chars": 250,
+    "list": 0.5
+   },
+   {
+    "heading": "興行成績",
+    "raw": "興行成績",
+    "n": 2,
+    "pos": 6.0,
+    "chars": 333,
+    "list": 0.0
+   },
+   {
+    "heading": "作品データ",
+    "raw": "作品データ",
+    "n": 2,
+    "pos": 3.0,
+    "chars": 144,
+    "list": 1.0
+   },
+   {
+    "heading": "関連商品",
+    "raw": "関連商品",
+    "n": 2,
+    "pos": 6.5,
+    "chars": 882,
+    "list": 0.5
+   },
+   {
+    "heading": "書誌情報",
+    "raw": "書誌情報",
+    "n": 2,
+    "pos": 2.0,
+    "chars": 368,
+    "list": 1.0
+   },
+   {
+    "heading": "主題歌",
+    "raw": "主題歌",
+    "n": 2,
+    "pos": 3.0,
+    "chars": 217,
+    "list": 0.89
+   },
+   {
+    "heading": "配役",
+    "raw": "配役",
+    "n": 2,
+    "pos": 1.5,
+    "chars": 292,
+    "list": 0.98
+   },
+   {
+    "heading": "併映作品",
+    "raw": "併映作品",
+    "n": 2,
+    "pos": 2.5,
+    "chars": 29,
+    "list": 0.75
+   },
+   {
+    "heading": "略歴概要",
+    "raw": "略歴・概要",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 421,
+    "list": 0.0
+   },
+   {
+    "heading": "概略",
+    "raw": "概略",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 613,
+    "list": 0.0
+   },
+   {
+    "heading": "影響",
+    "raw": "影響",
+    "n": 2,
+    "pos": 4.5,
+    "chars": 296,
+    "list": 0.5
+   },
+   {
+    "heading": "概説",
+    "raw": "概説",
+    "n": 1,
+    "pos": 0,
+    "chars": 687,
+    "list": 0.0
+   },
+   {
+    "heading": "主な性的シーンについて",
+    "raw": "主な性的シーンについて",
+    "n": 1,
+    "pos": 4,
+    "chars": 1448,
+    "list": 0.89
+   },
+   {
+    "heading": "愛のコリーダ事件裁判",
+    "raw": "『愛のコリーダ』事件裁判",
+    "n": 1,
+    "pos": 5,
+    "chars": 179,
+    "list": 0.0
+   },
+   {
+    "heading": "関連作品",
+    "raw": "関連作品",
+    "n": 1,
+    "pos": 6,
+    "chars": 147,
+    "list": 0.67
+   },
+   {
+    "heading": "宣伝",
+    "raw": "宣伝",
+    "n": 1,
+    "pos": 5,
+    "chars": 185,
+    "list": 0.0
+   },
+   {
+    "heading": "製作までの過程",
+    "raw": "製作までの過程",
+    "n": 1,
+    "pos": 1,
+    "chars": 307,
+    "list": 0.0
+   },
+   {
+    "heading": "村のしきたりなど",
+    "raw": "村のしきたりなど",
+    "n": 1,
+    "pos": 3,
+    "chars": 645,
+    "list": 0.58
+   },
+   {
+    "heading": "逸話",
+    "raw": "逸話",
+    "n": 1,
+    "pos": 6,
+    "chars": 2708,
+    "list": 1.0
+   },
+   {
+    "heading": "ラジオドラマ",
+    "raw": "ラジオドラマ",
+    "n": 1,
+    "pos": 2,
+    "chars": 112,
+    "list": 0.0
+   },
+   {
+    "heading": "関連文献",
+    "raw": "関連文献",
+    "n": 1,
+    "pos": 5,
+    "chars": 0,
+    "list": 1.0
+   },
+   {
+    "heading": "スタイル",
+    "raw": "スタイル",
+    "n": 1,
+    "pos": 4,
+    "chars": 266,
+    "list": 0.0
+   },
+   {
+    "heading": "興行成績と評価",
+    "raw": "興行成績と評価",
+    "n": 1,
+    "pos": 1,
+    "chars": 1482,
+    "list": 0.0
+   },
+   {
+    "heading": "テレビ放送",
+    "raw": "テレビ放送",
+    "n": 1,
+    "pos": 2,
+    "chars": 280,
+    "list": 0.0
+   },
+   {
+    "heading": "主なキャスト",
+    "raw": "主なキャスト",
+    "n": 1,
+    "pos": 4,
+    "chars": 447,
+    "list": 0.96
+   },
+   {
+    "heading": "使用曲",
+    "raw": "使用曲",
+    "n": 1,
+    "pos": 6,
+    "chars": 1153,
+    "list": 0.0
+   },
+   {
+    "heading": "賞歴",
+    "raw": "賞歴",
+    "n": 1,
+    "pos": 7,
+    "chars": 26,
+    "list": 1.0
+   },
+   {
+    "heading": "音楽",
+    "raw": "音楽",
+    "n": 1,
+    "pos": 3,
+    "chars": 476,
+    "list": 0.0
+   },
+   {
+    "heading": "刊行の背景",
+    "raw": "刊行の背景",
+    "n": 1,
+    "pos": 0,
+    "chars": 596,
+    "list": 0.0
+   },
+   {
+    "heading": "1967年版の映画",
+    "raw": "1967年版の映画",
+    "n": 1,
+    "pos": 2,
+    "chars": 3159,
+    "list": 0.2
+   },
+   {
+    "heading": "2015年版の映画",
+    "raw": "2015年版の映画",
+    "n": 1,
+    "pos": 3,
+    "chars": 3257,
+    "list": 0.32
+   },
+   {
+    "heading": "漫画",
+    "raw": "漫画",
+    "n": 1,
+    "pos": 4,
+    "chars": 217,
+    "list": 0.75
+   },
+   {
+    "heading": "ビデオソフト",
+    "raw": "ビデオソフト",
+    "n": 1,
+    "pos": 5,
+    "chars": 181,
+    "list": 1.0
+   },
+   {
+    "heading": "発表経過",
+    "raw": "発表経過",
+    "n": 1,
+    "pos": 0,
+    "chars": 195,
+    "list": 0.0
+   },
+   {
+    "heading": "川端康成と魔界",
+    "raw": "川端康成と「魔界」",
+    "n": 1,
+    "pos": 1,
+    "chars": 738,
+    "list": 0.0
+   },
+   {
+    "heading": "作品評価研究",
+    "raw": "作品評価・研究",
+    "n": 1,
+    "pos": 4,
+    "chars": 1995,
+    "list": 0.0
+   },
+   {
+    "heading": "映画化",
+    "raw": "映画化",
+    "n": 1,
+    "pos": 5,
+    "chars": 216,
+    "list": 0.33
+   },
+   {
+    "heading": "おもな刊行本",
+    "raw": "おもな刊行本",
+    "n": 1,
+    "pos": 6,
+    "chars": 276,
+    "list": 0.91
+   },
+   {
+    "heading": "ランキング",
+    "raw": "ランキング",
+    "n": 1,
+    "pos": 6,
+    "chars": 80,
+    "list": 1.0
+   },
+   {
+    "heading": "ソフト",
+    "raw": "ソフト",
+    "n": 1,
+    "pos": 7,
+    "chars": 248,
+    "list": 1.0
+   },
+   {
+    "heading": "キッズリターン 再会の時",
+    "raw": "キッズ・リターン 再会の時",
+    "n": 1,
+    "pos": 9,
+    "chars": 2581,
+    "list": 0.21
+   },
+   {
+    "heading": "dvdリリース派生作品",
+    "raw": "DVDリリース・派生作品",
+    "n": 1,
+    "pos": 4,
+    "chars": 67,
+    "list": 0.0
+   },
+   {
+    "heading": "ビブリオグラフィ",
+    "raw": "ビブリオグラフィ",
+    "n": 1,
+    "pos": 2,
+    "chars": 483,
+    "list": 0.93
+   },
+   {
+    "heading": "補足",
+    "raw": "補足",
+    "n": 1,
+    "pos": 4,
+    "chars": 113,
+    "list": 0.75
+   },
+   {
+    "heading": "製作評価",
+    "raw": "製作・評価",
+    "n": 1,
+    "pos": 1,
+    "chars": 943,
+    "list": 0.0
+   },
+   {
+    "heading": "リメイク",
+    "raw": "リメイク",
+    "n": 1,
+    "pos": 7,
+    "chars": 153,
+    "list": 1.0
+   },
+   {
+    "heading": "ギャラリー",
+    "raw": "ギャラリー",
+    "n": 1,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "備考",
+    "raw": "備考",
+    "n": 1,
+    "pos": 2,
+    "chars": 119,
+    "list": 1.0
+   },
+   {
+    "heading": "出典",
+    "raw": "出典",
+    "n": 1,
+    "pos": 3,
+    "chars": 247,
+    "list": 0.07
+   },
+   {
+    "heading": "おもなキャスティング",
+    "raw": "おもなキャスティング",
+    "n": 1,
+    "pos": 4,
+    "chars": 1525,
+    "list": 0.0
+   },
+   {
+    "heading": "原作との違い",
+    "raw": "原作との違い",
+    "n": 1,
+    "pos": 5,
+    "chars": 2030,
+    "list": 0.0
+   },
+   {
+    "heading": "製作背景",
+    "raw": "製作背景",
+    "n": 1,
+    "pos": 6,
+    "chars": 2943,
+    "list": 0.0
+   },
+   {
+    "heading": "撮影現場",
+    "raw": "撮影現場",
+    "n": 1,
+    "pos": 7,
+    "chars": 6805,
+    "list": 0.0
+   },
+   {
+    "heading": "再上映",
+    "raw": "再上映",
+    "n": 1,
+    "pos": 8,
+    "chars": 514,
+    "list": 0.0
+   },
+   {
+    "heading": "勝新太郎と三島由紀夫",
+    "raw": "勝新太郎と三島由紀夫",
+    "n": 1,
+    "pos": 11,
+    "chars": 1128,
+    "list": 0.0
+   },
+   {
+    "heading": "五社英雄と三島由紀夫",
+    "raw": "五社英雄と三島由紀夫",
+    "n": 1,
+    "pos": 12,
+    "chars": 691,
+    "list": 0.0
+   },
+   {
+    "heading": "三島外伝",
+    "raw": "三島外伝",
+    "n": 1,
+    "pos": 13,
+    "chars": 1327,
+    "list": 0.0
+   },
+   {
+    "heading": "資料",
+    "raw": "資料",
+    "n": 1,
+    "pos": 14,
+    "chars": 28,
+    "list": 1.0
+   },
+   {
+    "heading": "ビデオ発売",
+    "raw": "ビデオ発売",
+    "n": 1,
+    "pos": 15,
+    "chars": 364,
+    "list": 0.86
+   },
+   {
+    "heading": "劇画化",
+    "raw": "劇画化",
+    "n": 1,
+    "pos": 16,
+    "chars": 260,
+    "list": 0.67
+   },
+   {
+    "heading": "上演史",
+    "raw": "上演史",
+    "n": 1,
+    "pos": 1,
+    "chars": 276,
+    "list": 0.8
+   },
+   {
+    "heading": "ポストプロダクション",
+    "raw": "ポスト・プロダクション",
+    "n": 1,
+    "pos": 2,
+    "chars": 1044,
+    "list": 0.0
+   },
+   {
+    "heading": "小津安二郎版",
+    "raw": "小津安二郎版",
+    "n": 1,
+    "pos": 0,
+    "chars": 606,
+    "list": 0.33
+   },
+   {
+    "heading": "野村芳太郎版",
+    "raw": "野村芳太郎版",
+    "n": 1,
+    "pos": 1,
+    "chars": 339,
+    "list": 0.52
+   },
+   {
+    "heading": "制作",
+    "raw": "制作",
+    "n": 1,
+    "pos": 4,
+    "chars": 386,
+    "list": 0.0
+   },
+   {
+    "heading": "脚注出典",
+    "raw": "脚注／出典",
+    "n": 1,
+    "pos": 5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "関連事項",
+    "raw": "関連事項",
+    "n": 1,
+    "pos": 6,
+    "chars": 99,
+    "list": 0.12
+   },
+   {
+    "heading": "テレビ放映",
+    "raw": "テレビ放映",
+    "n": 1,
+    "pos": 6,
+    "chars": 29,
+    "list": 0.03
+   },
+   {
+    "heading": "主な登場人物",
+    "raw": "主な登場人物",
+    "n": 1,
+    "pos": 1,
+    "chars": 1051,
+    "list": 0.0
+   },
+   {
+    "heading": "執筆と取材",
+    "raw": "執筆と取材",
+    "n": 1,
+    "pos": 2,
+    "chars": 1421,
+    "list": 0.0
+   },
+   {
+    "heading": "記念碑",
+    "raw": "記念碑",
+    "n": 1,
+    "pos": 5,
+    "chars": 278,
+    "list": 0.0
+   },
+   {
+    "heading": "翻訳",
+    "raw": "翻訳",
+    "n": 1,
+    "pos": 6,
+    "chars": 39,
+    "list": 1.0
+   },
+   {
+    "heading": "批評",
+    "raw": "批評",
+    "n": 1,
+    "pos": 1,
+    "chars": 96,
+    "list": 0.0
+   },
+   {
+    "heading": "関連書籍",
+    "raw": "関連書籍",
+    "n": 1,
+    "pos": 6,
+    "chars": 30,
+    "list": 1.0
+   },
+   {
+    "heading": "元連合赤軍メンバーからの批判",
+    "raw": "元連合赤軍メンバーからの批判",
+    "n": 1,
+    "pos": 8,
+    "chars": 607,
+    "list": 0.0
+   },
+   {
+    "heading": "予告編",
+    "raw": "予告編",
+    "n": 1,
+    "pos": 9,
+    "chars": 95,
+    "list": 1.0
+   },
+   {
+    "heading": "作者によるコメント",
+    "raw": "作者によるコメント",
+    "n": 1,
+    "pos": 2,
+    "chars": 42,
+    "list": 0.0
+   },
+   {
+    "heading": "朗読",
+    "raw": "朗読",
+    "n": 1,
+    "pos": 6,
+    "chars": 83,
+    "list": 1.0
+   },
+   {
+    "heading": "エンディングテーマ",
+    "raw": "エンディングテーマ",
+    "n": 1,
+    "pos": 5,
+    "chars": 598,
+    "list": 0.0
+   },
+   {
+    "heading": "詳細",
+    "raw": "詳細",
+    "n": 1,
+    "pos": 0,
+    "chars": 533,
+    "list": 0.0
+   },
+   {
+    "heading": "関連図書",
+    "raw": "関連図書",
+    "n": 1,
+    "pos": 5,
+    "chars": 32,
+    "list": 1.0
+   },
+   {
+    "heading": "ソフト化",
+    "raw": "ソフト化",
+    "n": 1,
+    "pos": 3,
+    "chars": 233,
+    "list": 0.93
+   },
+   {
+    "heading": "概要ストーリー",
+    "raw": "概要、ストーリー",
+    "n": 1,
+    "pos": 0,
+    "chars": 157,
+    "list": 0.0
+   },
+   {
+    "heading": "地上波放送履歴",
+    "raw": "地上波放送履歴",
+    "n": 1,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   }
+  ],
+  "bn": [
+   {
+    "heading": "বহিঃসংযোগ",
+    "raw": "বহিঃসংযোগ",
+    "n": 5,
+    "pos": 3,
+    "chars": 523,
+    "list": 0.17
+   },
+   {
+    "heading": "তথ্যসূত্র",
+    "raw": "তথ্যসূত্র",
+    "n": 4,
+    "pos": 2.5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "কাহিনীসংক্ষেপ",
+    "raw": "কাহিনীসংক্ষেপ",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 1482,
+    "list": 0.0
+   },
+   {
+    "heading": "অভিনয়ে",
+    "raw": "অভিনয়ে",
+    "n": 2,
+    "pos": 1.0,
+    "chars": 188,
+    "list": 1.0
+   },
+   {
+    "heading": "পুরস্কার",
+    "raw": "পুরস্কার",
+    "n": 2,
+    "pos": 1.5,
+    "chars": 82,
+    "list": 0.5
+   },
+   {
+    "heading": "অভিনয়",
+    "raw": "অভিনয়",
+    "n": 2,
+    "pos": 0.5,
+    "chars": 344,
+    "list": 1.0
+   },
+   {
+    "heading": "কুশলী",
+    "raw": "কুশলী",
+    "n": 1,
+    "pos": 2,
+    "chars": 221,
+    "list": 1.0
+   },
+   {
+    "heading": "তথ্যকণিকা",
+    "raw": "তথ্যকণিকা",
+    "n": 1,
+    "pos": 3,
+    "chars": 475,
+    "list": 1.0
+   },
+   {
+    "heading": "শ্রেষ্ঠাংশে",
+    "raw": "শ্রেষ্ঠাংশে",
+    "n": 1,
+    "pos": 0,
+    "chars": 316,
+    "list": 1.0
+   },
+   {
+    "heading": "কাহিনী",
+    "raw": "কাহিনী",
+    "n": 1,
+    "pos": 0,
+    "chars": 692,
+    "list": 0.0
+   }
+  ],
+  "fa": [
+   {
+    "heading": "منابع",
+    "raw": "منابع",
+    "n": 11,
+    "pos": 2,
+    "chars": 16,
+    "list": 0.0
+   },
+   {
+    "heading": "پیوند به بیرون",
+    "raw": "پیوند به بیرون",
+    "n": 9,
+    "pos": 3,
+    "chars": 391,
+    "list": 0.18
+   },
+   {
+    "heading": "جوایز",
+    "raw": "جوایز",
+    "n": 4,
+    "pos": 1.0,
+    "chars": 492,
+    "list": 1.0
+   },
+   {
+    "heading": "خلاصه داستان",
+    "raw": "خلاصه داستان",
+    "n": 4,
+    "pos": 0.0,
+    "chars": 642,
+    "list": 0.0
+   },
+   {
+    "heading": "بازیگران",
+    "raw": "بازیگران",
+    "n": 4,
+    "pos": 1.5,
+    "chars": 156,
+    "list": 0.5
+   },
+   {
+    "heading": "داستان",
+    "raw": "داستان",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 1543,
+    "list": 0.0
+   },
+   {
+    "heading": "تحلیل",
+    "raw": "تحلیل",
+    "n": 1,
+    "pos": 1,
+    "chars": 880,
+    "list": 1.0
+   },
+   {
+    "heading": "تولید فیلم",
+    "raw": "تولید فیلم",
+    "n": 1,
+    "pos": 2,
+    "chars": 890,
+    "list": 0.0
+   },
+   {
+    "heading": "نمایش فیلم",
+    "raw": "نمایش فیلم",
+    "n": 1,
+    "pos": 3,
+    "chars": 1048,
+    "list": 0.0
+   },
+   {
+    "heading": "گروه موسیقی",
+    "raw": "گروه موسیقی",
+    "n": 1,
+    "pos": 4,
+    "chars": 138,
+    "list": 1.0
+   },
+   {
+    "heading": "گروه صدا",
+    "raw": "گروه صدا",
+    "n": 1,
+    "pos": 5,
+    "chars": 83,
+    "list": 1.0
+   },
+   {
+    "heading": "دیگر عوامل فیلم",
+    "raw": "دیگر عوامل فیلم",
+    "n": 1,
+    "pos": 6,
+    "chars": 0,
+    "list": 0.83
+   },
+   {
+    "heading": "جشنواره‌ها و جوایزیادکرد خبرتاریخ12 april 2018عنوانsee behindthescene footage of mehrjuis the cow at fajrپیوندhttpswwwfajriffcomenseebehindthescenefootageofmehrjuisthecowatfajrناشر37th fajr international film festivalتاریخ بازدید29 اکتبر 2024",
+    "raw": "جشنواره‌ها و جوایز<ref>{{یادکرد خبر|تاریخ=12 April 2018|عنوان=See Behind-the-Scene Footage of Mehrjui’s The Cow at Fajr|پیوند=https://www.fajriff.com/en/see-behind-the-scene-footage-of-mehrjuis-the-cow-at-fajr/|ناشر=37th Fajr International Film Festival|تاریخ بازدید=29 اکتبر 2024}}</ref>",
+    "n": 1,
+    "pos": 7,
+    "chars": 878,
+    "list": 1.0
+   },
+   {
+    "heading": "تحولات پیرامون فیلم",
+    "raw": "تحولات پیرامون فیلم",
+    "n": 1,
+    "pos": 8,
+    "chars": 2074,
+    "list": 0.62
+   },
+   {
+    "heading": "گاو در فرهنگ عامه",
+    "raw": "گاو در فرهنگ عامه",
+    "n": 1,
+    "pos": 9,
+    "chars": 450,
+    "list": 1.0
+   },
+   {
+    "heading": "افتخارات",
+    "raw": "افتخارات",
+    "n": 1,
+    "pos": 0,
+    "chars": 233,
+    "list": 1.0
+   },
+   {
+    "heading": "یادداشت‌ها",
+    "raw": "یادداشت‌ها",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "حضور در جشنواره‌ها",
+    "raw": "حضور در جشنواره‌ها",
+    "n": 1,
+    "pos": 0,
+    "chars": 338,
+    "list": 0.0
+   },
+   {
+    "heading": "واکنش‌ها",
+    "raw": "واکنش‌ها",
+    "n": 1,
+    "pos": 1,
+    "chars": 475,
+    "list": 0.0
+   },
+   {
+    "heading": "گویندگان",
+    "raw": "گویندگان",
+    "n": 1,
+    "pos": 3,
+    "chars": 305,
+    "list": 0.92
+   },
+   {
+    "heading": "پانویس",
+    "raw": "پانویس",
+    "n": 1,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "موضوع داستان",
+    "raw": "موضوع داستان",
+    "n": 1,
+    "pos": 0,
+    "chars": 210,
+    "list": 0.0
+   },
+   {
+    "heading": "جوایز و حضور در جشنواره‌ها",
+    "raw": "جوایز و حضور در جشنواره‌ها",
+    "n": 1,
+    "pos": 0,
+    "chars": 262,
+    "list": 0.0
+   },
+   {
+    "heading": "جستارهای وابسته",
+    "raw": "جستارهای وابسته",
+    "n": 1,
+    "pos": 1,
+    "chars": 14,
+    "list": 0.5
+   },
+   {
+    "heading": "دیگر عوامل",
+    "raw": "دیگر عوامل",
+    "n": 1,
+    "pos": 1,
+    "chars": 357,
+    "list": 1.0
+   },
+   {
+    "heading": "تحلیل و بررسی",
+    "raw": "تحلیل و بررسی",
+    "n": 1,
+    "pos": 2,
+    "chars": 1810,
+    "list": 0.0
+   },
+   {
+    "heading": "جوایز و دستاوردها",
+    "raw": "جوایز و دستاوردها",
+    "n": 1,
+    "pos": 3,
+    "chars": 356,
+    "list": 0.08
+   }
+  ],
+  "es": [
+   {
+    "heading": "referencias",
+    "raw": "Referencias",
+    "n": 6,
+    "pos": 4.0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "enlaces externos",
+    "raw": "Enlaces externos",
+    "n": 6,
+    "pos": 5.0,
+    "chars": 175,
+    "list": 0.35
+   },
+   {
+    "heading": "producción",
+    "raw": "Producción",
+    "n": 4,
+    "pos": 2.0,
+    "chars": 1036,
+    "list": 0.0
+   },
+   {
+    "heading": "argumento",
+    "raw": "Argumento",
+    "n": 3,
+    "pos": 0,
+    "chars": 1132,
+    "list": 0.0
+   },
+   {
+    "heading": "reparto",
+    "raw": "Reparto",
+    "n": 3,
+    "pos": 1,
+    "chars": 318,
+    "list": 1.0
+   },
+   {
+    "heading": "véase también",
+    "raw": "Véase también",
+    "n": 3,
+    "pos": 5,
+    "chars": 73,
+    "list": 1.0
+   },
+   {
+    "heading": "sinopsis",
+    "raw": "Sinopsis",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 1194,
+    "list": 0.0
+   },
+   {
+    "heading": "elenco",
+    "raw": "Elenco",
+    "n": 2,
+    "pos": 1.0,
+    "chars": 293,
+    "list": 0.97
+   },
+   {
+    "heading": "premios",
+    "raw": "Premios",
+    "n": 2,
+    "pos": 2.0,
+    "chars": 465,
+    "list": 0.25
+   },
+   {
+    "heading": "reconocimientos",
+    "raw": "Reconocimientos",
+    "n": 1,
+    "pos": 3,
+    "chars": 825,
+    "list": 0.0
+   },
+   {
+    "heading": "premio",
+    "raw": "Premio",
+    "n": 1,
+    "pos": 2,
+    "chars": 276,
+    "list": 0.0
+   },
+   {
+    "heading": "recepción y críticas",
+    "raw": "Recepción y críticas",
+    "n": 1,
+    "pos": 2,
+    "chars": 863,
+    "list": 0.0
+   },
+   {
+    "heading": "trama",
+    "raw": "Trama",
+    "n": 1,
+    "pos": 0,
+    "chars": 1287,
+    "list": 0.0
+   },
+   {
+    "heading": "recepción",
+    "raw": "Recepción",
+    "n": 1,
+    "pos": 3,
+    "chars": 1561,
+    "list": 0.0
+   },
+   {
+    "heading": "comentarios",
+    "raw": "Comentarios",
+    "n": 1,
+    "pos": 3,
+    "chars": 213,
+    "list": 0.0
+   },
+   {
+    "heading": "sinopsis argumental",
+    "raw": "Sinopsis argumental",
+    "n": 1,
+    "pos": 0,
+    "chars": 1878,
+    "list": 0.0
+   },
+   {
+    "heading": "los músicos",
+    "raw": "Los músicos",
+    "n": 1,
+    "pos": 1,
+    "chars": 2837,
+    "list": 0.0
+   },
+   {
+    "heading": "actores de doblaje españoleshttpswwweldoblajecomdatosfichapeliculaaspid20663 operación ogro ficha eldoblajecom",
+    "raw": "Actores de doblaje españoles<ref>[https://www.eldoblaje.com/datos/FichaPelicula.asp?id=20663 ''Operación Ogro - Ficha eldoblaje.com''</ref>",
+    "n": 1,
+    "pos": 2,
+    "chars": 491,
+    "list": 1.0
+   },
+   {
+    "heading": "acogida",
+    "raw": "Acogida",
+    "n": 1,
+    "pos": 4,
+    "chars": 1250,
+    "list": 0.0
+   }
+  ],
+  "it": [
+   {
+    "heading": "collegamenti esterni",
+    "raw": "Collegamenti esterni",
+    "n": 135,
+    "pos": 5,
+    "chars": 192,
+    "list": 0.14
+   },
+   {
+    "heading": "trama",
+    "raw": "Trama",
+    "n": 130,
+    "pos": 0.0,
+    "chars": 1274,
+    "list": 0.0
+   },
+   {
+    "heading": "note",
+    "raw": "Note",
+    "n": 100,
+    "pos": 3.0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "produzione",
+    "raw": "Produzione",
+    "n": 76,
+    "pos": 1.0,
+    "chars": 400,
+    "list": 0.0
+   },
+   {
+    "heading": "altri progetti",
+    "raw": "Altri progetti",
+    "n": 67,
+    "pos": 5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "distribuzione",
+    "raw": "Distribuzione",
+    "n": 47,
+    "pos": 2,
+    "chars": 168,
+    "list": 0.0
+   },
+   {
+    "heading": "riconoscimenti",
+    "raw": "Riconoscimenti",
+    "n": 41,
+    "pos": 3,
+    "chars": 162,
+    "list": 1.0
+   },
+   {
+    "heading": "accoglienza",
+    "raw": "Accoglienza",
+    "n": 37,
+    "pos": 2,
+    "chars": 492,
+    "list": 0.0
+   },
+   {
+    "heading": "bibliografia",
+    "raw": "Bibliografia",
+    "n": 35,
+    "pos": 4,
+    "chars": 83,
+    "list": 1.0
+   },
+   {
+    "heading": "critica",
+    "raw": "Critica",
+    "n": 25,
+    "pos": 2,
+    "chars": 550,
+    "list": 0.0
+   },
+   {
+    "heading": "colonna sonora",
+    "raw": "Colonna sonora",
+    "n": 17,
+    "pos": 2,
+    "chars": 204,
+    "list": 0.0
+   },
+   {
+    "heading": "voci correlate",
+    "raw": "Voci correlate",
+    "n": 15,
+    "pos": 5,
+    "chars": 42,
+    "list": 1.0
+   },
+   {
+    "heading": "curiosità",
+    "raw": "Curiosità",
+    "n": 10,
+    "pos": 3.0,
+    "chars": 239,
+    "list": 0.33
+   },
+   {
+    "heading": "incassi",
+    "raw": "Incassi",
+    "n": 6,
+    "pos": 3.0,
+    "chars": 71,
+    "list": 0.0
+   },
+   {
+    "heading": "canzoni",
+    "raw": "Canzoni",
+    "n": 3,
+    "pos": 1,
+    "chars": 787,
+    "list": 0.91
+   },
+   {
+    "heading": "genesi e accoglienza",
+    "raw": "Genesi e accoglienza",
+    "n": 2,
+    "pos": 1.0,
+    "chars": 3300,
+    "list": 0.0
+   },
+   {
+    "heading": "restauro",
+    "raw": "Restauro",
+    "n": 2,
+    "pos": 4.5,
+    "chars": 149,
+    "list": 0.0
+   },
+   {
+    "heading": "ambientazione",
+    "raw": "Ambientazione",
+    "n": 2,
+    "pos": 1.5,
+    "chars": 363,
+    "list": 0.0
+   },
+   {
+    "heading": "controversie",
+    "raw": "Controversie",
+    "n": 2,
+    "pos": 1.5,
+    "chars": 969,
+    "list": 0.0
+   },
+   {
+    "heading": "episodi e trame",
+    "raw": "Episodi e trame",
+    "n": 1,
+    "pos": 0,
+    "chars": 194,
+    "list": 0.0
+   },
+   {
+    "heading": "produzionea borini federico fellini cremona ed mediane 2009 p 92",
+    "raw": "Produzione<ref>A. Borini, ''Federico Fellini'', Cremona, ed. MEDIANE, 2009, p. 92</ref>",
+    "n": 1,
+    "pos": 1,
+    "chars": 497,
+    "list": 0.0
+   },
+   {
+    "heading": "accoglienzacita weburlhttpswwwmymoviesitfilm1969blocknotesdiunregistatitoloblocknotes di un registaaccesso2 marzo 2021",
+    "raw": "Accoglienza<ref>{{cita web|url=https://www.mymovies.it/film/1969/blocknotes-di-un-regista/|titolo=Block-notes di un regista|accesso=2 marzo 2021}}</ref>",
+    "n": 1,
+    "pos": 3,
+    "chars": 312,
+    "list": 0.0
+   },
+   {
+    "heading": "promozione",
+    "raw": "Promozione",
+    "n": 1,
+    "pos": 2,
+    "chars": 116,
+    "list": 0.0
+   },
+   {
+    "heading": "influenza culturale",
+    "raw": "Influenza culturale",
+    "n": 1,
+    "pos": 5,
+    "chars": 458,
+    "list": 1.0
+   },
+   {
+    "heading": "il film",
+    "raw": "Il film",
+    "n": 1,
+    "pos": 0,
+    "chars": 2343,
+    "list": 0.0
+   },
+   {
+    "heading": "elenco dei film commentati",
+    "raw": "Elenco dei film commentati",
+    "n": 1,
+    "pos": 0,
+    "chars": 712,
+    "list": 0.77
+   },
+   {
+    "heading": "luoghi delle riprese",
+    "raw": "Luoghi delle riprese",
+    "n": 1,
+    "pos": 2,
+    "chars": 664,
+    "list": 1.0
+   },
+   {
+    "heading": "titoli episodi",
+    "raw": "Titoli episodi",
+    "n": 1,
+    "pos": 0,
+    "chars": 312,
+    "list": 1.0
+   },
+   {
+    "heading": "luoghi di ripresa",
+    "raw": "Luoghi di ripresa",
+    "n": 1,
+    "pos": 1,
+    "chars": 272,
+    "list": 0.0
+   },
+   {
+    "heading": "significazione",
+    "raw": "Significazione",
+    "n": 1,
+    "pos": 1,
+    "chars": 729,
+    "list": 0.0
+   },
+   {
+    "heading": "cast",
+    "raw": "Cast",
+    "n": 1,
+    "pos": 1,
+    "chars": 1148,
+    "list": 0.0
+   },
+   {
+    "heading": "omaggi nascosti",
+    "raw": "Omaggi nascosti",
+    "n": 1,
+    "pos": 1,
+    "chars": 714,
+    "list": 1.0
+   },
+   {
+    "heading": "giudizi della critica",
+    "raw": "Giudizi della critica",
+    "n": 1,
+    "pos": 2,
+    "chars": 1526,
+    "list": 0.0
+   },
+   {
+    "heading": "altri tecnici",
+    "raw": "Altri tecnici",
+    "n": 1,
+    "pos": 3,
+    "chars": 279,
+    "list": 1.0
+   },
+   {
+    "heading": "luoghi del film",
+    "raw": "Luoghi del film",
+    "n": 1,
+    "pos": 1,
+    "chars": 325,
+    "list": 0.0
+   },
+   {
+    "heading": "realizzazione del film",
+    "raw": "Realizzazione del film",
+    "n": 1,
+    "pos": 1,
+    "chars": 3985,
+    "list": 0.0
+   },
+   {
+    "heading": "commenti retrospettivi",
+    "raw": "Commenti retrospettivi",
+    "n": 1,
+    "pos": 3,
+    "chars": 1016,
+    "list": 0.0
+   },
+   {
+    "heading": "elenco degli episodi",
+    "raw": "Elenco degli episodi",
+    "n": 1,
+    "pos": 0,
+    "chars": 368,
+    "list": 1.0
+   },
+   {
+    "heading": "premi e riconoscimenti",
+    "raw": "Premi e riconoscimenti",
+    "n": 1,
+    "pos": 3,
+    "chars": 151,
+    "list": 0.0
+   },
+   {
+    "heading": "differenze fra romanzo e film",
+    "raw": "Differenze fra romanzo e film",
+    "n": 1,
+    "pos": 4,
+    "chars": 4345,
+    "list": 0.0
+   },
+   {
+    "heading": "incasso",
+    "raw": "Incasso",
+    "n": 1,
+    "pos": 3,
+    "chars": 63,
+    "list": 0.0
+   },
+   {
+    "heading": "location",
+    "raw": "Location",
+    "n": 1,
+    "pos": 2,
+    "chars": 51,
+    "list": 0.0
+   },
+   {
+    "heading": "inesattezze storiche",
+    "raw": "Inesattezze storiche",
+    "n": 1,
+    "pos": 4,
+    "chars": 3726,
+    "list": 1.0
+   },
+   {
+    "heading": "doppiaggio",
+    "raw": "Doppiaggio",
+    "n": 1,
+    "pos": 5,
+    "chars": 1281,
+    "list": 0.8
+   },
+   {
+    "heading": "omaggi",
+    "raw": "Omaggi",
+    "n": 1,
+    "pos": 6,
+    "chars": 479,
+    "list": 1.0
+   },
+   {
+    "heading": "accoglienza critica",
+    "raw": "Accoglienza critica",
+    "n": 1,
+    "pos": 2,
+    "chars": 329,
+    "list": 0.0
+   },
+   {
+    "heading": "commenti critici",
+    "raw": "Commenti critici",
+    "n": 1,
+    "pos": 2,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "riferimenti storici",
+    "raw": "Riferimenti storici",
+    "n": 1,
+    "pos": 2,
+    "chars": 1086,
+    "list": 0.0
+   },
+   {
+    "heading": "uscita nelle sale",
+    "raw": "Uscita nelle sale",
+    "n": 1,
+    "pos": 2,
+    "chars": 102,
+    "list": 1.0
+   },
+   {
+    "heading": "opere correlate",
+    "raw": "Opere correlate",
+    "n": 1,
+    "pos": 5,
+    "chars": 111,
+    "list": 0.0
+   },
+   {
+    "heading": "accuratezza storica",
+    "raw": "Accuratezza storica",
+    "n": 1,
+    "pos": 2,
+    "chars": 2429,
+    "list": 0.0
+   },
+   {
+    "heading": "risultato commerciale",
+    "raw": "Risultato commerciale",
+    "n": 1,
+    "pos": 3,
+    "chars": 456,
+    "list": 0.0
+   },
+   {
+    "heading": "differenze tra dramma e film",
+    "raw": "Differenze tra dramma e film",
+    "n": 1,
+    "pos": 1,
+    "chars": 1176,
+    "list": 1.0
+   }
+  ],
+  "pl": [
+   {
+    "heading": "przypisy",
+    "raw": "Przypisy",
+    "n": 10,
+    "pos": 4.5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "linki zewnętrzne",
+    "raw": "Linki zewnętrzne",
+    "n": 10,
+    "pos": 6.0,
+    "chars": 348,
+    "list": 0.25
+   },
+   {
+    "heading": "obsada",
+    "raw": "Obsada",
+    "n": 8,
+    "pos": 1.0,
+    "chars": 246,
+    "list": 0.87
+   },
+   {
+    "heading": "fabuła",
+    "raw": "Fabuła",
+    "n": 7,
+    "pos": 0,
+    "chars": 1926,
+    "list": 0.0
+   },
+   {
+    "heading": "produkcja",
+    "raw": "Produkcja",
+    "n": 6,
+    "pos": 2.0,
+    "chars": 2979,
+    "list": 0.0
+   },
+   {
+    "heading": "odbiór",
+    "raw": "Odbiór",
+    "n": 6,
+    "pos": 3.0,
+    "chars": 4712,
+    "list": 0.0
+   },
+   {
+    "heading": "bibliografia",
+    "raw": "Bibliografia",
+    "n": 6,
+    "pos": 6.0,
+    "chars": 0,
+    "list": 1.0
+   },
+   {
+    "heading": "uwagi",
+    "raw": "Uwagi",
+    "n": 2,
+    "pos": 4.5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "analizy i interpretacje",
+    "raw": "Analizy i interpretacje",
+    "n": 1,
+    "pos": 4,
+    "chars": 3508,
+    "list": 0.0
+   },
+   {
+    "heading": "lista części cyklu",
+    "raw": "Lista części cyklu",
+    "n": 1,
+    "pos": 0,
+    "chars": 2,
+    "list": 0.0
+   },
+   {
+    "heading": "znaczenie",
+    "raw": "Znaczenie",
+    "n": 1,
+    "pos": 3,
+    "chars": 2359,
+    "list": 0.0
+   },
+   {
+    "heading": "zobacz też",
+    "raw": "Zobacz też",
+    "n": 1,
+    "pos": 4,
+    "chars": 84,
+    "list": 1.0
+   },
+   {
+    "heading": "informacje dodatkowe",
+    "raw": "Informacje dodatkowe",
+    "n": 1,
+    "pos": 2,
+    "chars": 1108,
+    "list": 0.83
+   },
+   {
+    "heading": "opis fabuły",
+    "raw": "Opis fabuły",
+    "n": 1,
+    "pos": 0,
+    "chars": 392,
+    "list": 0.0
+   },
+   {
+    "heading": "nagrody",
+    "raw": "Nagrody",
+    "n": 1,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "wydanie",
+    "raw": "Wydanie",
+    "n": 1,
+    "pos": 3,
+    "chars": 1021,
+    "list": 0.0
+   },
+   {
+    "heading": "nagrody i wyróżnienia",
+    "raw": "Nagrody i wyróżnienia",
+    "n": 1,
+    "pos": 5,
+    "chars": 617,
+    "list": 0.75
+   }
+  ],
+  "hu": [
+   {
+    "heading": "cselekmény",
+    "raw": "Cselekmény",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 303,
+    "list": 0.0
+   },
+   {
+    "heading": "jegyzetek",
+    "raw": "Jegyzetek",
+    "n": 2,
+    "pos": 2.0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "további információk",
+    "raw": "További információk",
+    "n": 2,
+    "pos": 4.0,
+    "chars": 128,
+    "list": 0.08
+   },
+   {
+    "heading": "szereplők",
+    "raw": "Szereplők",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.82
+   },
+   {
+    "heading": "források",
+    "raw": "Források",
+    "n": 1,
+    "pos": 3,
+    "chars": 49,
+    "list": 1.0
+   },
+   {
+    "heading": "fogadtatás",
+    "raw": "Fogadtatás",
+    "n": 1,
+    "pos": 1,
+    "chars": 871,
+    "list": 0.0
+   },
+   {
+    "heading": "fordítás",
+    "raw": "Fordítás",
+    "n": 1,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   }
+  ],
+  "el": [
+   {
+    "heading": "παραπομπέσ",
+    "raw": "Παραπομπές",
+    "n": 5,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "εξωτερικοί σύνδεσμοι",
+    "raw": "Εξωτερικοί σύνδεσμοι",
+    "n": 5,
+    "pos": 5,
+    "chars": 728,
+    "list": 0.1
+   },
+   {
+    "heading": "πλοκή",
+    "raw": "Πλοκή",
+    "n": 3,
+    "pos": 0,
+    "chars": 1514,
+    "list": 0.0
+   },
+   {
+    "heading": "διανομή",
+    "raw": "Διανομή",
+    "n": 3,
+    "pos": 1,
+    "chars": 563,
+    "list": 1.0
+   },
+   {
+    "heading": "το περιστατικό του βραβείου",
+    "raw": "Το περιστατικό του βραβείου",
+    "n": 1,
+    "pos": 1,
+    "chars": 567,
+    "list": 0.0
+   },
+   {
+    "heading": "βραβεία",
+    "raw": "Βραβεία",
+    "n": 1,
+    "pos": 3,
+    "chars": 153,
+    "list": 1.0
+   },
+   {
+    "heading": "υπόθεση",
+    "raw": "Υπόθεση",
+    "n": 1,
+    "pos": 0,
+    "chars": 896,
+    "list": 0.0
+   },
+   {
+    "heading": "διακρίσεισ",
+    "raw": "Διακρίσεις",
+    "n": 1,
+    "pos": 2,
+    "chars": 415,
+    "list": 1.0
+   },
+   {
+    "heading": "διανομήcite weburlhttpswwwfilmygrmoviesdatabasethesuspendedstepofthestorktitleτο μετέωρο βήμα του πελαργού 1991 filmygrwebsitefilmygrlanguageelaccessdate20231028",
+    "raw": "Διανομή<ref>{{Cite web|url=https://www.filmy.gr/movies-database/the-suspended-step-of-the-stork/|title=Το Μετέωρο Βήμα του Πελαργού (1991) ⋆ Filmy.gr|website=Filmy.gr|language=el|accessdate=2023-10-28}}</ref>",
+    "n": 1,
+    "pos": 0,
+    "chars": 595,
+    "list": 1.0
+   },
+   {
+    "heading": "το περίεργο περιστατικό",
+    "raw": "Το περίεργο περιστατικό",
+    "n": 1,
+    "pos": 1,
+    "chars": 1974,
+    "list": 0.0
+   },
+   {
+    "heading": "ανάπτυξη",
+    "raw": "Ανάπτυξη",
+    "n": 1,
+    "pos": 2,
+    "chars": 754,
+    "list": 0.0
+   },
+   {
+    "heading": "αξιοσημείωτα",
+    "raw": "Αξιοσημείωτα",
+    "n": 1,
+    "pos": 3,
+    "chars": 132,
+    "list": 0.0
+   },
+   {
+    "heading": "διανομήcite weburlhttpswwwfilmygrmoviesdatabasetrilogytheweepingmeadowtitleτριλογία το λιβάδι που δακρύζει 2004 filmygrwebsitefilmygrlanguageelaccessdate20231028",
+    "raw": "Διανομή<ref>{{Cite web|url=https://www.filmy.gr/movies-database/trilogy-the-weeping-meadow/|title=Τριλογία: Το Λιβάδι που Δακρύζει (2004) ⋆ Filmy.gr|website=Filmy.gr|language=el|accessdate=2023-10-28}}</ref>",
+    "n": 1,
+    "pos": 1,
+    "chars": 307,
+    "list": 1.0
+   },
+   {
+    "heading": "παραγωγή",
+    "raw": "Παραγωγή",
+    "n": 1,
+    "pos": 2,
+    "chars": 470,
+    "list": 0.0
+   },
+   {
+    "heading": "κριτικέσ και βραβεία",
+    "raw": "Κριτικές και Βραβεία",
+    "n": 1,
+    "pos": 3,
+    "chars": 436,
+    "list": 0.0
+   }
+  ],
+  "sh": [
+   {
+    "heading": "radnja filma",
+    "raw": "Radnja filma",
+    "n": 1,
+    "pos": 0,
+    "chars": 556,
+    "list": 0.0
+   },
+   {
+    "heading": "nagrade i nominacije",
+    "raw": "Nagrade i nominacije",
+    "n": 1,
+    "pos": 1,
+    "chars": 188,
+    "list": 0.0
+   },
+   {
+    "heading": "uloge",
+    "raw": "Uloge",
+    "n": 1,
+    "pos": 2,
+    "chars": 146,
+    "list": 1.0
+   },
+   {
+    "heading": "vanjske veze",
+    "raw": "Vanjske veze",
+    "n": 1,
+    "pos": 3,
+    "chars": 133,
+    "list": 0.25
+   }
+  ],
+  "hy": [
+   {
+    "heading": "դերերում",
+    "raw": "Դերերում",
+    "n": 1,
+    "pos": 0,
+    "chars": 299,
+    "list": 1.0
+   },
+   {
+    "heading": "դրվագներում",
+    "raw": "Դրվագներում",
+    "n": 1,
+    "pos": 1,
+    "chars": 297,
+    "list": 1.0
+   },
+   {
+    "heading": "ստեղծագործական խումբ",
+    "raw": "Ստեղծագործական խումբ",
+    "n": 1,
+    "pos": 2,
+    "chars": 686,
+    "list": 1.0
+   },
+   {
+    "heading": "հետաքրքիր փաստեր",
+    "raw": "Հետաքրքիր փաստեր",
+    "n": 1,
+    "pos": 3,
+    "chars": 203,
+    "list": 0.0
+   },
+   {
+    "heading": "ժառանգություն",
+    "raw": "Ժառանգություն",
+    "n": 1,
+    "pos": 4,
+    "chars": 604,
+    "list": 1.0
+   },
+   {
+    "heading": "ծանոթագրություններ",
+    "raw": "Ծանոթագրություններ",
+    "n": 1,
+    "pos": 5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "արտաքին հղումներ",
+    "raw": "Արտաքին Հղումներ",
+    "n": 1,
+    "pos": 6,
+    "chars": 545,
+    "list": 0.18
+   }
+  ],
+  "zh": [
+   {
+    "heading": "外部連結",
+    "raw": "外部連結",
+    "n": 12,
+    "pos": 6.0,
+    "chars": 166,
+    "list": 0.31
+   },
+   {
+    "heading": "參考資料",
+    "raw": "參考資料",
+    "n": 8,
+    "pos": 5.0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "製作",
+    "raw": "製作",
+    "n": 5,
+    "pos": 2,
+    "chars": 995,
+    "list": 0.0
+   },
+   {
+    "heading": "参考文献",
+    "raw": "参考文献",
+    "n": 5,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "劇情簡介",
+    "raw": "劇情簡介",
+    "n": 4,
+    "pos": 0.0,
+    "chars": 347,
+    "list": 0.0
+   },
+   {
+    "heading": "獎項",
+    "raw": "獎項",
+    "n": 4,
+    "pos": 4.0,
+    "chars": 45,
+    "list": 0.19
+   },
+   {
+    "heading": "劇情",
+    "raw": "劇情",
+    "n": 4,
+    "pos": 0.0,
+    "chars": 587,
+    "list": 0.0
+   },
+   {
+    "heading": "外部链接",
+    "raw": "外部链接",
+    "n": 4,
+    "pos": 5.5,
+    "chars": 195,
+    "list": 0.24
+   },
+   {
+    "heading": "演員列表",
+    "raw": "演員列表",
+    "n": 4,
+    "pos": 1.0,
+    "chars": 107,
+    "list": 0.96
+   },
+   {
+    "heading": "奖项",
+    "raw": "奖项",
+    "n": 3,
+    "pos": 2,
+    "chars": 87,
+    "list": 0.23
+   },
+   {
+    "heading": "参考资料",
+    "raw": "参考资料",
+    "n": 3,
+    "pos": 4,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "演員",
+    "raw": "演員",
+    "n": 2,
+    "pos": 1.0,
+    "chars": 77,
+    "list": 0.92
+   },
+   {
+    "heading": "反響",
+    "raw": "反響",
+    "n": 2,
+    "pos": 2.5,
+    "chars": 1016,
+    "list": 0.0
+   },
+   {
+    "heading": "故事",
+    "raw": "故事",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 222,
+    "list": 0.0
+   },
+   {
+    "heading": "剧情",
+    "raw": "剧情",
+    "n": 2,
+    "pos": 0.5,
+    "chars": 1108,
+    "list": 0.0
+   },
+   {
+    "heading": "評價",
+    "raw": "評價",
+    "n": 2,
+    "pos": 3.5,
+    "chars": 581,
+    "list": 0.0
+   },
+   {
+    "heading": "獲獎",
+    "raw": "獲獎",
+    "n": 2,
+    "pos": 6.0,
+    "chars": 24,
+    "list": 0.0
+   },
+   {
+    "heading": "人物角色",
+    "raw": "人物角色",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "流行文化",
+    "raw": "流行文化",
+    "n": 1,
+    "pos": 4,
+    "chars": 107,
+    "list": 0.0
+   },
+   {
+    "heading": "備註",
+    "raw": "備註",
+    "n": 1,
+    "pos": 5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "榮譽",
+    "raw": "榮譽",
+    "n": 1,
+    "pos": 3,
+    "chars": 48,
+    "list": 1.0
+   },
+   {
+    "heading": "參考",
+    "raw": "參考",
+    "n": 1,
+    "pos": 5,
+    "chars": 53,
+    "list": 0.54
+   },
+   {
+    "heading": "演员表",
+    "raw": "演员表",
+    "n": 1,
+    "pos": 1,
+    "chars": 353,
+    "list": 1.0
+   },
+   {
+    "heading": "音乐和电影插曲",
+    "raw": "音乐和电影插曲",
+    "n": 1,
+    "pos": 2,
+    "chars": 729,
+    "list": 1.0
+   },
+   {
+    "heading": "时间表",
+    "raw": "时间表",
+    "n": 1,
+    "pos": 3,
+    "chars": 268,
+    "list": 1.0
+   },
+   {
+    "heading": "相关书籍",
+    "raw": "相关书籍",
+    "n": 1,
+    "pos": 5,
+    "chars": 247,
+    "list": 0.0
+   },
+   {
+    "heading": "角色",
+    "raw": "角色",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "幕后",
+    "raw": "幕后",
+    "n": 1,
+    "pos": 3,
+    "chars": 192,
+    "list": 1.0
+   },
+   {
+    "heading": "現實中類似事件",
+    "raw": "現實中類似事件",
+    "n": 1,
+    "pos": 4,
+    "chars": 1534,
+    "list": 0.19
+   },
+   {
+    "heading": "主題",
+    "raw": "主題",
+    "n": 1,
+    "pos": 4,
+    "chars": 1086,
+    "list": 0.0
+   },
+   {
+    "heading": "影響",
+    "raw": "影響",
+    "n": 1,
+    "pos": 5,
+    "chars": 817,
+    "list": 0.0
+   },
+   {
+    "heading": "註腳",
+    "raw": "註腳",
+    "n": 1,
+    "pos": 6,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "演出",
+    "raw": "演出",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "花絮",
+    "raw": "花絮",
+    "n": 1,
+    "pos": 2,
+    "chars": 22,
+    "list": 0.0
+   },
+   {
+    "heading": "人物",
+    "raw": "人物",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "演员",
+    "raw": "演员",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "劇情概要",
+    "raw": "劇情概要",
+    "n": 1,
+    "pos": 0,
+    "chars": 102,
+    "list": 0.0
+   },
+   {
+    "heading": "人物介紹",
+    "raw": "人物介紹",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "幕後花絮",
+    "raw": "幕後花絮",
+    "n": 1,
+    "pos": 2,
+    "chars": 666,
+    "list": 0.0
+   },
+   {
+    "heading": "奖项与提名",
+    "raw": "奖项与提名",
+    "n": 1,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "各界反應",
+    "raw": "各界反應",
+    "n": 1,
+    "pos": 4,
+    "chars": 164,
+    "list": 0.0
+   },
+   {
+    "heading": "出镜",
+    "raw": "出镜",
+    "n": 1,
+    "pos": 0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "角色饰演介绍",
+    "raw": "角色饰演介绍",
+    "n": 1,
+    "pos": 1,
+    "chars": 725,
+    "list": 0.0
+   },
+   {
+    "heading": "电影剧情与小说情节的差异",
+    "raw": "电影剧情与小说情节的差异",
+    "n": 1,
+    "pos": 2,
+    "chars": 395,
+    "list": 0.0
+   },
+   {
+    "heading": "电影制作",
+    "raw": "电影制作",
+    "n": 1,
+    "pos": 3,
+    "chars": 962,
+    "list": 0.0
+   },
+   {
+    "heading": "参展与票房",
+    "raw": "参展与票房",
+    "n": 1,
+    "pos": 4,
+    "chars": 458,
+    "list": 0.0
+   },
+   {
+    "heading": "评价",
+    "raw": "评价",
+    "n": 1,
+    "pos": 6,
+    "chars": 897,
+    "list": 0.0
+   },
+   {
+    "heading": "其他延伸",
+    "raw": "其他延伸",
+    "n": 1,
+    "pos": 7,
+    "chars": 99,
+    "list": 0.0
+   },
+   {
+    "heading": "簡介",
+    "raw": "簡介",
+    "n": 1,
+    "pos": 0,
+    "chars": 82,
+    "list": 0.0
+   },
+   {
+    "heading": "製作人員",
+    "raw": "製作人員",
+    "n": 1,
+    "pos": 2,
+    "chars": 298,
+    "list": 1.0
+   },
+   {
+    "heading": "演出人員",
+    "raw": "演出人員",
+    "n": 1,
+    "pos": 3,
+    "chars": 48,
+    "list": 0.01
+   },
+   {
+    "heading": "取景地点",
+    "raw": "取景地点",
+    "n": 1,
+    "pos": 4,
+    "chars": 221,
+    "list": 0.0
+   },
+   {
+    "heading": "主題曲",
+    "raw": "主題曲",
+    "n": 1,
+    "pos": 5,
+    "chars": 43,
+    "list": 0.0
+   },
+   {
+    "heading": "票房",
+    "raw": "票房",
+    "n": 1,
+    "pos": 6,
+    "chars": 43,
+    "list": 0.0
+   },
+   {
+    "heading": "轶事",
+    "raw": "轶事",
+    "n": 1,
+    "pos": 7,
+    "chars": 155,
+    "list": 0.0
+   },
+   {
+    "heading": "获奖",
+    "raw": "获奖",
+    "n": 1,
+    "pos": 0,
+    "chars": 96,
+    "list": 1.0
+   },
+   {
+    "heading": "其他",
+    "raw": "其他",
+    "n": 1,
+    "pos": 1,
+    "chars": 62,
+    "list": 1.0
+   },
+   {
+    "heading": "參考來源",
+    "raw": "參考來源",
+    "n": 1,
+    "pos": 2,
+    "chars": 20,
+    "list": 0.0
+   },
+   {
+    "heading": "文獻來源",
+    "raw": "文獻來源",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "片名",
+    "raw": "片名",
+    "n": 1,
+    "pos": 0,
+    "chars": 189,
+    "list": 0.0
+   },
+   {
+    "heading": "故事梗概",
+    "raw": "故事梗概",
+    "n": 1,
+    "pos": 1,
+    "chars": 813,
+    "list": 0.8
+   },
+   {
+    "heading": "故事谣传",
+    "raw": "故事谣传",
+    "n": 1,
+    "pos": 2,
+    "chars": 85,
+    "list": 0.0
+   },
+   {
+    "heading": "获奖和评价",
+    "raw": "获奖和评价",
+    "n": 1,
+    "pos": 3,
+    "chars": 161,
+    "list": 0.0
+   },
+   {
+    "heading": "上映",
+    "raw": "上映",
+    "n": 1,
+    "pos": 3,
+    "chars": 399,
+    "list": 0.0
+   },
+   {
+    "heading": "漫畫",
+    "raw": "漫畫",
+    "n": 1,
+    "pos": 5,
+    "chars": 44,
+    "list": 0.0
+   },
+   {
+    "heading": "參考文獻",
+    "raw": "參考文獻",
+    "n": 1,
+    "pos": 7,
+    "chars": 330,
+    "list": 0.08
+   }
+  ],
+  "hi": [
+   {
+    "heading": "बाहरी कड़ियाँ",
+    "raw": "बाहरी कड़ियाँ",
+    "n": 3,
+    "pos": 8,
+    "chars": 34,
+    "list": 0.33
+   },
+   {
+    "heading": "संगीत",
+    "raw": "संगीत",
+    "n": 2,
+    "pos": 3.5,
+    "chars": 58,
+    "list": 0.0
+   },
+   {
+    "heading": "सन्दर्भ",
+    "raw": "सन्दर्भ",
+    "n": 2,
+    "pos": 4.5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "कलाकार",
+    "raw": "कलाकार",
+    "n": 1,
+    "pos": 0,
+    "chars": 555,
+    "list": 1.0
+   },
+   {
+    "heading": "कथानक",
+    "raw": "कथानक",
+    "n": 1,
+    "pos": 1,
+    "chars": 9881,
+    "list": 0.0
+   },
+   {
+    "heading": "अगली कड़ी",
+    "raw": "अगली कड़ी",
+    "n": 1,
+    "pos": 2,
+    "chars": 1,
+    "list": 0.0
+   },
+   {
+    "heading": "कारोबार",
+    "raw": "कारोबार",
+    "n": 1,
+    "pos": 4,
+    "chars": 664,
+    "list": 0.0
+   },
+   {
+    "heading": "समीक्षा",
+    "raw": "समीक्षा",
+    "n": 1,
+    "pos": 5,
+    "chars": 25,
+    "list": 1.0
+   },
+   {
+    "heading": "इन्हें भी देखें",
+    "raw": "इन्हें भी देखें",
+    "n": 1,
+    "pos": 6,
+    "chars": 56,
+    "list": 1.0
+   },
+   {
+    "heading": "सारांश",
+    "raw": "सारांश",
+    "n": 1,
+    "pos": 0,
+    "chars": 386,
+    "list": 0.0
+   },
+   {
+    "heading": "प्रोडक्शन",
+    "raw": "प्रोडक्शन",
+    "n": 1,
+    "pos": 1,
+    "chars": 195,
+    "list": 0.0
+   },
+   {
+    "heading": "संक्षेप",
+    "raw": "संक्षेप",
+    "n": 1,
+    "pos": 0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "चरित्र",
+    "raw": "चरित्र",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "मुख्य कलाकार",
+    "raw": "मुख्य कलाकार",
+    "n": 1,
+    "pos": 2,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "दल",
+    "raw": "दल",
+    "n": 1,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "रोचक तथ्य",
+    "raw": "रोचक तथ्य",
+    "n": 1,
+    "pos": 5,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "परिणाम",
+    "raw": "परिणाम",
+    "n": 1,
+    "pos": 6,
+    "chars": 36,
+    "list": 0.0
+   },
+   {
+    "heading": "नामांकन और पुरस्कार",
+    "raw": "नामांकन और पुरस्कार",
+    "n": 1,
+    "pos": 7,
+    "chars": 0,
+    "list": 0.0
+   }
+  ],
+  "pt": [
+   {
+    "heading": "enredo",
+    "raw": "Enredo",
+    "n": 1,
+    "pos": 0,
+    "chars": 1599,
+    "list": 0.0
+   },
+   {
+    "heading": "elenco",
+    "raw": "Elenco",
+    "n": 1,
+    "pos": 1,
+    "chars": 953,
+    "list": 0.38
+   },
+   {
+    "heading": "antecedentes e produção",
+    "raw": "Antecedentes e produção",
+    "n": 1,
+    "pos": 2,
+    "chars": 1836,
+    "list": 0.0
+   },
+   {
+    "heading": "lançamento",
+    "raw": "Lançamento",
+    "n": 1,
+    "pos": 3,
+    "chars": 534,
+    "list": 0.0
+   },
+   {
+    "heading": "recepção",
+    "raw": "Recepção",
+    "n": 1,
+    "pos": 4,
+    "chars": 2154,
+    "list": 0.17
+   },
+   {
+    "heading": "legado",
+    "raw": "Legado",
+    "n": 1,
+    "pos": 5,
+    "chars": 1311,
+    "list": 0.0
+   },
+   {
+    "heading": "ver também",
+    "raw": "Ver também",
+    "n": 1,
+    "pos": 6,
+    "chars": 392,
+    "list": 0.13
+   },
+   {
+    "heading": "argumento",
+    "raw": "Argumento",
+    "n": 1,
+    "pos": 0,
+    "chars": 516,
+    "list": 0.0
+   },
+   {
+    "heading": "ligações externas",
+    "raw": "Ligações externas",
+    "n": 1,
+    "pos": 1,
+    "chars": 509,
+    "list": 0.07
+   }
+  ],
+  "nl": [
+   {
+    "heading": "verhaal",
+    "raw": "Verhaal",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 460,
+    "list": 0.0
+   },
+   {
+    "heading": "rolverdeling",
+    "raw": "Rolverdeling",
+    "n": 2,
+    "pos": 1.0,
+    "chars": 168,
+    "list": 0.0
+   },
+   {
+    "heading": "externe link",
+    "raw": "Externe link",
+    "n": 2,
+    "pos": 3.0,
+    "chars": 135,
+    "list": 0.19
+   },
+   {
+    "heading": "productie",
+    "raw": "Productie",
+    "n": 1,
+    "pos": 2,
+    "chars": 661,
+    "list": 0.0
+   },
+   {
+    "heading": "zie ook",
+    "raw": "Zie ook",
+    "n": 1,
+    "pos": 3,
+    "chars": 71,
+    "list": 1.0
+   }
+  ],
+  "da": [
+   {
+    "heading": "eksterne henvisninger",
+    "raw": "Eksterne henvisninger",
+    "n": 2,
+    "pos": 1.5,
+    "chars": 165,
+    "list": 0.17
+   },
+   {
+    "heading": "handling",
+    "raw": "Handling",
+    "n": 1,
+    "pos": 0,
+    "chars": 593,
+    "list": 0.0
+   },
+   {
+    "heading": "referencer",
+    "raw": "Referencer",
+    "n": 1,
+    "pos": 1,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "medvirkende",
+    "raw": "Medvirkende",
+    "n": 1,
+    "pos": 0,
+    "chars": 637,
+    "list": 1.0
+   }
+  ],
+  "sv": [
+   {
+    "heading": "om filmen",
+    "raw": "Om filmen",
+    "n": 34,
+    "pos": 0.5,
+    "chars": 367,
+    "list": 0.0
+   },
+   {
+    "heading": "handling",
+    "raw": "Handling",
+    "n": 29,
+    "pos": 0,
+    "chars": 278,
+    "list": 0.0
+   },
+   {
+    "heading": "källor",
+    "raw": "Källor",
+    "n": 25,
+    "pos": 3,
+    "chars": 209,
+    "list": 0.0
+   },
+   {
+    "heading": "externa länkar",
+    "raw": "Externa länkar",
+    "n": 23,
+    "pos": 4,
+    "chars": 236,
+    "list": 0.2
+   },
+   {
+    "heading": "rollista",
+    "raw": "Rollista",
+    "n": 18,
+    "pos": 1.5,
+    "chars": 629,
+    "list": 0.96
+   },
+   {
+    "heading": "musik i filmen",
+    "raw": "Musik i filmen",
+    "n": 15,
+    "pos": 2,
+    "chars": 385,
+    "list": 1.0
+   },
+   {
+    "heading": "referenser",
+    "raw": "Referenser",
+    "n": 14,
+    "pos": 3.0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "rollista i urval",
+    "raw": "Rollista i urval",
+    "n": 12,
+    "pos": 1.5,
+    "chars": 622,
+    "list": 0.94
+   },
+   {
+    "heading": "roller i urval",
+    "raw": "Roller i urval",
+    "n": 7,
+    "pos": 1,
+    "chars": 659,
+    "list": 1.0
+   },
+   {
+    "heading": "dvd",
+    "raw": "DVD",
+    "n": 6,
+    "pos": 3.0,
+    "chars": 27,
+    "list": 0.0
+   },
+   {
+    "heading": "medverkande",
+    "raw": "Medverkande",
+    "n": 4,
+    "pos": 1.0,
+    "chars": 232,
+    "list": 1.0
+   },
+   {
+    "heading": "rollista urval",
+    "raw": "Rollista (urval)",
+    "n": 3,
+    "pos": 2,
+    "chars": 679,
+    "list": 1.0
+   },
+   {
+    "heading": "vidare läsning",
+    "raw": "Vidare läsning",
+    "n": 2,
+    "pos": 4.5,
+    "chars": 0,
+    "list": 1.0
+   },
+   {
+    "heading": "mottagande",
+    "raw": "Mottagande",
+    "n": 2,
+    "pos": 2.0,
+    "chars": 676,
+    "list": 0.0
+   },
+   {
+    "heading": "handlinghttpwwwsvenskfilmdatabassesvitemtypefilmitemid4238aboutthefilm hamnstad på svensk filmdatabas handling",
+    "raw": "Handling<ref>[http://www.svenskfilmdatabas.se/sv/item/?type=film&itemid=4238#about-the-film Hamnstad] på [[Svensk Filmdatabas]] (handling)</ref>",
+    "n": 1,
+    "pos": 0,
+    "chars": 469,
+    "list": 0.0
+   },
+   {
+    "heading": "rollistahttpwwwsvenskfilmdatabassesvitemtypefilmitemid4238cast hamnstad på svensk filmdatabas medverkande",
+    "raw": "Rollista<ref>[http://www.svenskfilmdatabas.se/sv/item/?type=film&itemid=4238#cast Hamnstad] på [[Svensk Filmdatabas]] (medverkande)</ref>",
+    "n": 1,
+    "pos": 2,
+    "chars": 513,
+    "list": 1.0
+   },
+   {
+    "heading": "musik i filmenhttpwwwsvenskfilmdatabassesvitemtypefilmitemid4238soundtracklisting hamnstad på svensk filmdatabas musik",
+    "raw": "Musik i filmen<ref>[http://www.svenskfilmdatabas.se/sv/item/?type=film&itemid=4238#soundtrack-listing Hamnstad] på [[Svensk Filmdatabas]] (musik)</ref>",
+    "n": 1,
+    "pos": 3,
+    "chars": 447,
+    "list": 1.0
+   },
+   {
+    "heading": "visningar",
+    "raw": "Visningar",
+    "n": 1,
+    "pos": 1,
+    "chars": 42,
+    "list": 0.0
+   },
+   {
+    "heading": "episoder och medverkande",
+    "raw": "Episoder och medverkande",
+    "n": 1,
+    "pos": 1,
+    "chars": 140,
+    "list": 0.0
+   },
+   {
+    "heading": "roller urval",
+    "raw": "Roller (urval)",
+    "n": 1,
+    "pos": 0,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "recensionsutdrag",
+    "raw": "Recensionsutdrag",
+    "n": 1,
+    "pos": 1,
+    "chars": 701,
+    "list": 0.0
+   },
+   {
+    "heading": "digitaliseringar",
+    "raw": "Digitaliseringar",
+    "n": 1,
+    "pos": 5,
+    "chars": 176,
+    "list": 0.0
+   },
+   {
+    "heading": "om serien",
+    "raw": "Om serien",
+    "n": 1,
+    "pos": 2,
+    "chars": 960,
+    "list": 0.0
+   },
+   {
+    "heading": "produktion och mottagande",
+    "raw": "Produktion och mottagande",
+    "n": 1,
+    "pos": 2,
+    "chars": 858,
+    "list": 0.0
+   },
+   {
+    "heading": "produktionsuppgifter",
+    "raw": "Produktionsuppgifter",
+    "n": 1,
+    "pos": 3,
+    "chars": 183,
+    "list": 1.0
+   },
+   {
+    "heading": "uppsättningar",
+    "raw": "Uppsättningar",
+    "n": 1,
+    "pos": 0,
+    "chars": 221,
+    "list": 0.0
+   },
+   {
+    "heading": "rollista komplett",
+    "raw": "Rollista (komplett)",
+    "n": 1,
+    "pos": 1,
+    "chars": 1861,
+    "list": 0.96
+   },
+   {
+    "heading": "produktion",
+    "raw": "Produktion",
+    "n": 1,
+    "pos": 2,
+    "chars": 423,
+    "list": 0.0
+   },
+   {
+    "heading": "utgivning och visningar",
+    "raw": "Utgivning och visningar",
+    "n": 1,
+    "pos": 5,
+    "chars": 74,
+    "list": 0.0
+   },
+   {
+    "heading": "inspelning",
+    "raw": "Inspelning",
+    "n": 1,
+    "pos": 0,
+    "chars": 75,
+    "list": 0.0
+   },
+   {
+    "heading": "inspelningsplatser",
+    "raw": "Inspelningsplatser",
+    "n": 1,
+    "pos": 0,
+    "chars": 385,
+    "list": 0.0
+   },
+   {
+    "heading": "musik i urval",
+    "raw": "Musik i urval",
+    "n": 1,
+    "pos": 2,
+    "chars": 55,
+    "list": 1.0
+   },
+   {
+    "heading": "handlinghttpwwwsvenskfilmdatabassesvitemtypefilmitemid4764plotsummary roseanna 1967 på svensk filmdatabas handling",
+    "raw": "Handling<ref>[http://www.svenskfilmdatabas.se/sv/item/?type=film&itemid=4764#plot-summary Roseanna (1967)] på [[Svensk Filmdatabas]] (handling)</ref>",
+    "n": 1,
+    "pos": 0,
+    "chars": 283,
+    "list": 0.0
+   },
+   {
+    "heading": "rollistahttpwwwsvenskfilmdatabassesvitemtypefilmitemid4764cast roseanna 1967 på svensk filmdatabas medverkande",
+    "raw": "Rollista<ref>[http://www.svenskfilmdatabas.se/sv/item/?type=film&itemid=4764#cast Roseanna (1967)] på [[Svensk Filmdatabas]] (medverkande)</ref>",
+    "n": 1,
+    "pos": 2,
+    "chars": 677,
+    "list": 1.0
+   },
+   {
+    "heading": "musik i filmenhttpwwwsvenskfilmdatabassesvitemtypefilmitemid4764soundtracklisting roseanna 1967 på svensk filmdatabas musik",
+    "raw": "Musik i filmen<ref>[http://www.svenskfilmdatabas.se/sv/item/?type=film&itemid=4764#soundtrack-listing Roseanna (1967)] på [[Svensk Filmdatabas]] (musik)</ref>",
+    "n": 1,
+    "pos": 3,
+    "chars": 159,
+    "list": 1.0
+   },
+   {
+    "heading": "utländska versioner the lie",
+    "raw": "Utländska versioner – ''The Lie''",
+    "n": 1,
+    "pos": 0,
+    "chars": 338,
+    "list": 0.0
+   },
+   {
+    "heading": "utmärkelser",
+    "raw": "Utmärkelser",
+    "n": 1,
+    "pos": 4,
+    "chars": 359,
+    "list": 1.0
+   }
+  ],
+  "ko": [
+   {
+    "heading": "외부 링크",
+    "raw": "외부 링크",
+    "n": 4,
+    "pos": 4.0,
+    "chars": 170,
+    "list": 0.19
+   },
+   {
+    "heading": "각주",
+    "raw": "각주",
+    "n": 3,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "줄거리",
+    "raw": "줄거리",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 331,
+    "list": 0.0
+   },
+   {
+    "heading": "캐스팅",
+    "raw": "캐스팅",
+    "n": 2,
+    "pos": 0.5,
+    "chars": 657,
+    "list": 1.0
+   },
+   {
+    "heading": "수상",
+    "raw": "수상",
+    "n": 2,
+    "pos": 1.5,
+    "chars": 174,
+    "list": 0.89
+   },
+   {
+    "heading": "같이 보기",
+    "raw": "같이 보기",
+    "n": 1,
+    "pos": 2,
+    "chars": 5,
+    "list": 1.0
+   },
+   {
+    "heading": "캐스트",
+    "raw": "캐스트",
+    "n": 1,
+    "pos": 1,
+    "chars": 48,
+    "list": 1.0
+   },
+   {
+    "heading": "제작",
+    "raw": "제작",
+    "n": 1,
+    "pos": 2,
+    "chars": 41,
+    "list": 1.0
+   },
+   {
+    "heading": "영화 정보",
+    "raw": "영화 정보",
+    "n": 1,
+    "pos": 3,
+    "chars": 36,
+    "list": 1.0
+   },
+   {
+    "heading": "출연",
+    "raw": "출연",
+    "n": 1,
+    "pos": 0,
+    "chars": 38,
+    "list": 0.67
+   },
+   {
+    "heading": "기타",
+    "raw": "기타",
+    "n": 1,
+    "pos": 1,
+    "chars": 89,
+    "list": 1.0
+   }
+  ],
+  "cs": [
+   {
+    "heading": "povídky",
+    "raw": "Povídky",
+    "n": 1,
+    "pos": 0,
+    "chars": 1676,
+    "list": 0.0
+   },
+   {
+    "heading": "spřízněné filmy",
+    "raw": "Spřízněné filmy",
+    "n": 1,
+    "pos": 1,
+    "chars": 417,
+    "list": 0.0
+   },
+   {
+    "heading": "přijetí",
+    "raw": "Přijetí",
+    "n": 1,
+    "pos": 2,
+    "chars": 1081,
+    "list": 0.0
+   },
+   {
+    "heading": "reference",
+    "raw": "Reference",
+    "n": 1,
+    "pos": 3,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "literatura",
+    "raw": "Literatura",
+    "n": 1,
+    "pos": 4,
+    "chars": 138,
+    "list": 1.0
+   },
+   {
+    "heading": "externí odkazy",
+    "raw": "Externí odkazy",
+    "n": 1,
+    "pos": 5,
+    "chars": 288,
+    "list": 0.2
+   }
+  ],
+  "no": [
+   {
+    "heading": "referanser",
+    "raw": "Referanser",
+    "n": 3,
+    "pos": 2,
+    "chars": 0,
+    "list": 0.0
+   },
+   {
+    "heading": "eksterne lenker",
+    "raw": "Eksterne lenker",
+    "n": 3,
+    "pos": 3,
+    "chars": 300,
+    "list": 0.09
+   },
+   {
+    "heading": "handling",
+    "raw": "Handling",
+    "n": 2,
+    "pos": 0.0,
+    "chars": 1088,
+    "list": 0.0
+   },
+   {
+    "heading": "handlingen",
+    "raw": "Handlingen",
+    "n": 1,
+    "pos": 0,
+    "chars": 479,
+    "list": 0.0
+   },
+   {
+    "heading": "skuespillere",
+    "raw": "Skuespillere",
+    "n": 1,
+    "pos": 1,
+    "chars": 283,
+    "list": 1.0
+   },
+   {
+    "heading": "om filmen",
+    "raw": "Om filmen",
+    "n": 1,
+    "pos": 1,
+    "chars": 2904,
+    "list": 0.0
+   },
+   {
+    "heading": "rolleliste",
+    "raw": "Rolleliste",
+    "n": 1,
+    "pos": 2,
+    "chars": 0,
+    "list": 0.78
+   },
+   {
+    "heading": "skuespillere og rolleliste",
+    "raw": "Skuespillere og rolleliste",
+    "n": 1,
+    "pos": 1,
+    "chars": 390,
+    "list": 0.95
+   }
+  ]
+ },
+ "auto": {
+  "fr": [
+   "synopsis",
+   "sujet",
+   "résumé"
+  ],
+  "de": [
+   "handlung",
+   "hintergrund",
+   "inhalt",
+   "produktionsnotizen",
+   "rezeption",
+   "produktion",
+   "veröffentlichung",
+   "entstehungsgeschichte",
+   "entstehung"
+  ],
+  "ru": [
+   "сюжет"
+  ],
+  "ja": [
+   "あらすじ",
+   "概要",
+   "登場人物",
+   "略歴概要",
+   "概略"
+  ],
+  "bn": [
+   "কাহিনীসংক্ষেপ"
+  ],
+  "fa": [
+   "خلاصه داستان",
+   "داستان"
+  ],
+  "es": [
+   "producción",
+   "argumento",
+   "sinopsis",
+   "premios"
+  ],
+  "it": [
+   "trama",
+   "produzione",
+   "accoglienza",
+   "critica",
+   "genesi e accoglienza",
+   "controversie"
+  ],
+  "pl": [
+   "fabuła",
+   "produkcja"
+  ],
+  "hu": [],
+  "el": [
+   "πλοκή"
+  ],
+  "sh": [],
+  "hy": [],
+  "zh": [
+   "製作",
+   "劇情",
+   "剧情"
+  ],
+  "hi": [],
+  "pt": [],
+  "nl": [
+   "verhaal"
+  ],
+  "da": [],
+  "sv": [
+   "mottagande"
+  ],
+  "ko": [],
+  "cs": [],
+  "no": [
+   "handling"
+  ]
+ }
+}
