@@ -33,7 +33,7 @@ import hashlib, json, os, re, sys, time, unicodedata, urllib.parse, urllib.reque
 
 CA = "/root/.ccr/ca-bundle.crt"
 CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".cache-scholar")
-PACE_S = 0.6
+PACE_S = 1.0
 
 # Titles whose canonical form breaks tokenised search; values are the query
 # form actually used by scholarship (checked by hand against results).
@@ -140,9 +140,19 @@ def one_film(f):
 def main():
     from concurrent.futures import ThreadPoolExecutor
     sample = json.load(open(sys.argv[1]))
-    with ThreadPoolExecutor(max_workers=4) as ex:
+
+    def safe(f):
+        # A failed film is reported as failed, not cached and not fatal.
+        try:
+            return one_film(f)
+        except Exception as e:
+            row = dict(f)
+            row.update(matchable=None, bare=None, count=None, query=None, error=str(e)[:200])
+            return row
+
+    with ThreadPoolExecutor(max_workers=2) as ex:
         out = []
-        for i, row in enumerate(ex.map(one_film, sample)):
+        for i, row in enumerate(ex.map(safe, sample)):
             out.append(row)
             if (i + 1) % 20 == 0 or i + 1 == len(sample):
                 print("  %d/%d %s -> %s" % (i + 1, len(sample), row["title"], row["count"]), flush=True)

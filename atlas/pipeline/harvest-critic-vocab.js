@@ -324,7 +324,7 @@ const GUARDS = {
   measured: { after: /^\s*(against|by|in|from|out|through|the|his|her|its|their|critical|response|praise|plaudits|acclaim|reviews?|terms)\b/i },
   /* verb use: "actors haunting the corridors" */
   haunting: { before: /\bghost\s*$/i, after: /^\s*["'“‘]?(the|a|an|his|her|its|their|him|them|our|your)\b/i },
-  theatrical: { after: /^\s*(trailer|release|run|exhibition|distribution|version|cut|audience|reissue|re-release|showing)\b/i },
+  theatrical: { after: /^\s*(trailer|release|run|exhibition|distribution|version|cut|audience|reissue|re-release|showing|world|profession|career|agent)\b/i },
   deliberate: { requireAfter: /^\s*(pace|pacing|pac[ei]|rhythm|tempo|slowness|tread|speed|deliberateness)/i },
   tense: { before: /\b(past|present|future|verb)\s*$/i },
   abstract: { after: /^\s*(idea|notion|concept|principle|level|sense|term|question|thought|noun|the|to|it|reckoning|debate|issue|argument)\b/i },

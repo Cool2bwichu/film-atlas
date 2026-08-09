@@ -768,10 +768,20 @@ main{flex:1;position:relative;overflow:hidden}
    and both stack the same way on a phone.
 
    max-height, never height: a short readout is still exactly as tall as what
-   it says. The ceiling only ever binds on the long ones. */
+   it says. The ceiling only ever binds on the long ones.
+
+   AND THE COLUMN ITSELF TAKES NO TAPS. On a phone the HUD's main axis is
+   vertical and this box has flex:1, so once the HUD spans the field this box
+   grows to fill it — an invisible 366x545 rectangle over the constellation,
+   inheriting pointer-events:auto from .sky-hud>*. Measured before this rule:
+   a 6x6 grid of taps across the field at 390x780 hit the canvas 18 times
+   before and 0 times after; the atlas was untappable on a phone and every
+   screenshot looked perfect. The boxes that are actually printed take their
+   own events back. */
 .sky-hud-main{flex:1;min-width:0;max-width:min(520px,64vw);max-height:100%;
   min-height:0;display:flex;flex-direction:column;align-items:stretch;
-  justify-content:flex-end;gap:8px}
+  justify-content:flex-end;gap:8px;pointer-events:none}
+.sky-hud-main>*{pointer-events:auto}
 /* THE READOUT COLLAPSES, AND THE FIELD GETS THE ROOM BACK.
    The box carries the five relationship colours, the count and the re-form
    sentence, and it is opaque — skyChrome() seeds it into the label placer AND
@@ -807,14 +817,17 @@ main{flex:1;position:relative;overflow:hidden}
    thing it is describing.
    The rail is left visible rather than hidden the way the worlds strip's is:
    there, the perforations already say "this travels sideways"; here, nothing
-   else would tell a reader that claim four of eight exists. */
+   else would tell a reader that claim four of eight exists — so the rail is
+   the only affordance and it has to clear the 3:1 floor a control is held to,
+   not the 1.9:1 a tasteful hairline would have given it. --faint computes to
+   5.0:1 on this ground and is already the app's quietest legal ink. */
 .sky-read{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;
   padding:2px 13px 11px;scrollbar-width:thin;
-  scrollbar-color:rgba(232,223,211,.26) transparent}
+  scrollbar-color:var(--faint) transparent}
 .sky-read::-webkit-scrollbar{width:7px}
 .sky-read::-webkit-scrollbar-track{background:transparent}
-.sky-read::-webkit-scrollbar-thumb{background:rgba(232,223,211,.26)}
-.sky-read::-webkit-scrollbar-thumb:hover{background:rgba(232,223,211,.42)}
+.sky-read::-webkit-scrollbar-thumb{background:var(--faint)}
+.sky-read::-webkit-scrollbar-thumb:hover{background:var(--dim)}
 .sky-read[hidden]{display:none}
 /* THE ATLAS IS SHOWING SOMETHING OTHER THAN THE ATLAS, AND SAYS SO.
    Slate lettering, because this is metadata about the picture rather than a
@@ -6470,7 +6483,12 @@ function skyReadoutBody(){
      so they get the panel rather than a tooltip. */
   if (P.from){
     shell.style.setProperty("--nc", F[P.from].highlight);
-    const head = `<span class="slate">passage</span>`;
+    /* No second "PASSAGE". skyFoldSummary already prints the word in the same
+       slate lettering one line above, and the two were only ever seen together
+       by a reader who scrolled the panel off the top of the window — which is
+       the defect this pass removed. The kind-of-thing line is the fold header's
+       job in every other state of this box; a route is not an exception. */
+    const head = "";
     if (P.pending){
       box.innerHTML = head + `<span class="t">${esc(F[P.from].title)} \u2192 ${esc(F[P.to].title)}</span>
         <span class="y">finding the route\u2026</span>`;
