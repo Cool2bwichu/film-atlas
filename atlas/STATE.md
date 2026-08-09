@@ -69,9 +69,12 @@ Sites edition, 2026-08-06:
   Akira→Ghost in the Shell downgraded to a reading (no citable source found);
   Diabolique→Psycho's attribution rewritten (the popular version is disputed
   by one of the people it's about).
-- `measure-maps.js` **PASSes** — interpretive edges 17% against its 15% target.
-  First pass since the association engine replaced the hand-authored spine;
-  this was the thing item 2 below used to name as the reason it stayed FAIL.
+- `measure-maps.js` **FAILs again** — interpretive edges **11%** against its 15%
+  target. It passed at 17% at N=803, and the harvest reversed it: the same
+  967 authored claims now have to cover 2.7x the maps. This is item 2 below,
+  showing up in a second instrument. Everything else in the tool passes —
+  same-director 8% (target <35%), single dominant type 66% (<72%), 2.61
+  distinct types per map, 45-year average span.
 - Repeated-claim maps and single-relationship-type maps (formerly items 3b/3c)
   are addressed: `connections()` in `app/template.html` demotes a repeated
   claim text and, more gently, a repeated signal; edge labels now vary by
