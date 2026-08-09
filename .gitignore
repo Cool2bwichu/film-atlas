@@ -60,6 +60,7 @@ yarn-error.log*
 /atlas/pipeline/.cache-plots/
 /atlas/pipeline/.cache-views/
 /atlas/pipeline/.cache-axes/
+/atlas/pipeline/.cache-scholar/
 
 # Generated seed expansion. Regenerable with:
 #   node atlas/pipeline/expand-seeds.js --target N > atlas/pipeline/seeds-expansion.txt
