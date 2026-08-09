@@ -1892,23 +1892,36 @@ function layout(){
 
   /* A FOURTH SCARCITY, AND IT IS THE CUE'S OWN.
      "why it connects" is a line of type in the centre caption, and it is worth
-     its height only where the ellipse has height to spare. Measured across the
-     22 longest titles in the corpus at four viewports, captions landing on a
-     NEIGHBOURING cell went 16 -> 33 at 1024x660 and 1 -> 5 at 900x820 when it
-     was always printed: a 525px stage cannot separate a taller centre from its
-     ring, the clamp pins them, and they overlap — DESIGN.md's open question 3,
-     doubled. Shrinking the type did not move it (35 at 7.5px), because the
+     its height only where the ellipse has height to spare. Printed
+     unconditionally it doubled the one defect this map still has: across the 22
+     LONGEST titles in the corpus, captions landing on a NEIGHBOURING cell went
+     16 -> 33 at 1024x660 and 1 -> 5 at 900x820. A 525px stage cannot separate a
+     taller centre from its ring, the clamp pins them, and they overlap.
+     Shrinking the type did not move it (35 pairs at 7.5px/3px), because the
      failure is the ellipse having no room at all rather than the line having
      too much.
-     So it is decided from the MEASURED boxes: printed when the ring's own
-     radius clears both half-heights, dropped when it does not — and the centre
-     is RE-MEASURED after it is dropped, or the separation pass spends 19px of
-     clearance budgeting for type that is no longer on screen. Nothing is
-     unreachable when it goes: the poster still opens the sheet, every ring
-     cell still opens its own claim, and the centre's aria-label still ends
-     "Open film details." */
+     So it is decided from the MEASURED boxes, and the constant is calibrated
+     rather than chosen. -20 says the separation pass and the four ring nodes
+     that are NOT at 12 and 6 o'clock recover about twenty pixels of nominal
+     overlap; larger and it starts costing geometry, smaller and it stops
+     printing. Measured over 60 films spread across the corpus and the 22
+     worst-case titles, at six viewports:
+
+       slack   worst-case caption-on-a-neighbour     cue printed, typical films
+               1440 / 900x820 / 1024x660 / 390       1440 / 1280x700 / 900 / 1024x660 / 390
+       none     0  /  1  /  16  /  0   (the control)   —
+       +8       0  /  1  /  16  /  0                  43 / 0  / 4  / 0  / 59
+       -20      0  /  1  /  16  /  0                  59 / 53 / 55 / 22 / 60
+       -40      0  /  3  /  22  /  0                  60 / 59 / 60 / 38 / 60
+
+     -20 is the knee: identical geometry to having no cue at all, at every
+     viewport, on both seed sets. The centre is RE-MEASURED after the cue is
+     dropped, or the separation pass spends 19px of clearance budgeting for type
+     that is no longer on screen. Nothing is unreachable when it goes: the
+     poster still opens the sheet, every ring cell still opens its own claim,
+     and the centre's aria-label still ends "Open film details." */
   let centreH = centreNode ? HOF.get(centreNode) : 0;
-  const roomForCue = !!centreNode && ry >= centreH/2 + ringH/2 + 8;
+  const roomForCue = !!centreNode && ry >= centreH/2 + ringH/2 - 20;
   stage.classList.toggle("cue-off", !roomForCue);
   if (centreNode && !roomForCue){
     centreNode.style.transitionProperty="none";
@@ -2128,6 +2141,13 @@ function writeRadialHistory(method, snapshot, url){
    "Resume here" on the thread, #/film/<key> and the back button, so the
    address and the gesture cannot mean different things. */
 function presentRadialMap(){
+  /* The choke point for "a map is now on screen", so the sheet is dismissed
+     HERE and not only in openMap(). restoreRadialMap() (the back button)
+     reaches this without going through openMap at all, and show("map") is the
+     one view transition that does NOT close the panel, because the panel
+     belongs to the map — so without this line a back navigation can leave the
+     previous film's sheet standing over the new film's ring. */
+  closePanel(false);
   show("map");
   renderMap();
   /* THE ARRIVAL STILL HAS TO BE ANNOUNCED, and it used to be announced by the
@@ -3015,8 +3035,16 @@ function skyAddrParseToken(tok){
    dropping the rest would draw a selection neither person asked for, under
    the sender's link, with a count that looks authoritative and is not. */
 function skyAddrParse(str){
-  const toks=String(str).split("+").filter(Boolean);
-  if (!toks.length) return null;
+  /* An EMPTY token is a refusal, not something to skip past. `filter(Boolean)`
+     dropped them, which meant `#/sky/genre:drama+` — a link truncated at a
+     separator by a mail client's line wrap, the one place a URL breaks on a
+     boundary rather than mid-word — parsed as plain `genre:drama` and drew
+     1,552 films with no notice. That is the exact outcome the all-or-none rule
+     below exists to refuse: a selection neither person asked for, under the
+     sender's link, with a count that looks authoritative. Truncation anywhere
+     else already fails, because half a value is not a value. */
+  const toks=String(str).split("+");
+  if (!toks.length || toks.some(t => !t)) return null;
   const out=[], seen=new Set();
   for (const t of toks){
     const pair=skyAddrParseToken(t);
@@ -3108,6 +3136,32 @@ function skyRestoreSelection(pairs){
    selection is gone. #/passage falls to the wall instead, and correctly: half
    a route is not a smaller route, it is nothing. */
 function skyStaleAddress(raw){
+  /* PUT DOWN WHAT IS BEING HELD BEFORE SAYING THE WHOLE ATLAS IS HERE.
+     Measured defect: this is reached by two roads and only one of them had
+     already cleared the selection. A VALID-but-empty address goes through
+     skyRestoreSelection, which clears and re-forms before returning false —
+     so a cold load and an in-session paste both land on 2,204 films. An
+     UNPARSEABLE one never enters that function at all (fromHash calls this
+     directly when skyAddrParse returns null), and on a cold load that was
+     invisible because a fresh page holds nothing. In a session it was not:
+     pasting #/sky/genre:no-such-genre while looking at #/sky/genre:drama left
+     all 1,552 drama films on screen, the strip and readout still describing
+     Drama, the bar rewritten back to #/sky/genre:drama — and #sr-status
+     announcing "the whole atlas is here instead. 2204 films." The reader who
+     followed the link was given the SENDER'S PREVIOUS PICTURE under a count
+     that was a lie about it, which is worse than the empty sky this fallback
+     exists to avoid: an empty sky is at least visibly nothing.
+     Guarded rather than unconditional so a cold arrival — which holds
+     nothing — is not made to re-form the atlas it is already showing. */
+  if (skyFilterOn() || sky.passage.from){
+    for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+    skyWorldsOpen(true);
+    skyApplySelection(0);   /* arrives rather than flies: nobody watched this */
+    skyFilterRender();
+    skyWorldsRender();
+  }
+  /* After skyApplySelection, which clears staleAddr and syncs the hash itself
+     on the frame the selection changes. */
   sky.staleAddr=String(raw).slice(0,120);
   skySyncHash();          /* the bar must describe what is actually on screen */
   skyStratumRender();
@@ -3681,7 +3735,20 @@ function skyFormTo(target, opts){
   sky.chrome = null;
 
   const camNow = { cx:sky.cam.cx, cy:sky.cam.cy, k:sky.cam.k };
-  const fit = skyFitTarget(target.live,tx,ty,target.count) || camNow;
+  /* THE WHOLE ATLAS HAS ONE FIT, AND IT IS skyFitCam'S. skyFitTarget's comment
+     says a target filling the world box "lands on exactly the whole-atlas fit
+     and there is no step between clearing a selection and pressing Fit" — the
+     intent is right and the assumption under it is not: the baked home layout
+     spans 0.992, not 1.000, so dividing by its own span landed the return
+     flight at k=465.2167 where a cold #/sky, the Fit control and the strip's
+     corrective re-fit all land at skyFitK()'s 461.495. Measured: identical
+     membership, identical positions, identical chrome boxes, 0.8% different
+     zoom — one address, two pictures, decided by whether you arrived at the
+     whole atlas or put a selection down to reach it. A selection still fits
+     its own point cloud; only "everything" is fitted the way everything else
+     in the app fits everything. */
+  const fit = (target.kind==="whole" ? skyFitCam()
+               : skyFitTarget(target.live,tx,ty,target.count)) || camNow;
 
   const delay=new Float32Array(n);
   let maxD=1e-6;
@@ -5432,43 +5499,56 @@ function skySolveNote(live){
    which is the thing the fold was asked for in order to stop. Nothing is
    unreachable: a second tap on a held film still opens its map, Escape still
    releases, and the summary line names whatever the body is holding. */
-function skyFoldSummary(){
+/* The count rides on this line only while it is the ONLY line. Expanded, the
+   readout underneath already prints "2,204 films · 22,217 connections" and the
+   stratum strip above already prints "RE-FORMED · THE SILVER PRINT · 194 /
+   2204"; a header repeating either is a third copy of a number nobody asked
+   twice for. Folded, it is the whole orientation and carries both. */
+function skyFoldSummary(folded){
+  const n=(s)=>folded?s:"";
   const P=sky.passage;
   if (P.from && F[P.from]){
-    if (P.pending) return "Passage · finding the route…";
-    if (!P.to) return "Passage · pick a second film";
-    if (!P.route) return "Passage · no route";
-    const n=P.route.hops;
-    return `Passage · ${n} crossing${n===1?"":"s"}`;
+    if (P.pending) return "Passage"+n(" · finding the route…");
+    if (!P.to) return "Passage"+n(" · pick a second film");
+    if (!P.route) return "Passage"+n(" · no route");
+    const h=P.route.hops;
+    return "Passage"+n(` · ${h} crossing${h===1?"":"s"}`);
   }
   const anchor=skyAnchor();
   const key = anchor ? (sky.examineKey || sky.hoverKey || anchor) : skyInHand();
   if (key!=null && F[key]) return F[key].title;
   const sel=skySelected();
   if (sel.length){
-    if (sky.formPending) return `${skySelectionLabel(sel)} · solving ${sky.formPending} films…`;
+    const label=skySelectionLabel(sel);
+    if (sky.formPending) return label+n(` · solving ${sky.formPending} films…`);
     const live=skyLiveCount();
-    return live
-      ? `${skySelectionLabel(sel)} · ${live} films`
-      : `${skySelectionLabel(sel)} · nothing matches`;
+    return label+n(live?` · ${live} films`:" · nothing matches");
   }
-  return `The whole atlas · ${sky.keys.length} films`;
+  return "The whole atlas"+n(` · ${sky.keys.length} films`);
 }
 
 function skyFoldApply(){
   const shell=$("#sky-readbox"), body=$("#sky-read"), btn=$("#sky-fold"), sum=$("#sky-fold-sum");
   if (!shell||!body||!btn) return;
   const folded=state.skyFolded===true;
-  shell.classList.toggle("folded",folded);
-  body.hidden=folded;
-  btn.setAttribute("aria-expanded",folded?"false":"true");
-  btn.setAttribute("aria-label",folded
-    ? "Show the readout and the colour key"
-    : "Hide the readout and the colour key");
+  /* Guarded: this runs on every readout repaint, which is every pointer move
+     over a disc. Re-writing `hidden` to the value it already has still reflects
+     the attribute and invalidates style on the largest box in the view. */
+  if (body.hidden!==folded){
+    shell.classList.toggle("folded",folded);
+    body.hidden=folded;
+    btn.setAttribute("aria-expanded",folded?"false":"true");
+    btn.setAttribute("aria-label",folded
+      ? "Show the readout and the colour key"
+      : "Hide the readout and the colour key");
+  }
   /* Not before the field exists: at boot sky.keys is empty and the summary
      would print "0 films" over the honest string the markup ships with.
      skyEnter's own skyReadout() fills it on the frame the view opens. */
-  if (sum && (sky.ready || sky.keys.length)) sum.textContent=skyFoldSummary();
+  if (sum && (sky.ready || sky.keys.length)){
+    const line=skyFoldSummary(folded);
+    if (sum.textContent!==line) sum.textContent=line;
+  }
 }
 
 /* The box changed height, so the fit did — the same correction skyWorldsOpen
@@ -6322,6 +6402,15 @@ function fromHash(historyMode="replace"){
     openSky();
     if(sky.passage.from) skyPassageClear();
     if(skyFilterOn()) skyClearFacets();
+    /* AND THE NOTICE IS PUT DOWN TOO. It is an arrival state belonging to the
+       address that failed, not a mode the page is now in — and a stale arrival
+       leaves no selection behind, so skyClearFacets above does not run and
+       nothing else was clearing it. Measured: #/sky/genre:no-such-genre then
+       #/sky left the whole atlas correctly drawn under a strip still reading
+       "not in this edition" about a link the reader had already navigated away
+       from. skyClearFacets clears it via skyApplySelection when it does run, so
+       this is only ever the no-selection road. */
+    if(sky.staleAddr){ sky.staleAddr=null; skyStratumRender(); skyReadout(); }
     return true;
   }
   /* A RE-FORMED ATLAS. #/sky/world:gothic, #/sky/genre:drama+era:1960-1979 —

@@ -120,7 +120,8 @@ register, a recorded stratum and a live-solved intersection. Then it corrupts
 the hash ten ways and confirms each one lands on the **whole** atlas with the
 notice shown, never on an empty sky and never on half a selection. It also
 checks the honesty line in both directions: a baked address carries no engine
-caveat, a solved one must.
+caveat, a solved one must — including the case a flag in the URL would get
+wrong, a **one-token** address for a value too small to have been baked.
 
 ~5 min; every restored sky is measured for ink as well, for the reason above.
 Nine negative controls are recorded in `atlas/DESIGN.md`, "The address".

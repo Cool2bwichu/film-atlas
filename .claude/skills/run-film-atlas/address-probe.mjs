@@ -249,6 +249,40 @@ log("\nwhole     · #/sky puts down whatever the previous address was holding");
   for (const e of errors) fail("console: " + e);
 }
 
+/* ── 2c · one token is not the same question as "is this baked" ───────────
+   The case a flag in the URL would get wrong, and the reason the caveat is
+   keyed to sky.formKind instead. A value under the bake floor — or in a facet
+   the build bakes none of — is a ONE-TOKEN address that is still solved live,
+   and it has to say so. Skipped, loudly, if this edition bakes everything. */
+log("\nsingleton · a one-token address can still be a live solve, and says so");
+{
+  const { page, errors } = await load(browser, "#/sky");
+  const pick = await page.evaluate(`(() => {
+    for (const f of FACET_FIELDS) {
+      const rows = [...skyFacetCounts(f.key).entries()].sort((a,b) => b[1]-a[1]);
+      for (const [v,n] of rows) if (!LAYOUT.strata[v]) return { field:f.key, value:v, n };
+    }
+    return null; })()`);
+  if (!pick) log("  --    every offered value is baked in this edition; nothing to show");
+  else {
+    const out = await page.evaluate(`(async () => {
+      skyToggleFacet(${JSON.stringify(pick.field)}, ${JSON.stringify(pick.value)});
+      await new Promise(r => setTimeout(r, ${SETTLE_MS}));
+      return { hash: location.hash, kind: __ATLAS_SKY__.state().kind,
+               tokens: location.hash.replace("#/sky/","").split("+").length,
+               strip: document.getElementById("sky-stratum").textContent,
+               caveat: /solved here, in this page/.test(document.getElementById("sky-read").textContent) };
+    })()`);
+    if (out.tokens !== 1) fail(`${out.hash} is ${out.tokens} tokens, not one`);
+    else if (out.kind !== "solved") fail(`${pick.field}=${pick.value} has no baked stratum but formed as "${out.kind}"`);
+    else if (!/solved here/i.test(out.strip) || !out.caveat)
+      fail(`${out.hash} was solved live and does not say so: "${out.strip.trim()}"`);
+    else pass(`${out.hash} — ${pick.n} films, one token, kind=${out.kind}, caveat printed`);
+  }
+  await page.context().close();
+  for (const e of errors) fail("console: " + e);
+}
+
 /* ── 3 · canonical order ──────────────────────────────────────────────────
    TWO VALUES IN THE SAME FACET, which is the only case that can fail. Across
    facets skySelected() already walks FACET_FIELDS in a fixed order, so the

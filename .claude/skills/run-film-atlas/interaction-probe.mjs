@@ -192,6 +192,38 @@ async function foldChecks(browser) {
   if (errors.length) bad("console clean", errors.join(" | "));
   else ok("console clean");
   await ctx.close();
+
+  /* ── the same fold on a phone, where the room it gives back is the point ── */
+  log("\n1b ── the fold under a finger at 390x780");
+  const t = await newPage(browser, { width: 390, height: 780 }, { ...devices["Pixel 5"], viewport: { width: 390, height: 780 } });
+  await load(t.page, "#/sky");
+  await t.page.waitForFunction("sky.ready && sky.n > 0", null, { timeout: LOAD_MS });
+  await t.page.waitForTimeout(2600);
+  await t.page.evaluate("skyWorldChoose(REG_IDS.find(i=>REG_DEFS[i].count>100)||REG_IDS[0])");
+  await t.page.waitForTimeout(2000);
+  const openPhone = await t.page.evaluate(`(() => { sky.chrome=null;
+    const r=document.getElementById("sky-readbox").getBoundingClientRect();
+    const b=document.getElementById("sky-fold").getBoundingClientRect();
+    return { shellH: r.height, tap: Math.min(b.width, b.height), vh: innerHeight, safeH: skySafeH() }; })()`);
+  check(openPhone.tap >= 44, "the fold is a 44px target on a coarse pointer",
+    `${openPhone.tap.toFixed(0)}px`);
+  const btn = await t.page.evaluate(`(() => { const b=document.getElementById("sky-fold").getBoundingClientRect();
+    return { x: b.left + b.width/2, y: b.top + b.height/2 }; })()`);
+  await t.page.touchscreen.tap(btn.x, btn.y);
+  await t.page.waitForTimeout(1100);
+  const foldedPhone = await t.page.evaluate(`(() => { sky.chrome=null;
+    const r=document.getElementById("sky-readbox").getBoundingClientRect();
+    return { shellH: r.height, safeH: skySafeH(),
+      sum: document.getElementById("sky-fold-sum").textContent.trim() }; })()`);
+  check(foldedPhone.safeH - openPhone.safeH >= 100, "a tap on the fold hands the phone back a real band of field",
+    `${(100*openPhone.shellH/openPhone.vh).toFixed(0)}% of the viewport -> ` +
+    `${(100*foldedPhone.shellH/foldedPhone.vh || 100*foldedPhone.shellH/openPhone.vh).toFixed(0)}%, ` +
+    `skySafeH ${openPhone.safeH.toFixed(0)} -> ${foldedPhone.safeH.toFixed(0)}px`);
+  check(/\d/.test(foldedPhone.sum), "and still says which world and how many films", JSON.stringify(foldedPhone.sum));
+  log("  " + await shot(t.page, "p1-sky-folded-world-390"));
+  if (t.errors.length) bad("console clean", t.errors.join(" | "));
+  else ok("console clean");
+  await t.ctx.close();
 }
 
 /* ══ 2 ── ARRIVAL IS THE MAP, NOT THE SHEET ══════════════════════════════ */
@@ -632,17 +664,40 @@ log(failures ? `\nINTERACTION FAIL — ${failures} check(s)\n` : "\nINTERACTION 
 process.exitCode = failures ? 1 : 0;
 
 /* ══ CONTROLS ════════════════════════════════════════════════════════════
-   Each of these was applied to public/atlas.html with sed and the probe re-run;
-   the check named beside it reported the break. See the handoff for the output.
+   A check that has only ever passed proves nothing. Each patch below was
+   applied to a copy of the built artifact and the probe re-run against it with
+   ATLAS_HTML; the checks named beside it are the ones that reported the break,
+   and no others.
 
-   1  s/body.hidden=folded;//                    -> folded body lays out at zero height
-      s/"#sky-readbox","#sky-stratum"/"#sky-read","#sky-stratum"/
-                                                 -> the camera's safe band grows
-      s/skyFolded:state.skyFolded===true,//      -> the fold is written to preferences
-   2  restore openPanel(state.centre) in presentRadialMap
-                                                 -> the sheet does NOT open on arrival
-                                                 -> no film cell is covered on arrival
-   3  s/closePanel(g.hadFocus&&!took);//          -> every dismissal check
-      remove the `.node` exclusion               -> one gesture, not two
-      remove the 8px distance guard              -> a drag is not a dismissal
+   1a  body.hidden=folded  ->  body.hidden=false
+         folded body lays out at zero height           126px -> 126px
+         the whole box shrinks by more than half       155px -> 155px
+         the camera's safe band grows                  skySafeH +0
+         still folded after a reload                   hidden=false
+   1b  skyChrome measures "#sky-read" instead of "#sky-readbox"
+         expanded, the whole box is an obstacle
+         the collapsed box is still an obstacle
+       (the FIRST version of this check matched the zoom controls by y alone and
+        passed this control — it now matches x and width too)
+   1c  drop skyFolded from persistPreferences
+         the fold is written to atlas-preferences-v1   skyFolded=undefined
+         still folded after a reload
+   2   restore openPanel(state.centre) in presentRadialMap
+         the detail sheet does NOT open on arrival     panel.on=true
+         the closed sheet is aria-hidden and inert
+         no film cell is covered on arrival            6 of 7 at 390x780
+         clicking the centre poster opens / closes it
+         travelling / "Resume here" / a cold #/film load land in the same state
+   3a  drop closePanel(g.hadFocus&&!took)
+         all four dismissal checks, and the focus check (activeElement is BODY)
+   3b  drop the `.node` exclusion
+         a click on a connected film opens THAT film   panel.on=false, sel=null
+   3c  drop the 8px distance guard
+         a 240px drag leaves the sheet open
+         a selection dragged out of the sheet leaves it open
+   3d  drop the touch arming of sky.ghost
+         the tap's own ghost click opens no sheet      panel.on=true, sel="8"
+   4   delete the cue from renderMap  ->  the geometry table is the control the
+       shipped numbers are compared against; the gate constant in layout() was
+       calibrated against it and the table is in the comment there.
 */

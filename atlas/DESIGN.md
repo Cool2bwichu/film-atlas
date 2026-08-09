@@ -552,6 +552,75 @@ on a phone. The poster is capped, and on a phone the head becomes a catalogue
 card — plate left, name right — which puts two whole claims on the first
 screen.
 
+## The map arrives on the map — settled 2026-08
+
+Opening a film used to draw its radial map **and** open the detail sheet on top
+of it. Measured across the seven laid-out cells at arrival, the sheet covered
+**6 of 7 at 390×780** — on a phone it is a 72%-tall bottom sheet — and 0 of 7 at
+1440×900, where `layout()` already lays the ellipse out to avoid the 370px rail.
+So the complaint was real and it was a phone complaint: the reader asks *what is
+this film connected to* and gets a wall of text over the answer.
+
+> **Opening a film opens its branches. The sheet is the second gesture, and the
+> gesture is the obvious one: the centre poster.**
+
+`presentRadialMap()` no longer calls `openPanel`, and `openMap()` closes any
+sheet standing from the film before. Every way in goes through `openMap` — a
+ring click, a click in the constellation, the search box, *Surprise me*, *Resume
+here* on the thread, `#/film/<key>` and the back button — so **the address and
+the gesture cannot mean different things**. Verified for all six.
+
+Four consequences, each of which had to be answered rather than accepted:
+
+- **The claims must still be readable, and on first arrival they are NOT.**
+  Measured on arrival: six relationship names are on screen (on the lines at
+  1440, in the ring captions on a compact stage) and **not one of them is a
+  claim**. The claim tip is hover-only, so on a touch screen there is no claim
+  text on screen at all until something is tapped. That is a real reduction and
+  it is stated here rather than buried: what mitigates it is that a tap on any
+  connected cell opens **that one claim**, a tap on the centre opens **all
+  six**, and every ring cell's `aria-label` already carries its own claim
+  verbatim, so a keyboard or screen-reader reader never lost them.
+- **The affordance had to become visible.** The centre caption carries one slate
+  line, `why it connects`, in the interactive accent — 9.1:1 measured off the
+  composited page at 1440 and 9.7:1 at 390, against a 4.5:1 floor. It is the one
+  piece of type in this project that names a gesture, and it is inside the
+  caption box the separation pass already measures, so it can collide with
+  nothing. **It is printed only where the ellipse has the height** — see the
+  calibration table in `layout()`; printed unconditionally it doubled the map's
+  one remaining geometry defect.
+- **The arrival still has to be announced.** `#panel` is `aria-live`, so opening
+  it *was* the announcement. `#sr-status` now carries the film, the year, the
+  count and where the claims are.
+- **The poster is the handle in both directions.** Clicking the centre while its
+  own sheet is open closes it — otherwise the second click on the centre is the
+  one click on this screen that does nothing. On a phone the sheet covers the
+  poster it was opened from, which is why the outside tap below is the
+  load-bearing dismissal there.
+
+## The sheet dismisses on any outside click — settled 2026-08
+
+The × is not the only way out; Escape and the × both stay. What makes this
+invisible rather than infuriating is entirely in what counts as "outside":
+
+- **A click on a film opens that film.** One gesture, not two. `.node` is
+  excluded by name, not by timing.
+- **A drag is not a dismissal.** The gesture is anchored at `pointerdown` and
+  counts only if it ends within 8px of where it started; a gesture that starts
+  *inside* the sheet is never a dismissal however far outside it ends.
+- **A touch tap fires a synthetic click afterwards.** The constellation's
+  ghost-click guard already existed for this, and **its arming was widened from
+  one branch to every touch pick.** It was armed only in the pin-then-open
+  branch, which left the anchor branch — a second tap on a held film, which
+  calls `openMap()` — unguarded; with the sheet no longer opening over the
+  arrival, that ghost lands on a ring cell and opens a film nobody chose.
+  Reproduced and fixed: three taps on one disc now land on that disc's film with
+  `state.sel === null`.
+- **Focus lands somewhere.** If the reader was inside the sheet and dismissed it
+  on bare ground, focus returns to the film in the map, as the × path does. If
+  they clicked something focusable, that thing has focus and moving it again
+  would be theft.
+
 ## The wall: what decides the front page
 
 The wall shows the first 240 films, so the behaviour **at the cut** is the
@@ -598,6 +667,43 @@ said what they were; the resting readout was answering "what am I looking at"
 with mouse instructions. It now carries the five relationship names and the
 dashed swatch for `reading, not record`, and is replaced by the film's own
 details the moment one is in hand.
+
+### The readout collapses, and that is a change to the picture — settled 2026-08
+
+Carrying the key, the count and the re-form sentence makes it the largest opaque
+object in the field, on the edge a phone has least of: **155px at 1440×900 and
+30% of the viewport at 390×780 with a world chosen.** It is not decoration to
+fold it away, because `skyChrome()` seeds it into the label placer *and* into
+the camera's safe band — so collapsing it hands the constellation real room.
+Measured, folding it:
+
+| | box | `skySafeH` |
+|---|---|---|
+| 1440×900, whole atlas | 155px → 29px | 502px → **627px** |
+| 390×780, a world chosen | 30% of the viewport → 6% | 286px → **474px** |
+
+The camera re-fits on the fold, exactly as it does when the worlds strip rolls
+up, and only when nothing else owns it — a reader who has panned somewhere has
+said where they want to be, and a fold is not a request to be moved.
+
+**Folded means folded.** No state re-opens it behind the reader's back. That
+costs the readout's buttons (*Open its map*, *Route from here…*) one tap while
+it is down, and the alternative — springing open whenever a film is in hand —
+makes the box flicker under a mouse crossing the field, which is the thing the
+fold exists to stop. Nothing becomes unreachable: a second tap on a held film
+still opens its map, Escape still releases, and the collapsed line names
+whatever the body is holding.
+
+**The collapsed line is the whole orientation, so it carries the count** —
+`THE WHOLE ATLAS · 2204 FILMS`, `THE SILVER PRINT · 194 FILMS`, the film's title
+when one is in hand, `PASSAGE · 3 CROSSINGS` mid-route. Expanded it drops the
+count, because the body underneath and the stratum strip above both already
+print one and a third copy is a number nobody asked twice for.
+
+Remembered in `atlas-preferences-v1` as `skyFolded`, read back with `=== true`
+rather than a truthy test — the same discipline as the `hasOwnProperty` filter
+on `seen`/`loved`, and for the same reason: this store is hand-editable and a
+boolean preference must never arrive as a string.
 
 ## The atlas re-forms — settled 2026-08
 
@@ -894,10 +1000,20 @@ world is made of film and paper, not plastic.
    without imposing an axis on it** — grazing the strip shows that folk horror
    is a corner and family drama is weather across the whole plate — but only
    while a frame is being grazed. At rest the disc is still even.
-3. **Residual geometry.** Across 44 worst-case seeds (longest titles + highest
-   degree) at eight viewports: 7 of 704 renders still place a caption on a
-   neighbouring poster, all of them at 1024×660 — a 516px stage, shorter than
-   a phone's — with 40-plus-character titles. Everything else is clean.
+3. **Residual geometry, and it now has a second victim.** Across 44 worst-case
+   seeds (longest titles + highest degree) at eight viewports: 7 of 704 renders
+   still place a caption on a neighbouring poster, all of them at 1024×660 — a
+   516px stage, shorter than a phone's — with 40-plus-character titles.
+   Everything else is clean.
+
+   **Re-measured 2026-08 as overlapping PAIRS over the 22 longest titles:** 0 at
+   1440×900, 1 at 900×820, **16 at 1024×660**, 0 at 390×780. That 1024×660
+   number is now a budget other things have to fit inside: the centre's
+   `why it connects` cue was gated on measured room precisely because printing
+   it unconditionally took it to 33. Anything else that wants a line of type in
+   a caption faces the same bill, and the honest fix is still the one this entry
+   has always implied — the ellipse cannot separate seven boxes on a 516px
+   stage, so that stage needs a different arrangement, not a smaller font.
 4. ~~**A world has no address either.**~~ **Answered — `#/sky/world:gothic`,
    see "The address" above.** It promises a byte-identical picture and carries
    no caveat, because a register is a baked stratum.
