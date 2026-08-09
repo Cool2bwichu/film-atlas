@@ -714,9 +714,9 @@ main{flex:1;position:relative;overflow:hidden}
   content:"";position:absolute;pointer-events:none;z-index:4;
   left:var(--ap-x,0px);top:var(--ap-y,0px);
   width:var(--ap-w,100%);height:var(--ap-h,100%);
-  box-shadow:0 0 0 9999px rgba(2,1,1,.30),
-             inset 0 0 74px 26px rgba(2,1,1,.44),
-             inset 0 0 0 1px rgba(232,223,211,.045)}
+  box-shadow:0 0 0 9999px rgba(2,1,1,.72),
+             0 0 30px 6px rgba(2,1,1,.5),
+             inset 0 0 96px 34px rgba(2,1,1,.46)}
 .sky-grain{position:absolute;inset:0;pointer-events:none;z-index:5;
   opacity:.052;mix-blend-mode:screen;background-repeat:repeat}
 @media (prefers-reduced-motion:reduce){ .sky-grain{opacity:.052} }
@@ -5122,11 +5122,19 @@ function skyGate(){
   const ah=Math.min(bh, w/aspect), aw=ah*aspect;
   return { x:(w-aw)/2, y:cy-ah/2, w:aw, h:ah, cy };
 }
+let skyGateSig="";
 function skyGateApply(){
   const f=$("#sky-field");
   if (!f || !sky.w) return;
   const g=skyGate();
   sky.gate=g;
+  /* Written only when the rectangle actually moves. Setting four custom
+     properties on every frame of a pan is four style recalculations a frame
+     for a rectangle that has not changed — the gate is chrome, and chrome must
+     not join the draw loop. */
+  const sig=g.x.toFixed(1)+","+g.y.toFixed(1)+","+g.w.toFixed(1)+","+g.h.toFixed(1);
+  if (sig===skyGateSig) return;
+  skyGateSig=sig;
   f.style.setProperty("--ap-x",g.x.toFixed(1)+"px");
   f.style.setProperty("--ap-y",g.y.toFixed(1)+"px");
   f.style.setProperty("--ap-w",g.w.toFixed(1)+"px");
@@ -5407,6 +5415,10 @@ const skyZoomCentre = f => skyZoomAt(sky.w/2, sky.h/2, f);
 function skyDraw(){
   const ctx=sky.ctx;
   if (!ctx || !sky.n) return;
+  /* The aperture is inscribed in the safe band, and the safe band moves when
+     the readout folds, the strip rolls up or a notice appears. Recomputed
+     here, written only when it changed. */
+  skyGateApply();
   const w=sky.w, h=sky.h, n=sky.n, cam=sky.cam, k=cam.k;
   ctx.setTransform(sky.dpr,0,0,sky.dpr,0,0);
   ctx.clearRect(0,0,w,h);
