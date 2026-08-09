@@ -90,7 +90,13 @@
 
 const { layout } = require("./layout-sky.js");
 
-const STRATA_LAYOUT_VERSION = "atlas-strata-v2";
+/* v3: the weak rest length became a function of n (layout-sky.js, restWeakExp),
+   which moves EVERY baked position in every stratum and register. The version
+   is what tells a stale artifact's blobs apart from a current one's — see the
+   --artifact cross-check in measure-layout.js, which prints a warning when they
+   disagree. Bump it whenever the solver's output moves, not only when this
+   file's own code changes. */
+const STRATA_LAYOUT_VERSION = "atlas-strata-v3";
 
 /* Below this a re-form is a scatter, not a constellation. See the note above:
    a coverage floor, never a popularity one. */

@@ -90,9 +90,11 @@
  *                  register, and it explained the weakRatio column single-handed:
  *                  restWeak was declared in units of k and was in fact a
  *                  fraction of the map, so it re-tuned itself as n changed.
- *                  layout-sky.js now carries `restWeakN` and holds this column
- *                  CONSTANT at 1.02 for every layout. A varying column means the
- *                  solver and this tool have diverged.
+ *                  layout-sky.js now carries `restWeakN` and `restWeakExp` and
+ *                  sets this column DELIBERATELY, rising as n^0.25 from 0.66 at
+ *                  a ten-film register to 2.56 at the whole atlas. That shape is
+ *                  the fix, not a residue of it: read it next to weakRatio,
+ *                  which is the thing being held flat.
  *
  * ── WHAT IT MEASURES IT ON ──────────────────────────────────────────────────
  *
@@ -131,20 +133,33 @@ const REST_WEAK = (() => {
   if (!m) throw new Error("app/layout-sky.js no longer declares restWeak in the form this tool reads");
   return parseFloat(m[1]);
 })();
-/* restWeakN arrived because this tool found restWeak was not scale-free — see
-   the restWeakN block in layout-sky.js. It is read the same way and for the
-   same reason, and it is REQUIRED rather than defaulted: if the solver drops it
-   the diagnostic below would silently go back to reporting a quantity the
-   solver no longer computes, which is the exact staleness this block exists to
-   prevent. restWeakWorld = restWeak * sqrt(n/restWeakN) / sqrt(n), which is
-   constant in n by construction — the point of the change — so a column that
-   varies here means the solver and the harness have diverged. */
+/* restWeakN and restWeakExp arrived because this tool found restWeak was not
+   scale-free — see the restWeakN block in layout-sky.js. They are read the same
+   way and for the same reason, and they are REQUIRED rather than defaulted: if
+   the solver drops one, the diagnostic below would silently go back to reporting
+   a quantity the solver no longer computes, which is the exact staleness this
+   block exists to prevent.
+
+       restWeakWorld = restWeak * (n/restWeakN)^restWeakExp / sqrt(n)
+
+   which is the rest length a strength-0 spring is given, as a fraction of the
+   finished picture's width. It is NOT constant in n: it rises as
+   n^(restWeakExp - 0.5), which is n^0.25 at the shipped 0.75, because a spring's
+   rest length is a wish and the competition it has to win rises with mean
+   degree. It IS a closed form of n alone, so a value here that disagrees with
+   restWeak * (n/restWeakN)^restWeakExp / sqrt(n) means the solver and the
+   harness have diverged. */
 const REST_WEAK_N = (() => {
   const m = SOLVER_SOURCE.match(/restWeakN:\s*([\d.]+)/);
   if (!m) throw new Error("app/layout-sky.js no longer declares restWeakN in the form this tool reads");
   return parseFloat(m[1]);
 })();
-const restWeakWorldAt = (n) => REST_WEAK * Math.sqrt(n / REST_WEAK_N) / Math.sqrt(n);
+const REST_WEAK_EXP = (() => {
+  const m = SOLVER_SOURCE.match(/restWeakExp:\s*([\d.]+)/);
+  if (!m) throw new Error("app/layout-sky.js no longer declares restWeakExp in the form this tool reads");
+  return parseFloat(m[1]);
+})();
+const restWeakWorldAt = (n) => REST_WEAK * Math.pow(n / REST_WEAK_N, REST_WEAK_EXP) / Math.sqrt(n);
 
 /* DESIGN.md, "Density is the invariant; extent is the variable". Asserted there
    as holding at every corpus size; this tool exists to find out. */
@@ -717,8 +732,9 @@ function printWhole(r) {
     "   (layout-sky.js: must stay below 1.0; quoted 0.83 at n=803)");
   console.log("median edge / unconnected: " + fmt(r.medianEdgeLength) + " / " + fmt(r.medianUnconnected));
   console.log("restWeakWorld            : " + fmt(r.restWeakWorld, 2) +
-    "   (restWeak=" + REST_WEAK + " at n=" + REST_WEAK_N +
-    ", in units of the finished picture's width — constant in n by construction)");
+    "   (restWeak=" + REST_WEAK + " at n=" + REST_WEAK_N + ", exponent " + REST_WEAK_EXP +
+    ", in units of the finished picture's width — rises as n^" +
+    (REST_WEAK_EXP - 0.5).toFixed(2) + " by construction)");
   console.log("spacing (median NN dist) : " + fmt(r.spacing, 5) +
     "   = " + fmt(r.spacingConstant, 3) + "/sqrt(N)   (DESIGN.md asserts " +
     DESIGN_SPACING_CONSTANT + ")");
@@ -1301,15 +1317,14 @@ main();
  *      whole-atlas weakRatio    0.495              ->   0.635
  *      whole-atlas closerP      0.837              ->   0.812
  *
- * WHAT WAS ACTUALLY DONE, 2026-08-09, AND WHY IT IS NOT THAT PROPOSAL.
+ * WHAT WAS DONE FIRST, 2026-08-09: THE UNIT, WITHOUT THE VALUE.
  *
- * The unit was fixed and the value was not. layout-sky.js now carries
- * `restWeakN: 2204` and holds restWeak * k constant, so one constant means the
- * same thing to the whole atlas and to a ten-film register. It is pinned at
- * n=2204, which makes sqrt(n/restWeakN) exactly 1 for the whole atlas: the
- * shipped 2,204-film layout is reproduced BIT-IDENTICALLY (verified with
- * --artifact, worst position delta 0.00e+0) and only the 72 re-formed skies
- * move. Measured across all 73:
+ * layout-sky.js took `restWeakN: 2204` and held restWeak * k constant, so one
+ * constant meant the same thing to the whole atlas and to a ten-film register.
+ * It was pinned at n=2204, which makes the scale factor exactly 1 for the whole
+ * atlas: the shipped 2,204-film layout was reproduced BIT-IDENTICALLY (verified
+ * with --artifact, worst position delta 0.00e+0) and only the 72 re-formed
+ * skies moved. Measured across all 73:
  *
  *      weakRatio >= 1.0        39 of 64  ->   2 of 64
  *      weakCloserP < 0.45      33 of 64  ->   1 of 64
@@ -1329,12 +1344,40 @@ main();
  * measured rather than eliminated. It is ratcheted, with that reason written
  * into layout-baseline.json's `note`.
  *
- * Raising the whole atlas to restWeak 120 was NOT done. It recovers 0.168 of
- * bondFit and costs closerP 0.839 -> 0.768 and weakCloserP 0.765 -> 0.574; the
- * shipped operating point is legal on every constraint this project has written
- * down, so moving along the trade curve is a design decision for whoever owns
- * the sky, not a bug fix. The measurements are above so that decision can be
- * taken with numbers.
+ * Raising the whole atlas to restWeak 120 was NOT done in that pass. It
+ * recovers 0.168 of bondFit and costs closerP 0.839 -> 0.768 and weakCloserP
+ * 0.765 -> 0.574; the operating point shipped then was legal on every
+ * constraint this project has written down, so moving along the trade curve was
+ * a design decision for whoever owns the sky, not a bug fix. The measurements
+ * were left above so that decision could be taken with numbers.
+ *
+ * WHAT WAS DONE SECOND: THE VALUE, AND THE EXPONENT IT NEEDED.
+ *
+ * The owner took it. restWeak is 120, restoring the whole atlas to the 0.83 the
+ * solver's own header always said it was tuned to.
+ *
+ * Setting 120 with restWeak * k held FLAT does not work, and this tool is what
+ * says so: the value that puts the whole atlas on 0.83 puts 13 of 64 scoreable
+ * strata OVER 1.0, worse than the 4 the unit fix alone left. A rest length is a
+ * wish and a small sparse register grants far more of it than the dense atlas
+ * does, so one fraction-of-the-picture cannot serve both. layout-sky.js
+ * therefore carries `restWeakExp: 0.75` — restWeak * k rises as n^0.25 — and
+ * the full argument, the sweep and the counterfactual live in that file's
+ * header under "WHY THE EXPONENT IS 0.75". Measured here, 48-flat -> 120-at-
+ * 0.75, across all 73:
+ *
+ *     whole atlas bondFit      -0.4161 -> -0.5836
+ *     whole atlas formFit      -0.1532 -> -0.4062
+ *     whole atlas weakRatio      0.499 ->   0.837
+ *     whole atlas closerP        0.837 ->   0.766   (invariant floor 0.70)
+ *     whole atlas weakCloserP    0.766 ->   0.577   (invariant floor 0.52)
+ *     director nnLift            19.0x ->   10.1x
+ *     weakRatio >= 1.0         4 of 64 -> 3 of 64
+ *     total standing breaches       66 ->      61
+ *
+ * closerP and weakCloserP falling IS the trade curve, walked deliberately to
+ * the tuned point and no further. Read them next to formFit, which is the
+ * statistic rule 1 is actually about, and which nearly tripled.
  *
  * ── WHERE THIS GATE SITS IN `npm test`, WHICH IS LOAD-BEARING ───────────────
  *
