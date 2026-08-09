@@ -1,0 +1,5969 @@
+{
+ "shard": {
+  "partitionIndex": 2,
+  "of": 4,
+  "scorer": "3 of 4",
+  "rule": "admitted keys sorted, every 4th taken from index 2",
+  "admittedInShard": 385,
+  "generated": "2026-08-09T10:14:42.528Z"
+ },
+ "batchesRun": 1,
+ "batchesFailed": 0,
+ "unscored": [],
+ "films": {
+  "halloween": {
+   "filmId": "film-236c9366ec0b992c",
+   "title": "Halloween",
+   "year": 1978,
+   "wikipedia": "Halloween (1978 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 4044,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 80,
+     "basis": "Michael watched at the edge of frame all day while friends dismiss Laurie; the stalking occupies the film, killings are brief"
+    },
+    "cruelty": {
+     "score": 62,
+     "basis": "Bob pinned to a wall, Lynda strangled by phone cord while Laurie listens; harm is deliberate and posed for effect"
+    },
+    "irony": {
+     "score": 18,
+     "basis": "'You can't kill the boogeyman' is played straight and the ending confirms it — no gap between image and intent"
+    },
+    "ambiguity": {
+     "score": 38,
+     "basis": "Six shots, a fall, and the body is gone; Loomis is unsurprised — what Michael is stays unanswered"
+    },
+    "fracture": {
+     "score": 12,
+     "basis": "A dated 1963 prologue, then straight through Oct 30–31 1978 with no further displacement"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.82,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "trip to vienna": {
+   "filmId": "film-1897155238a20d9d",
+   "title": "Trip to Vienna",
+   "year": 1973,
+   "wikipedia": "Trip to Vienna",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 4034,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 42,
+     "basis": "Illegal pig slaughter carries the death penalty and the exposure lands late; most scenes are shopping and flirting"
+    },
+    "cruelty": {
+     "score": 58,
+     "basis": "The women stage a fake rape to send Fred to the Eastern Front, where he is killed — reported in one line"
+    },
+    "irony": {
+     "score": 60,
+     "basis": "Extorted Jewish money funds a girls' sightseeing trip; the war ends as a street greeting after a windshield-smashing quarrel"
+    },
+    "ambiguity": {
+     "score": 22,
+     "basis": "Every thread closes: swindler robbed back, aunt dead, Fred killed, women reconciled on V-E Day"
+    },
+    "fracture": {
+     "score": 18,
+     "basis": "Single forward line, then two announced year-jumps to 1944 and V-E Day as an epilogue"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.8015384615384615,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "born on the fourth of july": {
+   "filmId": "film-6751a876181108cb",
+   "title": "Born on the Fourth of July",
+   "year": 1989,
+   "wikipedia": "Born on the Fourth of July (film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 3925,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 33,
+     "basis": "Harm arrives and is then lived with — the wound, the hospital, the wheelchair; little time is spent anticipating"
+    },
+    "cruelty": {
+     "score": 55,
+     "basis": "Villagers shot by mistake, a crying baby abandoned, orderlies ignoring patients, the widow refusing forgiveness"
+    },
+    "irony": {
+     "score": 25,
+     "basis": "The Fourth of July parade returns as the site of his breakdown, but the film plainly endorses Kovic's speeches"
+    },
+    "ambiguity": {
+     "score": 12,
+     "basis": "Dated march 1956→1976 ending on a podium; guilt confessed, politics stated, nothing withheld"
+    },
+    "fracture": {
+     "score": 14,
+     "basis": "Strict chronology by year, broken once by a flashback the crying baby triggers"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.7738461538461539,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "princess yang kwei fei": {
+   "filmId": "film-631db6ff40f1b91e",
+   "title": "Princess Yang Kwei-Fei",
+   "year": 1955,
+   "wikipedia": "Princess Yang Kwei Fei",
+   "region": "Japan",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 3680,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 52,
+     "basis": "The frame opens at her statue after her death, so the rebellion and the stated death penalty for consorts are foregone"
+    },
+    "cruelty": {
+     "score": 25,
+     "basis": "She is hanged and her sisters killed, but the film's disposition is elegiac; the emperor is pitied, not punished"
+    },
+    "irony": {
+     "score": 10,
+     "basis": "A lute song, a resemblance to the dead empress, reunion in death — the romance is offered without defence"
+    },
+    "ambiguity": {
+     "score": 12,
+     "basis": "Motives are stated outright (Lushan's, the family's, hers) and the frame closes on his death"
+    },
+    "fracture": {
+     "score": 28,
+     "basis": "The whole story sits inside one reminiscence, opening and closing at the statue"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.7784615384615385,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "diabolique": {
+   "filmId": "film-1bcb7076e1b4d4b2",
+   "title": "Diabolique",
+   "year": 1954,
+   "wikipedia": "Les Diaboliques (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 3740,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 82,
+     "basis": "The corpse fails to surface, the suit returns from the cleaners, the school photo shows him — waiting is the whole second half"
+    },
+    "cruelty": {
+     "score": 80,
+     "basis": "The entire plot is a scheme to frighten a woman with a known heart condition to death, and it is carried out"
+    },
+    "irony": {
+     "score": 38,
+     "basis": "The reveal retroactively makes every earlier scene a performance staged for Christina's benefit"
+    },
+    "ambiguity": {
+     "score": 55,
+     "basis": "The plot is fully explained, then the boy says Christina gave him the slingshot — one fact left permanently open"
+    },
+    "fracture": {
+     "score": 8,
+     "basis": "Strict forward order; the withheld information is concealment, not displacement"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.8,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "wall e": {
+   "filmId": "film-eecb316141760993",
+   "title": "WALL-E",
+   "year": 2008,
+   "wikipedia": "WALL-E",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 4090,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 26,
+     "basis": "A self-destruct pod and AUTO's mutiny are brief; most time is salvage, courtship and dancing in space"
+    },
+    "cruelty": {
+     "score": 20,
+     "basis": "AUTO electrocutes and crushes WALL-E and wipes his memory, but the wipe is undone by a kiss"
+    },
+    "irony": {
+     "score": 36,
+     "basis": "Consumerism satire (Buy n Large, immobile passengers) sits against a love story the film plays wholly straight"
+    },
+    "ambiguity": {
+     "score": 5,
+     "basis": "Directive exposed, ship returned, robot restored, plant grown into a tree — every question answered on screen"
+    },
+    "fracture": {
+     "score": 8,
+     "basis": "700-year backstory delivered as prologue, then one continuous forward line"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.7461538461538462,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "the fireman s ball": {
+   "filmId": "film-9e7791aeb4dcb7e2",
+   "title": "The Fireman's Ball",
+   "year": 1967,
+   "wikipedia": "The Firemen's Ball",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 3041,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 24,
+     "basis": "A dying chairman and Havelka's burning house exist, but the evening's engine is embarrassment, not anticipated harm"
+    },
+    "cruelty": {
+     "score": 46,
+     "basis": "A father buys drinks to enter his homely daughter, contestants flee to the toilets, an old woman is crowned as a joke"
+    },
+    "irony": {
+     "score": 76,
+     "basis": "The ceremonial gift box is opened empty; charity tickets are redeemed for prizes the donors themselves stole"
+    },
+    "ambiguity": {
+     "score": 32,
+     "basis": "The thefts are never pinned on anyone, and the closing image of Havelka in bed by the ruins is left unglossed"
+    },
+    "fracture": {
+     "score": 6,
+     "basis": "One evening in order, then the next morning; no displacement at all"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.7938461538461539,
+    "plot-length-banded": 0.5
+   }
+  },
+  "a hatful of rain": {
+   "filmId": "film-e89267059c9a6280",
+   "title": "A Hatful of Rain",
+   "year": 1957,
+   "wikipedia": "A Hatful of Rain",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 4526,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 62,
+     "basis": "Mother's deadline runs under everything — pay $300 or be hospitalised — alongside withdrawal and the father's imminent discovery"
+    },
+    "cruelty": {
+     "score": 50,
+     "basis": "The father systematically belittles Polo; Johnny coerces him by threatening to throw himself into traffic"
+    },
+    "irony": {
+     "score": 10,
+     "basis": "The war-hero-turned-addict is stated flatly and the confessions are meant; nothing is held at a distance"
+    },
+    "ambiguity": {
+     "score": 15,
+     "basis": "Debt paid, habit confessed to wife and father, police called — every concealment is opened before the end"
+    },
+    "fracture": {
+     "score": 5,
+     "basis": "Continuous over roughly two days, with the war and hospital given only as spoken background"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.82,
+    "plot-length-banded": 0.8333333333333334
+   }
+  },
+  "jarhead": {
+   "filmId": "film-5c74bd94fca56b04",
+   "title": "Jarhead",
+   "year": 2005,
+   "wikipedia": "Jarhead (film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 4527,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 58,
+     "basis": "Deployed and armed for months with no enemy; the harm expected all film (the shot, the contact) never arrives"
+    },
+    "cruelty": {
+     "score": 42,
+     "basis": "Comrades brand Troy with a red-hot iron; the squad walks the Highway of Death past charred bodies"
+    },
+    "irony": {
+     "score": 70,
+     "basis": "A trained sniper's one shot is cancelled by an airstrike, and he says aloud that his elite skill is meaningless"
+    },
+    "ambiguity": {
+     "score": 18,
+     "basis": "A closing roll-call fixes what became of each Marine, including Troy's death and the girlfriend's infidelity"
+    },
+    "fracture": {
+     "score": 20,
+     "basis": "Linear 1989→war→homecoming, with a montage of characters' later lives jumping years ahead"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.7907692307692308,
+    "plot-length-banded": 0.8333333333333334
+   }
+  },
+  "masculin feminin": {
+   "filmId": "film-9e3a8f48130366ac",
+   "title": "Masculin Féminin",
+   "year": 1966,
+   "wikipedia": "Masculin Féminin",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 3873,
+   "batch": "s2b1",
+   "axes": {
+    "dread": {
+     "score": 38,
+     "basis": "Violence detonates without warning — a shooting in a café, a stranger stabbing himself, a self-immolation — but never accumulates"
+    },
+    "cruelty": {
+     "score": 45,
+     "basis": "A man borrows Paul's matches to burn himself alive; Paul's fall from a window is disposed of in a police statement"
+    },
+    "irony": {
+     "score": 88,
+     "basis": "The summary's own 'Godard, through Robert, constructs the idea of worker as revolutionary' — speech is quotation, polling is the subject"
+    },
+    "ambiguity": {
+     "score": 78,
+     "basis": "Accident or suicide is asserted, not shown; the pregnancy is doubted by Elisabeth and Madeleine ends unsure what she will do"
+    },
+    "fracture": {
+     "score": 55,
+     "basis": "Episodic scenes with dated blocks, and the death reaches us only as testimony recounted at a police station"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.9384615384615385,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "8 2008": {
+   "filmId": "film-f5a621221f1796b7",
+   "title": "8",
+   "year": 2008,
+   "wikipedia": "8 (2008 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "a generation": {
+   "filmId": "film-c54cdefd4bcf3a0a",
+   "title": "A Generation",
+   "year": 1955,
+   "wikipedia": "A Generation",
+   "region": "E-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 877,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "a lesson in love": {
+   "filmId": "film-cae9ff227939afc2",
+   "title": "A Lesson in Love",
+   "year": 1954,
+   "wikipedia": "A Lesson in Love (1954 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "a pilot returns": {
+   "filmId": "film-2f62fc09790e6a29",
+   "title": "A Pilot Returns",
+   "year": 1942,
+   "wikipedia": "A Pilot Returns",
+   "region": "Other",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 472,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "a woman is a woman": {
+   "filmId": "film-fd4461286cfe985e",
+   "title": "A Woman Is a Woman",
+   "year": 1961,
+   "wikipedia": "A Woman Is a Woman",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 895,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "all the invisible children": {
+   "filmId": "film-8722c266b2536e93",
+   "title": "All the Invisible Children",
+   "year": 2005,
+   "wikipedia": "All the Invisible Children",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "an actor s revenge": {
+   "filmId": "film-2167c16c6b6bc174",
+   "title": "An Actor's Revenge",
+   "year": 1963,
+   "wikipedia": "An Actor's Revenge",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 905,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "anna": {
+   "filmId": "film-8e938fd6eb5d2328",
+   "title": "Anna",
+   "year": 1951,
+   "wikipedia": "Anna (1951 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 228,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "barabbas": {
+   "filmId": "film-6ededf5339afdadb",
+   "title": "Barabbas",
+   "year": 1953,
+   "wikipedia": "Barabbas (1953 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "battle of okinawa": {
+   "filmId": "film-60d7283e418183db",
+   "title": "Battle of Okinawa",
+   "year": 1971,
+   "wikipedia": "Battle of Okinawa (film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "bezeten het gat in de muur": {
+   "filmId": "film-962e05b41c73a9bf",
+   "title": "Bezeten, Het Gat in de Muur",
+   "year": 1969,
+   "wikipedia": "Bezeten, Het Gat in de Muur",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 403,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "boxcar bertha": {
+   "filmId": "film-3eb4ac44c1cc276c",
+   "title": "Boxcar Bertha",
+   "year": 1972,
+   "wikipedia": "Boxcar Bertha",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1059,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "bullet for stefano": {
+   "filmId": "film-4f446f5770a07665",
+   "title": "Bullet for Stefano",
+   "year": 1947,
+   "wikipedia": "Bullet for Stefano",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "cameriera bella presenza offresi": {
+   "filmId": "film-8129362c5a33dd1a",
+   "title": "Cameriera bella presenza offresi...",
+   "year": 1951,
+   "wikipedia": "Cameriera bella presenza offresi...",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1145,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "caro michele": {
+   "filmId": "film-f0184dfd7faeab2a",
+   "title": "Caro Michele",
+   "year": 1976,
+   "wikipedia": "Caro Michele",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "cheerful wind": {
+   "filmId": "film-cacb62443f7748bb",
+   "title": "Cheerful Wind",
+   "year": 1981,
+   "wikipedia": "Cheerful Wind",
+   "region": "E-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 76,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "chung kuo cina": {
+   "filmId": "film-f5077ce600f37d6e",
+   "title": "Chung Kuo, Cina",
+   "year": 1972,
+   "wikipedia": "Chung Kuo, Cina",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "comandamenti per un gangster": {
+   "filmId": "film-ff50669d4c532de0",
+   "title": "Comandamenti per un gangster",
+   "year": 1968,
+   "wikipedia": "Comandamenti per un gangster",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "daddy s gone a hunting": {
+   "filmId": "film-847ebaf82a2c2cba",
+   "title": "Daddy's Gone A-Hunting",
+   "year": 1969,
+   "wikipedia": "Daddy's Gone A-Hunting (1969 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 600,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "darling of min": {
+   "filmId": "film-cb64300cb597f3cd",
+   "title": "Darling of Min",
+   "year": 1955,
+   "wikipedia": "Darling of Mine",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 187,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "days of youth": {
+   "filmId": "film-29d4a64e0215215e",
+   "title": "Days of Youth",
+   "year": 1929,
+   "wikipedia": "Days of Youth",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "death in the garden": {
+   "filmId": "film-d8f37916bd6cff5f",
+   "title": "Death in the Garden",
+   "year": 1956,
+   "wikipedia": "Death in the Garden",
+   "region": "LatAm",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 787,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "distant vision": {
+   "filmId": "film-89f510ea68f5863f",
+   "title": "Distant Vision",
+   "year": 2015,
+   "wikipedia": "Distant Vision",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "dong": {
+   "filmId": "film-033aee2abc28329d",
+   "title": "Dong",
+   "year": 2006,
+   "wikipedia": "Dong (film)",
+   "region": "E-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1126,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "drama of the rich": {
+   "filmId": "film-c390935c4df04b28",
+   "title": "Drama of the Rich",
+   "year": 1974,
+   "wikipedia": "The Murri Affair",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 404,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "early spring": {
+   "filmId": "film-90168110aec24d70",
+   "title": "Early Spring",
+   "year": 1956,
+   "wikipedia": "Early Spring (1956 film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1276,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "edo porn": {
+   "filmId": "film-fe994c02dd3c8a9d",
+   "title": "Edo Porn",
+   "year": 1981,
+   "wikipedia": "Edo Porn",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1164,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "epitome": {
+   "filmId": "film-d3fd734d9ccaac34",
+   "title": "Epitome",
+   "year": 1953,
+   "wikipedia": "Epitome (film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 765,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "especially on sunday": {
+   "filmId": "film-9ea5b9e85d1c501a",
+   "title": "Especially on Sunday",
+   "year": 1991,
+   "wikipedia": "Especially on Sunday",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "exposed": {
+   "filmId": "film-3c06d161dfa80e5f",
+   "title": "Exposed",
+   "year": 1983,
+   "wikipedia": "Exposed (1983 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 480,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "faro document": {
+   "filmId": "film-dfc3580af8b982a7",
+   "title": "Fårö Document",
+   "year": 1970,
+   "wikipedia": "Fårö Document",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "firelight": {
+   "filmId": "film-eebdacd92e9b290c",
+   "title": "Firelight",
+   "year": 1964,
+   "wikipedia": "Firelight (1964 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 732,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "flickan i frack": {
+   "filmId": "film-66601c5972b42bfd",
+   "title": "Flickan i frack",
+   "year": 1956,
+   "wikipedia": "The Girl in Tails (1956 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 120,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "francesco": {
+   "filmId": "film-ab971c78c4e58de1",
+   "title": "Francesco",
+   "year": 1989,
+   "wikipedia": "Francesco (1989 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 677,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "gate of flesh": {
+   "filmId": "film-57e1facddb8eaec3",
+   "title": "Gate of Flesh",
+   "year": 1964,
+   "wikipedia": "Gate of Flesh",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 963,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "ghosts of rome": {
+   "filmId": "film-c70deed95ba06aa9",
+   "title": "Ghosts of Rome",
+   "year": 1961,
+   "wikipedia": "Ghosts of Rome",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 504,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "gli indifferenti": {
+   "filmId": "film-11b90f618365ebb7",
+   "title": "Gli indifferenti",
+   "year": 1964,
+   "wikipedia": "Time of Indifference",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 750,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "goodbye south": {
+   "filmId": "film-d5d31e8e2381211c",
+   "title": "Goodbye South",
+   "year": 1996,
+   "wikipedia": "Goodbye South, Goodbye",
+   "region": "E-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 740,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "halbblut": {
+   "filmId": "film-84e1f66354ef5b35",
+   "title": "Halbblut",
+   "year": 1919,
+   "wikipedia": "Halbblut",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 469,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "handicapped future": {
+   "filmId": "film-6e9c7953c35a4a97",
+   "title": "Handicapped Future",
+   "year": 1971,
+   "wikipedia": "Handicapped Future",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "helas pour moi": {
+   "filmId": "film-296aa82200687096",
+   "title": "Hélas pour moi",
+   "year": 1993,
+   "wikipedia": "Hélas pour moi",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 958,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "his days are numbered": {
+   "filmId": "film-133bf80035e6fcab",
+   "title": "His Days Are Numbered",
+   "year": 1962,
+   "wikipedia": "His Days Are Numbered",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1078,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "homework": {
+   "filmId": "film-20a430024ca60523",
+   "title": "Homework",
+   "year": 1989,
+   "wikipedia": "Homework (1989 film)",
+   "region": "S-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 466,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "how is it going": {
+   "filmId": "film-731adf484367107d",
+   "title": "How Is It Going?",
+   "year": 1975,
+   "wikipedia": "How's it going",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1419,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "hurricane": {
+   "filmId": "film-018e7d189fa18f5e",
+   "title": "Hurricane",
+   "year": 1979,
+   "wikipedia": "Hurricane (1979 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1451,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "i am love": {
+   "filmId": "film-eddb774f2681b43f",
+   "title": "I Am Love",
+   "year": 2009,
+   "wikipedia": "I Am Love (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "i only want you to love me": {
+   "filmId": "film-4f53a2310633d122",
+   "title": "I Only Want You To Love Me",
+   "year": 1976,
+   "wikipedia": "I Only Want You to Love Me",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 790,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "i wish i knew": {
+   "filmId": "film-60fcd33db4cb2d3d",
+   "title": "I Wish I Knew",
+   "year": 2010,
+   "wikipedia": "I Wish I Knew",
+   "region": "E-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "in a year of 13 moons": {
+   "filmId": "film-385c34cc6fb12837",
+   "title": "In a Year of 13 Moons",
+   "year": 1978,
+   "wikipedia": "In a Year of 13 Moons",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 714,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "in the heat of the sun": {
+   "filmId": "film-a4d40896904e9c1b",
+   "title": "In the Heat of the Sun",
+   "year": 1994,
+   "wikipedia": "In the Heat of the Sun",
+   "region": "E-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1230,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "industrial symphony no 1": {
+   "filmId": "film-2371a4eb080d185b",
+   "title": "Industrial Symphony No. 1",
+   "year": 1990,
+   "wikipedia": "Industrial Symphony No. 1",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "it rains on our love": {
+   "filmId": "film-e737508d896f8cd7",
+   "title": "It Rains on Our Love",
+   "year": 1946,
+   "wikipedia": "It Rains on Our Love",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 583,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "jana aranya": {
+   "filmId": "film-ded59a2cf5761046",
+   "title": "Jana Aranya",
+   "year": 1976,
+   "wikipedia": "Jana Aranya",
+   "region": "S-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1481,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "jerry lee lewis trouble in mind": {
+   "filmId": "film-9ec77c718c1d955d",
+   "title": "Jerry Lee Lewis: Trouble in Mind",
+   "year": 2022,
+   "wikipedia": "Jerry Lee Lewis: Trouble in Mind",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 272,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "juliet of the spirits": {
+   "filmId": "film-9c20172727d541bb",
+   "title": "Juliet of the Spirits",
+   "year": 1965,
+   "wikipedia": "Juliet of the Spirits",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 439,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "katinka": {
+   "filmId": "film-ce46aa54b7674685",
+   "title": "Katinka",
+   "year": 1988,
+   "wikipedia": "Katinka (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "killer of sheep": {
+   "filmId": "film-6e49240b8083b767",
+   "title": "Killer of Sheep",
+   "year": 1977,
+   "wikipedia": "Killer of Sheep",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 955,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "korczak": {
+   "filmId": "film-14a31684fe793d01",
+   "title": "Korczak",
+   "year": 1990,
+   "wikipedia": "Korczak (film)",
+   "region": "E-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "l amour fou": {
+   "filmId": "film-5b754503b5b32469",
+   "title": "L'amour fou",
+   "year": 1969,
+   "wikipedia": "L'Amour fou (1969 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 769,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "la ronde": {
+   "filmId": "film-f6223c9a57d4e7a7",
+   "title": "La Ronde",
+   "year": 1950,
+   "wikipedia": "La Ronde (1950 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1093,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "last words": {
+   "filmId": "film-6425c122660d2b8a",
+   "title": "Last Words",
+   "year": 1967,
+   "wikipedia": "Last Words (1968 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 548,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "legacy of the 500 000": {
+   "filmId": "film-06254a5009da2e91",
+   "title": "Legacy of the 500,000",
+   "year": 1963,
+   "wikipedia": "Legacy of the 500,000",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 173,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "letter to jane": {
+   "filmId": "film-54f600a90df2dea1",
+   "title": "Letter to Jane",
+   "year": 1972,
+   "wikipedia": "Letter to Jane",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "lightning over water": {
+   "filmId": "film-b66becab5f93fed4",
+   "title": "Lightning Over Water",
+   "year": 1980,
+   "wikipedia": "Lightning Over Water",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1194,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "lola": {
+   "filmId": "film-950d316c3d29bfc2",
+   "title": "Lola",
+   "year": 1961,
+   "wikipedia": "Lola (1961 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 871,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "love at twenty": {
+   "filmId": "film-b70c6824f1407e41",
+   "title": "Love at Twenty",
+   "year": 1962,
+   "wikipedia": "Love at Twenty",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "lovers and liars": {
+   "filmId": "film-3711db087f1aac94",
+   "title": "Lovers and Liars",
+   "year": 1979,
+   "wikipedia": "Lovers and Liars",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 141,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "machibuse": {
+   "filmId": "film-4ae3c0dff7fc2232",
+   "title": "Machibuse",
+   "year": 1970,
+   "wikipedia": "Machibuse",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 819,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "man on wire": {
+   "filmId": "film-fced794a08c74229",
+   "title": "Man on Wire",
+   "year": 2008,
+   "wikipedia": "Man on Wire",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "marmalade revolution": {
+   "filmId": "film-81c1dc49f7ca753f",
+   "title": "Marmalade Revolution",
+   "year": 1980,
+   "wikipedia": "Marmalade Revolution",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "meek s cutoff": {
+   "filmId": "film-a8d88fe3225f084b",
+   "title": "Meek's Cutoff",
+   "year": 2010,
+   "wikipedia": "Meek's Cutoff (film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1030,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "metello": {
+   "filmId": "film-56a2f27e500cae22",
+   "title": "Metello",
+   "year": 1970,
+   "wikipedia": "Metello",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 603,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "miss oyu": {
+   "filmId": "film-2182b777df0b50f8",
+   "title": "Miss Oyu",
+   "year": 1951,
+   "wikipedia": "Miss Oyu",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 969,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "mountains of the moon": {
+   "filmId": "film-4f6e3ab3515f92ed",
+   "title": "Mountains of the Moon",
+   "year": 1990,
+   "wikipedia": "Mountains of the Moon (film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 714,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "my voyage to italy": {
+   "filmId": "film-c65a8872ef1f948a",
+   "title": "My Voyage to Italy",
+   "year": 1999,
+   "wikipedia": "My Voyage to Italy",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "nel segno di roma": {
+   "filmId": "film-9e5915512e8e3417",
+   "title": "Nel Segno di Roma",
+   "year": 1958,
+   "wikipedia": "Sheba and the Gladiator",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "no blood relation": {
+   "filmId": "film-87964c42c40adafb",
+   "title": "No Blood Relation",
+   "year": 1932,
+   "wikipedia": "No Blood Relation",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 582,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "notebook on cities and clothes": {
+   "filmId": "film-7bdd1cc224897346",
+   "title": "Notebook on Cities and Clothes",
+   "year": 1989,
+   "wikipedia": "Notebook on Cities and Clothes",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "older brother younger sister": {
+   "filmId": "film-f88fff4a68659e16",
+   "title": "Older Brother, Younger Sister",
+   "year": 1953,
+   "wikipedia": "Older Brother, Younger Sister",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 634,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "paris je t aime": {
+   "filmId": "film-7206f45f2fa7675f",
+   "title": "Paris, je t'aime",
+   "year": 2006,
+   "wikipedia": "Paris, je t'aime",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "personnel": {
+   "filmId": "film-642aa1b0e02363ba",
+   "title": "Personnel",
+   "year": 1975,
+   "wikipedia": "Personnel (film)",
+   "region": "E-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 478,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "prison": {
+   "filmId": "film-0b64c0ac8ec25dc3",
+   "title": "Prison",
+   "year": 1948,
+   "wikipedia": "Prison (1949 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 461,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "property is no longer a theft": {
+   "filmId": "film-1479e33c1a106b66",
+   "title": "Property Is No Longer a Theft",
+   "year": 1973,
+   "wikipedia": "Property Is No Longer a Theft",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 815,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "raiders of the lost ark the adaptation": {
+   "filmId": "film-7bb8f37c339f295b",
+   "title": "Raiders of the Lost Ark: The Adaptation",
+   "year": 1989,
+   "wikipedia": "Raiders of the Lost Ark: The Adaptation",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 183,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "red lion": {
+   "filmId": "film-ce136786749bed11",
+   "title": "Red Lion",
+   "year": 1969,
+   "wikipedia": "Red Lion (film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1452,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "room 666": {
+   "filmId": "film-94ef1a2c99467378",
+   "title": "Room 666",
+   "year": 1982,
+   "wikipedia": "Room 666",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 672,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "saint omer": {
+   "filmId": "film-028564871510c12f",
+   "title": "Saint Omer",
+   "year": 2022,
+   "wikipedia": "Saint Omer (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 959,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "samurai assassin": {
+   "filmId": "film-dd0e83ac05dc5f44",
+   "title": "Samurai Assassin",
+   "year": 1965,
+   "wikipedia": "Samurai Assassin",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 976,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "sanshiro sugata part ii": {
+   "filmId": "film-2df47970187c4681",
+   "title": "Sanshiro Sugata Part II",
+   "year": 1945,
+   "wikipedia": "Sanshiro Sugata Part II",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 709,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "scream of stone": {
+   "filmId": "film-473378832632bfb0",
+   "title": "Scream of Stone",
+   "year": 1991,
+   "wikipedia": "Scream of Stone",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 123,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "section speciale": {
+   "filmId": "film-c737c1dd8232466e",
+   "title": "Section spéciale",
+   "year": 1975,
+   "wikipedia": "Special Section",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 577,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "shine a light": {
+   "filmId": "film-44dbfc66390644d6",
+   "title": "Shine a Light",
+   "year": 2008,
+   "wikipedia": "Shine a Light (film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "shuu": {
+   "filmId": "film-aebdd074fe9628d4",
+   "title": "Shūu",
+   "year": 1956,
+   "wikipedia": "Sudden Rain",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1011,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "sikkim": {
+   "filmId": "film-65f8cb88adaaa51d",
+   "title": "Sikkim",
+   "year": 1971,
+   "wikipedia": "Sikkim (film)",
+   "region": "S-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "snow white and the seven jugglers": {
+   "filmId": "film-2682339cf552146a",
+   "title": "Snow White and the Seven Jugglers",
+   "year": 1962,
+   "wikipedia": "Snow White and the Seven Jugglers",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "stage fright 1960": {
+   "filmId": "film-38686482a4d08ca6",
+   "title": "Stage Fright",
+   "year": 1960,
+   "wikipedia": "Stage Fright (1960 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "stories we tell": {
+   "filmId": "film-946f83612da8c7bc",
+   "title": "Stories We Tell",
+   "year": 2012,
+   "wikipedia": "Stories We Tell",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 835,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "summer in the city": {
+   "filmId": "film-72e9818b6e17dbe6",
+   "title": "Summer in the City",
+   "year": 1970,
+   "wikipedia": "Summer in the City (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 202,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "t2 3d battle across time": {
+   "filmId": "film-30fd96887d9fe347",
+   "title": "T2-3D: Battle Across Time",
+   "year": 1996,
+   "wikipedia": "T2-3D: Battle Across Time",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "tetepango": {
+   "filmId": "film-e1e633570d4766f6",
+   "title": "Tetepango",
+   "year": 1968,
+   "wikipedia": "Tepepa",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1265,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the american soldier": {
+   "filmId": "film-796c920df3c14e98",
+   "title": "The American Soldier",
+   "year": 1970,
+   "wikipedia": "The American Soldier",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 163,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the assassin 1961": {
+   "filmId": "film-9766f8a6aaff1d98",
+   "title": "The Assassin",
+   "year": 1961,
+   "wikipedia": "The Assassin (1961 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 940,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the blessed ones": {
+   "filmId": "film-05b6e99bbfc7a77e",
+   "title": "The Blessed Ones",
+   "year": 1986,
+   "wikipedia": "The Blessed Ones",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 853,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the clowns": {
+   "filmId": "film-ad33559ccf7a4d88",
+   "title": "The Clowns",
+   "year": 1970,
+   "wikipedia": "The Clowns",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 839,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the dark glow of the mountains": {
+   "filmId": "film-be9554736993690e",
+   "title": "The Dark Glow of the Mountains",
+   "year": 1984,
+   "wikipedia": "The Dark Glow of the Mountains",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the desert song": {
+   "filmId": "film-b98174a5559d64c4",
+   "title": "The Desert Song",
+   "year": 1953,
+   "wikipedia": "The Desert Song (1953 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1245,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the empty table": {
+   "filmId": "film-090203d286ecb690",
+   "title": "The Empty Table",
+   "year": 1985,
+   "wikipedia": "The Empty Table",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the fighting generation": {
+   "filmId": "film-b48eafb5ab88a2ef",
+   "title": "The Fighting Generation",
+   "year": 1944,
+   "wikipedia": "The Fighting Generation",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the flying doctors of east africa": {
+   "filmId": "film-158c171eb8711ca7",
+   "title": "The Flying Doctors of East Africa",
+   "year": 1969,
+   "wikipedia": "The Flying Doctors of East Africa",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the glass cell": {
+   "filmId": "film-7ad9ca6e34a65ecb",
+   "title": "The Glass Cell",
+   "year": 1978,
+   "wikipedia": "The Glass Cell (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 732,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the great ecstasy of woodcarver steiner": {
+   "filmId": "film-a0bd7e115ed97ea3",
+   "title": "The Great Ecstasy of Woodcarver Steiner",
+   "year": 1974,
+   "wikipedia": "The Great Ecstasy of Woodcarver Steiner",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the image book": {
+   "filmId": "film-e0f9feb73bbd7cff",
+   "title": "The Image Book",
+   "year": 2018,
+   "wikipedia": "The Image Book",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 675,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the innocent": {
+   "filmId": "film-3c3a0b6ae2f0259f",
+   "title": "The Innocent",
+   "year": 1985,
+   "wikipedia": "The Innocent (1985 film)",
+   "region": "UK/IE",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the killers": {
+   "filmId": "film-7b60eee61584cdd7",
+   "title": "The Killers",
+   "year": 1956,
+   "wikipedia": "The Killers (1956 film)",
+   "region": "E-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1049,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the little house": {
+   "filmId": "film-46958c27d3214a3c",
+   "title": "The Little House",
+   "year": 2010,
+   "wikipedia": "The Little House (2014 film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 200,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the lost world of sinbad": {
+   "filmId": "film-56d83f45fcca5958",
+   "title": "The Lost World of Sinbad",
+   "year": 1963,
+   "wikipedia": "Samurai Pirate",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the magnificent lie": {
+   "filmId": "film-cfb5b26f339e2710",
+   "title": "The Magnificent Lie",
+   "year": 1955,
+   "wikipedia": "The Magnificent Lie (1955 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 151,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the men who tread on the tiger s tail": {
+   "filmId": "film-7fcdc33f251775bb",
+   "title": "The Men Who Tread on the Tiger's Tail",
+   "year": 1945,
+   "wikipedia": "The Men Who Tread on the Tiger's Tail",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 868,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the naked island": {
+   "filmId": "film-3d31d45021de56f4",
+   "title": "The Naked Island",
+   "year": 1960,
+   "wikipedia": "The Naked Island",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 900,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the outsider": {
+   "filmId": "film-b6793b8060a2207d",
+   "title": "The Outsider",
+   "year": 1981,
+   "wikipedia": "The Outsider (1981 film)",
+   "region": "E-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the pied piper": {
+   "filmId": "film-85e6538316c9d407",
+   "title": "The Pied Piper",
+   "year": 1972,
+   "wikipedia": "The Pied Piper (1972 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 210,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the prefab people": {
+   "filmId": "film-93a8a6b0d21ec9dc",
+   "title": "The Prefab People",
+   "year": 1982,
+   "wikipedia": "The Prefab People",
+   "region": "E-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 75,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the return of a man called horse": {
+   "filmId": "film-36ede27fac183f9f",
+   "title": "The Return of a Man Called Horse",
+   "year": 1976,
+   "wikipedia": "The Return of a Man Called Horse",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 777,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the savage innocents": {
+   "filmId": "film-6a1eff5331ce88e4",
+   "title": "The Savage Innocents",
+   "year": 1960,
+   "wikipedia": "The Savage Innocents",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 324,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the shortest day": {
+   "filmId": "film-196244322a4b2bde",
+   "title": "The Shortest Day",
+   "year": 1963,
+   "wikipedia": "The Shortest Day",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 287,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the stationmaster s wife": {
+   "filmId": "film-afdbd51ed1bf73fc",
+   "title": "The Stationmaster's Wife",
+   "year": 1977,
+   "wikipedia": "The Stationmaster's Wife",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the suspended step of the stork": {
+   "filmId": "film-4b5b6502f161703d",
+   "title": "The Suspended Step of the Stork",
+   "year": 1991,
+   "wikipedia": "The Suspended Step of the Stork",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 348,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the thin blue line": {
+   "filmId": "film-6ca29c8a9b030ea0",
+   "title": "The Thin Blue Line",
+   "year": 1988,
+   "wikipedia": "The Thin Blue Line (1988 film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1193,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the truce": {
+   "filmId": "film-7e95107464eb6f87",
+   "title": "The Truce",
+   "year": 1997,
+   "wikipedia": "The Truce (1997 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 436,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the white diamond": {
+   "filmId": "film-3eccefc0b26555a2",
+   "title": "The White Diamond",
+   "year": 2004,
+   "wikipedia": "The White Diamond",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the wolves": {
+   "filmId": "film-393ab2a0fd1a754f",
+   "title": "The Wolves",
+   "year": 1956,
+   "wikipedia": "The Wolves (1956 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1018,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "the world s most beautiful swindlers": {
+   "filmId": "film-33a7a00fd92ebf76",
+   "title": "The World's Most Beautiful Swindlers",
+   "year": 1964,
+   "wikipedia": "The World's Most Beautiful Swindlers",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "this angry age": {
+   "filmId": "film-a2af28a9ea839da9",
+   "title": "This Angry Age",
+   "year": 1957,
+   "wikipedia": "This Angry Age",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 431,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "three brothers": {
+   "filmId": "film-6ac9eebbf11518eb",
+   "title": "Three Brothers",
+   "year": 1981,
+   "wikipedia": "Three Brothers (1981 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1166,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "tigers in lipstick": {
+   "filmId": "film-b74f7ea19dca8b9c",
+   "title": "Tigers in Lipstick",
+   "year": 1979,
+   "wikipedia": "Tigers in Lipstick",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 560,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "to joy": {
+   "filmId": "film-021c6518e31840cd",
+   "title": "To Joy",
+   "year": 1950,
+   "wikipedia": "To Joy (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 394,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "tokyo olympiad": {
+   "filmId": "film-f96d0b74fe7a91e9",
+   "title": "Tokyo Olympiad",
+   "year": 1965,
+   "wikipedia": "Tokyo Olympiad",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "touki bouki": {
+   "filmId": "film-221851e82b88d6a6",
+   "title": "Touki Bouki",
+   "year": 1973,
+   "wikipedia": "Touki Bouki",
+   "region": "Other",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 989,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "tre colonne in cronaca": {
+   "filmId": "film-ee429abe3f43a1c0",
+   "title": "Tre colonne in cronaca",
+   "year": 1990,
+   "wikipedia": "Tre colonne in cronaca",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "tsubasa no gaika": {
+   "filmId": "film-1a4af10a12fe1fd6",
+   "title": "Tsubasa no gaika",
+   "year": 1942,
+   "wikipedia": "Tsubasa no gaika",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "ulysses gaze": {
+   "filmId": "film-e11a65bbdac9b75c",
+   "title": "Ulysses' Gaze",
+   "year": 1995,
+   "wikipedia": "Ulysses' Gaze",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1485,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "untamed": {
+   "filmId": "film-1ef539a4b33c9ffb",
+   "title": "Untamed",
+   "year": 1957,
+   "wikipedia": "Untamed (1957 film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 238,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "vagabond": {
+   "filmId": "film-2317cd15f3dd0248",
+   "title": "Vagabond",
+   "year": 1985,
+   "wikipedia": "Vagabond (1985 film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1364,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "visions of europe": {
+   "filmId": "film-4742d9fad897eac6",
+   "title": "Visions of Europe",
+   "year": 2004,
+   "wikipedia": "Visions of Europe (film)",
+   "region": "UK/IE",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "voyage to cythera": {
+   "filmId": "film-2b7ea019b9240933",
+   "title": "Voyage to Cythera",
+   "year": 1984,
+   "wikipedia": "Voyage to Cythera",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 114,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "wendy and lucy": {
+   "filmId": "film-cb11b01e09cb894b",
+   "title": "Wendy and Lucy",
+   "year": 2008,
+   "wikipedia": "Wendy and Lucy",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 840,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "when father was away on business": {
+   "filmId": "film-bd5bec7f9d88e04d",
+   "title": "When Father Was Away on Business",
+   "year": 1985,
+   "wikipedia": "When Father Was Away on Business",
+   "region": "Other",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1436,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "where is the friend s home": {
+   "filmId": "film-f14a49e5b2093524",
+   "title": "Where is the Friend's Home?",
+   "year": 1987,
+   "wikipedia": "Where Is the Friend's House?",
+   "region": "S-Asia",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 782,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "white sister": {
+   "filmId": "film-1534943d03e71da1",
+   "title": "White Sister",
+   "year": 1972,
+   "wikipedia": "White Sister (film)",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "wife": {
+   "filmId": "film-10eba0f541d5e700",
+   "title": "Wife",
+   "year": 1953,
+   "wikipedia": "Wife (film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1498,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "wind from the east": {
+   "filmId": "film-dcb259042d84cacd",
+   "title": "Wind from the East",
+   "year": 1969,
+   "wikipedia": "Wind from the East",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 858,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "woman of rome": {
+   "filmId": "film-ef98f9af109124bc",
+   "title": "Woman of Rome",
+   "year": 1954,
+   "wikipedia": "Woman of Rome",
+   "region": "W-Europe",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 386,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "woodstock": {
+   "filmId": "film-e6b642d4ab1ae939",
+   "title": "Woodstock",
+   "year": 1970,
+   "wikipedia": "Woodstock (film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": false,
+   "withheld": "no-plot-section",
+   "plotChars": 0,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (no-plot-section) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  },
+  "yearning": {
+   "filmId": "film-a1ba4398dbaed620",
+   "title": "Yearning",
+   "year": 1964,
+   "wikipedia": "Yearning (1964 film)",
+   "region": "Japan",
+   "source": "reading",
+   "scored": false,
+   "withheld": "below-evidence-floor",
+   "plotChars": 1157,
+   "batch": null,
+   "axes": {
+    "dread": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "cruelty": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "irony": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "ambiguity": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    },
+    "fracture": {
+     "score": null,
+     "basis": "no admitted plot section (below-evidence-floor) — nothing was read, so nothing is claimed"
+    }
+   },
+   "axisConfidence": null,
+   "confidenceCandidates": null
+  }
+ }
+}

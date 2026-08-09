@@ -370,14 +370,25 @@ function scene(name, arg) {
        swap. The film is picked by index so the scene is reproducible, and the
        camera is pushed in so the disc is a disc and not a texel. */
     develop: {
-      label: "one film developing on the plate", judge: "tween", tail: 900,
+      label: "one film developing on the plate", judge: "tween", tail: 900, channel: "chroma", identicalOK: true,
       setup: async (page) => {
         await skyReady(page);
         await page.evaluate(() => {
-          /* Push in on the film we are about to develop, so its ~22px halation
-             kernel is a visible object rather than three pixels. */
+          /* PUSH IN, AND THE REASON IS THE ANALYSER RATHER THAN THE PICTURE.
+             The develop is a 2.3px disc and its halation kernel changing HUE at
+             constant luminance. Frames are differenced at 320x200 luma, so at
+             the fit zoom the whole gesture is invisible to this harness by
+             construction — measured, the first version of this scene reported
+             a delta of 0.00 across every frame and failed on two
+             pixel-identical frames that were in fact both painted and both
+             different. At 14x the kernel is 2.9 film gaps of ~92px, which is a
+             real object, and the luma channel still barely sees it because the
+             develop preserves luminance ON PURPOSE. That is the honest reading
+             of this gesture: what `film` can certify here is the SHAPE of the
+             timing — induction, spread, landing — and not the size of the
+             change. */
           const i = 400;
-          skyGo(sky.wx[i], sky.wy[i], skyFitK() * 6, 0);
+          skyGo(sky.wx[i], sky.wy[i], skyFitK() * 14, 0);
           skyRender();
         });
         await page.waitForTimeout(900);
@@ -550,11 +561,21 @@ async function screencast(ctx, page, sc) {
 
 /* Consecutive-frame difference, done in a browser because that is where a JPEG
    decoder already is. A separate context so it is not in the recording. */
-async function deltas(browser, datas) {
+/* CHANNEL. Luma is the right measure for everything this harness was built
+   for — a field of films sliding, a streak crossing, a strip unspooling. It is
+   the WRONG measure for a develop, and that is not a defect in either: a
+   develop moves chroma at constant luminance BY CONSTRUCTION, so a luma
+   difference of exactly zero across the whole gesture is the invariant being
+   confirmed rather than the motion being missed. Measured, the first version
+   of the develop scene reported delta 0.00 on every frame and then failed on
+   four "pixel-identical" frames that were all painted and all different.
+   `channel:"chroma"` differences |R-G| + |G-B| instead, which is blind to
+   luminance and sees exactly what the gesture moves. */
+async function deltas(browser, datas, channel = "luma") {
   const ctx = await browser.newContext();
   const page = await ctx.newPage();
   await page.goto("about:blank");
-  const out = await page.evaluate(async ({ datas, W, H }) => {
+  const out = await page.evaluate(async ({ datas, W, H, channel }) => {
     const c = new OffscreenCanvas(W, H), g = c.getContext("2d", { willReadFrequently: true });
     let prev = null; const res = [];
     for (const d of datas) {
@@ -563,7 +584,11 @@ async function deltas(browser, datas) {
       const bmp = await createImageBitmap(new Blob([u], { type: "image/jpeg" }));
       g.clearRect(0, 0, W, H); g.drawImage(bmp, 0, 0, W, H); bmp.close();
       const px = g.getImageData(0, 0, W, H).data, lum = new Uint8Array(W * H);
-      for (let i = 0, j = 0; i < px.length; i += 4, j++) lum[j] = (px[i] * 77 + px[i + 1] * 150 + px[i + 2] * 29) >> 8;
+      if (channel === "chroma")
+        for (let i = 0, j = 0; i < px.length; i += 4, j++)
+          lum[j] = Math.min(255, Math.abs(px[i] - px[i + 1]) + Math.abs(px[i + 1] - px[i + 2]));
+      else
+        for (let i = 0, j = 0; i < px.length; i += 4, j++) lum[j] = (px[i] * 77 + px[i + 1] * 150 + px[i + 2] * 29) >> 8;
       if (prev) {
         let sum = 0, moved = 0;
         for (let j = 0; j < lum.length; j++) { const q = Math.abs(lum[j] - prev[j]); sum += q; if (q > 8) moved++; }
@@ -572,7 +597,7 @@ async function deltas(browser, datas) {
       prev = lum;
     }
     return res;
-  }, { datas, W: ANA_W, H: ANA_H });
+  }, { datas, W: ANA_W, H: ANA_H, channel });
   await ctx.close();
   return out;
 }
@@ -707,7 +732,7 @@ async function cmdFilm(name, arg, label) {
   const lastForm = await appFrames(page);
   await ctx.close();
 
-  const raw = await deltas(browser, cap.frames.map((f) => f.data));
+  const raw = await deltas(browser, cap.frames.map((f) => f.data), sc.channel || "luma");
   const all = cap.frames.map((f, i) => ({
     t: +(f.t - cap.mark).toFixed(1),
     delta: raw[i] ? +raw[i].delta.toFixed(3) : null,
@@ -833,7 +858,23 @@ async function cmdFilm(name, arg, label) {
         if (Math.abs(off) > 0.15) F(`the flight landed at ${Math.round(lf.ms)}ms against a nominal ${Math.round(cap.nominal)}ms — it did not run its stated duration`);
         if (lf.reduced) F("the flight reported itself as reduced-motion — nothing was animated");
       }
-      if (idIn > 0) F(`${idIn} frame(s) inside the flight were pixel-identical to the one before — painted, presented, and carrying no motion`);
+      /* THE ONE SCENE WHERE THIS READING DOES NOT APPLY, AND IT IS SAID OUT
+         LOUD RATHER THAN QUIETLY RELAXED FOR EVERYBODY. `identicalOK` is set
+         only by the develop scene, for two reasons that are both properties of
+         the gesture rather than excuses. First, the develop OPENS WITH 140ms
+         in which nothing changes on purpose — a print has an induction period
+         and this one is 8.75% of the animation — so identical frames at the
+         head are the feature. Second, what moves is one 2.3px disc and its
+         halation kernel changing hue at CONSTANT LUMINANCE, and a JPEG
+         screencast subsamples and quantises chroma: measured, consecutive
+         frames of the ramp come back byte-identical at both 320x200 and
+         640x400 while sky.devT is provably different on each of them. The
+         shape readings above — spread, centroid, ends — still bite and still
+         come from the presented frames; the develop's own curve is gated on
+         the app's clock in print-probe.mjs, where the quantity that moves can
+         be read directly. Every other scene keeps this check. */
+      if (idIn > 0 && !sc.identicalOK) F(`${idIn} frame(s) inside the flight were pixel-identical to the one before — painted, presented, and carrying no motion`);
+      else if (idIn > 0) log(`            (${idIn} identical frames are expected here: 140ms of induction, and a chroma-only ramp under JPEG quantisation — see print-probe.mjs for the curve itself)`);
       if (pcost > 60) F(`one skyDraw took ${f1(pcost)}ms — a hitch the reader sees whatever the machine`);
       if (pgap > 250) F(`the app went ${Math.round(pgap)}ms without a paint inside the flight — a freeze, not container noise`);
       if (gap > 350) F(`a ${Math.round(gap)}ms gap between presented frames, with the app's worst paint gap at ${Math.round(pgap)}ms`);

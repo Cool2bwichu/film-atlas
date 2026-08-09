@@ -1949,7 +1949,10 @@ function developStep(now){
        expensive, and it is also unnecessary: development is LOCAL. Only the
        kernel around the film that is coming up has changed, so only that
        square of the integration buffer is cleared and re-integrated. */
-    const px=sky.sx[i], py=sky.sy[i], pad=SKY_HALO_KERNEL*1.6;
+    /* The rect is the kernel plus half again, in the same gap units the kernel
+       itself is measured in, so it is right at every viewport and zoom. */
+    const px=sky.sx[i], py=sky.sy[i];
+    const pad=Math.max(6,Math.min(140,SKY_HALO_GAPS*SKY_GAP/Math.sqrt(Math.max(1,sky.n))*sky.cam.k))*1.6;
     sky.devRect={ x:px-pad, y:py-pad, w:pad*2, h:pad*2 };
   }
   if (raw>=1){ sky.devKey=null; sky.devT=1; skyTone(); sky.devRect=null; return false; }
@@ -5243,7 +5246,18 @@ function skyHaloCss(hex,t){
   const Y=0.2126*r+0.7152*g+0.0722*b;
   return Math.round(Y+t*(r-Y))+","+Math.round(Y+t*(g-Y))+","+Math.round(Y+t*(b-Y));
 }
-const SKY_HALO_KERNEL=22;      /* CSS px; median film gap at the fit zoom is 7.6px */
+/* THE KERNEL IS MEASURED IN FILM GAPS, NOT IN PIXELS, AND THAT IS A FIX.
+   It was 22 CSS px flat, which is right on a desktop — the median gap between
+   two films at the fit zoom is 6.6px there, so 22px covers about 25 films,
+   which is the number the whole regional-colour claim is about. On a phone the
+   same 22px covers 31 gaps' worth of area over a disc half the radius, and the
+   measured result was a washed-out silver ball: 23.4% ink at 390x780 against
+   13.6% at 1440x900, with the discs disappearing inside their own halation.
+   Expressed in gaps it covers the same ~25 films at every viewport and at
+   every zoom, which is also what makes it a property of the PRINT rather than
+   of the window. 2.9 gaps of diameter is pi*(2.9/2)^2 = 6.6 gap-areas; at the
+   solver's own spacing that is ~25 films. */
+const SKY_HALO_GAPS=2.9;
 function skyHaloBuild(k,ox,oy){
   const scale=sky.haloScale, dpr=sky.dpr||1;
   const bw=Math.max(1,Math.round(sky.w*dpr*scale)), bh=Math.max(1,Math.round(sky.h*dpr*scale));
@@ -5282,10 +5296,10 @@ function skyHaloBuild(k,ox,oy){
      print, the way a halation ring in an emulsion does — it is a property of
      the print, not of the graph. Nothing in this loop reads degree, strength,
      year or adjacency. */
-  const zr=skyZoomRatio();
-  const R=SKY_HALO_KERNEL*dpr*scale*0.5*Math.max(0.75,Math.min(2.4,Math.sqrt(zr)));
+  const gapPx=SKY_GAP/Math.sqrt(Math.max(1,sky.n))*sky.cam.k;
+  const R=Math.max(3,Math.min(90,SKY_HALO_GAPS*gapPx))*dpr*scale*0.5;
   const px=dpr*scale;
-  g.globalAlpha=0.30;
+  g.globalAlpha=0.26;
   for (let i=0;i<sky.n;i++){
     if (A[i]<=0.004) continue;
     const x=SX[i]*px, y=SY[i]*px;
@@ -6372,28 +6386,23 @@ function skyReadoutBody(){
          of the atlas no longer has, so the whole atlas is here instead — nothing has been
          narrowed. The names it asked for are printed above.</span>`
       : "";
-    /* THE PRINT, EXPLAINED ONLY ONCE THERE IS SOMETHING TO EXPLAIN.
-       At zero marks this sentence is absent, and that absence is the design:
-       the empty atlas is the default state, it is a finished silver print of
-       the whole of cinema, and the one thing on screen that says anything
-       about the reader is nothing. No counter, no denominator, no percentage,
-       no call to action — the moment this box prints "n of 2,204" the object
-       stops being a print and becomes a scoreboard.
-       It says nothing about REGIONS either. The integral genuinely does carry
-       colour a single film's highlight does not, but at a few hundred marks
-       that statistic is about the reader's subset and not about cinema, and
-       this interface may not hand a personal weather map to somebody as a
-       measurement. That sentence is gated on a Moran's I of the integrated
-       field clearing its own control, and that has not been measured. */
-    const printed = state.seen.size>0
-      ? `<span class="y sky-hint" style="margin-top:9px">The films you have marked are holding the
-         colour measured from their own photography. The rest are silver: same size, same place,
-         same lightness, no dye. That is a fact about the print, not about the films.</span>`
-      : "";
+    /* THE RESTING READOUT SAYS NOTHING ABOUT THE READER, AND THE REASON IS
+       MEASURED RATHER THAN TASTEFUL. A sentence was written here explaining
+       that marked films hold their own colour and the rest stay silver, shown
+       only once at least one film was marked. It changed the height of the
+       readout, `skyChrome()` seeds the readout into the camera's safe band,
+       and so the arrival fit came back smaller: measured, ink fell 13.578% ->
+       10.779% at 1440x900 and 23.414% -> 13.859% at 390x780 between zero marks
+       and forty. THE ATLAS GOT SMALLER BECAUSE THE READER HAD WATCHED FORTY
+       FILMS. That is the same defect as a mark adding light, arriving through
+       a paragraph instead of through a pixel, and it is why "nothing is
+       dimmed, removed, resized or moved" has to be checked and not asserted.
+       Where the explanation lives instead: on the film readout, which is about
+       one film, appears the same way whatever the reader has marked, and is
+       already transient. See the paletteSource line below. */
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
       ${stale}
       ${key5}
-      ${printed}
       ${rn?`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what
         it is joined to and nothing else. Start with one of the ${rn} worlds along the top, or pick
         any film to open its map. Two films in five are behind no world at all.</span>`

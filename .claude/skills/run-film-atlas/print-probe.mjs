@@ -111,7 +111,7 @@ const SAMPLE = `(() => {
             1.9779984951*l-2.4285922050*m+0.4505937099*s,
             0.0259040371*l+0.7827717662*m-0.8086757660*s];
   };
-  const latent=[], developed=[], latentBright=[], latentDeg=[];
+  const latent=[], developed=[], latentBright=[], latentDeg=[], discLum=[];
   let inked=0, lumSum=0, n=0;
   for (let i=3;i<d.length;i+=4*37){ if (d[i]>8) inked++; n++; }
   for (let i=0;i<d.length;i+=4*37){
@@ -125,6 +125,12 @@ const SAMPLE = `(() => {
     const L=lab(d[o],d[o+1],d[o+2]);
     const chroma=Math.hypot(L[1],L[2]);
     const key=sky.keys[i];
+    /* THE DISC'S OWN COMPOSITED LUMINANCE, over every film whether marked or
+       not. The whole-canvas mean cannot see this: 2,204 discs of 2-3px are a
+       small share of a 1440x830 frame, and a control that made every marked
+       disc 22% brighter passed the canvas-mean gate outright. What must not
+       move when a reader marks films is the light AT THE FILMS. */
+    discLum.push(0.2126*d[o]+0.7152*d[o+1]+0.0722*d[o+2]);
     const dev=state.seen.has(key)||state.loved.has(key);
     if (dev) developed.push(chroma);
     else {
@@ -143,6 +149,7 @@ const SAMPLE = `(() => {
     latentP99:q(latent,0.99), latentMedian:q(latent,0.5),
     developedMedian:q(developed,0.5),
     inkedPct:+(100*inked/n).toFixed(4),
+    discLum:+(discLum.reduce((a,b)=>a+b,0)/Math.max(1,discLum.length)).toFixed(4),
     meanLum:+(lumSum/n).toFixed(4),
     latentBright, latentDeg,
   };
@@ -179,15 +186,25 @@ async function run() {
         const s=Math.cbrt(0.0883024619*R+0.2817188376*G+0.6299787005*B);
         return 0.2104542553*l+0.7936177850*m-0.0040720468*s;};
       const luma=css=>{const p=css.split(",").map(Number);return 0.2126*p[0]+0.7152*p[1]+0.0722*p[2];};
+      let chromatic=0, latentChromatic=0;
       for (const k of KEYS){
         const hex=F[k].highlight;
         if (develop(hex,1)!==hex) mism++;
         worstL=Math.max(worstL,Math.abs(L0(develop(hex,0))-L0(hex)));
         lumaDrift=Math.max(lumaDrift,Math.abs(luma(skyHaloCss(hex,0))-luma(skyHaloCss(hex,1))));
+        /* A LATENT HALO MUST BE GREY, and that has to be asked separately from
+           luma invariance — a halo that ignores t altogether is trivially
+           luma-invariant and is also the whole plate showing everybody's colour
+           before a single mark. The control that broke exactly that passed the
+           first version of this gate. */
+        const p0=skyHaloCss(hex,0).split(",").map(Number);
+        if (!(p0[0]===p0[1] && p0[1]===p0[2])) latentChromatic++;
+        const p1=skyHaloCss(hex,1).split(",").map(Number);
+        if (p1[0]!==p1[1] || p1[1]!==p1[2]) chromatic++;
         const lab=skyHexToLab(hex); chr.push(Math.hypot(lab[1],lab[2]));
       }
       chr.sort((a,b)=>a-b);
-      return { mism, worstL, lumaDrift, n:KEYS.length,
+      return { mism, worstL, lumaDrift, n:KEYS.length, latentChromatic, chromatic,
                chrMedian:chr[chr.length>>1], below05:chr.filter(c=>c<0.05).length };
     })()`);
     log("");
@@ -203,6 +220,10 @@ async function run() {
        only thing between that and the emitted triple is Math.round. */
     r.lumaDrift <= 0.51 ? ok(`the halo's Rec.709 luma is invariant to ${r.lumaDrift.toFixed(3)} of 255 between latent and developed — one rounding step, and it is the whole residue`)
       : fail(`the halo's luma moves by ${r.lumaDrift} between latent and developed — the atlas brightens as you watch`);
+    r.latentChromatic === 0 ? ok(`every latent halo is achromatic — 0 of ${r.n} carry a hue before a mark`)
+      : fail(`${r.latentChromatic} latent halos carry chroma — the plate is showing colour for films nobody marked`);
+    r.chromatic > r.n * 0.9 ? ok(`and ${r.chromatic} of ${r.n} developed halos do carry one`)
+      : fail(`only ${r.chromatic} of ${r.n} developed halos carry a hue — developing does nothing to the light`);
     if (errors.length) fail("console: " + errors[0]);
     await ctx.close();
   }
@@ -247,14 +268,14 @@ async function run() {
   ];
   log("");
   log("── 3. the composite floor, and the ink that must not move ──────────");
-  log("  marks                       latent    developed   maxChroma  p99     inked%   meanLum");
+  log("  marks                       latent    developed   maxChroma  p99     inked%   meanLum  discLum");
   const rows = [];
   for (const t of tiers) {
     const { ctx, page, errors } = await openSky(browser, { marks: t.set });
     const r = await page.evaluate(SAMPLE);
     rows.push({ ...t, r, errors });
     log(`  ${t.label.padEnd(26)} ${String(r.latentN).padStart(5)} ${String(r.developedN).padStart(11)}` +
-      `   ${r.latentMaxChroma.toFixed(4)}   ${r.latentP99.toFixed(4)}  ${r.inkedPct.toFixed(3)}  ${r.meanLum.toFixed(3)}`);
+      `   ${r.latentMaxChroma.toFixed(4)}   ${r.latentP99.toFixed(4)}  ${r.inkedPct.toFixed(3)}  ${r.meanLum.toFixed(3)}  ${r.discLum.toFixed(3)}`);
     if (errors.length) fail("console at " + t.label + ": " + errors[0]);
     await ctx.close();
   }
@@ -271,8 +292,22 @@ async function run() {
   log("");
   inkMove < 1.0 ? ok(`inked pixels move ${inkMove.toFixed(3)}% from 0 marks to 2,204 — marking cannot brighten the atlas`)
     : fail(`inked pixels move ${inkMove.toFixed(2)}% from 0 to 2,204 marks — the map is a progress bar made of light`);
-  lumMove < 2.0 ? ok(`mean luminance moves ${lumMove.toFixed(3)}% from 0 marks to 2,204`)
-    : fail(`mean luminance moves ${lumMove.toFixed(2)}% from 0 to 2,204 marks`);
+  lumMove < 2.0 ? ok(`whole-canvas mean luminance moves ${lumMove.toFixed(3)}% from 0 marks to 2,204`)
+    : fail(`whole-canvas mean luminance moves ${lumMove.toFixed(2)}% from 0 to 2,204 marks`);
+  /* THE READING THAT ACTUALLY BITES, AND IT IS ONE-SIDED ON PURPOSE.
+     The rule is "a mark may not ADD light", so the ceiling is on the upward
+     direction only. Downward is not a loophole: it is arithmetic. develop()
+     preserves OKLab L exactly, and OKLab L and Rec.709 luma do not agree about
+     a chromatic colour — a saturated colour is the DARKER of the two at equal
+     perceptual lightness. Measured, a fully developed plate reads 7.3% lower in
+     luma at the film centres while every disc is at the identical OKLab
+     lightness it had as silver. A build that gives a marked disc 22% more
+     alpha lands at about +13% and is caught; the whole-canvas mean cannot see
+     either, which is why this reading exists. */
+  const discMove = (full.discLum - base.discLum) / Math.max(1e-9, base.discLum) * 100;
+  discMove <= 1.0
+    ? ok(`the light AT THE FILMS moves ${discMove.toFixed(2)}% from 0 marks to 2,204 — nothing was added (OKLab L is exactly preserved; a colour is darker than its own grey in luma)`)
+    : fail(`the light at the films moves +${discMove.toFixed(2)}% from 0 to 2,204 marks — a mark is adding light to the map`);
 
   /* 3 ── RULE 1. Whatever spreads must not correlate with degree, and the
      adversarial case is a seen set that IS the degree order. */
@@ -379,11 +414,34 @@ async function run() {
    check that is not checking. */
 const CONTROLS = [
   {
-    name: "the pool composites OVER the discs",
+    /* THE NAMED HAZARD, EXPRESSED AS LITERALLY AS IT CAN BE. The kernel covers
+       ~25 films and the corpus's mean degree is 20.2; if development were ever
+       allowed to reach a neighbour, 40 marks would colour about a thousand film
+       positions and the atlas would be claiming the reader half-knows every
+       film adjacent to one they have seen. This patch makes skyTone() develop
+       every 1-hop neighbour at half dose — the graded-spread version of the
+       21x overclaim — and the composite floor has to say so. */
+    name: "development spreads one hop through the graph",
     why: "the composite floor must report ~1,000 latent films taking colour",
-    /* The buffer is blitted a SECOND time, after the disc loop. That is the
-       real defect this floor exists to stop, expressed as literally as it can
-       be: a developed film's pool reaching the latent discs standing in it. */
+    patch: s => s.replace(
+      "    const t=skyDevOf(sky.keys[i]);",
+      "    let t=skyDevOf(sky.keys[i]);\n" +
+      "    if(!t){ for(const ei of (ADJ[sky.keys[i]]||[])){ const e=E[ei];" +
+      " const o=e.a===sky.keys[i]?e.b:e.a; if(state.seen.has(o)||state.loved.has(o)){ t=0.5; break; } } }"
+    ),
+  },
+  {
+    /* The ORDERING break, kept separately and reported honestly. The buffer is
+       blitted a second time after the disc loop, so the pool really does land
+       on top of every latent disc. Measured, it does NOT breach the 0.02 floor
+       — the pool is ambient light at a tenth of a disc's level, so the tint it
+       leaves on a bright disc is small. That is a finding, not a pass: the
+       floor is guarding against DYE reaching a neighbour, which is the control
+       above, and the ordering is worth an extra 0.00x of chroma. Keeping this
+       control is what stops that sentence from being a guess. */
+    name: "the pool composites OVER the discs (ordering only)",
+    why: "measured: the ordering alone is worth under half the floor, and this control records the number",
+    expectPass: true,
     patch: s => s.replace(
       "  ctx.globalAlpha=0.82;\n\n  /* THE ROUTE ITSELF",
       "  if (integrate && sky.glow && sky.halo){ ctx.globalCompositeOperation=\"lighter\";" +
@@ -427,11 +485,24 @@ const CONTROLS = [
     ),
   },
   {
-    name: "a mark makes the disc brighter",
-    why: "the ink-invariance gate must report the atlas brightening",
+    /* THE CLASSIC GAMIFICATION FAILURE, DRAWN: a marked film glows. An earlier
+       version of this control multiplied the disc's ALPHA by 1.22 instead and
+       it passed every gate — because 0.82 x 1.22 clamps to 1, and a disc at
+       alpha 1 REPLACES the halation behind it rather than blending with it, so
+       the "brighter" build measured 1.1 percentage points DARKER at the films
+       than the real one. A control has to be checked for doing what its name
+       says, exactly like the checks it is testing. */
+    name: "a marked film glows",
+    why: "the light-at-the-films gate must report the atlas brightening as you watch",
     patch: s => s.replace(
-      "ctx.globalAlpha = (hasRoute ? 0.07 : inPreview ? 0.82 : 0.16) * a;",
-      "ctx.globalAlpha = (hasRoute ? 0.07 : inPreview ? 0.82 : 0.16) * a * ((state.seen.has(sky.keys[i])||state.loved.has(sky.keys[i]))?1.22:1);"
+      "  ctx.globalAlpha=0.82;\n\n  /* THE ROUTE ITSELF",
+      "  { ctx.globalCompositeOperation=\"lighter\";\n" +
+      "    for (let i=0;i<n;i++){ const kk=sky.keys[i];\n" +
+      "      if (A[i]<=0.004 || !(state.seen.has(kk)||state.loved.has(kk))) continue;\n" +
+      "      ctx.globalAlpha=0.5; ctx.beginPath(); ctx.arc(SX[i],SY[i],r*1.5,0,TAU);\n" +
+      "      ctx.fillStyle=sky.tone[i]; ctx.fill(); }\n" +
+      "    ctx.globalCompositeOperation=\"source-over\"; }\n" +
+      "  ctx.globalAlpha=0.82;\n\n  /* THE ROUTE ITSELF"
     ),
   },
 ];
@@ -460,8 +531,14 @@ async function runControls() {
     });
     const outText = (r.stdout || "") + (r.stderr || "");
     const fails = outText.split("\n").filter(l => l.includes("FAIL:"));
-    if (r.status === 0) log("  *** THE CONTROL PASSED — the check is not checking ***");
-    else { log(`  REPORTED (${fails.length} gate(s)):`); for (const f of fails.slice(0, 4)) log("   " + f.trim()); }
+    const floor = outText.split("\n").filter(l => /300 films, canon-first/.test(l) && /p99/.test(l));
+    if (r.status === 0) {
+      if (c.expectPass) { log("  as expected, no gate breached. The number it produced:"); for (const l of floor) log("   " + l.trim()); }
+      else log("  *** THE CONTROL PASSED — the check is not checking ***");
+    } else {
+      if (c.expectPass) log("  *** this control was expected NOT to breach a gate, and it did ***");
+      log(`  REPORTED (${fails.length} gate(s)):`); for (const f of fails.slice(0, 4)) log("   " + f.trim());
+    }
   }
 }
 
