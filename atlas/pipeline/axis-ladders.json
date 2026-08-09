@@ -1,0 +1,430 @@
+{
+  "version": "ladders-1",
+  "axisVersion": "axes-1",
+  "status": "awaiting-owner-audit",
+  "generatedAt": "2026-08-09",
+  "generatedBy": "model (not the scorer) — per atlas-fingerprint-DECISION.md, 'The human artifact: 20 minutes, once, blocking'",
+  "about": [
+    "Five ordinal ladders, one per surviving axis. Each ladder is five corpus films ordered",
+    "low -> high on that axis ALONE. Rank 1 and rank 5 are the anchors fixed by",
+    "docs/specs/atlas-fingerprint-layer.md §3 and re-affirmed by the DECISION; they are shown",
+    "to the scorer. Ranks 2-4 are proposed here and are WITHHELD from the scoring prompt, so",
+    "reproducing their order is a real test rather than a recital.",
+    "The owner audits an argument, not a list: every rung carries one sentence saying why it",
+    "sits where it does. Disagree with a sentence and the rung moves."
+  ],
+  "contract": {
+    "gate": "GATE 3 — LADDER COMPLIANCE",
+    "test": "ordinal only. For each axis the scorer's five scores must strictly increase across rank 1..5. Report per-axis, never pooled.",
+    "withheldRanks": [2, 3, 4],
+    "shownToScorer": "ranks 1 and 5 only, as the axis anchors, with anchorScore 10 and 90",
+    "noNumbersForMiddles": "Ranks 2-4 deliberately carry NO target score. Ordinal constraints carry most of the information in an absolute score and are far harder to get wrong. Do not add numbers here.",
+    "sampleRequirement": "All 15 withheld films (and, for reference, the 10 anchor slots) must be present in the stratified scoring sample, or GATE 3 cannot run at all. Check this before scoring, not after.",
+    "breakTest": "Shuffle any one ladder's ranks 2-4 in this file and re-run: that axis must report non-compliant while the other four still pass. A gate that stays green on a shuffled ladder is measuring nothing."
+  },
+  "constraintsAppliedWhenChoosing": [
+    "Every film verified present in atlas/static/corpus.json by key; filmId copied from the corpus, not invented.",
+    "No withheld rung shares a director with either anchor of its own axis or with another rung of the same axis. A ladder the scorer could satisfy from the crew graph would test the thing this layer exists to escape.",
+    "No film appears on two ladders. The only repeats are the anchors the spec itself doubles up: Tokyo Story (cruelty low, fracture low) and Mulholland Drive (ambiguity high, fracture high).",
+    "Middles chosen to be separated by a stated argument, not by degree of fame. A ladder whose middle is arguable is a gate that fails for the wrong reason."
+  ],
+  "knownLimitation": {
+    "canonicalBias": "All 25 ladder films are canonical, which is unavoidable — a ladder film has to be one whose position can be argued. The DECISION's held-out-films note applies directly: anchors' Wikipedia articles run a median 28,026 chars against 5,834 for the long tail. GATE 3 passing therefore says the scorer orders WELL-DOCUMENTED films correctly and says nothing about the 1,324 films carrying no reading. It is not a substitute for reporting MAE per fame stratum.",
+    "anchorsAreNotCeilings": "Rank 5 is an anchor, not the corpus maximum. Two corpus films plausibly exceed their axis's high anchor (see poleCaveat on cruelty and fracture). Scores above 90 must remain legal, and GATE 2 pole prevalence must count films past a pole threshold, never films past the anchor."
+  },
+  "axes": {
+    "dread": {
+      "poles": { "low": "ease", "high": "dread" },
+      "measures": "How much of the running time is spent expecting harm.",
+      "doesNotMeasure": "Gore, body count, or horror-genre membership. A film can be violent and carry no dread, and carry total dread with nothing happening.",
+      "rungs": [
+        {
+          "rank": 1,
+          "role": "anchor-low",
+          "withheldFromScorer": false,
+          "anchorScore": 10,
+          "corpusKey": "chungking express",
+          "title": "Chungking Express",
+          "year": 1994,
+          "director": "Wong Kar-wai",
+          "filmId": "film-941d623be7135743",
+          "why": "Nothing in it threatens anyone; even its heartbreak is buoyant, and the film's forward motion is appetite rather than fear."
+        },
+        {
+          "rank": 2,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "rear window",
+          "title": "Rear Window",
+          "year": 1954,
+          "director": "Alfred Hitchcock",
+          "filmId": "film-f9ae84d1e42b25c0",
+          "why": "Its dread is real but rationed — it arrives late, stays inside one courtyard, and is fully discharged by a resolution that hands the film back to the joke."
+        },
+        {
+          "rank": 3,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "picnic at hanging rock",
+          "title": "Picnic at Hanging Rock",
+          "year": 1975,
+          "director": "Peter Weir",
+          "filmId": "film-147c5e150d84db63",
+          "why": "Above Rear Window because the dread is never discharged: it is ambient from the first frame, attaches to no villain, and the film ends without explaining or punishing anything."
+        },
+        {
+          "rank": 4,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "rosemary s baby",
+          "title": "Rosemary's Baby",
+          "year": 1968,
+          "director": "Roman Polanski",
+          "filmId": "film-a19b3afe7146dfcf",
+          "why": "Above Picnic because the dread escalates continuously across the whole runtime and is finally confirmed rather than left open, while staying domestic and mannered where Hereditary turns physical."
+        },
+        {
+          "rank": 5,
+          "role": "anchor-high",
+          "withheldFromScorer": false,
+          "anchorScore": 90,
+          "corpusKey": "hereditary",
+          "title": "Hereditary",
+          "year": 2018,
+          "director": "Ari Aster (corpus records the raw QID Q54864392)",
+          "filmId": "film-f14f906d4341c8b4",
+          "why": "Anchor. Dread is total, continuous and bodily, and the film gives no interval in which it lifts."
+        }
+      ],
+      "weakestAdjacency": {
+        "pair": [3, 4],
+        "risk": "A scorer weighting peak intensity over duration could put Picnic above Rosemary's Baby, since unrelieved-and-diffuse can read as worse than escalating-and-confirmed.",
+        "ifItFailsHere": "Treat as a definitional miss, not a scoring failure, and tighten 'measures' before moving the rung."
+      },
+      "alternates": [
+        { "forRank": 4, "corpusKey": "don t look now", "title": "Don't Look Now", "year": 1973, "filmId": "film-0df167d05a7766d2", "note": "Swap in if Rosemary's Baby reads too close to Hereditary." },
+        { "forRank": 4, "corpusKey": "the shining", "title": "The Shining", "year": 1980, "filmId": "film-dbb511f5943e9c44", "note": "Rejected as first choice: arguably level with Hereditary rather than below it, which would make rank 4 vs 5 the coin-flip." }
+      ]
+    },
+
+    "cruelty": {
+      "poles": { "low": "tenderness", "high": "cruelty" },
+      "measures": "How the film treats the people in it — whether harm is deliberate, dwelt on, and shared by the film's own gaze.",
+      "doesNotMeasure": "Sadness. Grave of the Fireflies is devastating and not especially cruel; the axis asks who is doing the hurting and whether the camera stays to watch.",
+      "rungs": [
+        {
+          "rank": 1,
+          "role": "anchor-low",
+          "withheldFromScorer": false,
+          "anchorScore": 10,
+          "corpusKey": "tokyo story",
+          "title": "Tokyo Story",
+          "year": 1953,
+          "director": "Yasujirō Ozu",
+          "filmId": "film-dd9cde11a2dd8ec6",
+          "why": "Its subject is neglect, and it declines even to punish the neglectful — the harm is real and the film's disposition toward everyone in it is forgiveness."
+        },
+        {
+          "rank": 2,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "bicycle thieves",
+          "title": "Bicycle Thieves",
+          "year": 1948,
+          "director": "Vittorio De Sica",
+          "filmId": "film-dbc80e129d3ec54b",
+          "why": "The harm is structural and mostly indifferent; the one deliberate cruelty — a crowd humiliating Antonio in front of his son — is brief, and the film's sympathy never withdraws from anyone, including the thief."
+        },
+        {
+          "rank": 3,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "au hasard balthazar",
+          "title": "Au Hasard Balthazar",
+          "year": 1966,
+          "director": "Robert Bresson",
+          "filmId": "film-6cfb4f00a7b53e68",
+          "why": "Above Bicycle Thieves because cruelty stops being circumstance and becomes intent: named people injure the defenceless, repeatedly and by choice, though Bresson frames it as a passion rather than a spectacle."
+        },
+        {
+          "rank": 4,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "funny games u s",
+          "title": "Funny Games U.S.",
+          "year": 2007,
+          "director": "Michael Haneke",
+          "filmId": "film-e6933952bc511cb9",
+          "why": "Above Balthazar because cruelty is not a subject but the entire organising principle, extended to the viewer by design — and below Come and See because it is administered coolly, largely offscreen, at the scale of one family."
+        },
+        {
+          "rank": 5,
+          "role": "anchor-high",
+          "withheldFromScorer": false,
+          "anchorScore": 90,
+          "corpusKey": "come and see",
+          "title": "Come and See",
+          "year": 1985,
+          "director": "Elem Klimov",
+          "filmId": "film-11bf4a64440c2179",
+          "why": "Anchor. Cruelty at the scale of annihilation, sustained, and put in front of the camera rather than implied."
+        }
+      ],
+      "weakestAdjacency": {
+        "pair": [2, 3],
+        "risk": "A scorer reading 'cruelty' as 'how much the characters suffer' could lift Bicycle Thieves above Balthazar, since its ending is the more crushing of the two."
+      },
+      "poleCaveat": {
+        "film": "Salò, or the 120 Days of Sodom",
+        "corpusKey": "salo or the 120 days of sodom",
+        "filmId": "film-3d917f5a0f5cf6ce",
+        "note": "Present in the corpus and plausibly ABOVE the high anchor. The cruelty pole is therefore not pinned at 90 by Come and See, and scores above 90 must stay legal."
+      },
+      "alternates": [
+        { "forRank": 4, "corpusKey": "salo or the 120 days of sodom", "title": "Salò, or the 120 Days of Sodom", "year": 1975, "filmId": "film-3d917f5a0f5cf6ce", "note": "Do NOT use at rank 4 without also moving Come and See; see poleCaveat." }
+      ],
+      "corpusNote": "The corpus holds only Haneke's 2007 English-language remake, not the 1997 original. It is his own shot-for-shot reconstruction, so the axis position is unchanged, but the ladder must name the film the corpus actually has."
+    },
+
+    "irony": {
+      "poles": { "low": "sincerity", "high": "irony" },
+      "measures": "The distance between what the film shows and what it means — whether the film stands behind its own images.",
+      "doesNotMeasure": "Comedy. Playtime is very funny and almost wholly sincere; a humourless film can be pure irony.",
+      "rungs": [
+        {
+          "rank": 1,
+          "role": "anchor-low",
+          "withheldFromScorer": false,
+          "anchorScore": 10,
+          "corpusKey": "the tree of life",
+          "title": "The Tree of Life",
+          "year": 2011,
+          "director": "Terrence Malick",
+          "filmId": "film-02ae74a245577e6c",
+          "why": "It addresses God in whispered voiceover and offers no defence against being laughed at — there is no gap at all between image and intent."
+        },
+        {
+          "rank": 2,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "amarcord",
+          "title": "Amarcord",
+          "year": 1973,
+          "director": "Federico Fellini",
+          "filmId": "film-7153ba7c0caee69a",
+          "why": "The feeling is unironic memory, but the telling is caricature delivered by a town chronicler nobody is asked to believe, so the film keeps one step back from what it plainly loves."
+        },
+        {
+          "rank": 3,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "barry lyndon",
+          "title": "Barry Lyndon",
+          "year": 1975,
+          "director": "Stanley Kubrick",
+          "filmId": "film-62be1926183a041e",
+          "why": "Above Amarcord because the distance is policy rather than tone: the narrator forecloses each event before it happens and withdraws sympathy on purpose, and that stance never lifts — though the images themselves are meant."
+        },
+        {
+          "rank": 4,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "brazil",
+          "title": "Brazil",
+          "year": 1985,
+          "director": "Terry Gilliam",
+          "filmId": "film-5f127ce9bb800fcb",
+          "why": "Above Barry Lyndon because image, tone and plot are all turned against themselves at once, and the film revokes its own happy ending as a delusion — but its irony is aimed at its world, not at cinema."
+        },
+        {
+          "rank": 5,
+          "role": "anchor-high",
+          "withheldFromScorer": false,
+          "anchorScore": 90,
+          "corpusKey": "pierrot le fou",
+          "title": "Pierrot le Fou",
+          "year": 1965,
+          "director": "Jean-Luc Godard",
+          "filmId": "film-ae379ed142e173a7",
+          "why": "Anchor. The irony reaches the medium itself: characters address the camera about being in a film, speech is quotation, and the form is dismantled while running."
+        }
+      ],
+      "weakestAdjacency": {
+        "pair": [2, 3],
+        "risk": "HIGHEST-RISK ADJACENCY IN THIS FILE. Amarcord's grotesquerie is pervasive enough that a scorer may read it as more ironic than Barry Lyndon's cool narration. The argument for the order given is that Amarcord's affection is sincere while its telling is not, whereas Barry Lyndon withholds affection as method.",
+        "ownerDecision": "If the owner does not accept that distinction, swap rank 2 for the alternate below rather than reordering — an ambivalent rung poisons the gate."
+      },
+      "alternates": [
+        { "forRank": 2, "corpusKey": "do the right thing", "title": "Do the Right Thing", "year": 1989, "filmId": "film-f064a123b0b093af", "note": "Cleaner rank 2 if Amarcord is judged too ironic: every character is played straight and felt, and the irony is only structural — a film that refuses to endorse its own conclusion." },
+        { "forRank": 4, "corpusKey": "network", "title": "Network", "year": 1976, "filmId": "film-60df78d0a1b5909a", "note": "Alternate rank 4. Rejected as first choice because its central lament is sincere, which makes rank 3 vs 4 closer than it should be." },
+        { "forRank": 4, "corpusKey": "dr strangelove", "title": "Dr. Strangelove", "year": 1964, "filmId": "film-e7b2b86c2d6cd02d", "note": "Rejected on the no-shared-director rule only: it would put Kubrick at both ranks 3 and 4, letting the scorer satisfy the ladder from the crew graph." }
+      ],
+      "finding": "This is the axis where a defensible middle was hardest to find, and the reason is recorded in unavailableCandidates: the natural rank-2 film (The Apartment — sincere romance inside a satirical machine) is not in the corpus."
+    },
+
+    "ambiguity": {
+      "poles": { "low": "resolution", "high": "ambiguity" },
+      "measures": "How much the film refuses to settle — what is still unknowable when it ends.",
+      "doesNotMeasure": "Complication. A dense plot that fully closes scores low; a simple film that withholds one decisive fact forever scores high.",
+      "rungs": [
+        {
+          "rank": 1,
+          "role": "anchor-low",
+          "withheldFromScorer": false,
+          "anchorScore": 10,
+          "corpusKey": "goodfellas",
+          "title": "Goodfellas",
+          "year": 1990,
+          "director": "Martin Scorsese",
+          "filmId": "film-c94839938019227a",
+          "why": "Everything is narrated, explained and closed — including the moral, which the voiceover delivers to camera."
+        },
+        {
+          "rank": 2,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "vertigo",
+          "title": "Vertigo",
+          "year": 1958,
+          "director": "Alfred Hitchcock",
+          "filmId": "film-a72b0c4f67711b42",
+          "why": "The mechanism is confessed outright at the midpoint rather than withheld; what stays open is only motive and the abruptness of the last thirty seconds."
+        },
+        {
+          "rank": 3,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "blowup",
+          "title": "Blowup",
+          "year": 1966,
+          "director": "Michelangelo Antonioni",
+          "filmId": "film-f4a458a2af9ba83e",
+          "why": "Above Vertigo because its central fact is withheld permanently and its evidence literally erased — but the hole is local: the world around it stays entirely legible."
+        },
+        {
+          "rank": 4,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "2001 a space odyssey",
+          "title": "2001: A Space Odyssey",
+          "year": 1968,
+          "director": "Stanley Kubrick",
+          "filmId": "film-5fa1f80cb8a5cb71",
+          "why": "Above Blowup because it explains nothing about its decisive events at all, so the ambiguity is global rather than local — and below Mulholland Drive because the line of the narrative is unbroken and what happened is never in doubt, only what it means."
+        },
+        {
+          "rank": 5,
+          "role": "anchor-high",
+          "withheldFromScorer": false,
+          "anchorScore": 90,
+          "corpusKey": "mulholland drive",
+          "title": "Mulholland Drive",
+          "year": 2001,
+          "director": "David Lynch",
+          "filmId": "film-6389757a9b5119a3",
+          "why": "Anchor. Identity, chronology and reality give way together, so not even the events survive to be interpreted."
+        }
+      ],
+      "weakestAdjacency": {
+        "pair": [3, 4],
+        "risk": "A scorer counting unanswered questions rather than weighing them could invert these: Blowup leaves one enormous question, 2001 leaves a smaller number of larger ones."
+      },
+      "alternates": [
+        { "forRank": 3, "corpusKey": "l avventura", "title": "L'Avventura", "year": 1960, "filmId": "film-ae577fa2103fce74", "note": "Direct substitute for Blowup — same shape of withholding (a disappearance never explained, a plot abandoned mid-film), same director, so swap one for the other and not both in." },
+        { "forRank": 3, "corpusKey": "rashomon", "title": "Rashomon", "year": 1950, "filmId": "film-08a33cc704c1fa09", "note": "Alternate rank 3 if a non-Antonioni middle is wanted; its ambiguity is of testimony rather than of fact." }
+      ]
+    },
+
+    "fracture": {
+      "poles": { "low": "linear", "high": "fractured" },
+      "measures": "How far the telling departs from a single forward order — displacement, permutation, and whether any order can be recovered at all.",
+      "doesNotMeasure": "Difficulty. A perfectly linear film can be baffling; a fractured one can be easy to follow.",
+      "rungs": [
+        {
+          "rank": 1,
+          "role": "anchor-low",
+          "withheldFromScorer": false,
+          "anchorScore": 10,
+          "corpusKey": "tokyo story",
+          "title": "Tokyo Story",
+          "year": 1953,
+          "director": "Yasujirō Ozu",
+          "filmId": "film-dd9cde11a2dd8ec6",
+          "why": "Anchor. One order, one direction, no displacement of any kind — the ellipses between scenes never break the sequence."
+        },
+        {
+          "rank": 2,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "sunset boulevard",
+          "title": "Sunset Boulevard",
+          "year": 1950,
+          "director": "Billy Wilder",
+          "filmId": "film-de56704f5d710509",
+          "why": "A single frame displaces the whole film — it is narrated from the end by a dead man — but inside that frame the body of the film runs straight through with no further break."
+        },
+        {
+          "rank": 3,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "citizen kane",
+          "title": "Citizen Kane",
+          "year": 1941,
+          "director": "Orson Welles",
+          "filmId": "film-8ea89ccf112a80c2",
+          "why": "Above Sunset Boulevard because the telling is broken into five overlapping accounts told out of order — yet each is dated and attributed, and they reassemble into one uncontested chronology."
+        },
+        {
+          "rank": 4,
+          "role": "proposed",
+          "withheldFromScorer": true,
+          "corpusKey": "memento",
+          "title": "Memento",
+          "year": 2000,
+          "director": "Christopher Nolan",
+          "filmId": "film-2925e99465b1b1d8",
+          "why": "Above Citizen Kane because chronology is systematically inverted and interleaved and is never restored on screen — and below Mulholland Drive because a determinate order does exist and can be recovered exactly."
+        },
+        {
+          "rank": 5,
+          "role": "anchor-high",
+          "withheldFromScorer": false,
+          "anchorScore": 90,
+          "corpusKey": "mulholland drive",
+          "title": "Mulholland Drive",
+          "year": 2001,
+          "director": "David Lynch",
+          "filmId": "film-6389757a9b5119a3",
+          "why": "Anchor. No ordering reconciles the two halves, so unlike every rung below it there is nothing to recover."
+        }
+      ],
+      "weakestAdjacency": {
+        "pair": [3, 4],
+        "risk": "Both are fully recoverable, so the distinction is degree of systematic inversion rather than kind. A scorer that treats multiple narrators as the strongest form of fracture could put Kane above Memento."
+      },
+      "poleCaveat": {
+        "film": "Last Year at Marienbad",
+        "corpusKey": "last year at marienbad",
+        "filmId": "film-6c82e7a63c94339a",
+        "note": "Present in the corpus and plausibly ABOVE the high anchor — it withholds even whether the events occurred. The fracture pole is not pinned at 90 by Mulholland Drive."
+      },
+      "alternates": [
+        { "forRank": 4, "corpusKey": "rashomon", "title": "Rashomon", "year": 1950, "filmId": "film-08a33cc704c1fa09", "note": "Alternate rank 4 only if Rashomon is NOT used on the ambiguity ladder — no film may sit on two ladders." }
+      ]
+    }
+  },
+
+  "unavailableCandidates": [
+    { "title": "The Apartment", "wantedFor": "irony rank 2", "status": "not in corpus.json", "consequence": "Forced the substitution to Amarcord, which is the file's least secure adjacency." },
+    { "title": "Pulp Fiction", "wantedFor": "fracture rank 4", "status": "not in corpus.json", "consequence": "Memento used instead; arguably the better rung anyway, since its inversion is systematic rather than episodic." },
+    { "title": "Umberto D.", "wantedFor": "cruelty rank 2", "status": "not in corpus.json", "consequence": "None — Bicycle Thieves covers the same position." }
+  ],
+
+  "verification": {
+    "method": "Every corpusKey above was looked up directly in atlas/static/corpus.json; title, year, director and filmId are copied from that record.",
+    "filmsNamed": 25,
+    "distinctFilms": 23,
+    "distinctFilmsNote": "Tokyo Story and Mulholland Drive each occupy two anchor slots, as the spec's own anchor table requires.",
+    "allPresent": true
+  }
+}
