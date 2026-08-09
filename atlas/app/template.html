@@ -253,6 +253,15 @@ main{flex:1;position:relative;overflow:hidden}
   background:var(--nc,var(--accent));transform:scaleX(0);transform-origin:0 50%;
   transition:transform var(--t-mid) var(--ease)}
 .tile:hover::after,.tile:focus-visible::after{transform:scaleX(1)}
+/* A DEVELOPED FILM HAS ALREADY SIGNED. The rule stands at rest rather than
+   waiting for a pointer, so a wall of marked films is a wall of films each
+   holding its own measured colour — the same statement the constellation
+   makes, in the grammar the wall already had. It replaces the 6px gold dot,
+   which said the same thing in the HOUSE colour for every film alike and so
+   said nothing about the film. The gold dot survives for LOVED only, which is
+   the one mark that is a reader's and not the photography's.
+   A wall with nothing marked is pixel-identical to the wall that shipped. */
+.tile.developed::after{transform:scaleX(1)}
 .tile .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 9px 9px;
   background:linear-gradient(transparent,rgba(6,5,8,.94) 58%);
   opacity:0;transform:translateY(4px);
@@ -311,7 +320,14 @@ main{flex:1;position:relative;overflow:hidden}
    It is on .frame and never on .node, because the caption must not blur —
    at any depth, for any duration. animation-delay:inherit picks up the
    per-node stagger set on the parent without a second inline style. */
-@keyframes resolve{from{filter:blur(9px) saturate(.35)}to{filter:none}}
+/* saturate(.35) is GONE, and it is not a tidy-up. Desaturation is now the
+   vocabulary of "undeveloped" everywhere else in this application — a latent
+   film is its own colour with the chroma taken out — so an arriving poster
+   that fades up out of grey was saying, in the project's own new grammar,
+   "you have not seen this yet", about a film the reader has just opened. The
+   comment two lines above already says this is a focus pull and not a fade;
+   the blur is the focus pull and it is the whole of it. */
+@keyframes resolve{from{filter:blur(9px)}to{filter:none}}
 .node{position:absolute;transform:translate(-50%,-50%);cursor:pointer;
   animation:bloom var(--t-slow) var(--ease) backwards;
   transition:left var(--t-slow) var(--ease),top var(--t-slow) var(--ease),
@@ -405,6 +421,15 @@ main{flex:1;position:relative;overflow:hidden}
   color:color-mix(in oklab,var(--nc,var(--accent)) 55%,var(--dim))}
 .node .seen{position:absolute;top:7px;right:7px;width:6px;height:6px;border-radius:50%;
   background:var(--accent);box-shadow:0 0 0 3px rgba(5,4,4,.8)}
+/* THE SAME SIGNATURE THE WALL USES, so a developed film reads the same in
+   both places: a rule along the foot of the cell in that film's own measured
+   highlight. Not a size, not a brightness, not a second colour scheme —
+   AGENTS rule 1 governs the map as well as the field.
+   On a ring cell --nc is the RELATIONSHIP's colour — the argument's grammar,
+   which a personal mark may not repurpose (rule 2) — so the rule reads --fc,
+   which every node carries and which is always that film's own highlight. */
+.node.developed .frame::after{content:"";position:absolute;left:0;right:0;bottom:0;
+  height:2px;z-index:3;background:var(--fc,var(--accent))}
 
 /* EDGES ARE DRAWN, NOT PLOTTED.
    Record edges ink themselves outward from the centre; the length of the line
@@ -2012,10 +2037,14 @@ function tile(k, note){
   const f=F[k];
   const t=el("button","tile");
   t.type="button";
-  t.setAttribute("aria-label",`${f.title}${f.year?`, ${f.year}`:""}${note?`. ${note}`:""}`);
+  t.dataset.k=k;
+  const dev=state.seen.has(k)||state.loved.has(k);
+  if (dev) t.classList.add("developed");
+  t.setAttribute("aria-label",`${f.title}${f.year?`, ${f.year}`:""}${note?`. ${note}`:""}`+
+    (dev?". Developed":""));
   t.style.setProperty("--nc", f.highlight);
   t.innerHTML = art(k) +
-    (state.seen.has(k)||state.loved.has(k) ? '<span class="seen"></span>' : "") +
+    (state.loved.has(k) ? '<span class="seen"></span>' : "") +
     `<span class="cap"><span class="t">${esc(f.title)}</span>
        <span class="y">${f.year||""}${note?" · "+esc(note):""}</span></span>`;
   t.onclick = () => openMap(k);
@@ -2473,6 +2502,9 @@ function renderMap(){
       : `${f.title}${f.year?`, ${f.year}`:""}. Open film details. ${edgeMeta(conn.e)}: ${conn.e.claim}`);
     n.style.animationDelay=(i<0?0:60+i*55)+"ms";
     n.style.setProperty("--nc", i<0 ? f.highlight : meta(conn.e.type).color);
+    /* --fc is always the FILM's own measured highlight, whatever --nc is being
+       used for on this cell. The develop rule reads it; nothing else does. */
+    n.style.setProperty("--fc", f.highlight);
     /* THE CENTRE POSTER IS THE DOOR TO THE CLAIMS, SO IT SAYS SO.
        The map no longer arrives with the sheet open, and an affordance nobody
        can see is a feature that has been removed. The cue is one slate line in
@@ -2481,8 +2513,9 @@ function renderMap(){
        accent because clicking this cell is the one thing it invites.
        aria-hidden: the node's own aria-label already ends "Open film details",
        and a screen reader should not hear the instruction twice. */
+    if (state.seen.has(k)||state.loved.has(k)) n.classList.add("developed");
     n.innerHTML=`<div class="frame">${art(k,"",i<0?"high":"auto")}${
-      state.seen.has(k)||state.loved.has(k)?'<span class="seen"></span>':""}</div>
+      state.loved.has(k)?'<span class="seen"></span>':""}</div>
       <div class="label"><span class="t">${esc(f.title)}</span>
       <span class="y">${f.year||""}</span>${
         i<0?`<span class="cue" aria-hidden="true">${state.ring.length
@@ -2737,17 +2770,12 @@ function openPanel(k, context=null){
   p.querySelector(".panel-x").onclick=()=>closePanel(true);
   p.querySelectorAll('[data-act="seen"],[data-act="loved"]').forEach((button)=>button.onclick=()=>{
     const context=state.panelContext;
-    const set=button.dataset.act==="seen"?state.seen:state.loved;
-    if(set.has(k)) set.delete(k);
-    else{
-      set.add(k);
-      if(button.dataset.act==="loved") state.seen.add(k);
-    }
-    $("#loved-n").textContent=state.loved.size;
-    persistPreferences();
-    renderMap();
+    /* One route for every door — the panel, the keyboard in all three views,
+       the wall and the constellation. markFilm owns the set, the store, the
+       develop and every invalidation; this handler owns only the panel it
+       has to redraw afterwards. */
+    markFilm(k,button.dataset.act);
     openPanel(k,context);
-    if(state.view==="wall") renderWall();
   });
   p.querySelectorAll(".why-item[data-k]").forEach((row)=>row.onclick=()=>{
     const intent=AtlasRadialInspection.selectRadialFilm({
@@ -4347,16 +4375,45 @@ function skyMiniGroundCanvas(W,H,pad,dpr){
   g.setTransform(dpr,0,0,dpr,0,0);
   g.fillStyle="#050404"; g.fillRect(0,0,W,H);
   const side=Math.min(W-pad*2,H-pad*2), ox=(W-side)/2, oy=(H-side)/2;
-  g.fillStyle="#E8DFD3";
-  g.globalAlpha=0.10;
+  /* THE STRIP IS A CONTACT SHEET OF YOUR OWN PLATE.
+     This raster is the whole atlas, and it is the ground every one of the 28
+     frames is printed over — so developing it here develops all 28 at once for
+     the cost of one pass. A world's own films still take that world's colour
+     on top (DESIGN.md: at field scale colour carries the stratum), and what
+     changes underneath is silver where you have not watched and the film's own
+     dye where you have. That is the cheapest place in this whole object where
+     "their atlas" stops being a claim and becomes something to look at.
+     Still a static bitmap: drawn once, and again only when a mark changes it. */
+  /* Same alpha and the same one pixel whether a film is developed or not. A
+     mark may not make a dot brighter or bigger anywhere in this application —
+     that is the rule the whole feature stands on, and a 66px thumbnail is
+     exactly where it would be easiest to break quietly. Only the colour moves:
+     the film's own grey, or the film's own dye. */
+  g.globalAlpha=0.13;
   for (const filmId of DISCO.filmOrder){
     const p=LAYOUT.positions[filmId];
     if (!p) continue;
+    const key=DISCO.keyByFilmId[filmId];
+    if (key && Object.prototype.hasOwnProperty.call(F,key)){
+      g.fillStyle = (state.seen.has(key)||state.loved.has(key))
+        ? F[key].highlight : develop(F[key].highlight,0);
+    } else g.fillStyle="#E8DFD3";
     g.fillRect(ox+p[0]*side-0.5, oy+p[1]*side-0.5, 1, 1);
   }
   g.globalAlpha=1;
   skyMiniGround=c;
   return c;
+}
+/* A mark changes the plate every frame on the strip is printed over. Cheap
+   because it is exactly one rebuild, on a gesture, and never on a clock. */
+function skyMiniInvalidate(){
+  skyMiniGround=null;
+  const rail=$("#sky-worlds-rail");
+  if (!rail) return;
+  for (const b of rail.children){
+    const cvs=b.querySelector("canvas");
+    if (cvs && b.dataset.reg) skyWorldMini(b.dataset.reg,cvs);
+  }
 }
 
 function skyWorldMini(id, cvs){
@@ -6494,6 +6551,11 @@ function skyEnter(){
   sky.staleAddr=null;
   if (!sky.liveEdges) skySettleWhole();
   skyResize();
+  /* The gate and the grain are apparatus: made once, then static for the life
+     of the page. Neither reads anything about any film and neither costs a
+     repaint — see the CSS block above .sky-gate. */
+  skyGrainApply();
+  skyGateApply();
   /* THE ARRIVAL FIT WAITS FOR THE STRIP TO BE MEASURED.
      It used to be computed here, which was correct while every piece of chrome
      was at the bottom and its height was known. The worlds strip is 160 px of
@@ -6953,8 +7015,51 @@ addEventListener("visibilitychange",()=>{
   if (document.hidden){ if (sky.idle){ clearTimeout(sky.idle); sky.idle=0; } }
   else if (state.view==="sky") skyRender();
 });
+/* WHICH FILM THE KEYBOARD IS ON, in whichever view is showing. The wall and
+   the map answer with whatever is focused, because both are made of real
+   buttons; the constellation answers with whatever is in hand, because it is a
+   canvas and "in hand" is the state it already maintains for the readout, the
+   labels and the lamp. Returns null when the answer is nothing, which is the
+   case a shortcut must do nothing at all in. */
+function focusedFilmKey(){
+  if (state.view==="sky") return skyInHand();
+  const node=document.activeElement && document.activeElement.closest
+    ? document.activeElement.closest("[data-k]") : null;
+  const k=node && node.dataset.k;
+  return (k && Object.prototype.hasOwnProperty.call(F,k)) ? k : null;
+}
 addEventListener("keydown",e=>{
   if(e.key==="/"&&document.activeElement!==$("#q")){ e.preventDefault(); $("#q").focus(); }
+  /* MARK FROM ANYWHERE — s for seen, l for loved, on the film the keyboard is
+     already on, in all three views. Until this the entire feature was fed by
+     two buttons inside a panel that only opens on the second gesture of the
+     map view: no keyboard path, and no way at all to mark from the wall or the
+     constellation. A personal atlas whose only input is behind two clicks and
+     a hover stays empty, and an empty personal atlas is a dead feature rather
+     than a restrained one.
+     Guarded off any text field and off every modifier, because `l` is a
+     perfectly ordinary character to be typing into the search box. */
+  if((e.key==="s"||e.key==="l"||e.key==="S"||e.key==="L")
+     && !e.metaKey && !e.ctrlKey && !e.altKey
+     && !/^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement||{}).tagName||"")
+     && !(document.activeElement||{}).isContentEditable){
+    const k=focusedFilmKey();
+    if(k){
+      e.preventDefault();
+      const which=(e.key==="l"||e.key==="L")?"loved":"seen";
+      markFilm(k,which);
+      /* Said out loud. A canvas mark has no visible control to read back, and
+         the wall's rule is a 2px line — neither announces itself. */
+      const sr=$("#sr-status");
+      if(sr) sr.textContent=`${F[k].title}${F[k].year?", "+F[k].year:""}. `+
+        (which==="loved"
+          ? (state.loved.has(k)?"Loved, and developed on the plate.":"No longer loved.")
+          : (state.seen.has(k)?"Developed on the plate.":"Latent again."));
+      /* The panel, if it is standing on this film, has two buttons whose
+         pressed state has just stopped being true. */
+      if($("#panel").classList.contains("on") && state.sel===k) openPanel(k,state.panelContext);
+    }
+  }
   if(e.key==="Escape"){
     if($("#panel").classList.contains("on")){ closePanel(true); return; }
     /* Escape out of the constellation is Escape out to the wall. It is a whole
