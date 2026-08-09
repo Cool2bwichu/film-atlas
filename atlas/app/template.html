@@ -2531,6 +2531,9 @@ const sky = {
      computed for. Both cleared by anything that moves films or changes which
      films are lit; see skyDraw's room tint. */
   room:null, roomFor:null,
+  /* the meteor currently in flight, and when the next one is due. Both live
+     only while the night sky is the selected world; see skyMeteorStep. */
+  meteor:null, meteorAt:0, starCanvas:null,
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
   /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
      click a touch screen fires afterwards can be told apart from a real one.
@@ -2832,6 +2835,121 @@ function skyTreatment(){
   return id ? REG_DEFS[id].treatment || null : null;
 }
 
+/* ══ THE NIGHT SKY ════════════════════════════════════════════════════════
+   ONE REGISTER STOPS BEING A METAPHOR.
+
+   This view has been called the constellation since it was built. The discs
+   are stars, the edges are the lines somebody drew between them, and every
+   word of that has been a description the interface never made good on. Cold
+   science fiction is where it does: a real star field behind the films, real
+   scintillation on them, and a meteor across the frame from time to time.
+
+   It is spent on exactly ONE register and that is the point. If two worlds got
+   it, it would be a skin; being the only one, it is the moment the map admits
+   what it has been claiming. It is also the register that earned it — 6.8 SD
+   of measured palette separation, the largest in the corpus, so the blue is
+   closer to reportage than anything else on this screen, and the readout says
+   so in the same breath.
+
+   ── WHAT MAKES IT READ AS SKY RATHER THAN AS SPARKLES ────────────────────
+
+   The background stars are NOT films. That is the whole trick. A field of
+   2,204 dots with twinkle on it is still a field of dots; a field of 59 dots
+   sitting in front of six hundred faint ones is a night sky, because the eye
+   reads the two populations as different distances. It also means the one
+   thing a real star chart does that this project may not — vary a dot's size
+   by magnitude — happens where it carries no information at all. AGENTS rule 1
+   governs films; these are not films, they are weather, and nothing about them
+   is derived from the corpus.
+
+   They sit AT INFINITY: they translate a little as you pan and they do not
+   scale at all as you zoom. That is what a sky does, it is cheaper than
+   transforming them, and it is what stops the layer reading as a texture
+   pasted over the page.
+
+   ── THE COST, WHICH IS THE PART THAT DECIDES WHETHER THIS SHIPS ──────────
+
+   A world with meteors in it is a continuously repainting view, which is the
+   battery bug the rest of this file goes out of its way to avoid. So it is
+   bounded rather than hoped about: it runs only while this world is the one
+   selected, only while the tab is visible, never under prefers-reduced-motion,
+   and on the same ~20 fps idle clock as every other signature — lifted to ~45
+   fps only while a meteor is actually in flight, which is under a second at a
+   time. Every star's phase is an index into a 512-sample table, the same
+   answer skyEase reached for; not one Math.sin runs in the star loop. */
+const SKY_STAR_SEED = 0x5f3759df;
+const SKY_TWINKLE_LUT = (() => {
+  const n = 512, t = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * TAU;
+    /* Two beats against each other at an irrational ratio, so the rhythm never
+       resolves. One sine reads as a pulsing lamp; this reads as air. */
+    t[i] = Math.sin(a) * 0.62 + Math.sin(a * 2.61803) * 0.38;
+  }
+  return t;
+})();
+
+/* Deterministic and generated once — the same sky every time this world is
+   opened, on every machine, which is rule 7 applied to the weather. */
+const SKY_STARS = (() => {
+  let a = SKY_STAR_SEED;
+  const rnd = () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const N = 760, u = new Float32Array(N), v = new Float32Array(N),
+    r = new Float32Array(N), al = new Float32Array(N), ph = new Uint16Array(N);
+  for (let i = 0; i < N; i++) {
+    u[i] = rnd(); v[i] = rnd();
+    /* A magnitude distribution, not a uniform one: real skies are almost all
+       faint stars with a handful of bright ones, and a uniform field reads as
+       noise. Cubed, so the bright tail is short. */
+    const m = rnd() ** 3;
+    r[i] = 0.45 + m * 1.5;
+    al[i] = 0.16 + m * 0.5;
+    ph[i] = (rnd() * 512) | 0;
+  }
+  return { N, u, v, r, al, ph };
+})();
+
+/* ── METEORS ───────────────────────────────────────────────────────────────
+   RULE 1 IS THE FIRST THING THIS FUNCTION HAS TO SATISFY, so it is the first
+   thing in it: a meteor's path is drawn from the FRAME and from a counter, and
+   at no point does it read sky.wx, sky.at, ADJ, or anything else that knows a
+   film exists. It cannot originate at a film, terminate at one, or point at
+   one, because it has no way to find one. It is weather.
+
+   Rare and brief, which is both the owner's phrase and the frame budget:
+   one every 5.5-11 s, alive for about 0.7 s. */
+/* Asked from two places inside skyDraw, both of them ABOVE the `hasRoute`
+   const. Reading that const early is a temporal dead zone and it has already
+   shipped once in this function — a throw that leaves a cleared canvas and a
+   clean console. A function reads sky at call time and cannot dead-zone. */
+const roomRoutedEarly = () =>
+  !!(sky.passage.route && sky.passage.onEdge && sky.passage.onEdge.size);
+
+const SKY_METEOR_MIN = 5500, SKY_METEOR_VAR = 5500, SKY_METEOR_MS = 720;
+function skyMeteorStep(now, w, h) {
+  const m = sky.meteor;
+  if (skyReduced()) return null;
+  if (m && now - m.t0 < SKY_METEOR_MS) return m;
+  if (m && now - m.t0 >= SKY_METEOR_MS) { sky.meteor = null; sky.meteorAt = now + SKY_METEOR_MIN + Math.random() * SKY_METEOR_VAR; return null; }
+  if (!sky.meteorAt) { sky.meteorAt = now + 1200 + Math.random() * 2600; return null; }
+  if (now < sky.meteorAt) return null;
+  /* A shallow diagonal, entering from the top edge and crossing a chord.
+     Angles are kept off the horizontal and the vertical so the streak never
+     reads as an axis being drawn on the map. */
+  const dir = Math.random() < 0.5 ? 1 : -1;
+  const ang = (0.26 + Math.random() * 0.30) * Math.PI * dir;
+  const len = (0.34 + Math.random() * 0.30) * Math.hypot(w, h);
+  const x0 = (dir > 0 ? -0.1 : 1.1) * w + (Math.random() - 0.5) * 0.4 * w;
+  const y0 = (Math.random() * 0.55) * h - 0.08 * h;
+  sky.meteor = { t0: now, x0, y0, dx: Math.cos(ang) * len * dir, dy: Math.abs(Math.sin(ang)) * len };
+  return sky.meteor;
+}
+
 /* THE ROOM TINT — the ground layer of the weather.
    A soft radial rise in the world's own hue, centred on THE CENTROID OF THAT
    WORLD'S FILMS and falling off to black well before the rim. Horror is dark
@@ -2950,10 +3068,21 @@ function skyMonoFill(hex){
    display's, because every signature here is under 2 Hz and 20 fps is four
    times Nyquist for the fastest of them. */
 const SKY_IDLE_MS=50;
+/* A meteor crosses a third of the frame in 720 ms; at the 20 fps idle clock
+   that is fourteen samples and it reads as a dashed line rather than a streak.
+   The clock lifts to ~45 fps ONLY while one is actually in flight — under a
+   second at a time, once every five to eleven seconds — and drops back the
+   instant it burns out. That is the whole exception, and it is bounded by
+   arithmetic rather than by hope. */
+const SKY_IDLE_METEOR_MS=22;
 function skyMotionOn(){
   const t=sky.treat;
-  return !!(t && t.motion && t.motion.kind!=="still" && t.motion.depth>0
-    && state.view==="sky" && !document.hidden && !skyReduced());
+  if (!(state.view==="sky" && !document.hidden)) return false;
+  if (skyReduced()) return false;
+  /* The night sky keeps its own clock even between meteors: something has to
+     be running to notice that the next one is due. */
+  if (t && t.sky) return true;
+  return !!(t && t.motion && t.motion.kind!=="still" && t.motion.depth>0);
 }
 function skyIdleTick(){
   sky.idle=0;
@@ -2963,7 +3092,7 @@ function skyIdleTick(){
 function skyIdleSchedule(){
   if (sky.idle || sky.raf || sky.anim || sky.form) return;
   if (!skyMotionOn()) return;
-  sky.idle=setTimeout(skyIdleTick,SKY_IDLE_MS);
+  sky.idle=setTimeout(skyIdleTick, sky.meteor ? SKY_IDLE_METEOR_MS : SKY_IDLE_MS);
 }
 
 /* Camera onto the picture as it will be. Same rectangle correction the fit
@@ -3544,6 +3673,7 @@ function skyApplySelection(ms){
   sky.treatT0=performance.now();
   sky.preview=null; sky.previewSet=null;
   sky.room=null; sky.roomFor=null;
+  sky.meteor=null; sky.meteorAt=0;
   const sel=skySelected();
   const label=skySelectionLabel(sel);
   const flight = ms===undefined ? SKY_FORM_MS : ms;
@@ -4094,9 +4224,75 @@ function skyDraw(){
      2,204 films each having an opinion — rule 1 lives in this line. */
   const pulse = tmot&&tmot.kind==="pulse"&&!skyReduced()
     ? 1+tmot.depth*Math.sin(TAU*tmot.rate*tsec) : 1;
-  const perDisc = !!(tmot&&(tmot.kind==="drift"||tmot.kind==="flicker")&&!skyReduced());
+  const perDisc = !!(tmot&&(tmot.kind==="drift"||tmot.kind==="flicker"||tmot.kind==="twinkle")&&!skyReduced());
   const pdRate=perDisc?tmot.rate:0, pdDepth=perDisc?tmot.depth:0;
   if (T&&T.scale) r*=T.scale;
+
+  /* ── THE NIGHT SKY, drawn under the room tint and under everything else ──
+     Only for the one world that has it. Every other picture in this app pays
+     nothing for these lines: `T && T.sky` is false and the whole block is a
+     branch not taken. */
+  if (T && T.sky && !roomRoutedEarly()){
+    const st=SKY_STARS;
+    /* AT INFINITY: the field translates a fraction of a pan and does NOT scale
+       with zoom. A sky that zoomed would be a texture on the page; one that is
+       rigid under zoom and lags under pan is a sky. The offset uses the camera
+       CENTRE rather than the screen origin, so changing zoom moves nothing. */
+    const PX=110;
+    let pu=(-cam.cx*PX/Math.max(1,w))%1, pv=(-cam.cy*PX/Math.max(1,h))%1;
+    if (pu<0) pu+=1;
+    if (pv<0) pv+=1;
+    const twinkle=!skyReduced();
+    const tphase=twinkle?(tsec*0.62*512)|0:0;
+    ctx.fillStyle="#DCE6F2";
+    for (let i=0;i<st.N;i++){
+      let x=st.u[i]+pu; if (x>=1) x-=1;
+      let y=st.v[i]+pv; if (y>=1) y-=1;
+      x*=w; y*=h;
+      let a=st.al[i];
+      if (twinkle){
+        /* Table lookup, never a Math.sin: 760 stars x 60 fps is 45,600
+           transcendentals a second for a shimmer, and skyEase already learned
+           this lesson with its 513-sample curve. */
+        a*=1+0.42*SKY_TWINKLE_LUT[(st.ph[i]+tphase)&511];
+      }
+      if (a<=0.01) continue;
+      ctx.globalAlpha=a>1?1:a;
+      const rr=st.r[i];
+      /* fillRect under 1.3px: a sub-pixel arc costs a tessellation and a
+         coverage pass to draw something the rasteriser resolves to one texel
+         anyway. The handful of bright ones get a real disc. */
+      if (rr<1.3) ctx.fillRect(x-rr*0.5,y-rr*0.5,rr,rr);
+      else { ctx.beginPath(); ctx.arc(x,y,rr,0,TAU); ctx.fill(); }
+    }
+    ctx.globalAlpha=1;
+
+    /* THE METEOR. Screen space, from a counter — see the note on
+       skyMeteorStep for why it may not know a film exists. */
+    const mt=skyMeteorStep(performance.now(),w,h);
+    if (mt){
+      const p=Math.min(1,(performance.now()-mt.t0)/SKY_METEOR_MS);
+      /* It enters fast and dies out: position eases toward the end, brightness
+         is a short rise and a long fall, which is what a real one does. */
+      const e=1-(1-p)*(1-p);
+      const hx=mt.x0+mt.dx*e, hy=mt.y0+mt.dy*e;
+      const tail=0.16+0.1*(1-p);
+      const bx=mt.x0+mt.dx*Math.max(0,e-tail), by=mt.y0+mt.dy*Math.max(0,e-tail);
+      const bright=Math.min(1,p/0.12)*(1-p)**1.6;
+      if (bright>0.01){
+        const g=ctx.createLinearGradient(bx,by,hx,hy);
+        g.addColorStop(0,"rgba(220,230,242,0)");
+        g.addColorStop(1,"rgba(233,240,250,"+(0.9*bright).toFixed(3)+")");
+        ctx.strokeStyle=g;
+        ctx.lineWidth=1.4;
+        ctx.beginPath(); ctx.moveTo(bx,by); ctx.lineTo(hx,hy); ctx.stroke();
+        ctx.globalAlpha=bright;
+        ctx.fillStyle="#F2F6FC";
+        ctx.beginPath(); ctx.arc(hx,hy,1.5,0,TAU); ctx.fill();
+        ctx.globalAlpha=1;
+      }
+    }
+  }
 
   /* ── THE ROOM TINT, drawn first so everything else sits in it ────────────
      Slight, and deliberately so: at full strength the centre texel lifts the
@@ -4108,6 +4304,7 @@ function skyDraw(){
      is near-black and this is light being added to a room, not a colour being
      laid over one. */
   const roomHue = T ? T.hue : (PVT ? PVT.treatment.hue : null);
+
   /* Read from `sky` directly rather than from `forming` and `hasRoute`, both of
      which are `const`s declared FURTHER DOWN this function. Referencing either
      one here is a temporal dead zone and throws, and it throws in a way no
@@ -4117,8 +4314,7 @@ function skyDraw(){
      project has shipped twice. Both were caught by reading pixels out of the
      canvas in a chosen world; the check is now in the verification pass. */
   const roomForming = !!sky.form;
-  const roomRouted = !!(sky.passage.route && sky.passage.onEdge && sky.passage.onEdge.size);
-  if (roomHue && !roomRouted){
+  if (roomHue && !roomRoutedEarly()){
     if (roomForming || !sky.room || sky.roomFor!==roomHue){
       sky.room=skyRoomGeom(PV||null);
       sky.roomFor=roomHue;

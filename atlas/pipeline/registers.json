@@ -11,8 +11,11 @@
     "still": "No idle animation at all. As expressive as a pulse, and free.",
     "pulse": "One slow swell, every disc in unison — a held breath, not a heartbeat per film.",
     "drift": "Each disc on its own slow phase, taken from its corpus index. A field that shimmers.",
-    "flicker": "Fast, shallow, desynchronised. Gate flicker, not a strobe: depth stays under a quarter."
+    "flicker": "Fast, shallow, desynchronised. Gate flicker, not a strobe: depth stays under a quarter.",
+    "twinkle": "Scintillation. Same per-index phase as drift, but two beats against each other so the rhythm never resolves — which is what makes a star read as a star and a lamp read as a lamp."
   },
+  "skyNote": "`sky: true` is the one treatment that changes what the field IS rather than how it is coloured, and it is spent on ONE register on purpose. This view has called itself the constellation since it was built: the discs are stars, the edges are the lines drawn between them, and the whole conceit has been a metaphor the interface never admitted to. Cold science fiction is where it stops pretending — a real star field behind the films, scintillation on the films themselves, and a meteor across the frame from time to time. It is also the register that earned it: at 6.8 SD it is the largest measured palette separation in the corpus, so its blue is reportage rather than decoration, and the readout says so. Do not give this to a second register. It is legible precisely because nothing else does it.",
+
   "treatments": {
     "folk-horror":           { "hue": "#C8A24A", "glow": 0.55, "scale": 1.12, "edge": 0.85, "motion": { "kind": "pulse",   "rate": 0.16, "depth": 0.22 } },
     "haunted-house":         { "hue": "#9FB4BC", "glow": 0.70, "scale": 1.10, "edge": 0.70, "motion": { "kind": "pulse",   "rate": 0.13, "depth": 0.26 } },
@@ -34,7 +37,7 @@
     "the-professional-job":  { "hue": "#B9A46C", "glow": 0.35, "scale": 1.06, "edge": 1.05, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
     "the-institution":       { "hue": "#8E8C7E", "glow": 0.30, "scale": 1.04, "edge": 1.10, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
     "cyberpunk-mood":        { "hue": "#B45BD8", "glow": 1.00, "scale": 1.16, "edge": 1.25, "motion": { "kind": "drift",   "rate": 0.34, "depth": 0.30 } },
-    "cold-science-fiction":  { "hue": "#5EA8D8", "glow": 0.80, "scale": 1.10, "edge": 1.00, "motion": { "kind": "drift",   "rate": 0.12, "depth": 0.24 } },
+    "cold-science-fiction":  { "hue": "#5EA8D8", "glow": 0.80, "scale": 1.10, "edge": 1.05, "sky": true, "motion": { "kind": "twinkle", "rate": 0.55, "depth": 0.34 } },
     "artificial-life":       { "hue": "#54C0B0", "glow": 0.85, "scale": 1.12, "edge": 1.05, "motion": { "kind": "flicker", "rate": 0.55, "depth": 0.20 } },
     "after-the-end":         { "hue": "#C87A45", "glow": 0.50, "scale": 1.08, "edge": 0.75, "motion": { "kind": "drift",   "rate": 0.09, "depth": 0.20 } },
     "dystopian-satire":      { "hue": "#D8A83F", "glow": 0.55, "scale": 1.08, "edge": 1.00, "motion": { "kind": "flicker", "rate": 0.95, "depth": 0.20 } },
