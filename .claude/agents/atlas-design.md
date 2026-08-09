@@ -44,6 +44,18 @@ The standing design review (`/design-review`, findings to `atlas/reviews/`)
 is this mandate in scheduled form. Run it whenever a large batch of visual work
 has landed unjudged.
 
+**Standing owner directive — the stills section.** The film panel should
+eventually carry the images research has discovered — frames, stills,
+backdrops — so a film's page shows the photography itself, not only words
+about it. The contact-sheet idiom is the obvious home (this world is made of
+film strips already). Constraints when building it: licence class travels
+with every image exactly as posterLicence already does; images are hotlinked
+with attribution, never rehosted in the repo; the section states its source;
+and a film with no discovered images gets no empty scaffold — absence is
+silent. The frames pipeline (TMDB backdrops, film-grab if its evaluation
+clears) is the supply; design the shelf before the supply arrives so it lands
+into a decided form.
+
 ## Read before anything
 
 - `atlas/DESIGN.md` — the creative direction. You OWN this file: when a
