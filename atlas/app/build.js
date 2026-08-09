@@ -266,6 +266,40 @@ if(!html.includes(inspectionMarker)) throw new Error("Atlas template is missing 
 const inspectionSource=fs.readFileSync(path.join(__dirname,"radial-inspection.js"),"utf8");
 html=html.replace(inspectionMarker,inspectionSource);
 if(html.includes(inspectionMarker)) throw new Error("Atlas template contains more than one radial inspection marker");
+
+/* THE SOLVER SHIPS, BECAUSE AN INTERSECTION HAS NO BAKED LAYOUT.
+ * One selected value re-forms into a constellation solved here (see
+ * layout-strata.js). Two or more is a different set every time and there are
+ * combinatorially many of them, so those are solved in the browser. Measured
+ * on this corpus, genre x era and genre x country intersections run median 31
+ * films / 30 ms, p90 116 / 76 ms, worst 518 / 498 ms on a desktop — inside a
+ * budget the 1,552-film single strata never could be.
+ *
+ * It is EMBEDDED FROM layout-sky.js rather than reimplemented in the template,
+ * and that is the whole point: a second hand-written copy of a force solver is
+ * a copy that drifts, and the day it drifts, an intersection stops being drawn
+ * by the same rules as the stratum it sits inside. One algorithm, one file,
+ * one set of tuned constants, embedded — the same discipline
+ * radial-inspection.js is embedded under. Determinism (AGENTS rule 7) comes
+ * for free: it is literally the code that baked the strata, seeded the same
+ * way, and the app feeds it films in corpus order and edges in corpus order.
+ *
+ * The export line is rewritten into a return so the source can be wrapped in
+ * one expression, which also keeps `layout` from colliding with the radial
+ * map's own layout() at template scope. A rename in layout-sky.js fails the
+ * build here rather than shipping a page whose filter silently cannot solve. */
+const solverMarker="/* __SKY_SOLVER__ */";
+if(!html.includes(solverMarker)) throw new Error("Atlas template is missing its sky solver marker");
+const solverExport=/^module\.exports\s*=\s*\{[^}]*\};[ \t]*$/m;
+let solverSource=fs.readFileSync(path.join(__dirname,"layout-sky.js"),"utf8").replace(/^#![^\n]*\n/,"");
+if(!solverExport.test(solverSource)){
+  throw new Error("layout-sky.js no longer ends in the module.exports form the template embed rewrites");
+}
+solverSource=solverSource.replace(solverExport,"return { LAYOUT_ALGORITHM_VERSION, layout };");
+/* Function replacement, never a string: a `$&` anywhere in the embedded source
+   would otherwise be expanded by String.replace as a capture reference. */
+html=html.replace(solverMarker,()=>`const SKY_SOLVER = (function(){\n${solverSource}\n})();`);
+if(html.includes(solverMarker)) throw new Error("Atlas template contains more than one sky solver marker");
 if(ORIGIN!==null){
   /* Trailing slash trimmed because every template usage already supplies its
      own ("__ATLAS_ORIGIN__/", "__ATLAS_ORIGIN__/og.png"). */

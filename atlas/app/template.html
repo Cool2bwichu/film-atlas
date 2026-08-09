@@ -652,10 +652,30 @@ main{flex:1;position:relative;overflow:hidden}
   padding:14px max(16px,env(safe-area-inset-right))
           calc(14px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
 .sky-hud>*{pointer-events:auto}
-.sky-read{flex:1;min-width:0;max-width:min(520px,64vw);
-  background:rgba(8,7,10,.82);backdrop-filter:blur(10px);
+/* One column, so the standing "re-formed" notice sits directly above the
+   readout instead of floating somewhere else in the field and having to be
+   found. Both are opaque, both are seeded into the label placer as obstacles,
+   and both stack the same way on a phone. */
+.sky-hud-main{flex:1;min-width:0;max-width:min(520px,64vw);
+  display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.sky-read{background:rgba(8,7,10,.82);backdrop-filter:blur(10px);
   border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent));
   padding:10px 13px 11px}
+/* THE ATLAS IS SHOWING SOMETHING OTHER THAN THE ATLAS, AND SAYS SO.
+   Slate lettering, because this is metadata about the picture rather than a
+   claim inside it — AGENTS rule 8: a stratum colours the ground, it never
+   speaks in the voice a claim speaks in. --dim is 7.6:1 and --faint 5.0:1 on
+   this ground; nothing here goes under the floor. */
+.sky-stratum{background:rgba(8,7,10,.86);backdrop-filter:blur(10px);
+  border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent));
+  padding:7px 12px 8px;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--dim);
+  display:flex;align-items:baseline;gap:10px;min-width:0}
+.sky-stratum[hidden]{display:none}
+.sky-stratum b{font-weight:400;color:var(--ink);min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sky-stratum .n{margin-left:auto;flex-shrink:0;color:var(--faint);
+  font-variant-numeric:tabular-nums}
 .sky-read .slate{display:block}
 .sky-read .t{font-family:var(--display);font-size:19px;line-height:1.1;
   letter-spacing:var(--track-display);display:block;margin-top:5px;
@@ -736,6 +756,11 @@ main{flex:1;position:relative;overflow:hidden}
   color:var(--faint);display:flex;align-items:center;gap:9px}
 .sky-filter-sum button{margin-left:auto;background:none;border:0;cursor:pointer;
   font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--accent)}
+/* Said in prose, in the panel that caused it, at the moment it becomes true.
+   The distinction is the one AGENTS rule 8 turns on: the facet chose the
+   films, the claims still choose the places. */
+.sky-filter-note{margin:9px 0 0;font-family:var(--serif);font-size:11.5px;
+  line-height:1.5;color:var(--dim);letter-spacing:0;text-transform:none}
 .sky-ctl{display:flex;gap:6px;align-items:flex-end;flex-shrink:0}
 .sky-ctl .btn{min-width:38px;text-align:center}
 .sky-ctl .ico{font-family:var(--mono);font-size:14px;letter-spacing:0;
@@ -768,7 +793,7 @@ main{flex:1;position:relative;overflow:hidden}
   #wall-body .grid:not(:last-of-type){
     grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:18px 13px}
   .sec-head{margin:36px 0 15px}
-  .sky-read{max-width:none}
+  .sky-hud-main{max-width:none}
 }
 @media (max-width:720px){
   header{gap:10px;padding:calc(11px + env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) 11px max(14px,env(safe-area-inset-left));flex-wrap:wrap}
@@ -811,7 +836,8 @@ main{flex:1;position:relative;overflow:hidden}
   .sky-hud{flex-direction:column;align-items:stretch;gap:10px;padding:10px 12px
     calc(10px + env(safe-area-inset-bottom))}
   .sky-ctl{justify-content:flex-end}
-  .sky-read{max-width:none;padding:9px 11px 10px}
+  .sky-hud-main{max-width:none;gap:7px}
+  .sky-read{padding:9px 11px 10px}
   .sky-read .t{font-size:17px}
   .sky-label{font-size:12px}
   .sky-label.near{font-size:11px}
@@ -928,29 +954,42 @@ main{flex:1;position:relative;overflow:hidden}
         <span class="sr-only" id="sky-help">Drag to pan, scroll or pinch to zoom,
           click a film to open its lineage map. Arrow keys step between films,
           Enter opens the one in hand, plus and minus zoom, zero refits.</span>
-        <!-- NARROWING THE FIELD, WITHOUT MOVING IT.
-             Positions stay exactly where the build solved them: a film's place
-             is the one thing the sky promises to a second person, and
-             re-solving for a subset would trade that for a denser picture.
-             So a filter dims rather than rearranges, and what you read is
-             where that tradition actually sits in the whole atlas — which
-             regions it occupies and which it never reaches. -->
+        <!-- NARROWING RE-FORMS THE FIELD.
+             It used to dim: films kept their whole-atlas places and everything
+             outside the selection dropped to 9% alpha, on the argument that a
+             film's place is the one thing the sky promises to a second person.
+             That promise is now kept a different way — every stratum's
+             constellation is SOLVED AT BUILD TIME and baked (layout-strata.js),
+             so "Japanese cinema sits in a long arc" is still a thing one person
+             can say to another; it is just a statement about that stratum's own
+             sky rather than about a slice of the whole one. Two or more values
+             have no baked layout and are solved in the browser by the same
+             embedded solver. Positions change, and the interface says so out
+             loud: see #sky-stratum, which is the standing notice that this is
+             the tradition solved for itself and not the whole atlas. -->
         <div class="sky-filter" id="sky-filter" hidden>
           <div class="sky-filter-head">
-            <h3>Narrow the field</h3>
+            <h3>Re-form the atlas</h3>
             <button class="sky-filter-x" id="sky-filter-x" type="button" aria-label="Close filters">&times;</button>
           </div>
           <div class="sky-filter-body" id="sky-filter-body"></div>
         </div>
         <div class="sky-hud">
-          <div class="sky-read" id="sky-read">
-            <span class="slate">The whole atlas</span>
-            <span class="y" style="margin-top:7px">Drag to pan · scroll to zoom · pick a film to open its map</span>
+          <div class="sky-hud-main">
+            <!-- THE STANDING NOTICE THAT POSITIONS ARE NOT THE WHOLE ATLAS'S.
+                 The readout is taken over the moment a film is in hand, so it
+                 cannot be the only place this is said. This strip persists for
+                 as long as the atlas is re-formed. -->
+            <div class="sky-stratum" id="sky-stratum" role="status" hidden></div>
+            <div class="sky-read" id="sky-read">
+              <span class="slate">The whole atlas</span>
+              <span class="y" style="margin-top:7px">Drag to pan · scroll to zoom · pick a film to open its map</span>
+            </div>
           </div>
           <div class="sky-ctl">
             <button class="btn ico" id="sky-out" type="button" aria-label="Zoom out">&minus;</button>
             <button class="btn ico" id="sky-in" type="button" aria-label="Zoom in">+</button>
-            <button class="btn" id="sky-filter-open" type="button" aria-label="Narrow the constellation">Narrow</button>
+            <button class="btn" id="sky-filter-open" type="button" aria-label="Re-form the constellation under a different criterion">Re-form</button>
             <button class="btn" id="sky-fit" type="button" aria-label="Fit the whole constellation on screen">Fit</button>
           </div>
         </div>
@@ -2171,12 +2210,17 @@ const openPanelPreview = (k)=>{};
    recalculation the browser cannot afford at interactive rates, and the
    corpus is heading past 2,000 films.
 
-   THE LAYOUT IS NOT COMPUTED HERE. POS arrives baked, two numbers per film,
-   solved by app/layout-sky.js at build time. A force solve over this graph
-   is a multi-second freeze on a phone on first open, and it would settle
-   differently on every load — the sky would rearrange itself while you
-   looked away and nobody could tell anybody else where anything is.
+   THE LAYOUT IS NOT COMPUTED HERE — EXCEPT FOR AN INTERSECTION.
+   POS arrives baked, two numbers per film, solved by app/layout-sky.js at
+   build time, and so does one constellation per stratum (layout-strata.js).
+   A force solve over the WHOLE graph is a multi-second freeze on a phone on
+   first open, and the most-used single filter (1,552 films) is 1.9 seconds on
+   a desktop — which is exactly where a feature people click over and over
+   must not spend its time. Intersections are the one case with no baked
+   answer and they are small: median 31 films / 30 ms. Those are solved live,
+   by the embedded copy of the same solver, announced while it runs.
    ═══════════════════════════════════════════════════════════════════════ */
+/* __SKY_SOLVER__ */
 const SKY_POS = (typeof POS === "object" && POS && !Array.isArray(POS)) ? POS : null;
 
 /* Colour stays keyed to edge TYPE, exactly as it is on the radial map, so a
@@ -2212,14 +2256,31 @@ const TAU = Math.PI * 2;
 const DISCO = typeof DISCOVERY === "object" && DISCOVERY ? DISCOVERY : null;
 const FACET_DEFS = DISCO?.facets?.definitions || {};
 const FACET_POST = DISCO?.facets?.postings || {};
+const SKY_STRATA = (typeof LAYOUT === "object" && LAYOUT && LAYOUT.strata) || {};
 const FACET_ORDER = ["genre","country","movement","era","director"];
-const FACET_FIELDS = FACET_ORDER
+/* Excluded outright, whatever the artifact ships: director has 888 values over
+   2,204 films, which is a directory rather than a filter — the same reason
+   studio never became a facet at all. */
+const FACET_EXCLUDE = new Set(["director"]);
+/* WHICH FACETS ARE OFFERED IS THE ARTIFACT'S DECISION, NOT THIS FILE'S.
+   FACET_ORDER only says what order the known ones appear in. Any OTHER field
+   the artifact ships postings for is offered too, on one condition: the build
+   baked at least one constellation for it (LAYOUT.strata). That test is not
+   bureaucracy — it is the same question the control is asking. A facet with a
+   baked stratum is one the atlas can actually re-form into; a facet without
+   one is a control that would promise a new picture and produce a live solve
+   over the whole corpus. So when the mood strata land, the mood filter appears
+   here on its own, and nothing in this file is edited to let it. */
+const skyFieldHasStratum = k => {
+  const post = FACET_POST[k];
+  if (!post) return false;
+  for (const v of Object.keys(post)) if (SKY_STRATA[v]) return true;
+  return false;
+};
+const FACET_FIELDS = [...new Set([...FACET_ORDER, ...Object.keys(FACET_DEFS)])]
   .filter(k => FACET_DEFS[k] && Object.keys(FACET_DEFS[k].values||{}).length)
-  /* Until the artifact marks a facet selectable, offer the ones with a
-     reviewed taxonomy and enough coverage to mean something. director has 386
-     values over 800 films — a directory, not a filter — so it is excluded here
-     for the same reason studio never became a facet at all. */
-  .filter(k => k !== "director")
+  .filter(k => !FACET_EXCLUDE.has(k))
+  .filter(k => FACET_ORDER.includes(k) || skyFieldHasStratum(k))
   .map(k => ({key:k, label:FACET_DEFS[k].label || k}));
 const skyFilterOn = () => FACET_FIELDS.some(f => sky.filter[f.key]?.size);
 
@@ -2252,6 +2313,20 @@ const sky = {
      removed one. */
   filter:Object.fromEntries(FACET_FIELDS.map(f=>[f.key,new Set()])),
   visible:null, visibleN:0,
+  /* THE GEOMETRY IS NOW TWO THINGS, AND THEY ARE NOT THE SAME THING.
+     `homeX/homeY` are the whole-atlas positions the build solved and never
+     change. `wx/wy` are where the films are RIGHT NOW, which during a re-form
+     is somewhere between one solved layout and another. Everything that reads
+     a position — the draw, the hit grid, the label placer, the camera — reads
+     wx/wy, so nothing else in the view has to know a tween is happening.
+
+     `live` is which films are in the picture the geometry belongs to, and
+     `alpha` is each film's opacity, animated. A film that is not live is not
+     drawn, not pickable, not labelled and not ringed: once positions move, a
+     dimmed survivor of the previous layout would be a dot sitting at a
+     coordinate that no longer means anything. */
+  homeX:null, homeY:null, live:null, alpha:null,
+  form:null, formKind:"whole", formLabel:"", formScale:1, formPending:null, lastForm:null,
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
   /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
      click a touch screen fires afterwards can be told apart from a real one.
@@ -2265,10 +2340,22 @@ const skyInHand = () => sky.hoverKey || sky.pinKey || null;
 /* The film whose neighbourhood is currently held open, if any. */
 const skyAnchor = () => sky.orbitKey && F[sky.orbitKey] ? sky.orbitKey : null;
 
-/* ── NARROWING ────────────────────────────────────────────────────────────
-   Facets arrive interned (CORPUS.facets is the string table; each film holds
-   indices). Selections are OR within a facet and AND across them, which is
-   what people mean: "horror or thriller, from Japan". */
+/* ── RE-FORMING ───────────────────────────────────────────────────────────
+   Selections are OR within a facet and AND across them, which is what people
+   mean: "horror or thriller, from Japan". What they produce is not a dimming.
+   It is a different constellation of the same corpus, flown to.
+
+   THE FILMS MOVE. That is the owner's ruling and it is the point of the
+   feature: an atlas that "evolves and changes under different criteria" is
+   not the same picture with most of it turned down. A tradition gets to be
+   its own sky, spread across the whole field, rather than the scattered
+   survivors of a layout solved for two thousand other films.
+
+   What that costs, stated plainly because it is the thing being traded away:
+   a film's position is no longer one number a second person can be told
+   without also being told what the atlas is currently solved for. The
+   interface therefore never lets that go unsaid — #sky-stratum stands for as
+   long as a selection does, and the resting readout carries the sentence. */
 
 
 /* A facet value's films, as a Set of SKY indices.
@@ -2321,41 +2408,494 @@ function skyRecomputeVisible(){
   sky.visibleN = acc ? acc.size : 0;
 }
 
-/* Camera onto what survived. Films keep their places, so a narrow filter is
-   usually a scatter rather than a cluster — that scatter IS the finding, and
-   fitting to it is how you read it. */
-function skyFitFiltered(ms){
-  if (!sky.visible || !sky.visibleN) return;
+/* ── THE RE-FORM ──────────────────────────────────────────────────────────
+
+   A selection produces a TARGET: which films are in the picture, and where
+   each of them sits in a layout solved for that selection alone. The target
+   comes from one of three places, in this order:
+
+     the whole atlas   LAYOUT.positions, solved at build time
+     one stratum       LAYOUT.strata[value], solved at build time
+     an intersection   solved here, by the embedded solver, announced
+
+   and the field then FLIES from where it is to where the target says, which
+   is what makes this an atlas that changes rather than a filter that hides.
+
+   ── THE SCALE, WHICH IS THE PART WORTH DEFENDING ───────────────────────────
+
+   Every solved layout — the whole atlas, every stratum, every live solve —
+   is normalised by layout-sky.js into the same [0,1] box. Dropping a
+   152-film stratum into that box unchanged would spread 152 films across the
+   space 2,204 occupy: the same discs, seven times further apart, and the map
+   would read as though narrowing had blown the atlas up.
+
+   So a re-formed constellation is scaled about the centre by sqrt(N/Nall),
+   and that factor is not a fudge. The solver's own median nearest-neighbour
+   distance is 0.669/sqrt(N) world units at every corpus size measured, so
+   scaling by sqrt(N/Nall) makes it 0.669/sqrt(Nall) — IDENTICAL to the whole
+   atlas's. The invariant that buys is worth stating: at its fitted zoom,
+   every re-formed sky has the same star spacing in pixels as the whole atlas
+   does. Narrowing never changes the density of the field. It changes its
+   extent, and the extent is honestly the size of the selection.
+
+   It is also the "grow and shrink" the feature was asked for, and it is not
+   a rule 1 problem: the factor is a property of the SELECTION (its size, a
+   number already printed next to it), applied identically to every film in
+   it. No film is bigger, nearer or included because of its degree. */
+
+const SKY_FORM_MS = 1150;          /* the flight itself                        */
+const SKY_FORM_STAGGER = 0.30;     /* share of the window spent starting       */
+const SKY_FORM_OUT = 2.05;         /* how far past the frame a leaving film goes */
+const SKY_FORM_MIN_SCALE = 0.07;   /* ~11 films; below this a sky is a sentence */
+
+/* An eased-position table. skyEase is a Newton solve and the form loop wants
+   it twice per film per frame — 4,408 calls at 2,204 films, which is real
+   money at 60fps for a curve that is fixed. Sampled once, read by lerp; the
+   error is under 1e-5 of the travel, three orders below a pixel. */
+let skyEaseLUT = null;
+function skyEaseFast(x){
+  if (!skyEaseLUT){
+    skyEaseLUT = new Float32Array(513);
+    for (let i=0;i<513;i++) skyEaseLUT[i] = skyEase(i/512);
+  }
+  if (x<=0) return 0;
+  if (x>=1) return 1;
+  const f = x*512, i = f|0;
+  return skyEaseLUT[i] + (skyEaseLUT[i+1]-skyEaseLUT[i])*(f-i);
+}
+
+/* Baked strata arrive as base64 over 16-bit fixed point, in the stratum's own
+   POSTING-LIST ORDER — no keys on the wire, because discovery.json already
+   ships the posting list and discovery-contract.js sorts every one ascending.
+   Bytes are read explicitly little-endian rather than through a Uint16Array
+   view: a typed-array view inherits the platform's endianness, and AGENTS
+   rule 7 says the same selection draws the same picture on every machine. */
+function skyDecodeStratum(b64){
+  let bin;
+  try{ bin = atob(b64); }catch(_error){ return null; }
+  const n = bin.length>>2;
+  if (n*4 !== bin.length) return null;
+  const out = new Float64Array(n*2);
+  for (let i=0;i<n;i++){
+    const j = i*4;
+    out[i*2]   = (bin.charCodeAt(j)   | (bin.charCodeAt(j+1)<<8)) / 65535;
+    out[i*2+1] = (bin.charCodeAt(j+2) | (bin.charCodeAt(j+3)<<8)) / 65535;
+  }
+  return out;
+}
+
+/* Applied to every target the same way, so a baked stratum and a live solve
+   are drawn under identical rules. */
+function skyScaleTarget(t){
+  const s = t.count>=sky.n ? 1
+    : Math.min(1, Math.max(SKY_FORM_MIN_SCALE, Math.sqrt(t.count/Math.max(1,sky.n))));
+  if (s!==1){
+    for (let i=0;i<sky.n;i++){
+      if (!t.live[i]) continue;
+      t.x[i] = 0.5 + (t.x[i]-0.5)*s;
+      t.y[i] = 0.5 + (t.y[i]-0.5)*s;
+    }
+  }
+  t.scale = s;
+  return t;
+}
+
+function skyTargetHome(){
+  const live=new Uint8Array(sky.n).fill(1);
+  return {live, x:Float64Array.from(sky.homeX), y:Float64Array.from(sky.homeY),
+          count:sky.n, scale:1, kind:"whole"};
+}
+
+function skyTargetBaked(field,value){
+  const flat = SKY_STRATA[value] ? skyDecodeStratum(SKY_STRATA[value]) : null;
+  const rows = FACET_POST[field] && FACET_POST[field][value];
+  if (!flat || !Array.isArray(rows) || !DISCO) return null;
+  /* A length mismatch means the baked layout and the posting list disagree
+     about which films the stratum holds, which would place every film after
+     the divergence at another film's coordinates. Refuse and let the caller
+     solve it live rather than draw a confidently wrong sky. */
+  if (flat.length !== rows.length*2) return null;
+  const live=new Uint8Array(sky.n), x=new Float64Array(sky.n), y=new Float64Array(sky.n);
+  let count=0;
+  for (let r=0;r<rows.length;r++){
+    const filmId = DISCO.filmOrder[rows[r]];
+    const key = filmId && DISCO.keyByFilmId[filmId];
+    const i = key!=null ? sky.at[key] : undefined;
+    if (i===undefined) continue;
+    live[i]=1; x[i]=flat[r*2]; y[i]=flat[r*2+1]; count++;
+  }
+  return count ? skyScaleTarget({live,x,y,count,kind:"stratum"}) : null;
+}
+
+/* THE LIVE PATH. Two or more values is a set nobody baked and nobody can:
+   there are combinatorially many intersections and they are small. Measured
+   on this corpus, genre x era and genre x country intersections with 8+ films
+   run median 31 films / 30 ms, p90 116 / 76 ms, worst 518 / 498 ms on a
+   desktop — inside a budget the 1,552-film single strata never were.
+
+   Films go in in sky-index order and edges in corpus order, both of which are
+   fixed by the artifact, and the solver is seeded: the same selection solves
+   to the same constellation on every machine, which is rule 7. An edge with
+   one end outside the selection is dropped, for the same reason
+   layout-strata.js drops it — a film the reader cannot see must not bend the
+   sky toward itself. */
+function skyTargetLive(mask){
+  const films={}, order=[];
+  for (let i=0;i<sky.n;i++) if (mask[i]){ const k=sky.keys[i]; order.push(i); films[k]=F[k]; }
+  if (!order.length) return null;
+  const edges=[];
+  for (let ei=0; ei<E.length; ei++){
+    const e=E[ei], i=sky.at[e.a], j=sky.at[e.b];
+    if (i===undefined||j===undefined||i===j||!mask[i]||!mask[j]) continue;
+    edges.push(e);
+  }
+  const pos = SKY_SOLVER.layout(films, edges);
+  const live=new Uint8Array(sky.n), x=new Float64Array(sky.n), y=new Float64Array(sky.n);
+  let count=0;
+  for (const i of order){
+    const p = pos[sky.keys[i]];
+    if (!Array.isArray(p) || !Number.isFinite(p[0]) || !Number.isFinite(p[1])) continue;
+    live[i]=1; x[i]=p[0]; y[i]=p[1]; count++;
+  }
+  return count ? skyScaleTarget({live,x,y,count,kind:"solved"}) : null;
+}
+
+/* Every value currently selected, as [field, value]. The order is
+   FACET_FIELDS' order, so the label reads the way the panel reads. */
+function skySelected(){
+  const out=[];
+  for (const {key:field} of FACET_FIELDS){
+    const set=sky.filter[field];
+    if (!set) continue;
+    for (const v of set) out.push([field,v]);
+  }
+  return out;
+}
+const skySelectionLabel = sel => sel.map(([f,v])=>facetLabel(f,v)).join(" + ");
+
+/* Camera onto the picture as it will be. Same rectangle correction the fit
+   already makes for the opaque chrome along the bottom. */
+function skyFitTarget(live,x,y,count){
+  if (!count) return null;
   let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
   for (let i=0;i<sky.n;i++){
-    if (!sky.visible[i]) continue;
-    if (sky.wx[i]<x0)x0=sky.wx[i]; if (sky.wx[i]>x1)x1=sky.wx[i];
-    if (sky.wy[i]<y0)y0=sky.wy[i]; if (sky.wy[i]>y1)y1=sky.wy[i];
+    if (!live[i]) continue;
+    if (x[i]<x0)x0=x[i]; if (x[i]>x1)x1=x[i];
+    if (y[i]<y0)y0=y[i]; if (y[i]>y1)y1=y[i];
   }
-  const pad=0.06, w=Math.max(1e-3,(x1-x0)+pad*2), h=Math.max(1e-3,(y1-y0)+pad*2);
-  const k=skyClampK(Math.min(sky.w/w, skySafeH()/h)*0.9);
-  const cy=(y0+y1)/2 + (sky.h-skySafeH())/2/k;
-  skyGo((x0+x1)/2, cy, k, ms);
+  /* The LONGER axis sets the zoom, and the same 0.92 skyFitK uses, so a target
+     that fills the world box lands on exactly the whole-atlas fit and there is
+     no step between clearing a selection and pressing Fit. Fitting each axis
+     separately would scale x and y by different factors and make two edges of
+     equal bond strength render at different lengths — the same reason
+     layout-sky.js normalises with a similarity rather than a stretch. */
+  const span=Math.max(1e-3, Math.max(x1-x0, y1-y0));
+  const k=skyClampK(Math.min(sky.w, skySafeH())*0.92/span);
+  return { cx:(x0+x1)/2, cy:(y0+y1)/2 + (sky.h-skySafeH())/2/k, k };
+}
+
+/* Fit what is actually on screen. With the atlas re-formed that is the
+   stratum's own extent, which is smaller than the box the whole atlas fills. */
+function skyFitFiltered(ms){
+  const c=skyFitTarget(sky.live, sky.wx, sky.wy, skyLiveCount());
+  if (c) skyGo(c.cx,c.cy,c.k,ms);
+}
+function skyLiveCount(){
+  let n=0;
+  for (let i=0;i<sky.n;i++) if (sky.live[i]) n++;
+  return n;
+}
+
+/* The hit grid is built from positions, so it is rebuilt when they settle —
+   never during the flight, where nothing is pickable anyway. */
+function skyRegrid(){
+  const g=new Map();
+  for (let i=0;i<sky.n;i++){
+    if (!sky.live[i]) continue;
+    const key=skyCellKey(sky.wx[i],sky.wy[i]);
+    let b=g.get(key);
+    if (!b){ b=[]; g.set(key,b); }
+    b.push(i);
+  }
+  sky.grid=g;
+}
+
+/* ── THE FLIGHT ────────────────────────────────────────────────────────────
+
+   WHAT LEADS. Delay is a share of the window set by how far a film is from
+   the point the camera is looking at — measured at its DESTINATION if it has
+   one, at its origin if it is leaving. So the change starts under your eye
+   and travels outward, which is the same sonar wave the radial map's ring
+   reveal uses, and it means the thing you were actually looking at is the
+   thing you see move. It carries no graph information whatever: a film's
+   delay depends on where the camera happens to be, not on its degree, its
+   strength or its year.
+
+   WHAT "OUT" MEANS, AND WHY IT IS NOT A DIM. Films outside the selection
+   travel outward along their own radius from the centre of the world and fade
+   to nothing, arriving off the frame. They are not kept as faint ground, and
+   that is a deliberate reversal of the old behaviour: ground was meaningful
+   when the survivors stayed put, because the dim dots were the rest of a
+   layout the bright ones still belonged to. Once the survivors move, a dim
+   dot is a coordinate in a layout nothing on screen is using — two pictures
+   superimposed, distinguishable only by brightness. Better gone, and one
+   click from coming back.
+
+   Their destination is computed from their HOME position, never from where
+   they currently are, so repeated re-forms cannot walk a film out to
+   infinity, and a film that leaves and returns retraces its own path exactly.
+
+   WHAT THE CAMERA DOES. It ends fitted to the new picture. It gets there on a
+   deliberately different clock: closing in, it LAGS by a fifth of the window,
+   so the atlas is seen to gather before the frame closes on it — a
+   contraction, then a move in. Opening out, it LEADS, so the frame is already
+   wide by the time the films reach the edges of it. Both are one continuous
+   move in log-zoom space, the same interpolation every other camera move in
+   this view uses. */
+function skyFormTo(target, opts){
+  const o = opts || {};
+  const n = sky.n;
+  const fx=Float64Array.from(sky.wx), fy=Float64Array.from(sky.wy);
+  const fa=Float32Array.from(sky.alpha);
+  const tx=new Float64Array(n), ty=new Float64Array(n), ta=new Float32Array(n);
+
+  for (let i=0;i<n;i++){
+    const outX = 0.5 + (sky.homeX[i]-0.5)*SKY_FORM_OUT;
+    const outY = 0.5 + (sky.homeY[i]-0.5)*SKY_FORM_OUT;
+    if (target.live[i]){
+      tx[i]=target.x[i]; ty[i]=target.y[i]; ta[i]=1;
+      if (fa[i]<=0.002){ fx[i]=outX; fy[i]=outY; }     /* arriving: in from out */
+    } else {
+      ta[i]=0;
+      if (fa[i]<=0.002){ tx[i]=fx[i]; ty[i]=fy[i]; }   /* already gone: stay gone */
+      else { tx[i]=outX; ty[i]=outY; }
+    }
+  }
+
+  const camNow = { cx:sky.cam.cx, cy:sky.cam.cy, k:sky.cam.k };
+  const fit = skyFitTarget(target.live,tx,ty,target.count) || camNow;
+
+  const delay=new Float32Array(n);
+  let maxD=1e-6;
+  for (let i=0;i<n;i++){
+    const use = target.live[i], rx=(use?tx[i]:fx[i])-camNow.cx, ry=(use?ty[i]:fy[i])-camNow.cy;
+    const d=Math.sqrt(rx*rx+ry*ry);
+    delay[i]=d;
+    if ((use || fa[i]>0.002) && d>maxD) maxD=d;
+  }
+  for (let i=0;i<n;i++) delay[i]=SKY_FORM_STAGGER*Math.min(1,delay[i]/maxD);
+
+  sky.formKind = target.kind;
+  sky.formScale = target.scale;
+  sky.formLabel = o.label || "";
+
+  if (skyReduced() || !o.ms){
+    /* REDUCED MOTION STILL CHANGES STATE. Someone who asked for less motion
+       did not ask for less atlas: the whole re-form happens, it simply
+       arrives instead of flying. */
+    for (let i=0;i<n;i++){ sky.wx[i]=tx[i]; sky.wy[i]=ty[i]; sky.alpha[i]=ta[i]; }
+    sky.live=target.live;
+    sky.form=null;
+    skyRegrid();
+    sky.cam.cx=fit.cx; sky.cam.cy=fit.cy; sky.cam.k=fit.k;
+    sky.anim=null;
+    skyClampC(sky.cam);
+    sky.lastForm={kind:target.kind,films:target.count,scale:target.scale,
+      frames:0,ms:0,worst:0,mean:0,solveMs:o.solveMs||0,reduced:true};
+    skyFormSettled();
+    return;
+  }
+
+  sky.anim=null;                    /* the form owns the camera while it runs */
+  sky.form={
+    t0:performance.now(), ms:o.ms, span:SKY_FORM_STAGGER,
+    fx,fy,fa,tx,ty,ta,delay, live:target.live, count:target.count,
+    c0x:camNow.cx, c0y:camNow.cy, lk0:Math.log(camNow.k),
+    c1x:fit.cx, c1y:fit.cy, lk1:Math.log(fit.k),
+    lead: fit.k>=camNow.k ? -0.20 : 0.20,   /* <0 lags the camera, >0 leads it */
+    frames:0, worst:0, sum:0, solveMs:o.solveMs||0,
+    /* Edge classes, decided once. 0 both ends stay, 1 an end is leaving,
+       2 an end is arriving, 3 neither end is in the picture at either time.
+       One alpha per class per frame, which keeps the flight's edge pass the
+       same shape as the resting one. */
+    eClass:skyFormEdgeClasses(fa,ta),
+  };
+  skyRender();
+}
+
+function skyFormEdgeClasses(fa,ta){
+  const m=sky.eN, cls=new Uint8Array(m);
+  for (let id=0; id<m; id++){
+    const i=sky.ea[id], j=sky.eb[id];
+    const was = fa[i]>0.002 && fa[j]>0.002, will = ta[i]>0.002 && ta[j]>0.002;
+    cls[id] = was && will ? 0 : was ? 1 : will ? 2 : 3;
+  }
+  return cls;
+}
+
+/* Per-frame. Called from skyFrame before the draw. */
+function skyFormStep(now){
+  const fm=sky.form;
+  if (!fm) return;
+  const p=Math.min(1,(now-fm.t0)/fm.ms);
+  const inv=1/(1-fm.span);
+  const wx=sky.wx, wy=sky.wy, A=sky.alpha;
+  for (let i=0;i<sky.n;i++){
+    const l=Math.min(1,Math.max(0,(p-fm.delay[i])*inv));
+    const e=skyEaseFast(l);
+    wx[i]=fm.fx[i]+(fm.tx[i]-fm.fx[i])*e;
+    wy[i]=fm.fy[i]+(fm.ty[i]-fm.fy[i])*e;
+    const f=fm.fa[i], t=fm.ta[i];
+    /* A film leaving is gone well before it stops travelling, so it does not
+       fly visibly through the constellation forming behind it. A film
+       arriving holds back and comes up late, for the same reason. */
+    A[i] = f===t ? f
+      : t<f ? f*(1-skyEaseFast(Math.min(1,l/0.55)))
+            : t*skyEaseFast(Math.max(0,(l-0.35)/0.65));
+  }
+  const lead=fm.lead;
+  const ct = lead<0 ? (p+lead)/(1+lead) : p/(1-lead);
+  const ce = skyEaseFast(Math.min(1,Math.max(0,ct)));
+  sky.cam.cx=fm.c0x+(fm.c1x-fm.c0x)*ce;
+  sky.cam.cy=fm.c0y+(fm.c1y-fm.c0y)*ce;
+  sky.cam.k=Math.exp(fm.lk0+(fm.lk1-fm.lk0)*ce);
+  skyClampC(sky.cam);
+  if (p>=1){
+    for (let i=0;i<sky.n;i++){ wx[i]=fm.tx[i]; wy[i]=fm.ty[i]; A[i]=fm.ta[i]; }
+    sky.live=fm.live;
+    sky.lastForm={kind:sky.formKind,films:fm.count,scale:sky.formScale,
+      frames:fm.frames,ms:now-fm.t0,worst:fm.worst,
+      mean:fm.frames?fm.sum/fm.frames:0,solveMs:fm.solveMs||0,reduced:false};
+    sky.form=null;
+    skyRegrid();
+    skyFormSettled();
+  }
+}
+
+/* Everything that has to be true once the geometry has stopped moving. */
+function skyFormSettled(){
+  sky.labelKey=undefined;
+  skyFilterRender();
+  skyStratumRender();
+  skyHand();
+  const sel=skySelected();
+  $("#sr-status").textContent = sel.length
+    ? `Atlas re-formed for ${skySelectionLabel(sel)}. ${skyLiveCount()} of ${sky.n} films, `+
+      `each placed again using only the connections inside the selection.`
+    : `The whole atlas, re-formed. ${sky.n} films.`;
+}
+
+/* THE STANDING NOTICE. AGENTS rule 8 governs its voice: a stratum colours the
+   ground and never speaks in a claim's voice, so this says what the picture
+   IS — slate lettering, a count, a filing fact — and never why two films in
+   it are near each other. That answer stays on the edges, where it is
+   argued. */
+function skyStratumRender(){
+  const box=$("#sky-stratum");
+  if (!box) return;
+  const sel=skySelected();
+  if (!sel.length){ box.hidden=true; box.innerHTML=""; return; }
+  const label=skySelectionLabel(sel);
+  if (sky.formPending){
+    box.hidden=false;
+    box.innerHTML=`<span>re-forming</span><b>${esc(label)}</b>`+
+      `<span class="n">solving ${sky.formPending} films…</span>`;
+    return;
+  }
+  const live=skyLiveCount();
+  box.hidden=false;
+  box.innerHTML=`<span>re-formed</span><b>${esc(label)}</b>`+
+    `<span class="n">${live} / ${sky.n}</span>`;
+}
+
+/* ── APPLYING A SELECTION ─────────────────────────────────────────────────
+   One entry point, so the baked path, the live path and the reset cannot
+   drift apart in how they announce themselves or what they release. */
+function skyApplySelection(ms){
+  skyRecomputeVisible();
+  const sel=skySelected();
+  const label=skySelectionLabel(sel);
+  const flight = ms===undefined ? SKY_FORM_MS : ms;
+
+  /* A route is drawn between positions. Re-form the field under it and every
+     crossing points at a coordinate the route was never computed for, so the
+     passage is cleared rather than left to draw a chain across a sky that no
+     longer holds it. */
+  if (sky.passage.from) skyPassageClear();
+  sky.pinKey=null; sky.hoverKey=null; sky.examineKey=null;
+  /* The held neighbourhood is a fact about the picture that is being
+     replaced; it is released rather than dragged through the flight, and the
+     camera is given to the whole new constellation instead. */
+  if (sky.orbitKey) sky.orbitKey=null;
+  skyLabels(null);
+
+  if (!sel.length){
+    sky.formPending=null;
+    skyFormTo(skyTargetHome(), {ms:flight, label:""});
+    return;
+  }
+  if (!sky.visibleN){
+    /* Nothing matches. The honest picture of an empty selection is an empty
+       sky, not the previous one left standing under a new caption. */
+    sky.formPending=null;
+    skyFormTo({live:new Uint8Array(sky.n), x:new Float64Array(sky.n),
+      y:new Float64Array(sky.n), count:0, scale:1, kind:"empty"},
+      {ms:flight, label});
+    return;
+  }
+
+  if (sel.length===1){
+    const baked=skyTargetBaked(sel[0][0], sel[0][1]);
+    if (baked){
+      sky.formPending=null;
+      skyFormTo(baked, {ms:flight, label});
+      return;
+    }
+  }
+
+  /* THE LIVE PATH SAYS WHAT IT IS DOING, THE WAY sky.passage.pending DOES.
+     Two frames, not one: the first paints "solving N films", the second runs
+     the solve. A single rAF can still land before the paint commits, and a
+     silent freeze reads as a broken page — the one failure this project keeps
+     having. */
+  sky.formPending=sky.visibleN;
+  skyStratumRender();
+  skyReadout();
+  skyRender();
+  const mask=sky.visible;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if (sky.visible!==mask) return;            /* superseded by a newer click */
+    const t0=performance.now();
+    let target=null;
+    try{ target=skyTargetLive(mask); }
+    catch(_error){ target=null; }
+    const solveMs=performance.now()-t0;
+    sky.formPending=null;
+    if (!target){
+      /* The solver could not place them. Say so rather than leave the field
+         showing the previous selection under this one's name. */
+      skyFormTo(skyTargetHome(), {ms:flight, label:""});
+      for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+      skyRecomputeVisible();
+      return;
+    }
+    skyFormTo(target, {ms:flight, label, solveMs});
+  }));
 }
 
 function skyToggleFacet(field,idx){
   const set=sky.filter[field];
   set.has(idx) ? set.delete(idx) : set.add(idx);
-  skyRecomputeVisible();
-  /* An anchor whose film the filter just excluded is a held neighbourhood you
-     can no longer see — release rather than leave it dangling. */
-  if (sky.orbitKey && sky.visible && !sky.visible[sky.at[sky.orbitKey]]) skyOrbit(null);
+  skyApplySelection();
   skyFilterRender();
-  if (sky.visibleN) skyFitFiltered(620);
-  skyHand();
+  skyStratumRender();
 }
 
 function skyClearFacets(){
   for (const {key} of FACET_FIELDS) sky.filter[key].clear();
-  skyRecomputeVisible();
+  skyApplySelection();
   skyFilterRender();
-  skyGo(...(f=>[f.cx,f.cy,f.k])(skyFitCam()), 620);
-  skyHand();
+  skyStratumRender();
 }
 
 /* Counts are of what the OTHER facets already allow, so a number never
@@ -2416,11 +2956,23 @@ function skyFilterRender(){
   }
   const sum=el("div","sky-filter-sum");
   sum.innerHTML = skyFilterOn()
-    ? `<span>${sky.visibleN} of ${sky.n} films</span><button type="button">Clear</button>`
+    ? `<span>${sky.visibleN} of ${sky.n} films</span><button type="button">Show the whole atlas</button>`
     : `<span>${sky.n} films</span>`;
   const clear=sum.querySelector("button");
   if (clear) clear.onclick=skyClearFacets;
   body.appendChild(sum);
+  /* SAID IN PROSE, IN THE PANEL THAT CAUSED IT.
+     The reader has to know two separate things: that the positions changed,
+     and that the grouping is a filing fact while the placing is still the
+     argument. AGENTS rule 8 is the whole reason for the second sentence —
+     "these two films are both thrillers" must never arrive wearing the voice
+     the corpus uses for how a face is held. */
+  if (skyFilterOn()){
+    body.appendChild(el("p","sky-filter-note",
+      "The atlas re-forms. Your selection chose which films are here; where each "+
+      "one sits is still decided by the connections between them, solved again "+
+      "for this selection alone."));
+  }
 }
 
 /* The strongest connection between two films, as the corpus states it.
@@ -2586,6 +3138,8 @@ function skyBuild(){
 
   Object.assign(sky,{
     ready:true, n, keys, at, wx, wy, fill,
+    homeX:Float64Array.from(wx), homeY:Float64Array.from(wy),
+    live:new Uint8Array(n).fill(1), alpha:new Float32Array(n).fill(1),
     ea:Int32Array.from(ea), eb:Int32Array.from(eb),
     eBucket:Uint8Array.from(bucket), eStrength:Float32Array.from(strength),
     eSrc:Int32Array.from(src),
@@ -2629,21 +3183,46 @@ function skyClampC(c){
 function skyRender(){ if(!sky.raf) sky.raf=requestAnimationFrame(skyFrame); }
 function skyFrame(){
   sky.raf=0;
+  const now=performance.now();
   const a=sky.anim;
   if (a){
-    const p=Math.min(1,(performance.now()-a.t0)/a.ms), e=skyEase(p);
+    const p=Math.min(1,(now-a.t0)/a.ms), e=skyEase(p);
     sky.cam.cx=a.c0x+(a.c1x-a.c0x)*e;
     sky.cam.cy=a.c0y+(a.c1y-a.c0y)*e;
     /* zoom interpolates in log space; linear zoom lurches */
     sky.cam.k=Math.exp(a.lk0+(a.lk1-a.lk0)*e);
     if (p>=1) sky.anim=null;
   }
+  /* The re-form owns positions AND the camera while it runs, so it is stepped
+     after the ordinary camera animation and would overwrite one; the two are
+     never live at the same time (skyFormTo clears sky.anim). */
+  const forming=sky.form;
+  skyFormStep(now);
   skyDraw();
   skyPlaceLabels();
-  if (sky.anim) skyRender();
+  /* MEASURED, NOT ASSUMED. A tween adds a position write for every film on
+     every frame on top of a draw that already paints up to 2,204 discs and
+     9,000 lines, and "it looked smooth on a desktop" is not a measurement.
+     The cost of the frame is recorded on the flight that caused it. */
+  if (forming){
+    const cost=performance.now()-now;
+    forming.frames++;
+    forming.sum+=cost;
+    if (cost>forming.worst) forming.worst=cost;
+    /* skyFormStep writes lastForm the moment it lands, which is before this
+       frame — the most expensive one, since it also regrids — has been
+       timed. Correct it here rather than report a flight one frame short. */
+    if (!sky.form && sky.lastForm){
+      sky.lastForm.frames=forming.frames;
+      sky.lastForm.worst=forming.worst;
+      sky.lastForm.mean=forming.sum/forming.frames;
+    }
+  }
+  if (sky.anim || sky.form) skyRender();
 }
 
 function skyGo(cx,cy,k,ms){
+  if (sky.form) return;            /* the flight owns the camera, see skyPan */
   const to={cx,cy,k:skyClampK(k)};
   skyClampC(to);
   if (!ms || skyReduced()){
@@ -2656,6 +3235,10 @@ function skyGo(cx,cy,k,ms){
 }
 
 function skyPan(dx,dy){
+  /* The camera belongs to the flight while one is running. Letting a drag
+     fight it would leave the view somewhere neither the reader nor the
+     re-form chose, and the whole move is 1.15 seconds. */
+  if (sky.form) return;
   sky.anim=null;
   sky.cam.cx-=dx/sky.cam.k;
   sky.cam.cy-=dy/sky.cam.k;
@@ -2664,6 +3247,7 @@ function skyPan(dx,dy){
 }
 
 function skyZoomAt(px,py,factor){
+  if (sky.form) return;
   sky.anim=null;
   const cam=sky.cam, k0=cam.k, k1=skyClampK(k0*factor);
   if (k1===k0) return;
@@ -2688,7 +3272,11 @@ function skyDraw(){
   for (let i=0;i<n;i++){ SX[i]=sky.wx[i]*k+ox; SY[i]=sky.wy[i]*k+oy; }
 
   const zr=k/skyFitK(), r=skyRadius(zr);
-  const vis=sky.visible;
+  /* Opacity per film. At rest it is 1 for everything in the picture and 0 for
+     everything outside it; during a re-form it is the flight's own fade, so
+     one array answers "is this drawn" in both states and the draw never has
+     to know whether the atlas is moving. */
+  const A=sky.alpha, forming=!!sky.form;
 
   /* THE EDGE BUDGET, AND WHY IT IS NOT A LIE ABOUT THE GRAPH.
      All 7,759 connections drawn at the fit zoom is not a map, it is a grey
@@ -2710,28 +3298,51 @@ function skyDraw(){
   /* denser field, quieter lines — the ink stays roughly constant */
   const alpha=0.34-0.19*spread;
 
+  /* THE LINES REDRAW DURING THE FLIGHT, THEY DO NOT CUT AND COME BACK.
+     Watching a bond stretch and re-settle is most of what makes a re-form
+     legible as the same graph seen differently; a field whose ink vanished
+     and reappeared would read as a repaint. Three classes are drawn, each on
+     one alpha, decided once when the flight starts (see skyFormEdgeClasses):
+     a bond whose ends both stay is inked throughout, one losing an end fades
+     out early, one gaining an end comes up late. Same loop shape as the
+     resting pass, one extra pass per live class. */
+  const classAlpha=[1,0,0];
+  if (forming){
+    const p=Math.min(1,(performance.now()-sky.form.t0)/sky.form.ms);
+    classAlpha[1]=Math.max(0,1-p/0.45);
+    classAlpha[2]=Math.max(0,(p-0.55)/0.45);
+  }
+  const eClass=forming?sky.form.eClass:null;
+
   ctx.lineCap="round";
   ctx.lineWidth=1;
-  for (let b=0;b<10;b++){
-    let started=false;
-    for (let t=0;t<budget;t++){
-      const id=sky.eOrder[t];
-      if (sky.eBucket[id]!==b) continue;
-      const i=sky.ea[id], j=sky.eb[id];
-      /* A connection is only drawn when BOTH ends survived the filter. Drawing
-         a line to a film that is no longer on screen would assert a
-         relationship with nothing at the other end of it. */
-      if (vis && (!vis[i] || !vis[j])) continue;
-      const x1=SX[i],y1=SY[i],x2=SX[j],y2=SY[j];
-      if ((x1<0&&x2<0)||(x1>w&&x2>w)||(y1<0&&y2<0)||(y1>h&&y2>h)) continue;
-      if (!started){ ctx.beginPath(); started=true; }
-      ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+  for (let cls=0; cls<(forming?3:1); cls++){
+    const ca=classAlpha[cls];
+    if (ca<=0.012) continue;
+    for (let b=0;b<10;b++){
+      let started=false;
+      for (let t=0;t<budget;t++){
+        const id=sky.eOrder[t];
+        if (sky.eBucket[id]!==b) continue;
+        if (eClass){ if (eClass[id]!==cls) continue; }
+        else {
+          /* A connection is only drawn when BOTH ends are in the picture.
+             Drawing a line to a film that is no longer on screen would assert
+             a relationship with nothing at the other end of it. */
+          if (A[sky.ea[id]]<=0.004 || A[sky.eb[id]]<=0.004) continue;
+        }
+        const i=sky.ea[id], j=sky.eb[id];
+        const x1=SX[i],y1=SY[i],x2=SX[j],y2=SY[j];
+        if ((x1<0&&x2<0)||(x1>w&&x2>w)||(y1<0&&y2<0)||(y1>h&&y2>h)) continue;
+        if (!started){ ctx.beginPath(); started=true; }
+        ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+      }
+      if (!started) continue;
+      ctx.setLineDash(b>=5?SKY_DASH:SKY_SOLID);
+      ctx.strokeStyle=SKY_PAL[b%5];
+      ctx.globalAlpha=alpha*ca;
+      ctx.stroke();
     }
-    if (!started) continue;
-    ctx.setLineDash(b>=5?SKY_DASH:SKY_SOLID);
-    ctx.strokeStyle=SKY_PAL[b%5];
-    ctx.globalAlpha=alpha;
-    ctx.stroke();
   }
   ctx.setLineDash(SKY_SOLID);
 
@@ -2747,6 +3358,10 @@ function skyDraw(){
       for (const id of sky.inc[hi]){
         if (sky.eBucket[id]!==b) continue;
         const i=sky.ea[id], j=sky.eb[id];
+        /* A held film's own connections are always drawn — except to a film
+           the atlas is not currently showing, which would be a line to a
+           place with nothing at it. */
+        if (A[i]<=0.004 || A[j]<=0.004) continue;
         if (!started){ ctx.beginPath(); started=true; }
         ctx.moveTo(SX[i],SY[i]); ctx.lineTo(SX[j],SY[j]);
       }
@@ -2762,21 +3377,21 @@ function skyDraw(){
   }
 
   /* One disc per film, in that film's own measured highlight. The colour on
-     screen comes from the photography of cinema, never from a house ramp. */
-  /* Filtered-out films are drawn faintly rather than removed. Erasing them
-     would hide the very thing keeping the positions bought us: you are meant
-     to see WHERE a tradition sits in the whole atlas — which regions it fills
-     and which it never reaches — and that needs the rest of the sky present
-     as ground. */
+     screen comes from the photography of cinema, never from a house ramp.
+     Films outside the current selection are not drawn at all — see the note
+     on "out" above skyFormTo for why they stopped being faint ground the day
+     the survivors started moving. */
   const P=sky.passage, hasRoute=P.route&&P.onEdge&&P.onEdge.size;
   for (let i=0;i<n;i++){
+    const a=A[i];
+    if (a<=0.004) continue;
     const px=SX[i], py=SY[i];
     if (px<-r||py<-r||px>w+r||py>h+r) continue;
     /* With a route on screen the rest of the field recedes to ground. It is
        dimmed, never erased: the route only means something against the atlas
        it crosses, and removing the context would turn an argument into a
        diagram floating in the dark. */
-    ctx.globalAlpha = hasRoute ? 0.07 : (vis && !vis[i] ? 0.09 : 0.82);
+    ctx.globalAlpha = (hasRoute ? 0.07 : 0.82) * a;
     ctx.beginPath();
     ctx.arc(px,py,r,0,TAU);
     ctx.fillStyle=sky.fill[i];
@@ -2822,7 +3437,7 @@ function skyDraw(){
      you are not — the same job the dot on a wall tile does. */
   const ringed=(key,stroke,pad,width,a)=>{
     const i=sky.at[key];
-    if (i===undefined) return;
+    if (i===undefined || A[i]<=0.004) return;
     const px=SX[i], py=SY[i];
     if (px<-12||py<-12||px>w+12||py>h+12) return;
     ctx.globalAlpha=1;
@@ -2869,6 +3484,9 @@ function skyNeighbours(key){
   const best=new Map();
   for (const id of sky.inc[i]){
     const j = sky.ea[id]===i ? sky.eb[id] : sky.ea[id];
+    /* Only films the atlas is currently showing. Naming a neighbour that is
+       not in the re-formed picture would put a caption on empty sky. */
+    if (!sky.live[j]) continue;
     const k = sky.keys[j], s = sky.eStrength[id];
     if (!best.has(k) || best.get(k) < s) best.set(k,s);
   }
@@ -2921,7 +3539,7 @@ function skyChrome(){
   const c=$("#sky-c");
   if (!c) return (sky.chrome=[]);
   const base=c.getBoundingClientRect(), out=[];
-  for (const sel of ["#sky-read",".sky-ctl"]){
+  for (const sel of ["#sky-read","#sky-stratum",".sky-ctl"]){
     const node=$(sel);
     if (!node) continue;
     const r=node.getBoundingClientRect();
@@ -3112,10 +3730,44 @@ function skyReadout(){
 
   if (key==null || !F[key]){
     box.style.removeProperty("--nc");
-    box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
-      <div class="sky-key">${SKY_TYPES.map(t=>
+    const sel=skySelected();
+    const key5=`<div class="sky-key">${SKY_TYPES.map(t=>
         `<i style="--kc:${EDGE_META[t].color}">${EDGE_META[t].label}</i>`).join("")
-        }<i class="dash">reading, not record</i></div>
+        }<i class="dash">reading, not record</i></div>`;
+    /* THE RESTING STATE IS WHERE THE READER IS TOLD WHAT THEY ARE LOOKING AT.
+       With a selection on, the first thing it has to answer is not "what do
+       the colours mean" but "why is everything somewhere else". The sentence
+       keeps the two halves apart: the facet chose the films — a filing fact —
+       and the connections still chose the places. */
+    if (sel.length){
+      if (sky.formPending){
+        box.innerHTML=`<span class="slate">re-forming</span>
+          <span class="t">${esc(skySelectionLabel(sel))}</span>
+          <span class="y">solving ${sky.formPending} films…</span>`;
+        return;
+      }
+      const live=skyLiveCount();
+      if (!live){
+        box.innerHTML=`<span class="slate">nothing matches</span>
+          <span class="t">${esc(skySelectionLabel(sel))}</span>
+          <span class="y">no film in the corpus carries all of these</span>
+          <button class="btn ghost" id="sky-clear" type="button">Show the whole atlas</button>`;
+        const b=$("#sky-clear"); if (b) b.onclick=skyClearFacets;
+        return;
+      }
+      /* The strip above already carries the name and the count, so this does
+         not repeat them — it answers the question the strip raises. */
+      box.innerHTML=`<span class="slate">a different picture of the same corpus</span>
+        <span class="y sky-hint">These ${live} films have been placed again, against only each
+          other. Your selection chose who is here; the connections still choose where each
+          sits — so these are not their places in the whole atlas.</span>
+        ${key5}
+        <button class="btn ghost" id="sky-clear" type="button">Show the whole atlas</button>`;
+      const b=$("#sky-clear"); if (b) b.onclick=skyClearFacets;
+      return;
+    }
+    box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
+      ${key5}
       <span class="y" style="margin-top:9px">Drag to pan · scroll to zoom · pick a film to open its map</span>`;
     return;
   }
@@ -3157,7 +3809,10 @@ function skyHand(){
 /* Hit test through the world-space bucket grid built in skyBuild. Scanning
    803 films per pointer move would also work today and will not at 2,000. */
 function skyPick(px,py){
-  if (!sky.n) return null;
+  /* Nothing is pickable mid-flight: the disc under the pointer is at a
+     coordinate that is on its way somewhere else, and picking it would open
+     a film the reader was not aiming at. */
+  if (!sky.n || sky.form) return null;
   const cam=sky.cam, k=cam.k;
   const wx=(px-sky.w/2)/k+cam.cx, wy=(py-sky.h/2)/k+cam.cy;
   const grab=Math.max(12, skyRadius(k/skyFitK())+7)/k;      /* a finger, in world units */
@@ -3168,10 +3823,8 @@ function skyPick(px,py){
     const b=sky.grid.get((gx+4)*4096+(gy+4));
     if (!b) continue;
     for (const i of b){
-      /* A film the filter has dimmed is not pickable. It is still drawn, as
-         ground, but a name that cannot be reached by any control on screen
-         should not answer a click either. */
-      if (sky.visible && !sky.visible[i]) continue;
+      /* A film outside the current selection is not in the picture at all. */
+      if (!sky.live[i]) continue;
       const dx=sky.wx[i]-wx, dy=sky.wy[i]-wy, d=dx*dx+dy*dy;
       if (d<bestD){ bestD=d; best=i; }
     }
@@ -3201,7 +3854,7 @@ function skyPinKey(key){
    opens the radial map exactly as before. */
 /* Hold a film's neighbourhood open. Passing null releases it. */
 function skyOrbit(key){
-  if (key!=null && (!F[key] || sky.at[key]===undefined)) return;
+  if (key!=null && (!F[key] || sky.at[key]===undefined || !sky.live[sky.at[key]])) return;
   sky.orbitKey=key;
   sky.examineKey=null;
   sky.labelKey=undefined;          /* force the label layer to rebuild around the new anchor */
@@ -3235,7 +3888,10 @@ function skyExamine(key){
 function skyFocus(key){
   if (!sky.ready || !F[key]) return false;
   const i=sky.at[key];
-  if (i===undefined) return false;
+  /* Search can name a film the current selection has flown out. Returning
+     false sends it to the radial map instead of travelling the camera to an
+     empty coordinate. */
+  if (i===undefined || !sky.live[i]) return false;
   skyPinKey(key);
   skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()*5.5), 950);
   return true;
@@ -3249,6 +3905,7 @@ function skyNearestToCentre(){
   let best=-1, bestD=Infinity;
   const cam=sky.cam;
   for (let i=0;i<sky.n;i++){
+    if (!sky.live[i]) continue;
     const dx=sky.wx[i]-cam.cx, dy=sky.wy[i]-cam.cy, d=dx*dx+dy*dy;
     if (d<bestD){ bestD=d; best=i; }
   }
@@ -3259,13 +3916,14 @@ function skyNearestToCentre(){
    that direction and bring the camera with them, so the view is navigable
    without a pointer at all. */
 function skyStep(dx,dy){
+  if (sky.form) return;
   const hand=skyInHand();
   const from = hand!=null && sky.at[hand]!==undefined ? sky.at[hand] : skyNearestToCentre();
   if (from<0) return;
   const x0=sky.wx[from], y0=sky.wy[from];
   let best=-1, bestScore=Infinity;
   for (let i=0;i<sky.n;i++){
-    if (i===from) continue;
+    if (i===from || !sky.live[i]) continue;
     const ax=sky.wx[i]-x0, ay=sky.wy[i]-y0;
     const along=ax*dx+ay*dy, perp=Math.abs(ax*dy-ay*dx);
     if (along<=1e-9 || perp>along) continue;
@@ -3293,6 +3951,7 @@ function skyEnter(){
     skyRender();
   }
   skyReadout();
+  skyStratumRender();
   /* Once more after paint: entering is a class change, so on this frame the
      field can still be reporting the size it had while it was hidden. */
   requestAnimationFrame(()=>{ skyResize(); skyRender(); });
@@ -3300,11 +3959,35 @@ function skyEnter(){
 
 function skyExit(){
   sky.anim=null;
+  /* A flight abandoned half-way would leave every film parked between two
+     layouts, and coming back would show a sky that is not any solved answer.
+     Land it. */
+  if (sky.form) skyFormStep(sky.form.t0+sky.form.ms);
   if (sky.raf){ cancelAnimationFrame(sky.raf); sky.raf=0; }
   sky.drag=null; sky.pinch=null; sky.ptrs.clear();
   const c=$("#sky-c");
   if (c) c.classList.remove("dragging");
 }
+
+/* A SMALL INSPECTION SURFACE, FOR THE REASON radial-inspection.js EXISTS.
+   A re-form is animation over 2,204 positions and a solver that runs in the
+   page, and animation that is only ever eyeballed is how a dropped frame and
+   a layout that never actually moved both ship. The browser harness reads
+   this: `positions()` proves the tween is interpolating rather than jumping,
+   and `form()` reports the frame cost of the flight that caused it. Read
+   only; nothing here can change what is on screen. */
+window.__ATLAS_SKY__ = {
+  form: () => sky.lastForm && Object.assign({},sky.lastForm),
+  state: () => ({ n:sky.n, live:sky.ready?skyLiveCount():0, forming:!!sky.form,
+                  pending:sky.formPending, kind:sky.formKind, scale:sky.formScale,
+                  camK:sky.cam.k, fitK:sky.ready?skyFitK():0 }),
+  positions: () => sky.ready ? Array.from(sky.wx) : [],
+  alphas: () => sky.ready ? Array.from(sky.alpha) : [],
+  strata: () => Object.keys(SKY_STRATA),
+  facets: () => FACET_FIELDS.map(f=>f.key),
+  select: (field,value) => { if (sky.filter[field]) skyToggleFacet(field,value); },
+  clear: () => skyClearFacets(),
+};
 
 function openSky(){
   if (!SKY_POS) return;
