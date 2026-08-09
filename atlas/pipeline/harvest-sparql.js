@@ -432,8 +432,15 @@ ORDER BY ?f`;
 
 /* One query per property across all films in a chunk, values and labels
    together. The REST path needed a second pass over several thousand entities
-   purely to turn Q-ids into words; here the label service does it inline. */
-async function fetchProp(name, prop, qids) {
+   purely to turn Q-ids into words; here the label service does it inline.
+
+   `stats`, when given, counts chunks that failed all retries. A failed chunk
+   here is the same hole the resolve guard shouts about: downstream, a film in
+   a dead chunk is indistinguishable from a film Wikidata records nothing for,
+   and any coverage number computed over the output silently reads low. Callers
+   that measure coverage must pass a stats object and refuse to write when
+   failedChunks is non-zero. */
+async function fetchProp(name, prop, qids, stats) {
   const rows = [];
   const groups = chunks(qids, CHUNK);
   let i = 0;
@@ -448,8 +455,71 @@ SELECT ?f ?v ?vLabel WHERE {
     const r = await sparql(name + "_" + i, q);
     i++;
     if (r) rows.push.apply(rows, r);
+    else if (stats) stats.failedChunks++;
   }
   return rows;
+}
+
+/* ------------------------------------------------- extension sweep (2026-08)
+ *
+ * The P-numbers from the owner's data-layer enrichment report (docs/specs/
+ * data-layer-enrichment-report.md, Phase 1 item 1) that the original harvest
+ * did not carry. All statement-level facts, all CC0, all citable as
+ * wikidata:<QID>#<P-number>. Deliberately absent: box office P2142 and budget
+ * P2130 (Hollywood-skewed and fame-adjacent — AGENTS rule 1 forbids anything
+ * ranking-shaped), distributor/certification/EIDR (not discriminating for
+ * lineage).
+ *
+ * P144 based-on and P941 inspired-by are NOT here: the original PROPS already
+ * harvests both into `basedOn`. The lineage properties below are kept under
+ * their own names rather than merged, because their directions differ —
+ * P4969 points from a film TO its derivatives (the reverse of based-on), and
+ * P155/P156 order a series. Collapsing them into one bag would lose the arrow.
+ */
+const EXTEND_PROPS = [
+  /* GOLD — long-tailed technical facts */
+  ["aspect", "P2061", "flat"], ["format", "P437", "flat"],
+  /* CREW DEPTH — the departments beyond DoP/editor already in PROPS */
+  ["productionDesigner", "P2554", "crew"], ["artDirector", "P3174", "crew"],
+  ["costumeDesigner", "P2515", "crew"],
+  /* LINEAGE — thin, but every edge is citable */
+  ["influencedBy", "P737", "flat"], ["derivativeWork", "P4969", "flat"],
+  ["afterWorkBy", "P1877", "flat"], ["quotesWork", "P6166", "flat"],
+  ["precededBy", "P155", "flat"], ["followedBy", "P156", "flat"],
+  /* CONTEXT — multi-value on purpose; a co-production's structure and a
+     film's language mix are the data, not noise to collapse */
+  ["language", "P364", "flat"], ["filmingLocation", "P915", "flat"],
+];
+const EXTEND_FLAT_FIELDS = EXTEND_PROPS.filter(([, , k]) => k === "flat").map(([n]) => n);
+
+/* Maker formation, harvested for the corpus's directors rather than its films:
+   where a director trained and who they name as teacher/influence. Stored in a
+   top-level `makers` map keyed by the person's QID — a person is not a film,
+   and hanging their education off every film they made would multiply one fact
+   by the length of their shelf. */
+const MAKER_PROPS = [
+  ["makerEducatedAt", "P69", "educatedAt"],
+  ["makerStudentOf", "P1066", "studentOf"],
+  ["makerInfluencedBy", "P737", "influencedBy"],
+];
+
+async function fetchMakers(directors, labels, stats) {
+  const makers = {};
+  for (const [name, prop, field] of MAKER_PROPS) {
+    const rows = await fetchProp(name, prop, directors, stats);
+    let n = 0;
+    for (const r of rows) {
+      const d = qid(cell(r, "f"));
+      const v = qid(cell(r, "v"));
+      if (!d || !v) continue;
+      const m = makers[d] = makers[d] || { educatedAt: [], studentOf: [], influencedBy: [] };
+      if (m[field].indexOf(v) < 0) { m[field].push(v); n++; }
+      const lab = cell(r, "vLabel");
+      if (lab && !/^Q\d+$/.test(lab)) labels[v] = lab;
+    }
+    console.log("  " + name.padEnd(18) + n + " statements across " + directors.length + " directors");
+  }
+  return makers;
 }
 
 /* --------------------------------------------------------------- duration
@@ -653,6 +723,7 @@ async function main() {
       crew: {}, genre: [], movementDirect: [], movementInherited: [], movement: [], setting: [], subject: [], cast: [],
       studio: [], country: [], basedOn: [], sourceAuthors: [], colour: [],
     };
+    for (const n of EXTEND_FLAT_FIELDS) films[k][n] = [];
   }
   const byQid = {};
   for (const k of keys) byQid[resolved[k].qid] = films[k];
@@ -676,7 +747,7 @@ async function main() {
     ["colour", "P462", "flat"],
   ];
 
-  for (const [name, prop, kind] of PROPS) {
+  for (const [name, prop, kind] of PROPS.concat(EXTEND_PROPS)) {
     const rows = await fetchProp(name, prop, qids);
     let n = 0;
     for (const r of rows) {
@@ -752,6 +823,9 @@ async function main() {
     for (const d of f.crew.director || []) for (const m of dirMove[d] || []) addInheritedMovement(f, m, d);
   }
 
+  /* ---- maker formation: where the directors trained, who taught them ---- */
+  const makers = await fetchMakers(directors, labels, null);
+
   /* ---- what kind of place is each setting ----
      "Both set in Arizona" is administrative trivia; "both set in Kyoto" is a
      fact about the film's world, and only the place's own type separates them. */
@@ -770,7 +844,7 @@ async function main() {
   }
 
   fs.writeFileSync(path.join(OUT, "harvest.json"),
-    JSON.stringify({ films: films, labels: labels, placeTypes: placeTypes }, null, 1));
+    JSON.stringify({ films: films, labels: labels, placeTypes: placeTypes, makers: makers }, null, 1));
 
   console.log("\nfilms      : " + Object.keys(films).length);
   console.log("labels     : " + Object.keys(labels).length);
