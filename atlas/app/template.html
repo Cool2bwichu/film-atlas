@@ -2788,6 +2788,175 @@ function skySelected(){
 }
 const skySelectionLabel = sel => sel.map(([f,v])=>facetLabel(f,v)).join(" + ");
 
+/* ══ THE ADDRESS OF A RE-FORMED ATLAS ═════════════════════════════════════
+   A RE-FORMED SKY IS THE MOST SENDABLE THING IN THIS PRODUCT AND HAD NO
+   ADDRESS. #/sky, #/film/<key> and #/passage/<a>/<b> are all real URLs; a
+   world was not, so every configuration anybody arrived at died in the tab it
+   was made in.
+
+   WHAT THE ADDRESS NAMES IS THE SELECTION, NEVER THE PICTURE. That is the
+   decision the rest of this follows from. A selection is a handful of stable
+   ids and set arithmetic over baked posting lists: no float touches it, so
+   the MEMBERSHIP an address restores is exact on every machine and in every
+   engine, full stop. The POSITIONS are then recomputed here, by whatever
+   means this artifact has — a baked stratum if it holds one, a live solve if
+   it does not. Nothing about how the sender's machine drew it is serialised,
+   because the receiver can always work that out for itself and a copy of a
+   derived fact is a copy that goes stale (the same argument that keeps
+   posterLicence per-film rather than assumed).
+
+   THE GRAMMAR, and the one asymmetry in it:
+
+     #/sky                            the whole atlas
+     #/sky/world:gothic               a register
+     #/sky/genre:drama                a recorded stratum
+     #/sky/genre:drama+era:1960-1979  an intersection
+
+   Recorded facet values already carry their own field in their id
+   (`genre:drama`, `country:Q30`), so a token IS the value. Register ids do
+   not (`gothic`), so theirs takes a prefix — `world:`, because that is the
+   word on screen, with `register:` accepted since it is the word in the data.
+
+   RULE 7, WHICH DECIDES WHAT THIS MAY PROMISE. Every register and every
+   recorded stratum has a layout baked at build time, so those addresses
+   promise a byte-identical picture and say nothing extra. An intersection has
+   no baked answer and cannot have one, so it is solved live — and a force
+   solve is chaotic and ECMAScript does not require Math.pow/cos/sin to be
+   correctly rounded, so two engines disagree by about one ULP of input (mean
+   3.1e-2 per film in the unit box, against 3.3e-2 for perturbing one edge
+   strength by a single ULP). An intersection is still serialised, because
+   refusing would make the feature's own best output unsendable — but the
+   picture it restores says, in the strip and in the readout, that these
+   places were solved here. That statement is computed from sky.formKind on
+   the machine reading the link, not carried in the link: it is therefore
+   right even for a stale address, and right for the case a flag in the URL
+   would miss — a single value too small to have been baked. */
+
+/* Readable where it can be. encodeURIComponent escapes the separator (`+`),
+   the path (`/`) and anything else an id could ever contain, and `:` is put
+   back because it is legal in a fragment and it is what makes these
+   addresses worth looking at. */
+const skyAddrEnc = s => encodeURIComponent(s).replace(/%3A/gi,":");
+const SKY_ADDR_PREFIX = {world:"register", register:"register"};
+
+const skyAddrToken = (field,value) =>
+  field==="register" ? "world:"+skyAddrEnc(value) : skyAddrEnc(value);
+
+/* One token to a [field,value] this artifact actually offers, or null.
+   Validated against FACET_DEFS rather than parsed hopefully: a link from an
+   older edition can name a genre that no longer exists or a world whose rule
+   was rewritten, and the honest answer to that is the whole atlas. */
+function skyAddrParseToken(tok){
+  let raw;
+  try{ raw=decodeURIComponent(tok); }catch(_error){ return null; }
+  const i=raw.indexOf(":");
+  if (i<1) return null;
+  const head=raw.slice(0,i);
+  const prefixed=SKY_ADDR_PREFIX[head];
+  const field = prefixed || head;
+  const value = prefixed ? raw.slice(i+1) : raw;
+  if (!sky.filter[field]) return null;                 /* facet not offered here */
+  if (!FACET_DEFS[field] || !FACET_DEFS[field].values[value]) return null;
+  return [field,value];
+}
+
+/* ALL OF IT OR NONE OF IT. Honouring the tokens that still resolve and
+   dropping the rest would draw a selection neither person asked for, under
+   the sender's link, with a count that looks authoritative and is not. */
+function skyAddrParse(str){
+  const toks=String(str).split("+").filter(Boolean);
+  if (!toks.length) return null;
+  const out=[], seen=new Set();
+  for (const t of toks){
+    const pair=skyAddrParseToken(t);
+    if (!pair) return null;
+    const id=pair[0]+" "+pair[1];
+    if (seen.has(id)) continue;
+    seen.add(id);
+    out.push(pair);
+  }
+  return out.length ? out : null;
+}
+
+/* The address of what is on screen. Tokens are sorted, so one selection has
+   exactly one address however it was arrived at — two people who pick drama
+   and 1960-79 in opposite orders can compare links.
+
+   A passage wins, because it is the more specific thing being looked at and
+   it is what the reader would mean by "this". It is also lossy in one known
+   way: a route composed inside a re-formed sky serialises as a route through
+   the whole atlas, since #/passage carries no selection. Choosing a selection
+   clears the route anyway (skyApplySelection), so the pair only exists in one
+   direction, and the alternative is a second grammar for a state that lasts
+   until the next click. */
+function skyAddress(){
+  const p=sky.passage;
+  if (p.from && p.to && p.route)
+    return "#/passage/"+encodeURIComponent(p.from)+"/"+encodeURIComponent(p.to);
+  const sel=skySelected();
+  if (!sel.length) return "#/sky";
+  return "#/sky/"+sel.map(([f,v])=>skyAddrToken(f,v)).sort().join("+");
+}
+
+/* replaceState rather than pushState, for the reason the passage already
+   gives: composing a selection is one intent, and a back button that walked
+   you through "picked a world / added a genre / added an era" would be
+   reporting the machinery instead of the journey. The way back to the whole
+   atlas is printed on the strip, which is where a reader can see it. */
+function skySyncHash(){
+  if (state.view!=="sky") return;
+  const url=skyAddress();
+  if (location.hash===url) return;
+  skyHashWrite=url;
+  try{ history.replaceState(null,"",url); }catch(_error){}
+}
+/* Set immediately before we write the hash, and cleared by the listener, so
+   our own write cannot be mistaken for a user pasting a link and re-entered. */
+let skyHashWrite=null;
+
+/* Restoring an address. Arrives rather than flies: the flight exists to show
+   an atlas you were watching become another one, and nobody watched this. */
+function skyRestoreSelection(pairs){
+  for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+  for (const [field,value] of pairs) sky.filter[field].add(value);
+  skyRecomputeVisible();
+  /* AN EMPTY SKY IS A CORRECT ANSWER TO A CLICK AND A WRONG ONE TO A LINK.
+     Narrowing to nothing interactively is honest — you watched it empty and
+     can undo it. Arriving at it from an address gives a reader nothing to
+     look at, nothing to undo and no way to tell an empty intersection from a
+     broken link, so this falls back with the rest of the stale cases. */
+  if (!sky.visibleN){
+    for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+    /* Put the whole atlas back properly rather than just dropping the mask:
+       pasting a stale address into a sky that already holds a selection must
+       leave the previous constellation nowhere on screen, and clearing
+       sky.filter alone would leave it drawn under a caption saying otherwise. */
+    skyApplySelection(0);
+    skyFilterRender();
+    skyWorldsOpen(true);
+    skyWorldsRender();
+    return false;
+  }
+  sky.staleAddr=null;
+  skyApplySelection(0);
+  skyFilterRender();
+  skyStratumRender();
+  skyWorldsOpen(false);
+  skyWorldsRender();
+  return true;
+}
+
+/* The graceful fall. The whole atlas rather than the wall, because the reader
+   asked for the sky and the sky is still there to give them — only the
+   selection is gone. #/passage falls to the wall instead, and correctly: half
+   a route is not a smaller route, it is nothing. */
+function skyStaleAddress(raw){
+  sky.staleAddr=String(raw).slice(0,120);
+  skySyncHash();          /* the bar must describe what is actually on screen */
+  skyStratumRender();
+  skyReadout();
+}
+
 /* ══ THE TREATMENT ════════════════════════════════════════════════════════
    A REGISTER RENDERS ITS OWN FIELD, AND SAYS HOW MUCH OF THAT IS MEASURED.
 
@@ -3498,7 +3667,20 @@ function skyStratumRender(){
   const box=$("#sky-stratum");
   if (!box) return;
   const sel=skySelected();
-  if (!sel.length){ box.hidden=true; box.innerHTML=""; return; }
+  if (!sel.length){
+    /* An address this edition could not honour. The strip is the one surface
+       that stands for as long as the state does, so it is where the reader is
+       told that the whole atlas is a fallback rather than what they asked
+       for — and it prints the selection that was dropped, because "your link
+       did not work" without naming what it named is not an explanation. */
+    if (sky.staleAddr){
+      box.hidden=false;
+      box.innerHTML=`<span>link</span><b>${esc(sky.staleAddr)}</b>`+
+        `<span class="n">not in this edition</span>`;
+      return;
+    }
+    box.hidden=true; box.innerHTML=""; return;
+  }
   const label=skySelectionLabel(sel);
   /* The way out lives here rather than in the readout: this strip is the one
      thing that persists for as long as the state does, and on a phone a
@@ -3521,7 +3703,15 @@ function skyStratumRender(){
        would be the interface describing a picture that is not there. */
     : !live
     ? `<span>no films</span><b>${esc(label)}</b><span class="n">0 / ${sky.n}</span>${out}`
-    : `<span>re-formed</span>${mark}<b>${esc(label)}</b>`+
+    /* "SOLVED HERE" IS THE WHOLE OF THE HONESTY LINE, IN TWO WORDS.
+       A baked stratum is data and draws identically on every machine, so
+       "re-formed" is a complete statement and takes no caveat. A live solve
+       is this engine's answer to a chaotic problem and another engine's
+       differs, so the strip stops saying the picture was re-formed and starts
+       saying where it was worked out. Read off sky.formKind — how this
+       picture was ACTUALLY made — never off the number of values selected: a
+       single stratum too small to have been baked also lands here. */
+    : `<span>${sky.formKind==="solved"?"solved here":"re-formed"}</span>${mark}<b>${esc(label)}</b>`+
       `<span class="n">${live} / ${sky.n}</span>${out}`;
   const x=box.querySelector(".sky-stratum-x");
   if (x) x.onclick=skyClearFacets;
@@ -3805,6 +3995,14 @@ function skyApplySelection(ms){
      camera is given to the whole new constellation instead. */
   if (sky.orbitKey) sky.orbitKey=null;
   skyLabels(null);
+  /* THE ADDRESS IS A PROPERTY OF THE SELECTION, NOT OF THE SOLVE. It is
+     written here, on the frame the selection changes, rather than when the
+     flight lands or the solver returns — an intersection that takes 400 ms to
+     place has the same address the whole time, and a reader who copies the
+     bar mid-flight copies the right thing. Every path below this line passes
+     through it, including the empty and the no-match ones. */
+  sky.staleAddr=null;
+  skySyncHash();
 
   if (!sel.length){
     sky.formPending=null;
@@ -3854,6 +4052,10 @@ function skyApplySelection(ms){
       skyFormTo(skyTargetHome(), {ms:flight, label:""});
       for (const {key} of FACET_FIELDS) sky.filter[key].clear();
       skyRecomputeVisible();
+      /* The selection was abandoned, so the address it named must be too —
+         otherwise the bar keeps offering a link to a picture this machine
+         just failed to draw. */
+      skySyncHash();
       return;
     }
     skyFormTo(target, {ms:flight, label, solveMs});
@@ -4927,21 +5129,13 @@ function skyPassageEdgeSet(route){
    a route is the same object -- a path through cinema someone else should be
    able to open. Each key is encodeURIComponent'd, which also encodes "/", so
    the two halves can never run together however the slugs are spelled.
-   replaceState rather than pushState: composing a route is one intent, and a
-   back button that walked you through "picked one film / picked another /
-   found a route" would be reporting the machinery instead of the journey. */
-function skyPassageHash(){
-  const p=sky.passage;
-  const url = p.from&&p.to&&p.route
-    ? "#/passage/"+encodeURIComponent(p.from)+"/"+encodeURIComponent(p.to)
-    : "#/sky";
-  if (location.hash===url) return;
-  passageHashWrite=url;
-  try{ history.replaceState(null,"",url); }catch(_error){}
-}
-/* Set immediately before we write the hash, and cleared by the listener, so
-   our own write cannot be mistaken for a user pasting a link and re-entered. */
-let passageHashWrite=null;
+
+   THIS NOW GOES THROUGH skyAddress, WHICH FIXED A REAL BUG. It used to write
+   a bare "#/sky" whenever the route was cleared, which was harmless while a
+   selection had no address and destroys one now: pick a world, draw a route
+   inside it, clear the route, and the world's address was gone from the bar
+   while the world was still on the screen. */
+function skyPassageHash(){ skySyncHash(); }
 
 function skyPassageClear(){
   sky.passage={from:null,to:null,route:null,pending:false,onEdge:null};
@@ -4992,6 +5186,24 @@ function skyTierNote(){
     : "no measured colour separates these films; this one was chosen for the map";
   return `<span class="sky-tier" style="--wc:${esc(t.inkHue||t.hue||"#877D75")}">`+
     `<i>${REG_MARK[t.tier]||"○"}</i> ${esc(word)} · ${esc(detail)}</span>`;
+}
+
+/* WHAT AN ADDRESS FOR *THIS* PICTURE CAN AND CANNOT PROMISE.
+   Printed only when the picture was solved in this page, because that is the
+   only case where the promise is partial. It separates the two halves rather
+   than hedging both: membership is set arithmetic over baked posting lists
+   and is exact everywhere, and only the placing is this engine's opinion. The
+   measured number ships with it, the way skyTierNote ships sigma, so the
+   claim can be checked instead of believed — mean 3.1e-2 per film in the unit
+   box between Chromium and Node, which is the same magnitude as perturbing a
+   single edge strength by one ULP, i.e. the best two implementations can do
+   on a chaotic solve. */
+function skySolveNote(live){
+  if (sky.formKind!=="solved") return "";
+  return `<span class="y sky-hint" style="margin-top:8px">No baked layout exists for this
+    combination, so these places were solved here, in this page. <b>Who</b> is in it is exact —
+    anyone who opens this link gets the same ${live} films. <b>Where</b> each one sits is not:
+    the same solve measured on another engine moves a film about 3% of the field.</span>`;
 }
 
 function skyReadout(){
@@ -5104,6 +5316,7 @@ function skyReadout(){
         <span class="y sky-hint">These ${live} films have been placed again, against only each
           other. Your selection chose who is here; the connections still choose where —
           these are not their places in the whole atlas.</span>
+        ${skySolveNote(live)}
         ${key5}`;
       return;
     }
@@ -5115,7 +5328,17 @@ function skyReadout(){
        honest caveat about the index: it is a set of doors and not a partition
        of the corpus. */
     const rn=REG_IDS.length;
+    /* ARRIVED HERE BY FALLING BACK, WHICH IS NOT THE SAME AS ARRIVING HERE.
+       Without this sentence a stale link is indistinguishable from a link
+       that worked, and the reader is looking at 2,204 films believing that is
+       what they were sent. */
+    const stale = sky.staleAddr
+      ? `<span class="y sky-hint" style="margin-top:9px">That link names a selection this edition
+         of the atlas no longer has, so the whole atlas is here instead — nothing has been
+         narrowed. The names it asked for are printed above.</span>`
+      : "";
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
+      ${stale}
       ${key5}
       ${rn?`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what
         it is joined to and nothing else. Start with one of the ${rn} worlds along the top, or pick
@@ -5297,6 +5520,12 @@ function skyStep(dx,dy){
 
 function skyEnter(){
   if (!skyBuild()) return;
+  /* A stale-link notice describes one arrival and must not outlive it. The
+     deep-link path sets it immediately AFTER this runs (openSky -> show ->
+     skyEnter -> skyStaleAddress), so clearing here cannot swallow its own
+     message and does stop the notice reappearing when the reader walks out to
+     a film's map and comes back. */
+  sky.staleAddr=null;
   if (!sky.liveEdges) skySettleWhole();
   skyResize();
   /* THE ARRIVAL FIT WAITS FOR THE STRIP TO BE MEASURED.
@@ -5356,6 +5585,10 @@ window.__ATLAS_SKY__ = {
   progress: () => sky.form ? (performance.now()-sky.form.t0)/sky.form.ms : null,
   strata: () => Object.keys(SKY_STRATA),
   facets: () => FACET_FIELDS.map(f=>f.key),
+  /* The address of what is on screen, and whether the one on the way in could
+     be honoured. A round trip is only provable if both ends are readable. */
+  address: () => skyAddress(),
+  stale: () => sky.staleAddr,
   select: (field,value) => { if (sky.filter[field]) skyToggleFacet(field,value); },
   clear: () => skyClearFacets(),
 };
@@ -5363,7 +5596,9 @@ window.__ATLAS_SKY__ = {
 function openSky(){
   if (!SKY_POS) return;
   show("sky");
-  try{ history.replaceState(null,"","#/sky"); }catch(_error){}
+  /* Not a bare "#/sky": coming back to a re-formed sky returns you to the
+     picture you left (see skyEnter), so the address has to come back with it. */
+  skySyncHash();
   $("#sr-status").textContent=`Constellation. ${sky.keys.length} films, ${sky.eN} connections. Arrow keys step between films.`;
   requestAnimationFrame(()=>$("#sky-c").focus({preventScroll:true}));
 }
@@ -5721,6 +5956,23 @@ function fromHash(historyMode="replace"){
   const h=location.hash||"";
   /* #/sky is an address too: the whole map is a place worth sending someone */
   if(/^#\/sky\/?$/.test(h)){ if(!SKY_POS) return false; openSky(); return true; }
+  /* A RE-FORMED ATLAS. #/sky/world:gothic, #/sky/genre:drama+era:1960-1979 —
+     see skyAddress for the grammar and for what it does and does not promise.
+
+     THE FALLBACK IS THE WHOLE ATLAS, NOT THE WALL, and it is deliberate that
+     those differ. A stale #/passage names two films this corpus may no longer
+     hold and half a route is nothing, so it drops to the wall. A stale sky
+     address still asked for the sky, and the sky is still here to give: only
+     the selection is unhonourable, so the selection is what is dropped — and
+     it is dropped whole, never in part, and never silently. */
+  const sm=h.match(/^#\/sky\/(.+?)\/?$/);
+  if(sm){
+    if(!SKY_POS) return false;
+    const pairs=skyAddrParse(sm[1]);
+    openSky();
+    if(!pairs || !skyRestoreSelection(pairs)) skyStaleAddress(sm[1]);
+    return true;
+  }
   /* A shared route. Both films are validated against the corpus before
      anything opens -- a stale link from an older edition names keys this
      corpus may no longer hold, and "the duel" has already been re-pointed at
@@ -5754,8 +6006,8 @@ addEventListener("popstate",(event)=>{
   if(!fromHash("none")){ show("wall"); renderWall(); }
 });
 addEventListener("hashchange",()=>{
-  if(passageHashWrite&&location.hash===passageHashWrite){ passageHashWrite=null; return; }
-  passageHashWrite=null;
+  if(skyHashWrite&&location.hash===skyHashWrite){ skyHashWrite=null; return; }
+  skyHashWrite=null;
   if(popstateLocation===location.href){ popstateLocation=null; return; }
   popstateLocation=null;
   if(!fromHash()){ show("wall"); renderWall(); }
