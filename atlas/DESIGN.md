@@ -468,6 +468,43 @@ a world is chosen, leaving a printed tab, and comes back with the whole atlas.
 147px on desktop, 134px on a phone (17% of the viewport), and the field
 visibly opens out when it retracts.
 
+### A route is a reading posture, not a browsing one — settled 2026-08-09
+
+That rule was written for selections and applied one case short. During a
+Passage the atlas is still whole, so the strip stayed open — and 28 doors to
+somewhere else sat over the top of the chain the reader had just asked for.
+Measured overlap of `#sky-worlds` (z 9) on `#sky-readbox`: **520×115px** at
+1440×900, **632×139** at 900×820, **366×134** at 390×780, hiding the route's own
+title (`8½ → Prince of Darkness · 8 crossings`) and the opening of its first
+claim. A reader arriving from a shared `#/passage/a/b` link on a phone got a
+list of unattributed sentences beginning at claim three: the panel's top was
+**61px above the top of the window**, because the box was bottom-anchored with
+no ceiling and 794px of claims will not fit in a 780px phone.
+
+Two answers, because the geometry has to hold even when the posture rule is
+overridden by hand:
+
+1. **The strip retracts while a route is live** (`skyPassageStart`), and comes
+   back when it is cleared, on the same `!skyFilterOn()` condition
+   `skyClearFacets` uses. The tab stays: the doors are one click away, not gone.
+2. **The HUD is ceilinged by the strip's own measured leading edge**
+   (`.sky-hud{top:var(--worlds-h)}` — the same variable the filter panel already
+   sits under) and the claims scroll inside it. So re-opening the strip
+   mid-route *moves the reading down* rather than burying it: measured, the
+   readout goes 116→231px at desktop and 139→246 on a phone, overlap 0 in both.
+
+Opaque chrome during a route fell **129% → 88%** of the phone viewport (over
+100% meant the boxes were overlapping each other), 89.7% → 69.2% at 900×820 and
+56.1% → 39.5% at 1440×900. Title and first claim now hit-test to themselves at
+all three viewports — `elementFromPoint`, not a screenshot.
+
+**A geometry change is a hit-testing change.** Making the HUD span the field
+gave `.sky-hud-main` (`flex:1`) an invisible 366×545 box over the phone's
+constellation, inheriting `pointer-events:auto`: a 6×6 grid of taps across the
+field hit the canvas **18 times before the change and 0 after**, while every
+screenshot stayed perfect. The column is `pointer-events:none` with its printed
+children taking their own events back.
+
 **Fit means the part you can see, and the chrome is no longer all at the
 bottom.** `skySafeH` took the minimum top edge of every chrome box, which
 collapses to the strip's own top edge the moment the strip exists — the atlas
@@ -951,6 +988,32 @@ a 200-edge stratum has no wash to avoid, and the absolute prefix was hiding
 most of it. Below the floor the whole order is scanned and the per-edge
 liveness test does the work.
 
+#### A route dims the lines with the discs — settled 2026-08-09
+
+The disc pass took everything off a Passage to `0.07` and the edge pass, 140
+lines earlier, had **no route term at all** — so a route erased the *subject*
+and kept the connective tissue at full weight, which is the signature running
+backwards. On screen: a grey cobweb with eight lit dots in it. Measured on the
+composited canvas at 1440×900, effective-luma thresholds on the canvas's own
+pixels:
+
+| | ink | bright (>28) | the route itself (>90) |
+|---|---|---|---|
+| resting whole atlas | 13.21% | 8.64% | 1.969% |
+| a route, before | 5.11% | 2.35% | 0.161% |
+| a route, after | 4.45% | **0.21%** | 0.155% |
+
+The route was **6.9% of the bright ink** on its own view and is now **74%** of
+it, while total ink moves only 13% — the ground recedes to ground and is not
+deleted, which is what the disc pass's own comment asks for ("the route only
+means something against the atlas it crosses"). The factor is `0.15`, not the
+disc pass's own `0.085`: the strip preview already concedes its lines the same
+~1.7× (0.34 against the discs' 0.195), and for the same reason.
+
+The term is read through `roomRoutedEarly()` rather than the `hasRoute` const,
+which is 140 lines below the edge pass — a temporal dead zone that has already
+shipped once here as a throw leaving a cleared canvas and a clean console.
+
 ### Measured cost
 
 Frame intervals, real Chromium at devicePixelRatio 2, 1440×900, software
@@ -1219,6 +1282,37 @@ static CSS at **zero repaints**:
 **The aperture moves no film and changes no camera.** By construction
 `min(gate.w, gate.h) === min(canvas.w, band.h)`, which is the quantity
 `skyFitK()` already uses. Verified at three viewports to **0.000px**.
+
+#### The gate is keyed to the chrome MEASUREMENT — settled 2026-08-09
+
+That "verified to 0.000px" was true of `skyGate()` and false of the picture,
+for a day. The perf guard added with the query sky read
+`if (!sky.chrome || !sky.gate) skyGateApply()`, and **`sky.chrome` does not go
+cold where you would think**: `skyPlaceLabels`, `skyFitCam` and `skyClampK` all
+call `skyChrome()` themselves, so an invalidation raised between two frames was
+routinely consumed by one of them before the next `skyDraw` — the cache came
+back warm and correct and the gate stayed stale. Measured on the live page
+(`sky.gate`, not `skyGate()`), a cold `#/sky` drew **1004×733 at y=0** against a
+correct **687×502 at y=153**: 317px out at 1440×900, 294 at 900×820, 176 at
+390×780, and the same on a cold `#/sky/world:*`. The atlas filled **45%** of its
+aperture's width instead of **66%** — the whole-atlas view read as a dot in a
+black room, which nobody had chosen.
+
+The fix is two counters. `skyChromeV` increments every time the chrome is
+actually measured; `skyGateV` records which measurement `sky.gate` came from;
+`skyDraw` compares them — one integer compare per frame, no layout read, so the
+0.18ms/frame cost that motivated the guard is still not paid. And
+`skyChrome()` applies the gate itself on the frame it measures, because a view
+can be re-measured and then never painted again (a cold world address retracts
+the strip after its last draw).
+
+**Verified by asking the page, and by re-breaking it.** `.judge/gate-probe.mjs`
+walks eight routes into the sky × three viewports and compares `sky.gate` and
+the four `--ap-*` custom properties against a fresh `skyGate()` on the same
+page: 24/24 within **0.0px**. Restoring the old guard in the built artifact puts
+9 of those 24 back over the line at exactly the drifts above. *A gate check that
+calls `skyGate()` is a check that the function is deterministic. It is not a
+check that the aperture is on screen.*
 
 ### Marking, and the develop
 
