@@ -751,11 +751,14 @@ function breaches(r, inv, prefix) {
 
 function regression(now, base, fails) {
   if (!base) return;
+  /* The label matters: this runs 73 times and a bare "REGRESSION bondFit" with
+     no layout attached is a line nobody can act on. */
+  const where = now.label && now.label !== "whole atlas" ? now.label + " " : "";
   const check = (name, v, b, tol, dir) => {
     if (!Number.isFinite(v) || !Number.isFinite(b)) return;
     const slid = dir === "up" ? v - b : b - v;
     if (slid > tol) {
-      fails.push(`REGRESSION ${name}: ${fmt(v)} against baseline ${fmt(b)} ` +
+      fails.push(`REGRESSION ${where}${name}: ${fmt(v)} against baseline ${fmt(b)} ` +
         `(moved ${slid.toFixed(4)}, tolerance ${tol})`);
     }
   };
@@ -1143,11 +1146,22 @@ function main() {
        baseline did. A --strata baseline compared against a whole-atlas-only run
        would report every stratum breach as "healed", which is a checker
        congratulating itself for not having looked. */
-    const known = new Set(baseline.knownBreaches || []);
+    /* Breaches are matched on WHICH LAYOUT BREACHED WHICH INVARIANT, not on the
+       breach sentence, because the sentence carries the measured value. The
+       first version compared the strings, and a concurrent reading pass that
+       moved the corpus by 169 edges turned 40 unchanged breaches into 40 "NEW
+       BREACH" lines while only 6 layouts had actually crossed a threshold. A
+       ratchet that cries wolf on every corpus edit is a ratchet people
+       re-baseline reflexively, which is the one failure mode it exists to stop.
+       The MAGNITUDE of a known breach is not unpoliced — that is what the
+       tolerances in regression() are for, and they run over the strata too. */
+    const identity = (b) => b.replace(/-?\d+\.\d+/g, "#");
+    const known = new Set((baseline.knownBreaches || []).map(identity));
     const comparable = !baseline.strata || DO_STRATA;
     if (comparable) {
-      const fresh = standing.filter((b) => !known.has(b));
-      const healed = (baseline.knownBreaches || []).filter((b) => !standing.includes(b));
+      const nowIds = new Set(standing.map(identity));
+      const fresh = standing.filter((b) => !known.has(identity(b)));
+      const healed = (baseline.knownBreaches || []).filter((b) => !nowIds.has(identity(b)));
       for (const b of fresh) fails.push("NEW BREACH: " + b);
       console.log("known breaches " + known.size + " · new " + fresh.length + " · healed " + healed.length +
         (healed.length ? "  (re-baseline to lock the improvement in)" : ""));
@@ -1165,6 +1179,17 @@ function main() {
   console.log("\nmeasured in " + ((Date.now() - t0) / 1000).toFixed(1) + "s");
   if (fails.length) {
     console.log("\nFAIL\n  " + fails.join("\n  "));
+    /* The single most common cause of a red run here is a corpus edit, and the
+       remedy for that is different from the remedy for a solver regression. Say
+       which one this is rather than leaving it to be guessed. */
+    if (baseline && baseline.corpusVersion && baseline.corpusVersion !== out.corpusVersion) {
+      console.log("\n  THE CORPUS HAS CHANGED since this baseline was taken (" +
+        baseline.corpusVersion + " -> " + out.corpusVersion + ").");
+      console.log("  A reading pass or an associator change moves these numbers and that is not a");
+      console.log("  solver regression. Read them, decide they are acceptable, then:");
+      console.log("    node pipeline/measure-layout.js --strata --write-baseline --note \"...\"");
+      console.log("  and commit the baseline in the same commit as the corpus.");
+    }
     process.exit(1);
   }
   console.log("\nPASS — the whole atlas holds rule 1, nothing regressed against the baseline" +

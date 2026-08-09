@@ -40240,42 +40240,6 @@
    "bId": "film-0db655a64d3bc555"
   },
   {
-   "a": "a matter of life and death",
-   "b": "a canterbury tale",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Emeric Pressburger and Michael Powell directing; Allan Gray scoring; Michael Powell writing on both.",
-   "evidence": [
-    "wikidata:Q55230#director",
-    "wikidata:Q55234#director",
-    "wikidata:Q214147#composer",
-    "wikidata:Q55234#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Kim Hunter and Raymond Massey both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "subject",
-     "claim": "Both are about World War II.",
-     "strength": 0.547
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United Kingdom, the same moment of each other.",
-     "strength": 0.219
-    }
-   ],
-   "aId": "film-270998905554536a",
-   "bId": "film-8fc409c160b87ffd"
-  },
-  {
    "a": "the red shoes",
    "b": "the small back room",
    "type": "hand",
@@ -44030,44 +43994,6 @@
    ],
    "aId": "film-8f67b065273f2a4a",
    "bId": "film-7588e9e5a4efa854"
-  },
-  {
-   "a": "confidentially yours",
-   "b": "the last metro",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "François Truffaut directing; Néstor Almendros shooting; Martine Barraqué cutting; Georges Delerue scoring; François Truffaut and Suzanne Schiffman writing on both.",
-   "evidence": [
-    "wikidata:Q53002#director",
-    "wikidata:Q155423#cinematographer",
-    "wikidata:Q3295731#editor",
-    "wikidata:Q435034#composer",
-    "wikidata:Q53002#screenwriter",
-    "wikidata:Q458455#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Jean-Louis Richard appears in both films.",
-     "strength": 0.567
-    },
-    {
-     "signal": "movement",
-     "claim": "Both belong to French New Wave.",
-     "strength": 0.549
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Les Films du Carrosse.",
-     "strength": 0.427
-    }
-   ],
-   "aId": "film-e004546cf4cc89e3",
-   "bId": "film-a408e1e22826cfe4"
   },
   {
    "a": "jules and jim",
@@ -59488,33 +59414,6 @@
    "bId": "film-2f62fc09790e6a29"
   },
   {
-   "a": "the flowers of st francis",
-   "b": "europe 51",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Roberto Rossellini directing; Jolanda Benvenuti cutting; Renzo Rossellini scoring; Federico Fellini and Brunello Rondi writing on both.",
-   "evidence": [
-    "wikidata:Q53003#director",
-    "wikidata:Q3809781#editor",
-    "wikidata:Q1397252#composer",
-    "wikidata:Q7371#screenwriter",
-    "wikidata:Q1009918#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "Italy, the same moment of each other.",
-     "strength": 0.205
-    }
-   ],
-   "aId": "film-91b83f990906c248",
-   "bId": "film-43cfd3fe86dd387c"
-  },
-  {
    "a": "rome open city",
    "b": "europe 51",
    "type": "hand",
@@ -65574,42 +65473,6 @@
    "bId": "film-6e1fb0500b84cf09"
   },
   {
-   "a": "bicycle thieves",
-   "b": "terminal station",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Vittorio De Sica directing; Eraldo Da Roma cutting; Alessandro Cicognini scoring; Cesare Zavattini writing on both.",
-   "evidence": [
-    "wikidata:Q53004#director",
-    "wikidata:Q3731055#editor",
-    "wikidata:Q326646#composer",
-    "wikidata:Q469164#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Memmo Carotenuto appears in both films.",
-     "strength": 0.567
-    },
-    {
-     "signal": "setting",
-     "claim": "Both are set in Rome.",
-     "strength": 0.487
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Italy, within 5 years of each other.",
-     "strength": 0.205
-    }
-   ],
-   "aId": "film-dbc80e129d3ec54b",
-   "bId": "film-ed7d048206ab91a2"
-  },
-  {
    "a": "the tin drum",
    "b": "circle of deceit",
    "type": "hand",
@@ -67380,42 +67243,6 @@
    "bId": "film-4aab9d3e5aab2edb"
   },
   {
-   "a": "the salt of the earth",
-   "b": "pope francis a man of his word",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Wim Wenders directing; Laurent Petitgand scoring; Wim Wenders and David Rosier writing on both.",
-   "evidence": [
-    "wikidata:Q55411#director",
-    "wikidata:Q3219443#composer",
-    "wikidata:Q55411#screenwriter",
-    "wikidata:Q21994330#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to New German Cinema.",
-     "strength": 0.547
-    },
-    {
-     "signal": "cast",
-     "claim": "Wim Wenders appears in both films.",
-     "strength": 0.527
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are documentary film, made 4 years apart.",
-     "strength": 0.373
-    }
-   ],
-   "aId": "film-a22bf4de03130732",
-   "bId": "film-7b27df3d1df836f7"
-  },
-  {
    "a": "wrong move",
    "b": "the state of things",
    "type": "hand",
@@ -68555,42 +68382,6 @@
    ],
    "aId": "film-d1849d058b4e5f2c",
    "bId": "film-b5c70afcdfdbb010"
-  },
-  {
-   "a": "i was born but",
-   "b": "a story of floating weeds",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.82,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Yasujirō Ozu directing; Hideo Shigehara shooting; Hideo Shigehara cutting; Yasujirō Ozu writing on both.",
-   "evidence": [
-    "wikidata:Q55402#director",
-    "wikidata:Q3135270#cinematographer",
-    "wikidata:Q3135270#editor",
-    "wikidata:Q55402#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Chishū Ryū appears in both films.",
-     "strength": 0.477
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are silent film, made 2 years apart.",
-     "strength": 0.4
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Shochiku.",
-     "strength": 0.377
-    }
-   ],
-   "aId": "film-d1849d058b4e5f2c",
-   "bId": "film-6ed4339001fc480a"
   },
   {
    "a": "i was born but",
@@ -70743,42 +70534,6 @@
     }
    ],
    "aId": "film-f99fadadc9ba93ac",
-   "bId": "film-c84080cb2d6c7973"
-  },
-  {
-   "a": "halloween",
-   "b": "halloween ii",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.81,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Dean Cundey shooting; John Carpenter scoring; John Carpenter and Debra Hill writing on both.",
-   "evidence": [
-    "wikidata:Q497036#cinematographer",
-    "wikidata:Q95008#composer",
-    "wikidata:Q95008#screenwriter",
-    "wikidata:Q262102#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "keyword",
-     "claim": "Both turn on killing spree, mask and halloween.",
-     "strength": 0.74
-    },
-    {
-     "signal": "setting",
-     "claim": "Both are set in Haddonfield.",
-     "strength": 0.64
-    },
-    {
-     "signal": "cast",
-     "claim": "Kyle Richards and Nancy Kyes both appear in both films.",
-     "strength": 0.6
-    }
-   ],
-   "aId": "film-236c9366ec0b992c",
    "bId": "film-c84080cb2d6c7973"
   },
   {
@@ -73561,36 +73316,6 @@
    ],
    "aId": "film-a864aa503463a951",
    "bId": "film-d8ce6346d3b2afce"
-  },
-  {
-   "a": "a separation",
-   "b": "the past",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.804,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Asghar Farhadi directing; Mahmoud Kalari shooting; Asghar Farhadi writing on both.",
-   "evidence": [
-    "wikidata:Q334242#director",
-    "wikidata:Q5953799#cinematographer",
-    "wikidata:Q334242#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "subject",
-     "claim": "Both are about divorce.",
-     "strength": 0.72
-    },
-    {
-     "signal": "cast",
-     "claim": "Babak Karimi appears in both films.",
-     "strength": 0.6
-    }
-   ],
-   "aId": "film-9415f62008f4b509",
-   "bId": "film-e556b43b429774b4"
   },
   {
    "a": "the conformist",
@@ -79035,41 +78760,6 @@
    "bId": "film-941db1613758f221"
   },
   {
-   "a": "lightning over water",
-   "b": "tokyo ga",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.804,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Wim Wenders directing; Edward Lachman shooting; Wim Wenders writing on both.",
-   "evidence": [
-    "wikidata:Q55411#director",
-    "wikidata:Q616171#cinematographer",
-    "wikidata:Q55411#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to New German Cinema.",
-     "strength": 0.547
-    },
-    {
-     "signal": "cast",
-     "claim": "Wim Wenders appears in both films.",
-     "strength": 0.527
-    },
-    {
-     "signal": "genreEra",
-     "claim": "Both are documentary film, made 5 years apart.",
-     "strength": 0.373
-    }
-   ],
-   "aId": "film-b66becab5f93fed4",
-   "bId": "film-2ac49eb44cb22167"
-  },
-  {
    "a": "palermo shooting",
    "b": "land of plenty",
    "type": "hand",
@@ -82979,41 +82669,6 @@
    "bId": "film-9e6588d5e205c3b4"
   },
   {
-   "a": "yi yi",
-   "b": "a confucian confusion",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.782,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Edward Yang directing; Chen Po-Wen cutting; Edward Yang writing on both.",
-   "evidence": [
-    "wikidata:Q716700#director",
-    "wikidata:Q15921151#editor",
-    "wikidata:Q716700#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "setting",
-     "claim": "Both are set in Taipei.",
-     "strength": 0.64
-    },
-    {
-     "signal": "cast",
-     "claim": "Elaine Jin appears in both films.",
-     "strength": 0.588
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Taiwan, within 6 years of each other.",
-     "strength": 0.275
-    }
-   ],
-   "aId": "film-889004009b3253c2",
-   "bId": "film-78f63d9d3f5e606a"
-  },
-  {
    "a": "the terrorizers",
    "b": "that day on the beach",
    "type": "hand",
@@ -83511,36 +83166,6 @@
    ],
    "aId": "film-23b02de506f50794",
    "bId": "film-150ec2832fcfdc02"
-  },
-  {
-   "a": "shoplifters",
-   "b": "like father like son",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.782,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Hirokazu Koreeda directing; Hirokazu Koreeda cutting; Hirokazu Koreeda writing on both.",
-   "evidence": [
-    "wikidata:Q740758#director",
-    "wikidata:Q740758#editor",
-    "wikidata:Q740758#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Kirin Kiki appears in both films.",
-     "strength": 0.559
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 5 years of each other.",
-     "strength": 0.212
-    }
-   ],
-   "aId": "film-23b02de506f50794",
-   "bId": "film-47268c5cf5838fc4"
   },
   {
    "a": "air doll",
@@ -84084,31 +83709,6 @@
    "bId": "film-114cbe0da86bbb9e"
   },
   {
-   "a": "grave of the fireflies",
-   "b": "my neighbors the yamadas",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.782,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Isao Takahata directing; Takeshi Seyama cutting; Isao Takahata writing on both.",
-   "evidence": [
-    "wikidata:Q178713#director",
-    "wikidata:Q1379022#editor",
-    "wikidata:Q178713#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "studio",
-     "claim": "Both produced by Studio Ghibli.",
-     "strength": 0.405
-    }
-   ],
-   "aId": "film-59d7881beb15389a",
-   "bId": "film-7966e084559dbc85"
-  },
-  {
    "a": "l amour fou",
    "b": "out 1",
    "type": "hand",
@@ -84231,36 +83831,6 @@
     }
    ],
    "aId": "film-75a754a4d552f4ca",
-   "bId": "film-b541becd03acc545"
-  },
-  {
-   "a": "the piano",
-   "b": "holy smoke",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.782,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Jane Campion directing; Veronika Jenet cutting; Jane Campion writing on both.",
-   "evidence": [
-    "wikidata:Q230448#director",
-    "wikidata:Q6486430#editor",
-    "wikidata:Q230448#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Genevieve Lemon and Harvey Keitel both appear in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Australia, within 6 years of each other.",
-     "strength": 0.277
-    }
-   ],
-   "aId": "film-a2047cf7eea6cfee",
    "bId": "film-b541becd03acc545"
   },
   {
@@ -96413,36 +95983,6 @@
    "bId": "film-01cf67815fb44a05"
   },
   {
-   "a": "floating weeds",
-   "b": "a story of floating weeds",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.74,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on family abandonment, unknown father and woman scorned.",
-   "evidence": [
-    "tmdb:kw:family abandonment#keywords",
-    "tmdb:kw:unknown father#keywords",
-    "tmdb:kw:woman scorned#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Yasujirō Ozu directing; Yasujirō Ozu writing on both.",
-     "strength": 0.699
-    },
-    {
-     "signal": "cast",
-     "claim": "Chishū Ryū appears in both films.",
-     "strength": 0.477
-    }
-   ],
-   "aId": "film-7fc7e2b48fc73faa",
-   "bId": "film-6ed4339001fc480a"
-  },
-  {
    "a": "twin peaks fire walk with me",
    "b": "twin peaks the missing pieces",
    "type": "rhyme",
@@ -96739,25 +96279,6 @@
    ],
    "aId": "film-943ee380ed0c5d69",
    "bId": "film-f7f4b79dd448b014"
-  },
-  {
-   "a": "nanook of the north",
-   "b": "the savage innocents",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.74,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on harpoon, inuit and walrus.",
-   "evidence": [
-    "tmdb:kw:harpoon#keywords",
-    "tmdb:kw:inuit#keywords",
-    "tmdb:kw:walrus#keywords"
-   ],
-   "signal": "keyword",
-   "also": [],
-   "aId": "film-6e1fb6c3413a2315",
-   "bId": "film-6a1eff5331ce88e4"
   },
   {
    "a": "halloween ii",
@@ -100747,35 +100268,6 @@
    ],
    "aId": "film-94db7277c3a0ab3d",
    "bId": "film-5e96e4b6bd0da327"
-  },
-  {
-   "a": "last year at marienbad",
-   "b": "the war is over",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.724,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Alain Resnais directing; Sacha Vierny shooting on both.",
-   "evidence": [
-    "wikidata:Q218022#director",
-    "wikidata:Q970579#cinematographer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to French New Wave.",
-     "strength": 0.549
-    },
-    {
-     "signal": "countryEra",
-     "claim": "France, within 5 years of each other.",
-     "strength": 0.199
-    }
-   ],
-   "aId": "film-6c82e7a63c94339a",
-   "bId": "film-94db7277c3a0ab3d"
   },
   {
    "a": "last year at marienbad",
@@ -112041,31 +111533,6 @@
    "bId": "film-a83867b95e3dd0f0"
   },
   {
-   "a": "koyaanisqatsi",
-   "b": "the salt of the earth",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.708,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on human in nature, human vs nature and observational documentary.",
-   "evidence": [
-    "tmdb:kw:human in nature#keywords",
-    "tmdb:kw:human vs nature#keywords",
-    "tmdb:kw:observational documentary#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are documentary film.",
-     "strength": 0.263
-    }
-   ],
-   "aId": "film-b8ca4262da0e3d6e",
-   "bId": "film-a22bf4de03130732"
-  },
-  {
    "a": "kagemusha",
    "b": "samurai assassin",
    "type": "rhyme",
@@ -116169,24 +115636,6 @@
    "bId": "film-0800378feff4f3a0"
   },
   {
-   "a": "ashes and diamonds",
-   "b": "danton",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Andrzej Wajda directing; Andrzej Wajda writing on both.",
-   "evidence": [
-    "wikidata:Q106685#director",
-    "wikidata:Q106685#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [],
-   "aId": "film-30a45089821ea7c0",
-   "bId": "film-0800378feff4f3a0"
-  },
-  {
    "a": "bonnie and clyde",
    "b": "the missouri breaks",
    "type": "hand",
@@ -118748,30 +118197,6 @@
    ],
    "aId": "film-114cbe0da86bbb9e",
    "bId": "film-c86de4c46707471e"
-  },
-  {
-   "a": "the tale of the princess kaguya",
-   "b": "my neighbors the yamadas",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Isao Takahata directing; Isao Takahata writing on both.",
-   "evidence": [
-    "wikidata:Q178713#director",
-    "wikidata:Q178713#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "studio",
-     "claim": "Both produced by Studio Ghibli.",
-     "strength": 0.405
-    }
-   ],
-   "aId": "film-c86de4c46707471e",
-   "bId": "film-7966e084559dbc85"
   },
   {
    "a": "grave of the fireflies",
@@ -122823,24 +122248,6 @@
    "bId": "film-a70c30800aaa23b5"
   },
   {
-   "a": "citizen kane",
-   "b": "the other side of the wind",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Orson Welles directing; Orson Welles writing on both.",
-   "evidence": [
-    "wikidata:Q24829#director",
-    "wikidata:Q24829#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [],
-   "aId": "film-8ea89ccf112a80c2",
-   "bId": "film-9dc0a7a3bbe41f76"
-  },
-  {
    "a": "f for fake",
    "b": "the magnificent ambersons",
    "type": "hand",
@@ -125905,30 +125312,6 @@
    "bId": "film-91abde79b11f4f81"
   },
   {
-   "a": "crimes and misdemeanors",
-   "b": "melinda and melinda",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.699,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Woody Allen directing; Woody Allen writing on both.",
-   "evidence": [
-    "wikidata:Q25089#director",
-    "wikidata:Q25089#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "setting",
-     "claim": "Both are set in Manhattan.",
-     "strength": 0.628
-    }
-   ],
-   "aId": "film-a32c726f1b598f6e",
-   "bId": "film-91abde79b11f4f81"
-  },
-  {
    "a": "another woman",
    "b": "melinda and melinda",
    "type": "hand",
@@ -127712,40 +127095,6 @@
    ],
    "aId": "film-48441ea5f86709ca",
    "bId": "film-78d0611ca7d6b716"
-  },
-  {
-   "a": "sunset boulevard",
-   "b": "stalag 17",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.692,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Billy Wilder directing; Franz Waxman scoring on both.",
-   "evidence": [
-    "wikidata:Q51547#director",
-    "wikidata:Q213611#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "William Holden appears in both films.",
-     "strength": 0.576
-    },
-    {
-     "signal": "studio",
-     "claim": "Both produced by Paramount Pictures.",
-     "strength": 0.358
-    },
-    {
-     "signal": "countryEra",
-     "claim": "United States, within 3 years of each other.",
-     "strength": 0.187
-    }
-   ],
-   "aId": "film-de56704f5d710509",
-   "bId": "film-37e54fc1c5bb3b45"
   },
   {
    "a": "the spirit of st louis",
@@ -133384,23 +132733,6 @@
    ],
    "aId": "film-e1e633570d4766f6",
    "bId": "film-1752090b0b509314"
-  },
-  {
-   "a": "the wild bunch",
-   "b": "the five man army",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.674,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are about Mexican Revolution.",
-   "evidence": [
-    "wikidata:Q214426#P921"
-   ],
-   "signal": "subject",
-   "also": [],
-   "aId": "film-de08f10c6bd02bb4",
-   "bId": "film-5871803c81a720c3"
   },
   {
    "a": "tetepango",
@@ -148125,23 +147457,6 @@
    "bId": "film-4a0a388751644235"
   },
   {
-   "a": "the unbearable lightness of being",
-   "b": "hangmen also die",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.64,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are set in Prague.",
-   "evidence": [
-    "wikidata:Q1085#P840"
-   ],
-   "signal": "setting",
-   "also": [],
-   "aId": "film-8f432c7430f2f801",
-   "bId": "film-576f24a8203ee20d"
-  },
-  {
    "a": "the cremator",
    "b": "loves of a blonde",
    "type": "rhyme",
@@ -158242,23 +157557,6 @@
    "bId": "film-5acc7443077b44b5"
   },
   {
-   "a": "taira clan saga",
-   "b": "the 47 ronin",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Kenji Mizoguchi directing on both.",
-   "evidence": [
-    "wikidata:Q55401#director"
-   ],
-   "signal": "crew",
-   "also": [],
-   "aId": "film-5acc7443077b44b5",
-   "bId": "film-ebc460051fea284c"
-  },
-  {
    "a": "street of shame",
    "b": "flame of my love",
    "type": "hand",
@@ -159177,29 +158475,6 @@
    "bId": "film-3eb4ac44c1cc276c"
   },
   {
-   "a": "the last waltz",
-   "b": "no direction home",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Martin Scorsese directing on both.",
-   "evidence": [
-    "wikidata:Q41148#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to New Hollywood.",
-     "strength": 0.558
-    }
-   ],
-   "aId": "film-8f68b8c994813ef6",
-   "bId": "film-83553894cba61bf7"
-  },
-  {
    "a": "alice doesn t live here anymore",
    "b": "american boy a profile of steven prince",
    "type": "hand",
@@ -159806,34 +159081,6 @@
    "also": [],
    "aId": "film-10eba0f541d5e700",
    "bId": "film-53eeb54a74252373"
-  },
-  {
-   "a": "when a woman ascends the stairs",
-   "b": "scattered clouds",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.62,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Mikio Naruse directing on both.",
-   "evidence": [
-    "wikidata:Q1371306#director"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Daisuke Katō appears in both films.",
-     "strength": 0.504
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, within 7 years of each other.",
-     "strength": 0.212
-    }
-   ],
-   "aId": "film-1cca0ef0fab367b2",
-   "bId": "film-e7e141c0a70bdbfb"
   },
   {
    "a": "a wife s heart",
@@ -165987,41 +165234,6 @@
    "bId": "film-f14a49e5b2093524"
   },
   {
-   "a": "peeping tom",
-   "b": "frenzy",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.61,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on serial killer, psychological thriller and london, england.",
-   "evidence": [
-    "tmdb:kw:serial killer#keywords",
-    "tmdb:kw:psychological thriller#keywords",
-    "tmdb:kw:london, england#keywords"
-   ],
-   "signal": "keyword",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Anna Massey appears in both films.",
-     "strength": 0.6
-    },
-    {
-     "signal": "subject",
-     "claim": "Both are about serial killer.",
-     "strength": 0.586
-    },
-    {
-     "signal": "setting",
-     "claim": "Both are set in London.",
-     "strength": 0.488
-    }
-   ],
-   "aId": "film-a3b6f02ef8954851",
-   "bId": "film-f5816765d7e97cfc"
-  },
-  {
    "a": "perfect blue",
    "b": "cape fear",
    "type": "rhyme",
@@ -168435,25 +167647,6 @@
    ],
    "aId": "film-6ed2a8ced92bfad8",
    "bId": "film-b3adb12d221b7629"
-  },
-  {
-   "a": "the postman always rings twice",
-   "b": "empire of passion",
-   "type": "rhyme",
-   "from": "none",
-   "strength": 0.603,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both turn on crime of passion, adulterous wife and sexual obsession.",
-   "evidence": [
-    "tmdb:kw:crime of passion#keywords",
-    "tmdb:kw:adulterous wife#keywords",
-    "tmdb:kw:sexual obsession#keywords"
-   ],
-   "signal": "keyword",
-   "also": [],
-   "aId": "film-5834986732bb1cc4",
-   "bId": "film-35db29ccfec72b8f"
   },
   {
    "a": "phantom thread",
@@ -171470,40 +170663,6 @@
    ],
    "aId": "film-25a54b575f711549",
    "bId": "film-9c49a3a00fabc2fd"
-  },
-  {
-   "a": "dont look back",
-   "b": "no direction home",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Allen Ginsberg and Bob Dylan both appear in both films.",
-   "evidence": [
-    "wikidata:Q6711#P161",
-    "wikidata:Q392#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "movement",
-     "claim": "Both belong to New Hollywood.",
-     "strength": 0.558
-    },
-    {
-     "signal": "crew",
-     "claim": "Bob Dylan scoring on both.",
-     "strength": 0.4
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are rockumentary.",
-     "strength": 0.34
-    }
-   ],
-   "aId": "film-69038b37aad1dd0a",
-   "bId": "film-83553894cba61bf7"
   },
   {
    "a": "wind from the east",
@@ -176432,30 +175591,6 @@
    "also": [],
    "aId": "film-4eaff16f6b390ef4",
    "bId": "film-a3291e581466fd85"
-  },
-  {
-   "a": "my friends",
-   "b": "let s hope it s a girl",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Bernard Blier and Philippe Noiret both appear in both films.",
-   "evidence": [
-    "wikidata:Q599249#P161",
-    "wikidata:Q106482#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Mario Monicelli directing; Ruggero Mastroianni cutting; Tullio Pinelli, Leonardo Benvenuti and Piero De Bernardi writing on both.",
-     "strength": 0.82
-    }
-   ],
-   "aId": "film-dbb9f6ed6835603f",
-   "bId": "film-8a92b88efdeaef75"
   },
   {
    "a": "the great war",
@@ -191683,29 +190818,6 @@
    ],
    "aId": "film-2324f5baedf593ae",
    "bId": "film-0ec931ea392ee7c1"
-  },
-  {
-   "a": "double indemnity",
-   "b": "pardon my past",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Fred MacMurray appears in both films.",
-   "evidence": [
-    "wikidata:Q356309#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "United States, the same moment of each other.",
-     "strength": 0.187
-    }
-   ],
-   "aId": "film-86f2a55159c1b0d5",
-   "bId": "film-685f30f93ce5582c"
   },
   {
    "a": "a serious man",
@@ -213168,34 +212280,6 @@
    "bId": "film-eff66b8617ac7b12"
   },
   {
-   "a": "orchestra rehearsal",
-   "b": "the working class goes to heaven",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Luigi Uzzo appears in both films.",
-   "evidence": [
-    "wikidata:Q3840220#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Ruggero Mastroianni cutting on both.",
-     "strength": 0.46
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Italy, within 7 years of each other.",
-     "strength": 0.205
-    }
-   ],
-   "aId": "film-3d1246f4b0466727",
-   "bId": "film-2d759eb1e7b10a52"
-  },
-  {
    "a": "a thief in paradise",
    "b": "era lui si si",
    "type": "hand",
@@ -223919,34 +223003,6 @@
    ],
    "aId": "film-1dfadc772c37cfc7",
    "bId": "film-fcb818fe06a8cc74"
-  },
-  {
-   "a": "the life and death of colonel blimp",
-   "b": "the battle of the river plate",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Patrick Macnee appears in both films.",
-   "evidence": [
-    "wikidata:Q436719#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Emeric Pressburger and Michael Powell directing; Emeric Pressburger and Michael Powell writing on both.",
-     "strength": 0.82
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are war film.",
-     "strength": 0.267
-    }
-   ],
-   "aId": "film-14270afac5e583dd",
-   "bId": "film-f18ec9a7d6f3d390"
   },
   {
    "a": "the battle of the river plate",
@@ -235300,35 +234356,6 @@
    ],
    "aId": "film-31ae63ac65632c5b",
    "bId": "film-2131685b50833fb7"
-  },
-  {
-   "a": "in the realm of the senses",
-   "b": "empire of passion",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Tatsuya Fuji and Taiji Tonoyama both appear in both films.",
-   "evidence": [
-    "wikidata:Q2384779#P161",
-    "wikidata:Q7676003#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Nagisa Ōshima directing; Nagisa Ōshima writing on both.",
-     "strength": 0.699
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Japan, the same moment of each other.",
-     "strength": 0.212
-    }
-   ],
-   "aId": "film-eda27961223f54a0",
-   "bId": "film-35db29ccfec72b8f"
   },
   {
    "a": "the patriot",
@@ -249166,23 +248193,6 @@
    "also": [],
    "aId": "film-de56704f5d710509",
    "bId": "film-2a7ab58de88c4211"
-  },
-  {
-   "a": "the general",
-   "b": "buster s bedroom",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.588,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Buster Keaton appears in both films.",
-   "evidence": [
-    "wikidata:Q103949#P161"
-   ],
-   "signal": "cast",
-   "also": [],
-   "aId": "film-2a7ab58de88c4211",
-   "bId": "film-f4213fce06e91c68"
   },
   {
    "a": "no country for old men",
@@ -263961,39 +262971,6 @@
    "bId": "film-684b4a07197f574d"
   },
   {
-   "a": "charulata",
-   "b": "mahanagar",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.588,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Madhabi Mukherjee appears in both films.",
-   "evidence": [
-    "wikidata:Q3348898#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Satyajit Ray directing; Subrata Mitra shooting; Dulal Dutta cutting; Satyajit Ray scoring; Satyajit Ray writing on both.",
-     "strength": 0.82
-    },
-    {
-     "signal": "setting",
-     "claim": "Both are set in Kolkata.",
-     "strength": 0.569
-    },
-    {
-     "signal": "countryEra",
-     "claim": "India, the same moment of each other.",
-     "strength": 0.261
-    }
-   ],
-   "aId": "film-6afa987309642745",
-   "bId": "film-684b4a07197f574d"
-  },
-  {
    "a": "subarnarekha",
    "b": "kapurush",
    "type": "hand",
@@ -268014,35 +266991,6 @@
    ],
    "aId": "film-2964a168a89f3b5f",
    "bId": "film-546452910aea3fa4"
-  },
-  {
-   "a": "modern times",
-   "b": "chaplin",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.588,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Paulette Goddard and Charlie Chaplin both appear in both films.",
-   "evidence": [
-    "wikidata:Q95050#P161",
-    "wikidata:Q882#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Charlie Chaplin writing on both.",
-     "strength": 0.44
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are tragicomedy.",
-     "strength": 0.337
-    }
-   ],
-   "aId": "film-1b8d0e86b75c83f1",
-   "bId": "film-2964a168a89f3b5f"
   },
   {
    "a": "modern times",
@@ -272185,40 +271133,6 @@
    ],
    "aId": "film-43055a7d9fb40282",
    "bId": "film-bbadfb5976cf60d7"
-  },
-  {
-   "a": "the exterminating angel",
-   "b": "simon of the desert",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.588,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Silvia Pinal and Claudio Brook both appear in both films.",
-   "evidence": [
-    "wikidata:Q332485#P161",
-    "wikidata:Q1097999#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Luis Buñuel directing; Gabriel Figueroa shooting; Carlos Savage cutting; Raúl Lavista scoring; Luis Buñuel writing on both.",
-     "strength": 0.82
-    },
-    {
-     "signal": "movement",
-     "claim": "Both belong to surrealism.",
-     "strength": 0.602
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Mexico, within 3 years of each other.",
-     "strength": 0.275
-    }
-   ],
-   "aId": "film-43055a7d9fb40282",
-   "bId": "film-0eff827eb06c5d60"
   },
   {
    "a": "viridiana",
@@ -308661,35 +307575,6 @@
    "bId": "film-4dd97a904c64e64d"
   },
   {
-   "a": "the best intentions",
-   "b": "sunday s children",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.576,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Marie Richardson and Lena Endre both appear in both films.",
-   "evidence": [
-    "wikidata:Q167106#P161",
-    "wikidata:Q270559#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Ingmar Bergman writing on both.",
-     "strength": 0.44
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Sweden, the same moment of each other.",
-     "strength": 0.241
-    }
-   ],
-   "aId": "film-94814e16077b7dc9",
-   "bId": "film-798af7d7f1ff46c9"
-  },
-  {
    "a": "stolen kisses",
    "b": "the phantom of liberty",
    "type": "hand",
@@ -309848,23 +308733,6 @@
    "also": [],
    "aId": "film-55cc28c304315706",
    "bId": "film-79932c19b2f9145c"
-  },
-  {
-   "a": "red river",
-   "b": "the misfits",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.576,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Montgomery Clift appears in both films.",
-   "evidence": [
-    "wikidata:Q193102#P161"
-   ],
-   "signal": "cast",
-   "also": [],
-   "aId": "film-809a456ab38bbca0",
-   "bId": "film-55cc28c304315706"
   },
   {
    "a": "i confess",
@@ -318272,29 +317140,6 @@
    "bId": "film-3cee79f102e568f1"
   },
   {
-   "a": "possession",
-   "b": "the story of adele h",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.567,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Isabelle Adjani appears in both films.",
-   "evidence": [
-    "wikidata:Q106383#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "France, within 6 years of each other.",
-     "strength": 0.199
-    }
-   ],
-   "aId": "film-c30267a1dbcbf975",
-   "bId": "film-a96b039f9d83bff1"
-  },
-  {
    "a": "my best fiend",
    "b": "the story of adele h",
    "type": "hand",
@@ -321037,35 +319882,6 @@
    "also": [],
    "aId": "film-91f5a717c1103129",
    "bId": "film-8c055484b6479a0a"
-  },
-  {
-   "a": "private confessions",
-   "b": "the best intentions",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.567,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Pernilla August and Anita Björk both appear in both films.",
-   "evidence": [
-    "wikidata:Q237255#P161",
-    "wikidata:Q237766#P161"
-   ],
-   "signal": "cast",
-   "also": [
-    {
-     "signal": "crew",
-     "claim": "Ingmar Bergman writing on both.",
-     "strength": 0.44
-    },
-    {
-     "signal": "countryEra",
-     "claim": "Sweden, within 4 years of each other.",
-     "strength": 0.241
-    }
-   ],
-   "aId": "film-85c12212579f77ae",
-   "bId": "film-94814e16077b7dc9"
   },
   {
    "a": "in the presence of a clown",
@@ -325829,24 +324645,6 @@
    ],
    "aId": "film-980b3a100277040c",
    "bId": "film-506b76132d82318d"
-  },
-  {
-   "a": "la luna",
-   "b": "oedipus rex",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.559,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Franco Citti and Alida Valli both appear in both films.",
-   "evidence": [
-    "wikidata:Q554430#P161",
-    "wikidata:Q106940#P161"
-   ],
-   "signal": "cast",
-   "also": [],
-   "aId": "film-4687fc61bf4b7065",
-   "bId": "film-0e33ad79dcebb05f"
   },
   {
    "a": "todo modo",
@@ -367198,29 +365996,6 @@
    "bId": "film-2a433a1dec0efa84"
   },
   {
-   "a": "rififi",
-   "b": "le clan des siciliens",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.44,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Auguste Le Breton writing on both.",
-   "evidence": [
-    "wikidata:Q766709#screenwriter"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are heist film.",
-     "strength": 0.312
-    }
-   ],
-   "aId": "film-787a7f192dd6e896",
-   "bId": "film-71a0a3352556a0c1"
-  },
-  {
    "a": "journey into fear",
    "b": "the outlaw",
    "type": "hand",
@@ -375241,39 +374016,6 @@
    ],
    "aId": "film-f96aea2751b500e2",
    "bId": "film-d891faf567dd6d7e"
-  },
-  {
-   "a": "for a few dollars more",
-   "b": "death rides a horse",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.438,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are spaghetti western, made 2 years apart.",
-   "evidence": [
-    "wikidata:Q212781#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "cast",
-     "claim": "Lee Van Cleef appears in both films.",
-     "strength": 0.567
-    },
-    {
-     "signal": "crew",
-     "claim": "Ennio Morricone scoring; Luciano Vincenzoni writing on both.",
-     "strength": 0.512
-    },
-    {
-     "signal": "genre",
-     "claim": "Both are spaghetti western.",
-     "strength": 0.31
-    }
-   ],
-   "aId": "film-338574279486d7e8",
-   "bId": "film-9c07534cf6a61fd6"
   },
   {
    "a": "for a few dollars more",
@@ -388771,29 +387513,6 @@
    "bId": "film-9ba5e2984a5bdddb"
   },
   {
-   "a": "diary of a country priest",
-   "b": "europe 51",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.411,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Both are art film, made a year apart.",
-   "evidence": [
-    "wikidata:Q1135802#P136"
-   ],
-   "signal": "genreEra",
-   "also": [
-    {
-     "signal": "genre",
-     "claim": "Both are art film.",
-     "strength": 0.291
-    }
-   ],
-   "aId": "film-0337c3129e5199b6",
-   "bId": "film-43cfd3fe86dd387c"
-  },
-  {
    "a": "killer of sheep",
    "b": "the ascent",
    "type": "convergence",
@@ -398057,29 +396776,6 @@
    ],
    "aId": "film-ac1e219da6536eba",
    "bId": "film-db599d946b225489"
-  },
-  {
-   "a": "loveless",
-   "b": "the past",
-   "type": "hand",
-   "from": "none",
-   "strength": 0.4,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Evgueni Galperine scoring on both.",
-   "evidence": [
-    "wikidata:Q3061565#composer"
-   ],
-   "signal": "crew",
-   "also": [
-    {
-     "signal": "countryEra",
-     "claim": "France, within 4 years of each other.",
-     "strength": 0.199
-    }
-   ],
-   "aId": "film-d8877e30fd139666",
-   "bId": "film-e556b43b429774b4"
   },
   {
    "a": "playtime",
@@ -471178,23 +469874,6 @@
   },
   {
    "a": "vive l amour",
-   "b": "a confucian confusion",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.275,
-   "confidence": 1,
-   "source": "record",
-   "claim": "Taiwan, the same moment of each other.",
-   "evidence": [
-    "wikidata:Q865#P495"
-   ],
-   "signal": "countryEra",
-   "also": [],
-   "aId": "film-3097d3272dedf27a",
-   "bId": "film-78f63d9d3f5e606a"
-  },
-  {
-   "a": "vive l amour",
    "b": "goodbye south",
    "type": "convergence",
    "from": "none",
@@ -543260,11 +541939,2872 @@
    },
    "aId": "film-0ca8263ee2c53840",
    "bId": "film-b163f70a96c309e0"
+  },
+  {
+   "a": "buster s bedroom",
+   "b": "the general",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Keaton's comedy was a body outlasting the machinery that trapped it; here an admirer makes a pilgrimage to the sanatorium where he was actually strapped into a straitjacket, is put into one herself, and escapes — the gag replayed as biography.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Buster Keaton appears in both films.",
+    "strength": 0.588
+   },
+   "aId": "film-f4213fce06e91c68",
+   "bId": "film-2a7ab58de88c4211"
+  },
+  {
+   "a": "buster s bedroom",
+   "b": "sunset boulevard",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A decaying villa where the finished go on performing their best scenes for each other — a homecoming embrace staged nightly, a wheelchair with nothing wrong under it — and the visitor who arrived as a fan is absorbed into the act.",
+   "source": "reading",
+   "aId": "film-f4213fce06e91c68",
+   "bId": "film-de56704f5d710509"
+  },
+  {
+   "a": "the unbearable lightness of being",
+   "b": "hangmen also die",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Prague reconstructed twice outside Prague: once by émigrés on Hollywood soundstages while the occupation they were describing was still running, once by a film that degrades its own footage until its actors can be matted into the real 1968 newsreel.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "setting",
+    "claim": "Both are set in Prague.",
+    "strength": 0.64
+   },
+   "aId": "film-8f432c7430f2f801",
+   "bId": "film-576f24a8203ee20d"
+  },
+  {
+   "a": "pope francis a man of his word",
+   "b": "the salt of the earth",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "The same rig used twice: the subject looks at the interviewer in a mirror while the camera shoots through it, so a man addresses you straight down the lens with his own images sharing the glass — the photographer standing inside his photographs, the pope inside the poverty he is preaching about.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Wim Wenders directing; Laurent Petitgand scoring; Wim Wenders and David Rosier writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-7b27df3d1df836f7",
+   "bId": "film-a22bf4de03130732"
+  },
+  {
+   "a": "the salt of the earth",
+   "b": "koyaanisqatsi",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Human labour photographed until it turns into pattern — thousands of bodies on ladders in a single pit, crowds sped up until traffic reads as circuitry — and both films are left answering for whether making it beautiful betrays what it shows.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on human in nature, human vs nature and observational documentary.",
+    "strength": 0.708
+   },
+   "aId": "film-a22bf4de03130732",
+   "bId": "film-b8ca4262da0e3d6e"
+  },
+  {
+   "a": "far and away",
+   "b": "heaven s gate",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.38,
+   "claim": "The same decade of European steerage arrivals staged as mass horse choreography across open prairie, and the two films cannot agree what waits at the end of it: a stake driven into your own quarter-section, or a hired army carrying a list with your name on it.",
+   "source": "reading",
+   "aId": "film-5160efe75f6085d0",
+   "bId": "film-ef96363fafcffda2"
+  },
+  {
+   "a": "wild wild west",
+   "b": "once upon a time in the west",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.38,
+   "claim": "Both hand the frontier's destruction to a crippled man carried by his own machinery — a railroad baron hauling himself on crutches toward a painted ocean, an inventor on steam legs driving a mechanical spider — so the villain is the industry, wearing a body it has already ruined.",
+   "source": "reading",
+   "aId": "film-828498cac0d3be42",
+   "bId": "film-61df15f95182eb99"
+  },
+  {
+   "a": "my name is nobody",
+   "b": "the man who shot liberty valance",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "\"Print the legend\" converted into a favour: a young admirer arranges the duel, the photographer and the crowd of witnesses, so the old gunfighter can be dead in the newspapers and alive in a cabin bound for Europe.",
+   "source": "reading",
+   "aId": "film-df40421fe0cb62d3",
+   "bId": "film-b163f70a96c309e0"
+  },
+  {
+   "a": "my name is nobody",
+   "b": "once upon a time in the west",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Fonda's face used a second time as the western's own memory — hired first so the genre's most trustworthy man could shoot a child, brought back here to be walked into retirement by a fan who has memorised his every feat.",
+   "source": "reading",
+   "aId": "film-df40421fe0cb62d3",
+   "bId": "film-61df15f95182eb99"
+  },
+  {
+   "a": "my name is nobody",
+   "b": "unforgiven",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Each stations a besotted chronicler at the aging gunman's elbow — one reciting his hero's kills from memory, one taking them down as dictation — and makes the gap between what happened and what gets written the actual plot.",
+   "source": "reading",
+   "aId": "film-df40421fe0cb62d3",
+   "bId": "film-4d2a5cbd05538326"
+  },
+  {
+   "a": "the house on carroll street",
+   "b": "rear window",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "The neighbour's window as the whole case: she hears an argument she cannot see, no official will believe her, and the film sends her into the house alone — except that she is a picture editor just fired for refusing to name people, so scrutinising strangers is the exact crime she stands accused of.",
+   "source": "reading",
+   "aId": "film-0434f48fc79a1acd",
+   "bId": "film-f9ae84d1e42b25c0"
+  },
+  {
+   "a": "the house on carroll street",
+   "b": "high noon",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.44,
+   "claim": "Two films written by men the blacklist was happening to, arriving at it from opposite ends: one displaces the abandonment into an empty western street, the other opens in the committee room and then makes its witness the only person willing to look at what the country is quietly importing.",
+   "source": "reading",
+   "aId": "film-0434f48fc79a1acd",
+   "bId": "film-2b189aeb53ff9b2e"
+  },
+  {
+   "a": "torment",
+   "b": "the white ribbon",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "The classroom as the place a country's coming cruelty is rehearsed: a disciplinarian shot in hard monochrome as a respectable monster, filmed once in 1944 from inside a country staying out of the war and once in hindsight, about the generation that would fight it.",
+   "source": "reading",
+   "aId": "film-55502563f333ce5f",
+   "bId": "film-11e57b43eb0ebfd6"
+  },
+  {
+   "a": "torment",
+   "b": "the 400 blows",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "School filmed as a custodial institution with one adult who visibly enjoys the work, and an ending that simply puts the boy outside in open air with nothing arranged for him and nobody following.",
+   "source": "reading",
+   "aId": "film-55502563f333ce5f",
+   "bId": "film-9b82ad7002e6f006"
+  },
+  {
+   "a": "a canterbury tale",
+   "b": "2001 a space odyssey",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "A falcon loosed above the old pilgrims' road becomes, in one frame, a Spitfire in the same patch of sky — six centuries crossed in a single edit, twenty-four years before Kubrick made the same cut with a thrown bone.",
+   "source": "reading",
+   "aId": "film-8fc409c160b87ffd",
+   "bId": "film-5fa1f80cb8a5cb71"
+  },
+  {
+   "a": "a canterbury tale",
+   "b": "a matter of life and death",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Two wartime films whose entire apparatus — a pilgrimage, a celestial courtroom — exists to argue one American serviceman into belonging in an English landscape, with the blessing delivered as the last reel's business.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Emeric Pressburger and Michael Powell directing; Allan Gray scoring; Michael Powell writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-8fc409c160b87ffd",
+   "bId": "film-270998905554536a"
+  },
+  {
+   "a": "a dangerous toy",
+   "b": "taxi driver",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "A solitary man acquires a pistol, discovers he is unexpectedly good with it, kills someone in a public room and is briefly made a hero by the newspapers — and both films treat the applause as the worst thing that happens to him.",
+   "source": "reading",
+   "aId": "film-d9b405b480df93ac",
+   "bId": "film-8c003caa91602c8d"
+  },
+  {
+   "a": "the past",
+   "b": "a separation",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "The same engine moved to a Paris suburb: no villain anywhere, a chain of people each surrendering one more piece, every confession making the previous account wrong, and the question of who sent the message answered three times before it stops moving.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Asghar Farhadi directing; Mahmoud Kalari shooting; Asghar Farhadi writing on both.",
+    "strength": 0.804
+   },
+   "aId": "film-e556b43b429774b4",
+   "bId": "film-9415f62008f4b509"
+  },
+  {
+   "a": "the past",
+   "b": "loveless",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "A divorce filmed as property and paperwork — a flat being emptied, a signature pending — with the child who has been listening at the door as the only real casualty, and neither film granting the parents a scene of remorse.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Evgueni Galperine scoring on both.",
+    "strength": 0.4
+   },
+   "aId": "film-e556b43b429774b4",
+   "bId": "film-d8877e30fd139666"
+  },
+  {
+   "a": "the palace",
+   "b": "and the ship sails on",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "A sealed luxury vessel packed with grotesques on the last night before the century turns over — a funeral cruise in July 1914, a New Year's party in December 1999 — with the staff sprinting below decks while the guests fail to notice what is arriving.",
+   "source": "reading",
+   "aId": "film-cf20a4353787a4a9",
+   "bId": "film-6b4bdd7ff392594c"
+  },
+  {
+   "a": "the palace",
+   "b": "the trouble with harry",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "A corpse demoted to a scheduling problem: the body has to be kept unnoticed and in the correct posture until a legal hour has passed, and the entire comedy is the logistics of moving it past people who must not see it.",
+   "source": "reading",
+   "aId": "film-cf20a4353787a4a9",
+   "bId": "film-78d0611ca7d6b716"
+  },
+  {
+   "a": "and the ship sails on",
+   "b": "fitzcarraldo",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.48,
+   "claim": "Opera loaded onto a boat and carried where it does not belong, twice within a year and by opposite ethics: one hauls a real steamship over a real hill, the other floats on sheets of plastic and shows you the hydraulic jacks in its final shot.",
+   "source": "reading",
+   "aId": "film-6b4bdd7ff392594c",
+   "bId": "film-e934984f9a1f9714"
+  },
+  {
+   "a": "and the ship sails on",
+   "b": "man with a movie camera",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "The film halts and shows you its own machinery — the ocean revealed as plastic, the ship rocking on jacks, a camera filming the camera — after spending its whole length asking to be believed.",
+   "source": "reading",
+   "aId": "film-6b4bdd7ff392594c",
+   "bId": "film-bd3371b7eed1762b"
+  },
+  {
+   "a": "the desert of the tartars",
+   "b": "beau travail",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "A garrison drilling at the edge of a desert against an enemy that never comes, where the ritual of readiness becomes the men's entire content and the real subject is what waiting does to a body over years.",
+   "source": "reading",
+   "aId": "film-8b2fbdf804d178d3",
+   "bId": "film-9f2cdf84069d6b8f"
+  },
+  {
+   "a": "no direction home",
+   "b": "dont look back",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "One camera is in the hotel room in 1965 and never asks a question; the other is assembled four decades later out of that same tour footage, cut against the man at sixty finally sitting down to answer — the same face at both ends of the edit.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Allen Ginsberg and Bob Dylan both appear in both films.",
+    "strength": 0.6
+   },
+   "aId": "film-83553894cba61bf7",
+   "bId": "film-69038b37aad1dd0a"
+  },
+  {
+   "a": "no direction home",
+   "b": "the last waltz",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "The farewell concert built as a lit set with a borrowed opera backdrop and cameras placed by name cinematographers, answered by the same director with a portrait that films no performance at all and lives entirely off what other people's cameras happened to catch.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Martin Scorsese directing on both.",
+    "strength": 0.62
+   },
+   "aId": "film-83553894cba61bf7",
+   "bId": "film-8f68b8c994813ef6"
+  },
+  {
+   "a": "enjo",
+   "b": "the sacrifice",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "A man sets fire to the most beautiful thing he has access to, and the film stages the arson as a devotional act rather than a crime — the blaze is the only prayer either character has left.",
+   "source": "reading",
+   "aId": "film-7bbbfbe580af2aa9",
+   "bId": "film-bbdd00b22850f5e1"
+  },
+  {
+   "a": "enjo",
+   "b": "first reformed",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "A servant of the temple whose faith curdles into a plan against the building that houses it, filmed in still centred frames that leave the architecture holding all the power in the room.",
+   "source": "reading",
+   "aId": "film-7bbbfbe580af2aa9",
+   "bId": "film-214e6250fe6a1418"
+  },
+  {
+   "a": "empire of light",
+   "b": "the last picture show",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "A picture house standing in for the town around it — the screen still running, the upper floors shut and full of pigeons — and the staff more marooned in the place than any customer.",
+   "source": "reading",
+   "aId": "film-aa8c5d46b38122a2",
+   "bId": "film-284507b07fc8496c"
+  },
+  {
+   "a": "the misfits",
+   "b": "red river",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "The same young actor put back on a horse thirteen years later: the cattle drive that founded the country restaged as three men in a flatbed truck and a spotter plane running down six exhausted mustangs to be sold for dog food.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Montgomery Clift appears in both films.",
+    "strength": 0.576
+   },
+   "aId": "film-55cc28c304315706",
+   "bId": "film-809a456ab38bbca0"
+  },
+  {
+   "a": "the misfits",
+   "b": "junior bonner",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "The modern West as leftover work: men who can still do a thing nobody needs done any more, filmed in towns that have turned the last of their skill into a weekend event with a ticket price.",
+   "source": "reading",
+   "aId": "film-55cc28c304315706",
+   "bId": "film-5f59fa15540267fb"
+  },
+  {
+   "a": "destiny",
+   "b": "the seventh seal",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "Death arrives as a courteous functionary who explains the terms, and the film is one person's attempt to buy back a single life under rules that turn out to be administrative rather than moral.",
+   "source": "reading",
+   "aId": "film-7532357c8130bbdb",
+   "bId": "film-8a72905b03c0d812"
+  },
+  {
+   "a": "destiny",
+   "b": "intolerance",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Griffith cross-cut four centuries into one climax; Lang takes the same argument and runs the eras end to end instead, recasting the same pair of lovers in Baghdad, Venice and China so the point lands by repetition rather than by editing.",
+   "source": "reading",
+   "aId": "film-7532357c8130bbdb",
+   "bId": "film-83a59c39140cc724"
+  },
+  {
+   "a": "destiny",
+   "b": "a matter of life and death",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "A single life formally appealed in the afterlife's own offices: the bereaved is granted a hearing, given conditions and made to argue the case — the beyond imagined as a department with procedures rather than as a mystery.",
+   "source": "reading",
+   "aId": "film-7532357c8130bbdb",
+   "bId": "film-270998905554536a"
+  },
+  {
+   "a": "halloween ii",
+   "b": "halloween",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "The sequel resumes in the minute the first one ended and moves the night indoors into a half-staffed hospital, so wide suburban streets become corridors — and the shape the original deliberately refused to explain is handed a sister and a motive.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Dean Cundey shooting; John Carpenter scoring; John Carpenter and Debra Hill writing on both.",
+    "strength": 0.81
+   },
+   "aId": "film-c84080cb2d6c7973",
+   "bId": "film-236c9366ec0b992c"
+  },
+  {
+   "a": "before the devil knows you re dead",
+   "b": "dog day afternoon",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "A robbery played out across one public afternoon with a crowd on the pavement cheering the robber, answered thirty years later by the same director with a robbery that fails in ninety seconds and is then taken apart backwards, in private, one family member at a time.",
+   "source": "reading",
+   "aId": "film-ff6244e04fde838e",
+   "bId": "film-7dc49bad297da2ae"
+  },
+  {
+   "a": "before the devil knows you re dead",
+   "b": "the killing",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The job is over inside the first ten minutes and the film then rewinds it once per participant, each pass supplying what the last one withheld, until the botched robbery is explained entirely by the family that planned it.",
+   "source": "reading",
+   "aId": "film-ff6244e04fde838e",
+   "bId": "film-5241b27dd10c54c4"
+  },
+  {
+   "a": "a story of floating weeds",
+   "b": "floating weeds",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.75,
+   "confidence": 0.55,
+   "claim": "Ozu shot his own film again twenty-five years later in colour and sound, and the difference sits in one scene: the quarrel the silent version keeps indoors is moved out into falling rain, the couple shouting from opposite sides of a village street and never once sharing a frame.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on family abandonment, unknown father and woman scorned.",
+    "strength": 0.74
+   },
+   "aId": "film-6ed4339001fc480a",
+   "bId": "film-7fc7e2b48fc73faa"
+  },
+  {
+   "a": "a story of floating weeds",
+   "b": "i was born but",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two years apart, the same discovery staged twice: a boy's picture of his father collapses — once as comedy, watching him clown for his boss, once as ruin, learning that the uncle who visits is the man who left.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Yasujirō Ozu directing; Hideo Shigehara shooting; Hideo Shigehara cutting; Yasujirō Ozu writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-6ed4339001fc480a",
+   "bId": "film-d1849d058b4e5f2c"
+  },
+  {
+   "a": "mahanagar",
+   "b": "charulata",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The same actress placed on either side of one threshold: a wife watching the street through opera glasses from a shuttered house, and a wife out in that street with a sample case — each marriage measured by exactly how much she is permitted to see.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Madhabi Mukherjee appears in both films.",
+    "strength": 0.588
+   },
+   "aId": "film-684b4a07197f574d",
+   "bId": "film-6afa987309642745"
+  },
+  {
+   "a": "mahanagar",
+   "b": "when a woman ascends the stairs",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Two early-sixties films that make a woman's working day a series of thresholds crossed in public — a staircase climbed every evening, a stranger's door knocked on every morning — and price her competence against her respectability at each one.",
+   "source": "reading",
+   "aId": "film-684b4a07197f574d",
+   "bId": "film-1cca0ef0fab367b2"
+  },
+  {
+   "a": "liza",
+   "b": "the woman in the dunes",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two people sealed into a place with no way off, where the arrangement forced on them stops being a captivity and becomes the only relationship either of them still wants.",
+   "source": "reading",
+   "aId": "film-0d139b0fce73829f",
+   "bId": "film-e7232289b8035cb7"
+  },
+  {
+   "a": "liza",
+   "b": "au hasard balthazar",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The animal is the only uncomplicated attachment on screen and the exact measure of everyone handling it; the moment it is killed for being loved more than they are, the film stops being a romance.",
+   "source": "reading",
+   "aId": "film-0d139b0fce73829f",
+   "bId": "film-6cfb4f00a7b53e68"
+  },
+  {
+   "a": "the story of adele h",
+   "b": "letter from an unknown woman",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "A whole life organised around a man who barely registers her, and handed to us as her own writing — a letter, a journal kept partly in cipher — so the film is her account of a love that only ever had one participant.",
+   "source": "reading",
+   "aId": "film-a96b039f9d83bff1",
+   "bId": "film-075a835c37bca62a"
+  },
+  {
+   "a": "the story of adele h",
+   "b": "possession",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The same actress used twice as a body that cannot contain its own feeling: one film keeps her in lamplit rooms writing the obsession down in a private code, the other lets it out into a subway corridor as pure physical convulsion.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Isabelle Adjani appears in both films.",
+    "strength": 0.567
+   },
+   "aId": "film-a96b039f9d83bff1",
+   "bId": "film-c30267a1dbcbf975"
+  },
+  {
+   "a": "invincible",
+   "b": "the enigma of kaspar hauser",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Herzog casts for what a person actually is rather than what they can play — a genuine world's-strongest-man, a man raised inside institutions — so a good part of each performance is simply a body being itself in front of a lens.",
+   "source": "reading",
+   "aId": "film-c906666706c0921b",
+   "bId": "film-1cb243ede6ca141a"
+  },
+  {
+   "a": "like father like son",
+   "b": "shoplifters",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "The blood tie interrogated from the comfortable side, where a father can afford to choose between the son he raised and the son he made — answered by a household with no legal claim to any of its members, whose only real crime is having chosen each other.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Hirokazu Koreeda directing; Hirokazu Koreeda cutting; Hirokazu Koreeda writing on both.",
+    "strength": 0.782
+   },
+   "aId": "film-47268c5cf5838fc4",
+   "bId": "film-23b02de506f50794"
+  },
+  {
+   "a": "francesco",
+   "b": "the flowers of st francis",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "Rossellini cast actual friars and played the saint's life as a string of sunlit comic parables; Cavani answers with mud, illness and a body going wrong, so holiness registers as damage.",
+   "source": "reading",
+   "aId": "film-ab971c78c4e58de1",
+   "bId": "film-91b83f990906c248"
+  },
+  {
+   "a": "francesco",
+   "b": "europe 51",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.5,
+   "claim": "The same scandal in two centuries: someone rich gives everything away and the family reaches not for admiration but for a doctor — one stripped in the square by his cloth-merchant father, the other signed into an asylum by her industrialist husband.",
+   "source": "reading",
+   "aId": "film-ab971c78c4e58de1",
+   "bId": "film-43cfd3fe86dd387c"
+  },
+  {
+   "a": "francesco",
+   "b": "andrei rublev",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The medieval century filmed for its cold, its mud and its untreated wounds, with the transcendent moment withheld so long that when it arrives it can only be read as something that happened to a body.",
+   "source": "reading",
+   "aId": "film-ab971c78c4e58de1",
+   "bId": "film-d946b6c8aa019363"
+  },
+  {
+   "a": "simon of the desert",
+   "b": "ordet",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.5,
+   "claim": "Dreyer stages his resurrection with total gravity and dares you to accept it; Buñuel grants his stylite a miracle and has the man whose hands are restored use them, in the next shot, to cuff his child.",
+   "source": "reading",
+   "aId": "film-0eff827eb06c5d60",
+   "bId": "film-a3438eff633b46be"
+  },
+  {
+   "a": "simon of the desert",
+   "b": "the exterminating angel",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Buñuel's trap twice, and neither time is it sprung: guests who cannot walk out of a drawing room, an ascetic who cannot come down off his pillar — and both films end by moving the confinement somewhere new, into a cathedral, into a Manhattan nightclub.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Silvia Pinal and Claudio Brook both appear in both films.",
+    "strength": 0.588
+   },
+   "aId": "film-0eff827eb06c5d60",
+   "bId": "film-43055a7d9fb40282"
+  },
+  {
+   "a": "europe 51",
+   "b": "the passion of joan of arc",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.5,
+   "claim": "A woman set in front of a panel of law, medicine and the church and required to account for her charity in their vocabulary; she will not, and the panel decides what she is instead.",
+   "source": "reading",
+   "aId": "film-43cfd3fe86dd387c",
+   "bId": "film-5399e9c274a6a055"
+  },
+  {
+   "a": "europe 51",
+   "b": "the flowers of st francis",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.5,
+   "claim": "Rossellini moved the saint's life out of the thirteenth century and into post-war Rome: the same string of small unexplained charities, except that the world which cannot classify her does not laugh at her, it certifies her.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Roberto Rossellini directing; Jolanda Benvenuti cutting; Renzo Rossellini scoring; Federico Fellini and Brunello Rondi writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-43cfd3fe86dd387c",
+   "bId": "film-91b83f990906c248"
+  },
+  {
+   "a": "europe 51",
+   "b": "diary of a country priest",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Sanctity treated as a medical problem — the institutions around a person's charity reaching for a diagnosis, and neither film supplying a miracle that would overrule them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are art film, made a year apart.",
+    "strength": 0.411
+   },
+   "aId": "film-43cfd3fe86dd387c",
+   "bId": "film-0337c3129e5199b6"
+  },
+  {
+   "a": "danton",
+   "b": "the confession",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.48,
+   "claim": "A revolution putting its own founder in the dock with the verdict settled in a committee room before the hearing opens — one accused shouts over the court until it changes its rules, the other is worn down into reciting the script.",
+   "source": "reading",
+   "aId": "film-0800378feff4f3a0",
+   "bId": "film-f0038c919e1b8477"
+  },
+  {
+   "a": "danton",
+   "b": "ashes and diamonds",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "Wajda's recurring bet: the doomed man gets the appetite, the noise and the warm rooms, while the side that wins is filmed as thin, cold and correct — a partisan dying on a rubbish heap, then a Danton eating and shouting his way to the scaffold.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Andrzej Wajda directing; Andrzej Wajda writing on both.",
+    "strength": 0.699
+   },
+   "aId": "film-0800378feff4f3a0",
+   "bId": "film-30a45089821ea7c0"
+  },
+  {
+   "a": "doubt",
+   "b": "winter light",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Bergman empties the pews around a pastor who has stopped believing; here a nun is given total conviction on no evidence at all, drives the priest out of the parish with it, and is allowed her doubt only in the last line.",
+   "source": "reading",
+   "aId": "film-ae0c36bcc499499a",
+   "bId": "film-fc4cb1847923a631"
+  },
+  {
+   "a": "doubt",
+   "b": "anatomy of a fall",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "A case assembled entirely out of domestic detail — who kept whose shirt, what was on whose breath, which door stood open — by a film that then declines to say whether the detail meant anything, leaving you holding a verdict you have already formed.",
+   "source": "reading",
+   "aId": "film-ae0c36bcc499499a",
+   "bId": "film-9bc7c323ebc986b1"
+  },
+  {
+   "a": "the best intentions",
+   "b": "private confessions",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.6,
+   "claim": "Not two roles but one woman: Pernilla August plays Bergman's mother in both, so the marriage being contracted in one film is the marriage being confessed out of in the other, carried across two directors neither of whom is the son who wrote them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Pernilla August and Anita Björk both appear in both films.",
+    "strength": 0.567
+   },
+   "aId": "film-94814e16077b7dc9",
+   "bId": "film-85c12212579f77ae"
+  },
+  {
+   "a": "the best intentions",
+   "b": "fanny and alexander",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "Bergman had already filmed the severe clergyman as a fairy-tale ogre; here he writes that man's youth for another director — a poor theology student marrying above himself — and grants him the sympathy his own film withheld.",
+   "source": "reading",
+   "aId": "film-94814e16077b7dc9",
+   "bId": "film-f78cde56303f5054"
+  },
+  {
+   "a": "the best intentions",
+   "b": "sunday s children",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.5,
+   "claim": "The same marriage before and after, from two Bergman scripts filmed the same year by two other hands: the courtship of his parents in one, and in the other a day alone with that father seen from the child's seat, the man already unreachable.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Marie Richardson and Lena Endre both appear in both films.",
+    "strength": 0.576
+   },
+   "aId": "film-94814e16077b7dc9",
+   "bId": "film-798af7d7f1ff46c9"
+  },
+  {
+   "a": "tricheurs",
+   "b": "bob le flambeur",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The casino approached as a machine with a solvable fault — a wheel rigged by radio, a safe timed to the hour — by people whose actual problem is that solving it does not touch the appetite that made them try.",
+   "source": "reading",
+   "aId": "film-b5694c0418f2360e",
+   "bId": "film-2a433a1dec0efa84"
+  },
+  {
+   "a": "tricheurs",
+   "b": "l argent",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "Money as the film's real protagonist: a forged note passed from hand to hand until it has produced a murderer, a stake pushed round a wheel until it has produced two cheats, the person in each case a by-product of the transaction.",
+   "source": "reading",
+   "aId": "film-b5694c0418f2360e",
+   "bId": "film-d0ab75998cc0891b"
+  },
+  {
+   "a": "the music man",
+   "b": "yojimbo",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "A stranger arrives in a town with nothing to sell but a problem he has invented, works both halves of it and takes his fee out of the panic — one manufactures a gang war, the other a moral emergency about a pool table.",
+   "source": "reading",
+   "aId": "film-9f6dd92eea385403",
+   "bId": "film-45a822bc1230d52c"
+  },
+  {
+   "a": "the music man",
+   "b": "f for fake",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The fraud that works because the audience needs it to: a bandmaster who cannot read music teaching a town to hear a march nobody is playing, and an essay film that admits mid-flow it has been lying and asks you to enjoy the swindle anyway.",
+   "source": "reading",
+   "aId": "film-9f6dd92eea385403",
+   "bId": "film-789e58570a7a3310"
+  },
+  {
+   "a": "the battle of the river plate",
+   "b": "the life and death of colonel blimp",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.5,
+   "claim": "The same team's insistence on the decent enemy, thirteen years on: the German officer who carried the earlier film's moral weight becomes a Kriegsmarine captain filmed so respectfully that the Royal Navy's closing line is a compliment to him.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Patrick Macnee appears in both films.",
+    "strength": 0.6
+   },
+   "aId": "film-f18ec9a7d6f3d390",
+   "bId": "film-14270afac5e583dd"
+  },
+  {
+   "a": "bridge of spies",
+   "b": "the battle of the river plate",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Both hand the last act to a rule rather than a weapon — neutrality law, a prisoner-exchange protocol — and both reserve their warmest gesture for the enemy officer who behaves better than the side that sent him.",
+   "source": "reading",
+   "aId": "film-eaa72a6fb1f1c8dc",
+   "bId": "film-f18ec9a7d6f3d390"
+  },
+  {
+   "a": "bridge of spies",
+   "b": "harakiri",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The rulebook used as the weapon: a lawyer who makes his own government honour a warrant it would rather skip, and a masterless samurai who makes a great house perform its own code to the letter until the house cannot survive it.",
+   "source": "reading",
+   "aId": "film-eaa72a6fb1f1c8dc",
+   "bId": "film-c52ebc979fdb3fca"
+  },
+  {
+   "a": "confidentially yours",
+   "b": "the last metro",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.55,
+   "claim": "Truffaut ran the same machine twice in three years: the man shut inside the building he owns while the woman who works for him goes out and does everything in the world above — a theatre cellar under the Occupation, then an estate agency in a murder case.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "François Truffaut directing; Néstor Almendros shooting; Martine Barraqué cutting; Georges Delerue scoring; François Truffaut and Suzanne Schiffman writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-e004546cf4cc89e3",
+   "bId": "film-a408e1e22826cfe4"
+  },
+  {
+   "a": "confidentially yours",
+   "b": "the maltese falcon",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The private-eye picture with the private eye taken out of it: the suspect hides in his own office while his secretary does the walking, the questioning and the deducing, shot in the same wet monochrome the genre reserved for the man.",
+   "source": "reading",
+   "aId": "film-e004546cf4cc89e3",
+   "bId": "film-6a85c855dcf66303"
+  },
+  {
+   "a": "mata hari agent h 21",
+   "b": "notorious",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The woman assigned to sleep with the enemy as national service and then held responsible for having done it — one carried out of the house at the last possible moment, the other walked to a firing squad.",
+   "source": "reading",
+   "aId": "film-7f5495fc9a406941",
+   "bId": "film-c957b5b254b828b6"
+  },
+  {
+   "a": "the five man army",
+   "b": "seven samurai",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The recruitment structure exported twice over and still visible underneath: five specialists introduced one demonstration at a time for a job in the Mexican Revolution, and the fifth of them is a silent Japanese blade man.",
+   "source": "reading",
+   "aId": "film-5871803c81a720c3",
+   "bId": "film-c07c730f2c279772"
+  },
+  {
+   "a": "the five man army",
+   "b": "the wild bunch",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Two 1969 westerns in which American professionals hire out to the Mexican Revolution and end by throwing the payday away — one in a suicidal charge for a comrade, the other by handing over the whole gold train and riding out unpaid.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "subject",
+    "claim": "Both are about Mexican Revolution.",
+    "strength": 0.674
+   },
+   "aId": "film-5871803c81a720c3",
+   "bId": "film-de08f10c6bd02bb4"
+  },
+  {
+   "a": "rob roy",
+   "b": "the duellists",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "The duel as class argument rather than climax: a schooled English rapier against a broadsword's weight, settled when the worse technician takes the blade in his bare hand — and elsewhere, fifteen years of impeccable fencing etiquette between two men who cannot remember what began it.",
+   "source": "reading",
+   "aId": "film-8e43dfcc46264484",
+   "bId": "film-362e108f5d530b58"
+  },
+  {
+   "a": "rob roy",
+   "b": "barry lyndon",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.42,
+   "claim": "The eighteenth century as a credit system in which a man's word and his manners are the only collateral available, and the violence is what happens when a gentleman calls the loan in.",
+   "source": "reading",
+   "aId": "film-8e43dfcc46264484",
+   "bId": "film-62be1926183a041e"
+  },
+  {
+   "a": "the savage innocents",
+   "b": "nanook of the north",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.48,
+   "claim": "Flaherty's instructional patience — the seal hunt, the shelter built in real time, the food divided by rule — carried whole into colour fiction, with the crisis arriving when a missionary refuses the hospitality the film has just taught you to read.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on harpoon, inuit and walrus.",
+    "strength": 0.74
+   },
+   "aId": "film-6a1eff5331ce88e4",
+   "bId": "film-6e1fb6c3413a2315"
+  },
+  {
+   "a": "the savage innocents",
+   "b": "dersu uzala",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The wilderness man filmed as an expert rather than a curiosity, his weather and shelter and hunting shown as technique you could learn, and then measured against an official world whose law has no category for any of it.",
+   "source": "reading",
+   "aId": "film-6a1eff5331ce88e4",
+   "bId": "film-6b5ff3d9271e6e01"
+  },
+  {
+   "a": "orchestra rehearsal",
+   "b": "the working class goes to heaven",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Italian cinema of the same few years staging the workplace as the entire political world — a factory line, a rehearsal room — with a union that turns up and makes things worse, and both films ending with the worker back at his bench.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Luigi Uzzo appears in both films.",
+    "strength": 0.6
+   },
+   "aId": "film-3d1246f4b0466727",
+   "bId": "film-2d759eb1e7b10a52"
+  },
+  {
+   "a": "orchestra rehearsal",
+   "b": "8",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Fellini's man in charge, twice: a director herding a crowd who all want something from him into a ring, a conductor barking his players back into line — and in both the revolt is where the film comes alive and the restored authority is the ending nobody trusts.",
+   "source": "reading",
+   "aId": "film-3d1246f4b0466727",
+   "bId": "film-7a9d4766d8a7c523"
+  },
+  {
+   "a": "the river",
+   "b": "harlan county usa",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.48,
+   "claim": "The picket line filmed from the wrong side: a documentary that stands with the strikers and their guns, answered by a drama that puts its farmer in among the strikebreakers and asks you to keep rooting for him while the two lines look each other over.",
+   "source": "reading",
+   "aId": "film-cc2cece6dc7499f2",
+   "bId": "film-3af6b623f97a58a7"
+  },
+  {
+   "a": "pardon my past",
+   "b": "double indemnity",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.45,
+   "claim": "Fred MacMurray's salesman affability used twice inside a year: it talks a woman into killing her husband in one film and a rich family into believing he is their son in the other, and the manner does not shift by a hair between them.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Fred MacMurray appears in both films.",
+    "strength": 0.6
+   },
+   "aId": "film-685f30f93ce5582c",
+   "bId": "film-86f2a55159c1b0d5"
+  },
+  {
+   "a": "pardon my past",
+   "b": "kagemusha",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.36,
+   "claim": "The impostor who does the job better than the man he stands in for — a household that prefers the heir it has been handed, a war camp that prefers the thief — so the discovery is less about the double than about how little the position needed the original.",
+   "source": "reading",
+   "aId": "film-685f30f93ce5582c",
+   "bId": "film-e5333b9cf04f70f5"
+  },
+  {
+   "a": "memoirs of an invisible man",
+   "b": "the conversation",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Two San Francisco men who arranged their lives to leave no trace, no family and nobody who would report them missing, then find the trace is the only thing anyone wants: one tears his own apartment apart hunting a bug, the other watches rain draw his outline.",
+   "source": "reading",
+   "aId": "film-aaff28570a8eaf3e",
+   "bId": "film-ea3bf3710b5467be"
+  },
+  {
+   "a": "memoirs of an invisible man",
+   "b": "a ghost story",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "Invisibility taken as a social fact rather than an effect: a man standing in rooms where his own life carries on without him, with the joke and the grief working off the identical discovery that nobody is looking.",
+   "source": "reading",
+   "aId": "film-aaff28570a8eaf3e",
+   "bId": "film-d4711c32b7c09cd1"
+  },
+  {
+   "a": "melinda and melinda",
+   "b": "crimes and misdemeanors",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.5,
+   "claim": "Allen ran the braid twice: one film cuts a murder plot against a comic one and lets them meet for a minute at a wedding, the other puts the device on screen with two playwrights at a table arguing the same premise into tragedy and into farce.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Woody Allen directing; Woody Allen writing on both.",
+    "strength": 0.699
+   },
+   "aId": "film-91abde79b11f4f81",
+   "bId": "film-a32c726f1b598f6e"
+  },
+  {
+   "a": "melinda and melinda",
+   "b": "blind chance",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "One premise run repeatedly with the same person at its centre, the branch point political in one film and purely tonal in the other, and neither version offered as the true one.",
+   "source": "reading",
+   "aId": "film-91abde79b11f4f81",
+   "bId": "film-6bcdbcd5115b83a4"
+  },
+  {
+   "a": "melinda and melinda",
+   "b": "rashomon",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.55,
+   "confidence": 0.38,
+   "claim": "Retellings in which the facts never move and only the genre does, so the disagreement stops being about what happened and becomes an argument about whether it is funny.",
+   "source": "reading",
+   "aId": "film-91abde79b11f4f81",
+   "bId": "film-08a33cc704c1fa09"
+  },
+  {
+   "a": "holy smoke",
+   "b": "the piano",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.66,
+   "confidence": 0.5,
+   "claim": "Campion's transaction run again: a man sets the terms of an arrangement over a woman and the film hands her the leverage one item at a time — piano keys traded for skin in one, a deprogramming that ends with the counsellor in a red dress in the desert in the other.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Jane Campion directing; Veronika Jenet cutting; Jane Campion writing on both.",
+    "strength": 0.782
+   },
+   "aId": "film-b541becd03acc545",
+   "bId": "film-a2047cf7eea6cfee"
+  },
+  {
+   "a": "holy smoke",
+   "b": "the master",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "The session as the film's central form — one person putting another through repeated processing designed to install or remove a belief — with both films arriving at the conclusion that the examiner is the more dependent of the two.",
+   "source": "reading",
+   "aId": "film-b541becd03acc545",
+   "bId": "film-fc9860e788f98a8c"
+  },
+  {
+   "a": "chaplin",
+   "b": "citizen kane",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "The biopic borrowing Kane's frame in order to admit what it is: an old man in a lakeside house pressed by an editor invented for the film about everything the memoir left out, so the life arrives as something its subject is still selling.",
+   "source": "reading",
+   "aId": "film-2964a168a89f3b5f",
+   "bId": "film-8ea89ccf112a80c2"
+  },
+  {
+   "a": "chaplin",
+   "b": "modern times",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The film's real stunt is re-performance — an actor rebuilding the routines gesture for gesture, with the last reel handed over to the original footage, so the comparison it cannot possibly win is the one it keeps requesting.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Paulette Goddard and Charlie Chaplin both appear in both films.",
+    "strength": 0.588
+   },
+   "aId": "film-2964a168a89f3b5f",
+   "bId": "film-1b8d0e86b75c83f1"
+  },
+  {
+   "a": "unbroken",
+   "b": "come and see",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "Two films made almost entirely of one body absorbing punishment: this one counts the ordeals like laps — days adrift, beatings taken, a beam held overhead — and delivers a record broken, where the other lets a boy's face age past reading and keeps no tally at all.",
+   "source": "reading",
+   "aId": "film-ea9e0f5031867b0f",
+   "bId": "film-11bf4a64440c2179"
+  },
+  {
+   "a": "unbroken",
+   "b": "schindler s list",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.45,
+   "claim": "Both close by handing the film over to the record itself — survivors filed past a grave, then photographs and captions of the real man's later life — so the last feeling the audience is given comes from documents rather than from the drama.",
+   "source": "reading",
+   "aId": "film-ea9e0f5031867b0f",
+   "bId": "film-416a8b6296479122"
+  },
+  {
+   "a": "my neighbors the yamadas",
+   "b": "the tale of the princess kaguya",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.72,
+   "confidence": 0.6,
+   "claim": "The Ghibli line dissolved here first: watercolour washes that stop short of the frame's edge and leave the paper showing, tried out on a newspaper-strip family and then pushed to charcoal, blank space and a folk tale fourteen years later.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Isao Takahata directing; Isao Takahata writing on both.",
+    "strength": 0.699
+   },
+   "aId": "film-7966e084559dbc85",
+   "bId": "film-c86de4c46707471e"
+  },
+  {
+   "a": "my neighbors the yamadas",
+   "b": "grave of the fireflies",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.64,
+   "confidence": 0.48,
+   "claim": "The same hand that filmed two children starving in the ruins turned to a household whose emergencies are a lost bicycle, a wedding speech and the television remote, and refused it a plot at all — the whole thing staged as gags on white paper.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Isao Takahata directing; Takeshi Seyama cutting; Isao Takahata writing on both.",
+    "strength": 0.782
+   },
+   "aId": "film-7966e084559dbc85",
+   "bId": "film-59d7881beb15389a"
+  },
+  {
+   "a": "black moon",
+   "b": "valerie and her week of wonders",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "A girl's adolescence staged as folk dream — talking animals, a house of predatory adults, a rule-set the film never states — and shot in plain daylight, so nothing is ever marked as the unreal part.",
+   "source": "reading",
+   "aId": "film-3d689669d8e64de8",
+   "bId": "film-ef872409fab0023b"
+  },
+  {
+   "a": "black moon",
+   "b": "the night of the hunter",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "A child fleeing adult violence across a landscape that stops obeying realism, arriving at a farm where an old woman keeps animals and stray children together like an ark.",
+   "source": "reading",
+   "aId": "film-3d689669d8e64de8",
+   "bId": "film-7d58f0e4169f16f7"
+  },
+  {
+   "a": "the war is over",
+   "b": "last year at marienbad",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.5,
+   "claim": "Resnais turned his own conditional montage around: where the earlier film cut away to a past that may never have happened, this one cuts forward to what has not happened yet, imagining a woman he has never met as three different women before he reaches her door.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Alain Resnais directing; Sacha Vierny shooting on both.",
+    "strength": 0.724
+   },
+   "aId": "film-94db7277c3a0ab3d",
+   "bId": "film-6c82e7a63c94339a"
+  },
+  {
+   "a": "the war is over",
+   "b": "the battle of algiers",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "Two 1966 films about an underground cell — one shot in the streets as an insurrection that works, one in Paris flats where the same forged papers and safe-house discipline have hardened into a career, twenty-seven years after the war they belong to was lost.",
+   "source": "reading",
+   "aId": "film-94db7277c3a0ab3d",
+   "bId": "film-387d8fb9b0af8032"
+  },
+  {
+   "a": "la luna",
+   "b": "autumn sonata",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "The performing mother put in front of her child: a pianist made to sit through her daughter playing the same prelude, an opera singer teaching her son to sing while he is coming off heroin — in both, the music is the only channel she has and the child knows it.",
+   "source": "reading",
+   "aId": "film-4687fc61bf4b7065",
+   "bId": "film-397f38bb9e7a534a"
+  },
+  {
+   "a": "la luna",
+   "b": "oedipus rex",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "Italian cinema taking the Oedipus material twice in a dozen years: once restaged in the desert as ancient rite, once in a Roman flat where the mother sings tragedy for a living, so the myth arrives as repertoire.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Franco Citti and Alida Valli both appear in both films.",
+    "strength": 0.559
+   },
+   "aId": "film-4687fc61bf4b7065",
+   "bId": "film-0e33ad79dcebb05f"
+  },
+  {
+   "a": "the stendhal syndrome",
+   "b": "vertigo",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Hitchcock's man remakes a woman into the dead one he wants; here the remaking is handed to the woman herself — after the assault she cuts her hair, takes a blonde wig and a new voice, and the film lets her finish as the man who attacked her.",
+   "source": "reading",
+   "aId": "film-614170a57f735595",
+   "bId": "film-a72b0c4f67711b42"
+  },
+  {
+   "a": "the stendhal syndrome",
+   "b": "peeping tom",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Both make the act of looking do the damage: a lens that kills what it films, and a painting that pulls the woman studying it out of the room and leaves her defenceless in front of the man who has been watching her look.",
+   "source": "reading",
+   "aId": "film-614170a57f735595",
+   "bId": "film-a3b6f02ef8954851"
+  },
+  {
+   "a": "the stendhal syndrome",
+   "b": "repulsion",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.38,
+   "claim": "A woman's collapse rendered as the architecture around her rather than as a diagnosis — walls that give, rooms that will not hold their dimensions — with the film staying inside the failure instead of examining it from outside.",
+   "source": "reading",
+   "aId": "film-614170a57f735595",
+   "bId": "film-8b99aaac57407253"
+  },
+  {
+   "a": "gintama the movie",
+   "b": "the sword of doom",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "The cursed blade that consumes whoever holds it, filmed as possession rather than as swordplay: the fighter's own body wrecking itself to feed the weapon while the technique keeps getting better.",
+   "source": "reading",
+   "aId": "film-ed0764eeb7502746",
+   "bId": "film-caf10efa951035c4"
+  },
+  {
+   "a": "gintama the movie",
+   "b": "hail caesar",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "Both put the business itself on screen — one from the studio fixer's side keeping the product moving, the other by letting its cast step outside the film and haggle with the distributor over whether a sequel is worth making.",
+   "source": "reading",
+   "aId": "film-ed0764eeb7502746",
+   "bId": "film-b36e30a105b72b6e"
+  },
+  {
+   "a": "taira clan saga",
+   "b": "the 47 ronin",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Mizoguchi filmed the samurai code under wartime commission as obedience unto death; thirteen years after the defeat he filmed the moment that same class first took power from a court that despised it, and gave the young warrior the sympathy.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Kenji Mizoguchi directing on both.",
+    "strength": 0.62
+   },
+   "aId": "film-5acc7443077b44b5",
+   "bId": "film-ebc460051fea284c"
+  },
+  {
+   "a": "taira clan saga",
+   "b": "the leopard",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "The hinge where one ruling class hands over to another, filmed as ceremony instead of battle — a court procession met by armed monks, a ball that runs for an hour — with the new men's manners doing the historical argument.",
+   "source": "reading",
+   "aId": "film-5acc7443077b44b5",
+   "bId": "film-248f5b94ffaa1dbf"
+  },
+  {
+   "a": "le clan des siciliens",
+   "b": "the godfather",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Both films let the business run perfectly and the family fail: the score goes exactly to plan — an airliner full of jewels hijacked in mid-flight and put down on an unopened stretch of motorway — and the clan is destroyed instead by a domestic betrayal that costs nothing, exposed at a dinner table by a six-year-old repeating what he saw. In both, the patriarch personally sentences a member of his own household, and in both the execution is filed as maintenance.",
+   "source": "reading",
+   "aId": "film-71a0a3352556a0c1",
+   "bId": "film-b57be0fe69ca253c"
+  },
+  {
+   "a": "le clan des siciliens",
+   "b": "rififi",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The same novelist's underworld fifteen years on and scaled up out of all recognition: Le Breton's earlier gang spend half an hour in silence around one hole in one ceiling, this one runs Rome, Paris and New York and takes an aircraft. What survives the inflation is the failure mode — both crews are undone not by police work but by one member who cannot keep away from a woman, and both films spend their last reel on the tidying rather than the theft.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Auguste Le Breton writing on both.",
+    "strength": 0.44
+   },
+   "aId": "film-71a0a3352556a0c1",
+   "bId": "film-787a7f192dd6e896"
+  },
+  {
+   "a": "castle of sand",
+   "b": "high and low",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Two Japanese procedurals that spend their length on legwork — timetables, dialect maps, doors knocked on in the wrong prefecture — and then hand the ending to the criminal's biography instead of to his capture. One closes on class hatred spoken through prison glass; the other lays the detective's summation over a wordless flashback of a father and son begging their way round the coast, scored by the concerto the murderer is premiering in another building at that same hour.",
+   "source": "reading",
+   "aId": "film-29c09d37eb70e014",
+   "bId": "film-1a6cfbaee9b45ab4"
+  },
+  {
+   "a": "castle of sand",
+   "b": "memories of murder",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "The Japanese procedural's faith in shoe leather — one mispronounced syllable chased across the country until it yields a name and a childhood — answered by a Korean film that runs the identical exhaustive method and gets nothing at all, and ends with the detective looking into the lens because there is no one left to look at.",
+   "source": "reading",
+   "aId": "film-29c09d37eb70e014",
+   "bId": "film-3376613749b7e418"
+  },
+  {
+   "a": "cannery row",
+   "b": "one from the heart",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Two 1982 American pictures that refused to shoot the real place and built it whole inside a sound stage instead — a Monterey cannery front lit by Sven Nykvist, a Las Vegas strip lit by Vittorio Storaro — so that in both the town is openly a memory of a town rather than a location. Both were received as extravagance rather than as the choice they were, and both films are only legible if you accept the artifice as the point.",
+   "source": "reading",
+   "aId": "film-14c7180cba549ccc",
+   "bId": "film-43f5c0d5afb35588"
+  },
+  {
+   "a": "it could happen to you",
+   "b": "network",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.34,
+   "claim": "Both films run on a New York newsroom's power to turn one gesture into a public person: a half-joking promise to split a lottery ticket with a waitress, and an anchorman's on-air threat to shoot himself. One lets the readership it manufactured send its money back and rescue the couple; the other keeps its man alive exactly as long as he performs, and has him shot on camera when the numbers drop.",
+   "source": "reading",
+   "aId": "film-be33f8bacdc96505",
+   "bId": "film-60df78d0a1b5909a"
+  },
+  {
+   "a": "arrietty",
+   "b": "rififi",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The first borrowing is staged with a heist's grammar: a pin used as a grappling hook, double-sided tape for the climb, one permitted item per trip, and a rule that being seen even once ends the career. Both sequences run almost without dialogue, both make the tools legible before they are used, and both let one dropped object — a sugar cube, a loosened fitting — do the work of a scream.",
+   "source": "reading",
+   "aId": "film-acdf50c62c2dfe39",
+   "bId": "film-787a7f192dd6e896"
+  },
+  {
+   "a": "arrietty",
+   "b": "my neighbor totoro",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Two Ghibli films that keep the illness just off screen — a mother in a hospital bed, a boy waiting on heart surgery with poor odds — and put the fantasy precisely in the gap the waiting leaves. Neither creature cures anything; what they offer is a way of passing the time, and both films are careful to end with the child still facing the thing they were facing at the start.",
+   "source": "reading",
+   "aId": "film-acdf50c62c2dfe39",
+   "bId": "film-999bf94e1c1641fa"
+  },
+  {
+   "a": "7 faces of dr lao",
+   "b": "dr strangelove",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Two 1964 American comedies that hand a single actor every face of the crisis: Tony Randall under seven sets of prosthetics as the entire mythology an Arizona town needs in order to see itself, Peter Sellers as three of the men steering a nuclear exchange. In both the multiplication is the argument — there is only one performer available, so the town or the world is being lectured by the same man wearing different heads.",
+   "source": "reading",
+   "aId": "film-bc0fcb7bfb906e12",
+   "bId": "film-e7b2b86c2d6cd02d"
+  },
+  {
+   "a": "the pick up artist",
+   "b": "uncut gems",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A man who cannot stop talking, where the patter is not the trade but the symptom — rehearsed in a car between approaches, or run down a phone line between deals — and a film that finally converts it into one number that has to come up. Both settle the whole plot at a table with money that was raised by liquidating everything else the man owned.",
+   "source": "reading",
+   "aId": "film-3049a35030885aec",
+   "bId": "film-b3adb12d221b7629"
+  },
+  {
+   "a": "no other choice",
+   "b": "monsieur verdoux",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "A devoted family man laid off from a respectable job who turns the removal of other people into his new profession, keeps the household in another room and never tells them, and performs the killings as diligent office work — a shortlist drawn up, each candidate researched, the practical problem of the body treated as an administrative task. Both films end by pointing out that the murderer's employers did it at a scale he could not reach.",
+   "source": "reading",
+   "aId": "film-37e5338e5651146c",
+   "bId": "film-a1072099ab23f795"
+  },
+  {
+   "a": "no other choice",
+   "b": "parasite",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two Korean films in which a household conspires to take jobs that are already occupied, and in which the wife's decision to go along is the real turn. One removes each incumbent with a forged reference and a peach; the other simply shoots them. Both end with a body under the family's own ground, an improved standard of living, and everybody agreeing not to mention it.",
+   "source": "reading",
+   "aId": "film-37e5338e5651146c",
+   "bId": "film-6f1c5e05d9744fec"
+  },
+  {
+   "a": "the truth 2019",
+   "b": "autumn sonata",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "The great-artist mother and the daughter's ledger of grievances, replayed on a film set. Bergman puts his pianist and her daughter in one house for one night and lets the accusation land directly, in the room; Koreeda makes both women act instead, so the reckoning only becomes sayable when the mother is playing somebody else's mother in a science-fiction picture and the daughter, who wrote the scene, is standing off camera feeding her the lines.",
+   "source": "reading",
+   "aId": "film-b70ae3eab69e7b3d",
+   "bId": "film-397f38bb9e7a534a"
+  },
+  {
+   "a": "the truth 2019",
+   "b": "still walking",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Koreeda's Japanese households argue by preparing food and let the grievance go unspoken through an entire visit. Moved to Paris with French actors, the accusations arrive out loud within ten minutes — so he builds a film set inside the film and puts the unsayable part back where the rest of his work keeps it, in a scene the characters are only pretending to mean.",
+   "source": "reading",
+   "aId": "film-b70ae3eab69e7b3d",
+   "bId": "film-43152063de4abc47"
+  },
+  {
+   "a": "first name carmen",
+   "b": "carmen",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two Carmens a year apart that agree on nothing. Rosi films the opera whole, on location in Andalusia with real singers and the score performed as written; Godard throws the singing out entirely and replaces it with a string quartet visibly rehearsing late Beethoven — stopping, restarting, arguing over a bar — so the music arrives as unfinished work rather than as a number, and the story around it is a bank robbery.",
+   "source": "reading",
+   "aId": "film-a5880e10b36c607d",
+   "bId": "film-64d34483e5669a9f"
+  },
+  {
+   "a": "first name carmen",
+   "b": "bande a part",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Godard's heist rebuilt twenty years on with the amateurism moved from the robbers to the film. The earlier gang are three innocents running the Louvre and dancing in a café; this one uses a film shoot as the cover story until nobody on screen can tell whether they are robbing a bank or shooting a scene about robbing one — and the only people in the building who know exactly what they are doing are four musicians rehearsing in the next room.",
+   "source": "reading",
+   "aId": "film-a5880e10b36c607d",
+   "bId": "film-46905a1db2f71da4"
+  },
+  {
+   "a": "stalag 17",
+   "b": "a man escaped",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two prison films that agree escape is a craft and disagree completely about what it is for. Bresson gives it to one man's hands in near-silence and films the scraping of a door frame as prayer; Wilder gets two escapees shot in the opening minutes and spends the rest of the picture in a barracks run as a black market, where the real hunt is not for the wire but for whoever is selling the plans.",
+   "source": "reading",
+   "aId": "film-37e54fc1c5bb3b45",
+   "bId": "film-9c0891c481fadd94"
+  },
+  {
+   "a": "stalag 17",
+   "b": "sunset boulevard",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Wilder used the same actor twice as a man who says out loud that he is for sale and is despised for the honesty — a screenwriter kept by an older woman in a Sunset mansion, a sergeant running a distillery and a viewing telescope inside a prison camp. Both films make him the only person in the room telling the truth and then charge him for it: one goes out through the tunnel with the man he was accused of betraying, the other face down in the pool he is narrating from.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Billy Wilder directing; Franz Waxman scoring on both.",
+    "strength": 0.692
+   },
+   "aId": "film-37e54fc1c5bb3b45",
+   "bId": "film-de56704f5d710509"
+  },
+  {
+   "a": "fury",
+   "b": "m",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "Lang tried the mob twice. In Berlin the criminals convene their own court and the child-murderer is given a plea good enough to hear; in his first American film the crowd that burned a jail is put in a real dock, and the evidence against them is a newsreel — run, stopped and enlarged frame by frame until each grinning face can be named aloud. The first film asks you to feel a lynch mob's logic from inside; the second makes the camera the witness for the prosecution.",
+   "source": "reading",
+   "aId": "film-4c673e01c13ede06",
+   "bId": "film-76af3cb793136564"
+  },
+  {
+   "a": "fury",
+   "b": "blowup",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The photographic image pushed past its own resolution to make it give up a face. One film stops a newsreel of a lynching in open court and blows it up until every bystander is identifiable; the other enlarges a park photograph until the body dissolves into grain and the photographer is left with nothing he can show anyone. One trusts the negative to convict, the other discovers it cannot.",
+   "source": "reading",
+   "aId": "film-4c673e01c13ede06",
+   "bId": "film-f4a458a2af9ba83e"
+  },
+  {
+   "a": "the other side of the wind",
+   "b": "8",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The blocked director surrounded by people who want something from him, filmed from opposite sides of his skull. Fellini gives Guido an interior — daydream, harem, childhood — and lets us live in it; Welles denies Hannaford one entirely, assembling the whole birthday out of the guests' own cameras in a dozen film stocks, gauges and aspect ratios, so the man exists only as footage other people shot of him and never once gets a scene alone.",
+   "source": "reading",
+   "aId": "film-9dc0a7a3bbe41f76",
+   "bId": "film-7a9d4766d8a7c523"
+  },
+  {
+   "a": "the other side of the wind",
+   "b": "citizen kane",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Welles built the same machine at both ends of his career and reversed its polarity. Kane is a man assembled after death out of newsreel and the accounts of people who knew him, and the film keeps promising a key; Hannaford is assembled while still alive out of the party guests' handheld cameras, and there is no key, no reporter and no last word — only the footage, and the fact that everyone pointing a camera at him wants to become him.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Orson Welles directing; Orson Welles writing on both.",
+    "strength": 0.699
+   },
+   "aId": "film-9dc0a7a3bbe41f76",
+   "bId": "film-8ea89ccf112a80c2"
+  },
+  {
+   "a": "let s hope it s a girl",
+   "b": "the leopard",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The Italian noble house filmed twice as it goes under. Visconti gives the prince a ballroom and an hour of elegy and lets the class die with its dignity intact; Monicelli takes the same decaying estate, kills the count off the side of a cliff in a vintage convertible while a senile uncle releases a pigeon, and ends with the household — daughters, niece, housekeeper, the dead man's creditor-mistress — sitting down to dinner and deciding to keep the place by farming it.",
+   "source": "reading",
+   "aId": "film-8a92b88efdeaef75",
+   "bId": "film-248f5b94ffaa1dbf"
+  },
+  {
+   "a": "let s hope it s a girl",
+   "b": "my friends",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Monicelli's Tuscany twice, with its men and without them. In the earlier film five middle-aged friends organise their whole lives around elaborate pranks and staying out of the house, and the women are an off-screen nuisance; here the men are dead, senile, bankrupt or asking for money, the camera never leaves the villa they failed to keep, and the joke lands the other way round — the household that survives is the one they spent their lives avoiding.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Bernard Blier and Philippe Noiret both appear in both films.",
+    "strength": 0.6
+   },
+   "aId": "film-8a92b88efdeaef75",
+   "bId": "film-dbb9f6ed6835603f"
+  },
+  {
+   "a": "single white female",
+   "b": "the tenant",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The lease as the mechanism of possession: someone moves into a space still shaped by its previous occupant and is gradually filled in by them. Polanski's tenant inherits a dead woman's flat, then her dress and wig, then her fall; Schroeder's roommate inherits a living woman's haircut first, then her wardrobe, then her name in a bar and the man who answers to it. In both the transformation is done entirely through hair and clothes, and in both the other residents notice nothing.",
+   "source": "reading",
+   "aId": "film-bbaeed4fcc663efb",
+   "bId": "film-2ae1484034d30c3e"
+  },
+  {
+   "a": "single white female",
+   "b": "3 women",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Altman's Pinky copies her roommate's diary, signature and name until the older woman is simply displaced, and lets the swap happen in desert dream logic that is never explained. Schroeder puts the identical theft into an apartment thriller and gives it a mechanism you can buy — a salon appointment, a duplicate dress, a cut key — which makes the copying legible and turns the ending into a chase down a basement stair.",
+   "source": "reading",
+   "aId": "film-bbaeed4fcc663efb",
+   "bId": "film-ae4071bbbcea846d"
+  },
+  {
+   "a": "tokyo ga",
+   "b": "tokyo story",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "A film that goes to Tokyo looking for the city in Ozu's films and cannot find it — pachinko halls, rooftop driving ranges, wax food being moulded for restaurant windows — and finds the ancestor instead in an old man and a piece of equipment: Ozu's cameraman setting up the special low tripod, showing exactly how far off the floor the camera sat for thirty years, and then breaking down.",
+   "source": "reading",
+   "aId": "film-2ac49eb44cb22167",
+   "bId": "film-dd9cde11a2dd8ec6"
+  },
+  {
+   "a": "tokyo ga",
+   "b": "sans soleil",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Two foreign essayists in the same Tokyo within a year of each other, both assembling the city out of pachinko parlours, sleeping commuters and ceremonies performed over broken objects — and dividing on what they came for. Marker never claims to be looking for anything he could fail to find; Wenders arrives with one dead father to locate and spends the film admitting the search is not going to work.",
+   "source": "reading",
+   "aId": "film-2ac49eb44cb22167",
+   "bId": "film-7d067df991f9b19f"
+  },
+  {
+   "a": "tokyo ga",
+   "b": "lightning over water",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Wenders filmed his cinematic fathers twice in five years: once at a bedside, with a dying director staging his own last scene for the camera and the film unable to settle whether that is collaboration or extraction; once at the grave, with the director long dead and only a surviving cameraman and a tripod left to interview. The first cannot look away and the second has nothing left to look at.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Wim Wenders directing; Edward Lachman shooting; Wim Wenders writing on both.",
+    "strength": 0.804
+   },
+   "aId": "film-2ac49eb44cb22167",
+   "bId": "film-b66becab5f93fed4"
+  },
+  {
+   "a": "the professional",
+   "b": "le samourai",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The French professional walks knowingly into the ambush his own side has arranged, and the film hands the last word to the music rather than to him: Melville's hitman raises an unloaded gun in a nightclub so the police will fire, Lautner's agent completes the assassination he was recalled from, reaches the helicopter and is shot in the back on the tarmac while the score arrives in place of a line. Both suicides are filed as competence.",
+   "source": "reading",
+   "aId": "film-23e08974e5f624a4",
+   "bId": "film-9f06cb40d998ad1e"
+  },
+  {
+   "a": "war and peace",
+   "b": "napoleon",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The same emperor filmed from opposite ends of the telescope. Gance builds his entire apparatus around Bonaparte — cameras strapped to horses and sledges, the frame finally opening into three panels so one man can fill the horizon; Vidor keeps him a small distant figure crossing a field with a spyglass, and gives the wide screen instead to a bespectacled civilian in a pale coat wandering through Borodino with no idea what he is looking at.",
+   "source": "reading",
+   "aId": "film-1df764e9a1c75f49",
+   "bId": "film-45e93d0103efbf88"
+  },
+  {
+   "a": "pret a porter",
+   "b": "nashville",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Altman's ensemble machine pointed twice at an industry that can absorb anything: a country-music week that ends with the crowd singing through an assassination, and a fashion week that ends with a designer sending every model down the runway with no clothes on. In both the outrage is scheduled as the finale, and in both the show finishes and the applause is real.",
+   "source": "reading",
+   "aId": "film-d997c553fba27a9b",
+   "bId": "film-df635f3d87e797b1"
+  },
+  {
+   "a": "pret a porter",
+   "b": "blowup",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "A death that refuses to become a plot, inside a business too busy photographing itself to follow it up. Antonioni's photographer enlarges a corpse out of a park and then loses it; Altman opens by choking the head of the fashion council to death in the back of a car and lets the murder inquiry dissolve into fittings, parties and a hotel room. In both, the shoot carries on, and nobody with the power to care does.",
+   "source": "reading",
+   "aId": "film-d997c553fba27a9b",
+   "bId": "film-f4a458a2af9ba83e"
+  },
+  {
+   "a": "empire of passion",
+   "b": "in the realm of the senses",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "Ōshima's two films with the same actor, two years apart, take the same crime in opposite directions. The first seals the couple into a rented room and lets the outside world — an army marching past the window — become genuinely irrelevant; the second has them murder the husband and stay in the village, where the world comes for them in the form of neighbours' questions, a patient policeman, and a dead man who keeps turning up pulling his own rickshaw.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "cast",
+    "claim": "Tatsuya Fuji and Taiji Tonoyama both appear in both films.",
+    "strength": 0.6
+   },
+   "aId": "film-35db29ccfec72b8f",
+   "bId": "film-eda27961223f54a0"
+  },
+  {
+   "a": "empire of passion",
+   "b": "the postman always rings twice",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two lovers kill the husband and are then finished off by the thing they cannot dispose of. In Rafelson's it is suspicion — each begins to read the other as the next candidate; in Ōshima's it is literal, a murdered rickshaw man still arriving for fares, so the guilt is not a private mental state but a passenger the whole village can see and gossip about.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on crime of passion, adulterous wife and sexual obsession.",
+    "strength": 0.603
+   },
+   "aId": "film-35db29ccfec72b8f",
+   "bId": "film-5834986732bb1cc4"
+  },
+  {
+   "a": "terminal station",
+   "b": "brief encounter",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The affair confined to a railway terminus and timed by the departure board: two films in which the lovers are never once alone, because every scene has to be played in a public concourse under other people's eyes, and it is the clock rather than any moral argument that ends it. Lean's couple have a refreshment room and a Rachmaninoff record; De Sica's have the whole of Roma Termini, a goods wagon and a police office, and are caught.",
+   "source": "reading",
+   "aId": "film-ed7d048206ab91a2",
+   "bId": "film-57ce841f4bc0a610"
+  },
+  {
+   "a": "terminal station",
+   "b": "bicycle thieves",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "The same director and the same screenwriter running neorealism's method against Hollywood's, five years apart. The earlier film uses non-professionals in real streets so that nothing can look staged; this one keeps the real station and the real crowd and puts Jennifer Jones and Montgomery Clift at the centre of it — and the method turns on itself, because a terminus full of genuine strangers is exactly what makes two stars look like a set-up.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Vittorio De Sica directing; Eraldo Da Roma cutting; Alessandro Cicognini scoring; Cesare Zavattini writing on both.",
+    "strength": 0.82
+   },
+   "aId": "film-ed7d048206ab91a2",
+   "bId": "film-dbc80e129d3ec54b"
+  },
+  {
+   "a": "champagne",
+   "b": "i was born but",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Two late-silent comedies in which a father stages his own standing for a child, and it collapses in opposite directions. Ozu's boys watch home-movie footage of their father clowning for his boss and lose him on the spot; Hitchcock's millionaire invents the loss of the family fortune to teach his daughter a lesson, watches her take a job in a restaurant and turn out to be good at it, and when the lie is exposed it is the father who comes out smaller.",
+   "source": "reading",
+   "aId": "film-f07cc4096eb48f1a",
+   "bId": "film-d1849d058b4e5f2c"
+  },
+  {
+   "a": "chinese roulette",
+   "b": "last year at marienbad",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "A great house, a camera that never stops gliding past glass and mirrored surfaces, and a game with rules announced aloud that turns out to be the film's own structure. Resnais's guests play a matchstick game the narrator always wins; Fassbinder's are assembled for a weekend by the disabled child who arranged the whole gathering and made to play a guessing game about each other — and the answer she extracts about her mother is the only thing anybody in either film says plainly.",
+   "source": "reading",
+   "aId": "film-8f9df000504f6ade",
+   "bId": "film-6c82e7a63c94339a"
+  },
+  {
+   "a": "chinese roulette",
+   "b": "the exterminating angel",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.38,
+   "claim": "Buñuel's guests physically cannot leave the drawing room; Fassbinder's can leave whenever they like and stay anyway, because the game is more interesting than the door. The same joke about polite society, turned from a trap into an experiment its subjects volunteer for and then cannot stop running.",
+   "source": "reading",
+   "aId": "film-8f9df000504f6ade",
+   "bId": "film-43055a7d9fb40282"
+  },
+  {
+   "a": "one hundred and one nights",
+   "b": "sunset boulevard",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The ruined star in the big house with the devoted majordomo and a young hireling engaged to keep them company — except Varda's centenarian is not a forgotten actress but cinema itself, played by Piccoli under a hundred years of make-up, memory failing, mistaking himself for other people, while real stars queue at the gate to be received. Wilder's mansion is a mausoleum; Varda's is a birthday party that keeps tipping over into a diagnosis.",
+   "source": "reading",
+   "aId": "film-56d48bfaebfcd608",
+   "bId": "film-de56704f5d710509"
+  },
+  {
+   "a": "one hundred and one nights",
+   "b": "goodbye dragon inn",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "Cinema's hundredth birthday marked twice and incompatibly. One is a château outside Paris where Depardieu, Deneuve, Delon and Mastroianni arrive in person to pay court to a century personified as a rich old man with a fortune to leave; the other is a leaking Taipei picture palace on its final night, three people in the auditorium and nobody to say goodbye to. One assumes cinema is a person with a guest list; the other films the building and lets the absence do the work.",
+   "source": "reading",
+   "aId": "film-56d48bfaebfcd608",
+   "bId": "film-4ff911f1f23df012"
+  },
+  {
+   "a": "one hundred and one nights",
+   "b": "the other side of the wind",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Two films that hire the industry to play itself around a dying patriarch of cinema: Welles fills a Hollywood birthday with real directors and critics circling a man whose picture cannot be finished, Varda fills a château with stars paying court to a hundred-year-old who is cinema in person. In both, the young are there for the estate — one to get a feature completed, one to get a short film funded — and in both the old man's memory is the only thing anybody actually wants.",
+   "source": "reading",
+   "aId": "film-56d48bfaebfcd608",
+   "bId": "film-9dc0a7a3bbe41f76"
+  },
+  {
+   "a": "death rides a horse",
+   "b": "once upon a time in the west",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The revenge western built on an image the film refuses to complete: a massacre witnessed in childhood returns in short flashes drenched in red, each one giving up one more identifying detail — a skull tattoo, an earring, a scar on the throat — so the plot is an act of recognition rather than a manhunt, and the memory only runs to the end at the moment the last man is killed. Leone did it a year later with a harmonica and a brother standing on a man's shoulders.",
+   "source": "reading",
+   "aId": "film-9c07534cf6a61fd6",
+   "bId": "film-61df15f95182eb99"
+  },
+  {
+   "a": "death rides a horse",
+   "b": "for a few dollars more",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Lee Van Cleef twice inside two years as the same figure: the older gunman who attaches himself to a younger one on the same trail and conceals until very late that he has his own account to settle with the men they are both hunting. In both films the partnership is really a competition over who has the better right to the killing, and in both the younger man has to be told to stand down.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "genreEra",
+    "claim": "Both are spaghetti western, made 2 years apart.",
+    "strength": 0.438
+   },
+   "aId": "film-9c07534cf6a61fd6",
+   "bId": "film-338574279486d7e8"
+  },
+  {
+   "a": "legend 2015",
+   "b": "dead ringers",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "One actor doubled so that the film's central relationship is a performance played opposite himself, and both films make the technically hardest shot — the two brothers sharing a frame, touching, fighting — carry the emotional weight. In both, the twin who cannot function is the one who destroys the pair, and the functioning one's tragedy is that leaving was always available to him and he never takes it.",
+   "source": "reading",
+   "aId": "film-b96ad1b7c2f26071",
+   "bId": "film-4a40d47edb8f1275"
+  },
+  {
+   "a": "legend 2015",
+   "b": "sunset boulevard",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Both films are narrated by someone who is already dead, and both use it to compromise the audience. Wilder's screenwriter speaks from the pool he is floating in, so the cynicism is retrospective and paid for; Helgeland's narrator is the wife the film shows being ground down and killed, which means the East End glamour is being sold to you in the stolen voice of its principal victim.",
+   "source": "reading",
+   "aId": "film-b96ad1b7c2f26071",
+   "bId": "film-de56704f5d710509"
+  },
+  {
+   "a": "a confucian confusion",
+   "b": "vive l amour",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Taipei in 1994 from two directors at once, and the two films are exact negatives. Yang's is nothing but talk — a company, a play, a television show about happiness, every conversation an argument about whether anyone's feeling is genuine or a market position; Tsai's is almost wordless, three people circling an empty apartment none of them has a right to be in, never managing to say anything at all. Both are about a city where property and careers have replaced intimacy: one plays it as overtalk, the other as silence.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "countryEra",
+    "claim": "Taiwan, the same moment of each other.",
+    "strength": 0.275
+   },
+   "aId": "film-78f63d9d3f5e606a",
+   "bId": "film-3097d3272dedf27a"
+  },
+  {
+   "a": "a confucian confusion",
+   "b": "yi yi",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "Yang wrote the same city twice. The farce version gives young professionals in glass offices three days to accuse each other of faking sincerity, and keeps everyone at the speed of an argument; six years later he slows the identical material to one family's year and hands the thesis to a child with a camera, photographing the backs of people's heads so they can see the half of themselves they never can.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Edward Yang directing; Chen Po-Wen cutting; Edward Yang writing on both.",
+    "strength": 0.782
+   },
+   "aId": "film-78f63d9d3f5e606a",
+   "bId": "film-889004009b3253c2"
+  },
+  {
+   "a": "scattered clouds",
+   "b": "a separation",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "A death converted into a sum of money, and a film that watches what the transaction does to the people at either end of it. Naruse's salaryman kills a man in a road accident, is transferred to the provinces and pays the widow compensation in instalments; she takes it, then takes work at the inn where he is staying, and the payments become the only language the two of them are permitted for something neither will name. Farhadi's families argue in stairwells over whether a sum can settle a death; Naruse's answer is that it can, and that this is the horror.",
+   "source": "reading",
+   "aId": "film-e7e141c0a70bdbfb",
+   "bId": "film-9415f62008f4b509"
+  },
+  {
+   "a": "scattered clouds",
+   "b": "when a woman ascends the stairs",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Naruse's women are always doing arithmetic. A Ginza bar hostess enters her feelings and her debts in the same ledger; a widow receives her grief as an envelope from the man who killed her husband. In both films money is not the obstacle to the romance but the medium it is conducted in, and the tenderness is in how precisely the film keeps count.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "crew",
+    "claim": "Mikio Naruse directing on both.",
+    "strength": 0.62
+   },
+   "aId": "film-e7e141c0a70bdbfb",
+   "bId": "film-1cca0ef0fab367b2"
+  },
+  {
+   "a": "frenzy",
+   "b": "peeping tom",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Two London murder films by the two directors who taught audiences to look, solving the same problem in opposite directions. Powell bolts the camera to the killer's own tripod and makes you watch down the blade; Hitchcock, twelve years later, walks his camera up a staircase to a closed door and then reverses all the way back down, out of the building and into the ordinary noise of a Covent Garden street while the murder happens behind him. The most famous shot in the film is a refusal to look, made by the man who invented the habit.",
+   "source": "reading",
+   "alsoRecord": {
+    "signal": "keyword",
+    "claim": "Both turn on serial killer, psychological thriller and london, england.",
+    "strength": 0.61
+   },
+   "aId": "film-f5816765d7e97cfc",
+   "bId": "film-a3b6f02ef8954851"
+  },
+  {
+   "a": "frenzy",
+   "b": "m",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "A city turned into a manhunt, with the wrong man caught inside it. Lang puts police and underworld on the same search and lets a crowd's certainty nearly destroy an innocent in the street; Hitchcock hangs the killings on a man whose real offence is losing his temper in public, and gives the actual murderer a legitimate trade and a stall in a produce market — so the corpse travels across London in a sack of potatoes, in daylight, on a lorry nobody looks at twice.",
+   "source": "reading",
+   "aId": "film-f5816765d7e97cfc",
+   "bId": "film-76af3cb793136564"
+  },
+  {
+   "a": "tess",
+   "b": "the life of oharu",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Both are built as a descending ladder of households — a girl sent to a rich family to trade on a name her father has just discovered he owns, a court lady sold down one rung at a time — and both keep the camera far enough back that her ruin registers as a change of address rather than as a scene played for grief.",
+   "source": "reading",
+   "aId": "film-bd71e0727c43089b",
+   "bId": "film-a47079f66695c2f0"
+  },
+  {
+   "a": "tess",
+   "b": "barry lyndon",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "The countryside filmed as landscape painting in available light, figures kept small in the field, while the entire plot underneath is a question of whose name will be accepted by whom. In both, the beauty of the frame is what makes the class machinery look like weather rather than like something people decided.",
+   "source": "reading",
+   "aId": "film-bd71e0727c43089b",
+   "bId": "film-62be1926183a041e"
+  },
+  {
+   "a": "a geisha",
+   "b": "tess",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "A young woman is put into a richer house to solve a family's money problem — one sent to claim kinship with the branch that owns the name her father has adopted, one asking to be trained because her mother is dead and her father will not pay — and both films keep the ledger on screen, so what is done to her there arrives as a line in the same account rather than as private misfortune.",
+   "source": "reading",
+   "aId": "film-dfac98b8857df68e",
+   "bId": "film-bd71e0727c43089b"
+  },
+  {
+   "a": "a geisha",
+   "b": "working girl",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The apprenticeship that quietly includes being handed to a client: a trainee whose debut is financed by a loan the teahouse expects a businessman to recover in kind, and a secretary sent out in a limousine with a customer who has cocaine and expectations. Both make her refusal cost somebody money, and both keep the arithmetic visible.",
+   "source": "reading",
+   "aId": "film-dfac98b8857df68e",
+   "bId": "film-f2b89adb800f1554"
+  },
+  {
+   "a": "with beauty and sorrow",
+   "b": "persona",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A young woman attaches herself to an older artist, sleeps with the man who ruined her and then with his son, and carries out a revenge the older woman has never been willing to want. Made a year apart, in Kyoto gardens and on a Baltic shore, both end unable to say whose feeling has just been acted on.",
+   "source": "reading",
+   "aId": "film-1b86a2efacc41aa3",
+   "bId": "film-b28079f0d239fb6c"
+  },
+  {
+   "a": "with beauty and sorrow",
+   "b": "anatomy of a fall",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The bestseller made out of a lover's catastrophe, produced later as evidence: a novel written from a teenage girl's miscarriage and typed up by the writer's own wife, and a novel read aloud in court by a prosecutor as proof of what its author was capable of.",
+   "source": "reading",
+   "aId": "film-1b86a2efacc41aa3",
+   "bId": "film-9bc7c323ebc986b1"
+  },
+  {
+   "a": "something s gotta give",
+   "b": "with beauty and sorrow",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Turning the affair into a hit is the same device on both sides of the world, with the authorship swapped. There, a novelist mines a teenager's ruined pregnancy for a bestseller his wife types up. Here the woman writes the play, puts the man who walked out in it, and he has to buy a ticket and sit in the audience recognising himself.",
+   "source": "reading",
+   "aId": "film-908b11fe0f311d19",
+   "bId": "film-1b86a2efacc41aa3"
+  },
+  {
+   "a": "something s gotta give",
+   "b": "all that heaven allows",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Sirk's scandal — a woman of a certain age wanting the wrong-aged man, judged by her grown children and consoled with a television set — replayed with every objection dropped: the daughter's protest lasts one scene, the fatal illness is moved into the man's chest, and the woman gets a writing desk and a hit instead of the console.",
+   "source": "reading",
+   "aId": "film-908b11fe0f311d19",
+   "bId": "film-254798ab173bfca2"
+  },
+  {
+   "a": "ulysses",
+   "b": "ugetsu",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Two films a year apart in which a man is kept in a beautiful house by a woman who is not human while the wife he left holds his home together, and in both the film is shaped toward the homecoming rather than the enchantment — the marvels are what has to be got through.",
+   "source": "reading",
+   "aId": "film-77bbd6eb939e4aa1",
+   "bId": "film-35727b3b54096948"
+  },
+  {
+   "a": "ulysses",
+   "b": "vertigo",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.38,
+   "claim": "One actress plays both the wife waiting at the end of the voyage and the sorceress who detains him halfway, so what keeps him from home and home itself wear the same face — the doubling a later film would build an entire plot out of, one woman made to play two.",
+   "source": "reading",
+   "aId": "film-77bbd6eb939e4aa1",
+   "bId": "film-a72b0c4f67711b42"
+  },
+  {
+   "a": "panic room",
+   "b": "night of the living dead",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Romero's siege turns on one argument — barricade the cellar or hold the ground floor — and he settles it by killing everyone who chose wrong. Here the strongest room in the house is the one the intruders have come for, so the safe place and the prize occupy the same few cubic metres and hiding is not a strategy but the thing that loses.",
+   "source": "reading",
+   "aId": "film-5472767409c4f0f1",
+   "bId": "film-a3c6a13c803e4fb8"
+  },
+  {
+   "a": "autumn almanac",
+   "b": "panic room",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The camera takes up positions no person in the building could occupy — up through the glass of the floor, down between the joists, out through a keyhole — so the flat and the brownstone stop being places to live in and become cutaway diagrams with people stuck inside them.",
+   "source": "reading",
+   "aId": "film-12077e12bf025067",
+   "bId": "film-5472767409c4f0f1"
+  },
+  {
+   "a": "autumn almanac",
+   "b": "the exterminating angel",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "A handful of people in one flat who never manage to leave it, filmed until the apartment's own logic outranks anybody's intentions: one household is held by a rule the film refuses to explain, the other by a mother's money, a lease and a lodger, which bind just as hard.",
+   "source": "reading",
+   "aId": "film-12077e12bf025067",
+   "bId": "film-43055a7d9fb40282"
+  },
+  {
+   "a": "help me",
+   "b": "contempt",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The husband who gives his wife away in principle and cannot survive it in fact: one keeps insisting he does not mind while manoeuvring her into the producer's car, the other announces at the wheel that he is modern enough to permit an affair provided they discuss it openly, and ends up beating her on a beach. Both hand that argument far more running time than any plot needs.",
+   "source": "reading",
+   "aId": "film-8deb7b5cf20f46c1",
+   "bId": "film-c38b9c144842b3a6"
+  },
+  {
+   "a": "help me",
+   "b": "jules and jim",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.55,
+   "confidence": 0.36,
+   "claim": "Truffaut treats the shared arrangement as a genuine invention that only time defeats. Here the same modern tolerance is announced by a husband as evidence of his own sophistication, and lasts exactly as long as it stays hypothetical — the first real Wednesday concert ends it.",
+   "source": "reading",
+   "aId": "film-8deb7b5cf20f46c1",
+   "bId": "film-3f69d7b08b34afc1"
+  },
+  {
+   "a": "honey don t",
+   "b": "the maltese falcon",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Huston's detective is propositioned by everyone in the picture and answers with a speech about what a man has to do. This one is propositioned by everyone too — the homicide cop asks twice, in the same words — and answers 'I like girls' every time, so the running gag is also the genre's romantic engine being quietly switched off.",
+   "source": "reading",
+   "aId": "film-c10e17b459c26190",
+   "bId": "film-6a85c855dcf66303"
+  },
+  {
+   "a": "honey don t",
+   "b": "the night of the hunter",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "The preacher as predator with the congregation as his supply: one is a lone hunter with scripture on his knuckles, the other runs a franchise — four numbered virtues, fellowship conducted in bed, a narcotics route underneath — and in both, the town's willingness to trust a collar is the mechanism rather than the disguise.",
+   "source": "reading",
+   "aId": "film-c10e17b459c26190",
+   "bId": "film-7d58f0e4169f16f7"
+  },
+  {
+   "a": "there was a father",
+   "b": "paris texas",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Reconciliation staged as matched movement instead of speech: a father and son casting fishing lines into a river in the same rhythm, and a father and son walking parallel down opposite sides of a road until the boy falls into his step. In both, the warmest scene in the film contains no admission of anything.",
+   "source": "reading",
+   "aId": "film-399b595a6c13572d",
+   "bId": "film-3ffeeef0ba43d983"
+  },
+  {
+   "a": "there was a father",
+   "b": "tokyo story",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.5,
+   "claim": "Ozu filmed the same separation twice, on either side of a war. In 1942 the son who wants to give up his teaching post to live near his father is told his duty is where he was placed, and the film agrees with the father. Eleven years later, children who stayed at their posts while the parents came to visit are the tragedy.",
+   "source": "reading",
+   "aId": "film-399b595a6c13572d",
+   "bId": "film-dd9cde11a2dd8ec6"
+  },
+  {
+   "a": "the confession",
+   "b": "a man escaped",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Bresson's cell is a workshop: every sound, hour and scrap of metal is inventory, and the prisoner's close attention is what gets him out. Here the identical attention — paces counted, hours without sleep, the walking, the bread — is the machinery taking a man apart, and there is nothing in the room to build.",
+   "source": "reading",
+   "aId": "film-f0038c919e1b8477",
+   "bId": "film-9c0891c481fadd94"
+  },
+  {
+   "a": "the confession",
+   "b": "the passion of joan of arc",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Both films end at a signature. Dreyer's girl puts her name to the abjuration, takes it back, and burns. The party man signs everything, performs it word-perfect in court, survives, and is left to go on living as the author of a text he does not believe.",
+   "source": "reading",
+   "aId": "film-f0038c919e1b8477",
+   "bId": "film-5399e9c274a6a055"
+  },
+  {
+   "a": "the cowboys",
+   "b": "shane",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.64,
+   "confidence": 0.48,
+   "claim": "Shane sends the boy indoors and rides off carrying the killing so the child will not have to. Here the man is shot dead two-thirds of the way through and the schoolboys finish the cattle drive and the revenge themselves, with the film staging their first killings as the completion of the education he began.",
+   "source": "reading",
+   "aId": "film-92c0ea7365488d48",
+   "bId": "film-8a711f28056480d6"
+  },
+  {
+   "a": "the patriot",
+   "b": "unforgiven",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The retired killer whose children have never seen what he is: both keep the man's reputation offstage as an atrocity nobody will describe, then stage the return of the skill as something appalling to witness rather than thrilling — here, hatchet work done in front of his two youngest sons.",
+   "source": "reading",
+   "aId": "film-f25070886b9ea57b",
+   "bId": "film-4d2a5cbd05538326"
+  },
+  {
+   "a": "the patriot",
+   "b": "the battle of algiers",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Both put the audience with irregulars against a professional army, then split on the only decision that matters. One gives its militia an atrocity to avenge — a church filled with townspeople and set alight — so that everything they do afterwards reads as clean. The other sends its own sympathetic heroine into a milk bar with a bomb and holds on the faces of the people about to be killed.",
+   "source": "reading",
+   "aId": "film-f25070886b9ea57b",
+   "bId": "film-387d8fb9b0af8032"
+  },
+  {
+   "a": "romeo and juliet",
+   "b": "hamlet",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "Two attempts to stop Shakespeare sounding like recital, from opposite directions. One casts actors the age of the characters and puts them in the right century, sweating in real streets, so the verse comes out of bodies with nothing to do but feel it. The other keeps every word and moves it into a Manhattan of glass towers and camcorders, where the same lines are spoken by someone with nowhere to put a sword.",
+   "source": "reading",
+   "aId": "film-306456c233e5bea2",
+   "bId": "film-e090729ab2c92333"
+  },
+  {
+   "a": "romeo and juliet",
+   "b": "mean streets",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Street fighting that begins as showing off for an audience and turns fatal because nobody can stop performing — a word nobody will let go of, a duel fought like horseplay — and both films keep the comic pitch running straight through the killing, so the death arrives while everyone on screen is still laughing.",
+   "source": "reading",
+   "aId": "film-306456c233e5bea2",
+   "bId": "film-eee12f5980d4304f"
+  },
+  {
+   "a": "my voyage to italy",
+   "b": "the beaches of agnes",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Two directors writing an autobiography out of film itself and choosing opposite places to stand: one never appears, narrating a childhood by playing four hours of other people's pictures the way his family watched them on a small television; the other is in nearly every shot, walking backwards through her own past on a beach she has had dressed with mirrors.",
+   "source": "reading",
+   "aId": "film-c65a8872ef1f948a",
+   "bId": "film-6cc3142e45846332"
+  },
+  {
+   "a": "the beaches of agnes",
+   "b": "8",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The autobiography staged instead of recalled: the maker walks through purpose-built reconstructions of their own past with the apparatus left in shot — a ring holding everyone he has ever known, a beach dressed with mirrors and a room built out of old film cans — so the film's real subject becomes the difficulty of assembling it.",
+   "source": "reading",
+   "aId": "film-6cc3142e45846332",
+   "bId": "film-7a9d4766d8a7c523"
+  },
+  {
+   "a": "life and nothing more",
+   "b": "the beaches of agnes",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "Two directors who put themselves inside their own films and pick opposite methods: one appears in every shot and rebuilds her past on a beach; the other hires an actor to drive his car and be him, so the self-portrait is delivered by a stand-in and the director exists only as the person the camera is sitting beside.",
+   "source": "reading",
+   "aId": "film-37d4d54ac66889d6",
+   "bId": "film-6cc3142e45846332"
+  },
+  {
+   "a": "working girl",
+   "b": "the crowd",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "One film cranes up the face of an office tower, in at a window and along a hall of identical desks to find its man at one of them. The other ends by starting on the woman who has finally won a door of her own and pulling back until her lit window is one of ten thousand in the block. The same shot run in opposite directions, arriving at the same verdict.",
+   "source": "reading",
+   "aId": "film-f2b89adb800f1554",
+   "bId": "film-819e102fe6cecf7f"
+  },
+  {
+   "a": "the kid",
+   "b": "the 400 blows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "The child removed by the authorities in the back of a vehicle, filmed from inside on his face as the street pulls away: one reaches back over the tailgate and is chased across the rooftops to get him back, the other says nothing at all while the lights of Paris go past.",
+   "source": "reading",
+   "aId": "film-97c2c2ac4d933eab",
+   "bId": "film-9b82ad7002e6f006"
+  },
+  {
+   "a": "the kid",
+   "b": "bicycle thieves",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "The man and the small boy working a hostile city as a single economic unit — the child who breaks the windows the adult is paid to mend, the child who watches the adult try to steal a bicycle — and in both, the man's humiliation is played on the boy's face rather than his own.",
+   "source": "reading",
+   "aId": "film-97c2c2ac4d933eab",
+   "bId": "film-dbc80e129d3ec54b"
+  },
+  {
+   "a": "tom sawyer",
+   "b": "the night of the hunter",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The American river as the only jurisdiction a child can reach: boys who have watched a murder pushing a raft out onto the Mississippi while the town below tries the wrong man for it, and children drifting down the Ohio with the killer still singing somewhere behind them.",
+   "source": "reading",
+   "aId": "film-2ec23ded662d902f",
+   "bId": "film-7d58f0e4169f16f7"
+  },
+  {
+   "a": "tom sawyer",
+   "b": "the third man",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.36,
+   "claim": "A funeral held for someone who is not dead: boys slipping into the back of the church to hear what the town says about them, and a racketeer who supplied a substitute corpse so the mourners would let him go on working. In both, the service is where the film weighs what the missing man was actually worth.",
+   "source": "reading",
+   "aId": "film-2ec23ded662d902f",
+   "bId": "film-0b666ceb457c67b4"
+  },
+  {
+   "a": "flight of the red balloon",
+   "b": "the 400 blows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.36,
+   "claim": "The Paris child who has learned to run his own day around the adult who is the one actually in crisis — the film keeps to his height, so the parent's shouting arrives the way weather does, from somewhere above the top of the frame.",
+   "source": "reading",
+   "aId": "film-ef4a86728f480897",
+   "bId": "film-9b82ad7002e6f006"
+  },
+  {
+   "a": "the sucker",
+   "b": "touch of evil",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Welles opens by loading a car with something its occupants know nothing about and holds the shot until crossing a border is unbearable. This runs the identical device for ninety minutes as farce: a Cadillac packed with gold, heroin and a diamond driven across Europe by the one man in the film who has not been told, so every customs post is a punchline instead of a detonation.",
+   "source": "reading",
+   "aId": "film-4ae8887b81152040",
+   "bId": "film-92bcc6186a08eb3b"
+  },
+  {
+   "a": "the sucker",
+   "b": "the wages of fear",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.55,
+   "confidence": 0.36,
+   "claim": "Clouzot's drivers know exactly what is in the truck, and every metre of road is calculated against that knowledge. Here the cargo is just as lethal and the driver has simply not been informed, so the same journey becomes weather he passes through — the road-cargo thriller with the knowledge taken out of the man at the wheel and given entirely to us.",
+   "source": "reading",
+   "aId": "film-4ae8887b81152040",
+   "bId": "film-17e876473bcea5d2"
+  },
+  {
+   "a": "tetro",
+   "b": "rumble fish",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.5,
+   "claim": "Coppola's brother picture run again twenty-six years later: a younger boy arriving in a city to attach himself to an older brother who has withdrawn into his own legend, shot in high-contrast black and white with colour held back for whatever is remembered, dreamed or performed.",
+   "source": "reading",
+   "aId": "film-a021b2192ce8f610",
+   "bId": "film-6d0e659bd8af3417"
+  },
+  {
+   "a": "tetro",
+   "b": "la luna",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The celebrated musician as the parent who uses up all the air in the house: an opera singer in Rome teaching her son to sing while he comes off heroin, and a conductor whose son writes his own work in mirror script, so the child's art is built to be unreadable by the parent it is aimed at.",
+   "source": "reading",
+   "aId": "film-a021b2192ce8f610",
+   "bId": "film-4687fc61bf4b7065"
+  },
+  {
+   "a": "the stranger",
+   "b": "teorema",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The visitor who arrives in a comfortable household and, largely by declining to explain himself, turns the family's own assumptions into the film's subject: one takes each of them to bed in turn, the other simply refuses to produce proof of who he is — and in both it is the hosts, not the guest, who come apart.",
+   "source": "reading",
+   "aId": "film-020f360b9574352e",
+   "bId": "film-4fba3fe344963ac3"
+  },
+  {
+   "a": "the stranger",
+   "b": "nanook of the north",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The ethnographic frame turned around. A camera goes north and has a family stage their own daily life for an audience that will never meet them; here the anthropologist comes back from exactly that kind of fieldwork into a Calcutta drawing room and is cross-examined for a whole film by the educated class that normally does the examining.",
+   "source": "reading",
+   "aId": "film-020f360b9574352e",
+   "bId": "film-6e1fb6c3413a2315"
+  },
+  {
+   "a": "without pity",
+   "b": "bicycle thieves",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The same wrecked Italy in the same year, lit two ways. De Sica keeps to daylight errands and refuses his film a plot; here the identical locations and untrained faces are lit like an American crime picture, so the ruins acquire shadows, a pistol, and a couple with somewhere to drive.",
+   "source": "reading",
+   "aId": "film-17da1b0bfb84c108",
+   "bId": "film-dbc80e129d3ec54b"
+  },
+  {
+   "a": "without pity",
+   "b": "paisa",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The one relationship post-war Italian cinema could film and Hollywood could not — a Black American soldier and an Italian who owns nothing — arriving twice within two years: once as a single episode that ends when he sees the cave the boy who robbed him lives in and walks away, and once stretched to a whole film, with a stolen car and a cliff at the end of it.",
+   "source": "reading",
+   "aId": "film-17da1b0bfb84c108",
+   "bId": "film-2ff2382c2c2267aa"
+  },
+  {
+   "a": "flight of the red balloon",
+   "b": "playtime",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Paris filmed through glass, so the reflection of the street lies on top of the room's interior and you are never allowed to settle on one plane: a monument that exists only in the swing of a glass door, a balloon that appears in a window above a woman shouting into a telephone.",
+   "source": "reading",
+   "aId": "film-ef4a86728f480897",
+   "bId": "film-f1db62cd4f2f02c5"
+  },
+  {
+   "a": "peau d ane",
+   "b": "valerie and her week of wonders",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two 1970 films that keep the incest inside the fairy tale rather than cleaning it out — a girl pursued by her own father, a girl pursued by the elder who calls himself her grandfather — and both stage it in flat pastel daylight with talking animals and magic rings, so nothing is ever marked as the unreal part.",
+   "source": "reading",
+   "aId": "film-bcb621e352e801c4",
+   "bId": "film-ef872409fab0023b"
+  },
+  {
+   "a": "peau d ane",
+   "b": "black moon",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The machinery of the present left standing inside the fairy tale with no comment offered: a fairy godmother who arrives by helicopter and a prince who quotes a poet born three centuries after him; a girl who drives a car through a war into a house where the unicorn talks and the old woman upstairs works a radio.",
+   "source": "reading",
+   "aId": "film-bcb621e352e801c4",
+   "bId": "film-3d689669d8e64de8"
+  },
+  {
+   "a": "hail mary",
+   "b": "the passion of joan of arc",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "A young woman whose body is the site of a claim nobody else can check, held in close-up while the men around her — clerics, a doctor, the man engaged to her — demand that she account for it in their vocabulary, and the film gives them nothing to work with.",
+   "source": "reading",
+   "aId": "film-cc4d04a57d00e1fb",
+   "bId": "film-5399e9c274a6a055"
+  },
+  {
+   "a": "hail mary",
+   "b": "teorema",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The sacred dropped into a completely secular modern setting with no change of register to help you — no lighting cue, no music: the annunciation delivered by a man who turns up in a taxi at a filling station, the visitation conducted in the spare bedroom of a Milanese villa.",
+   "source": "reading",
+   "aId": "film-cc4d04a57d00e1fb",
+   "bId": "film-4fba3fe344963ac3"
+  },
+  {
+   "a": "ogro",
+   "b": "rififi",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Political assassination filmed as a heist: weeks of tunnelling under a Madrid street measured out in sacks of soil, a rented basement, and the fear of a sound carrying up through the pavement — the same near-wordless attention to hands and tools that a safe-cracking sequence runs on, pointed at a car instead of a jeweller's.",
+   "source": "reading",
+   "aId": "film-92cacff74be35f24",
+   "bId": "film-787a7f192dd6e896"
+  },
+  {
+   "a": "ogro",
+   "b": "the war is over",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "Two films about clandestine work against the same regime, thirteen years apart. One follows a man carrying forged papers into Spain who privately knows his organisation's certainties expired years ago; the other is the operation those certainties finally produced, with a coda in which the survivors cannot agree what it was for.",
+   "source": "reading",
+   "aId": "film-92cacff74be35f24",
+   "bId": "film-94db7277c3a0ab3d"
+  },
+  {
+   "a": "welcome to dongmakgol",
+   "b": "seven samurai",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Kurosawa's closing arithmetic run again: the fighting men are wanted by nobody, are fed by the village, die defending it, and the farmers who never asked for them go on planting. Here the swords are a North Korean squad and a South Korean squad, who have to be marooned together and disarmed by the villagers' total ignorance of the war before either side is any use to anyone.",
+   "source": "reading",
+   "aId": "film-6e1e90836ad0139d",
+   "bId": "film-c07c730f2c279772"
+  },
+  {
+   "a": "welcome to dongmakgol",
+   "b": "zabriskie point",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.38,
+   "claim": "The explosion filmed as a slow-motion shower of plenty — a desert house and the contents of its refrigerator coming apart against blue sky, a village's entire winter store of corn falling back to earth as popcorn — with the image at its most beautiful exactly where the damage is worst.",
+   "source": "reading",
+   "aId": "film-6e1e90836ad0139d",
+   "bId": "film-ab45522329748eb1"
+  },
+  {
+   "a": "life and nothing more",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "The catastrophe interrupted by an appetite the film refuses to treat as a distraction: a father spending the last of his money on a restaurant meal for his son, and survivors two days after an earthquake raising an aerial over the tents so they can watch the World Cup. In both, the ordinary want is offered as the answer rather than as relief from it.",
+   "source": "reading",
+   "aId": "film-37d4d54ac66889d6",
+   "bId": "film-dbc80e129d3ec54b"
+  },
+  {
+   "a": "nazarin",
+   "b": "diary of a country priest",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "The priest whose ministry visibly fails everyone he offers it to, filmed with no suggestion that a better priest would have done better: one is refused at every door in his parish and writes it down; the other walks out of his parish altogether and is followed by two women who convert him into the miracle-worker he keeps denying he is.",
+   "source": "reading",
+   "aId": "film-8cccf573586adefe",
+   "bId": "film-0337c3129e5199b6"
+  },
+  {
+   "a": "nazarin",
+   "b": "pickpocket",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.46,
+   "claim": "Two 1959 films that end on a gift the man cannot account for. One takes a hand through the bars as grace and says so outright. The other is offered a pineapple by a fruit seller on the road to prison, refuses it twice, accepts it, and is led away in a confusion the film declines to resolve for him.",
+   "source": "reading",
+   "aId": "film-8cccf573586adefe",
+   "bId": "film-dee7e68577904f0c"
+  },
+  {
+   "a": "nazarin",
+   "b": "winter light",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.42,
+   "claim": "The clergyman measured entirely by the one person in front of him who needs help, and failing: a pastor who talks a frightened man into going home and shooting himself, and a priest whose charity produces a brawl on a building site, a burnt room, and a fever that breaks only after somebody else's superstitious rite.",
+   "source": "reading",
+   "aId": "film-8cccf573586adefe",
+   "bId": "film-fc4cb1847923a631"
   }
  ],
  "meta": {
   "schemaVersion": 2,
   "identityVersion": "identity-2249bcb9a060c319",
-  "corpusVersion": "corpus-f777aa7e51564ff6"
+  "corpusVersion": "corpus-3d0f9305f3b2ff8a"
  }
 }
