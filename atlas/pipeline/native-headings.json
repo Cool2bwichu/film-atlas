@@ -1,114 +1,406 @@
 {
-  "version": 1,
-  "note": "Multilingual section-heading map for harvest-native.py. Built from the headings that ACTUALLY OCCUR in the 534 native-language articles this corpus links to (native-headings.py --write prints the evidence table), not from a general guess at Wikipedia. Every term below carries the number of quiet-half articles it was observed in; a term with n=0 is dead weight and should be deleted rather than kept 'just in case'.",
-  "method": {
-    "candidates": "level-2 headings tallied per wiki with four signals: n (articles), pos (median index among level-2s), chars (median stripped prose), list (median share of list lines). Plot sections are frequent, early (pos 0-1), prose-heavy and not lists; cast sections match on frequency and position but are lists; production/reception sections are prose but late.",
-    "decision": "the blind rule generates candidates for recall; each candidate was then read in its own language and classified. The rule alone over-admits (it proposed produzione, hintergrund, produkcja, accoglienza as 'plot' purely because they sit at pos 1 and carry prose), so it is used as a net, not as the judge.",
-    "audit": "harvest-native.py --stage headings re-runs the tally, reports terms never observed, and prints every article where NO plot heading matched together with its full heading list. That residual is the recall check: if a plot heading were missing from this map, it would appear there."
-  },
-  "classes": {
-    "plot": "narrative synopsis of what happens in the film. Counts toward the 1,500-char evidence floor.",
-    "overview": "'about the film' / 'outline' sections that mix a plot sketch with production and significance. Kept as text, labelled, and DELIBERATELY NOT counted as plot - see decisions.overview.",
-    "criticism": "critical reception / analysis prose. Harvested alongside, never counted toward the plot floor."
-  },
-  "decisions": {
-    "overview": "ja 概要 (22 articles) and sv 'om filmen' (34) sit at pos 0 with prose and would raise plot coverage, but they are 'overview' sections that routinely open with production circumstances and box office. Admitting them would put exactly the fame-shaped material (reception, production, significance) that plot-source.js excluded in English into a field the scorer reads as plot. They are harvested into `overview` and the report states how many extra films they would have admitted.",
-    "de Hintergrund": "background/production context, not plot, despite pos 1 and 859 median chars in 22 articles.",
-    "de Inhalt": "genuine alternative to Handlung on de.wikipedia (11 articles, pos 0, 1279 chars) - admitted as plot.",
-    "fr Fiche technique": "pos 1 and frequent (100 articles) but list=1.00 - the credits block. The list signal is what keeps it out.",
-    "it Produzione / pl Produkcja / zh 製作": "production sections; the automatic rule proposed all three and all three are rejected.",
-    "ja ストーリー vs 概要": "ストーリー (16) is a story synopsis and is admitted; 概要 is not.",
-    "compound headings": "criticism is matched by stem substring because the headings compound in the wild ('accoglienza critica', 'kritik und auszeichnungen', 'sortie et accueil', 'recepción y críticas'). Plot is matched exact-or-prefix because plot headings do not compound in this corpus and substring matching on short stems ('trama') would drag in 'episodi e trame'."
-  },
-  "plot": {
-    "it": ["trama", "il film"],
-    "fr": ["synopsis", "résumé", "resume", "sujet"],
-    "ja": ["あらすじ", "粗筋", "ストーリー", "物語", "プロット", "筋書き", "概要ストーリー"],
-    "de": ["handlung", "inhalt"],
-    "sv": ["handling", "handlingen"],
-    "zh": ["劇情", "剧情", "劇情簡介", "剧情简介", "故事", "故事簡介", "故事情节", "情節"],
-    "zh-yue": ["劇情", "故事"],
-    "pl": ["fabuła", "treść"],
-    "es": ["argumento", "sinopsis", "trama"],
-    "pt": ["enredo", "sinopse"],
-    "ru": ["сюжет"],
-    "uk": ["сюжет"],
-    "cs": ["děj", "obsah"],
-    "sk": ["dej"],
-    "hu": ["cselekmény", "történet"],
-    "nl": ["verhaal", "plot", "synopsis"],
-    "da": ["handling", "resumé"],
-    "no": ["handling"],
-    "fi": ["juoni"],
-    "el": ["υπόθεση", "πλοκή"],
-    "tr": ["konu", "özet"],
-    "fa": ["خلاصه داستان", "داستان", "خلاصه فیلم", "داستان فیلم"],
-    "he": ["עלילה"],
-    "ar": ["القصة", "قصة الفيلم", "ملخص"],
-    "ko": ["줄거리"],
-    "hi": ["कथानक", "कहानी", "संक्षेप"],
-    "bn": ["কাহিনী", "কাহিনি", "কাহিনি সংক্ষেপ", "সারসংক্ষেপ"],
-    "sh": ["radnja", "sadržaj"],
-    "hr": ["radnja"],
-    "sr": ["радња"],
-    "sl": ["zgodba", "vsebina"],
-    "ro": ["subiect", "rezumat"],
-    "bg": ["сюжет"],
-    "hy": ["սյուժե", "սյուժեն"],
-    "is": ["söguþráður"],
-    "vi": ["nội dung", "cốt truyện"],
-    "th": ["เรื่องย่อ"],
-    "id": ["sinopsis", "alur"],
-    "ca": ["argument", "sinopsi"],
-    "et": ["süžee"],
-    "lv": ["sižets"],
-    "lt": ["siužetas"]
-  },
-  "overview": {
-    "ja": ["概要", "概略", "概説", "作品概要", "略歴概要"],
-    "sv": ["om filmen", "om produktionen"],
-    "de": ["prolog"],
-    "it": ["ambientazione"]
-  },
-  "criticismStems": {
-    "it": ["critic", "accoglienza", "giudizi", "commenti retrospettivi", "recension"],
-    "fr": ["critique", "accueil", "réception", "reception", "analyse", "commentaire", "postérité"],
-    "ja": ["評価", "批評", "評判", "反響", "作品解説", "解説", "受容"],
-    "de": ["kritik", "rezeption", "analyse", "wirkung", "bedeutung"],
-    "sv": ["mottagande", "recension", "kritik"],
-    "zh": ["評價", "评价", "反響", "反响", "評論", "评论", "反應", "反应"],
-    "zh-yue": ["評價", "評論"],
-    "pl": ["odbiór", "krytyk", "analiz", "recenzj", "znaczenie"],
-    "es": ["recepción", "crítica", "criticas", "críticas", "acogida", "comentarios"],
-    "pt": ["recepção", "crítica", "legado"],
-    "ru": ["критик", "оценки", "восприятие"],
-    "uk": ["критик", "оцінки"],
-    "cs": ["přijetí", "kritik", "ohlas"],
-    "hu": ["fogadtatás", "kritik"],
-    "nl": ["ontvangst", "kritiek"],
-    "da": ["modtagelse", "anmeldelser"],
-    "no": ["mottakelse", "kritikk"],
-    "fi": ["vastaanotto", "arvostelu"],
-    "el": ["κριτικ", "υποδοχή"],
-    "tr": ["eleştiri", "tepkiler"],
-    "fa": ["نقد", "بازخورد", "تحلیل", "واکنش"],
-    "he": ["ביקורת", "קבלה"],
-    "ar": ["نقد", "الاستقبال"],
-    "ko": ["평가", "비평", "반응"],
-    "hi": ["समीक्षा", "आलोचना", "प्रतिक्रिया"],
-    "bn": ["সমালোচনা", "প্রতিক্রিয়া", "মূল্যায়ন"],
-    "sh": ["kritik", "recepcij"],
-    "hr": ["kritik", "recepcij"],
-    "sr": ["критик", "рецепциј"],
-    "sl": ["kritik", "odziv"],
-    "ro": ["receptare", "critic"],
-    "bg": ["критик", "оценки"],
-    "hy": ["քննադատ", "գնահատական"],
-    "vi": ["đánh giá", "phê bình"],
-    "id": ["penerimaan", "tanggapan"],
-    "ca": ["crítica", "recepció"],
-    "et": ["vastuvõtt"],
-    "lv": ["kritika"],
-    "lt": ["kritika"]
-  }
+ "version": 1,
+ "note": "Multilingual section-heading map for harvest-native.py. Built from the headings that ACTUALLY OCCUR in the 534 native-language articles this corpus links to (native-headings.py prints the evidence table), not from a general guess at Wikipedia. Two blocks: `plot`/`overview`/`criticismStems` are VERIFIED against this corpus; `*Unverified` cover wikis this corpus does not currently reach and are carried so a rerun over the whole corpus still works. The report states how many extractions used an unverified term.",
+ "method": {
+  "candidates": "level-2 headings tallied per wiki with four signals: n (articles), pos (median index among level-2s), chars (median stripped prose), list (median share of list lines). Plot sections are frequent, early (pos 0-1), prose-heavy and not lists; cast sections match on frequency and position but are lists; production/reception sections are prose but late.",
+  "decision": "the blind rule generates candidates for recall; each candidate was then read in its own language and classified. The rule alone over-admits (it proposed produzione, hintergrund, produkcja, accoglienza as 'plot' purely because they sit at pos 1 and carry prose), so it is used as a net, not as the judge.",
+  "audit": "native-headings.py re-runs the tally and prints the evidence table; harvest-native.py reports, every run, (a) every term in this map never observed in the corpus, (b) how many extractions relied on an *Unverified term, and (c) every article where NO plot heading matched but 600+ chars of unclassified prose exist. (c) is the recall check: a plot heading missing from this map would surface there.",
+  "pruning": "A term is dead weight unless it earns its place. For every wiki with >=5 articles here (it fr ja de sv zh fa pl es bn el) any term never observed was DELETED — that removed 16 terms including ja プロット/物語/筋書き/粗筋 and zh 故事情节, which are real headings elsewhere on Wikipedia and simply do not occur in this corpus. For wikis with <5 articles (ru ko hi no hu pt nl da sh hy cs zh-yue) absence is a sample-size artifact, not evidence, so their terms were kept."
+ },
+ "classes": {
+  "plot": "narrative synopsis of what happens in the film. Counts toward the 1,500-char evidence floor.",
+  "overview": "'about the film' / 'outline' sections that mix a plot sketch with production and significance. Kept as text, labelled, and DELIBERATELY NOT counted as plot - see decisions.overview.",
+  "criticism": "critical reception / analysis prose. Harvested alongside, never counted toward the plot floor."
+ },
+ "decisions": {
+  "overview": "ja 概要 (22 articles) and sv 'om filmen' (34) sit at pos 0 with prose and would raise plot coverage, but they are 'overview' sections that routinely open with production circumstances and box office. Admitting them would put exactly the fame-shaped material (reception, production, significance) that plot-source.js excluded in English into a field the scorer reads as plot. They are harvested into `overview` and the report states how many extra films they would have admitted.",
+  "de Hintergrund": "background/production context, not plot, despite pos 1 and 859 median chars in 22 articles.",
+  "de Inhalt": "genuine alternative to Handlung on de.wikipedia (11 articles, pos 0, 1279 chars) - admitted as plot.",
+  "fr Fiche technique": "pos 1 and frequent (100 articles) but list=1.00 - the credits block. The list signal is what keeps it out.",
+  "it Produzione / pl Produkcja / zh 製作": "production sections; the automatic rule proposed all three and all three are rejected.",
+  "ja ストーリー vs 概要": "ストーリー (16) is a story synopsis and is admitted; 概要 is not.",
+  "compound headings": "criticism is matched by stem substring because the headings compound in the wild ('accoglienza critica', 'kritik und auszeichnungen', 'sortie et accueil', 'recepción y críticas'). Plot is matched exact-or-prefix because plot headings do not compound in this corpus and substring matching on short stems ('trama') would drag in 'episodi e trame'.",
+  "zh 概述": "'overview' on zh.wikipedia; found by the recall residual (Good Men, Good Women had 600+ chars of unclassified prose under it). Classed as overview, not plot, for the same reason as ja 概要.",
+  "anthology films": "The measured floor of this method: Six in Paris, Pearls of the Deep (cs 'povídky'), Paris je t'aime and Visions of Europe tell their plots under one heading per episode. No heading map can catch that, and inventing a rule ('unclassified prose early in the article is plot') would import production sections everywhere else. 16 of 534 articles land in this residual; they are listed in the report rather than silently counted as plotless."
+ },
+ "plot": {
+  "it": [
+   "trama",
+   "il film"
+  ],
+  "fr": [
+   "synopsis",
+   "résumé",
+   "sujet"
+  ],
+  "ja": [
+   "あらすじ",
+   "ストーリー",
+   "概要ストーリー"
+  ],
+  "de": [
+   "handlung",
+   "inhalt"
+  ],
+  "sv": [
+   "handling"
+  ],
+  "zh": [
+   "劇情",
+   "剧情",
+   "劇情簡介",
+   "故事"
+  ],
+  "zh-yue": [
+   "劇情",
+   "故事"
+  ],
+  "pl": [
+   "fabuła"
+  ],
+  "es": [
+   "argumento",
+   "sinopsis",
+   "trama"
+  ],
+  "pt": [
+   "enredo",
+   "sinopse"
+  ],
+  "ru": [
+   "сюжет"
+  ],
+  "cs": [
+   "děj",
+   "obsah"
+  ],
+  "hu": [
+   "cselekmény",
+   "történet"
+  ],
+  "nl": [
+   "verhaal",
+   "plot",
+   "synopsis"
+  ],
+  "da": [
+   "handling",
+   "resumé"
+  ],
+  "no": [
+   "handling"
+  ],
+  "el": [
+   "υπόθεση",
+   "πλοκή"
+  ],
+  "fa": [
+   "خلاصه داستان",
+   "داستان"
+  ],
+  "ko": [
+   "줄거리"
+  ],
+  "hi": [
+   "कथानक",
+   "कहानी",
+   "संक्षेप"
+  ],
+  "bn": [
+   "কাহিনী",
+   "কাহিনি",
+   "কাহিনি সংক্ষেপ"
+  ],
+  "sh": [
+   "radnja",
+   "sadržaj"
+  ],
+  "hy": [
+   "սյուժե",
+   "սյուժեն"
+  ]
+ },
+ "overview": {
+  "ja": [
+   "概要",
+   "概略",
+   "概説",
+   "略歴概要"
+  ],
+  "sv": [
+   "om filmen"
+  ],
+  "de": [
+   "prolog"
+  ],
+  "it": [
+   "ambientazione"
+  ],
+  "zh": [
+   "概述"
+  ]
+ },
+ "criticismStems": {
+  "it": [
+   "critic",
+   "accoglienza",
+   "giudizi",
+   "commenti retrospettivi",
+   "recension"
+  ],
+  "fr": [
+   "critique",
+   "accueil",
+   "réception",
+   "reception",
+   "analyse",
+   "commentaire",
+   "postérité"
+  ],
+  "ja": [
+   "評価",
+   "批評",
+   "評判",
+   "反響",
+   "作品解説",
+   "解説",
+   "受容"
+  ],
+  "de": [
+   "kritik",
+   "rezeption",
+   "analyse",
+   "wirkung",
+   "bedeutung"
+  ],
+  "sv": [
+   "mottagande",
+   "recension",
+   "kritik"
+  ],
+  "zh": [
+   "評價",
+   "评价",
+   "反響",
+   "反响",
+   "評論",
+   "评论",
+   "反應",
+   "反应"
+  ],
+  "zh-yue": [
+   "評價",
+   "評論"
+  ],
+  "pl": [
+   "odbiór",
+   "krytyk",
+   "analiz",
+   "recenzj",
+   "znaczenie"
+  ],
+  "es": [
+   "recepción",
+   "crítica",
+   "criticas",
+   "críticas",
+   "acogida",
+   "comentarios"
+  ],
+  "pt": [
+   "recepção",
+   "crítica",
+   "legado"
+  ],
+  "ru": [
+   "критик",
+   "оценки",
+   "восприятие"
+  ],
+  "cs": [
+   "přijetí",
+   "kritik",
+   "ohlas"
+  ],
+  "hu": [
+   "fogadtatás",
+   "kritik"
+  ],
+  "nl": [
+   "ontvangst",
+   "kritiek"
+  ],
+  "da": [
+   "modtagelse",
+   "anmeldelser"
+  ],
+  "no": [
+   "mottakelse",
+   "kritikk"
+  ],
+  "el": [
+   "κριτικ",
+   "υποδοχή"
+  ],
+  "fa": [
+   "نقد",
+   "بازخورد",
+   "تحلیل",
+   "واکنش"
+  ],
+  "ko": [
+   "평가",
+   "비평",
+   "반응"
+  ],
+  "hi": [
+   "समीक्षा",
+   "आलोचना",
+   "प्रतिक्रिया"
+  ],
+  "bn": [
+   "সমালোচনা",
+   "প্রতিক্রিয়া",
+   "মূল্যায়ন"
+  ],
+  "sh": [
+   "kritik",
+   "recepcij"
+  ],
+  "hy": [
+   "քննադատ",
+   "գնահատական"
+  ]
+ },
+ "plotUnverified": {
+  "uk": [
+   "сюжет"
+  ],
+  "sk": [
+   "dej"
+  ],
+  "fi": [
+   "juoni"
+  ],
+  "tr": [
+   "konu",
+   "özet"
+  ],
+  "he": [
+   "עלילה"
+  ],
+  "ar": [
+   "القصة",
+   "قصة الفيلم",
+   "ملخص"
+  ],
+  "hr": [
+   "radnja"
+  ],
+  "sr": [
+   "радња"
+  ],
+  "sl": [
+   "zgodba",
+   "vsebina"
+  ],
+  "ro": [
+   "subiect",
+   "rezumat"
+  ],
+  "bg": [
+   "сюжет"
+  ],
+  "is": [
+   "söguþráður"
+  ],
+  "vi": [
+   "nội dung",
+   "cốt truyện"
+  ],
+  "th": [
+   "เรื่องย่อ"
+  ],
+  "id": [
+   "sinopsis",
+   "alur"
+  ],
+  "ca": [
+   "argument",
+   "sinopsi"
+  ],
+  "et": [
+   "süžee"
+  ],
+  "lv": [
+   "sižets"
+  ],
+  "lt": [
+   "siužetas"
+  ]
+ },
+ "overviewUnverified": {},
+ "criticismStemsUnverified": {
+  "uk": [
+   "критик",
+   "оцінки"
+  ],
+  "fi": [
+   "vastaanotto",
+   "arvostelu"
+  ],
+  "tr": [
+   "eleştiri",
+   "tepkiler"
+  ],
+  "he": [
+   "ביקורת",
+   "קבלה"
+  ],
+  "ar": [
+   "نقد",
+   "الاستقبال"
+  ],
+  "hr": [
+   "kritik",
+   "recepcij"
+  ],
+  "sr": [
+   "критик",
+   "рецепциј"
+  ],
+  "sl": [
+   "kritik",
+   "odziv"
+  ],
+  "ro": [
+   "receptare",
+   "critic"
+  ],
+  "bg": [
+   "критик",
+   "оценки"
+  ],
+  "vi": [
+   "đánh giá",
+   "phê bình"
+  ],
+  "id": [
+   "penerimaan",
+   "tanggapan"
+  ],
+  "ca": [
+   "crítica",
+   "recepció"
+  ],
+  "et": [
+   "vastuvõtt"
+  ],
+  "lv": [
+   "kritika"
+  ],
+  "lt": [
+   "kritika"
+  ]
+ }
 }

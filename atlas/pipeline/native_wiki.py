@@ -191,8 +191,11 @@ def norm_heading(h):
     """Unicode-preserving heading normaliser. The JS strips [^A-Za-z0-9 ] which
     is correct for English and destroys あらすじ / Сюжет / Οι ρόλοι."""
     t = re.sub(r"<[^>]+>", "", h)
+    t = _remove_balanced(t, "{{", "}}")          # == Plot{{Anchor|Synopsis}} ==
     t = re.sub(r"\[\[[^\]|]*\|([^\]]*)\]\]", r"\1", t)
     t = re.sub(r"\[\[([^\]]*)\]\]", r"\1", t)
+    t = re.sub(r"\[(?:https?:|//)[^\s\]]+\s*([^\]]*)\]", r"\1", t)
+    t = re.sub(r"https?://\S+", " ", t)          # sv: "== Handling<ref>http… ==" bare URLs
     t = re.sub(r"'''''|'''|''", "", t)
     t = t.translate(_PUNCT)
     t = re.sub(r"\s+", " ", t.replace("　", " "))
