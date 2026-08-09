@@ -74,9 +74,18 @@ async function fetchPage(page) {
   // total pages from a cheap probe if page 1 came from cache
   let totalPages = head.pages ? Number(head.pages) : null;
   if (!totalPages) {
-    const probe = await get("/wp-json/wp/v2/posts?per_page=" + PER_PAGE + "&page=1&_fields=id");
-    totalPages = Number(probe.headers["x-wp-totalpages"]);
-    await sleep(POLITE_MS);
+    // Page 1 came from cache, so the header is gone. Probe cheaply; if the host
+    // is throttling, fall back to the archive size recorded by the source audit
+    // rather than aborting a resumable run over a missing integer.
+    try {
+      const probe = await get("/wp-json/wp/v2/posts?per_page=" + PER_PAGE + "&page=1&_fields=id");
+      totalPages = Number(probe.headers["x-wp-totalpages"]);
+      await sleep(POLITE_MS);
+    } catch (err) {
+      totalPages = Math.ceil(6153 / PER_PAGE);
+      console.log("probe failed (" + err.message + "); assuming " + totalPages + " pages");
+      await sleep(BACKOFF_MS);
+    }
   }
   console.log("pages: " + totalPages + " (" + first.length + " posts on page 1)");
   let fetched = 0;

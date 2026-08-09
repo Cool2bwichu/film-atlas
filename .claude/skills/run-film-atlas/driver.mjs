@@ -362,6 +362,33 @@ function scene(name, arg) {
         return { mark: t, nominal: SKY_FORM_MS, note: "clear" };
       }),
     },
+    /* THE PRINT COMING UP. One film developing on the plate: 1,600 ms of
+       chroma arriving out of silver, with 140 ms of induction at the head
+       where NOTHING happens. That induction is the whole reason this scene
+       exists rather than a still before and after — a print does not switch
+       on, and a still frame cannot tell a 1,600 ms develop from a 1-frame
+       swap. The film is picked by index so the scene is reproducible, and the
+       camera is pushed in so the disc is a disc and not a texel. */
+    develop: {
+      label: "one film developing on the plate", judge: "tween", tail: 900,
+      setup: async (page) => {
+        await skyReady(page);
+        await page.evaluate(() => {
+          /* Push in on the film we are about to develop, so its ~22px halation
+             kernel is a visible object rather than three pixels. */
+          const i = 400;
+          skyGo(sky.wx[i], sky.wy[i], skyFitK() * 6, 0);
+          skyRender();
+        });
+        await page.waitForTimeout(900);
+      },
+      act: (page) => page.evaluate(() => {
+        const i = 400, k = sky.keys[i];
+        const t = performance.now();
+        markFilm(k, "seen");
+        return { mark: t, nominal: DEVELOP_MS, note: `${F[k].title} (${F[k].year || "?"})` };
+      }),
+    },
     /* One meteor, from just off one edge to just off another. Forced rather
        than waited for — the real generator still draws the path, only the
        clock is moved, so what is filmed is a sample from the shipping
@@ -666,7 +693,7 @@ async function recordPass(sc, slug) {
 async function cmdFilm(name, arg, label) {
   const sc = scene(name, arg);
   if (!sc) {
-    console.error(`unknown scene "${name}". try: reform | return | meteor | worlds | still | pulse | drift | flicker | all`);
+    console.error(`unknown scene "${name}". try: reform | return | develop | meteor | worlds | still | pulse | drift | flicker | all`);
     process.exit(2);
   }
   const slug = label || (arg && name !== "reform" && name !== "return" ? `${name}-${arg}` : name);
@@ -912,6 +939,6 @@ else if (cmd === "film") {
 } else {
   console.error("usage: driver.mjs smoke | shot <route> [name] | eval <js> | repl\n" +
     "       driver.mjs film <scene> [world] [name]\n" +
-    "         scenes: reform | return | meteor | worlds | still | pulse | drift | flicker | all");
+    "         scenes: reform | return | develop | meteor | worlds | still | pulse | drift | flicker | all");
   process.exit(2);
 }

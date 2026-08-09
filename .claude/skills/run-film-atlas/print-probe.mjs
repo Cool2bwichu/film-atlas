@@ -381,12 +381,14 @@ const CONTROLS = [
   {
     name: "the pool composites OVER the discs",
     why: "the composite floor must report ~1,000 latent films taking colour",
+    /* The buffer is blitted a SECOND time, after the disc loop. That is the
+       real defect this floor exists to stop, expressed as literally as it can
+       be: a developed film's pool reaching the latent discs standing in it. */
     patch: s => s.replace(
-      'const integrate = !sky.treat',
-      'const integrate_UNUSED = !sky.treat'
-    ).replace(
-      /if \(integrate && sky\.glow\)\{\n(\s+)const buf=skyHaloBuild\(k,ox,oy\);/,
-      'if (true && sky.glow){\n$1const buf=null;'
+      "  ctx.globalAlpha=0.82;\n\n  /* THE ROUTE ITSELF",
+      "  if (integrate && sky.glow && sky.halo){ ctx.globalCompositeOperation=\"lighter\";" +
+      " ctx.globalAlpha=1; ctx.drawImage(sky.halo,0,0,w,h); ctx.globalCompositeOperation=\"source-over\"; }\n" +
+      "  ctx.globalAlpha=0.82;\n\n  /* THE ROUTE ITSELF"
     ),
   },
   {

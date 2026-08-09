@@ -6372,9 +6372,28 @@ function skyReadoutBody(){
          of the atlas no longer has, so the whole atlas is here instead — nothing has been
          narrowed. The names it asked for are printed above.</span>`
       : "";
+    /* THE PRINT, EXPLAINED ONLY ONCE THERE IS SOMETHING TO EXPLAIN.
+       At zero marks this sentence is absent, and that absence is the design:
+       the empty atlas is the default state, it is a finished silver print of
+       the whole of cinema, and the one thing on screen that says anything
+       about the reader is nothing. No counter, no denominator, no percentage,
+       no call to action — the moment this box prints "n of 2,204" the object
+       stops being a print and becomes a scoreboard.
+       It says nothing about REGIONS either. The integral genuinely does carry
+       colour a single film's highlight does not, but at a few hundred marks
+       that statistic is about the reader's subset and not about cinema, and
+       this interface may not hand a personal weather map to somebody as a
+       measurement. That sentence is gated on a Moran's I of the integrated
+       field clearing its own control, and that has not been measured. */
+    const printed = state.seen.size>0
+      ? `<span class="y sky-hint" style="margin-top:9px">The films you have marked are holding the
+         colour measured from their own photography. The rest are silver: same size, same place,
+         same lightness, no dye. That is a fact about the print, not about the films.</span>`
+      : "";
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
       ${stale}
       ${key5}
+      ${printed}
       ${rn?`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what
         it is joined to and nothing else. Start with one of the ${rn} worlds along the top, or pick
         any film to open its map. Two films in five are behind no world at all.</span>`
@@ -6389,9 +6408,23 @@ function skyReadoutBody(){
      disc itself. */
   const pinned = sky.pinKey===key;
   const held = anchor===key;
+  /* WHERE THE FILM'S COLOUR CAME FROM, VERBATIM AND EVERY TIME.
+     1,982 of 2,204 highlights were measured off a real one-sheet; 196 are an
+     era default and 26 were chosen by hand. All 44 films whose developed
+     colour is nearly achromatic come from those 222 — not one poster-measured
+     film falls below chroma 0.05 — so a developed film that comes up almost
+     grey is a palette fact, and without this line it reads as "you have not
+     seen this". AGENTS rule 8: a house default must not be handed over with a
+     measurement's authority. */
+  const devd = state.seen.has(key)||state.loved.has(key);
+  const pal = f.paletteSource==="poster"
+    ? "colour measured from the poster"
+    : "colour is a house default for this film";
   box.innerHTML=`<span class="slate">${held?"holding":"in hand"}</span>
     <span class="t">${esc(f.title)}</span>
     <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${skyDegreeLine(key)}</span>
+    <span class="y" style="margin-top:5px">${devd?"developed":"latent"} · ${pal}</span>
+    <span class="y sky-hint" style="margin-top:5px">s to develop · l to love</span>
     ${held?`<span class="y sky-hint">Its connections are held open — pick one to see why they are joined.</span>`:""}
     ${(pinned||held)?`<button class="btn" id="sky-open" type="button">Open its map</button>`:""}
     ${held?`<button class="btn ghost" id="sky-release" type="button">Release</button>`:""}`;
