@@ -1,7 +1,7 @@
 {
  "version": 1,
  "axisVersion": "axes-1",
- "generated": "2026-08-09T05:50:39.849Z",
+ "generated": "2026-08-09T05:59:01.961Z",
  "model": "claude-opus-5",
  "promptVersion": "axes-prompt-1",
  "source": "reading",
@@ -55,11 +55,11 @@
   "fameDeciles": [
    5,
    14,
-   23,
-   18,
+   22,
+   19,
    23,
    22,
-   21,
+   22,
    24,
    24,
    23
@@ -67,17 +67,17 @@
   "eras": {
    "1960s70s": 52,
    "2000s10s": 38,
-   "1980s90s": 42,
-   "1940s50s": 40,
+   "1980s90s": 41,
+   "1940s50s": 41,
    "2020s": 13,
    "pre1940": 15
   },
   "regions": {
    "Oceania": 4,
-   "W-Europe": 47,
+   "W-Europe": 46,
    "US/CA": 65,
    "Other": 24,
-   "Japan": 23,
+   "Japan": 24,
    "S-Asia": 7,
    "E-Europe": 8,
    "UK/IE": 13,
@@ -86,7 +86,7 @@
   },
   "ladderFilms": 23
  },
- "axisConfidenceFormulation": "grounded-fraction (axes the text grounded / 5) — chosen against the GATE 5 table, not by taste",
+ "axisConfidenceFormulation": "grounded-fraction (axes the text grounded / 5) — measured rho 0.1055 vs pageviews, but EFFECTIVELY CONSTANT on this sample (99.5% of films at 1.0)",
  "replication": {
   "titleBlind": {
    "films": 20,
@@ -1069,34 +1069,34 @@
    "scored": true,
    "withheld": null,
    "plotChars": 5264,
-   "batch": 12,
+   "batch": 13,
    "axes": {
     "dread": {
-     "score": 12,
-     "basis": "A thug with a gun and a bookie's deadline, but the stakes stay at $12,000 and a safe combination."
+     "score": 18,
+     "basis": "Gunpoint and a bookie's 'or else' exist but every threat resolves into farce; the safe, the asylum, the police all defuse comically"
     },
     "cruelty": {
-     "score": 8,
-     "basis": "Wills' destroyed letters and Mary's arrest are undone within scenes; harm exists only to be reversed."
+     "score": 28,
+     "basis": "Wills destroys Mary's letters, sues to declare her unfit, ties Francis up — deliberate harm, but it is exposed and expelled"
     },
     "irony": {
-     "score": 25,
-     "basis": "The impostor is a better Francis than Francis — a joke the film plays warmly and then dissolves into an actual twin."
+     "score": 22,
+     "basis": "Impersonation is plot mechanics, not commentary; the film means its reconciliations and its mink-and-elopement ending"
     },
     "ambiguity": {
      "score": 5,
-     "basis": "Twin revealed, letters exposed, debts paid, two couples reconciled, minks handed over."
+     "basis": "Twin secret revealed, letters exposed, custody fixed, couples paired — nothing withheld at the curtain"
     },
     "fracture": {
-     "score": 5,
-     "basis": "One continuous run from the tailor shop to the taxi, no displacement."
+     "score": 4,
+     "basis": "Strict forward chain from tailor shop to train station; no displacement anywhere"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7215384615384615,
+    "basis-density": 0.8507692307692307,
     "plot-length-banded": 0.8333333333333334
    }
   },
@@ -1277,31 +1277,31 @@
    "batch": 12,
    "axes": {
     "dread": {
-     "score": 30,
-     "basis": "Kidnapping, poverty and a bank robbery arrive as melodramatic incident rather than sustained expectation of harm."
+     "score": 28,
+     "basis": "Kidnapping and Jagga's attack are brief; the running time is schooling, romance, courtroom and reconciliation"
     },
     "cruelty": {
-     "score": 45,
-     "basis": "A thin-evidence rape conviction, a pregnant wife thrown out to give birth on the street, Leela struck by a car — but the film ends in forgiveness."
+     "score": 36,
+     "basis": "A false rape conviction, a pregnant wife thrown out to give birth on the streets — but the film ends in forgiveness"
     },
     "irony": {
-     "score": 8,
-     "basis": "Raj addresses the court about children driven to crime by poverty; the film delivers its thesis straight."
+     "score": 10,
+     "basis": "Raj argues the film's thesis about poverty aloud in court; the images carry exactly what the speech says"
     },
     "ambiguity": {
-     "score": 6,
-     "basis": "Paternity revealed, confession made, sentence handed down, and Rita promises to wait."
+     "score": 8,
+     "basis": "Paternity revealed, verdict handed down as three years, Rita promising to wait — everything is closed"
     },
     "fracture": {
-     "score": 10,
-     "basis": "Continuous chronology from the wrongful conviction through Raj's childhood to the verdict."
+     "score": 14,
+     "basis": "Forward from the Jagga conviction through childhood to trial; only the birthday photo links back"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8292307692307692,
+    "basis-density": 0.8076923076923077,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -1551,45 +1551,45 @@
     "plot-length-banded": 0.6666666666666666
    }
   },
-  "seemabaddha": {
-   "filmId": "film-498159d928b2e1e5",
-   "title": "Seemabaddha",
+  "the cat o nine tails": {
+   "filmId": "film-4411fd3aeb1b6b5d",
+   "title": "The Cat o' Nine Tails",
    "year": 1971,
-   "wikipedia": "Seemabaddha",
-   "region": "S-Asia",
+   "wikipedia": "The Cat o' Nine Tails",
+   "region": "W-Europe",
    "source": "reading",
    "scored": true,
    "withheld": null,
-   "plotChars": 1517,
-   "batch": 8,
+   "plotChars": 4003,
+   "batch": 5,
    "axes": {
     "dread": {
-     "score": 20,
-     "basis": "One localized crisis — a defective consignment against a deadline — with no ongoing expectation of harm to anyone."
+     "score": 58,
+     "basis": "A killer picking off witnesses one by one, a threatening note, and separate attempts on Carlo and Franco keep harm pending."
     },
     "cruelty": {
-     "score": 40,
-     "basis": "A riot is manufactured for career gain and a watchman is badly injured; the harm is deliberate but reported, not dwelt on."
+     "score": 50,
+     "basis": "Three stranglings, a stabbing, a man pushed under a train, and Casoni dropped down an elevator shaft in rage."
     },
     "irony": {
-     "score": 45,
-     "basis": "Promotion for 'efficient' handling of a crisis he manufactured; congratulations all around over sabotage."
+     "score": 18,
+     "basis": "The nine-leads conceit and the XYY theory are played straight as investigation, with no distance from the images."
     },
     "ambiguity": {
-     "score": 18,
-     "basis": "Closes on a stated verdict: at the top, successful and desolate, fallen in Tutul's eyes and his own."
+     "score": 8,
+     "basis": "Casoni is named, cornered and made to confess the break-in motive; even his lie about Lori is corrected in the last line."
     },
     "fracture": {
      "score": 8,
-     "basis": "Straight forward run from Tutul's arrival through the crisis to the promotion."
+     "basis": "Break-in, murders, deduction, capture — one investigative order with nothing withheld out of sequence."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7984615384615384,
-    "plot-length-banded": 0.3333333333333333
+    "basis-density": 0.8738461538461538,
+    "plot-length-banded": 0.6666666666666666
    }
   },
   "that obscure object of desire": {
@@ -2671,31 +2671,31 @@
    "batch": 12,
    "axes": {
     "dread": {
-     "score": 70,
-     "basis": "Smugglers at the border, a photo that will make 'all hell break loose' and 'there will be blood', warnings of bears on the path."
+     "score": 72,
+     "basis": "'All hell will break loose', 'there will be blood', smugglers at the border, a swearing room — then two bodies"
     },
     "cruelty": {
      "score": 60,
-     "basis": "Zara drowns herself after Bakhtiar's lie; Gozal and Solduz are shot at the border; the camera is present for the body on the shore."
+     "basis": "Ten years of abuse recounted, a drowned body found on the shore, Gozal and Solduz shot dead at the border"
     },
     "irony": {
-     "score": 78,
-     "basis": "Panahi plays himself directing a fiction; Zara steps out of the shoot to tell the camera the passport is a prop and the reality is staged."
+     "score": 70,
+     "basis": "Panahi plays himself directing a fake documentary; Zara addresses his livestream to say the passport is a prop"
     },
     "ambiguity": {
-     "score": 62,
-     "basis": "Whether the photo exists is never settled; the villager says there are no bears; the film ends mid-drive on a choked sob."
+     "score": 66,
+     "basis": "Whether the photo exists is never settled, and the fiction/reality boundary of the docudrama collapses unresolved"
     },
     "fracture": {
-     "score": 38,
-     "basis": "Two strands interleaved — the Turkish shoot watched by livestream and the village — plus film-inside-film layering, both moving forward."
+     "score": 40,
+     "basis": "Two interleaved strands — village and the Turkey shoot watched by livestream — but each runs forward"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 1,
+    "basis-density": 0.8276923076923076,
     "plot-length-banded": 0.8333333333333334
    }
   },
@@ -2959,30 +2959,30 @@
    "axes": {
     "dread": {
      "score": 40,
-     "basis": "An innocent woman sits condemned while Sir John hunts an unknown killer, and the cornering of Fane is staged as a trap"
+     "basis": "An innocent woman under sentence and a killer being cornered in an audition, but the investigation proceeds briskly with no menace to Sir John."
     },
     "cruelty": {
-     "score": 42,
-     "basis": "Fane hangs himself from his own trapeze rope in front of an audience, after being deliberately baited by a rigged audition"
+     "score": 40,
+     "basis": "A wrongful conviction Sir John himself votes for, and Fane's trapeze hanging staged for the camera as a performance."
     },
     "irony": {
-     "score": 38,
-     "basis": "A play written to mirror the Baring case is used as the instrument of exposure — theatre deployed against reality"
+     "score": 25,
+     "basis": "The trap is a play about the case — theatre used as a device — but the film means its conscience-driven investigation plainly."
     },
     "ambiguity": {
-     "score": 9,
-     "basis": "A written confession names the killer and clears Mary; the motive is spelled out to the reader"
+     "score": 8,
+     "basis": "Motive supplied and a written confession left behind; Mary is collected from prison."
     },
     "fracture": {
-     "score": 16,
-     "basis": "Forward from trial to investigation to confession; Fane's motive is supplied as exposition, not as displaced scene"
+     "score": 10,
+     "basis": "Forward from trial to confession; only the recounted backstory of Fane's motive sits outside the sequence."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8630769230769231,
+    "basis-density": 0.8846153846153846,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -3163,31 +3163,31 @@
    "batch": 18,
    "axes": {
     "dread": {
-     "score": 70,
-     "basis": "Cesare's prophecy fixes Alan's death by dawn; the killings come at night in bed, one after another, with the box a decoy."
+     "score": 62,
+     "basis": "Cesare announces Alan will die by dawn and he does; stabbings in beds at night, an abduction, and the box that may hold only a dummy."
     },
     "cruelty": {
-     "score": 42,
-     "basis": "Repeated stabbings of sleepers and the abduction through the window, but harm is executed by a sleepwalking instrument."
+     "score": 44,
+     "basis": "Killings by proxy on a sleeping man's order, and a director who takes an asylum inmate and experiments him into a murderer."
     },
     "irony": {
-     "score": 58,
-     "basis": "The twist retracts the whole story as an inmate's delusion, so every image just shown is disowned by the film's last reel."
+     "score": 55,
+     "basis": "The twist retracts the entire told story as an inmate's delusion, so the film's own images are disowned by its last scene."
     },
     "ambiguity": {
-     "score": 62,
-     "basis": "The frame reassigns everyone to the asylum but leaves the director both villain and healer, promising a cure we never see."
+     "score": 50,
+     "basis": "The framing hands the director back his authority and a cure, but Franzis's account is never disproved — only reattributed."
     },
     "fracture": {
-     "score": 46,
-     "basis": "Park-bench frame encloses a flashback that a final reversal reinterprets, with an inset 18th-century Caligari story inside."
+     "score": 50,
+     "basis": "Park frame, long flashback, a diary flashback nested inside it about an 18th-century Caligari, then a return that recolours all of it."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9338461538461539,
+    "basis-density": 0.9769230769230769,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -3368,31 +3368,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 50,
-     "basis": "Milly secretly drugging Henrietta toward madness, faked shrunken-head hallucinations, an overdose attempt: covert threat throughout"
+     "score": 56,
+     "basis": "Milly secretly plies Henrietta with drink, fakes hallucinations with a shrunken head, and attempts an overdose — harm is always pending"
     },
     "cruelty": {
-     "score": 45,
-     "basis": "Milly's deliberate campaign to destroy a woman with drink and terror; but the film ends in pardon and a smiling farewell"
+     "score": 48,
+     "basis": "A housekeeper's sustained campaign to destroy a woman's mind, plus a finger-on-trigger wounding; but ends in Charles's protective lie"
     },
     "irony": {
-     "score": 10,
-     "basis": "Charles's lie 'on his word as a gentleman' is offered as redemption, not undercut; melodrama played straight"
+     "score": 12,
+     "basis": "Confession, sacrifice and the gentleman's word are played straight; no gap between the melodrama shown and meant"
     },
     "ambiguity": {
      "score": 10,
-     "basis": "The old murder is confessed, the poisoner exposed and expelled, the couple reconciled at the dock"
+     "basis": "Both murders explained, Milly exposed and expelled, Sam cleared, couple smiling at the dock"
     },
     "fracture": {
      "score": 18,
-     "basis": "One forward line broken only by Henrietta's spoken flashback to Gretna Green and the shooting"
+     "basis": "One embedded flashback — Henrietta's account of Gretna Green and the brother's shooting — inside an otherwise forward telling"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8446153846153845,
+    "basis-density": 0.916923076923077,
     "plot-length-banded": 0.5
    }
   },
@@ -3409,31 +3409,31 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 30,
-     "basis": "Ambush, siege and shootouts arrive as episodes and resolve; between them the rifle changes hands with no lingering threat"
+     "score": 42,
+     "basis": "Pursuit is continuous and the siege scene has Lin hand Lola a revolver for the last round on herself"
     },
     "cruelty": {
-     "score": 42,
-     "basis": "Lamont robbed, killed and scalped; Waco provokes Steve into drawing to take the gun; Dutch shot their father in the back"
+     "score": 55,
+     "basis": "Lamont robbed, killed and scalped; Waco provokes Steve into drawing to take the rifle; Dutch shot their father in the back"
     },
     "irony": {
      "score": 12,
-     "basis": "The vendetta, the last-bullet gesture and the final embrace are played wholly straight"
+     "basis": "The vendetta, the rescue and the final embrace are played straight with no gap between image and intent"
     },
     "ambiguity": {
-     "score": 7,
-     "basis": "High Spade spells out the brother/patricide backstory and the duel settles it; nothing withheld at the end"
+     "score": 8,
+     "basis": "Dutch's identity as brother is spoken aloud, the rifle returns, the score settles — everything named"
     },
     "fracture": {
-     "score": 16,
-     "basis": "One forward chronology following the rifle; only the withheld backstory arrives late, as spoken exposition"
+     "score": 10,
+     "basis": "The rifle relays owner to owner but the telling never leaves one forward line"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8292307692307692,
+    "basis-density": 0.7723076923076924,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -3532,31 +3532,31 @@
    "batch": 18,
    "axes": {
     "dread": {
-     "score": 60,
-     "basis": "Threats multiply by phone and anonymous letter, an ambush follows, and Ada's illness worsens as he shuts them both in."
+     "score": 58,
+     "basis": "Threats multiply by telephone and anonymous letter, an ambush follows, and his wife's illness worsens with no interval of relief."
     },
     "cruelty": {
-     "score": 58,
-     "basis": "Griffo, his wife and daughter tease him, then Nicola fires him after making him sign away a phantom company."
+     "score": 54,
+     "basis": "Nicola, Laura and Patrizia tease him, then he is fired after being made to sign away a phantom company while Ada is dying."
     },
     "irony": {
-     "score": 48,
-     "basis": "The press makes him a hero and 'the noise doesn't last long and doesn't bring in money' — the film prices its own heroism."
+     "score": null,
+     "basis": "The summary is a bare chain of events with no indication of how the film regards Vittorio's gunmanship — endorsement or mockery."
     },
     "ambiguity": {
-     "score": 50,
-     "basis": "It stops on intent: he decides to humiliate the Griffos and his dying wife is determined to stop him, outcome unstated."
+     "score": 60,
+     "basis": "It stops at intent: he decides to humiliate the Griffos and the dying wife means to stop him; neither outcome is given."
     },
     "fracture": {
-     "score": 8,
-     "basis": "Single forward chain from the supermarket robbery through the shooting contests to the final decision."
+     "score": 5,
+     "basis": "One compressed forward sequence from the supermarket robbery to the final decision, no displacement of any kind."
     }
    },
-   "axisConfidence": 1,
+   "axisConfidence": 0.8,
    "confidenceCandidates": {
     "admitted-binary": 1,
-    "grounded-fraction": 1,
-    "basis-density": 0.8753846153846153,
+    "grounded-fraction": 0.8,
+    "basis-density": 0.9384615384615385,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -3574,30 +3574,30 @@
    "axes": {
     "dread": {
      "score": 80,
-     "basis": "An entire camp held under interrogation, informants, and the standing possibility of being named — nothing lifts before the executions."
+     "basis": "An entire camp waiting to be identified; every scene is interrogation, trickery, or the prospect of execution"
     },
     "cruelty": {
-     "score": 85,
-     "basis": "Systematic mental and physical torture and trickery; Gajdar murdered in solitary; prisoners lured into celebration then told they face execution."
+     "score": 78,
+     "basis": "Mental and physical torture as method, an informant murdered in solitary, and a pardon staged only to spring execution"
     },
     "irony": {
-     "score": null,
-     "basis": "The deception is the captors' doing; the bare mechanical summary says nothing about whether the film stands behind its images."
+     "score": 36,
+     "basis": "The captors' false amnesty — the new unit and the pardon are lies — but the telling itself claims nothing else"
     },
     "ambiguity": {
-     "score": 38,
-     "basis": "The mechanism closes on the execution announcement, but Sándor never appears and who is actually a guerrilla stays unfixed."
+     "score": 40,
+     "basis": "Sándor is never among the prisoners and never appears; identities are the withheld thing throughout"
     },
     "fracture": {
-     "score": 8,
-     "basis": "Historical preamble then one continuous forward sequence of identifications, murder, interrogation, trick."
+     "score": 10,
+     "basis": "Historical preface, then one forward sequence: identification, informing, murder, interrogation, the final trap"
     }
    },
-   "axisConfidence": 0.8,
+   "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
-    "grounded-fraction": 0.8,
-    "basis-density": 0.9769230769230769,
+    "grounded-fraction": 1,
+    "basis-density": 0.8415384615384616,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -3642,44 +3642,44 @@
     "plot-length-banded": 0.5
    }
   },
-  "samurai rebellion": {
-   "filmId": "film-04cedea5bec5dd11",
-   "title": "Samurai Rebellion",
-   "year": 1967,
-   "wikipedia": "Samurai Rebellion",
-   "region": "Japan",
+  "seemabaddha": {
+   "filmId": "film-498159d928b2e1e5",
+   "title": "Seemabaddha",
+   "year": 1971,
+   "wikipedia": "Seemabaddha",
+   "region": "S-Asia",
    "source": "reading",
    "scored": true,
    "withheld": null,
-   "plotChars": 2029,
-   "batch": 9,
+   "plotChars": 1517,
+   "batch": 8,
    "axes": {
     "dread": {
-     "score": 65,
-     "basis": "Refusal carries a standing seppuku order, and the demand for the daimyo's head makes armed retribution certain long before it arrives."
+     "score": 20,
+     "basis": "One localized crisis — a defective consignment against a deadline — with no ongoing expectation of harm to anyone."
     },
     "cruelty": {
-     "score": 72,
-     "basis": "Ichi is held at spearpoint to renounce her marriage and impales herself; her husband is cut down holding her; Isaburo is shot by hidden guns."
+     "score": 40,
+     "basis": "A riot is manufactured for career gain and a watchman is badly injured; the harm is deliberate but reported, not dwelt on."
     },
     "irony": {
-     "score": 25,
-     "basis": "The clan's reversal — ordered to marry her, then ordered to give her back — is absurd, but the film honours the rebellion straight."
+     "score": 45,
+     "basis": "Promotion for 'efficient' handling of a crisis he manufactured; congratulations all around over sabotage."
     },
     "ambiguity": {
-     "score": 15,
-     "basis": "All parties die and the surviving infant is placed with the wet nurse; nothing is withheld."
+     "score": 18,
+     "basis": "Closes on a stated verdict: at the top, successful and desolate, fallen in Tutul's eyes and his own."
     },
     "fracture": {
-     "score": 5,
-     "basis": "Dated opening and unbroken forward march from the marriage order to the final duel."
+     "score": 8,
+     "basis": "Straight forward run from Tutul's arrival through the crisis to the promotion."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8923076923076924,
+    "basis-density": 0.7984615384615384,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -3820,30 +3820,30 @@
    "axes": {
     "dread": {
      "score": 58,
-     "basis": "The scheme depends on waiting for a man to die, Linda's voiceover forecasts apocalyptic hellfire, and the locusts arrive"
+     "basis": "Voiceover opens on a vision of apocalyptic hellfire, the farmer is given a year, and a scheme waits on his death through two harvests"
     },
     "cruelty": {
-     "score": 40,
-     "basis": "Bill sells Abby into a marriage to inherit; but the farmer is shown genuine and fathering Linda, and the deaths are impulsive"
+     "score": 42,
+     "basis": "Bill pushes his lover into another man's bed for money, kills him with a screwdriver; the farmer's decency is used against him"
     },
     "irony": {
-     "score": 12,
-     "basis": "The child's remembering voiceover about the Last Judgment is offered without any counterweight"
+     "score": 24,
+     "basis": "Linda's retrospective narration adds a small remove, but the judgment-day framing is offered without defence"
     },
     "ambiguity": {
-     "score": 35,
-     "basis": "The farmer's malady is unspecified, and it ends mid-flight with Linda running from the school to no stated destination"
+     "score": 38,
+     "basis": "The farmer's malady is unspecified and Abby's actual feeling stays unsettled; Linda simply runs off at the end"
     },
     "fracture": {
      "score": 20,
-     "basis": "One forward chronology, narrated in retrospect by an older Linda from the opening train"
+     "basis": "Older Linda narrates from after the fact, but events themselves run 1916 forward without displacement"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8369230769230769,
+    "basis-density": 0.8892307692307692,
     "plot-length-banded": 0.5
    }
   },
@@ -3857,34 +3857,34 @@
    "scored": true,
    "withheld": null,
    "plotChars": 5121,
-   "batch": 13,
+   "batch": 14,
    "axes": {
     "dread": {
-     "score": 88,
-     "basis": "Nitroglycerin so unstable the faintest vibration detonates it, carried by truck over a rotting bridge for the whole journey"
+     "score": 85,
+     "basis": "Cargo whose 'faintest vibration' detonates, carried for the entire second half; every bridge, tree and tire is a possible death."
     },
     "cruelty": {
-     "score": 62,
-     "basis": "Opens with a casual execution and a bombing, then kills the drivers off one by one and ends on an offscreen gunshot"
+     "score": 58,
+     "basis": "Casual silenced execution of a stranger, Nilo knifing 'Márquez' to take his seat, two drivers burned alive en route."
     },
     "irony": {
      "score": 15,
-     "basis": "The ordeal is presented without distance — exhaustion, hallucination and the dance before the gunmen played straight"
+     "basis": "Vignettes and journey are played straight throughout; no address to camera, quotation or gap between image and intent."
     },
     "ambiguity": {
-     "score": 60,
-     "basis": "'Márquez' is only 'presumably' a war criminal, and Jackie's fate is a single gunshot before a cut to black"
+     "score": 45,
+     "basis": "Everything resolves except the last beat: gunmen enter, one shot, cut to black with Jackie's fate withheld."
     },
     "fracture": {
-     "score": 35,
-     "basis": "Four separate prologue vignettes in Veracruz, Jerusalem, Paris and New Jersey before the strands converge in Porvenir"
+     "score": 25,
+     "basis": "Four separate prologue vignettes in four countries before convergence, plus Jackie's later flashbacks; order still recoverable."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8876923076923078,
+    "basis-density": 0.916923076923077,
     "plot-length-banded": 0.8333333333333334
    }
   },
@@ -3901,31 +3901,31 @@
    "batch": 14,
    "axes": {
     "dread": {
-     "score": 45,
-     "basis": "Vanished aircrews, a child taken through a besieged house, unseen beings pushing at the doors — until the mothership turns benign"
+     "score": 36,
+     "basis": "Jillian besieged by unseen beings and Barry taken; but the sustained state is compulsion and wonder, not expected harm."
     },
     "cruelty": {
-     "score": 24,
-     "basis": "Barry's abduction and a faked nerve-gas evacuation, but the taken are returned unaged and the encounter closes in a smile"
+     "score": 18,
+     "basis": "The abduction is the one deliberate harm and it is undone — the returned haven't aged; the encounter ends in a smile."
     },
     "irony": {
-     "score": 8,
-     "basis": "Hand signs answered by a smiling extraterrestrial, played wholly for awe with nothing undercutting it"
+     "score": 10,
+     "basis": "The finale — hand signs answered, Roy walking aboard — is offered without any distancing frame."
     },
     "ambiguity": {
-     "score": 32,
-     "basis": "Contact is achieved and the missing returned, yet Roy's compulsion is never explained and he leaves without an account of where"
+     "score": 28,
+     "basis": "Coordinates decoded, Barry returned, contact achieved; only the visitors' purpose is left unstated."
     },
     "fracture": {
-     "score": 12,
-     "basis": "Parallel strands — Lacombe, Roy, Jillian — converging forward on Devils Tower with no displacement in time"
+     "score": 15,
+     "basis": "Parallel strands (Lacombe, Roy, Jillian) run forward and converge at Devils Tower; no displacement in time."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8984615384615384,
+    "basis-density": 0.8261538461538462,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -3984,30 +3984,30 @@
    "axes": {
     "dread": {
      "score": 12,
-     "basis": "The one death is a car reversed off a cliff while a pigeon distracts the helper — nothing is anticipated, only bungled"
+     "basis": "A cliff, a runaway pair of girls and a creditor, and none of it hangs over the film; the fatal reversing is a pigeon gag."
     },
     "cruelty": {
-     "score": 26,
-     "basis": "Gugo is tricked into a retirement home and daughters blame Elena for the death, but the film reassembles them at dinner"
+     "score": 28,
+     "basis": "Leonardo dies by farce and Gugo is tricked into a retirement home, yet the film ends by inviting the mistress-creditor to dinner."
     },
     "irony": {
-     "score": 52,
-     "basis": "A death, ruin and debt handled as farce, ending on the title quip over a pregnancy announcement"
+     "score": 45,
+     "basis": "Death, debt and betrayal handled at comic distance, closing on the throwaway quip that gives the film its title."
     },
     "ambiguity": {
-     "score": 14,
-     "basis": "Villa kept, husband dead, creditor invited in, baby to be kept — every account is settled by the last scene"
+     "score": 12,
+     "basis": "Every thread lands: villa kept, husband's second family revealed, pregnancy declared, affair ended."
     },
     "fracture": {
      "score": 5,
-     "basis": "Strict day-count telling: 'the next day', 'that night', 'the following day'"
+     "basis": "Day-by-day forward ('the next day', 'one night', 'the following day') with no displacement."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7907692307692308,
+    "basis-density": 0.8492307692307692,
     "plot-length-banded": 0.5
    }
   },
@@ -4024,31 +4024,31 @@
    "batch": 12,
    "axes": {
     "dread": {
-     "score": 25,
-     "basis": "One beating at the start; the rest is filing appeals and waiting on verdicts — the winter labour resolves into a safe birth."
+     "score": 18,
+     "basis": "The trip is bureaucratic appeal after appeal; the only bodily peril, her winter labour, is resolved safely"
     },
     "cruelty": {
-     "score": 28,
-     "basis": "Headman kicks Qinglai in the groin and throws the notes on the ground, yet later carries her to hospital; nobody is dwelt on in pain."
+     "score": 26,
+     "basis": "A kick to the groin and 200 yuan thrown on the ground; the film otherwise watches persistence, not harm"
     },
     "irony": {
-     "score": 45,
-     "basis": "The man who saved her life is jailed by the machinery she set in motion; her final anguish inverts everything she pursued."
+     "score": 38,
+     "basis": "She gets her verdict only after the headman carries her to the hospital — the outcome refutes the pursuit"
     },
     "ambiguity": {
-     "score": 42,
-     "basis": "Events are fully clear but the film stops on her anguished face without settling what she wanted or whether justice was done."
+     "score": 34,
+     "basis": "Every fact is settled (broken rib, fifteen days); only her final anguished look is left uninterpreted"
     },
     "fracture": {
-     "score": 5,
-     "basis": "Strict forward order from the kick through appeals, birth, one-month party, arrest."
+     "score": 8,
+     "basis": "Strict forward order: beating, local police, district, lawyer, court, birth, one-month party, arrest"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9030769230769231,
+    "basis-density": 0.7923076923076923,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -4144,34 +4144,34 @@
    "scored": true,
    "withheld": null,
    "plotChars": 1934,
-   "batch": 11,
+   "batch": 12,
    "axes": {
     "dread": {
-     "score": 25,
-     "basis": "Violence is recounted in the past tense — the threat to shoot Kinski is an anecdote, and it ends with a butterfly"
+     "score": 22,
+     "basis": "Volatile rages and a recounted threat to shoot Kinski, but all retrospective — the danger is anecdote, not expectation"
     },
     "cruelty": {
-     "score": 30,
-     "basis": "Harangues, curses and violent altercations reported, set against Herzog's stated respect and the actresses' calmer account"
+     "score": 32,
+     "basis": "Heated and sometimes violent altercations recounted, yet framed by deep respect, the butterfly, 'like a comet'"
     },
     "irony": {
-     "score": 35,
-     "basis": "The title's 'best fiend' and an affectionate portrait of a man he once threatened to shoot at gunpoint"
+     "score": 42,
+     "basis": "Herzog narrates his own myth over borrowed footage, touring a renovated apartment and another film's making-of"
     },
     "ambiguity": {
-     "score": 50,
-     "basis": "Raging tyrant and calm colleague are placed side by side unreconciled; 'like a comet' explains nothing"
+     "score": 48,
+     "basis": "Kinski never resolves: the screaming opening versus Mattes and Cardinale attesting to a calmer side, both left standing"
     },
     "fracture": {
-     "score": 50,
-     "basis": "Associative roving — Jesus tour, renovated apartment, revisited countries, old clips, another film's footage, interviews"
+     "score": 55,
+     "basis": "Assembled essay — opening performance clip, apartment tour, country tours, sets, Burden of Dreams, then a 1987 ending"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.86,
+    "basis-density": 0.8830769230769231,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -4229,31 +4229,31 @@
    "batch": 14,
    "axes": {
     "dread": {
-     "score": 66,
-     "basis": "From beatings for a misspoken line to eunuch, Japanese, Kuomintang and Red Guard authorities, harm is always the next scene"
+     "score": 62,
+     "basis": "Beatings from childhood on, then war, treason charges, Red Guards — harm is expected across every era the film passes through."
     },
     "cruelty": {
-     "score": 82,
-     "basis": "Child beaten in another's place, Laizi's hanging, the rape by Zhang, the struggle session paraded through town, Juxian's suicide"
+     "score": 86,
+     "basis": "Child beaten in another's place, eunuch's rape of Douzi, struggle session paraded through town, mutual denunciation, two suicides."
     },
     "irony": {
-     "score": 15,
-     "basis": "The stage line \"I am by nature a girl\" returns as the film's own claim about Dieyi; melodrama fully endorsed, never mocked"
+     "score": 18,
+     "basis": "Opera and life are made to rhyme in earnest — the misspoken 'boy, not girl' line returns as the suicide, not as a joke."
     },
     "ambiguity": {
      "score": 12,
-     "basis": "Every arc closes — betrayals stated aloud, Juxian's death, Xiao Si caught, and Dieyi's suicide completes the opera's ending"
+     "basis": "Every thread closes: Juxian's suicide, Xiao Si caught, the 1977 reunion, Dieyi's death completing the play."
     },
     "fracture": {
      "score": 10,
-     "basis": "1924 to 1977 in strict sequence, each era following the last"
+     "basis": "Strict chronology 1924→1977; the jumps are ellipses within one forward order."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8553846153846154,
+    "basis-density": 0.86,
     "plot-length-banded": 1
    }
   },
@@ -4434,31 +4434,31 @@
    "batch": 14,
    "axes": {
     "dread": {
-     "score": 30,
-     "basis": "Coerced abortion, interrogation over an out-of-wedlock relationship, an unregulated coal mine — hardship, not anticipated attack"
+     "score": 24,
+     "basis": "Hardship accumulates — forced abortion, unregulated coal mine, permit trouble — but nothing threatens the troupe scene to scene."
     },
     "cruelty": {
-     "score": 42,
-     "basis": "Zhang forces Zhong's abortion; Sanming hands over five yuan and instructs his sister never to return"
+     "score": 38,
+     "basis": "Zhang forcing Zhong's abortion; Sanming's five yuan and 'tell her never to return' from a mine that will likely kill him."
     },
     "irony": {
-     "score": 28,
-     "basis": "A troupe reinvented as \"a rock band from Shenzhen\" and reduced to highway shoulders, but the film shares its characters' longing"
+     "score": 25,
+     "basis": "State-approved numbers give way to a fake Shenzhen rock troupe performing on highway shoulders, noted without comment."
     },
     "ambiguity": {
-     "score": 34,
-     "basis": "The wandering never explains itself, yet each thread lands: Yin as tax collector, Cui in construction, the two married with a son"
+     "score": 35,
+     "basis": "Cui and Yin end married with a son, but years of the troupe's dissolution pass in ellipsis and the train is only ever heard."
     },
     "fracture": {
-     "score": 14,
-     "basis": "1979 forward through tours and returns to Fenyang, with long ellipses that never break the order"
+     "score": 15,
+     "basis": "One forward march from 1979 through the tours to the return, with long unmarked gaps between."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8938461538461538,
+    "basis-density": 0.8984615384615384,
     "plot-length-banded": 0.5
    }
   },
@@ -4557,31 +4557,31 @@
    "batch": 12,
    "axes": {
     "dread": {
-     "score": 50,
-     "basis": "A serial killer, a morgue visit and murdered children — but the menace is intermittent, parcelled into dream trips."
+     "score": 44,
+     "basis": "A serial killer, a staking machine and dream pursuits, but the register is eccentric — a clock with seven times"
     },
     "cruelty": {
-     "score": 58,
-     "basis": "The priest drugs and kills all the orphans, chases V down and murders her; the body is staked through the chest."
+     "score": 50,
+     "basis": "A priest drugs and murders all the children, chases V down, and her body is found impaled with a stake"
     },
     "irony": {
-     "score": 72,
-     "basis": "Poe appears as a guide, and the whole dream strand is revealed as the manuscript, capped by post-film text on the series' sales."
+     "score": 66,
+     "basis": "The reveal that everything since the first dream was the manuscript, plus post-film text on the series' sales"
     },
     "ambiguity": {
-     "score": 62,
-     "basis": "The frame reveal unsettles which layer was real, and the coda leaves Bobby's murder unsolved and Flamingo never seen again."
+     "score": 70,
+     "basis": "Dream, manuscript and waking world never separate; Bobby's murder unsolved and Flamingo never seen again"
     },
     "fracture": {
-     "score": 58,
-     "basis": "Waking and dream town alternate and bleed into each other, then a final reveal reframes the bulk of it as a written text."
+     "score": 64,
+     "basis": "Nested dream levels that leak into waking, then a frame reveal retroactively reclassifying most of the film"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9215384615384615,
+    "basis-density": 0.82,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -4680,31 +4680,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 82,
-     "basis": "Debt clock never stops: ambush at the school play, the trunk, the beating outside the auction, thugs waiting behind glass"
+     "score": 77,
+     "basis": "Debt collectors recur at a school play, a nightclub, outside the auction; Howard is stripped and locked in a trunk before the final gun"
     },
     "cruelty": {
-     "score": 60,
-     "basis": "Stripped naked and locked in a trunk, beaten bloody, then shot dead at the moment of winning"
+     "score": 58,
+     "basis": "Beatings by Arno's goons, humiliation in the trunk, and two point-blank killings the film stays in the room for"
     },
     "irony": {
-     "score": 25,
-     "basis": "The score pays and he dies for it, but the film asserts that outcome flatly rather than winking at it"
+     "score": 36,
+     "basis": "The parlay wins $1.2 million and he is shot dead moments after being freed — payoff and punishment arrive together"
     },
     "ambiguity": {
-     "score": 10,
-     "basis": "Bet wins, Howard dies, Arno dies, Julia leaves with the money and the store is looted — every thread closed"
+     "score": 8,
+     "basis": "Bet resolved, debt resolved, both deaths shown, Julia leaves with the money"
     },
     "fracture": {
-     "score": 12,
-     "basis": "2010 Ethiopian mine prologue is the only displacement before a continuous 2012 run"
+     "score": 14,
+     "basis": "A 2010 Ethiopian mine prologue displaced ahead of the 2012 main line; nothing else moves"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7738461538461539,
+    "basis-density": 0.8046153846153846,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -4721,31 +4721,31 @@
    "batch": 18,
    "axes": {
     "dread": {
-     "score": 42,
-     "basis": "Two deaths and a stakeout, but the middle is dates at a temple and home visits; menace comes in retrospect, via deduction."
+     "score": 36,
+     "basis": "Investigation and stakeout hold suspicion rather than threat; the second corpse and the rising tide arrive late, not as sustained menace."
     },
     "cruelty": {
      "score": 30,
-     "basis": "Killings are inferred from phones and pills rather than shown; the ending harm is self-administered in a pit in the sand."
+     "basis": "Two engineered deaths and a fentanyl mercy-killing, but the harm is off-screen deduction; the film's attention is on the pair's tenderness."
     },
     "irony": {
-     "score": 18,
-     "basis": "Declarations of love and 'shattered' pride are delivered straight; the tide burial is played for anguish, not distance."
+     "score": 20,
+     "basis": "The declaration of love, the ash-scattering and the burial in sand are played without any wink; the recording is a plot device, not distance."
     },
     "ambiguity": {
-     "score": 58,
-     "basis": "He never learns she is under him, never recalls saying he loved her, and her claim to have loved him only after is untested."
+     "score": 56,
+     "basis": "He never finds her body and never recalls saying he loved her; whether she ever loved or only used him stays unsettled at the close."
     },
     "fracture": {
-     "score": 14,
-     "basis": "Straight forward order with one stated thirteen-month jump; the revelations are new deductions, not replayed scenes."
+     "score": 16,
+     "basis": "Straight investigation, one titled thirteen-month jump; the murder is re-explained but the telling never leaves forward order."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9261538461538462,
+    "basis-density": 1,
     "plot-length-banded": 0.8333333333333334
    }
   },
@@ -4803,31 +4803,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 80,
-     "basis": "Captivity with a four-day eclipse deadline, electric torture, then jars of body parts and a binder of prior captives"
+     "score": 74,
+     "basis": "A captive in a basement on a four-day countdown to an eclipse, with a torturer escalating from electricity to a dislocated kneecap"
     },
     "cruelty": {
-     "score": 85,
-     "basis": "Head shaved, electrocuted, kneecap dislocated; a deputy bludgeoned, a comatose woman killed with antifreeze, then all humans"
+     "score": 86,
+     "basis": "Head shaved, electrocuted, kneecap dislocated; a deputy bludgeoned with a shovel, jars of severed body parts, then all humans killed"
     },
     "irony": {
-     "score": 70,
-     "basis": "The lunatic's conspiracy is literally true, and the reveal is a flat-Earth model under a bubble dome"
+     "score": 63,
+     "basis": "The lunatic's conspiracy turns out literally true and the abductee is the emperor — the film's premise inverts on itself"
     },
     "ambiguity": {
-     "score": 25,
-     "basis": "Michelle is confirmed the emperor and the extinction is shown; only her Atlantis account stays untested"
+     "score": 26,
+     "basis": "The closet really is a teleporter and Michiko's identity is confirmed on the mothership; the ending states what happened"
     },
     "fracture": {
-     "score": 5,
-     "basis": "Abduction to extinction in one forward order"
+     "score": 8,
+     "basis": "Single forward order from abduction to extinction; the Atlantis backstory is spoken, not staged out of sequence"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7492307692307693,
+    "basis-density": 0.943076923076923,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -5091,30 +5091,30 @@
    "axes": {
     "dread": {
      "score": 18,
-     "basis": "A woman dying of pneumonia counting leaves; elsewhere a vagrant failing to be arrested and a kidnapping that goes comic"
+     "basis": "A murderer and a dying woman exist, but each segment's motion is toward a punchline; the vagrant can't even get arrested."
     },
     "cruelty": {
-     "score": 15,
-     "basis": "The painter dies of exposure for a stranger and the couple's sacrifices are mutual; the debt-bound detective still relents"
+     "score": 20,
+     "basis": "Harms are offscreen or comic — a wounded priest reported, a kidnapped child who torments his kidnappers."
     },
     "irony": {
-     "score": 32,
-     "basis": "Reversals built in: gifts made useless by the giving, a painted leaf mistaken for a real one, a kidnapped child who wins"
+     "score": 40,
+     "basis": "Every segment turns on a reversal — useless gifts, painted leaf, unarrestable tramp — but the sentiment behind them is played straight."
     },
     "ambiguity": {
      "score": 8,
-     "basis": "Each story states its own twist outright, including that the last leaf was paint and the artist died finishing it"
+     "basis": "Each twist is explained in the telling, including that the leaf was painted and the painter died for it."
     },
     "fracture": {
-     "score": 50,
-     "basis": "A Steinbeck prologue and five separate stories with separate casts, each internally linear but sharing no timeline"
+     "score": 55,
+     "basis": "Five unconnected stories with a narrator's prologue; no single order runs through the film, though each segment is linear."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9046153846153846,
+    "basis-density": 0.9015384615384615,
     "plot-length-banded": 0.5
    }
   },
@@ -5131,31 +5131,31 @@
    "batch": 12,
    "axes": {
     "dread": {
-     "score": 70,
-     "basis": "Gunfire from executions heard throughout, Orsini caught and executed, Fontaine sentenced to death, a possibly planted cellmate."
+     "score": 72,
+     "basis": "Gunfire from executions heard regularly, a death sentence, and a cellmate who may be a plant he'd have to kill"
     },
     "cruelty": {
-     "score": 35,
-     "basis": "Beatings and executions occur but happen offscreen or as sound; the sustained attention is on wood shavings and rope."
+     "score": 34,
+     "basis": "Handcuffs, beatings, Orsini returned to await execution — real harm, but the attention is on the spoon and the door"
     },
     "irony": {
      "score": 8,
-     "basis": "The escape is presented entirely as itself — the labour of the spoon and the door carries no second meaning."
+     "basis": "A wholly procedural account of chiselling, rope-making and rooftops; nothing is shown that it doesn't mean"
     },
     "ambiguity": {
-     "score": 12,
-     "basis": "He gets over the wall and walks away undetected; even Jost's loyalty is settled before the climb."
+     "score": 10,
+     "basis": "They climb down and walk away undetected; nothing about the escape or Jost's loyalty is left open"
     },
     "fracture": {
-     "score": 5,
-     "basis": "Cell to cell, day by day, one order with no displacement."
+     "score": 7,
+     "basis": "One forward line marked by durations — 'after fifteen days', 'weeks of work', 'that night'"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7784615384615385,
+    "basis-density": 0.7969230769230768,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -5198,6 +5198,47 @@
     "grounded-fraction": 1,
     "basis-density": 0.78,
     "plot-length-banded": 0.3333333333333333
+   }
+  },
+  "rope": {
+   "filmId": "film-c473043de4b4d0b6",
+   "title": "Rope",
+   "year": 1948,
+   "wikipedia": "Rope (film)",
+   "region": "US/CA",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 4104,
+   "batch": 18,
+   "axes": {
+    "dread": {
+     "score": 78,
+     "basis": "The body sits in the chest used as a buffet table for the whole party, with the housekeeper trying to open it and Rupert circling."
+    },
+    "cruelty": {
+     "score": 70,
+     "basis": "They kill a classmate as an exercise, feed his father from the chest holding him, and send him home with books tied in the murder rope."
+    },
+    "irony": {
+     "score": 30,
+     "basis": "Rupert repudiates his own Nietzsche talk to camera-level plainness and fires for the police; the film's judgement is unhidden."
+    },
+    "ambiguity": {
+     "score": 10,
+     "basis": "The lid comes up, the body is found, guilt is stated, and the three take their final positions as the police arrive."
+    },
+    "fracture": {
+     "score": 3,
+     "basis": "One party, one evening, from the strangling to the sirens with no jump backward or forward."
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.9199999999999999,
+    "plot-length-banded": 0.6666666666666666
    }
   },
   "notorious": {
@@ -5254,31 +5295,31 @@
    "batch": 14,
    "axes": {
     "dread": {
-     "score": 58,
-     "basis": "An uninhabited island, the boat carried off by the sea, no provisions, and a repaired wartime plane as the only exit"
+     "score": 52,
+     "basis": "Closes with the boat lost, provisions gone, starvation, and a takeoff in a repaired wartime plane — harm expected and unresolved."
     },
     "cruelty": {
-     "score": 66,
-     "basis": "She makes the dog swim until it drowns, then takes its place as \"female dog\" in a submission game he accepts"
+     "score": 68,
+     "basis": "Liza makes the dog swim until it drowns from exhaustion, then takes its place on a leash; the text stays with the dominance game."
     },
     "irony": {
      "score": 30,
-     "basis": "The dominance game is presented as a strange idyll rather than mocked, but the substitution of woman for drowned dog is pointed"
+     "basis": "The 'female dog' role and a man who prefers conversing with his dog are set out as a game he accepts, with no framing that mocks it."
     },
     "ambiguity": {
-     "score": 68,
-     "basis": "Ends mid-attempt at takeoff with the outcome unstated, and never explains why he accepts the game or she stages it"
+     "score": 66,
+     "basis": "Ends mid-attempt in the air with no outcome; Liza's motive for the dog and Giorgio's indifference are never accounted for."
     },
     "fracture": {
-     "score": 6,
-     "basis": "Arrival, return, jealousy, Paris, return to the island, starvation — a single forward chain"
+     "score": 8,
+     "basis": "Continuous chronology: arrival, the dog, Paris, return, the lost boat."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8553846153846154,
+    "basis-density": 0.8953846153846154,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -5323,85 +5364,85 @@
     "plot-length-banded": 0.5
    }
   },
-  "penelope": {
-   "filmId": "film-e59719d05232fb4a",
-   "title": "Penelope",
-   "year": 1966,
-   "wikipedia": "Penelope (1966 film)",
-   "region": "US/CA",
+  "samurai rebellion": {
+   "filmId": "film-04cedea5bec5dd11",
+   "title": "Samurai Rebellion",
+   "year": 1967,
+   "wikipedia": "Samurai Rebellion",
+   "region": "Japan",
    "source": "reading",
    "scored": true,
    "withheld": null,
-   "plotChars": 2315,
-   "batch": 19,
+   "plotChars": 2029,
+   "batch": 9,
    "axes": {
     "dread": {
-     "score": 10,
-     "basis": "The robberies are costume-play, the police chase is comic, and no one is ever in a position to be hurt"
+     "score": 65,
+     "basis": "Refusal carries a standing seppuku order, and the demand for the daimyo's head makes armed retribution certain long before it arrives."
     },
     "cruelty": {
-     "score": 24,
-     "basis": "A professor's attempted rape is recounted as one anecdote in a list of thefts, including a ripped-off dress played for chase"
+     "score": 72,
+     "basis": "Ichi is held at spearpoint to renounce her marriage and impales herself; her husband is cut down holding her; Isaburo is shot by hidden guns."
     },
     "irony": {
-     "score": 40,
-     "basis": "Theft as a plea for a husband's attention, guests denying their own stolen goods to protect insurance fraud"
+     "score": 25,
+     "basis": "The clan's reversal — ordered to marry her, then ordered to give her back — is absurd, but the film honours the rebellion straight."
     },
     "ambiguity": {
-     "score": 10,
-     "basis": "The psychiatrist states the motive and the guests' reason for lying, then the couple happily reunite"
+     "score": 15,
+     "basis": "All parties die and the surviving infant is placed with the wet nurse; nothing is withheld."
     },
     "fracture": {
-     "score": 20,
-     "basis": "Present-tense caper interrupted by flashbacks she narrates to Gregory — college, wedding day — then resumed"
+     "score": 5,
+     "basis": "Dated opening and unbroken forward march from the marriage order to the final duel."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8307692307692308,
+    "basis-density": 0.8923076923076924,
     "plot-length-banded": 0.3333333333333333
    }
   },
-  "the cat o nine tails": {
-   "filmId": "film-4411fd3aeb1b6b5d",
-   "title": "The Cat o' Nine Tails",
-   "year": 1971,
-   "wikipedia": "The Cat o' Nine Tails",
-   "region": "W-Europe",
+  "nayak": {
+   "filmId": "film-50c85eae6dffdf45",
+   "title": "Nayak",
+   "year": 1966,
+   "wikipedia": "Nayak (1966 film)",
+   "region": "S-Asia",
    "source": "reading",
    "scored": true,
    "withheld": null,
-   "plotChars": 4003,
-   "batch": 5,
+   "plotChars": 3767,
+   "batch": 7,
    "axes": {
     "dread": {
-     "score": 58,
-     "basis": "A killer picking off witnesses one by one, a threatening note, and separate attempts on Carlo and Franco keep harm pending."
+     "score": 28,
+     "basis": "A nightmare and a drunk contemplation of jumping from the moving train — threat is one interior moment, not sustained."
     },
     "cruelty": {
-     "score": 50,
-     "basis": "Three stranglings, a stabbing, a man pushed under a train, and Casoni dropped down an elevator shaft in rage."
+     "score": 15,
+     "basis": "He refused Lahiri a job and refused Biresh; Aditi answers with empathy bordering on pity and tears up her notes."
     },
     "irony": {
-     "score": 18,
-     "basis": "The nine-leads conceit and the XYY theory are played straight as investigation, with no distance from the images."
+     "score": 35,
+     "basis": "Confession all night, then he 'slips back into the role of the star' — the film shows the mask being resumed knowingly."
     },
     "ambiguity": {
-     "score": 8,
-     "basis": "Casoni is named, cornered and made to confess the break-in motive; even his lie about Lori is corrected in the last line."
+     "score": 40,
+     "basis": "He asks her how he is and she answers for him; whether the unburdening changed anything is left unstated."
     },
     "fracture": {
-     "score": 8,
-     "basis": "Break-in, murders, deduction, capture — one investigative order with nothing withheld out of sequence."
+     "score": 45,
+     "basis": "One train journey carrying inset episodes — Shankar-da, Lahiri, Biresh — plus a nightmare, interleaved with other passengers."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8738461538461538,
+    "basis-density": 0.8907692307692308,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -5418,24 +5459,24 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 45,
-     "basis": "The herald's announcement of the Visitor's departure flags the collapse, and everything after is awaited disintegration"
+     "score": 42,
+     "basis": "The herald announces the departure in advance, so the second half is spent waiting for a collapse already promised"
     },
     "cruelty": {
-     "score": 30,
-     "basis": "The Visitor gives 'unstintingly, asking nothing', stops a suicide and consoles; the harm afterward is self-inflicted"
+     "score": 32,
+     "basis": "The Visitor only gives — suicide prevented, anxieties soothed; the ruin afterward is self-inflicted and watched without blame"
     },
     "irony": {
-     "score": 52,
-     "basis": "An arm-flapping postman heralds a nameless Visitor who sleeps with each family member in turn — a schematic figure, not a person"
+     "score": 55,
+     "basis": "'A typical bourgeois family' plus an arm-flapping postman herald: the household is a demonstration case, not people"
     },
     "ambiguity": {
-     "score": 75,
-     "basis": "Who or what the Visitor is is never given, and the maid's miracles and burial are left unexplained alongside it"
+     "score": 76,
+     "basis": "The Visitor is never identified or explained, and the film ends on a naked scream on Etna rather than an account"
     },
     "fracture": {
-     "score": 10,
-     "basis": "Arrival, seductions, departure, aftermath — one order, each member's fate narrated in sequence"
+     "score": 18,
+     "basis": "Arrival then departure in order; only the fanning out into five parallel fates loosens the single line"
     }
    },
    "axisConfidence": 1,
@@ -5623,31 +5664,31 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 33,
-     "basis": "Three murders and a manhunt, but the fugitive hides in his own office and the film moves by investigation, not by threat"
+     "score": 40,
+     "basis": "A killer keeps working — wife, box-office clerk — while Julien hides and Barbara walks prostitution alleys alone"
     },
     "cruelty": {
-     "score": 25,
-     "basis": "Killings are plot mechanics reported after the fact; the only on-page violence is a comic mistaken assault on a priest"
+     "score": 38,
+     "basis": "Four murders planned by an intimate (lawyer kills lover, witness, would kill client), but the text dwells on the chase, not the wounds"
     },
     "irony": {
-     "score": 40,
-     "basis": "Genre furniture worn knowingly: the priest they wrongly beat up returns to marry the couple, and the killer confesses by phone"
+     "score": 32,
+     "basis": "The man they assault turns out to be the priest who later marries them — the plot arranges tidy jokes over its corpses"
     },
     "ambiguity": {
      "score": 6,
-     "basis": "Clement enumerates every motive and victim aloud before shooting himself; nothing is left unaccounted"
+     "basis": "Clement confesses every murder and motive on the phone before dying; the case closes completely"
     },
     "fracture": {
-     "score": 8,
-     "basis": "Single forward order from the duck hunt to the wedding, with the investigation moving strictly onward"
+     "score": 6,
+     "basis": "Single forward investigation, Nice research included, told in order"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8707692307692307,
+    "basis-density": 0.8092307692307692,
     "plot-length-banded": 0.5
    }
   },
@@ -5746,31 +5787,31 @@
    "batch": 19,
    "axes": {
     "dread": {
-     "score": 45,
-     "basis": "The whole runtime builds a weapon under deadline; Tickling the Dragon's Tail and the countdown to Trinity carry anticipation"
+     "score": 52,
+     "basis": "A countdown structure — delays, espionage sweeps, Tickling the Dragon's Tail — running toward a detonation the film names in advance."
     },
     "cruelty": {
-     "score": 48,
-     "basis": "Merriman's irradiation is followed through swelling, deformation and days of miserable death; Groves orders Tatlock cut off"
+     "score": 55,
+     "basis": "The camera stays for Merriman's swelling and deformation over days while the nurse can only watch; Tatlock's death follows an order."
     },
     "irony": {
-     "score": 22,
-     "basis": "The detonation is watched 'in awe' and reported as ushering in the Atomic Age — the film stands behind its own climax"
+     "score": 20,
+     "basis": "Conscience debated openly by the scientists; 'everyone watches in awe' at the mushroom cloud is offered without undercutting."
     },
     "ambiguity": {
-     "score": 14,
-     "basis": "Both designs work, the test succeeds, the conscience debate is staged and then settled by the mushroom cloud"
+     "score": 15,
+     "basis": "Dated to the second (05:29:45, July 16, 1945); both designs work, and the film says so."
     },
     "fracture": {
      "score": 5,
-     "basis": "September 1942 forward to 05:29:45 on July 16, 1945 in unbroken order"
+     "basis": "September 1942 forward to Trinity, one order, no displacement."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8323076923076923,
+    "basis-density": 0.8292307692307692,
     "plot-length-banded": 0.5
    }
   },
@@ -5829,30 +5870,30 @@
    "axes": {
     "dread": {
      "score": 20,
-     "basis": "The overdose is over by the second scene; the risk after is relapse and a drunk-driving crash both survived"
+     "basis": "The overdose opens the film; afterward the tension is relapse and career, and the pills she takes are vomited up."
     },
     "cruelty": {
-     "score": 32,
-     "basis": "Sleeping pills given from age nine, producers critiquing her body, Jack's parallel affair — the mother is still granted her scene"
+     "score": 28,
+     "basis": "Doris feeding her nine-year-old sleeping pills and stealing the spotlight; producers' remarks about her being out of shape."
     },
     "irony": {
-     "score": 34,
-     "basis": "A film about making films where the actress ends up singing on the set of the director who chewed her out in scene one"
+     "score": 35,
+     "basis": "An actress playing scenes about acting, notes from three producers, ending on her performing inside another film."
     },
     "ambiguity": {
-     "score": 14,
-     "basis": "Money loss, mother, career and suitor all land: heart-to-heart at the bedside, Frankenthal willing to wait, a song performed"
+     "score": 15,
+     "basis": "Sobriety holds, mother reconciled at the bedside, doctor waiting, new work secured — every line closed."
     },
     "fracture": {
-     "score": 6,
-     "basis": "Rehab, return to work, day one, day two, looping session — one dated forward sequence"
+     "score": 8,
+     "basis": "Strictly sequential from set to hospital to rehab to new film."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8661538461538462,
+    "basis-density": 0.7907692307692308,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -5951,31 +5992,31 @@
    "batch": 18,
    "axes": {
     "dread": {
-     "score": 40,
-     "basis": "A grenade-pin standoff and a scheduled bomb strike, but long harvest and boar-roast stretches where nothing threatens."
+     "score": 36,
+     "basis": "A standoff and a pulled grenade pin resolve into farce and popcorn; menace only returns with the parachute drop and the bombing run."
     },
     "cruelty": {
-     "score": 30,
-     "basis": "The rescue team harasses the chief and Yeo-il dies in crossfire, yet the film's own gesture is butterflies over the dead."
+     "score": 24,
+     "basis": "The rescue team threatens and harasses the chief and Yeo-il dies in crossfire, but the film's business is soldiers feeding a village."
     },
     "irony": {
-     "score": 22,
-     "basis": "Popcorn snow and butterfly swarms are whimsy in service of the reconciliation, not a gap — the sacrifice is played straight."
+     "score": 14,
+     "basis": "Butterfly storms, popcorn snow and the butterflies rising where the soldiers died are offered as literal wonder, undefended."
     },
     "ambiguity": {
-     "score": 14,
-     "basis": "The decoy works, the soldiers die knowingly, the village is saved; nothing about cause or outcome is withheld."
+     "score": 12,
+     "basis": "The decoy works, every defender is named as killed, and the closing butterflies state the meaning outright."
     },
     "fracture": {
      "score": 10,
-     "basis": "One forward line from the crash-landing to the bombing, with parallel strands converging in the village."
+     "basis": "One forward September-onward line; the Allied command thread runs parallel and converges without any displacement."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8876923076923078,
+    "basis-density": 0.9384615384615385,
     "plot-length-banded": 0.8333333333333334
    }
   },
@@ -5992,31 +6033,31 @@
    "batch": 18,
    "axes": {
     "dread": {
-     "score": 68,
-     "basis": "Each vignette accumulates humiliation toward an eruption: hush money then shotgun, thugs at the spa, the factory ledge."
+     "score": 66,
+     "basis": "Opens with San'er shooting three robbers dead unprovoked; each vignette accumulates humiliation that the form has taught you ends in blood."
     },
     "cruelty": {
      "score": 78,
-     "basis": "Dahai's methodical rampage through accountant, wife, lackey, chief and Jiao; the man beaten at the toll; the suicide leap."
+     "basis": "Hush money after a beating, a shotgun rampage down to a man mistreating a horse, a woman shot for a handbag, assault with a fruit knife."
     },
     "irony": {
-     "score": 45,
-     "basis": "Opera framing bracket — Lin Chong before the killings, 'Do you plead guilty?!' aimed at a wrongly accused woman at the end."
+     "score": 38,
+     "basis": "Opera inserts comment on the action — Lin Chong before the rampage, 'Do you plead guilty?' at the close — but the anger is unhedged."
     },
     "ambiguity": {
-     "score": 28,
-     "basis": "Every act's cause is spelled out, and even the real-life source of each episode is named; only the closing question hangs."
+     "score": 25,
+     "basis": "Each episode closes on its act and its real-world source is named; only the epilogue's question to Xiaoyu is left hanging."
     },
     "fracture": {
      "score": 42,
-     "basis": "Four separate vignettes plus a prologue that shows San'er's killing before his own segment reaches it."
+     "basis": "Four vignettes 'depicted chronologically' plus a prologue that is San'er's later episode pulled forward, and an epilogue crossing strands."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9046153846153846,
+    "basis-density": 1,
     "plot-length-banded": 1
    }
   },
@@ -6074,31 +6115,31 @@
    "batch": 12,
    "axes": {
     "dread": {
-     "score": 40,
-     "basis": "The body is found burned and dismembered early; from there the pressure is retrospective investigation rather than expected harm."
+     "score": 38,
+     "basis": "The son is already dead; tension is investigative, with the hanging and Ortiz raid as isolated spikes"
     },
     "cruelty": {
-     "score": 65,
-     "basis": "Dismemberment, the video of Mike torturing a captive, Hank beating Ortiz, Angie murdered by her husband, Bonner hanged."
+     "score": 62,
+     "basis": "Burned and dismembered body, the video of Mike torturing a captive, a stabbing over a minor quarrel, a wife murdered"
     },
     "irony": {
-     "score": 22,
-     "basis": "The flag raised correctly at the start and flown upside down at the end is a symbol the film delivers without distance."
+     "score": 26,
+     "basis": "The flag raised correctly at the start and flown upside down at the end — pointed, but the film stands behind it"
     },
     "ambiguity": {
-     "score": 25,
-     "basis": "Penning confesses to the stabbing and the mechanism is fully explained; only Mike's inner state is left as implication."
+     "score": 22,
+     "basis": "Penning confesses, the credit card signature is matched; only Mike's own despondency is left as inference"
     },
     "fracture": {
-     "score": 15,
-     "basis": "One forward investigation with recovered phone videos and a remembered last conversation inserted into it."
+     "score": 24,
+     "basis": "Dated linear investigation, displaced only by phone videos and the recalled last conversation about the Iraqi child"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9107692307692308,
+    "basis-density": 0.8446153846153845,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6115,31 +6156,31 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 25,
-     "basis": "The murder plot against Mrs. Munson keeps failing into farce; she sleeps through her own assassination attempt"
+     "score": 30,
+     "basis": "A murder plot against Mrs. Munson is agreed and lots are drawn twice, but each attempt collapses into cuckoo clocks and cats"
     },
     "cruelty": {
-     "score": 45,
-     "basis": "Five deaths staged as gags — swallowed cigarette, gargoyle head, self-shot down a barrel — each watched and dumped on the barge"
+     "score": 42,
+     "basis": "They resolve to kill a harmless old woman, and Gawain, Garth, Mountain Girl are shot and garrotted — all staged as pratfalls"
     },
     "irony": {
-     "score": 70,
-     "basis": "Every killer is dispatched by a comic accident and the film closes on a cat dropping a severed finger onto the barge"
+     "score": 66,
+     "basis": "Killers die by raven, gargoyle and their own gun barrel while the pious widow gets the loot; the film arranges cosmic punchlines"
     },
     "ambiguity": {
      "score": 5,
-     "basis": "All conspirators dead, money found, police dismiss her, donation made — every thread tied off"
+     "basis": "Every gang member accounted for, money donated, final shot ties off the severed finger"
     },
     "fracture": {
-     "score": 7,
-     "basis": "Straight chronology from the room rental through the tunnel to the disposal of the last body"
+     "score": 4,
+     "basis": "Heist told beginning to end with no displacement"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8276923076923076,
+    "basis-density": 0.7846153846153846,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6238,31 +6279,31 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 75,
-     "basis": "Fifteen years sealed in a room, then a five-day deadline with Mi-do's life staked on it, and an unseen captor calling"
+     "score": 80,
+     "basis": "Fifteen years in a sealed room with a watching captor, then a five-day deadline with Mi-do's life staked on it"
     },
     "cruelty": {
      "score": 88,
-     "basis": "Imprisonment, torture of the warden, a severed hand in a box, an incest trap engineered by hypnosis, and a self-cut tongue"
+     "basis": "An engineered incest between father and daughter, tongue cut out as penance, warden tortured, hand severed and delivered in a box"
     },
     "irony": {
-     "score": 20,
-     "basis": "The penance, the plea to be allowed to live and Woo-jin's suicide are all staged in earnest"
+     "score": 26,
+     "basis": "The revenge and the pleading are played at full pitch; the smug elevator smile is the character's, not the film's"
     },
     "ambiguity": {
-     "score": 65,
-     "basis": "Woo-jin disputes the pregnancy, and the closing smile turning to a grimace leaves it unknown whether the erasure took"
+     "score": 48,
+     "basis": "Everything is explained by Woo-jin, but the closing smile turning to grimace withholds whether the hypnosis took"
     },
     "fracture": {
-     "score": 25,
-     "basis": "1988 to 2003 with the high-school incident recovered late as recall, but otherwise one forward line"
+     "score": 26,
+     "basis": "Forward from 1988 except recovered memories of Soo-ah and the schoolyard rumour, which reorder the cause late"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.84,
+    "basis-density": 0.8815384615384615,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6320,31 +6361,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 40,
-     "basis": "Wartime fire, a kidnapping swarm, man-eating parakeets and a flooding collapse — but long stretches of fishing and wonder"
+     "score": 41,
+     "basis": "Mother lost in a fire, a swarm attempting kidnap, man-eating parakeets and a collapsing flooding world — but broken by long stretches of wonder"
     },
     "cruelty": {
-     "score": 30,
-     "basis": "Mahito's self-inflicted head wound and the heron's watery fake mother; even the predatory pelicans get a hearing"
+     "score": 29,
+     "basis": "Mahito deliberately splits his own head open and the heron baits him with a dissolving fake mother; starving pelicans are pitied, not relished"
     },
     "irony": {
-     "score": 10,
-     "basis": "Refusing the blocks to 'embrace those who love him' is the film's own stated position"
+     "score": 12,
+     "basis": "The refusal of the blocks and the vow to embrace those who love him is delivered without any distancing"
     },
     "ambiguity": {
-     "score": 55,
-     "basis": "The tower's world, the malice in the blocks and Himi's knowing return to death are never explained; the Birdman says forget"
+     "score": 58,
+     "basis": "Himi's mother-identity, the tower's origin and the malice in the blocks are never explained, and Mahito is told to forget it all"
     },
     "fracture": {
-     "score": 25,
-     "basis": "Forward telling, but Himi is his mother out of her own time and doors open onto other worlds"
+     "score": 26,
+     "basis": "Telling stays forward, but the underworld holds a younger Kiriko and a mother from another time who returns to it"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.82,
+    "basis-density": 0.9676923076923076,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6399,34 +6440,34 @@
    "scored": true,
    "withheld": null,
    "plotChars": 3365,
-   "batch": 18,
+   "batch": 19,
    "axes": {
     "dread": {
-     "score": 32,
-     "basis": "He is hunted for a strangling he didn't commit, but the flight is a car ride, a filling station and a hotel ballroom."
+     "score": 42,
+     "basis": "Continuous manhunt — escape from arraignment, life on the run — but relieved by petrol-pump comedy and romance; no bodily menace."
     },
     "cruelty": {
-     "score": 16,
-     "basis": "A strangling before the film proper and an all-night grilling; the murderer is caught by his own twitch and hysteria."
+     "score": 20,
+     "basis": "One offscreen strangling; the Chief Constable resigns rather than arrest his daughter, and the killer is caught by fainting."
     },
     "irony": {
-     "score": 32,
-     "basis": "The opening twitching eyes hand the killer to the audience, so the manhunt, the useless solicitor and the blackface act play knowingly."
+     "score": 15,
+     "basis": "Straight chase-and-clear-my-name adventure; the coat-belt clue and hotel matchbook are meant exactly as shown."
     },
     "ambiguity": {
-     "score": 8,
-     "basis": "Guy confesses outright, the belt and matchbox are fully accounted for, and Tisdall is exonerated on screen."
+     "score": 5,
+     "basis": "Twitching eyes flagged in scene one, confession delivered in the ballroom; nothing withheld at the end."
     },
     "fracture": {
      "score": 5,
-     "basis": "One forward order from the storm-night argument to the ballroom confession."
+     "basis": "Single forward order from the stormy argument to the exoneration; no displacement."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8476923076923077,
+    "basis-density": 0.8430769230769231,
     "plot-length-banded": 0.5
    }
   },
@@ -6443,31 +6484,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 18,
-     "basis": "Recurring nightmares and one furious attempt on Walter's life, inside a farce where the stake is a department-store job"
+     "score": 19,
+     "basis": "Fernando attacks Walter in a rage, but the menace is dream-sourced and dissolves into farce"
     },
     "cruelty": {
-     "score": 18,
-     "basis": "Walter is hired, exalted, cast out and driven to despair by others' delusion, then apologised to and given a wife"
+     "score": 16,
+     "basis": "Walter is fired, courted, rejected and driven to despair without knowing why — harm by confusion, not by intent toward him"
     },
     "irony": {
      "score": 20,
-     "basis": "The double from the dream walks in the door, but the film treats the coincidence as machinery, not commentary"
+     "basis": "The doppelgänger conceit is played for farce and then explained away by therapy; the film means its reconciliation"
     },
     "ambiguity": {
-     "score": 5,
-     "basis": "Therapy names the cause, the wrong is confessed, the post restored and the marriage arranged"
+     "score": 6,
+     "basis": "The psychological session names the cause, the situation is explained to Walter, and the marriage closes it"
     },
     "fracture": {
-     "score": 12,
-     "basis": "Linear but for the repeated dream sequences that seed the rival"
+     "score": 16,
+     "basis": "Recurring dream sequences precede and pattern the waking plot, which otherwise runs straight"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7630769230769231,
+    "basis-density": 0.8092307692307692,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -6525,31 +6566,31 @@
    "batch": 14,
    "axes": {
     "dread": {
-     "score": 7,
-     "basis": "The one hazard, an engine fault, exists only to turn the plane around and bring the husband home to a kitchen"
+     "score": 8,
+     "basis": "The worst that impends is a sulk and a missed matchmaking; even the aborted flight returns him safely home."
     },
     "cruelty": {
-     "score": 10,
-     "basis": "A lie about a sick niece, days of silence, a scolding staged for a wife's ears — and an apology accepted with \"say no more\""
+     "score": 12,
+     "basis": "A wife's deceit about a sick niece and days of silence — the film hands them a shared bowl of ochazuke instead of a reckoning."
     },
     "irony": {
-     "score": 14,
-     "basis": "The koi joke at the husband's expense is the sharpest edge; the ochazuke reconciliation is offered without a wink"
+     "score": 12,
+     "basis": "The reconciliation over rice and green tea is presented as exactly what it claims: his happiest day since marrying."
     },
     "ambiguity": {
      "score": 8,
-     "basis": "The marriage is mended over rice and tea, she promises never to leave again, and Setsuko and Noboru pair off"
+     "basis": "Marriage repaired with spoken apology and acceptance; Setsuko and Noboru walk off plainly a couple."
     },
     "fracture": {
      "score": 5,
-     "basis": "Spa, ball game, kabuki, races, departure, return — consecutive days in one direction"
+     "basis": "Unbroken forward sequence of outings — spa, ballgame, kabuki, races, airport."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8261538461538462,
+    "basis-density": 0.8061538461538461,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6607,31 +6648,31 @@
    "batch": 19,
    "axes": {
     "dread": {
-     "score": 30,
-     "basis": "The harm is all past — bombing footage, a soldier already dying; the present-tense stakes are only whether she leaves"
+     "score": 25,
+     "basis": "The harm is entirely past — bombing, the shot German, the cellar; nothing in the present two days threatens either of them."
     },
     "cruelty": {
-     "score": 52,
-     "basis": "Villagers shave her head, parents lock her in the cellar; newsreel of victims is put on screen rather than described"
+     "score": 55,
+     "basis": "Newsreel footage of victims shown outright; the shaved head, the parents locking her in the cellar, the two-day death recounted in detail."
     },
     "irony": {
-     "score": 32,
-     "basis": "'You have seen nothing' spoken over the very footage of what she saw — a real gap, but pressed earnestly, not mockingly"
+     "score": 35,
+     "basis": "His voice-over flatly negates the images she describes — 'you have seen nothing' — a rift between what is shown and what is asserted."
     },
     "ambiguity": {
-     "score": 72,
-     "basis": "Ends by exchanging place-names for names — 'Hiroshima' / 'Nevers' — with her staying or leaving left unsettled"
+     "score": 70,
+     "basis": "She says she will stay, then tells him to go; they end as place-names, and whether she leaves or forgets is never settled."
     },
     "fracture": {
-     "score": 56,
-     "basis": "Opens on an unanchored embrace-and-ash montage; Nevers flashbacks intercut with Hiroshima until images alternate freely"
+     "score": 55,
+     "basis": "Opens on a montage-and-voiceover prologue, then Nevers flashbacks intercut with the tea room and city images alternating between two times."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8938461538461538,
+    "basis-density": 1,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6648,31 +6689,31 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 62,
-     "basis": "A child held hostage against speaking, an assassination timed to a cymbal crash, and an order to kill the boy at the embassy"
+     "score": 58,
+     "basis": "A child is held hostage from the Marrakesh phone call onward, with an assassin waiting on a cymbal crash and orders to kill the boy"
     },
     "cruelty": {
      "score": 30,
-     "basis": "A boy is marked for murder, but his guard balks and coaches him to whistle; the harm is threatened rather than dwelt on"
+     "basis": "Bernard stabbed in the back and an order given to murder Hank, but the guard balks and the killings that land are the villains' falls"
     },
     "irony": {
-     "score": 25,
-     "basis": "Played straight, then punctured by the closing line apologising to sleeping friends for the long absence"
+     "score": 20,
+     "basis": "Suspense played straight; only the closing line about picking up Hank sits at any angle to what happened"
     },
     "ambiguity": {
-     "score": 7,
-     "basis": "Plot, plotters and ambassador are all named, the son recovered, and the family returns to the hotel suite"
+     "score": 5,
+     "basis": "Plot named, assassin dead, Draytons finished, boy recovered — nothing left open"
     },
     "fracture": {
-     "score": 7,
-     "basis": "Morocco to London in one continuous forward sequence"
+     "score": 4,
+     "basis": "Morocco to London in one forward sequence with no displacement"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7753846153846153,
+    "basis-density": 0.783076923076923,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6758,85 +6799,85 @@
     "plot-length-banded": 0.3333333333333333
    }
   },
-  "le clan des siciliens": {
-   "filmId": "film-71a0a3352556a0c1",
-   "title": "Le clan des siciliens",
-   "year": 1969,
-   "wikipedia": "The Sicilian Clan",
-   "region": "W-Europe",
+  "penelope": {
+   "filmId": "film-e59719d05232fb4a",
+   "title": "Penelope",
+   "year": 1966,
+   "wikipedia": "Penelope (1966 film)",
+   "region": "US/CA",
    "source": "reading",
    "scored": true,
    "withheld": null,
-   "plotChars": 3993,
-   "batch": 20,
+   "plotChars": 2315,
+   "batch": 19,
    "axes": {
     "dread": {
-     "score": 40,
-     "basis": "Le Goff's pursuit and Sartet's slip to the prostitute create intermittent pressure, but long procedural stretches carry none"
+     "score": 8,
+     "basis": "Robberies with no jeopardy — the husband won't press charges, the blackmailers are foiled, and the police chase is a scramble."
     },
     "cruelty": {
-     "score": 50,
-     "basis": "Vittorio executes Sartet and his own daughter-in-law Jeanne over a child's remark and leaves the cash by the corpses"
+     "score": 20,
+     "basis": "A professor's attempted rape is recounted as the origin of a gag, and the guests' denials are played for farce, not for her fright."
     },
     "irony": {
-     "score": 18,
-     "basis": "Heist and clan honour played straight; the boy's innocent remark is plot mechanism, not commentary"
+     "score": 50,
+     "basis": "The theft is 'cured' by a psychiatrist who then begs her to run off with him, and the victims deny their own possessions for insurance money."
     },
     "ambiguity": {
-     "score": 6,
-     "basis": "Every thread closes: the sons arrested at the airport, Vittorio arrested at home, nothing withheld"
+     "score": 10,
+     "basis": "Gregory supplies the explanation for the denials and for the stealing; the couple reunite happily."
     },
     "fracture": {
-     "score": 6,
-     "basis": "Strict forward chronology from escape through heist to arrests"
+     "score": 20,
+     "basis": "Forward caper interrupted by flashbacks told in session — the college laboratory and the wedding-day theft."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7661538461538461,
-    "plot-length-banded": 0.6666666666666666
+    "basis-density": 0.9276923076923076,
+    "plot-length-banded": 0.3333333333333333
    }
   },
-  "nayak": {
-   "filmId": "film-50c85eae6dffdf45",
-   "title": "Nayak",
-   "year": 1966,
-   "wikipedia": "Nayak (1966 film)",
-   "region": "S-Asia",
+  "tom sawyer": {
+   "filmId": "film-2ec23ded662d902f",
+   "title": "Tom Sawyer",
+   "year": 1973,
+   "wikipedia": "Tom Sawyer (1973 film)",
+   "region": "US/CA",
    "source": "reading",
    "scored": true,
    "withheld": null,
-   "plotChars": 3767,
-   "batch": 7,
+   "plotChars": 3723,
+   "batch": 9,
    "axes": {
     "dread": {
-     "score": 28,
-     "basis": "A nightmare and a drunk contemplation of jumping from the moving train — threat is one interior moment, not sustained."
+     "score": 35,
+     "basis": "A witnessed murder, a knife thrown at Tom in court and a cave chase, but they punctuate a run of pranks, funerals-as-jokes and rafting."
     },
     "cruelty": {
-     "score": 15,
-     "basis": "He refused Lahiri a job and refused Biresh; Aditi answers with empathy bordering on pity and tears up her notes."
+     "score": 28,
+     "basis": "Joe stabs Robinson and frames Muff for hanging, yet the harm is plot machinery — no one's suffering is dwelt on."
     },
     "irony": {
-     "score": 35,
-     "basis": "Confession all night, then he 'slips back into the role of the star' — the film shows the mask being resumed knowingly."
+     "score": 12,
+     "basis": "Boyish adventure taken at face value; even the mock funeral is played for warmth."
     },
     "ambiguity": {
-     "score": 40,
-     "basis": "He asks her how he is and she answers for him; whether the unburdening changed anything is left unstated."
+     "score": 8,
+     "basis": "Epilogue settles everyone: Joe dead, Muff freed, Huck adopted, Tom off to St. Louis reconciled."
     },
     "fracture": {
-     "score": 45,
-     "basis": "One train journey carrying inset episodes — Shankar-da, Lahiri, Biresh — plus a nightmare, interleaved with other passengers."
+     "score": 8,
+     "basis": "Episodes follow in plain sequence from the cat incantation to the closing trip."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8907692307692308,
+    "basis-density": 0.7723076923076924,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6853,31 +6894,31 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 25,
-     "basis": "A woman vanishes but no threat follows; the search decays into drives, hotels and ennui with no expectation of further harm"
+     "score": 32,
+     "basis": "A woman vanishes on a cliffed island and the search fails, but nothing threatens the searchers — the pressure is drift, not harm"
     },
     "cruelty": {
-     "score": 20,
-     "basis": "Betrayal is casual rather than aimed, and it closes with Claudia choosing to stroke the head of the man who wronged her"
+     "score": 30,
+     "basis": "Sandro sleeps with the missing woman's friend then a prostitute, ruins a stranger's drawing; the film ends with a hand laid on his head"
     },
     "irony": {
-     "score": 30,
-     "basis": "The wealthy searchers are shown not taking the disappearance seriously while their attraction proceeds — observed, not mocked"
+     "score": 28,
+     "basis": "The ennui is presented as felt, not mocked; Claudia's question about relief at Anna's death is asked in earnest"
     },
     "ambiguity": {
      "score": 85,
-     "basis": "Anna is never found or explained, and the final gesture on the terrace resolves nothing about whether they stay together"
+     "basis": "Anna is never found, never explained; the chemist lead dissolves and the film ends on an unresolved gesture instead"
     },
     "fracture": {
-     "score": 8,
-     "basis": "Continuous forward movement — yacht, island, Palermo, Messina, Troina, Noto, Taormina — with no displacement"
+     "score": 6,
+     "basis": "Yacht, island, Palermo, Noto, Taormina — one continuous forward itinerary"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9153846153846154,
+    "basis-density": 0.8646153846153847,
     "plot-length-banded": 0.8333333333333334
    }
   },
@@ -6935,31 +6976,31 @@
    "batch": 19,
    "axes": {
     "dread": {
-     "score": 44,
-     "basis": "Augustine's visits carry real menace — a bottle in the face, a castration threat — but between them Marlowe drifts unbothered"
+     "score": 45,
+     "basis": "Augustine's visits carry real menace (the genital threat), but between them Marlowe wanders, buys cat food and drives to Mexico unbothered."
     },
     "cruelty": {
      "score": 60,
-     "basis": "Augustine smashes a bottle into his own mistress's face to make a point, then parades her bandaged as a second demonstration"
+     "basis": "A bottle smashed into the mistress's face, then her bandaged body paraded as a prop; Marlowe executes an unarmed Terry and walks off playing."
     },
     "irony": {
-     "score": 66,
-     "basis": "Detective ends by murdering his friend over an insult and strolls off playing a toy harmonica, happy — form and gesture at odds"
+     "score": 70,
+     "basis": "The detective's triumph is a murder followed by a happy harmonica stroll; 'born loser' is the case's last word on him."
     },
     "ambiguity": {
-     "score": 18,
-     "basis": "Terry, alive, narrates the whole affair and killing; the final loose end is only whether Eileen keeps driving"
+     "score": 20,
+     "basis": "Terry lays out the whole Lennox–Wade arrangement and his own killing of Sylvia; the fake suicide is traced to a bribed official."
     },
     "fracture": {
      "score": 8,
-     "basis": "One forward case, with the concealed history delivered as Terry's spoken explanation rather than as displaced telling"
+     "basis": "One forward line from cat food to the Mexican road; the past is delivered as spoken explanation, not displaced telling."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9261538461538462,
+    "basis-density": 0.9923076923076923,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -6977,30 +7018,30 @@
    "axes": {
     "dread": {
      "score": 64,
-     "basis": "The gang keeps returning — court release, sabotaged bike, the roadside ice cream — and hunts Jessie and Sprog through woods."
+     "basis": "Toecutter's gang hunts Jessie and Sprog across a town, woods and farm; the roads are unsafe from the opening pursuit onward."
     },
     "cruelty": {
-     "score": 76,
-     "basis": "Toecutter forces Johnny to throw the match onto Goose; the gang runs a mother and infant down; Max leaves a hacksaw and a choice."
+     "score": 74,
+     "basis": "Goose burned alive in the ute, a child run down on the road, and Max handcuffing Johnny to a burning wreck with a hacksaw and a choice."
     },
     "irony": {
      "score": 14,
-     "basis": "The revenge is presented as earned and completed; the uniform, the black Pursuit Special and the last kill carry no wink."
+     "basis": "The revenge is presented at face value — the uniform, the black Pursuit Special, the drive away from the explosion."
     },
     "ambiguity": {
      "score": 10,
-     "basis": "Every gang member is accounted for, the bribe of the car is explained in dialogue, and the fuse detonates in the distance."
+     "basis": "Every gang member is accounted for by name and death; Max's motive and act are stated plainly and completed."
     },
     "fracture": {
      "score": 5,
-     "basis": "Strictly sequential from Nightrider's chase to Johnny's explosion, with no displacement."
+     "basis": "Straight chronological escalation from Nightrider's crash to the last kill, with no flashback or reordering."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8984615384615384,
+    "basis-density": 0.9076923076923077,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -7017,31 +7058,31 @@
    "batch": 14,
    "axes": {
     "dread": {
-     "score": 48,
-     "basis": "An envelope marked \"Open after my death\" sits unopened for days; every scene after waits on what the letter will detonate"
+     "score": 32,
+     "basis": "Unopened 'Open after my death' envelope hangs over the film, then the seduction attempt; anticipation is of rupture, not harm."
     },
     "cruelty": {
-     "score": 25,
-     "basis": "One slap and a years-long withholding, but the film gives both of them full explanation and lets them decide together"
+     "score": 22,
+     "basis": "Michał slaps her once, then explains himself; the film lets both confess jealousy and burn the letter together."
     },
     "irony": {
-     "score": 12,
-     "basis": "Confessions of jealousy and near-seduction are played straight; nothing undercuts what the two say to each other"
+     "score": 10,
+     "basis": "Confessions of paternity, jealousy and desire are delivered without any framing that undercuts them."
     },
     "ambiguity": {
-     "score": 85,
-     "basis": "The forged letter half-burns into the same words as the real one, and paternity is left unread at \"Michał is not...\""
+     "score": 82,
+     "basis": "The burnt fragment ends 'Michał is not...' — paternity, and whether Anka's forgery accidentally told the truth, stay unknowable."
     },
     "fracture": {
-     "score": 5,
-     "basis": "Easter Monday, departure, a week later, return — one unbroken forward order"
+     "score": 15,
+     "basis": "Single forward order; only displacement is the late disclosure that she had known of the envelope for years."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8323076923076923,
+    "basis-density": 0.8815384615384615,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -7099,31 +7140,31 @@
    "batch": 18,
    "axes": {
     "dread": {
-     "score": 48,
-     "basis": "Kay's foreboding about the planted tree and Sweetie's escalating destructiveness set an expectation the treehouse fulfils."
+     "score": 44,
+     "basis": "Kay's foreboding about the planted tree and Sweetie's escalating volatility keep harm expected long before the tree house falls."
     },
     "cruelty": {
-     "score": 44,
-     "basis": "Sweetie intimidates, controls and abuses the family and wrecks Kay's clothes; her death also injures Flo."
+     "score": 50,
+     "basis": "Sweetie intimidates, controls and abuses the family, ruins clothes and breaks furniture; the film stays for her naked, black-painted collapse."
     },
     "irony": {
-     "score": 38,
-     "basis": "The naked black-painted treehouse death and the grave blocked by a tree root make the omen motif ostentatious, not plain."
+     "score": 30,
+     "basis": "Trees keep recurring as omen and then as the root obstructing her grave — patterned, but the closing image of the little girl is meant."
     },
     "ambiguity": {
-     "score": 46,
-     "basis": "The fortune teller's portent and the tree foreboding are never adjudicated, and the family gets only 'a sort of resolution'."
+     "score": 24,
+     "basis": "Louis and Kay reunite and the family is described as reaching resolution, no longer manipulated; nothing decisive is withheld."
     },
     "fracture": {
-     "score": 26,
-     "basis": "A forward story interrupted throughout by recurring flashbacks of Sweetie performing tricks with Gordon."
+     "score": 22,
+     "basis": "Present-day family line interrupted by recurring flashbacks of Sweetie performing tricks with Gordon; order stays obvious."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8861538461538462,
+    "basis-density": 1,
     "plot-length-banded": 0.3333333333333333
    }
   },
@@ -7140,31 +7181,31 @@
    "batch": 19,
    "axes": {
     "dread": {
-     "score": 73,
-     "basis": "The lanterns decide each night's fate, a 'room of death' is named early, and the threat is renewed daily without pause"
+     "score": 72,
+     "basis": "The daily lantern verdict makes every evening a judgement, the roof room is named as where women are hanged long before anyone goes up."
     },
     "cruelty": {
      "score": 78,
-     "basis": "Yan'er made to kneel in snow until she collapses and dies; Meishan dragged to the death room while the film stays to watch"
+     "basis": "Yan'er kneels in snow until she collapses and dies; Meishan is dragged to the death room; the Master answers with 'you did not see a thing.'"
     },
     "irony": {
-     "score": 18,
-     "basis": "The rituals — massage, menu, covered lanterns — are shown as the machinery they are, with no wink at the audience"
+     "score": 15,
+     "basis": "The ritual is presented as it is — lanterns, massage, menu — with no wink; Songlian's madness is played straight."
     },
     "ambiguity": {
-     "score": 32,
-     "basis": "'You did not see a thing' leaves the killing officially unhappened, though the text tells us plainly what Songlian saw"
+     "score": 25,
+     "basis": "Meishan's killing is offscreen but unmistakable; the cycle closes with a fifth mistress getting her foot massage."
     },
     "fracture": {
-     "score": 7,
-     "basis": "One forward season-count from her arrival to the following summer and the fifth mistress"
+     "score": 5,
+     "basis": "Marked off by seasons in order, ending 'the following summer'; no displacement."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.86,
+    "basis-density": 0.8923076923076924,
     "plot-length-banded": 1
    }
   },
@@ -7181,31 +7222,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 8,
-     "basis": "The worst events are a swerve to miss a cow and a heart attack that is immediately cured"
+     "score": 6,
+     "basis": "The worst events are a crashed fence, a repaired Porsche and a roadside delivery; even Hogue's heart attack is survived immediately"
     },
     "cruelty": {
-     "score": 8,
-     "basis": "No one intends harm; the sentence is community service and the rival courtier simply steps aside"
+     "score": 6,
+     "basis": "Ben leaves secretly rather than incite Hank's jealousy, and Lou lies about marrying to spare his career"
     },
     "irony": {
-     "score": 12,
-     "basis": "Small-town warmth versus Beverly Hills superficiality is stated as the film's own belief"
+     "score": 15,
+     "basis": "Beverly Hills superficiality vs. small-town warmth is stated flatly and the film sides with Grady without wink"
     },
     "ambiguity": {
      "score": 5,
-     "basis": "He returns to Grady and reconciles with Lou; the engagement obstacle is explicitly cleared first"
+     "basis": "Engagement broken off, Ben returns, reconciles with Lou — every thread tied"
     },
     "fracture": {
-     "score": 3,
-     "basis": "One road trip forward, no displacement"
+     "score": 4,
+     "basis": "One forward road: DC to Grady to LA to Grady, with plain 'a few weeks later' gaps"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.6246153846153847,
+    "basis-density": 0.7692307692307693,
     "plot-length-banded": 0.5
    }
   },
@@ -7263,31 +7304,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 30,
-     "basis": "Mansley's manhunt and the nuclear launch put harm only in the last act; the middle is feeding, comics, wrecking-yard play"
+     "score": 33,
+     "basis": "Threat arrives late and in bursts: Mansley's pursuit, the army at the scrapyard, a missile aimed at Rockwell"
     },
     "cruelty": {
-     "score": 20,
-     "basis": "Hunters kill a deer and a missile is aimed at a town, but harm is fear-driven and the Giant's answer is self-sacrifice"
+     "score": 24,
+     "basis": "Hunters kill a deer and Mansley launches on a town, but the film's gaze is on the Giant's kindness and sacrifice"
     },
     "irony": {
-     "score": 8,
-     "basis": "'You can choose who you want to be' is delivered as the film's actual position; the memorial statue is unmocked"
+     "score": 7,
+     "basis": "\"You are who you choose to be\" delivered without hedge; the memorial statue and reassembling screw are meant sincerely"
     },
     "ambiguity": {
      "score": 5,
-     "basis": "The coda shows the screw reactivating and the parts converging in Iceland — even the death is undone on screen"
+     "basis": "Coda shows the Giant's parts converging in Iceland — even the death is un-withheld"
     },
     "fracture": {
-     "score": 5,
-     "basis": "Straight chronology from the crash-landing to a 'months later' epilogue"
+     "score": 6,
+     "basis": "Straight chronology, one 'months later' jump and a closing cut to a distant location"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.816923076923077,
+    "basis-density": 0.7753846153846153,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -7304,31 +7345,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 60,
-     "basis": "Coerced key-by-key bargaining, an attempted rape, and Alisdair watching through the wall crack before the axe"
+     "score": 57,
+     "basis": "Coerced key-by-key bargaining, Alisdair watching through a crack, an attempted rape — harm builds toward the axe"
     },
     "cruelty": {
-     "score": 70,
-     "basis": "Her index finger cut off to end her playing, then sent to her lover by her own child, with more fingers threatened"
+     "score": 71,
+     "basis": "A husband cuts off his wife's finger to stop her playing and sends the child to deliver it with a threat of more"
     },
     "irony": {
      "score": 10,
-     "basis": "The engraved key and the piano on the sea floor are offered as meant; no gap between image and intent"
+     "basis": "The engraved key, the metal finger and the epilogue voiceover are offered without any distance from their own feeling"
     },
     "ambiguity": {
-     "score": 60,
-     "basis": "The text states the cause of her mutism and Flora's father 'remain unknown'; the voice Alisdair hears is never accounted for"
+     "score": 54,
+     "basis": "The mutism's cause and Flora's father are stated as unknown, Alisdair 'thinks' he hears her voice, and she still dreams of the drowned piano"
     },
     "fracture": {
-     "score": 12,
-     "basis": "Single forward line closed by a narrated epilogue in Nelson"
+     "score": 9,
+     "basis": "One forward line from beach to canoe, closed by a retrospective epilogue"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.78,
+    "basis-density": 0.8507692307692307,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -7386,31 +7427,31 @@
    "batch": 12,
    "axes": {
     "dread": {
-     "score": 48,
-     "basis": "Concealed unemployment, a classmate's double suicide, a home invasion and a hit-and-run keep collapse standing over the family."
+     "score": 50,
+     "basis": "A double suicide, a home invasion, a father shoving his son downstairs and a hit-and-run accrue under a calm surface"
     },
     "cruelty": {
-     "score": 38,
-     "basis": "Ryūhei beats Kenji and pushes him down the stairs; the burglar's advance on Megumi — but the film lets each humiliation be survived."
+     "score": 40,
+     "basis": "Ryūhei beats Kenji and pushes him down the stairs; the burglar's advances are dwelt on but falter into consolation"
     },
     "irony": {
-     "score": 15,
-     "basis": "'Clair de Lune' played flawlessly at the audition is offered without any undercutting."
+     "score": 24,
+     "basis": "The janitor pocketing the envelope is bitter, but 'Clair de Lune' at the audition is played entirely straight"
     },
     "ambiguity": {
-     "score": 42,
-     "basis": "The night's events are never spoken of at the shared meal; the light Megumi sees and the car driven into the ocean go unexplained."
+     "score": 54,
+     "basis": "The burglar's fate, the light on the horizon he can't see, and a silent meal with nobody asking where anyone was"
     },
     "fracture": {
-     "score": 22,
-     "basis": "Three separated strands run through the same night and reconverge, but each moves forward and a four-month coda follows."
+     "score": 26,
+     "basis": "Parallel family strands crosscut on one night (the mall crossing), then a four-month jump — order still recoverable"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9153846153846154,
+    "basis-density": 0.8707692307692307,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -7428,30 +7469,30 @@
    "axes": {
     "dread": {
      "score": 12,
-     "basis": "The threats are visa expiry, bankruptcy and a cooling romance; no harm is anticipated at any point."
+     "basis": "Nothing threatens anyone; the drift is romance cooling, visas expiring, and a priest's ministering rounds"
     },
     "cruelty": {
      "score": 16,
-     "basis": "Neil leaves Marina by the roadside and comes back; the priest's work with prisoners and the poor is the film's counterweight."
+     "basis": "The worst act is being left briefly at the roadside, and Neil returns; the film ends kneeling and kissing her hands"
     },
     "irony": {
      "score": 8,
-     "basis": "The closing prayer voiceover — 'Christ with me, Christ before me' — is offered undefended, as is the golden light on Marina's face."
+     "basis": "A closing voiceover prayer of St Patrick's breastplate and Newman, delivered with no protective distance"
     },
     "ambiguity": {
-     "score": 70,
-     "basis": "The child's father is explicitly unidentified, they 'appear to divorce', and Neil is later seen with 'what looks like his family'."
+     "score": 64,
+     "basis": "The child's father is explicitly unidentified, they 'appear to divorce', and the golden light explains nothing"
     },
     "fracture": {
-     "score": 38,
-     "basis": "Chronological but built from drifts and gaps — 'sometime later', 'a few years later' — with scenes elided rather than reordered."
+     "score": 42,
+     "basis": "Elliptical drift — 'after some time', 'sometime later', 'a few years later' — with scenes given as impressions"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.943076923076923,
+    "basis-density": 0.8369230769230769,
     "plot-length-banded": 0.5
    }
   },
@@ -7468,31 +7509,31 @@
    "batch": 19,
    "axes": {
     "dread": {
-     "score": 24,
-     "basis": "A stroke and an off-screen murder puncture a film otherwise made of dinners, dates and business trips — no sustained expectation"
+     "score": 20,
+     "basis": "A stroke and an offscreen killing puncture the film, but most of it is dinners, business trips and swimming lessons with no threat pending."
     },
     "cruelty": {
-     "score": 16,
-     "basis": "Fatty berates Ting-Ting and Sherry breaks down, but the film gathers everyone at the funeral without blaming any of them"
+     "score": 14,
+     "basis": "Berating, guilt and abandonment abound, yet nobody is punished — Fatty's murder is reported, and the film ends at a shrine in forgiveness."
     },
     "irony": {
-     "score": 8,
-     "basis": "Ends on Yang-Yang's unguarded monologue at the shrine — 'I am old too' — offered with no protective distance"
+     "score": 10,
+     "basis": "Yang-Yang's monologue to his grandmother's shrine — 'show them what they can't see' — is offered undefended."
     },
     "ambiguity": {
-     "score": 34,
-     "basis": "Sherry has checked out before NJ arrives and is never resolved; the deaths and marriages otherwise settle"
+     "score": 32,
+     "basis": "Every event is legible; what stays open is only whether NJ's Tokyo reunion changed anything, left unstated."
     },
     "fracture": {
-     "score": 16,
-     "basis": "Four strands (NJ, Min-Min, Ting-Ting, Yang-Yang) braided in parallel, all running forward from the wedding"
+     "score": 20,
+     "basis": "Four strands interleaved across the same months; each runs forward and they reassemble at the funeral."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8723076923076923,
+    "basis-density": 0.9138461538461539,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -7550,31 +7591,31 @@
    "batch": 11,
    "axes": {
     "dread": {
-     "score": 40,
-     "basis": "Shootout, pursuit, forced sedation, then the infant left in a running bathtub — but bracketed by long calm academic stretches"
+     "score": 44,
+     "basis": "Shootout, Soviet pursuit, forcible sedation, and an infant left in a running bathtub — but decades of the film pass calmly"
     },
     "cruelty": {
-     "score": 25,
-     "basis": "Insulin shock therapy and the arm sliced open to find the diode; the harm is illness, and the film's people stay"
+     "score": 30,
+     "basis": "Insulin shock therapy and Nash striking Alicia and the baby; the harm is illness and treatment rather than anyone's intent"
     },
     "irony": {
-     "score": 30,
-     "basis": "Parcher and the assignment are staged as real to the viewer, then withdrawn as hallucination"
+     "score": 34,
+     "basis": "Parcher, Charles and the diode are shown as real, then retracted — the film's own images are revealed as false"
     },
     "ambiguity": {
      "score": 12,
-     "basis": "The diagnosis explains everything retroactively and the film ends with the Nobel and the figures ignored"
+     "basis": "Dr. Rosen names the diagnosis, the unopened documents prove the delusion, and the Nobel closes it"
     },
     "fracture": {
-     "score": 6,
-     "basis": "Dated chronological march 1947 to 1994 with no reordering"
+     "score": 13,
+     "basis": "Dated forward march 1947→1994; the reveal recolours earlier scenes without reordering any of them"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7538461538461538,
+    "basis-density": 0.8430769230769231,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -7632,31 +7673,31 @@
    "batch": 13,
    "axes": {
     "dread": {
-     "score": 55,
-     "basis": "A running countdown to a hypocenter detonation and an algorithm that would invert the world, plus torture and hostage-taking"
+     "score": 45,
+     "basis": "An omnicidal man with a dead man's switch and nine Algorithm pieces, plus torture and an inverted bullet in Kat, run under everything"
     },
     "cruelty": {
-     "score": 55,
-     "basis": "Sator blackmails Kat with the forgery, shoots her with an inverted bullet to make her die slowly, and interrogates under torture"
+     "score": 48,
+     "basis": "Sator blackmails his wife with a forgery, shoots her with an inverted bullet, interrogates hostages; harm is instrumental, kept moving"
     },
     "irony": {
-     "score": 12,
-     "basis": "Turnstiles, pincer movements and Neil's sacrifice are all presented earnestly and explained at face value"
+     "score": 10,
+     "basis": "Every reversal is delivered as literal mechanism — turnstiles, entropy, pincer movements — with no wink at its own apparatus"
     },
     "ambiguity": {
-     "score": 25,
-     "basis": "Priya, Neil and the Protagonist each deliver an explaining speech; the loop closes with 'he is Tenet's creator'"
+     "score": 28,
+     "basis": "Neil's trinket, the sabotage, the creator of Tenet are each explained aloud; only the loop's origin stays circular"
     },
     "fracture": {
-     "score": 78,
-     "basis": "Inverted travel means the Oslo and Tallinn scenes are re-entered from the opposite direction, and the opera trinket resolves last"
+     "score": 80,
+     "basis": "Inverted passages replay the Oslo and Tallinn scenes from the opposite direction and '14th' is arrived at twice from both ends"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9184615384615386,
+    "basis-density": 0.9707692307692308,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -7714,31 +7755,31 @@
    "batch": 19,
    "axes": {
     "dread": {
-     "score": 25,
-     "basis": "Harm arrives unheralded — the daughter is hit by a truck mid-celebration; no stretch of the film is spent expecting it"
+     "score": 30,
+     "basis": "Drift and slipping employment accumulate, but the daughter's death by truck arrives unheralded — no sustained expectation of harm."
     },
     "cruelty": {
-     "score": 18,
-     "basis": "Worst acts are a drunken yell and a slap; the film ends by reconciling Mary to John rather than indicting either"
+     "score": 25,
+     "basis": "Harm is accident and indifference; the yelling, the slap, the refused 'charity job' are dwelt on but the film keeps him company."
     },
     "irony": {
-     "score": 42,
-     "basis": "'Sure he will become somebody important' set against the final shot of him indistinguishable in a laughing audience"
+     "score": 40,
+     "basis": "'Sure he will become somebody important' set against a final shot that dissolves the family into an anonymous laughing audience."
     },
     "ambiguity": {
-     "score": 12,
-     "basis": "Mary steps out of the house and no further; the family is reunited and every thread is closed"
+     "score": 35,
+     "basis": "Plot closes on reconciliation, but the last image leaves it undecided whether renewed optimism or absorption is what we saw."
     },
     "fracture": {
-     "score": 4,
-     "basis": "Dated forward march — born 1900, age twelve, age 21, April, five years later — with no displacement"
+     "score": 8,
+     "basis": "Birth to adulthood in one direction; only elisions ('over the next five years'), no reordering."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8261538461538462,
+    "basis-density": 0.9307692307692308,
     "plot-length-banded": 0.5
    }
   },
@@ -7837,31 +7878,31 @@
    "batch": 18,
    "axes": {
     "dread": {
-     "score": 52,
-     "basis": "Frame opens with a duel he means to flee and a letter from a woman who says she may already be dead; the child dies of typhus."
+     "score": 38,
+     "basis": "Frame opens on a duel he means to flee and a letter announcing the writer's death; the flashback itself is longing, not threat."
     },
     "cruelty": {
-     "score": 22,
-     "basis": "The harm is Stefan's repeated failure to recognise her; no one sets out to wound, and the letter asks him for nothing."
+     "score": 16,
+     "basis": "The harm is Stefan's failure to recognise her three times — neglect, not intent; the film indicts no one and lets him remember."
     },
     "irony": {
-     "score": 18,
-     "basis": "The letter's confession is taken at face value; the ghost-image of teenage Lisa at the door is offered without any hedge."
+     "score": 15,
+     "basis": "The letter's own voice narrates the film without hedge; the ghost-image of teenage Lisa at the door is offered straight."
     },
     "ambiguity": {
-     "score": 22,
-     "basis": "The letter explains her whole life and he finally recalls all three meetings; only the duel's outcome is left off-screen."
+     "score": 12,
+     "basis": "The letter explains her whole life, he recalls all three meetings, the butler confirms the name, and he rides to the duel."
     },
     "fracture": {
      "score": 32,
-     "basis": "Present-tense frame brackets one long letter-narrated flashback that runs straight from her girlhood to the hospital."
+     "basis": "Present-tense frame, one long letter-narrated flashback spanning years, return to the same night — one displacement, fully recoverable."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9276923076923076,
+    "basis-density": 0.9707692307692308,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -8043,71 +8084,112 @@
    "axes": {
     "dread": {
      "score": 8,
-     "basis": "The worst outcomes are a lost dyeing job, banishment from the bedroom, and a note saying 'Drop dead'."
+     "basis": "Job loss, an affair discovered and a separation are the worst that happens; nothing in the text threatens anyone's safety."
     },
     "cruelty": {
      "score": 16,
-     "basis": "Antoine deceives Kyoko and neglects her at dinner, but the film gives him a hotel room and a reconciliation, not a reckoning."
+     "basis": "Antoine deceives Kyoko and neglects her at dinner and she leaves a note saying 'Drop dead' — small hurts, no dwelling."
     },
     "irony": {
-     "score": 42,
-     "basis": "He gets the job by a misread letter the secretary is ignored about, and the neighbours certify the marriage as 'truly' in love."
+     "score": 50,
+     "basis": "He gets the job through a letter meant for a better man, the secretary is ignored, and neighbours pronounce the couple 'finally, truly in love'."
     },
     "ambiguity": {
      "score": 30,
-     "basis": "Reunion is stated flatly, but the verdict on the marriage is handed to the neighbours rather than confirmed by the film."
+     "basis": "They are back together raising Alphonse, but the verdict on the marriage is handed to the neighbours rather than stated."
     },
     "fracture": {
      "score": 8,
-     "basis": "Continuous forward order with one 'one year later' jump at the close."
+     "basis": "Continuous forward account of the marriage with a single 'one year later' skip to the reconciliation."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.8338461538461539,
+    "basis-density": 0.9307692307692308,
     "plot-length-banded": 0.5
    }
   },
-  "tom sawyer": {
-   "filmId": "film-2ec23ded662d902f",
-   "title": "Tom Sawyer",
-   "year": 1973,
-   "wikipedia": "Tom Sawyer (1973 film)",
-   "region": "US/CA",
+  "le clan des siciliens": {
+   "filmId": "film-71a0a3352556a0c1",
+   "title": "Le clan des siciliens",
+   "year": 1969,
+   "wikipedia": "The Sicilian Clan",
+   "region": "W-Europe",
    "source": "reading",
    "scored": true,
    "withheld": null,
-   "plotChars": 3723,
-   "batch": 9,
+   "plotChars": 3993,
+   "batch": 20,
    "axes": {
     "dread": {
-     "score": 35,
-     "basis": "A witnessed murder, a knife thrown at Tom in court and a cave chase, but they punctuate a run of pranks, funerals-as-jokes and rafting."
+     "score": 40,
+     "basis": "Le Goff's pursuit and Sartet's slip to the prostitute create intermittent pressure, but long procedural stretches carry none"
     },
     "cruelty": {
-     "score": 28,
-     "basis": "Joe stabs Robinson and frames Muff for hanging, yet the harm is plot machinery — no one's suffering is dwelt on."
+     "score": 50,
+     "basis": "Vittorio executes Sartet and his own daughter-in-law Jeanne over a child's remark and leaves the cash by the corpses"
     },
     "irony": {
-     "score": 12,
-     "basis": "Boyish adventure taken at face value; even the mock funeral is played for warmth."
+     "score": 18,
+     "basis": "Heist and clan honour played straight; the boy's innocent remark is plot mechanism, not commentary"
     },
     "ambiguity": {
-     "score": 8,
-     "basis": "Epilogue settles everyone: Joe dead, Muff freed, Huck adopted, Tom off to St. Louis reconciled."
+     "score": 6,
+     "basis": "Every thread closes: the sons arrested at the airport, Vittorio arrested at home, nothing withheld"
     },
     "fracture": {
-     "score": 8,
-     "basis": "Episodes follow in plain sequence from the cat incantation to the closing trip."
+     "score": 6,
+     "basis": "Strict forward chronology from escape through heist to arrests"
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.7723076923076924,
+    "basis-density": 0.7661538461538461,
+    "plot-length-banded": 0.6666666666666666
+   }
+  },
+  "an autumn afternoon": {
+   "filmId": "film-943532d436721802",
+   "title": "An Autumn Afternoon",
+   "year": 1962,
+   "wikipedia": "An Autumn Afternoon",
+   "region": "Japan",
+   "source": "reading",
+   "scored": true,
+   "withheld": null,
+   "plotChars": 4315,
+   "batch": 11,
+   "axes": {
+    "dread": {
+     "score": 8,
+     "basis": "Nothing threatens anyone: reunions, a borrowed 50,000 yen, a matchmaking session, a drink after the wedding"
+    },
+    "cruelty": {
+     "score": 8,
+     "basis": "The Gourd's confession of keeping his daughter home is met with recognition, not blame; Hirayama's selfishness goes unpunished"
+    },
+    "irony": {
+     "score": 24,
+     "basis": "Drunks parody wartime radio propaganda and Sakamoto mock-drills to the Warship March — then the same tune closes the film unmocked"
+    },
+    "ambiguity": {
+     "score": 44,
+     "basis": "The bridegroom and ceremony are never shown, Michiko's crying is only reported, and \"Alone, eh?\" ends it without settling"
+    },
+    "fracture": {
+     "score": 8,
+     "basis": "Strictly forward; the wedding ellipsis skips material but never disturbs the order"
+    }
+   },
+   "axisConfidence": 1,
+   "confidenceCandidates": {
+    "admitted-binary": 1,
+    "grounded-fraction": 1,
+    "basis-density": 0.8707692307692307,
     "plot-length-banded": 0.6666666666666666
    }
   },
@@ -8124,31 +8206,31 @@
    "batch": 14,
    "axes": {
     "dread": {
-     "score": 8,
-     "basis": "The stakes are attribution and gullibility; nobody is at risk, and the worst outcome is an art dealer being fooled"
+     "score": 5,
+     "basis": "No one is at risk of anything; the stakes are authorship and a dinner party in Ibiza."
     },
     "cruelty": {
-     "score": 10,
-     "basis": "The girl-watching experiment and Picasso's rage are the only harms, and both are staged as amusement"
+     "score": 12,
+     "basis": "Harm is limited to dealers and buyers being deceived, and the girl-watching experiment run on strangers."
     },
     "irony": {
      "score": 95,
-     "basis": "He promises an hour of truth, then reveals the hour had expired and the Picasso story was invented — the film retracts itself"
+     "basis": "Promises an hour of truth, then reveals the Picasso story was fabricated and the hour had already expired — the frame lies on purpose."
     },
     "ambiguity": {
-     "score": 66,
-     "basis": "The retraction is explicit but leaves what remains true undecidable, since the confession is delivered by the same magician"
+     "score": 62,
+     "basis": "The confession retroactively unsettles which of de Hory, Irving and Welles's own anecdotes were ever verified."
     },
     "fracture": {
      "score": 70,
-     "basis": "Digressive weave — de Hory, Irving, Hughes, Welles's own Ireland and War of the Worlds — with a re-enacted fabrication spliced in"
+     "basis": "Digressive weave of de Hory, Irving, Welles's own past and a staged re-enactment, with the truth-promise reopened at the end."
     }
    },
    "axisConfidence": 1,
    "confidenceCandidates": {
     "admitted-binary": 1,
     "grounded-fraction": 1,
-    "basis-density": 0.9092307692307693,
+    "basis-density": 0.8584615384615384,
     "plot-length-banded": 0.5
    }
   },
@@ -8231,88 +8313,6 @@
     "admitted-binary": 1,
     "grounded-fraction": 1,
     "basis-density": 0.8215384615384616,
-    "plot-length-banded": 0.6666666666666666
-   }
-  },
-  "once upon a time in the west": {
-   "filmId": "film-61df15f95182eb99",
-   "title": "Once Upon a Time in the West",
-   "year": 1968,
-   "wikipedia": "Once Upon a Time in the West",
-   "region": "US/CA",
-   "source": "reading",
-   "scored": true,
-   "withheld": null,
-   "plotChars": 3108,
-   "batch": 19,
-   "axes": {
-    "dread": {
-     "score": 55,
-     "basis": "Ambush at the station, a family killed while preparing a party, and long waits for Frank — harm is expected almost throughout"
-    },
-    "cruelty": {
-     "score": 66,
-     "basis": "McBain's three children murdered; the flashback dwells on a brother made to stand on a boy's shoulders until he collapses"
-    },
-    "irony": {
-     "score": 24,
-     "basis": "Archetypes played straight: the showdown, the revealed motive, the harmonica pushed into the dying man's mouth"
-    },
-    "ambiguity": {
-     "score": 10,
-     "basis": "The flashback supplies Harmonica's motive outright and every principal is dead or accounted for by the last shot"
-    },
-    "fracture": {
-     "score": 26,
-     "basis": "Single forward line broken once, at the showdown, by the flashback that explains the harmonica"
-    }
-   },
-   "axisConfidence": 1,
-   "confidenceCandidates": {
-    "admitted-binary": 1,
-    "grounded-fraction": 1,
-    "basis-density": 0.8646153846153847,
-    "plot-length-banded": 0.5
-   }
-  },
-  "lumiere and company": {
-   "filmId": "film-0e46dc115d297b2d",
-   "title": "Lumière and Company",
-   "year": 1995,
-   "wikipedia": "Lumière and Company",
-   "region": "W-Europe",
-   "source": "reading",
-   "scored": true,
-   "withheld": null,
-   "plotChars": 3853,
-   "batch": 14,
-   "axes": {
-    "dread": {
-     "score": 18,
-     "basis": "A duel, a murder victim, Hiroshima audio — isolated shocks inside a run of kisses, tourists, a baby, a frying egg"
-    },
-    "cruelty": {
-     "score": 30,
-     "basis": "A man shoves the woman aside, another smashes a camera and storms off, an animal carcass decays — brief, watched, unexplained"
-    },
-    "irony": {
-     "score": 80,
-     "basis": "Cameras filmed filming: Nykvist at his camera, a painted-over TV image of a director, Odysseus staring the lens down"
-    },
-    "ambiguity": {
-     "score": 58,
-     "basis": "Forty fragments that state no situation and settle nothing; a woman waves at a train and it is over"
-    },
-    "fracture": {
-     "score": 72,
-     "basis": "Forty unconnected one-shot pieces by forty hands — no order among them can be recovered because none was imposed"
-    }
-   },
-   "axisConfidence": 1,
-   "confidenceCandidates": {
-    "admitted-binary": 1,
-    "grounded-fraction": 1,
-    "basis-density": 0.8692307692307693,
     "plot-length-banded": 0.6666666666666666
    }
   },

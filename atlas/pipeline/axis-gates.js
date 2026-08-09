@@ -608,6 +608,16 @@ function runGates(ctx) {
   return [gate1(ctx), gate2(ctx), gate3(ctx), gate4(ctx), gate5(ctx)];
 }
 
+/* GATE 2 and GATE 3 already fail on this corpus, on specific axes. So "did the
+   break fire" cannot be "did the gate fail" — it has to be "did an axis that was
+   passing stop passing". Anything looser reports a break as caught when nothing
+   about it was detected. */
+function perAxisRegressed(before, after) {
+  if (!before.per || !after.per) return before.pass && !after.pass;
+  const was = new Map(before.per.map((p) => [p.axis, p.pass]));
+  return after.per.some((p) => was.get(p.axis) === true && p.pass === false);
+}
+
 function printReport(ctx, gates, breakName) {
   const line = "=".repeat(78);
   console.log("\n" + line);
@@ -758,7 +768,13 @@ function main() {
       const gs = runGates(ctx);
       printReport(ctx, gs, name);
       const idx = { "gate1-full": 0, "gate2-constant": 1, "gate2-defaulted": 1, "gate3-shuffle": 2, "gate4-default": 3, "gate5-fullchars": 4 }[name];
-      summary.push({ name, target: gs[idx].name, firedCorrectly: !gs[idx].pass, others: gs.map((g, i) => i !== idx && !g.pass ? g.name : null).filter(Boolean) });
+      /* Compared against the HONEST baseline, not against absolute PASS. Two
+         gates fail on this corpus before any break is applied, and a ledger that
+         did not subtract the baseline would report every break as having broken
+         them — which would make the ledger itself the thing that lies. */
+      const fired = baseGates[idx].pass ? !gs[idx].pass : perAxisRegressed(baseGates[idx], gs[idx]);
+      const collateral = gs.map((g, i) => (i !== idx && baseGates[i].pass && !g.pass ? g.name : null)).filter(Boolean);
+      summary.push({ name, target: gs[idx].name, firedCorrectly: fired, others: collateral });
     }
     console.log("=".repeat(78));
     console.log("BREAK LEDGER — a gate that was not watched to fail is UNPROVEN");

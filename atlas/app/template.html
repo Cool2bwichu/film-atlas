@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Name a film and trace what it descends from, argues with and quietly rhymes with — every connection carrying a specific claim.">
-<meta name="theme-color" content="#08070A">
+<meta name="theme-color" content="#050404">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ATLAS — the shape of cinema">
@@ -30,9 +30,19 @@
    static host and a sandboxed artifact frame with equal reliability.
    ═══════════════════════════════════════════════════════════════════════ */
 :root{
-  --base:#08070A;          /* the field everything sits on */
-  --lift:#100E13;          /* raised surfaces */
-  --panel:#15121A;
+  /* THE GROUND IS ALMOST PURE BLACK, AND IT IS WARM — settled 2026-08.
+     These were #08070A / #100E13 / #15121A, every one of which has MORE BLUE
+     THAN RED: the table below this called them a warm film base and the values
+     said violet. Combined with the body wash (see body::before, which was
+     painting #1A1523) the page read as the generic dark-mode purple every
+     other data view on the internet ships, which is the exact thing the
+     "Deliberately avoided" list in DESIGN.md names and which had got in
+     through the background rather than through the chrome.
+     Now R >= G >= B at every step, and the ground sits two stops darker so
+     that light on this page arrives from something being looked at. */
+  --base:#050404;          /* the field everything sits on */
+  --lift:#0D0B09;          /* raised surfaces */
+  --panel:#110E0C;
   --ink:#F0EAE0;
   /* THREE INK WEIGHTS, AND ALL THREE ARE READABLE. This is a very dark page,
      which is exactly where a "quiet" grey stops being a mood and starts being
@@ -47,7 +57,7 @@
      that work, it was the ratio, the size and the tracking. */
   --dim:#A89E95;
   --faint:#877D75;
-  --hair:#221E28;
+  --hair:#231F1B;
   --accent:#E8C87A;        /* default until a film supplies its own */
   --accent-dim:#8A7440;
 
@@ -95,7 +105,12 @@ body::before{
   content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
   background:
     var(--grain),
-    radial-gradient(118% 88% at 50% 4%, #1A1523 0%, #0B0910 44%, #08070A 100%);
+    /* A SAFELIGHT ABOVE THE BENCH, NOT A UI GRADIENT. This was
+       #1A1523 -> #050404 -> #08070A: a violet wash across the whole viewport,
+       and the single biggest reason the page read as generic. The ramp is now
+       warm, an eighth of the amplitude, and lands on near-black well before
+       the bottom of the frame. */
+    radial-gradient(118% 88% at 50% 4%, #0C0A07 0%, #070605 40%, #050404 100%);
   background-size:180px 180px,100% 100%;
   background-repeat:repeat,no-repeat;
 }
@@ -125,7 +140,7 @@ kbd{font-family:var(--mono);font-size:9.5px;letter-spacing:0;padding:1px 5px 2px
 header{
   display:flex;align-items:center;gap:18px;
   padding:calc(14px + env(safe-area-inset-top)) max(22px,env(safe-area-inset-right)) 14px max(22px,env(safe-area-inset-left));border-bottom:1px solid var(--hair);
-  background:rgba(8,7,10,.72);backdrop-filter:blur(14px);
+  background:rgba(5,4,4,.72);backdrop-filter:blur(14px);
   flex-shrink:0;z-index:40;
 }
 /* The wordmark is set in the display serif and tracked wide: at 20px it is
@@ -258,7 +273,7 @@ main{flex:1;position:relative;overflow:hidden}
 .tile .cap .y{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;
   color:var(--faint);text-transform:uppercase;font-variant-numeric:tabular-nums}
 .tile .seen{position:absolute;top:7px;right:7px;width:6px;height:6px;border-radius:50%;
-  background:var(--accent);box-shadow:0 0 0 3px rgba(8,7,10,.75)}
+  background:var(--accent);box-shadow:0 0 0 3px rgba(5,4,4,.75)}
 
 .sec-head{display:flex;align-items:baseline;gap:16px;margin:44px 0 17px;
   padding-bottom:10px;border-bottom:1px solid var(--hair)}
@@ -287,7 +302,7 @@ main{flex:1;position:relative;overflow:hidden}
 .stage::after{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
   background:radial-gradient(116% 96% at 50% 48%,transparent 34%,
-    rgba(3,2,5,.4) 76%,rgba(3,2,5,.72) 100%)}
+    rgba(2,1,1,.4) 76%,rgba(2,1,1,.72) 100%)}
 .stage svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
 
 @keyframes bloom{from{opacity:0;transform:translate(-50%,-50%) scale(.82)}
@@ -372,7 +387,7 @@ main{flex:1;position:relative;overflow:hidden}
 .node.centre .label .y{margin-top:3px;font-size:9px;color:var(--dim);
   color:color-mix(in oklab,var(--nc,var(--accent)) 55%,var(--dim))}
 .node .seen{position:absolute;top:7px;right:7px;width:6px;height:6px;border-radius:50%;
-  background:var(--accent);box-shadow:0 0 0 3px rgba(8,7,10,.8)}
+  background:var(--accent);box-shadow:0 0 0 3px rgba(5,4,4,.8)}
 
 /* EDGES ARE DRAWN, NOT PLOTTED.
    Record edges ink themselves outward from the centre; the length of the line
@@ -428,10 +443,10 @@ main{flex:1;position:relative;overflow:hidden}
   font-family:var(--mono);font-size:8.5px;line-height:1;letter-spacing:.18em;
   text-transform:uppercase;
   color:var(--lc,var(--dim));opacity:.78;white-space:nowrap;
-  padding:2px 6px;background:rgba(8,7,10,.86);
+  padding:2px 6px;background:rgba(5,4,4,.86);
   box-shadow:0 0 0 1px rgba(34,30,40,.9);
   transition:opacity var(--t-fast) var(--ease)}
-.edge-label.hot{opacity:1;background:rgba(8,7,10,.96)}
+.edge-label.hot{opacity:1;background:rgba(5,4,4,.96)}
 /* The claim is a sentence, so it is set as one — text serif, not slate. The
    label above it names the relationship and stays slate. */
 .claim-tip{
@@ -453,7 +468,7 @@ main{flex:1;position:relative;overflow:hidden}
    rather than the moment. Hovering brings any of it back. */
 .trail{flex-shrink:0;position:relative;display:flex;align-items:center;gap:0;
   padding:12px 18px 13px;border-top:1px solid var(--hair);
-  background-color:rgba(8,7,10,.86);backdrop-filter:blur(14px);
+  background-color:rgba(5,4,4,.86);backdrop-filter:blur(14px);
   /* Sprocket holes, painted as the strip's own background rather than as a
      child element: a background does not scroll with the content of its own
      scroll container, so the perforations stay put while the thread runs
@@ -491,7 +506,7 @@ main{flex:1;position:relative;overflow:hidden}
    a rail that reflows under the cursor cannot be aimed at. */
 .trail-recall{flex-shrink:0;display:none;align-items:baseline;gap:9px;
   padding:9px 18px;border-top:1px solid var(--hair);
-  background:rgba(8,7,10,.86);backdrop-filter:blur(14px);
+  background:rgba(5,4,4,.86);backdrop-filter:blur(14px);
   font-size:12.5px;line-height:1.45;color:var(--dim);
   border-left:2px solid var(--tc,var(--accent))}
 .trail-recall.on{display:flex}
@@ -612,16 +627,24 @@ main{flex:1;position:relative;overflow:hidden}
    reason: a field with a lamp in it reads as a space, a flat one reads as a
    screen. ::before is lit in the highlight of the film currently in hand and
    follows it across the field, so the light source is the thing you are
-   looking at rather than a house colour. */
+   looking at rather than a house colour.
+
+   IT IS OFF AT REST — settled 2026-08. It used to burn at .085 in the house
+   accent with nothing in hand, which put a permanent amber bloom in the middle
+   of the frame: a lamp with no light source, lighting nothing. A field with a
+   lamp in it reads as a space only when the lamp is ON SOMETHING. So the
+   resting constellation is near-black and light arrives the moment a film is
+   in hand — which is also the only state in which --nc means anything. */
 .sky-field::before{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
   background:radial-gradient(36% 42% at var(--lx,50%) var(--ly,50%),
     var(--nc,var(--accent)) 0%,transparent 70%);
-  opacity:.085;transition:opacity var(--t-slow) var(--ease)}
+  opacity:0;transition:opacity var(--t-slow) var(--ease)}
+.sky-field.lit::before{opacity:.085}
 .sky-field::after{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:4;
   background:radial-gradient(120% 100% at 50% 48%,transparent 40%,
-    rgba(3,2,5,.34) 78%,rgba(3,2,5,.62) 100%)}
+    rgba(2,1,1,.34) 78%,rgba(2,1,1,.62) 100%)}
 #sky-c{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;
   touch-action:none;cursor:grab}
 /* the cursor says what a click will do: grab the field, or open a film */
@@ -636,14 +659,14 @@ main{flex:1;position:relative;overflow:hidden}
    rounds and writes left/top instead. */
 .sky-label{position:absolute;left:0;top:0;white-space:nowrap;
   font-family:var(--serif);font-size:12.5px;line-height:1.18;color:var(--ink);
-  padding:2px 7px 3px;background:rgba(8,7,10,.9);
+  padding:2px 7px 3px;background:rgba(5,4,4,.9);
   box-shadow:0 0 0 1px rgba(34,30,40,.92)}
 .sky-label .y{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;
   color:var(--faint);margin-left:7px;font-variant-numeric:tabular-nums}
 /* A neighbour's name is set QUIETER, never softer. Rule 4 lets graph depth
    change a label's weight; it may never touch its sharpness, and nothing here
    drops below a legible contrast. */
-.sky-label.near{font-size:11.5px;color:var(--dim);background:rgba(8,7,10,.82);
+.sky-label.near{font-size:11.5px;color:var(--dim);background:rgba(5,4,4,.82);
   padding:2px 6px 3px}
 .sky-label.near .y{display:none}
 
@@ -658,7 +681,7 @@ main{flex:1;position:relative;overflow:hidden}
    and both stack the same way on a phone. */
 .sky-hud-main{flex:1;min-width:0;max-width:min(520px,64vw);
   display:flex;flex-direction:column;align-items:stretch;gap:8px}
-.sky-read{background:rgba(8,7,10,.82);backdrop-filter:blur(10px);
+.sky-read{background:rgba(5,4,4,.82);backdrop-filter:blur(10px);
   border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent));
   padding:10px 13px 11px}
 /* THE ATLAS IS SHOWING SOMETHING OTHER THAN THE ATLAS, AND SAYS SO.
@@ -666,7 +689,7 @@ main{flex:1;position:relative;overflow:hidden}
    claim inside it — AGENTS rule 8: a stratum colours the ground, it never
    speaks in the voice a claim speaks in. --dim is 7.6:1 and --faint 5.0:1 on
    this ground; nothing here goes under the floor. */
-.sky-stratum{background:rgba(8,7,10,.86);backdrop-filter:blur(10px);
+.sky-stratum{background:rgba(5,4,4,.86);backdrop-filter:blur(10px);
   border:1px solid var(--hair);border-left:2px solid var(--nc,var(--accent));
   padding:7px 12px 8px;font-family:var(--mono);font-size:8.5px;
   letter-spacing:.17em;text-transform:uppercase;color:var(--dim);
@@ -749,7 +772,7 @@ main{flex:1;position:relative;overflow:hidden}
    project, and it is here because this is the moment the reader is being
    handed the whole atlas and needs to be told it is a machine with doors. */
 .sky-worlds{position:absolute;z-index:9;left:0;right:0;top:0;
-  background:rgba(8,7,10,.9);backdrop-filter:blur(12px);
+  background:rgba(5,4,4,.9);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--hair);
   padding:8px 0 0;overflow:hidden}
 .sky-worlds[hidden]{display:none}
@@ -806,7 +829,7 @@ main{flex:1;position:relative;overflow:hidden}
    up. A tab on the leading edge, printed the way the strip is. */
 .sky-worlds-tab{position:absolute;z-index:9;top:0;
   left:max(16px,env(safe-area-inset-left));
-  background:rgba(8,7,10,.9);backdrop-filter:blur(12px);
+  background:rgba(5,4,4,.9);backdrop-filter:blur(12px);
   border:1px solid var(--hair);border-top:0;padding:6px 11px 7px;
   font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;
   text-transform:uppercase;color:var(--dim);cursor:pointer}
@@ -820,7 +843,7 @@ main{flex:1;position:relative;overflow:hidden}
 .sky-filter{position:absolute;z-index:9;top:calc(14px + var(--worlds-h,0px));
   left:max(16px,env(safe-area-inset-left));
   width:min(232px,52vw);max-height:min(62vh,520px);display:flex;flex-direction:column;
-  background:rgba(8,7,10,.9);backdrop-filter:blur(10px);border:1px solid var(--hair)}
+  background:rgba(5,4,4,.9);backdrop-filter:blur(10px);border:1px solid var(--hair)}
 .sky-filter[hidden]{display:none}
 /* A HEADER ROW, NOT A BUTTON FLOATING OVER THE LIST.
    Absolutely positioning the close control put it on top of the first facet's
@@ -1143,16 +1166,20 @@ KEYS.forEach(k => ADJ[k] = []);
 E.forEach((e, i) => { if (ADJ[e.a] && ADJ[e.b]) { ADJ[e.a].push(i); ADJ[e.b].push(i); } });
 
 /* One colour per type, used for the stroke AND for the 8.5px label set in it.
-   That second job is a contrast constraint, so every value here clears 4.5:1
-   on --base. rebuttal was #B5473F (3.77:1) and hand was #7E7466 (4.38:1) —
-   both failed, and both are the label a reader has to squint at on a phone.
-   Lifted to 4.61 and 4.89 without moving hue: still oxblood, still slate. */
+   That second job is a contrast constraint, so every value here clears 4.5:1 —
+   on --base AND on --panel, which is the stricter ground and which this table
+   was not being measured against. It was checked on --base alone, and on
+   --panel `rebuttal` was 4.26:1 and `rhyme` 4.44:1: a real AA failure on the
+   surface that carries the claim text, sitting under a comment asserting the
+   opposite. pipeline/build-registers.js now measures both grounds on every
+   build and fails, so the assertion in this comment is enforced rather than
+   claimed. Both lifted without moving hue: still oxblood, still violet. */
 const EDGE_META = {
-  descent:     { label:"descends from", color:"#C9873F" },   /* 6.72:1 */
-  rebuttal:    { label:"argues with",   color:"#C8544A" },   /* 4.61:1 */
-  convergence: { label:"arrives with",  color:"#4E8C7A" },   /* 5.13:1 */
-  rhyme:       { label:"rhymes with",   color:"#8A6FA8" },   /* 4.71:1 */
-  hand:        { label:"shares a hand", color:"#867C6C" },   /* 4.89:1 */
+  descent:     { label:"descends from", color:"#C9873F" },   /* 6.85 base / 6.43 panel */
+  rebuttal:    { label:"argues with",   color:"#D15D53" },   /* 5.27 base / 4.95 panel */
+  convergence: { label:"arrives with",  color:"#4E8C7A" },   /* 5.22 base / 4.91 panel */
+  rhyme:       { label:"rhymes with",   color:"#9075AF" },   /* 5.22 base / 4.90 panel */
+  hand:        { label:"shares a hand", color:"#867C6C" },   /* 4.99 base / 4.68 panel */
 };
 
 /* The five TYPES are the grammar and are not negotiable (AGENTS rule 2), so
@@ -2500,6 +2527,10 @@ const sky = {
      pointer is grazing on the strip — its films light up WHERE THEY ARE, in
      the picture currently on screen, before anything is committed to. */
   treat:null, treatT0:0, idle:0, preview:null, previewSet:null, worldsH:-1, enterPending:false,
+  /* centroid and spread of the lit set, in world units, and the hue it was
+     computed for. Both cleared by anything that moves films or changes which
+     films are lit; see skyDraw's room tint. */
+  room:null, roomFor:null,
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
   /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
      click a touch screen fires afterwards can be told apart from a real one.
@@ -2799,6 +2830,73 @@ function skyRegisterId(){
 function skyTreatment(){
   const id=skyRegisterId();
   return id ? REG_DEFS[id].treatment || null : null;
+}
+
+/* THE ROOM TINT — the ground layer of the weather.
+   A soft radial rise in the world's own hue, centred on THE CENTROID OF THAT
+   WORLD'S FILMS and falling off to black well before the rim. Horror is dark
+   red where the constellation is and black at the edges of the frame.
+
+   Centred on the films, never on the viewport. A gradient pinned to the middle
+   of the window is a vignette, and a vignette is decoration that happens to be
+   coloured; this one is anchored in world coordinates, so it travels with the
+   camera, moves when the atlas re-forms, and sits off to one side when you pan
+   — which is what makes it read as light coming off the constellation rather
+   than as a filter over the page.
+
+   It introduces no second colour source: the hue is the register's own
+   treatment hue, which already carries its tier, and the readout is saying
+   which in the same breath. An authored world tints the room in an authored
+   colour, and says so.
+
+   Cost is one drawImage. The falloff is baked into a 128px sprite rather than
+   evaluated as a full-screen createRadialGradient per frame — at dpr 2 that
+   would be 5.2 million gradient texels a frame in software for a wash the
+   owner asked to keep slight. */
+const skyRoomSprites=new Map();
+function skyRoomSprite(hue){
+  let c=skyRoomSprites.get(hue);
+  if (c) return c;
+  const S=128;
+  c=document.createElement("canvas");
+  c.width=S; c.height=S;
+  const g=c.getContext("2d");
+  const grad=g.createRadialGradient(S/2,S/2,0,S/2,S/2,S/2);
+  /* A long, gentle shoulder — the light has to be gone by the rim, and a
+     steep falloff reads as a disc of colour rather than as a room. */
+  grad.addColorStop(0,    hue+"ff");
+  grad.addColorStop(0.28, hue+"9e");
+  grad.addColorStop(0.55, hue+"42");
+  grad.addColorStop(0.78, hue+"12");
+  grad.addColorStop(1,    hue+"00");
+  g.fillStyle=grad;
+  g.fillRect(0,0,S,S);
+  skyRoomSprites.set(hue,c);
+  return c;
+}
+
+/* Centroid and spread of a set of live films, in world units. Recomputed on
+   every frame of a flight — the room has to travel with the films, and the
+   flight is already writing n positions per frame so one more pass over the
+   same array is inside its own noise — and cached the rest of the time. */
+function skyRoomGeom(mask){
+  let sx=0, sy=0, n=0;
+  for (let i=0;i<sky.n;i++){
+    if (!sky.live[i]) continue;
+    if (mask && !mask[i]) continue;
+    sx+=sky.wx[i]; sy+=sky.wy[i]; n++;
+  }
+  if (!n) return null;
+  const cx=sx/n, cy=sy/n;
+  let acc=0;
+  for (let i=0;i<sky.n;i++){
+    if (!sky.live[i]) continue;
+    if (mask && !mask[i]) continue;
+    acc+=(sky.wx[i]-cx)**2+(sky.wy[i]-cy)**2;
+  }
+  /* Two sigma of the spread: the light covers the constellation and is gone
+     before the frame edge, which is the shape the owner described. */
+  return { cx, cy, r: Math.max(0.04, Math.sqrt(acc/n)*2.0) };
 }
 
 /* A soft halo, pre-rendered once per colour. Drawn as a sprite rather than a
@@ -3217,7 +3315,7 @@ function skyMiniGroundCanvas(W,H,pad,dpr){
   c.width=Math.round(W*dpr); c.height=Math.round(H*dpr);
   const g=c.getContext("2d");
   g.setTransform(dpr,0,0,dpr,0,0);
-  g.fillStyle="#0B0910"; g.fillRect(0,0,W,H);
+  g.fillStyle="#050404"; g.fillRect(0,0,W,H);
   const side=Math.min(W-pad*2,H-pad*2), ox=(W-side)/2, oy=(H-side)/2;
   g.fillStyle="#E8DFD3";
   g.globalAlpha=0.10;
@@ -3297,6 +3395,7 @@ function skyWorldPreview(id){
   if ((sky.preview&&sky.preview.id)===(next&&id)) return;
   sky.preview=next?Object.assign({id},next):null;
   sky.previewSet=next?skyRegisterMask(id):null;
+  sky.room=null; sky.roomFor=null;
   if (next) sky.treatT0=performance.now();
   skyRender();
 }
@@ -3444,6 +3543,7 @@ function skyApplySelection(ms){
   sky.treat=skyTreatment();
   sky.treatT0=performance.now();
   sky.preview=null; sky.previewSet=null;
+  sky.room=null; sky.roomFor=null;
   const sel=skySelected();
   const label=skySelectionLabel(sel);
   const flight = ms===undefined ? SKY_FORM_MS : ms;
@@ -3997,6 +4097,47 @@ function skyDraw(){
   const perDisc = !!(tmot&&(tmot.kind==="drift"||tmot.kind==="flicker")&&!skyReduced());
   const pdRate=perDisc?tmot.rate:0, pdDepth=perDisc?tmot.depth:0;
   if (T&&T.scale) r*=T.scale;
+
+  /* ── THE ROOM TINT, drawn first so everything else sits in it ────────────
+     Slight, and deliberately so: at full strength the centre texel lifts the
+     ground by about a dozen levels. Anything more and the wash competes with
+     the discs, which are the one thing on screen that was measured.
+
+     Recomputed while the atlas is in flight, cached the rest of the time, and
+     invalidated by whatever changes the picture. `lighter` because the ground
+     is near-black and this is light being added to a room, not a colour being
+     laid over one. */
+  const roomHue = T ? T.hue : (PVT ? PVT.treatment.hue : null);
+  /* Read from `sky` directly rather than from `forming` and `hasRoute`, both of
+     which are `const`s declared FURTHER DOWN this function. Referencing either
+     one here is a temporal dead zone and throws, and it throws in a way no
+     screenshot can catch: the only state that enters this branch has a
+     treatment on, skyDraw has already cleared the canvas by the time it dies,
+     and a black field with a clean console is precisely the failure this
+     project has shipped twice. Both were caught by reading pixels out of the
+     canvas in a chosen world; the check is now in the verification pass. */
+  const roomForming = !!sky.form;
+  const roomRouted = !!(sky.passage.route && sky.passage.onEdge && sky.passage.onEdge.size);
+  if (roomHue && !roomRouted){
+    if (roomForming || !sky.room || sky.roomFor!==roomHue){
+      sky.room=skyRoomGeom(PV||null);
+      sky.roomFor=roomHue;
+    }
+    const g=sky.room;
+    if (g){
+      const R=g.r*k;
+      const cxp=g.cx*k+ox, cyp=g.cy*k+oy;
+      /* A preview is a question, not a decision, so its room is quieter than a
+         chosen world's — and it fades in on the flight's own clock so the
+         light arrives with the films rather than snapping on ahead of them. */
+      const grow=roomForming?Math.min(1,(performance.now()-sky.form.t0)/sky.form.ms/0.6):1;
+      ctx.globalCompositeOperation="lighter";
+      ctx.globalAlpha=(PV?0.13:0.20)*pulse*grow;
+      ctx.drawImage(skyRoomSprite(roomHue),cxp-R,cyp-R,R*2,R*2);
+      ctx.globalCompositeOperation="source-over";
+      ctx.globalAlpha=1;
+    }
+  }
   /* Opacity per film. At rest it is 1 for everything in the picture and 0 for
      everything outside it; during a re-form it is the flight's own fade, so
      one array answers "is this drawn" in both states and the draw never has
@@ -4620,8 +4761,14 @@ function skyReadout(){
 function skyHand(){
   const key=skyInHand();
   const field=$("#sky-field");
-  if (key!=null && F[key]) field.style.setProperty("--nc", F[key].highlight);
+  /* The lamp is lit by the film in hand and by nothing else. An anchor counts —
+     a held neighbourhood is a thing being looked at — but the resting atlas is
+     dark, because a lamp lighting nothing is the generic glow this project
+     refuses. */
+  const lamp = key!=null && F[key] ? key : (skyAnchor() || null);
+  if (lamp!=null && F[lamp]) field.style.setProperty("--nc", F[lamp].highlight);
   else field.style.removeProperty("--nc");
+  field.classList.toggle("lit", lamp!=null && !!F[lamp]);
   /* only the POINTER changes the cursor — a keyboard selection leaves it alone,
      because there is nothing under the pointer to click */
   const c=$("#sky-c");

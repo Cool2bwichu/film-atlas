@@ -634,7 +634,16 @@ async function main() {
       nullCarriers: s.nulls.length, fameDeciles: deciles, eras, regions,
       ladderFilms: [...s.ladderAxes.keys()].length,
     },
-    axisConfidenceFormulation: "grounded-fraction (axes the text grounded / 5) — chosen against the GATE 5 table, not by taste",
+    /* MEASURED, n=197: rho 0.1055 against 60-day pageviews, and the honest half
+       of that sentence is that the variable takes the value 1.0 on 99.5% of
+       scored films, because the scorer declined exactly once in 1,000 axis
+       slots. It is flat because it is nearly constant. `basis-density` is the
+       flattest genuinely-varying candidate at -0.0096 and is NOT shipped: it
+       measures how long the model's own justification sentences ran, which is a
+       property of the model's prose and not of the evidence, and adopting a
+       number because it measured flat is how the layer would acquire a
+       confidence that means nothing at all. */
+    axisConfidenceFormulation: "grounded-fraction (axes the text grounded / 5) — measured rho 0.1055 vs pageviews, but EFFECTIVELY CONSTANT on this sample (99.5% of films at 1.0)",
     replication,
     films: {},
   };

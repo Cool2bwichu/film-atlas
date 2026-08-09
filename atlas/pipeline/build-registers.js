@@ -215,6 +215,41 @@ function separation(memberKeys) {
    near-identical purples. Three doors that look the same is the failure the
    whole treatment layer exists to fix, and "purple-blue gradient" is on the
    list of things this project will not ship. */
+/* ── THE GROUND IS READ OUT OF THE TEMPLATE, NEVER RESTATED HERE ──────────
+   Every contrast number in this file is measured against --base and --panel,
+   and a copy of those hex values sitting in this file is a copy that goes
+   stale the first time somebody darkens the page. It happened: the ground
+   moved from #08070A to #050404 and a hardcoded floor here would have kept
+   reporting the old ratios while the build went green. Parsed instead — the
+   same discipline measure-claims.js uses on the ranking table — and the parse
+   failing is a build failure rather than a silent fallback. */
+const TEMPLATE = fs.readFileSync(path.join(ROOT, "app", "template.html"), "utf8");
+function token(name) {
+  const m = TEMPLATE.match(new RegExp("--" + name + "\\s*:\\s*(#[0-9a-fA-F]{6})"));
+  if (!m) throw new Error(`app/template.html no longer defines --${name}; the contrast gate cannot run`);
+  return m[1];
+}
+const BASE = token("base"), PANEL = token("panel");
+
+/* The type in the shipped palette, with the floor each piece has to clear on
+   the STRICTEST of the two grounds. DESIGN.md's rule for this project is 4.5:1
+   for anything carrying type, with no exception for "quiet"; --faint was
+   raised from 2.53:1 for exactly that reason and this gate is what stops it
+   drifting back. The five edge colours are here because they are stroked as
+   lines AND set as 8.5px labels. */
+const PALETTE = [
+  ["--ink", "ink", 4.5], ["--dim", "dim", 4.5], ["--faint", "faint", 4.5],
+  ["--accent", "accent", 4.5], ["--accent-dim", "accent-dim", 3.0],
+  ["descent", "descent", 4.5], ["rebuttal", "rebuttal", 4.5],
+  ["convergence", "convergence", 4.5], ["rhyme", "rhyme", 4.5], ["hand", "hand", 4.5],
+];
+function paletteHex(key) {
+  if (key.startsWith("--")) return token(key.slice(2));
+  const m = TEMPLATE.match(new RegExp(key + ":\\s*\\{[^}]*color:\"(#[0-9a-fA-F]{6})\""));
+  if (!m) throw new Error(`app/template.html no longer defines the ${key} edge colour`);
+  return m[1];
+}
+
 /* TWO FLOORS, BECAUSE THERE ARE TWO KINDS OF OBJECT.
    A disc on the canvas is a graphical object and WCAG's floor for one is 3:1.
    The tier glyph beside a register's name is 8.5px type in the slate voice, and
@@ -226,15 +261,18 @@ function separation(memberKeys) {
    So the hue is not compromised — the glyph gets `inkHue`, the same hue in
    Oklab lifted in LIGHTNESS ONLY until it clears the floor. Same colour, legal
    value, and the association between the mark and the field survives. */
+/* A glyph in the readout sits on --panel and the same glyph on the strip sits
+   on --base. It has to clear the floor on whichever is the harder ground. */
+const worstGround = (hex) => Math.min(contrast(hex, BASE), contrast(hex, PANEL));
 const TYPE_FLOOR = 4.5;
 function inkHue(hex) {
   const [L, a, b] = hexToOklab(hex);
   let lo = L, hi = 1, out = hex;
-  if (contrast(hex, "#08070A") >= TYPE_FLOOR) return hex;
+  if (worstGround(hex) >= TYPE_FLOOR) return hex;
   for (let i = 0; i < 24; i++) {
     const mid = (lo + hi) / 2;
     const cand = oklabToHex([mid, a, b]);
-    if (contrast(cand, "#08070A") >= TYPE_FLOOR) { out = cand; hi = mid; } else lo = mid;
+    if (worstGround(cand) >= TYPE_FLOOR) { out = cand; hi = mid; } else lo = mid;
   }
   return out;
 }
@@ -292,8 +330,8 @@ for (const reg of RULES.registers) {
   rows.push({
     id: reg.id, label: reg.label, n: members.length, share: members.length / N,
     worstJ, worstV, fail, tier, sigma: sep.sigma, hue: treat.hue, devDeg,
-    onBase: contrast(treat.hue, "#08070A"),
-    inkOnBase: contrast(treat.inkHue, "#08070A"), lifted: treat.inkHue !== treat.hue,
+    onBase: contrast(treat.hue, BASE),
+    inkOnBase: worstGround(treat.inkHue), lifted: treat.inkHue !== treat.hue,
   });
 
   if (fail.length) { rejected.push({ id: reg.id, why: fail }); continue; }
@@ -336,6 +374,46 @@ console.log(`tier glyph: ${lifted.length} hues lifted to clear ${TYPE_FLOOR}:1 a
   (lifted.map((r) => `${r.label} ${r.onBase.toFixed(1)}->${r.inkOnBase.toFixed(1)}`).join(", ") || "none needed"));
 const stillDim = rows.filter((r) => !r.fail.length && r.inkOnBase < TYPE_FLOOR - 0.01);
 if (stillDim.length) { console.error("FAIL — tier glyph under the type floor:", stillDim.map((r) => r.label).join(", ")); process.exitCode = 1; }
+const dark = rows.filter((r) => !r.fail.length && r.onBase < 3);
+if (dark.length) { console.error("FAIL — disc hue under the 3:1 graphical floor:", dark.map((r) => r.label).join(", ")); process.exitCode = 1; }
+
+/* ── THE PALETTE GATE ──────────────────────────────────────────────────────
+   The ground moved, so every ratio in the shipped palette moved with it. This
+   runs on every build and reports the whole table, because a darker page makes
+   most of these BETTER and the danger is assuming that is automatic — the two
+   that get worse when the ground drops are anything already close to the floor
+   on --panel, and the accents, which are compared against a ground that is now
+   further from them in one direction and closer in the other. */
+console.log(`\npalette against --base ${BASE} and --panel ${PANEL}:`);
+let paletteFail = 0;
+for (const [key, label, floor] of PALETTE) {
+  const hex = paletteHex(key);
+  const b = contrast(hex, BASE), pn = contrast(hex, PANEL), worst = Math.min(b, pn);
+  const ok = worst >= floor - 0.005;
+  if (!ok) paletteFail++;
+  console.log(`  ${label.padEnd(13)} ${hex}  base ${b.toFixed(2)}:1  panel ${pn.toFixed(2)}:1  ` +
+    `floor ${floor.toFixed(1)}  ${ok ? "ok" : "FAIL"}`);
+}
+if (paletteFail) { console.error(`FAIL — ${paletteFail} palette entries under their floor`); process.exitCode = 1; }
+/* The ground itself has to stay a ground: --panel must remain visibly raised
+   off --base, or the panel stops being a surface and becomes a hole.
+
+   MEASURED IN OKLAB LIGHTNESS, NOT IN WCAG RATIO. The first version of this
+   gate used a contrast ratio and demanded 1.15; it failed, and it was the gate
+   that was wrong — the shipped design has ALWAYS been 1.084, because the +0.05
+   flare term in the WCAG formula swamps any difference between two near-blacks
+   and the ratio simply cannot see this distinction. The perceptual step is the
+   right instrument: the palette before the ground was darkened separated
+   --panel from --base by dL 0.0579 in Oklab, and the floor is set below that
+   so a future change may not quietly flatten the surfaces together. */
+const dL = hexToOklab(PANEL)[0] - hexToOklab(BASE)[0];
+const dLift = hexToOklab(token("lift"))[0] - hexToOklab(BASE)[0];
+console.log(`  surface steps in Oklab L: lift +${dLift.toFixed(4)}, panel +${dL.toFixed(4)} ` +
+  `(floor 0.045; the palette this replaced was +0.0368 / +0.0579)`);
+if (dL < 0.045 || dLift < 0.030) {
+  console.error("FAIL — the raised surfaces have flattened into the ground");
+  process.exitCode = 1;
+}
 
 /* --report must exit non-zero on a failed gate too. A reporting mode that
    always exits 0 is how a red build gets read as a green one. */
