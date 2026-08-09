@@ -2237,6 +2237,12 @@ const sky = {
      answers the question the sky could not previously answer: not just what
      that film is, but why it is attached to the one in your hand. */
   orbitKey:null, examineKey:null,
+  /* PASSAGE: two films pinned, and the chain of claims between them.
+     `pending` exists because the search is not free — mean 150ms but 1.8s at
+     the worst obscure-to-obscure pair — so the readout paints "finding the
+     route" and the search runs on the next frame. A silent freeze would read
+     as a broken page, which is the one failure this project keeps having. */
+  passage:{from:null,to:null,route:null,pending:false,onEdge:null},
   /* Selected facet indices per field, and the membership mask they produce.
      `visible` is null when nothing is selected — the whole-field case must not
      pay for a per-film test it does not need. */
@@ -2762,16 +2768,54 @@ function skyDraw(){
      to see WHERE a tradition sits in the whole atlas — which regions it fills
      and which it never reaches — and that needs the rest of the sky present
      as ground. */
+  const P=sky.passage, hasRoute=P.route&&P.onEdge&&P.onEdge.size;
   for (let i=0;i<n;i++){
     const px=SX[i], py=SY[i];
     if (px<-r||py<-r||px>w+r||py>h+r) continue;
-    ctx.globalAlpha = vis && !vis[i] ? 0.09 : 0.82;
+    /* With a route on screen the rest of the field recedes to ground. It is
+       dimmed, never erased: the route only means something against the atlas
+       it crosses, and removing the context would turn an argument into a
+       diagram floating in the dark. */
+    ctx.globalAlpha = hasRoute ? 0.07 : (vis && !vis[i] ? 0.09 : 0.82);
     ctx.beginPath();
     ctx.arc(px,py,r,0,TAU);
     ctx.fillStyle=sky.fill[i];
     ctx.fill();
   }
   ctx.globalAlpha=0.82;
+
+  /* THE ROUTE ITSELF, drawn last so nothing sits on top of it. Each crossing
+     takes the colour of its relationship type — the same pen as the radial map
+     — and a sub-0.5 claim is dashed, because AGENTS rule 3 does not stop
+     applying because the view changed. */
+  if (hasRoute){
+    const idx=Object.create(null);
+    for(let i=0;i<n;i++) idx[sky.keys[i]]=i;
+    let prev=idx[P.from];
+    for(const st of P.route.steps){
+      const cur=idx[st.to];
+      if(prev===undefined||cur===undefined){ prev=cur; continue; }
+      ctx.beginPath();
+      ctx.moveTo(SX[prev],SY[prev]); ctx.lineTo(SX[cur],SY[cur]);
+      ctx.setLineDash(isLowConfidence(st.edge)?SKY_DASH:SKY_SOLID);
+      ctx.strokeStyle=(EDGE_META[st.edge.type]||{}).color||"#C9873F";
+      ctx.globalAlpha=0.95; ctx.lineWidth=2.4; ctx.stroke();
+      prev=cur;
+    }
+    ctx.setLineDash(SKY_SOLID); ctx.lineWidth=1;
+    const stops=[P.from].concat(P.route.steps.map(st=>st.to));
+    for(let si=0;si<stops.length;si++){
+      const i=idx[stops[si]]; if(i===undefined) continue;
+      const end=si===0||si===stops.length-1;
+      ctx.globalAlpha=1;
+      ctx.beginPath(); ctx.arc(SX[i],SY[i],r*(end?2.6:1.9),0,TAU);
+      ctx.fillStyle=sky.fill[i]; ctx.fill();
+      ctx.beginPath(); ctx.arc(SX[i],SY[i],r*(end?2.6:1.9),0,TAU);
+      ctx.strokeStyle=end?"#F0EAE0":"rgba(240,234,224,.45)";
+      ctx.lineWidth=end?1.6:1; ctx.stroke();
+    }
+    ctx.globalAlpha=0.82;
+  }
 
   /* Seen and loved: a ring, not a size and not a second colour scheme. The
      mark has to be findable when you are looking for it and invisible when
@@ -2931,8 +2975,91 @@ function skyPlaceLabels(){
   }
 }
 
+/* ── PASSAGE, the view ──────────────────────────────────────────────────────
+   The constellation is the only view that can draw a path ACROSS the atlas —
+   the wall shows no hops and the radial map shows one — so this is what the
+   sky is for. Pin a film, pin a second, and the field falls back so the route
+   is what you see. */
+function skyPassageEdgeSet(route){
+  /* Membership test for "is this edge on the route", by endpoint pair rather
+     than by object identity: skyBuild stores its own edge index and the route
+     carries corpus edge objects, so identity would silently never match. */
+  const set=new Set();
+  if(!route) return set;
+  for(const st of route.steps) set.add([st.edge.a,st.edge.b].sort().join("\u0000"));
+  return set;
+}
+function skyPassageClear(){
+  sky.passage={from:null,to:null,route:null,pending:false,onEdge:null};
+  skyReadout(); skyRender();
+}
+function skyPassageStart(key){
+  sky.passage={from:key,to:null,route:null,pending:false,onEdge:null};
+  skyReadout(); skyRender();
+}
+function skyPassageTo(key){
+  const p=sky.passage;
+  if(!p.from||key===p.from) return;
+  p.to=key; p.route=null; p.pending=true;
+  skyReadout(); skyRender();
+  /* Two frames, not one: the first paints "finding the route", the second runs
+     the search. A single rAF can still land before the paint commits. */
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const r=passageRoute(p.from,p.to);
+    p.route=r; p.pending=false;
+    p.onEdge=skyPassageEdgeSet(r);
+    skyReadout(); skyRender();
+  }));
+}
+
 function skyReadout(){
   const box=$("#sky-read");
+  const P=sky.passage;
+
+  /* PASSAGE OWNS THE READOUT WHILE IT IS ACTIVE. The claims in order ARE the
+     feature — the drawn line is the index, the sentences are the argument —
+     so they get the panel rather than a tooltip. */
+  if (P.from){
+    box.style.setProperty("--nc", F[P.from].highlight);
+    const head = `<span class="slate">passage</span>`;
+    if (P.pending){
+      box.innerHTML = head + `<span class="t">${esc(F[P.from].title)} \u2192 ${esc(F[P.to].title)}</span>
+        <span class="y">finding the route\u2026</span>`;
+      return;
+    }
+    if (!P.to){
+      box.innerHTML = head + `<span class="t">${esc(F[P.from].title)}</span>
+        <span class="y">pick a second film \u2014 the atlas will find the chain between them</span>
+        <button class="btn ghost" id="sky-pass-x" type="button">Cancel</button>`;
+      $("#sky-pass-x").onclick=skyPassageClear;
+      return;
+    }
+    if (!P.route){
+      /* One connected component with zero orphans, so this should be
+         unreachable — but saying so honestly beats an empty panel if the
+         corpus ever fragments. */
+      box.innerHTML = head + `<span class="t">No route</span>
+        <span class="y">these two films are not connected in this corpus</span>
+        <button class="btn ghost" id="sky-pass-x" type="button">Clear</button>`;
+      $("#sky-pass-x").onclick=skyPassageClear;
+      return;
+    }
+    const n=P.route.hops;
+    const rows=P.route.steps.map(st=>{
+      const e=st.edge, low=isLowConfidence(e);
+      return `<div class="sky-why" style="--wc:${EDGE_META[e.type].color}">
+        <span class="rel">${esc(edgeMeta(e)||"")}${low?` \u00b7 <i>reading, not record</i>`:""}</span>
+        <span class="claim">${esc(e.claim)}</span>
+        <span class="y">\u2192 ${esc(F[st.to].title)}${F[st.to].year?" ("+F[st.to].year+")":""}</span>
+      </div>`;
+    }).join("");
+    box.innerHTML = head + `<span class="t">${esc(F[P.from].title)} \u2192 ${esc(F[P.to].title)}</span>
+      <span class="y">${n} crossing${n===1?"":"s"}</span>${rows}
+      <button class="btn ghost" id="sky-pass-x" type="button">Clear</button>`;
+    $("#sky-pass-x").onclick=skyPassageClear;
+    return;
+  }
+
   const anchor=skyAnchor();
   /* While orbiting, the readout is about the neighbour being examined, or the
      anchor itself when none is. Hover still previews, but it may not evict a
@@ -2953,9 +3080,11 @@ function skyReadout(){
         <span class="claim">${esc(e.claim)}</span>
       </div>`:""}
       <button class="btn" id="sky-open" type="button">Open its map</button>
-      <button class="btn ghost" id="sky-anchor" type="button">Follow this film</button>`;
+      <button class="btn ghost" id="sky-anchor" type="button">Follow this film</button>
+      <button class="btn ghost" id="sky-pass" type="button">Route from here\u2026</button>`;
     $("#sky-open").onclick=()=>openMap(key,true);
     $("#sky-anchor").onclick=()=>skyOrbit(key);
+    $("#sky-pass").onclick=()=>skyPassageStart(key);
     return;
   }
 
@@ -3383,6 +3512,12 @@ if (SKY_POS){
        tap is the hover a finger does not have, and the readout it fills in
        carries an explicit Open button for people who would rather not
        discover the second tap. */
+    /* While a passage is being composed, a pick names the destination instead
+       of leaving for the radial map. Checked before the mouse/touch branch so
+       both input paths behave identically -- a feature that works with a mouse
+       and silently does something else under a finger is the bug this file
+       already fixed once. */
+    if(sky.passage.from&&!sky.passage.to){ skyPassageTo(key); return; }
     if(d.type==="mouse"||sky.pinKey===key){
       /* ARM THE GHOST-CLICK GUARD BEFORE NAVIGATING, NOT AFTER.
          A touch screen dispatches compatibility mousedown/mouseup/click AFTER
