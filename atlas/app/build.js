@@ -18,6 +18,7 @@ const fs=require("fs"), path=require("path"), os=require("os"), cp=require("chil
 const {canonicalJson,contentVersion,projectDiscovery,validateDiscovery}=
   require("../pipeline/discovery-contract.js");
 const {LAYOUT_ALGORITHM_VERSION,layout}=require("./layout-sky.js");
+const {STRATA_LAYOUT_VERSION,strataLayouts}=require("./layout-strata.js");
 const {isTrivia}=require("../pipeline/claim-tiers.js");
 const ROOT=path.join(__dirname,"..");
 const arg=(n,d)=>{
@@ -214,11 +215,20 @@ for(const filmId of discovery.filmOrder){
 if(Object.keys(positions).length!==Object.keys(corpus.films).length){
   throw new Error("Layout position count does not match the supplied corpus");
 }
+/* ONE MORE CONSTELLATION PER STRATUM, SO NARROWING RE-FORMS THE SKY.
+ * Same solver, same rules, run again over each stratum's own films and only
+ * the edges with both ends inside it. Costs ~9s of build and ~54 KB on the
+ * wire; the alternative is a 1.9-second freeze on every click of the most-used
+ * filter in the app, on a desktop, and worse on a phone. The full argument,
+ * with the measurements, is at the top of layout-strata.js. */
+const {strata,report:strataReport}=strataLayouts(corpus,discovery);
 const layoutManifest={
   version:discovery.layoutVersion,
   algorithmVersion:LAYOUT_ALGORITHM_VERSION,
   corpusVersion:discovery.corpusVersion,
   positions,
+  strataAlgorithmVersion:STRATA_LAYOUT_VERSION,
+  strata,
 };
 
 /* Chunked, never one enormous line: a 250k-character line is valid JavaScript
@@ -284,3 +294,7 @@ try{
   fs.rmSync(staged,{force:true});
 }
 console.log(`${OUT}  ${(fs.statSync(OUT).size/1024).toFixed(0)} KB — ${Object.keys(corpus.films).length} films, ${corpus.edges.length} edges, ${Object.keys(positions).length} placed`);
+/* Say what was baked. A stratum silently missing its layout is a filter
+   that dims instead of re-forming, and that failure is invisible on screen
+   unless you already know which strata were supposed to move. */
+console.log(`${strataReport.length} strata re-formed — ${strataReport.reduce((n,r)=>n+r.films,0)} film placements, ${(JSON.stringify(strata).length/1024).toFixed(0)} KB`);
