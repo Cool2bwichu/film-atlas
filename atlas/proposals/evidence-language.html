@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ATLAS — the evidence language (proposal, standalone)</title>
+<!-- ═══════════════════════════════════════════════════════════════════════
+  PROPOSAL — HOW A RECEIPT READS. Standalone prototype; template.html is
+  owned by other agents right now, so this file carries the whole design and
+  the spec to apply when it frees. Every number, sentence, ballot, ranking
+  and quotation below is REAL, drawn from the corpus and the pipeline outs:
+
+    film            static/corpus.json           mulholland drive
+    claims          static/corpus.json           its own edges, verbatim
+    print facts     pipeline/out/harvest.json    P462 colour, P2047 runtime, P364 language
+    dialogue        pipeline/out/dialogue-density-sample.json  wpm 43 &c.
+    cuttings        pipeline/out/critic-vocab.json             20 terms, Senses of Cinema
+    ballot          pipeline/out/sightsound-2022/matched-director-edges.json
+    consensus       pipeline/out/tspdt/corpus-rankings.json    21 editions
+    scholarship     OpenAIRE api.openaire.eu, query "mulholland drive lynch",
+                    total 141, fetched 2026-08-09 (the 209-film prototype
+                    sample does not include this film; one query was run so
+                    this mock would not fake a number)
+
+  THE ONE GRAMMAR THIS FILE PROPOSES:
+
+    A STATEMENT is one sentence the atlas asserts about the film. Every
+    statement carries, right-aligned in slate, its honesty tier in the
+    EXISTING three-glyph family — ● recorded · ◐ amplified · ○ authored —
+    the same glyphs, the same words, the same 4.5:1 floor the register
+    readout already uses. No fourth glyph. No parallel family.
+
+    Every statement OPENS. Tapping it unfolds its RECEIPT beneath — the
+    same gesture as a claim opening on the map. A receipt has three parts,
+    always in this order: the evidence itself (a sentence, a ballot line,
+    a table, an instrument reading), the provenance in slate with the
+    source linked, and — where the tier is not recorded — one serif line
+    saying exactly what a machine did and what it did not.
+
+    The receipt's left rule carries the tier in the map's own dash
+    grammar: SOLID hairline = record, DASHED = not-yet-record. Same
+    convention as a dashed edge; new surface.
+
+    The SPECIES — what kind of thing is being said — is never a badge.
+    It is carried by FORM, one form per species, each of which would be
+    nonsense applied to a photograph:
+
+      the LEDGER    a fact about the print       slate row; aspect ratio is
+                                                 drawn as its own aperture
+      the METER     a number measured here       reading + the corpus track
+                                                 with the film's notch on it
+      the CUTTING   a critic's word              the word indexes a sentence;
+                                                 the sentence is the claim,
+                                                 the word is lit inside it
+      the BALLOT    a named person's vote        the name leads, in serif —
+                                                 a signature, then filing
+      the STANDING  the world's aggregate        trajectory + count, in slate:
+                                                 weather, not substance —
+                                                 and it says so in the receipt
+
+  Species grouped by the SUBJECT of the statement, which is the real
+  boundary rule 8 protects: THE PRINT (what the object is) · WHAT WAS
+  WRITTEN / WHO VOTED (named voices) · ITS STANDING (the aggregate).
+  ═══════════════════════════════════════════════════════════════════════ -->
+<style>
+/* ── tokens: verbatim from template.html — the prototype invents no colour ── */
+:root{
+  --base:#050404; --lift:#0D0B09; --panel:#110E0C;
+  --ink:#F0EAE0; --dim:#A89E95; --faint:#877D75; --hair:#231F1B;
+  --accent:#E8C87A; --accent-dim:#8A7440;
+  --display:"Hoefler Text",Baskerville,"Palatino Linotype",Constantia,Georgia,serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,ui-serif,serif;
+  --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --track-display:-.024em; --track-slate:.2em;
+  --t-fast:160ms; --t-mid:340ms; --t-slow:620ms;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='.055'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--base);color:var(--ink);font-family:var(--sans);font-size:15px;
+  line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:var(--grain),radial-gradient(118% 88% at 50% 4%,#0C0A07 0%,#070605 40%,#050404 100%);
+  background-size:180px 180px,100% 100%;background-repeat:repeat,no-repeat}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+::selection{background:var(--accent);color:#0B0A0D}
+:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+
+/* ── the stage: stand-in for the radial map, so the panel sits where it lives ── */
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage .cell{width:118px;text-align:center;opacity:.85}
+#stage .gen{width:118px;height:177px;margin:0 auto}
+#stage .cap{margin-top:8px;font-family:var(--serif);font-size:12.5px;color:var(--ink)}
+#stage .cap .y{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--faint);margin-left:6px}
+
+/* ── panel: geometry and voices verbatim from template.html ───────────── */
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(370px,86vw);z-index:30;
+  background:var(--panel);border-left:1px solid var(--hair);
+  overflow-y:auto;overscroll-behavior:contain;padding:26px 22px 34px;
+  scrollbar-width:thin;scrollbar-color:var(--hair) transparent}
+.phead{display:flex;flex-direction:column}
+.phead .slate{display:block;padding-bottom:11px;margin-bottom:13px;border-bottom:1px solid var(--hair);
+  font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);text-transform:uppercase;color:var(--faint)}
+.panel .poster{display:block;width:auto;max-width:100%;max-height:min(34vh,300px);margin:0 0 4px}
+.panel .generated-poster{width:min(100%,200px);aspect-ratio:2/3}
+.panel .generated-poster .gen{width:100%;height:100%}
+.panel h2{font-family:var(--display);font-size:30px;font-weight:400;line-height:1.08;
+  letter-spacing:var(--track-display);margin-top:14px}
+.panel .by{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:9px;
+  letter-spacing:.18em;text-transform:uppercase}
+.acts{display:flex;gap:8px;margin:20px 0 10px}
+.btn{border:1px solid var(--hair);color:var(--dim);font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.14em;text-transform:uppercase;padding:10px;transition:border-color var(--t-fast) var(--ease)}
+.btn:hover{border-color:var(--accent-dim);color:var(--ink)}
+.acts .btn{flex:1;text-align:center}
+.panel .desc{font-family:var(--serif);font-size:14.5px;line-height:1.62;color:#C9C1B6;margin:16px 0 20px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;
+  border-bottom:1px solid var(--hair);font-size:12px}
+.row span:first-child{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint)}
+.row span:last-child{text-align:right;color:var(--dim);font-variant-numeric:tabular-nums}
+.why{margin:22px 0 24px}
+.why h3, .ev h3{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);margin-bottom:12px;
+  padding-bottom:9px;border-bottom:1px solid var(--hair);font-weight:400;
+  display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.why-item{display:block;width:100%;padding:11px 0 11px 12px;border-left:2px solid var(--wc,var(--hair));
+  margin-bottom:8px;cursor:pointer;transition:background var(--t-fast) var(--ease),transform var(--t-fast) var(--ease)}
+.why-item:hover,.why-item:focus-visible{background:var(--lift);transform:translateX(3px)}
+.why-item .c{font-family:var(--serif);font-size:13.5px;line-height:1.42}
+.why-item .m{font-family:var(--mono);font-size:8.5px;color:var(--faint);margin-top:6px;
+  letter-spacing:.15em;text-transform:uppercase}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   NEW — THE EVIDENCE LANGUAGE. Everything below this line is the proposal.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* The gesture is named ONCE per panel, in the first evidence header, in the
+   same accent voice as the map's "why it connects" cue — the second piece of
+   type in the project that names a gesture, and the last. */
+.ev{margin:22px 0 24px}
+.ev h3 .cue{letter-spacing:.14em;color:var(--accent);text-transform:none;font-size:8.5px}
+
+/* A STATEMENT. The whole row is the button; hover answers exactly like a
+   claim row (lift + 3px), so one motion means "this opens" everywhere. */
+.ev-st{display:block;width:100%;padding:10px 0 10px 0;
+  border-bottom:1px solid var(--hair);
+  transition:background var(--t-fast) var(--ease),transform var(--t-fast) var(--ease)}
+.ev-st:hover,.ev-st:focus-visible{background:var(--lift);transform:translateX(3px)}
+/* the tier, right-aligned in slate: the existing family, the existing words */
+.tier{float:right;font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--faint);margin-left:10px;white-space:nowrap}
+/* what the statement SAYS is serif, because it is a sentence, not filing */
+.ev-st .s{font-family:var(--serif);font-size:13.5px;line-height:1.45;color:#C9C1B6}
+.ev-st .s b{font-weight:400;color:var(--ink)}
+.ev-st .lbl{font-family:var(--mono);font-size:8.5px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);display:block;margin-bottom:5px}
+
+/* THE RECEIPT. Ground is --lift (a raised bench, like hover), and the left
+   rule is the map's own dash grammar: solid = record, dashed = not-yet-record.
+   It unfolds on the camera curve; reduced motion arrives instead. */
+.rc{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--t-mid) var(--ease)}
+.rc.open{grid-template-rows:1fr}
+.rc>div{overflow:hidden}
+.rc-body{margin:2px 0 10px;background:var(--lift);border-left:2px solid var(--faint);padding:11px 12px}
+.rc.reading .rc-body{border-left-style:dashed}
+.rc-body .q{font-family:var(--serif);font-size:13px;line-height:1.55;color:#C9C1B6}
+.rc-body .q mark{background:none;color:var(--fa,#dc884c);text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px}
+.rc-body .prov{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--faint);margin-top:9px;line-height:2}
+.rc-body .prov a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-dim)}
+.rc-body .note{font-family:var(--serif);font-size:11.5px;line-height:1.5;color:var(--dim);margin-top:8px}
+.rc-body table{border-collapse:collapse;margin-top:4px;font-family:var(--mono);font-size:9.5px;
+  color:var(--dim);font-variant-numeric:tabular-nums}
+.rc-body td{padding:2px 14px 2px 0}
+.rc-body td:first-child{color:var(--faint)}
+
+/* THE LEDGER — a fact about the print stays a filing row; the row itself is
+   the button. The aspect ratio is drawn as its own aperture: a 1px --faint
+   rectangle at the true proportion, 11px tall. The fact draws its own shape. */
+.ev-row{padding:0;border-bottom:1px solid var(--hair)}
+.ev-row .ev-st{border-bottom:0;display:flex;justify-content:space-between;gap:12px;padding:9px 0;font-size:12px}
+.ev-row .k{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);text-transform:uppercase;color:var(--faint)}
+.ev-row .v{text-align:right;color:var(--dim);font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.ap{display:inline-block;height:11px;border:1px solid var(--faint)}
+
+/* THE METER — a number measured here: the reading in words, then the corpus
+   track. The track is the teaching object: where this print sits among the
+   prints actually measured. Notch = the film, in its own measured highlight
+   (a graphical object, 3:1 floor); ticks and pole words in slate. */
+.meter{padding:10px 0 12px}
+.mtrack{display:block;position:relative;height:26px;margin-top:9px}
+.mtrack .rail{position:absolute;left:0;right:0;top:6px;height:1px;background:var(--faint);opacity:.55}
+.mtrack .tick{position:absolute;top:3px;width:1px;height:7px;background:var(--faint)}
+.mtrack .notch{position:absolute;top:1px;width:5px;height:11px;background:var(--fa,#dc884c);transform:translateX(-2px)}
+.mtrack .pole{position:absolute;top:14px;font-family:var(--mono);font-size:8px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+/* THE CUTTING — the critic's words. The words are language, so they are set
+   in the text serif, italic, and each carries a DOTTED underline: the type
+   equivalent of the dashed line, machine-matched, not yet record. The open
+   word takes the film's own accent and a solid underline — in hand. */
+.words{font-family:var(--serif);font-size:13.5px;font-style:italic;line-height:2;color:var(--dim)}
+.words .sep{color:var(--faint);font-style:normal;padding:0 2px}
+.word{font:inherit;color:inherit;text-decoration:underline dotted;text-underline-offset:3px;
+  text-decoration-thickness:1px;position:relative}
+.word:hover{color:var(--ink)}
+.word[aria-expanded="true"]{color:var(--fa,#dc884c);text-decoration:underline solid;font-style:italic}
+.more{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--faint);border-bottom:1px solid var(--accent-dim);padding-bottom:1px}
+.more:hover{color:var(--ink)}
+
+/* THE BALLOT — a named person's vote. The name leads, in serif: a signature.
+   The fact of the vote is filing, so it follows in slate. */
+.ballot .name{font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+
+/* THE STANDING — the aggregate. Slate throughout: this is weather, not the
+   film. The trajectory is drawn in --faint — the film's accent is reserved
+   for the film's own presence, and consensus is not it. */
+.spark{display:block;width:100%;height:54px;margin-top:8px}
+.spark polyline{fill:none;stroke:var(--faint);stroke-width:1.5}
+.spark rect{fill:var(--dim)}
+.spark text{font-family:var(--mono);font-size:8.5px;fill:var(--faint);letter-spacing:.1em}
+
+/* touch: every statement row reaches 44px through padding, and the word
+   buttons grow their target invisibly, per the chip precedent */
+@media (pointer:coarse){
+  .ev-st{min-height:44px}
+  .word::after{content:"";position:absolute;left:-4px;right:-4px;top:50%;height:44px;transform:translateY(-50%)}
+  .words{line-height:2.5}
+}
+
+/* ── phone: the panel is the app's own bottom sheet ── */
+@media (max-width:500px){
+  .panel{width:100%;top:auto;height:72%;border-left:0;border-top:1px solid var(--hair)}
+  .panel h2{font-size:26px}
+  .phead{flex-direction:row-reverse;align-items:flex-start;gap:14px}
+  .phead .pmeta{flex:1;min-width:0}
+  .panel .poster{flex:0 0 104px;width:104px;max-height:none;margin:3px 0 0}
+  .panel .generated-poster{width:104px}
+  #stage .cell{transform:translateY(-24vh)}
+}
+@media (prefers-reduced-motion:reduce){
+  .rc,.ev-st,.why-item{transition:none}
+}
+
+/* ── appendix, below the stage: the forms at their other poles ── */
+#appendix{position:relative;z-index:5;margin-top:100vh;background:var(--base);
+  border-top:1px solid var(--hair);padding:40px 0 80px}
+#appendix .inner{max-width:680px;margin:0 auto;padding:0 22px}
+@media (min-width:501px){ #appendix{padding-right:calc(min(370px,86vw) + 24px)} }
+#appendix h2{font-family:var(--display);font-size:22px;font-weight:400;letter-spacing:var(--track-display);margin:34px 0 6px}
+#appendix .ap-note{font-family:var(--serif);font-size:13px;color:var(--dim);margin-bottom:14px}
+#appendix .demo{background:var(--panel);border:1px solid var(--hair);padding:18px 22px;max-width:420px}
+.legend{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--faint);line-height:2.4}
+.legend b{color:var(--dim);font-weight:400}
+</style>
+</head>
+<body>
+
+<!-- the stage: the film's own cell, in its own colours, where the map would be -->
+<div id="stage" aria-hidden="true">
+  <div class="cell">
+    <div class="gen" id="stage-gen"></div>
+    <div class="cap">Mulholland Drive<span class="y">2001</span></div>
+  </div>
+</div>
+
+<aside class="panel" id="panel" aria-label="Film details" style="--fa:#dc884c">
+  <div class="phead">
+    <div class="pmeta">
+      <span class="slate">film</span>
+      <h2>Mulholland Drive</h2>
+      <div class="by">2001&ensp;·&ensp;David Lynch</div>
+    </div>
+    <div class="poster generated-poster" aria-hidden="true" id="panel-gen"></div>
+  </div>
+
+  <div class="acts">
+    <button class="btn">Seen it</button>
+    <button class="btn">Love it</button>
+  </div>
+
+  <!-- existing grammar, untouched: four of the film's real claims -->
+  <div class="why">
+    <h3>Why it connects</h3>
+    <button class="why-item" style="--wc:#C9873F">
+      <div class="c">A silent-era mansion, a woman the industry finished with who refuses to accept it, and a dead man narrating his own story from the pool.</div>
+      <div class="m">descends from · Sunset Boulevard · reading, not record</div>
+    </button>
+    <button class="why-item" style="--wc:#9075AF">
+      <div class="c">A story that swaps its protagonist halfway and restarts, the second half reading as the first one's alibi.</div>
+      <div class="m">rhymes with · Lost Highway · reading, not record</div>
+    </button>
+    <button class="why-item" style="--wc:#C9873F">
+      <div class="c">Two women alone together whose faces the film eventually merges, until you cannot say which one has been telling it.</div>
+      <div class="m">descends from · Persona · reading, not record</div>
+    </button>
+    <button class="why-item" style="--wc:#867C6C">
+      <div class="c">David Lynch directing; Mary Sweeney cutting; Angelo Badalamenti scoring; David Lynch writing on both.</div>
+      <div class="m">shares a hand · Twin Peaks: Fire Walk with Me</div>
+    </button>
+  </div>
+
+  <p class="desc">Mulholland Drive is a 2001 mystery film written and directed by David Lynch. Its narrative is characterized by surrealist and neo-noir elements, and follows an aspiring actress newly arrived in Los Angeles, where she befriends a car crash victim who is suffering from amnesia.</p>
+
+  <!-- ═══ THE PRINT — facts about the object, and one number measured off it ═══ -->
+  <section class="ev">
+    <h3><span>The print</span><span class="cue">each line opens its receipt</span></h3>
+
+    <div class="ev-row">
+      <button class="ev-st" aria-expanded="false" data-rc="rc-colour">
+        <span class="k">● colour</span><span class="v">colour</span>
+      </button>
+      <div class="rc" id="rc-colour"><div><div class="rc-body">
+        <div class="prov">● RECORDED · WIKIDATA <a href="https://www.wikidata.org/wiki/Q272608#P462" rel="noopener" target="_blank">Q272608 · P462</a> · 1 STATEMENT</div>
+      </div></div></div>
+    </div>
+
+    <div class="ev-row">
+      <button class="ev-st" aria-expanded="false" data-rc="rc-runtime">
+        <span class="k">● runtime</span><span class="v">147 min</span>
+      </button>
+      <div class="rc" id="rc-runtime"><div><div class="rc-body">
+        <div class="prov">● RECORDED · WIKIDATA <a href="https://www.wikidata.org/wiki/Q272608#P2047" rel="noopener" target="_blank">Q272608 · P2047</a> · 1 STATEMENT · MEDIAN-LOW OVER CONTESTED CUTS</div>
+      </div></div></div>
+    </div>
+
+    <div class="ev-row">
+      <button class="ev-st" aria-expanded="false" data-rc="rc-lang">
+        <span class="k">● language</span><span class="v">English</span>
+      </button>
+      <div class="rc" id="rc-lang"><div><div class="rc-body">
+        <div class="prov">● RECORDED · WIKIDATA <a href="https://www.wikidata.org/wiki/Q272608#P364" rel="noopener" target="_blank">Q272608 · P364</a></div>
+      </div></div></div>
+    </div>
+
+    <!-- THE METER: the reading in words, then the corpus track.
+         MD wpm 43 → 28.3% between sample p5 20.7 and p95 99.5; median 56.6 → 45.6% -->
+    <div class="meter">
+      <button class="ev-st" style="border-bottom:0;padding-bottom:0" aria-expanded="false" data-rc="rc-dialogue">
+        <span class="tier">● recorded</span>
+        <span class="lbl">dialogue · measured</span>
+        <span class="s"><b>Sparse.</b> 43 words a minute; speech covers a third of its 147 minutes; the longest silence runs 4&thinsp;m&thinsp;25&thinsp;s.</span>
+        <span class="mtrack" aria-hidden="true">
+          <span class="rail"></span>
+          <span class="tick" style="left:0%"></span>
+          <span class="tick" style="left:45.6%"></span>
+          <span class="tick" style="left:100%"></span>
+          <span class="notch" style="left:28.3%"></span>
+          <span class="pole" style="left:0">sparse</span>
+          <span class="pole" style="left:45.6%;transform:translateX(-50%)">median</span>
+          <span class="pole" style="right:0">dense</span>
+        </span>
+      </button>
+      <div class="rc" id="rc-dialogue"><div><div class="rc-body">
+        <table>
+          <tr><td>words / minute</td><td>43.0</td></tr>
+          <tr><td>speech share of runtime</td><td>0.327</td></tr>
+          <tr><td>longest silence</td><td>265 s</td></tr>
+          <tr><td>silences over a minute</td><td>19</td></tr>
+        </table>
+        <div class="prov">● RECORDED · MEASURED HERE FROM SUBTITLE TIMING · OPUS OPENSUBTITLES v2018 (<a href="https://opus.nlpl.eu/OpenSubtitles-v2018.php" rel="noopener" target="_blank">OPENSUBTITLES.ORG</a>) · RUNTIME FROM WIKIDATA P2047 · 84 OF 2,204 FILMS MEASURED SO FAR</div>
+        <div class="note">An instrument reading of the print, not a lookup. The track shows where it sits among the films actually measured. A film the instrument could not match carries nothing here rather than a guess.</div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT WAS WRITTEN — the cuttings. The word indexes; the sentence claims. ═══ -->
+  <section class="ev">
+    <h3><span>What was written</span></h3>
+    <p class="words" id="words">
+      <button class="word" aria-expanded="false" data-rc="rc-w-abstract">abstract</button><span class="sep"> · </span><button class="word" aria-expanded="false" data-rc="rc-w-deadpan">deadpan</button><span class="sep"> · </span><button class="word" aria-expanded="false" data-rc="rc-w-dreamlike">dreamlike</button><span class="sep"> · </span><button class="word" aria-expanded="true" data-rc="rc-w-hallucinatory">hallucinatory</button><span class="sep"> · </span><button class="word" aria-expanded="false" data-rc="rc-w-melancholy">melancholy</button><span class="sep"> · </span><button class="word" aria-expanded="false" data-rc="rc-w-nonlinear">non-linear</button><span class="sep"> · </span><button class="word" aria-expanded="false" data-rc="rc-w-shadowy">shadowy</button><span class="sep"> · </span><button class="word" aria-expanded="false" data-rc="rc-w-surreal">surreal</button>
+      <span class="sep"> · </span><button class="more" id="more-words" aria-expanded="false">+ 12 more</button>
+    </p>
+
+    <div class="rc reading" id="rc-w-abstract"><div><div class="rc-body">
+      <p class="q">&ldquo;This <mark>abstract</mark> world gains its power from being rooted in very real emotions and anxieties that have haunted cinema since The Cabinet of Dr.&nbsp;Caligari.&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2002/david-lynch-and-mulholland-drive/mulholland_dreams/" rel="noopener" target="_blank">SENSES OF CINEMA, 2002 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+
+    <div class="rc reading" id="rc-w-deadpan"><div><div class="rc-body">
+      <p class="q">&ldquo;The <mark>deadpan</mark>, unashamedly adolescent sick humour that runs through many of these scenes at times seems like pastiche or even parody Tarantino&hellip;&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2002/david-lynch-and-mulholland-drive/mulholland_dreams/" rel="noopener" target="_blank">SENSES OF CINEMA, 2002 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+
+    <div class="rc reading" id="rc-w-dreamlike"><div><div class="rc-body">
+      <p class="q">&ldquo;&hellip;being able to see through the blinding emotional trauma of revelation that has shattered the world into <mark>dreamlike</mark> fragments that obliquely reflect the reality of the situation.&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2002/david-lynch-and-mulholland-drive/mulholland_dreams/" rel="noopener" target="_blank">SENSES OF CINEMA, 2002 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+
+    <div class="rc reading open" id="rc-w-hallucinatory"><div><div class="rc-body">
+      <p class="q">&ldquo;It also spawns the <mark>hallucinatory</mark> narrative of the film&rsquo;s first half, in which a false nostalgia for her own sexual power is expressed simultaneously as submission to Camilla and as innocent devotion.&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2002/david-lynch-and-mulholland-drive/mulholland_amnesia/" rel="noopener" target="_blank">SENSES OF CINEMA, 2002 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+
+    <div class="rc reading" id="rc-w-melancholy"><div><div class="rc-body">
+      <p class="q">&ldquo;&hellip;this constant reversal produces the often pleasurable ruminations enabling Diane to escape her <mark>melancholy</mark> through the satisfying daydream of the film itself.&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2002/david-lynch-and-mulholland-drive/mulholland_amnesia/" rel="noopener" target="_blank">SENSES OF CINEMA, 2002 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+
+    <div class="rc reading" id="rc-w-nonlinear"><div><div class="rc-body">
+      <p class="q">&ldquo;Within the traumatic Real/desire narrative itself, time seems fractured and <mark>non-linear</mark>, and it is difficult to discern past from present.&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2014/feature-articles/the-perils-of-fantasy-memory-and-desire-in-david-lynchs-mulholland-drive/" rel="noopener" target="_blank">SENSES OF CINEMA, 2014 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+
+    <div class="rc reading" id="rc-w-shadowy"><div><div class="rc-body">
+      <p class="q">&ldquo;The <mark>shadowy</mark> silhouettes rack into focus and are joined by real teenagers, all of whom dance and twist, hand in hand, moving from background to foreground in various jump cuts.&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2014/feature-articles/the-perils-of-fantasy-memory-and-desire-in-david-lynchs-mulholland-drive/" rel="noopener" target="_blank">SENSES OF CINEMA, 2014 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+
+    <div class="rc reading" id="rc-w-surreal"><div><div class="rc-body">
+      <p class="q">&ldquo;Some critics believe that Lynch&rsquo;s <mark>surreal</mark> aesthetic is weak and mostly a superficial allusion; however, just as the classical surrealists saw their art as a means of effecting change, Lynch, too, uses surrealism with an activist purpose.&rdquo;</p>
+      <div class="prov">◐ AMPLIFIED · MACHINE-CHOSE THIS SENTENCE · <a href="https://www.sensesofcinema.com/2014/feature-articles/the-perils-of-fantasy-memory-and-desire-in-david-lynchs-mulholland-drive/" rel="noopener" target="_blank">SENSES OF CINEMA, 2014 · READ THE ESSAY</a></div>
+      <div class="note">The word is an index; the sentence is the claim. Judge the emphasis from the sentence, not the word.</div>
+    </div></div></div>
+  </section>
+
+  <!-- ═══ WHO VOTED FOR IT — the ballot. The name leads: a signature. ═══ -->
+  <section class="ev">
+    <h3><span>Who voted for it</span></h3>
+    <div class="ballot">
+      <button class="ev-st" aria-expanded="false" data-rc="rc-ballot">
+        <span class="tier">● recorded</span>
+        <span class="name">Sebastián Lelio</span>
+        <span class="s" style="display:block;font-size:12.5px;margin-top:3px">placed it among the ten films on his ballot.</span>
+        <span class="lbl" style="margin:6px 0 0">sight &amp; sound 2022 · directors&rsquo; poll</span>
+      </button>
+      <div class="rc" id="rc-ballot"><div><div class="rc-body">
+        <p class="q">As printed on the ballot: &ldquo;Mulholland Dr.&rdquo; (2001) — matched to this film by director and year.</p>
+        <div class="prov">● RECORDED · AS PUBLISHED BY THE BFI · <a href="https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/all-voters/sebastian-lelio" rel="noopener" target="_blank">THE BALLOT</a></div>
+        <div class="note">A fact of the vote, not a reading of the film: one named director, one published list.</div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ ITS STANDING — the aggregate: weather, not substance. All slate. ═══ -->
+  <section class="ev">
+    <h3><span>Its standing</span></h3>
+
+    <button class="ev-st" aria-expanded="false" data-rc="rc-tspdt">
+      <span class="tier">● recorded</span>
+      <span class="lbl">critics&rsquo; consensus · tspdt</span>
+      <span class="s">Climbed <b>589th&thinsp;&rarr;&thinsp;29th</b> across twenty years of the Starting List.</span>
+      <!-- 21 editions, y = log10(rank) inverted, x = edition index. One series:
+           no legend; endpoints direct-labelled; the full table is the receipt. -->
+      <svg class="spark" viewBox="0 0 326 56" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+        <polyline points="30.0,37.0 43.1,37.9 56.3,37.0 69.5,38.0 82.6,32.6 95.8,30.3 108.9,29.7 122.0,16.3 135.2,16.9 148.3,15.9 161.5,15.9 174.7,15.6 187.8,15.2 200.9,15.0 214.1,14.0 227.3,13.2 240.4,12.9 253.6,9.2 266.7,8.3 279.9,8.3 293.0,8.0"></polyline>
+        <rect x="28" y="35" width="4" height="4"></rect>
+        <rect x="291" y="6" width="4" height="4"></rect>
+        <text x="2" y="40">589</text>
+        <text x="302" y="11">29</text>
+        <text x="24" y="52" opacity=".8">2006</text>
+        <text x="272" y="52" opacity=".8">2026</text>
+      </svg>
+    </button>
+    <div class="rc" id="rc-tspdt"><div><div class="rc-body">
+      <table>
+        <tr><td>2006</td><td>589</td><td>2015</td><td>66</td><td>2022</td><td>48</td></tr>
+        <tr><td>2008</td><td>654</td><td>2017</td><td>64</td><td>2023</td><td>33</td></tr>
+        <tr><td>2010</td><td>374</td><td>2019</td><td>60</td><td>2024</td><td>30</td></tr>
+        <tr><td>2012</td><td>276</td><td>2020</td><td>54</td><td>2025</td><td>30</td></tr>
+        <tr><td>2013</td><td>69</td><td>2021</td><td>50</td><td>2026</td><td>29</td></tr>
+      </table>
+      <div class="prov">● RECORDED · <a href="https://www.theyshootpictures.com/gf1000_startinglist_table.php" rel="noopener" target="_blank">THEY SHOOT PICTURES, DON&rsquo;T THEY?</a> · STARTING LIST, 21 EDITIONS 2006&ndash;2026 · JOINED BY IMDB ID</div>
+      <div class="note">A record of what the polls said, not of what the film is. Consensus is context: it never moves this film on the map, never sizes a disc, never weighs an edge.</div>
+    </div></div></div>
+
+    <button class="ev-st" aria-expanded="false" data-rc="rc-schol">
+      <span class="tier">◐ amplified</span>
+      <span class="lbl">scholarship</span>
+      <span class="s"><b>A literature of its own</b> — 141 works of scholarship match this film.</span>
+    </button>
+    <div class="rc reading" id="rc-schol"><div><div class="rc-body">
+      <div class="prov">◐ AMPLIFIED · COUNTED BY QUERY, NOT BY HAND · OPENAIRE, ~190M PUBLICATIONS · <a href="https://explore.openaire.eu/search/find?keyword=mulholland%20drive%20lynch" rel="noopener" target="_blank">RUN THE QUERY</a> · 2026-08-09</div>
+      <div class="note">The count is a probabilistic title-and-director match, right about nine times in ten on a hand-checked sample — so it is carried as amplified, never as record. The bands are log-wide on purpose: unnoted · noted 1&ndash;9 · studied 10&ndash;99 · a literature of its own 100+.</div>
+    </div></div></div>
+  </section>
+
+  <!-- existing filing rows, untouched -->
+  <div class="row"><span>connections</span><span>26</span></div>
+  <div class="row"><span>palette</span><span>from its poster</span></div>
+  <div class="row"><span>read more</span><span><a style="color:var(--accent)" href="https://en.wikipedia.org/wiki/Mulholland_Drive_(film)" target="_blank" rel="noopener">Wikipedia</a></span></div>
+</aside>
+
+<!-- ═══ APPENDIX — the forms at their other poles, every value real ═══ -->
+<section id="appendix">
+  <div class="inner">
+    <h2>The forms at their other poles</h2>
+    <p class="ap-note">Same grammar, other films — every value below is real, from the same pipeline outs.</p>
+
+    <h2 style="font-size:16px">The aperture — an aspect ratio draws its own shape</h2>
+    <p class="ap-note">577 of 2,204 films carry Wikidata P2061. The rectangle is the fact; films without one show nothing.</p>
+    <div class="demo">
+      <div class="ev-row"><div class="ev-st" style="cursor:default"><span class="k">● aspect</span><span class="v"><span class="ap" style="width:15px" aria-hidden="true"></span>1.37&thinsp;:&thinsp;1 Academy&ensp;—&ensp;Sansho the Bailiff</span></div></div>
+      <div class="ev-row"><div class="ev-st" style="cursor:default"><span class="k">● aspect</span><span class="v"><span class="ap" style="width:20px" aria-hidden="true"></span>1.85&thinsp;:&thinsp;1&ensp;—&ensp;Network</span></div></div>
+      <div class="ev-row"><div class="ev-st" style="cursor:default"><span class="k">● aspect</span><span class="v"><span class="ap" style="width:26px" aria-hidden="true"></span>2.39&thinsp;:&thinsp;1&ensp;—&ensp;Blade Runner 2049</span></div></div>
+    </div>
+
+    <h2 style="font-size:16px">The meter at the dense pole</h2>
+    <div class="demo" style="--fa:#c94f38">
+      <div class="meter" style="padding-top:0">
+        <div class="ev-st" style="border-bottom:0;cursor:default">
+          <span class="tier">● recorded</span>
+          <span class="lbl">dialogue · measured — Network (1976)</span>
+          <span class="s"><b>Dense.</b> 119 words a minute; speech covers 61% of its 121 minutes.</span>
+          <span class="mtrack" aria-hidden="true">
+            <span class="rail"></span>
+            <span class="tick" style="left:0%"></span>
+            <span class="tick" style="left:45.6%"></span>
+            <span class="tick" style="left:100%"></span>
+            <span class="notch" style="left:99.4%"></span>
+            <span class="pole" style="left:0">sparse</span>
+            <span class="pole" style="left:45.6%;transform:translateX(-50%)">median</span>
+            <span class="pole" style="right:0">dense</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-size:16px">The ballot, plural</h2>
+    <p class="ap-note">8&frac12; — eleven directors&rsquo; ballots; each name opens its own receipt.</p>
+    <div class="demo">
+      <div class="ballot"><div class="ev-st" style="cursor:default">
+        <span class="tier">● recorded</span>
+        <span class="name">Martin Scorsese&ensp;·&ensp;Joachim Trier&ensp;·&ensp;Alexander Payne&ensp;·&ensp;Peter Greenaway&ensp;·&ensp;Atom Egoyan</span>
+        <span class="s" style="display:block;font-size:12.5px;margin-top:4px">and six more placed it among their ten.</span>
+        <span class="lbl" style="margin:6px 0 0">11 ballots · sight &amp; sound 2022 · directors&rsquo; poll</span>
+      </div></div>
+    </div>
+
+    <h2 style="font-size:16px">The count, across its bands</h2>
+    <div class="demo">
+      <div class="legend">
+        <b>unnoted</b> — A Chinese Tall Story · 0 works<br>
+        <b>noted 1&ndash;9</b> — Cléo from 5 to 7 · 6 works<br>
+        <b>studied 10&ndash;99</b> — News from Home · 32 works · 3.3k pageviews — studied past its fame<br>
+        <b>a literature of its own 100+</b> — Vertigo · 204 works
+      </div>
+    </div>
+
+    <h2 style="font-size:16px">The family, unchanged</h2>
+    <div class="demo">
+      <div class="legend">
+        ● <b>recorded</b> — a fact: filed (Wikidata, a ballot, a poll) or measured here, instrument named<br>
+        ◐ <b>amplified</b> — a machine chose it: a matched count, a machine-chosen sentence. Dashed rule, dotted underline<br>
+        ○ <b>authored</b> — the atlas&rsquo;s own reading — already on every claim as &ldquo;reading, not record&rdquo;
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* the receipt gesture: one rule for every species */
+for (const b of document.querySelectorAll("[data-rc]")){
+  b.addEventListener("click", (ev)=>{
+    if (ev.target.closest("a")) return;
+    const rc = document.getElementById(b.dataset.rc);
+    const open = rc.classList.toggle("open");
+    b.setAttribute("aria-expanded", open ? "true" : "false");
+    /* a word opens one cutting at a time: the words share one reading lane */
+    if (b.classList.contains("word") && open){
+      for (const o of document.querySelectorAll(".word")){
+        if (o!==b && o.getAttribute("aria-expanded")==="true"){
+          o.setAttribute("aria-expanded","false");
+          document.getElementById(o.dataset.rc).classList.remove("open");
+        }
+      }
+    }
+  });
+}
+document.getElementById("more-words").addEventListener("click",function(){
+  const rest=["grotesque","idyllic","menacing","nostalgic","oblique","playful","repetitive","stark","stylised","surreal","tender","exuberant"];
+  const span=document.createElement("span");
+  span.className="words";
+  span.innerHTML=" · "+rest.map(w=>'<i style="font-style:italic">'+w+"</i>").join('<span class="sep"> · </span>');
+  this.replaceWith(span);
+});
+/* the film's generated cell, genArt verbatim from template.html */
+function genArt(k,f){let h=2166136261;for(let i=0;i<k.length;i++){h^=k.charCodeAt(i);h=Math.imul(h,16777619)}h=h>>>0;
+  const kind=h%4,a=f.shadow,b=f.highlight;
+  const bg=`background:linear-gradient(${160+(h%40)}deg,${b}22,${a} 62%),${a};`;
+  const shapes=[`<circle cx="50" cy="${34+(h%18)}" r="${17+(h%9)}" fill="${b}" opacity=".8"/>`,
+    `<rect x="${14+(h%20)}" y="0" width="${9+(h%7)}" height="100" fill="${b}" opacity=".7"/>`,
+    `<path d="M0 ${62+(h%16)} Q50 ${26+(h%22)} 100 ${58+(h%18)} V100 H0Z" fill="${b}" opacity=".72"/>`,
+    `<circle cx="50" cy="46" r="26" fill="${b}" opacity=".85"/><circle cx="${40+(h%20)}" cy="${36+(h%16)}" r="24" fill="${a}"/>`];
+  return `<div class="gen" style="${bg}"><svg viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%;height:100%;display:block">${shapes[kind]}</svg></div>`}
+const MD={shadow:"#0a1c29",highlight:"#dc884c"};
+document.getElementById("stage-gen").outerHTML=genArt("mulholland drive",MD);
+document.getElementById("panel-gen").innerHTML=genArt("mulholland drive",MD);
+</script>
+</body>
+</html>

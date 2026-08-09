@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The circled take — ballot-edge prototype</title>
+<style>
+/* ── ATLAS tokens, verbatim from DESIGN.md ─────────────────────────── */
+:root{
+  --base:#050404; --lift:#0D0B09; --panel:#110E0C; --hair:#231F1B;
+  --ink:#F0EAE0; --dim:#A89E95; --faint:#877D75;
+  --accent:#E8C87A; --accent-dim:#8A7440;
+  --descent:#C9873F; --rebuttal:#D15D53; --convergence:#4E8C7A;
+  --rhyme:#9075AF; --hand:#867C6C;
+  --display:"Hoefler Text",Baskerville,"Palatino Linotype",Constantia,Georgia,serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,ui-serif,serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --track-slate:.2em;
+}
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0!important}
+body{background:var(--base);color:var(--ink);font-family:var(--serif);
+  padding:44px 48px 72px;max-width:1440px;margin:0 auto}
+.slate{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint)}
+h1{font-family:var(--display);font-size:34px;font-weight:400;letter-spacing:-.024em;margin:10px 0 6px}
+.lede{font-family:var(--serif);font-size:14.5px;line-height:1.55;color:var(--dim);max-width:74ch;margin-top:10px}
+.lede b{color:var(--ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:38px}
+.sect{background:var(--panel);border:1px solid var(--hair);padding:20px 22px 24px}
+.sect h2{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);font-weight:400;margin-bottom:4px}
+.sect .sub{font-family:var(--display);font-size:19px;letter-spacing:-.01em;margin-bottom:14px}
+.c12{grid-column:span 12}.c7{grid-column:span 7}.c5{grid-column:span 5}.c6{grid-column:span 6}
+@media (max-width:980px){.c7,.c5,.c6{grid-column:span 12}}
+.note{font-family:var(--serif);font-size:12.5px;line-height:1.5;color:var(--dim);margin-top:12px;max-width:70ch}
+.note i{color:var(--faint)}
+svg text{user-select:none}
+/* panel replica */
+.why h3{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);font-weight:400;margin:0 0 10px}
+.why-item{display:block;width:100%;text-align:left;padding:11px 0 11px 12px;
+  border-left:2px solid var(--wc,var(--hair));margin-bottom:8px;background:none}
+.why-item .c{font-family:var(--serif);font-size:13.5px;line-height:1.42;color:var(--ink)}
+.why-item .m{font-family:var(--mono);font-size:8.5px;color:var(--faint);margin-top:6px;
+  letter-spacing:var(--track-slate);text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.why-item .m em{font-style:normal;color:var(--wc)}
+.why-item .m i{font-style:italic;text-transform:none;letter-spacing:.04em}
+.why-item .src{font-family:var(--serif);font-size:11.5px;line-height:1.4;color:var(--dim);margin-top:5px}
+.filing{border-top:1px solid var(--hair);padding:12px 0 2px;margin-top:14px}
+.filing .body{font-family:var(--serif);font-size:11.5px;line-height:1.6;color:var(--dim);margin-top:6px;max-width:66ch}
+.filing .body a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.filing .body .off{color:var(--faint)}
+/* passage row replica */
+.sky-why{border-left:2px solid var(--wc,var(--hair));padding:9px 0 9px 12px;margin:10px 0}
+.sky-why .rel{font-family:var(--mono);font-size:8.5px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--wc);display:flex;align-items:center;gap:6px}
+.sky-why .rel i{font-style:italic;text-transform:none;letter-spacing:.04em;color:var(--faint)}
+.sky-why .claim{display:block;font-family:var(--serif);font-size:13px;line-height:1.42;margin-top:5px}
+.sky-why .y{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);margin-top:6px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+.pair figure{background:var(--base);border:1px solid var(--hair);padding:10px}
+.pair figcaption{margin-top:8px}
+.pair .verdict{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);text-transform:uppercase}
+.pair .no .verdict{color:var(--rebuttal)}
+.pair .yes .verdict{color:var(--convergence)}
+.pair p{font-family:var(--serif);font-size:11.5px;line-height:1.45;color:var(--dim);margin-top:4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.stat{background:var(--lift);border:1px solid var(--hair);padding:12px 14px}
+.stat .n{font-family:var(--display);font-size:24px;letter-spacing:-.02em}
+.stat .l{font-family:var(--mono);font-size:8.5px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);margin-top:4px;line-height:1.6}
+.rulebox{border-left:2px solid var(--accent-dim);padding:10px 14px;margin-top:16px;background:var(--lift)}
+.rulebox p{font-family:var(--serif);font-size:13px;line-height:1.5;color:var(--ink)}
+.rulebox p b{font-weight:600}
+</style></head><body>
+
+<div class="slate">ATLAS · DESIGN PROTOTYPE · NOT THE APP · SIGHT &amp; SOUND 2022 DIRECTORS' POLL</div>
+<h1>The circled take</h1>
+<div class="slate">TYPE&nbsp;HAND · SIGNAL&nbsp;BALLOT · SOURCE&nbsp;RECORD · STRENGTH&nbsp;0.55 FLAT · ONE MARK, THREE SURFACES</div>
+<p class="lede">A director's ballot is a maker circling ten takes out of all of cinema — esteem on the
+record, influence unclaimed. It rides the fifth type, <b>hand</b>, because the connective tissue is a
+named person, which is hand's own grammar; it is a <b>record</b>, because a published ballot is checkable
+the way a credit is; and it draws as <b>a chinagraph circle at the chosen end of the line</b> — the mark an
+editor greases onto a workprint, the mark this project already gives the reader's own hand in gold.
+Two hands, one vocabulary: the reader's ring sits on the disc, the maker's circle sits on the edge.</p>
+
+<div class="grid">
+
+<!-- ══ A · ON THE MAP ══ -->
+<div class="sect c7">
+  <h2>A · On the radial map</h2>
+  <div class="sub">Parasite, and the one door its maker's ballot opens</div>
+  <svg viewBox="0 0 760 430" width="100%" style="display:block;background:var(--base);border:1px solid var(--hair)">
+    <defs>
+      <filter id="soft"><feGaussianBlur stdDeviation="0.6"/></filter>
+    </defs>
+    <!-- edges under cells -->
+    <!-- housemaid: descent, authored reading -> dashed -->
+    <line x1="330" y1="196" x2="172" y2="118" stroke="var(--descent)" stroke-width="1.2"
+      stroke-dasharray="4 3" opacity=".85"/>
+    <!-- burning: convergence, authored reading -> dashed -->
+    <line x1="418" y1="182" x2="574" y2="112" stroke="var(--convergence)" stroke-width="1.2"
+      stroke-dasharray="4 3" opacity=".85"/>
+    <!-- cure: ballot -> solid hand line, circled at the chosen end -->
+    <line x1="416" y1="242" x2="566" y2="316" stroke="var(--hand)" stroke-width="1.4" opacity=".95"/>
+    <g id="mark-map"></g>
+    <!-- path labels: type colour, slate, sharp at every depth -->
+    <text x="238" y="146" font-family="ui-monospace,Menlo,monospace" font-size="8.5"
+      letter-spacing="1.7" fill="var(--descent)">DESCENDS FROM</text>
+    <text x="452" y="104" font-family="ui-monospace,Menlo,monospace" font-size="8.5"
+      letter-spacing="1.7" fill="var(--convergence)">ARRIVES WITH</text>
+    <text x="478" y="262" font-family="ui-monospace,Menlo,monospace" font-size="8.5"
+      letter-spacing="1.7" fill="var(--hand)">NAMES IT</text>
+
+    <!-- ring cells (imagery racks focus; captions never blur) -->
+    <g filter="url(#soft)">
+      <rect x="96" y="40" width="76" height="106" fill="#1d2013"/>
+      <rect x="96" y="94" width="76" height="14" fill="#cb8b5c" opacity=".7"/>
+      <rect x="96.5" y="40.5" width="75" height="105" fill="none" stroke="#cb8b5c" stroke-opacity=".35"/>
+      <rect x="574" y="34" width="76" height="106" fill="#161221"/>
+      <rect x="574" y="86" width="76" height="14" fill="#c18c67" opacity=".7"/>
+      <rect x="574.5" y="34.5" width="75" height="105" fill="none" stroke="#c18c67" stroke-opacity=".35"/>
+      <rect x="566" y="288" width="76" height="106" fill="#131420"/>
+      <rect x="566" y="340" width="76" height="14" fill="#d5535e" opacity=".7"/>
+      <rect x="566.5" y="288.5" width="75" height="105" fill="none" stroke="#d5535e" stroke-opacity=".35"/>
+    </g>
+    <!-- centre cell, sharp -->
+    <rect x="330" y="140" width="88" height="124" fill="#0c2427"/>
+    <rect x="330" y="204" width="88" height="16" fill="#60c868" opacity=".72"/>
+    <rect x="330.5" y="140.5" width="87" height="123" fill="none" stroke="#60c868" stroke-opacity=".5"/>
+
+    <!-- captions: DOM-sharp type, serif title + slate year -->
+    <g font-family="Iowan Old Style,Palatino,Georgia,serif" font-size="12" fill="var(--ink)">
+      <text x="96" y="162">The Housemaid</text>
+      <text x="574" y="156">Burning</text>
+      <text x="566" y="410">Cure</text>
+      <text x="330" y="282" font-size="13.5">Parasite</text>
+    </g>
+    <g font-family="ui-monospace,Menlo,monospace" font-size="8" letter-spacing="1.6" fill="var(--faint)">
+      <text x="96" y="176">1960 · KIM KI-YOUNG</text>
+      <text x="574" y="170">2018 · LEE CHANG-DONG</text>
+      <text x="566" y="424">1997 · KIYOSHI KUROSAWA</text>
+      <text x="330" y="296">2019 · BONG JOON-HO</text>
+    </g>
+    <!-- honesty markers -->
+    <text x="152" y="94" font-family="ui-monospace,Menlo,monospace" font-size="7.5" letter-spacing="1.4"
+      fill="var(--faint)" font-style="italic"></text>
+  </svg>
+  <p class="note">Two of Parasite's doors are argued readings — they draw <i>dashed</i>, in their type's
+  colour, stronger and nearer than the ballot. The ballot is the third door: a solid hand-hue line at
+  flat strength 0.55, labelled <i>NAMES IT</i>, with the grease circle at the <b>chosen</b> end. Direction
+  is legible at rest with no arrowhead: the circle sits where the choosing landed, and the hand that chose
+  is at the other end of the line. <b>At most one ballot door per map</b> — the rest of a film's ballots
+  live in the panel's ledger, because thirteen doors saying "someone famous chose this" is a leaderboard
+  wearing a map's clothes.</p>
+</div>
+
+<!-- ══ B · ANATOMY ══ -->
+<div class="sect c5">
+  <h2>B · The mark, at 6×</h2>
+  <div class="sub">A pencil, not a compass</div>
+  <svg viewBox="0 0 420 300" width="100%" style="display:block;background:var(--base);border:1px solid var(--hair)">
+    <line x1="30" y1="210" x2="330" y2="90" stroke="var(--hand)" stroke-width="6" opacity=".95"/>
+    <rect x="330" y="30" width="80" height="120" fill="#131420"/>
+    <rect x="330.5" y="30.5" width="79" height="119" fill="none" stroke="#d5535e" stroke-opacity=".35"/>
+    <g id="mark-big"></g>
+    <!-- annotations -->
+    <g font-family="ui-monospace,Menlo,monospace" font-size="8.5" letter-spacing="1.6" fill="var(--faint)">
+      <text x="24" y="248">STROKE 1.6PX · HAND #867C6C · ALPHA .95</text>
+      <text x="24" y="264">HELD / FOCUSED: 2PX · ALPHA 1 · NOTHING ELSE CHANGES</text>
+      <text x="24" y="280">Ø 13PX · CENTRED ON THE PATH · 14PX BEFORE THE CELL</text>
+      <text x="196" y="40" text-anchor="end">THE STROKE CLOSES PAST</text>
+      <text x="196" y="52" text-anchor="end">ITSELF — A HAND, NOT A</text>
+      <text x="196" y="64" text-anchor="end">COMPASS. ROTATION AND</text>
+      <text x="196" y="76" text-anchor="end">ECCENTRICITY SEEDED FROM</text>
+      <text x="196" y="88" text-anchor="end">THE VOTER (FNV-1A) —</text>
+      <text x="196" y="100" text-anchor="end">SAME MARK EVERY BUILD</text>
+    </g>
+    <line x1="204" y1="84" x2="248" y2="122" stroke="var(--hair)" stroke-width="1"/>
+  </svg>
+  <p class="note">The one hand-drawn mark in a machine-ruled interface is the one made by a hand —
+  that is what it teaches, and why nothing else may borrow it. It marks the <b>edge's end, never the
+  film</b>: a disc or cell carries no esteem badge (rule 1), so a film named on thirteen ballots looks
+  identical to one named on none until a single edge is being read. It rhymes with the reader's gold
+  <i>loved</i> ring — chinagraph in both cases; the reader marks the print, the maker marks the line.</p>
+  <div class="rulebox"><p><b>Where it may not appear:</b> the constellation, ever. At field scale
+  thirteen circles converging on Citizen Kane draw a halo of esteem — fame made visible, rule 1
+  broken by accumulation. In the sky a ballot is an ordinary hand line at every zoom.</p></div>
+</div>
+
+<!-- ══ C · IN THE PANEL ══ -->
+<div class="sect c6">
+  <h2>C · In the panel — why it connects</h2>
+  <div class="sub">Warm, and third in line</div>
+  <div class="why">
+    <h3>Why it connects</h3>
+    <div class="why-item" style="--wc:var(--descent)">
+      <div class="c">A domestic worker installed inside a middle-class house who becomes the thing that dismantles it.</div>
+      <div class="m"><em>descends from</em> · The Housemaid · <i>reading, not record</i></div>
+    </div>
+    <div class="why-item" style="--wc:var(--convergence)">
+      <div class="c">Two young people looking up at a wealth they cannot enter, the film letting resentment build until it detonates.</div>
+      <div class="m"><em>arrives with</em> · Burning · <i>reading, not record</i></div>
+    </div>
+    <div class="why-item" style="--wc:var(--hand)">
+      <div class="c">Bong Joon-ho named Cure among the ten films of his 2022 Sight &amp; Sound ballot.</div>
+      <div class="m"><span class="glyph" data-seed="bong-joon-ho"></span><em>names it</em> · Cure · S&amp;S 2022 · record</div>
+      <div class="src">His ballot as published by the BFI; the edge is signed from Parasite, his newest film in this atlas.</div>
+    </div>
+  </div>
+  <p class="note">The ballot item is an <b>identical member of the list</b> — same serif, same size, no
+  background, no accent. Its only differentiators are the glyph (the same circle, 9px, inline) and the
+  hand-hue keyline every hand edge already gets. It sorts by the same score as everything else, and at
+  0.55&nbsp;×&nbsp;0.62 it cannot outrank an argued reading. Warmth is carried by the sentence — a person's
+  name, an act, a year — not by decoration.</p>
+</div>
+
+<!-- ══ D · LEDGERS ══ -->
+<div class="sect c6">
+  <h2>D · The ledgers — filing rows, both directions</h2>
+  <div class="sub">The rest of the ballots live here</div>
+  <div class="filing">
+    <div class="slate">BALLOTS · SIGHT &amp; SOUND 2022 <span style="color:var(--hand)">· ON CITIZEN KANE'S PANEL</span></div>
+    <div class="body">Named on <b>13</b> of the 480 directors' ballots — Alexander&nbsp;Payne,
+    Amir&nbsp;Naderi, Atom&nbsp;Egoyan, Bruce&nbsp;Beresford, Joe&nbsp;Dante, Mani&nbsp;Ratnam,
+    Martin&nbsp;McDonagh, Martin&nbsp;Scorsese, Michael&nbsp;Mann, Neil&nbsp;Jordan, Oliver&nbsp;Stone,
+    Peter&nbsp;Greenaway, Walter&nbsp;Hill.</div>
+  </div>
+  <div class="filing">
+    <div class="slate">THE DIRECTOR'S BALLOT · 2022 <span style="color:var(--hand)">· ON PARASITE'S PANEL</span></div>
+    <div class="body">Bong Joon-ho's ten, as published: <a>Psycho</a> · <a>The Housemaid</a> ·
+    <a>Rocco and His Brothers</a> · <a>Vengeance Is Mine</a> · <a>Raging Bull</a> ·
+    <a>A City of Sadness</a> · <a>Cure</a> · <a>Mad Max: Fury Road</a> · <a>Happy as Lazzaro</a>
+    <span class="off">— nine of his ten are in this corpus; the tenth is not, and is not invented.</span></div>
+  </div>
+  <p class="note">Voters listed <b>alphabetically</b> — the one order that carries no fame. The count is
+  printed as a fact about the poll ("13 of 480"), never as a rank; it moves no tile, no disc, no
+  distance. The director's-ballot row is the voter-side twin: from any of a maker's films, their stated
+  ten are one click away — the maker's own canon, on the record, distinct from anything the atlas argues.</p>
+</div>
+
+<!-- ══ E · PASSAGE ══ -->
+<div class="sect c5">
+  <h2>E · On a Passage crossing</h2>
+  <div class="sub">A crossing carried by a person</div>
+  <div class="sky-why" style="--wc:var(--rhyme)">
+    <span class="rel">rhymes with</span>
+    <span class="claim">Both build dread from a figure standing still in the middle distance, refusing the cut that would explain him.</span>
+    <span class="y">→ LAST MAN STANDING (1996)</span>
+  </div>
+  <div class="sky-why" style="--wc:var(--hand)">
+    <span class="rel"><span class="glyph" data-seed="walter-hill"></span>names it · <i>2022 ballot</i></span>
+    <span class="claim">Walter Hill named Citizen Kane among the ten films of his 2022 Sight &amp; Sound ballot.</span>
+    <span class="y">→ CITIZEN KANE (1941)</span>
+  </div>
+  <p class="note">In a route the glyph rides the <i>rel</i> line beside <i>names it</i>; the claim is the
+  sentence, unchanged. Ballot hops are legal crossings — weak edges keep the world traversable — but the
+  routing's existing same-signal decay halves a second consecutive ballot, so a route cannot crawl the
+  canon on esteem alone. <i>(First crossing above is illustrative filler for layout; the ballot crossing
+  is real data.)</i></p>
+</div>
+
+<!-- ══ F · REFUSALS ══ -->
+<div class="sect c7">
+  <h2>F · What this design refuses, measured</h2>
+  <div class="sub">Ballot count is fame</div>
+  <div class="pair">
+    <figure class="no">
+      <svg id="field-no" viewBox="0 0 320 190" width="100%" style="display:block"></svg>
+      <figcaption><span class="verdict">REFUSED</span>
+      <p>Thirteen circles at field scale converge into a halo of esteem on one disc — rule&nbsp;1 broken
+      by accumulation. No mark, no glow, no size for ballots in the constellation.</p></figcaption>
+    </figure>
+    <figure class="yes">
+      <svg id="field-yes" viewBox="0 0 320 190" width="100%" style="display:block"></svg>
+      <figcaption><span class="verdict">SHIPPED</span>
+      <p>In the sky a ballot edge is an ordinary hand line. The mark exists only where one edge is
+      read at a time: the radial map, the panel, a crossing.</p></figcaption>
+    </figure>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">0</div>
+      <div class="l">films whose wall rank moves — ballots are source&nbsp;record, and the wall counts authored claims only. As "attested" they would move 222 films and churn 69 of the head's 120: the front page detonating on fame.</div></div>
+    <div class="stat"><div class="n">≤1</div>
+      <div class="l">ballot doors on any radial map. Uncapped, 39 of 222 touched maps show 2–5; the ledger carries the rest. Tiebreak: strongest other tissue, then voter A–Z — never fame.</div></div>
+    <div class="stat"><div class="n">0.55</div>
+      <div class="l">flat strength on every ballot edge. A ballot is unranked ten; grading esteem would invent a measure nobody published. Distance encodes bond, and the bond asserted is the same in all 323.</div></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* ── the chinagraph mark, seeded per voter (FNV-1a), deterministic per build ── */
+function fnv(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function chinagraph(seed,cx,cy,r,sw,color,alpha){
+  const h=fnv(seed), rot=(h%360)*Math.PI/180, ecc=.86+((h>>9)%100)/100*.1,
+        over=.55+((h>>17)%100)/100*.35; /* radians of overshoot past closure */
+  const N=46, pts=[];
+  for(let i=0;i<=N;i++){
+    const t=i/N*(Math.PI*2+over), j=1+Math.sin(t*3+h%7)*.022+Math.sin(t*7+h%11)*.012;
+    const x=Math.cos(t)*r*j, y=Math.sin(t)*r*ecc*j;
+    const xr=cx+x*Math.cos(rot)-y*Math.sin(rot), yr=cy+x*Math.sin(rot)+y*Math.cos(rot);
+    pts.push((i?"L":"M")+xr.toFixed(2)+" "+yr.toFixed(2));
+  }
+  const p=document.createElementNS("http://www.w3.org/2000/svg","path");
+  p.setAttribute("d",pts.join(""));p.setAttribute("fill","none");
+  p.setAttribute("stroke",color);p.setAttribute("stroke-width",sw);
+  p.setAttribute("stroke-linecap","round");p.setAttribute("opacity",alpha);
+  return p;
+}
+/* map vignette: mark at the chosen (Cure) end — 14px back along the path from the cell */
+(function(){
+  const g=document.getElementById("mark-map");
+  /* path (416,242)->(566,316); cell boundary hit ≈ (566,316); back 14px along unit vector */
+  const dx=566-416, dy=316-242, L=Math.hypot(dx,dy), ux=dx/L, uy=dy/L;
+  g.appendChild(chinagraph("bong-joon-ho",566-ux*14,316-uy*14,6.5,1.6,"var(--hand)",.95));
+})();
+(function(){
+  const g=document.getElementById("mark-big");
+  const dx=330-30, dy=90-210, L=Math.hypot(dx,dy), ux=dx/L, uy=dy/L;
+  g.appendChild(chinagraph("bong-joon-ho",330-ux*56,90-uy*56,39,6.4,"var(--hand)",.95));
+})();
+/* inline glyphs in panel + passage rows: same generator, 9px */
+document.querySelectorAll(".glyph").forEach(el=>{
+  const s=document.createElementNS("http://www.w3.org/2000/svg","svg");
+  s.setAttribute("viewBox","0 0 14 14");s.setAttribute("width","11");s.setAttribute("height","11");
+  s.style.display="inline-block";s.style.verticalAlign="-1px";
+  s.appendChild(chinagraph(el.dataset.seed||"x",7,7,4.6,1.3,"var(--hand)",1));
+  el.appendChild(s);
+});
+/* refusal fields */
+function field(id, halo){
+  const svg=document.getElementById(id), NS="http://www.w3.org/2000/svg";
+  let h=fnv(id+"atlas");
+  const rnd=()=>{h^=h<<13;h^=h>>>17;h^=h<<5;h>>>=0;return h/4294967296};
+  const pts=[];for(let i=0;i<54;i++)pts.push([14+rnd()*292,12+rnd()*166]);
+  const kane=[172,96];
+  /* faint hand lines into the centre disc */
+  for(let i=0;i<13;i++){
+    const p=pts[i*3%54], l=document.createElementNS(NS,"line");
+    l.setAttribute("x1",p[0]);l.setAttribute("y1",p[1]);
+    l.setAttribute("x2",kane[0]);l.setAttribute("y2",kane[1]);
+    l.setAttribute("stroke","#867C6C");l.setAttribute("stroke-width",".7");
+    l.setAttribute("opacity",".38");svg.appendChild(l);
+    if(halo){
+      const dx=kane[0]-p[0],dy=kane[1]-p[1],L=Math.hypot(dx,dy);
+      svg.appendChild(chinagraph("v"+i,kane[0]-dx/L*9,kane[1]-dy/L*9,4.2,1.1,"#867C6C",.9));
+    }
+  }
+  const hues=["#c49c64","#D9C08A","#60c868","#d5535e","#cb8b5c","#c18c67","#9075AF","#4E8C7A"];
+  pts.forEach((p,i)=>{const c=document.createElementNS(NS,"circle");
+    c.setAttribute("cx",p[0]);c.setAttribute("cy",p[1]);c.setAttribute("r",2);
+    c.setAttribute("fill",hues[i%hues.length]);c.setAttribute("opacity",".8");svg.appendChild(c)});
+  const k=document.createElementNS(NS,"circle");
+  k.setAttribute("cx",kane[0]);k.setAttribute("cy",kane[1]);k.setAttribute("r",2);
+  k.setAttribute("fill","#e5bd43");svg.appendChild(k);
+}
+field("field-no",true); field("field-yes",false);
+</script>
+</body></html>
