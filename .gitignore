@@ -86,3 +86,11 @@ __pycache__/
 
 # Screenshots from .claude/skills/run-film-atlas/driver.mjs
 /.atlas-shots/
+
+# Scratch probes written at the repo root by agents driving the app — the
+# driver and its harness live in .claude/skills/run-film-atlas/, so anything
+# loose up here is somebody's in-flight measurement, not a deliverable. They
+# have to sit inside the repo because `playwright` will not resolve from /tmp.
+/.probe*.mjs
+/.atlas-*.mjs
+/bench-tmp.mjs
