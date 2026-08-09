@@ -1255,8 +1255,49 @@ main();
  *      whole-atlas weakRatio    0.495              ->   0.635
  *      whole-atlas closerP      0.837              ->   0.812
  *
- * That is a proposal, not a change: it moves every position in the shipped
- * picture and belongs to whoever owns the sky. It is recorded here because the
- * next person to read `restWeak: 48` needs to know the 48 is a number from a
- * corpus that no longer exists.
+ * WHAT WAS ACTUALLY DONE, 2026-08-09, AND WHY IT IS NOT THAT PROPOSAL.
+ *
+ * The unit was fixed and the value was not. layout-sky.js now carries
+ * `restWeakN: 2204` and holds restWeak * k constant, so one constant means the
+ * same thing to the whole atlas and to a ten-film register. It is pinned at
+ * n=2204, which makes sqrt(n/restWeakN) exactly 1 for the whole atlas: the
+ * shipped 2,204-film layout is reproduced BIT-IDENTICALLY (verified with
+ * --artifact, worst position delta 0.00e+0) and only the 72 re-formed skies
+ * move. Measured across all 73:
+ *
+ *      weakRatio >= 1.0        39 of 64  ->   2 of 64
+ *      weakCloserP < 0.45      33 of 64  ->   1 of 64
+ *      closerP < 0.65          20 of 64  ->   0 of 64
+ *      |degreeBias| > 0.60     26 of 64  ->  56 of 64
+ *      total standing breaches      118  ->      59
+ *
+ * The degreeBias column is the honest cost and it is not what it looks like.
+ * The layouts that gained a radial gradient are exactly the ones whose
+ * positions previously meant nothing: the correlation between degreeBias
+ * magnitude gained and OLD closerP is -0.60, and `register:coming-of-age` went
+ * from weakCloserP 0.051 / degreeBias +0.061 to 0.643 / -0.650. A layout cannot
+ * be credited with not drawing degree while it was not drawing anything. The
+ * gradient is also not specifically degree: summed bond strength predicts
+ * radius as well or better (genre:drama -0.433 against -0.154 for degree), and
+ * layout-sky.js already documents emergent centrality and asks for it to be
+ * measured rather than eliminated. It is ratcheted, with that reason written
+ * into layout-baseline.json's `note`.
+ *
+ * Raising the whole atlas to restWeak 120 was NOT done. It recovers 0.168 of
+ * bondFit and costs closerP 0.839 -> 0.768 and weakCloserP 0.765 -> 0.574; the
+ * shipped operating point is legal on every constraint this project has written
+ * down, so moving along the trade curve is a design decision for whoever owns
+ * the sky, not a bug fix. The measurements are above so that decision can be
+ * taken with numbers.
+ *
+ * ── WHERE THIS GATE SITS IN `npm test`, WHICH IS LOAD-BEARING ───────────────
+ *
+ * `npm test` chains with &&, and `test:atlas-engine` contains measure-maps.js,
+ * which FAILS at HEAD and has failed since the harvest (STATE.md item 2:
+ * interpretive edges 11% against a 15% target). A gate placed after it never
+ * executes. So `test:atlas-layout` runs BEFORE `test:atlas-engine` — otherwise
+ * this file would have been wired into the release command and still never run,
+ * which is a more expensive version of not being committed at all. If
+ * measure-maps.js is ever fixed, the order stops mattering; until then, do not
+ * "tidy" it back.
  */

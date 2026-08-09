@@ -10,7 +10,7 @@
     "dev": "npm run build:atlas && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
     "build": "npm run build:atlas && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
-    "test": "npm run build && node --test tests/*.test.mjs && npm run test:atlas-engine && npm run test:atlas-layout",
+    "test": "npm run build && node --test tests/*.test.mjs && npm run test:atlas-layout && npm run test:atlas-engine",
     "test:atlas-engine": "node atlas/pipeline/validate-corpus.js atlas/static/corpus.json && node atlas/pipeline/measure-maps.js && node atlas/pipeline/measure-claims.js",
     "test:atlas-layout": "node atlas/pipeline/measure-layout.js --selftest && node atlas/pipeline/measure-layout.js --strata",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
