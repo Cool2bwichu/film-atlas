@@ -192,15 +192,24 @@ function sigma(xs) {
    not a small number — it is the absence of a measurement, and reporting it as
    0.0000 would be the single most flattering rounding error available here. */
 function rhoWithCI(x, y) {
-  const degenerate = new Set(x).size <= 1;
-  if (x.length < 8 || degenerate) return { n: x.length, rho: null, ci95: null, degenerate };
+  const counts = new Map();
+  for (const v of x) counts.set(v, (counts.get(v) || 0) + 1);
+  const modalShare = x.length ? Math.max(...counts.values()) / x.length : 1;
+  const degenerate = counts.size <= 1;
+  /* NEARLY constant is the trap, not constant. A variable where 196 of 197 films
+     share one value produces a printable rho with a printable CI, and it is
+     carried entirely by the one film that differs. Reporting that as a flat
+     confidence would be the same lie as reporting a constant, dressed better. */
+  const effectivelyConstant = !degenerate && modalShare >= 0.95;
+  const base = { n: x.length, modalShare: Math.round(modalShare * 1000) / 1000, degenerate, effectivelyConstant };
+  if (x.length < 8 || degenerate) return Object.assign(base, { rho: null, ci95: null });
   const r = ps.spearman(x, y);
-  if (!Number.isFinite(r)) return { n: x.length, rho: null, ci95: null, degenerate: true };
+  if (!Number.isFinite(r)) return Object.assign(base, { rho: null, ci95: null, degenerate: true });
   const ci = ps.bootstrapCI(x, y, BOOTSTRAP_ITERS, 20260809);
-  return {
-    n: x.length, rho: Math.round(r * 10000) / 10000, degenerate: false,
+  return Object.assign(base, {
+    rho: Math.round(r * 10000) / 10000,
     ci95: ci.map((v) => (Number.isFinite(v) ? Math.round(v * 10000) / 10000 : null)),
-  };
+  });
 }
 
 function histogram(vals) {
@@ -576,7 +585,7 @@ function gate5(ctx) {
      a defensible thing to ship (a null does not enter the graph; a fame-shaped
      confidence number would) and an indefensible thing to quote as a pass
      without the adjective. */
-  const vacuous = !!shipped.degenerate;
+  const vacuous = !!shipped.degenerate || !!shipped.effectivelyConstant;
   const pass = vacuous || (shipped.rho !== null && Math.abs(shipped.rho) <= GATE5_MAX_RHO);
   return {
     name: "GATE 5  CONFIDENCE IS NOT FAME",
@@ -680,16 +689,19 @@ function printReport(ctx, gates, breakName) {
   console.log("    rho " + fmt(g5.shipped.rho) + "  " + ci(g5.shipped.ci95) + "  n=" + g5.shipped.n +
     "    VERDICT " + (g5.pass ? (g5.vacuous ? "PASS — BUT VACUOUS" : "PASS") : "FAIL"));
   if (g5.vacuous) {
-    console.log("      the shipped confidence is CONSTANT across every scored film. It is flat");
-    console.log("      against fame because it carries no information, not because it is good.");
-    console.log("      All the fame structure has moved into WHICH films are null. That is the");
-    console.log("      honest floor of this problem, and it must be quoted with the adjective.");
+    console.log("      the shipped confidence takes ONE value on " + (g5.shipped.modalShare * 100).toFixed(1) +
+      "% of scored films. It is flat against");
+    console.log("      fame because it carries almost no information, not because it is good. All");
+    console.log("      the fame structure has moved into WHICH films are null. That is the honest");
+    console.log("      floor of this problem, and it must be quoted with the adjective.");
   }
   console.log("  all candidate formulations, same films:");
   const rowsC = Object.entries(g5.candidates).sort((a, b) => Math.abs(a[1].rho || 9) - Math.abs(b[1].rho || 9));
   for (const [nm, m] of rowsC) {
     console.log("    " + nm.padEnd(40) + fmt(m.rho) + "  " + ci(m.ci95) + "  n=" + String(m.n).padStart(4) +
-      (m.degenerate ? "   DEGENERATE (constant: flat by construction, measures nothing)" : ""));
+      "  modal " + (m.modalShare * 100).toFixed(0).padStart(3) + "%" +
+      (m.degenerate ? "   DEGENERATE (constant: flat by construction, measures nothing)" :
+        m.effectivelyConstant ? "   EFFECTIVELY CONSTANT (the rho is carried by a handful of films)" : ""));
   }
   console.log("  ADDED CHECK (not one of the five) — the SCORES against fame, |rho| <= " + SCORE_FAME_MAX_RHO + ":");
   for (const ax of AXES) {
