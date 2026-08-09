@@ -216,7 +216,9 @@ const DEFAULTS = {
      is resolving collisions, not searching. Measured: overplot at 60 iterations
      and at 400 differs by under a percentage point. */
   iterations: 90,
-  theta: 0.9,          /* Barnes-Hut opening angle; 0 = exact O(n^2), 1 = mush */
+  repulsion: "local",  /* "local" (grid, cutoff) or "bh" — see header          */
+  repelCut: 2.6,       /* interaction cutoff, in k. ~21 neighbours at uniform  */
+  theta: 0.9,          /* Barnes-Hut opening angle, only used by "bh"          */
 
   /* rTarget(s) = rimInset * (1 - s)^radialExp, in disc radii.
      radialExp is the analogue of layout-sky's restExp and it is convex for the
@@ -366,6 +368,43 @@ function buildTree(x, y, n) {
   return { childBase, comX, comY, mass, bw, leaf, nodes };
 }
 
+/* Global Barnes-Hut repulsion, kept so the header's claim about it can be
+   re-measured rather than taken on trust. Not the default: see the header. */
+function repelBarnesHut(x, y, n, dx, dy, k2, P) {
+  const T = buildTree(x, y, n);
+  const stack = new Int32Array(4 * 30 + 8);
+  for (let i = 0; i < n; i++) {
+    let sp = 0;
+    stack[sp++] = 0;
+    let fx = 0, fy = 0;
+    while (sp > 0) {
+      const node = stack[--sp];
+      const m = T.mass[node];
+      if (m === 0) continue;
+      const isLeaf = T.leaf[node] >= 0;
+      if (isLeaf && T.leaf[node] === i) continue;
+      let ddx = x[i] - T.comX[node];
+      let ddy = y[i] - T.comY[node];
+      let d2 = ddx * ddx + ddy * ddy;
+      if (isLeaf || T.bw[node] * T.bw[node] < P.theta * P.theta * d2) {
+        if (d2 < 1e-14) {
+          const h = ((i * 2654435761) >>> 0) / 4294967296 * Math.PI * 2;
+          ddx = Math.cos(h) * 1e-7; ddy = Math.sin(h) * 1e-7; d2 = 1e-14;
+        }
+        const d = Math.sqrt(d2);
+        const f = P.repel * k2 * m / d;
+        fx += (ddx / d) * f; fy += (ddy / d) * f;
+      } else {
+        for (let q = 0; q < 4; q++) {
+          const c = T.childBase[node * 4 + q];
+          if (c >= 0 && sp < stack.length) stack[sp++] = c;
+        }
+      }
+    }
+    dx[i] += fx; dy[i] += fy;
+  }
+}
+
 /* ── the solve ───────────────────────────────────────────────────────────────
 
    `scores` : { filmKey -> 0..1 }, every film in the corpus, from match.js.
@@ -404,46 +443,81 @@ function layoutMatch(scores, opts) {
     y[i] = 0.5 + 0.5 * r * Math.sin(a + ja);
   }
 
+  /* Grid scratch, allocated ONCE. Rebuilding these per iteration is what made
+     the first draft cost 5 ms an iteration: at 90 iterations that is 90 rounds
+     of multi-megabyte allocation, and it is pure overhead — the arrays are
+     overwritten every pass anyway. */
+  const cut = P.repelCut * k;
+  const gN = Math.max(1, Math.ceil(1.4 / cut));      /* the disc lives in [0,1] */
+  const cellSize = 1.4 / gN;
+  const cellStart = new Int32Array(gN * gN + 1);
+  const cellCount = new Int32Array(gN * gN);
+  const order = new Int32Array(n);
+  const cellOf = new Int32Array(n);
+
   for (let iter = 0; iter < P.iterations; iter++) {
     dx.fill(0); dy.fill(0);
 
-    /* ── repulsion, Barnes-Hut, mass = film count ── */
-    const T = buildTree(x, y, n);
-    const stack = new Int32Array(64);
-    for (let i = 0; i < n; i++) {
-      let sp = 0;
-      stack[sp++] = 0;
-      let fx = 0, fy = 0;
-      while (sp > 0) {
-        const node = stack[--sp];
-        const m = T.mass[node];
-        if (m === 0) continue;
-        let ddx = x[i] - T.comX[node];
-        let ddy = y[i] - T.comY[node];
-        let d2 = ddx * ddx + ddy * ddy;
-        const isLeaf = T.leaf[node] >= 0;
-        if (isLeaf && T.leaf[node] === i) continue;
+    if (P.repulsion === "bh") {
+      repelBarnesHut(x, y, n, dx, dy, k2, P);
+    } else {
+      /* ── short-range repulsion over a uniform grid ──
+         Counting sort into cells, then each film against the 3x3 block. The
+         cutoff is `cut`, so the 3x3 block is exhaustive: nothing within range is
+         missed, which is the property that made the lattice wrong in
+         layout-sky.js and is harmless here (see header). */
+      cellCount.fill(0);
+      for (let i = 0; i < n; i++) {
+        let cx = ((x[i] + 0.2) / cellSize) | 0;
+        let cy = ((y[i] + 0.2) / cellSize) | 0;
+        if (cx < 0) cx = 0; else if (cx >= gN) cx = gN - 1;
+        if (cy < 0) cy = 0; else if (cy >= gN) cy = gN - 1;
+        const c = cy * gN + cx;
+        cellOf[i] = c;
+        cellCount[c]++;
+      }
+      let acc = 0;
+      for (let c = 0; c < gN * gN; c++) { cellStart[c] = acc; acc += cellCount[c]; }
+      cellStart[gN * gN] = acc;
+      const fill = cellStart.slice(0, gN * gN);
+      for (let i = 0; i < n; i++) order[fill[cellOf[i]]++] = i;
 
-        if (isLeaf || T.bw[node] * T.bw[node] < P.theta * P.theta * d2) {
-          if (d2 < 1e-12) {
-            /* coincident: push apart on a hash of the pair, never on the RNG,
-               so the nudge is identical on every run */
-            const h = ((i * 2654435761) >>> 0) / 4294967296 * Math.PI * 2;
-            ddx = Math.cos(h) * 1e-6; ddy = Math.sin(h) * 1e-6;
-            d2 = 1e-12;
-          }
-          const d = Math.sqrt(d2);
-          const f = P.repel * k2 * m / d;
-          fx += (ddx / d) * f;
-          fy += (ddy / d) * f;
-        } else {
-          for (let q = 0; q < 4; q++) {
-            const c = T.childBase[node * 4 + q];
-            if (c >= 0 && sp < 60) stack[sp++] = c;
+      const cut2 = cut * cut;
+      for (let i = 0; i < n; i++) {
+        const c = cellOf[i];
+        const cx = c % gN, cy = (c / gN) | 0;
+        let fx = 0, fy = 0;
+        const xi = x[i], yi = y[i];
+        for (let b = -1; b <= 1; b++) {
+          const ry = cy + b;
+          if (ry < 0 || ry >= gN) continue;
+          for (let a = -1; a <= 1; a++) {
+            const rx = cx + a;
+            if (rx < 0 || rx >= gN) continue;
+            const cc = ry * gN + rx;
+            const s0 = cellStart[cc], s1 = cellStart[cc + 1];
+            for (let t = s0; t < s1; t++) {
+              const j = order[t];
+              if (j === i) continue;
+              let ddx = xi - x[j], ddy = yi - y[j];
+              let d2 = ddx * ddx + ddy * ddy;
+              if (d2 > cut2) continue;
+              if (d2 < 1e-14) {
+                /* coincident films: separate on a hash of the two indices, never
+                   on the RNG, so the nudge is identical on every run */
+                const h = (((i * 2654435761) ^ (j * 40503)) >>> 0) / 4294967296 * Math.PI * 2;
+                ddx = Math.cos(h) * 1e-7; ddy = Math.sin(h) * 1e-7;
+                d2 = 1e-14;
+              }
+              const d = Math.sqrt(d2);
+              const f = P.repel * k2 / d;
+              fx += (ddx / d) * f;
+              fy += (ddy / d) * f;
+            }
           }
         }
+        dx[i] += fx; dy[i] += fy;
       }
-      dx[i] += fx; dy[i] += fy;
     }
 
     /* ── the radial spring: rest length AND stiffness are functions of score ── */

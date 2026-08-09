@@ -11957,6 +11957,406 @@
    "confidence": 0.42,
    "claim": "The clergyman measured entirely by the one person in front of him who needs help, and failing: a pastor who talks a frightened man into going home and shooting himself, and a priest whose charity produces a brawl on a building site, a burnt room, and a fever that breaks only after somebody else's superstitious rite.",
    "source": "reading"
+  },
+  {
+   "a": "the round up",
+   "b": "werckmeister harmonies",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.68,
+   "confidence": 0.46,
+   "claim": "Hungarian plain, 2.35:1, and state power filmed as choreography: white-shirted prisoners moved between a whitewashed wall and open grass by a crane-mounted camera that slides sideways instead of cutting, with almost no close-ups and almost no dialogue, so cruelty arrives as a change of formation. Thirty-four years later the same unbroken lateral shot is handed to a crowd walking to a hospital, and the film's whole argument is carried by how long it refuses to stop.",
+   "source": "reading"
+  },
+  {
+   "a": "the cremator",
+   "b": "repulsion",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Two films that put a distorting lens on a private interior and let it do the diagnosis. One bends a family portrait in a mirror with a fish-eye and cuts extreme close-ups of a man's forehead against an elephant's hide at the zoo; the other widens the lens until a drawing-room ceiling seems to press down and the corridor walls grow arms. Neither ever announces madness — the room is simply photographed the way the person inside it is experiencing it.",
+   "source": "reading"
+  },
+  {
+   "a": "the cremator",
+   "b": "citizen kane",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The Wellesian kit, twenty-eight years on and pointed at a crematorium clerk: wide-angle lenses that hold a face and the far wall equally sharp, ceilings left in shot, and transitions that slip from one place to another on a matched movement rather than a cut. Herz uses the deep-focus grammar built to make a newspaper magnate look enormous to make a small, courteous man look like something with an appetite.",
+   "source": "reading"
+  },
+  {
+   "a": "the great silence",
+   "b": "mccabe mrs miller",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The western relocated to snow, so the genre's red rock and dust give way to a white field on which a figure is a small dark mark the weather can simply erase. Both open on an abstraction that only slowly resolves into snowfall, both let cold reduce every movement to a trudge, and both finish with the gunfight won by the wrong side while the drifts go on filling in behind it.",
+   "source": "reading"
+  },
+  {
+   "a": "the last laugh",
+   "b": "sunrise a song of two humans",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "The camera cut loose from its tripod — strapped to a bicycle, ridden down in a lift, sent spinning through a revolving glass door — so that a hotel doorman's demotion is delivered as vertigo instead of described in a title card. Three years later, in Hollywood, the same unchained camera walks a husband through a night marsh and then abandons him mid-shot to drift into the woman he is imagining.",
+   "source": "reading"
+  },
+  {
+   "a": "the last laugh",
+   "b": "mean streets",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.44,
+   "claim": "Drunkenness filmed from inside the drunk: rather than watch a man sway, the camera is fixed to him so the room does the swaying — a doorman's hotel tilting and doubling after the wedding party, and fifty years later a young man carried backwards through a red barroom on a rig bolted to his own body while the jukebox keeps time.",
+   "source": "reading"
+  },
+  {
+   "a": "amour",
+   "b": "jeanne dielman 23 quai du commerce 1080 bruxelles",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.42,
+   "claim": "The fixed camera that will not look away from housework. Akerman set hers at one unmoving height and let a woman peel potatoes for as long as peeling potatoes takes, so the labour of a life became the film's actual duration. Haneke holds the same head-on, unmoving frame while a nurse washes an eighty-year-old body and the water is audibly too warm. Neither cuts for mercy, and the discomfort you feel is the argument.",
+   "source": "reading"
+  },
+  {
+   "a": "cries and whispers",
+   "b": "gate of flesh",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Two films that issue each woman a colour and let the decor carry the psychology. Suzuki dresses four black-market sex workers in flat single hues — red, green, purple, yellow — so a scene can be read as an arrangement of blocks before anyone speaks; Bergman puts three sisters in white against crimson walls and, between scenes, fades not to black but to red. Neither film explains its scheme; both expect you to take it as temperature.",
+   "source": "reading"
+  },
+  {
+   "a": "branded to kill",
+   "b": "le samourai",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The same year, two contract killers whose flats are photographed as still life. Melville drains his to grey-blue and gives the man a single caged bird to watch; Suzuki pans across a minimalist apartment as an architectural tour while a couple have sex inside it, then breaks the space into held shots of a spiral staircase, a frosted pane, a telephone. In both, the professionalism is conveyed entirely by how the objects are framed.",
+   "source": "reading"
+  },
+  {
+   "a": "fahrenheit 451",
+   "b": "diary of a country priest",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Reading filmed as a physical act rather than an interior state. Bresson shows the hand forming the words in the diary while the voice speaks them, so image and speech take separate routes to the same sentence; Truffaut puts the camera over Montag's shoulder as his finger travels under the first lines of David Copperfield, cutting twice to tighter framings and staying at the reader's own pace to the end of the paragraph.",
+   "source": "reading"
+  },
+  {
+   "a": "meek s cutoff",
+   "b": "nanook of the north",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.42,
+   "claim": "The wagon train filmed as an ethnographic waiting period rather than a western. The camera is set low on the riverbank at the settlers' own eye height and left there while the crossing takes as long as a crossing takes; a slow dissolve rather than a cut stands in for a day's walk; and the only rhythm is a squeaking wheel where a score would be. The model is not Ford but Flaherty's patience with people doing hard work in a place indifferent to them.",
+   "source": "reading"
+  },
+  {
+   "a": "children of men",
+   "b": "gomorrah",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Two films that give the camera a will of its own and then let it disobey. Cuaron's stays glued to one man through a cafe bombing and then strays off him to watch a woman carrying her own severed arm out of the smoke; Garrone's prowls at shoulder height through housing-estate stairwells and then, without warning, retreats to an extreme high angle that establishes nothing and leaves you unsure where you had been standing.",
+   "source": "reading"
+  },
+  {
+   "a": "children of men",
+   "b": "son of saul",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "The atrocity kept at the edge of the lens. Nemes locks a shallow-focus, almost square frame to the back of one man's head so the killing behind him is a blur and a sound; Cuaron keeps a take running on one man's shoulder while a war happens in the parts of the shot he is not looking at, blood landing on the lens and staying there. Both make you strain at the periphery, and both treat that straining as the moral content.",
+   "source": "reading"
+  },
+  {
+   "a": "repulsion",
+   "b": "the shining",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.4,
+   "claim": "Opposite ways to make a building frightening. Polanski deforms his: wide lenses lower the ceilings, walls grow arms, the corridor is longer than it was a shot ago, so you watch a flat bend to fit a mind. Kubrick refuses to deform anything — the hotel's geometry is impossibly stable, corridors meet at clean right angles, the Steadicam glides them at tricycle height without a wobble — and the dread comes from a space that stays perfectly sane while the man in it does not.",
+   "source": "reading"
+  },
+  {
+   "a": "letter from an unknown woman",
+   "b": "vertigo",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A man is handed a woman's entire life at once and still cannot recognise her. Ophuls ends with remembered images breaking over Stefan while he covers his eyes; Hitchcock ends the same way, a necklace clasped at a throat and a barrage of the film's own earlier shots returning to a man who had to build the woman twice before he could see her once. In both, recognition is staged as an ambush of pictures, and in both it arrives too late to be any use.",
+   "source": "reading"
+  },
+  {
+   "a": "el",
+   "b": "vertigo",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.44,
+   "claim": "A man selects a woman out of a congregation by her feet. The camera finds a pair of high heels on a church floor and tilts slowly up seamed stockings and gloved hands to a face lit from the side, and an entire pathology is settled inside that one movement; five years later another obsessive picks a woman out at a museum, seen from behind, side-lit, hair coiled. Bunuel even opens over a fixed shot inside a bell tower and cuts a first kiss to an exploding dam.",
+   "source": "reading"
+  },
+  {
+   "a": "earth",
+   "b": "days of heaven",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Harvest filmed as a single accelerating body. Dovzhenko cuts close-ups of faces without ever establishing where they stand in relation to one another, so the graphic matches across the cuts fuse the workers into one organism, and apples, sunflowers and sky carry the same weight as people. Malick runs the method through a Texas wheat field: magic-hour fragments, faces against grain, no geography, and a plot that keeps being interrupted by the field.",
+   "source": "reading"
+  },
+  {
+   "a": "modern times",
+   "b": "metropolis",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The same image — a worker swallowed by his machine — played at two registers. Lang builds it as a vision: the plant becomes a stone god and men are fed into its mouth in slow monumental montage. Chaplin films the identical idea literally and at music-hall tempo, sending the Tramp through the gears, returning him unhurt and still wrenching, and adding a feeding machine that wipes his mouth for him. The terror is answered by a gag that concedes nothing.",
+   "source": "reading"
+  },
+  {
+   "a": "the battle of algiers",
+   "b": "the act of killing",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Two films made entirely of re-enactment, built from opposite ends. Pontecorvo casts non-professionals to replay an insurrection they lived through and degrades the image — grain, snap zooms, hand-held — until it forges newsreel that never existed. Oppenheimer hands the camera to the killers and lets them restage their own murders in the genres they love, so the performance stops being evidence about the past and becomes evidence about the men performing it.",
+   "source": "reading"
+  },
+  {
+   "a": "le petit soldat",
+   "b": "the battle of algiers",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "The war neither country would allow on a screen, approached from the two ends of a camera. Godard films it as a first-person notebook: Coutard hand-held in Geneva streets, whip pans that yank your attention off the narrator and onto whoever is watching him, and the torture done in a hotel bathroom with the taps running. Pontecorvo films it as mass reconstruction, grained and zoomed until it passes for archive. One was banned for three years; the other was screened to armies.",
+   "source": "reading"
+  },
+  {
+   "a": "the umbrellas of cherbourg",
+   "b": "all that heaven allows",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Melodrama's colour moved off the lamp and onto the wallpaper. Sirk lights his widow apart from her house — autumn leaves through glass, blue snow, her own face caught in the new television — so colour isolates her. Demy paints the walls to match the coats, colour-coordinating people with the rooms they stand in until nobody separates from the decor at all, and the impossibility of leaving is stated by the fact that everyone in shot is the same shade as the room.",
+   "source": "reading"
+  },
+  {
+   "a": "the night of the hunter",
+   "b": "sunrise a song of two humans",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The countryside rebuilt indoors as a lit set. Murnau's marsh and streetcar city were constructed with forced perspective so that a walk could be a state of mind; Laughton and Stanley Cortez put two children in a skiff on studio water under painted stars, the riverbank a cut-out, a drowned woman's hair moving in the weeds. Both use the visible artifice to make a murder look like something read aloud at bedtime.",
+   "source": "reading"
+  },
+  {
+   "a": "ordet",
+   "b": "diary of a country priest",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Two films about faith that get there by removing expression. Dreyer, who had pushed the close-up as far as it goes in Jeanne d'Arc, moves the feeling off the face entirely and onto slow unbroken camera circuits of a farmhouse and the change of light on a wall, and puts the dying off-screen. Bresson strips his non-actor of inflection until the face gives nothing and the diary's voice carries what the image withholds. Neither will help you believe.",
+   "source": "reading"
+  },
+  {
+   "a": "ordet",
+   "b": "rope",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.55,
+   "confidence": 0.36,
+   "claim": "The invisible-cut long take, borrowed from a stunt and turned into liturgy. Hitchcock hid his joins behind a passing back so one apartment murder could run in apparent real time and suspense would have nowhere to hide. Dreyer walks the same unbroken circuits round a farmhouse where nothing needs concealing, and the device stops meaning tension and starts meaning patience — a family held in one continuous room, waiting to find out whether God intends to act.",
+   "source": "reading"
+  },
+  {
+   "a": "homework",
+   "b": "the 400 blows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "A child alone in front of the lens with the adult questioner reduced to a voice from outside the frame. Truffaut sits Antoine before a psychologist we never see and lets him answer straight to camera. Kiarostami seats one schoolboy after another before his own camera to be asked why the homework is not done, keeps himself off-screen, and keeps cutting to an insert of his cameraman aiming a lens into another lens — so the machine doing the asking is on screen even when the man is not.",
+   "source": "reading"
+  },
+  {
+   "a": "goodbye dragon inn",
+   "b": "hugo",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Tsai had already filmed the death of the picture palace the hard way: a fixed camera in an emptying Taipei cinema, rain outside, a martial-arts film running to almost nobody, and a final static long shot of the seats held so far past the exit of the last body that the loss becomes something you sit through rather than something you are told. Scorsese answers with restoration — 3D, a camera that never stops moving, Melies rebuilt in colour and handed back to an audience that applauds.",
+   "source": "reading"
+  },
+  {
+   "a": "goodbye dragon inn",
+   "b": "in the mood for love",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Both films end by staying in a room after the person has walked out of it. Wong's camera glides round Mr Chow as he murmurs into a hole in a temple wall, lets him leave through a doorway, and then simply goes on travelling the empty stone passages, pausing at the sealed hole. Tsai holds one unmoving shot of an auditorium after the audience has gone. In both, the architecture is left holding what the people could not say.",
+   "source": "reading"
+  },
+  {
+   "a": "the hour glass sanatorium",
+   "b": "valerie and her week of wonders",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Time made walkable. The camera pushes through a curtain, a door or a wall of hanging cloth and is simply in another year — no dissolve, no title, no change of light to mark the transition. A son walks out of his father's sanatorium into his own childhood and back; a girl walks out of a courtyard into a century that has not happened yet. In both, the fantastic is denied any special lighting, so nothing is ever flagged as the unreal part.",
+   "source": "reading"
+  },
+  {
+   "a": "once upon a time in america",
+   "b": "the mirror",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two films that change decade without letting you see it happen. Leone does it inside the frame: the camera pans off a face to a shop sign and back, and the hair has gone grey and the hoarding behind it belongs to another era, so the cut you were braced for never comes. Tarkovsky does it by casting — one actress plays the mother in the 1930s and the wife in the 1960s, one boy plays the father as a child and the son — so the only marker of a jump is a face you have already met.",
+   "source": "reading"
+  },
+  {
+   "a": "nobody knows",
+   "b": "equinox flower",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The empty shot that is not an establishing shot. Ozu holds a corridor junction longer than any information requires, movement only far off at the end of it, so the cut-away becomes somewhere to breathe rather than somewhere to orient. Koreeda returns again and again to one unremarkable suburban intersection — a vending machine, a payphone, nothing else — and each time it comes back it has collected more of what has happened to the children, until a street corner is doing the work of a funeral.",
+   "source": "reading"
+  },
+  {
+   "a": "sound of metal",
+   "b": "the conversation",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Two films that put you inside a man's hearing rather than behind his eyes. Coppola degrades and re-degrades one recorded sentence until the stress moves and the meaning inverts, so the plot turns on an act of listening you have to perform yourself. Marder cuts the mix to muffle, tinnitus and abrupt silence, and then, when the implants are switched on, to a metallic scrape nothing on screen has prepared you for. In both the sound is not accompaniment, it is the point of view.",
+   "source": "reading"
+  },
+  {
+   "a": "salo or the 120 days of sodom",
+   "b": "a clockwork orange",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Two films that stage atrocity as a show with an audience inside the frame, and take opposite positions on your pleasure. Kubrick shoots the violence wide-angle, symmetrical and set to music you enjoy, then straps his protagonist into a cinema seat with his eyes clamped open and makes the cure the punishment. Pasolini removes every handhold: static camera, symmetrical compositions, long takes for the storytellers broken by an unrelenting run of close-ups, and victims given no interior life to enter.",
+   "source": "reading"
+  },
+  {
+   "a": "blind chance",
+   "b": "rashomon",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.38,
+   "claim": "The same scene told three times, forking in opposite directions. Kurosawa replays a killing from three incompatible memories, so the branch is in the past and what the film withholds is the truth. Kieslowski replays a man running for a train and lets him catch it, miss it, and miss it again — the branch is in the future, each version is lived out in full, and each switch is marked in the film's own material by a shudder of slow motion and the same rising theme, so you feel the fork before you understand it.",
+   "source": "reading"
+  },
+  {
+   "a": "camera buff",
+   "b": "man with a movie camera",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Vertov's cameraman is a hero of the new world, superimposed over rooftops, climbing chimneys, his machine spliced into the machinery of a city that is better for being filmed. Kieslowski hands the same instrument to a factory worker and follows what it actually costs: the camera records what the plant would rather it had not, gets a colleague sacked, ends his marriage, and the film closes with him turning the lens round onto himself, the only subject he still has the right to.",
+   "source": "reading"
+  },
+  {
+   "a": "sans soleil",
+   "b": "the gleaners and i",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Two first-person essay films that decide opposite things about the author's body. Marker never appears and never speaks: his images are attributed to a cameraman we never meet and read aloud by a woman quoting his letters, so the I of the film is always at one remove. Varda cannot stop appearing — she turns the little digital camera on her own spotted hand and her grey roots, and makes the ageing of the person holding it part of what the film is gathering.",
+   "source": "reading"
+  },
+  {
+   "a": "greed",
+   "b": "fitzcarraldo",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.42,
+   "claim": "Two films whose central image is a fact rather than an effect. Stroheim took his cast into Death Valley in real summer heat, so the sweat running off them on screen is sweat; Herzog had a three-hundred-ton steamer physically dragged over a hill in Peru rather than build a model of one. In both, what you are watching is a document of the labour it took to obtain it — and in both, the story of the shoot has half-eaten the film that came out of it.",
+   "source": "reading"
+  },
+  {
+   "a": "leave her to heaven",
+   "b": "bigger than life",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Domestic horror in full Technicolor, where the warmth of the palette is the trap. Both put a beautiful home in advertisement colours — glowing wood, saturated fabrics, sun on water — and let the sickness belong to the person keeping it: a woman rowing steadily in dark glasses while a boy drowns in front of her, a father lit from below in a bathroom mirror deciding that God was wrong. Neither film reaches for a shadow; the light stays perfect while the household comes apart.",
+   "source": "reading"
+  },
+  {
+   "a": "the saragossa manuscript",
+   "b": "the phantom of liberty",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "A film built entirely out of stories that hand off to each other: a minor figure walks out of one tale and the camera goes with them into the next, which turns out to contain another teller. Has builds his as a nested Spanish spiral that keeps returning its officer to the same gallows; Bunuel, who admired it, builds his as a relay of French sketches with no return at all, dropping each protagonist the moment somebody more interesting crosses the frame.",
+   "source": "reading"
+  },
+  {
+   "a": "il grido",
+   "b": "vagabond",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.42,
+   "claim": "Two drifter films in which the framing, not the dialogue, delivers the verdict. Antonioni over-exposes the Po delta until the sky burns out white and sets the horizon high, then reverses the field with pans and cuts across the line, so a man walking is repeatedly enclosed by empty ground. Varda tracks her drifter laterally across winter vineyards in a series of movements that each begin on something else and end by leaving her behind. Neither character is explained; the camera declines to.",
+   "source": "reading"
+  },
+  {
+   "a": "andrei rublev",
+   "b": "eureka",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The monochrome film that hoards its only colour until the end. Tarkovsky runs three hours of grey Russia and then, with no explanation, moves the camera across Rublev's actual icons in saturated colour, refusing every time to pull back far enough to show a whole one. Aoyama runs three and a half hours of nearly static black-and-white CinemaScope and switches to colour for a single closing shot on a hill. In both, a change of stock is asked to do the work a resolution would normally do.",
+   "source": "reading"
   }
  ]
 }

@@ -3052,13 +3052,13 @@ const EDGES = [
 
   /* ---------- the lens that does the diagnosis ---------- */
   r("the cremator", "repulsion", "convergence", "none", 0.62, 0.46,
-    "Two films that put a distorting lens on a private interior and let it do the diagnosis. One bends a family portrait in a mirror with a fish-eye and cuts extreme close-ups of a man's forehead against an elephant's hide at the zoo; the other widens the lens until a drawing-room ceiling seems to press down and the corridor walls grow arms. Neither ever announces madness — the room is simply photographed the way the person inside it is experiencing it."),
+    "Two films that put a distorting lens on a private interior and let it do the diagnosis. One bends a family portrait in a mirror with a fish-eye and cuts an extreme close-up of a man's lined forehead straight against an elephant's trunk at the zoo; the other widens the lens until a drawing-room ceiling seems to press down and the corridor walls grow arms. Neither ever announces madness — the room is simply photographed the way the person inside it is experiencing it."),
   r("the cremator", "citizen kane", "descent", "b", 0.6, 0.44,
     "The Wellesian kit, twenty-eight years on and pointed at a crematorium clerk: wide-angle lenses that hold a face and the far wall equally sharp, ceilings left in shot, and transitions that slip from one place to another on a matched movement rather than a cut. Herz uses the deep-focus grammar built to make a newspaper magnate look enormous to make a small, courteous man look like something with an appetite."),
 
   /* ---------- the western moved into snow ---------- */
   r("the great silence", "mccabe mrs miller", "rhyme", "none", 0.6, 0.44,
-    "The western relocated to snow, so the genre's red rock and dust give way to a white field on which a figure is a small dark mark the weather can simply erase. Both open on an abstraction that only slowly resolves into snowfall, both let cold reduce every movement to a trudge, and both finish with the gunfight won by the wrong side while the drifts go on filling in behind it."),
+    "The western relocated to snow, so the genre's red rock and dust give way to a white field on which a figure is a small dark mark the weather can simply erase. One opens on a slow pan across an abstraction that only gradually resolves into falling snow; the other ends in a blizzard nobody in the town looks up from. Both let cold reduce every movement to a trudge, and both finish with the gunfight won by the wrong side while the drifts go on filling in."),
 
   /* ---------- the camera taken off the tripod ---------- */
   r("the last laugh", "sunrise a song of two humans", "descent", "a", 0.7, 0.5,
@@ -3162,11 +3162,11 @@ const EDGES = [
 
   /* ---------- the fork in the past, the fork in the future ---------- */
   r("blind chance", "rashomon", "rebuttal", "a", 0.58, 0.38,
-    "The same scene told three times, forking in opposite directions. Kurosawa replays a killing from three incompatible memories, so the branch is in the past and what the film withholds is the truth. Kieslowski replays a man running for a train and lets him catch it, miss it, and miss it again — the branch is in the future, each version is lived out in full, and each switch is marked in the film's own material by a shudder of slow motion and the same rising theme, so you feel the fork before you understand it."),
+    "One scene replayed until it splits, forking in opposite directions. Kurosawa replays a killing through four incompatible accounts, so the branch is in the past and what the film withholds is the truth. Kieslowski replays a man running for a train and lets him catch it, miss it, and miss it again — the branch is in the future, each version is lived out in full, and each switch is marked in the film's own material by a shudder of slow motion and the same rising theme, so you feel the fork before you understand it."),
 
   /* ---------- what the camera costs the person holding it ---------- */
   r("camera buff", "man with a movie camera", "rebuttal", "a", 0.6, 0.44,
-    "Vertov's cameraman is a hero of the new world, superimposed over rooftops, climbing chimneys, his machine spliced into the machinery of a city that is better for being filmed. Kieslowski hands the same instrument to a factory worker and follows what it actually costs: the camera records what the plant would rather it had not, gets a colleague sacked, ends his marriage, and the film closes with him turning the lens round onto himself, the only subject he still has the right to."),
+    "Vertov's cameraman is a hero of the new world, superimposed over rooftops, climbing chimneys, his machine spliced into the machinery of a city that is better for being filmed. Kieslowski hands the same instrument to a factory worker and follows what it actually costs: the camera records what the plant would rather it had not, helps end the career of the manager who commissioned it, and ends his marriage, and the film closes with him turning the lens round onto himself, the only subject he still has the right to."),
 
   /* ---------- the essay film, and whether the author may be in shot ---------- */
   r("sans soleil", "the gleaners and i", "rebuttal", "b", 0.58, 0.42,
