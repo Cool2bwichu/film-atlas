@@ -173,6 +173,12 @@ const PAIRS = parseInt(arg("pairs", "300000"), 10);
 const DO_STRATA = flag("strata");
 const DO_SELFTEST = flag("selftest");
 const WRITE_BASELINE = flag("write-baseline");
+/* A ratchet's failure mode is that people re-baseline reflexively, and the
+   ratchet then records whatever the code happens to do rather than what anybody
+   decided. So a re-baseline that LENGTHENS the breach list is refused without
+   --note "...": shortening the list needs no excuse, lengthening it needs a
+   sentence that survives into the file and into `git log -p`. */
+const BASELINE_NOTE = arg("note", null);
 
 /* ── gates ───────────────────────────────────────────────────────────────────
  *
@@ -790,7 +796,7 @@ function selftest(corpus, discovery, attrs) {
   const inv = measureLayout("inverted", films, edges, invPos, attrs, { pairs: 120000 });
   console.log("\n1. solver fed inverted strengths (strong bonds given long rest lengths)");
   console.log("  bondFit " + fmt(inv.bondFit) + "   closerP " + fmt(inv.closerP, 3) +
-    "   weakRatio " + fmt(inv.weakRatio, 3));
+    "   weakRatio " + fmt(inv.weakRatio, 3) + "   formFit " + fmt(inv.formFit));
   results.push(["inverted", inv]);
 
   /* 2. SHUFFLE THE POSITIONS. Every spatial statistic must collapse to its null:
@@ -806,7 +812,9 @@ function selftest(corpus, discovery, attrs) {
   const shuf = measureLayout("shuffled", films, edges, shufPos, attrs, { pairs: 120000 });
   console.log("\n2. positions shuffled between films (the layout destroyed, the cloud kept)");
   console.log("  bondFit " + fmt(shuf.bondFit) + "   closerP " + fmt(shuf.closerP, 3) +
-    "   degreeBias " + fmt(shuf.degreeBias));
+    "   degreeBias " + fmt(shuf.degreeBias) + "   formFit " + fmt(shuf.formFit));
+  console.log("  bandRatio " + shuf.bandRatio.map((b) => b.ratio == null ? "thin" : b.ratio.toFixed(3)).join(" ") +
+    "   (worst " + fmt(shuf.bandRatioWorst, 3) + " against " + fmt(truth.bandRatioWorst, 3) + " shipped)");
   console.log("  lifts: " + Object.entries(shuf.nnLift).map(([f, v]) => f + " " + v.lift.toFixed(2) + "x").join("   "));
   results.push(["shuffled", shuf]);
 
@@ -867,6 +875,8 @@ function selftest(corpus, discovery, attrs) {
   }
   const dirL = measureLayout("director-clustered", films, edges, dirPos, attrs, { pairs: 120000 });
   console.log("\n4. positions laid out with a director's films packed together");
+  console.log("  bandRatio " + dirL.bandRatio.map((b) => b.ratio == null ? "thin" : b.ratio.toFixed(3)).join(" ") +
+    "   (worst " + fmt(dirL.bandRatioWorst, 3) + "; 1.000 is rule 1 holding within a band)");
   console.log("  director lift " + dirL.nnLift.director.lift.toFixed(2) + "x  (" +
     pc(dirL.nnLift.director.shareOfCeiling) + " of the ceiling " +
     dirL.nnLift.director.ceilingLift.toFixed(1) + "x; the shipped layout reaches " +
@@ -893,6 +903,22 @@ function selftest(corpus, discovery, attrs) {
     ["the shipped layout is well below that ceiling", truth.nnLift.director.shareOfCeiling < 0.35],
     ["the shipped layout's bondFit is negative", truth.bondFit < -0.25],
     ["the inverted layout would FAIL the shipped gate", !(inv.bondFit <= INVARIANTS.bondFitMax)],
+    /* formFit and bandRatio are gated, so they need controls of their own —
+       the whole point of this file is that a check nobody has watched fail is a
+       check that lies, and that applies to the checks added last, not only to
+       the ones added first. */
+    ["formFit goes POSITIVE when the rest-length mapping is inverted", inv.formFit > 0.1],
+    ["formFit collapses to ~0 when positions are shuffled", Math.abs(shuf.formFit) < 0.03],
+    ["the inverted layout would FAIL the shipped formFit gate", !(inv.formFit <= INVARIANTS.formFitMax)],
+    /* Shuffling makes "same director" tell you nothing about a rendered length,
+       so every band must read 1.00. This is the check that bandRatio measures
+       the layout and not the strength distribution. */
+    ["every bandRatio goes to ~1.0 when positions are shuffled",
+      shuf.bandRatio.every((b) => b.ratio == null || Math.abs(b.ratio - 1) < 0.12)],
+    /* And packing each director's films onto their own disc must drive it to the
+       floor: it is the maximal version of exactly the defect bandRatio names. */
+    ["bandRatio collapses on a director-packed layout",
+      dirL.bandRatioWorst < 0.15 && dirL.bandRatioWorst < truth.bandRatioWorst],
   ];
   console.log("\n── assertions ─────────────────────────────────────────────────────");
   let bad = 0;
@@ -1071,8 +1097,16 @@ function main() {
 
   console.log("\n── regression gate ─────────────────────────────────────────────────");
   if (WRITE_BASELINE) {
+    const before = baseline ? (baseline.knownBreaches || []).length : 0;
+    if (standing.length > before && !BASELINE_NOTE) {
+      console.log("REFUSED: this baseline would record " + standing.length + " breaches against the " +
+        before + " already committed.");
+      console.log("Lengthening the ratchet needs a reason. Re-run with --note \"why these are acceptable\".");
+      process.exit(1);
+    }
     const b = { generated: out.generated, solver: out.solver, strataSolver: out.strataSolver,
-      corpusVersion: out.corpusVersion, whole: out.whole, knownBreaches: standing };
+      corpusVersion: out.corpusVersion, note: BASELINE_NOTE || (baseline && baseline.note) || null,
+      previousBreachCount: before, whole: out.whole, knownBreaches: standing };
     if (DO_STRATA) {
       b.strata = out.strata.map((r) => ({ label: r.label, films: r.films, edges: r.edges, thin: r.thin,
         bondFit: r.bondFit, closerP: r.closerP, weakCloserP: r.weakCloserP,
