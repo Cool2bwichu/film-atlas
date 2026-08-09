@@ -2938,15 +2938,22 @@ function skyMeteorStep(now, w, h) {
   if (m && now - m.t0 >= SKY_METEOR_MS) { sky.meteor = null; sky.meteorAt = now + SKY_METEOR_MIN + Math.random() * SKY_METEOR_VAR; return null; }
   if (!sky.meteorAt) { sky.meteorAt = now + 1200 + Math.random() * 2600; return null; }
   if (now < sky.meteorAt) return null;
-  /* A shallow diagonal, entering from the top edge and crossing a chord.
-     Angles are kept off the horizontal and the vertical so the streak never
-     reads as an axis being drawn on the map. */
+  /* A shallow diagonal falling across the upper field. The first version
+     entered from outside the frame at an angle drawn from a wide range and
+     spent most of its life off screen — a meteor nobody sees is an idle clock
+     with nothing to show for it. The start is now inside the viewport and the
+     travel is a fixed fraction of the diagonal, so it is always crossing
+     something. Angles stay off the horizontal and off the vertical so the
+     streak can never read as an axis being drawn on the map. */
   const dir = Math.random() < 0.5 ? 1 : -1;
-  const ang = (0.26 + Math.random() * 0.30) * Math.PI * dir;
-  const len = (0.34 + Math.random() * 0.30) * Math.hypot(w, h);
-  const x0 = (dir > 0 ? -0.1 : 1.1) * w + (Math.random() - 0.5) * 0.4 * w;
-  const y0 = (Math.random() * 0.55) * h - 0.08 * h;
-  sky.meteor = { t0: now, x0, y0, dx: Math.cos(ang) * len * dir, dy: Math.abs(Math.sin(ang)) * len };
+  const ang = (0.11 + Math.random() * 0.11) * Math.PI;      /* 20 deg to 40 deg below horizontal */
+  const len = (0.30 + Math.random() * 0.22) * Math.hypot(w, h);
+  const dx = Math.cos(ang) * len * dir, dy = Math.sin(ang) * len;
+  /* Placed so both ends stay inside the frame with a margin. */
+  const x0 = dir > 0 ? 0.04 * w + Math.random() * Math.max(1, w * 0.92 - dx)
+                     : w - 0.04 * w - Math.random() * Math.max(1, w * 0.92 + dx);
+  const y0 = 0.02 * h + Math.random() * Math.max(1, h * 0.62 - dy);
+  sky.meteor = { t0: now, x0, y0, dx, dy };
   return sky.meteor;
 }
 
@@ -4276,13 +4283,14 @@ function skyDraw(){
          is a short rise and a long fall, which is what a real one does. */
       const e=1-(1-p)*(1-p);
       const hx=mt.x0+mt.dx*e, hy=mt.y0+mt.dy*e;
-      const tail=0.16+0.1*(1-p);
+      const tail=0.24+0.14*(1-p);
       const bx=mt.x0+mt.dx*Math.max(0,e-tail), by=mt.y0+mt.dy*Math.max(0,e-tail);
       const bright=Math.min(1,p/0.12)*(1-p)**1.6;
       if (bright>0.01){
         const g=ctx.createLinearGradient(bx,by,hx,hy);
         g.addColorStop(0,"rgba(220,230,242,0)");
-        g.addColorStop(1,"rgba(233,240,250,"+(0.9*bright).toFixed(3)+")");
+        g.addColorStop(0.55,"rgba(226,236,248,"+(0.34*bright).toFixed(3)+")");
+        g.addColorStop(1,"rgba(240,246,254,"+(0.98*bright).toFixed(3)+")");
         ctx.strokeStyle=g;
         ctx.lineWidth=1.4;
         ctx.beginPath(); ctx.moveTo(bx,by); ctx.lineTo(hx,hy); ctx.stroke();
