@@ -15,17 +15,21 @@
  *     project has shipped a black screen twice past checks that only read the
  *     DOM (atlas/STATE.md, "Traps that have already cost time").
  *
- *  3. THE FALLBACK, BY BREAKING IT. Corrupt the hash six ways — an unknown
+ *  3. THE FALLBACK, BY BREAKING IT. Corrupt the hash ten ways — an unknown
  *     value, a half-valid intersection, a wrong field, an unparseable escape,
- *     a stray path segment, and a selection that is valid but empty in this
- *     corpus — and confirm every one lands on the WHOLE atlas with a notice,
- *     never on an empty sky and never on a partial selection nobody asked for.
+ *     a stray path segment, a register named without its prefix, three keys
+ *     that are truthy on Object.prototype, and a selection that is valid but
+ *     empty in this corpus — and confirm every one lands on the WHOLE atlas
+ *     with a notice, never on an empty sky and never on a partial selection
+ *     nobody asked for.
  *
  *  4. THE HONESTY LINE. A baked stratum's address promises a byte-identical
  *     picture, so its readout says nothing extra. A live-solved intersection
  *     cannot promise that, so it must say so on the machine reading the link.
  *     Checked in both directions: present when solved, ABSENT when baked —
- *     a caveat printed everywhere is a caveat nobody reads.
+ *     a caveat printed everywhere is a caveat nobody reads — and in the
+ *     announcement as well as in the type, because type is not the whole
+ *     audience.
  *
  * Exits non-zero on any failure. */
 import { chromium } from "playwright";
@@ -66,6 +70,10 @@ const CANVAS_INK = `(() => {
    strings and a difference in the last bit is a difference here. The camera
    goes with them because "the same films in the same places, framed
    differently" is not the same picture arriving. */
+/* Reads only through __ATLAS_SKY__, which returns empty arrays before the sky
+   is built. A page that legitimately lands on the WALL must make this report a
+   failure, not throw — the first version reached into sky.wy directly and one
+   negative control crashed the probe instead of being measured by it. */
 const SNAPSHOT = `(() => {
   const A = window.__ATLAS_SKY__;
   const live = A.liveMask(), keys = A.keys(), pos = A.positions();
@@ -85,10 +93,12 @@ const SNAPSHOT = `(() => {
     members: members.slice().sort().join("\\u0000"),
     places: JSON.stringify(places),
     cam: JSON.stringify([sky.cam.cx, sky.cam.cy, sky.cam.k]),
-    yAt: (() => { const b = sky.wy; let h = 0; for (let i = 0; i < b.length; i++) h = (h * 31 + b[i]) % 1e12; return h; })(),
     strip: (document.getElementById("sky-stratum") || {}).textContent || "",
     stripHidden: !!(document.getElementById("sky-stratum") || {}).hidden,
     read: (document.getElementById("sky-read") || {}).textContent || "",
+    /* what a reader who is LISTENING is told. The caveat and the fallback are
+       both carried by type, and type is not the whole audience. */
+    sr: (document.getElementById("sr-status") || {}).textContent || "",
   };
 })()`;
 
@@ -197,11 +207,13 @@ for (const [what, r, wantSolved] of [["world", rWorld, false], ["stratum", rStra
   if (!r) continue;
   const strip = solvedSays.test(r.restored.strip);
   const read = caveat.test(r.restored.read);
+  const spoken = /solved in this page/i.test(r.restored.sr);
   if (r.restored.kind !== (wantSolved ? "solved" : "stratum"))
     fail(`${what} restored as kind="${r.restored.kind}", expected ${wantSolved ? "solved" : "stratum"}`);
   if (strip !== wantSolved) fail(`${what}: strip ${strip ? "claims" : "does not say"} "solved here" and it should${wantSolved ? "" : " not"}`);
   else if (read !== wantSolved) fail(`${what}: readout ${read ? "carries" : "omits"} the engine caveat and it should${wantSolved ? "" : " not"}`);
-  else pass(`${what.padEnd(12)} kind=${r.restored.kind}, caveat ${wantSolved ? "printed" : "absent"}`);
+  else if (spoken !== wantSolved) fail(`${what}: the announcement ${spoken ? "carries" : "omits"} the engine caveat and it should${wantSolved ? "" : " not"}`);
+  else pass(`${what.padEnd(12)} kind=${r.restored.kind}, caveat ${wantSolved ? "printed and spoken" : "absent from both"}`);
 }
 
 /* ── 2b · #/sky means the WHOLE atlas ─────────────────────────────────────
@@ -255,8 +267,8 @@ log("\ncanonical · one selection, one address, whatever order it was clicked");
   const a = await one(two);
   const b = await one([...two].reverse());
   await page.context().close();
-  a === b ? pass(`${two.join(" / ")} in both orders -> ${a}`)
-          : fail(`click order changed the address: ${a} vs ${b}`);
+  if (a === b) pass(`${two.join(" / ")} in both orders -> ${a}`);
+  else fail(`click order changed the address: ${a} vs ${b}`);
 }
 
 /* ── 4 · a passage inside a world does not eat the world's address ─────── */
@@ -311,11 +323,14 @@ for (const [what, hash] of corruptions) {
   if (s.stripHidden) problems.push("the strip is hidden, so nothing on screen names the dropped selection");
   if (!/not in this edition/i.test(s.strip)) problems.push("the strip does not say the link failed");
   if (!/no longer has/i.test(s.read)) problems.push("the readout does not explain the fallback");
+  /* skyFormSettled has already announced "the whole atlas, re-formed" by then,
+     which is true and is not the news — a listener would be told it worked. */
+  if (/re-formed/i.test(s.sr) || !/names a selection/i.test(s.sr))
+    problems.push(`the announcement does not say the link failed: "${s.sr.slice(0,60)}"`);
   if (ink.pct < 0.5) problems.push(`painted ${ink.pct}% ink`);
   for (const e of errors) problems.push("console: " + e);
-  problems.length
-    ? fail(`${what}  ${hash}\n          ` + problems.join("\n          "))
-    : pass(`${what}  ${hash} -> whole atlas, ${s.n} films, ink ${ink.pct}%, notice shown`);
+  if (problems.length) fail(`${what}  ${hash}\n          ` + problems.join("\n          "));
+  else pass(`${what}  ${hash} -> whole atlas, ${s.n} films, ink ${ink.pct}%, notice shown`);
 }
 
 /* ── 6 · the good addresses still work after a bad one, in the same page ── */

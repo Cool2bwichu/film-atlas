@@ -1,0 +1,38 @@
+import { chromium } from "playwright";
+import { pathToFileURL } from "node:url";
+import { mkdirSync } from "node:fs";
+const URL_ = pathToFileURL(process.env.ATLAS_HTML || "/home/user/film-atlas/public/atlas.html").href;
+const OUT = process.env.ATLAS_SHOTS || "/home/user/film-atlas/.atlas-shots";
+mkdirSync(OUT, { recursive: true });
+const b = await chromium.launch({ args: ["--disable-gpu", "--no-sandbox"] });
+for (const [w, h] of [[1440, 900], [900, 820], [390, 780]]) {
+  const ctx = await b.newContext({ viewport: { width: w, height: h }, reducedMotion: "no-preference" });
+  const page = await ctx.newPage();
+  await page.route("**/*", (r) => (r.request().resourceType() === "image" ? r.abort() : r.continue()));
+  await page.goto(URL_, { waitUntil: "load", timeout: 45000 });
+  await page.waitForFunction("typeof KEYS!=='undefined'&&KEYS.length>0", null, { timeout: 45000 });
+  const tag = `${w}x${h}`;
+  const key = await page.evaluate("KEYS.find(k=>(ADJ[k]||[]).length>=6)");
+  await page.evaluate(`location.hash="#/film/"+encodeURIComponent(${JSON.stringify(key)})`);
+  await page.waitForTimeout(1500);
+  await page.screenshot({ path: `${OUT}/s-map-arrival-${tag}.png` });
+  await page.evaluate("openPanel(state.centre)");
+  await page.waitForTimeout(700);
+  await page.screenshot({ path: `${OUT}/s-map-panel-${tag}.png` });
+  await page.evaluate("closePanel(false); location.hash='#/sky'");
+  await page.waitForFunction("sky.ready && sky.n>0", null, { timeout: 45000 });
+  await page.waitForTimeout(2600);
+  await page.screenshot({ path: `${OUT}/s-sky-open-${tag}.png` });
+  await page.click("#sky-fold");
+  await page.waitForTimeout(1100);
+  await page.screenshot({ path: `${OUT}/s-sky-folded-${tag}.png` });
+  await page.evaluate("skyWorldChoose(REG_IDS.find(i=>REG_DEFS[i].count>100)||REG_IDS[0])");
+  await page.waitForTimeout(2000);
+  await page.screenshot({ path: `${OUT}/s-sky-folded-world-${tag}.png` });
+  await page.click("#sky-fold");
+  await page.waitForTimeout(1100);
+  await page.screenshot({ path: `${OUT}/s-sky-open-world-${tag}.png` });
+  console.log(tag, "done");
+  await ctx.close();
+}
+await b.close();

@@ -364,6 +364,9 @@ main{flex:1;position:relative;overflow:hidden}
   transition:text-decoration-color var(--t-fast) var(--ease)}
 .node:hover .label .cue,.node:focus-visible .label .cue{
   text-decoration-color:var(--accent)}
+/* Set by layout() from the measured boxes, not by a media query — see the note
+   there. A stage with no vertical room left keeps its geometry. */
+.stage.cue-off .node .label .cue{display:none}
 .node.inspecting .inspect-mark{display:block}
 .node.inspecting .frame{
   outline-color:var(--nc,var(--accent));outline-offset:3px;
@@ -1887,6 +1890,33 @@ function layout(){
   const rx = Math.min(W/2 - ringW/2 - 18, 350);
   const ry = Math.min(H/2 - ringH/2 - 16, 268);
 
+  /* A FOURTH SCARCITY, AND IT IS THE CUE'S OWN.
+     "why it connects" is a line of type in the centre caption, and it is worth
+     its height only where the ellipse has height to spare. Measured across the
+     22 longest titles in the corpus at four viewports, captions landing on a
+     NEIGHBOURING cell went 16 -> 33 at 1024x660 and 1 -> 5 at 900x820 when it
+     was always printed: a 525px stage cannot separate a taller centre from its
+     ring, the clamp pins them, and they overlap — DESIGN.md's open question 3,
+     doubled. Shrinking the type did not move it (35 at 7.5px), because the
+     failure is the ellipse having no room at all rather than the line having
+     too much.
+     So it is decided from the MEASURED boxes: printed when the ring's own
+     radius clears both half-heights, dropped when it does not — and the centre
+     is RE-MEASURED after it is dropped, or the separation pass spends 19px of
+     clearance budgeting for type that is no longer on screen. Nothing is
+     unreachable when it goes: the poster still opens the sheet, every ring
+     cell still opens its own claim, and the centre's aria-label still ends
+     "Open film details." */
+  let centreH = centreNode ? HOF.get(centreNode) : 0;
+  const roomForCue = !!centreNode && ry >= centreH/2 + ringH/2 + 8;
+  stage.classList.toggle("cue-off", !roomForCue);
+  if (centreNode && !roomForCue){
+    centreNode.style.transitionProperty="none";
+    centreH = Math.max(centreNode.offsetHeight, cw*1.5+34);
+    centreNode.style.transitionProperty="";
+    HOF.set(centreNode, centreH);
+  }
+
   const P = nodes.map(n=>{
     const i=+n.dataset.i;
     if(i<0) return {n,i,x:cx,y:cy,w:centreW,pw:cw,h:HOF.get(n),fixed:true};
@@ -3082,6 +3112,12 @@ function skyStaleAddress(raw){
   skySyncHash();          /* the bar must describe what is actually on screen */
   skyStratumRender();
   skyReadout();
+  /* Said out loud too. skyFormSettled has already announced "the whole atlas,
+     re-formed" by the time this runs, which is true and is not the news: a
+     reader who is listening would otherwise be told the link worked. */
+  const sr=$("#sr-status");
+  if (sr) sr.textContent = `That link names a selection this edition of the atlas no longer has, `+
+    `so the whole atlas is here instead. ${sky.n} films.`;
 }
 
 /* ══ THE TREATMENT ════════════════════════════════════════════════════════
@@ -3785,9 +3821,16 @@ function skyFormSettled(){
   skyStratumRender();
   skyHand();
   const sel=skySelected();
+  /* THE CAVEAT IS SPOKEN AS WELL AS PRINTED. It is carried by the strip and by
+     the readout, both of which are looked at; a reader who is listening gets
+     this line and nothing else, so leaving the engine caveat out of it would
+     make the announcement the one place in the app that overstates. */
+  const solved = sky.formKind==="solved"
+    ? " No baked layout exists for this combination, so these places were solved in this page:"+
+      " who is here is exact, where each film sits is this browser's answer." : "";
   $("#sr-status").textContent = sel.length
     ? `Atlas re-formed for ${skySelectionLabel(sel)}. ${skyLiveCount()} of ${sky.n} films, `+
-      `each placed again using only the connections inside the selection.`
+      `each placed again using only the connections inside the selection.${solved}`
     : `The whole atlas, re-formed. ${sky.n} films.`;
 }
 

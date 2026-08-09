@@ -817,7 +817,7 @@ Verified in real Chromium (`.claude/skills/run-film-atlas/address-probe.mjs`):
 compose by clicking, read the address, cold-load it in a fresh page, and
 membership, every position and the camera compare identical for a register, a
 recorded stratum and a live-solved intersection alike; every restored sky was
-measured for ink. Seven corrupted addresses all land on the whole atlas with
+measured for ink. Ten corrupted addresses all land on the whole atlas with
 the notice shown.
 
 ## Deliberately avoided

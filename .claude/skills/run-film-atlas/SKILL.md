@@ -117,7 +117,7 @@ Routes are real addresses, and a selection is one of them: `#/sky/world:gothic`,
 reads the address the app wrote, cold-loads it in a fresh page and compares the
 two skies digit for digit — membership, every position, and the camera — for a
 register, a recorded stratum and a live-solved intersection. Then it corrupts
-the hash seven ways and confirms each one lands on the **whole** atlas with the
+the hash ten ways and confirms each one lands on the **whole** atlas with the
 notice shown, never on an empty sky and never on half a selection. It also
 checks the honesty line in both directions: a baked address carries no engine
 caveat, a solved one must.

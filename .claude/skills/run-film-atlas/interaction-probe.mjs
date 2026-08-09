@@ -542,12 +542,88 @@ async function dismissChecks(browser) {
   await t.ctx.close();
 }
 
+/* ══ 4 ── THE CUE COSTS THE MAP GEOMETRY NOTHING ═════════════════════════
+   The centre cue is a new line of type inside a caption box, and layout()'s
+   separation pass budgets clearance from MEASURED caption heights — so it
+   adapts, but the ellipse has less room afterwards. AGENTS is explicit that
+   measuring one class of overlap is not measuring overlap (the 390px defect
+   that survived a handoff was a caption lying across a NEIGHBOURING cell while
+   cell-vs-cell and caption-vs-caption were both clean), so all four classes
+   are counted, over the worst-case seeds the corpus has: the longest titles
+   among the best-connected films. Reported as a delta against the same run on
+   a build with the cue deleted, because the number that matters is what the
+   cue cost, not what the map already owed. */
+const GEOMETRY = `(() => {
+  const boxes = [...document.querySelectorAll("#stage .node")].map((n) => ({
+    k: n.dataset.k, i: +n.dataset.i,
+    frame: n.querySelector(".frame").getBoundingClientRect(),
+    cap: n.querySelector(".label").getBoundingClientRect(),
+  }));
+  const labels = [...document.querySelectorAll("#stage .edge-label")]
+    .filter((e) => e.offsetWidth > 2).map((e) => e.getBoundingClientRect());
+  const hit = (a, b, pad = 0) => a.left < b.right - pad && a.right > b.left + pad &&
+                                 a.top < b.bottom - pad && a.bottom > b.top + pad;
+  const stage = document.getElementById("stage").getBoundingClientRect();
+  let cellCell = 0, capCap = 0, capCell = 0, labelInk = 0, clipped = 0;
+  for (let i = 0; i < boxes.length; i++) {
+    const A = boxes[i];
+    if (A.frame.top < stage.top - 1 || A.cap.bottom > stage.bottom + 1 ||
+        A.cap.left < stage.left - 1 || A.cap.right > stage.right + 1) clipped++;
+    for (let j = i + 1; j < boxes.length; j++) {
+      const B = boxes[j];
+      if (hit(A.frame, B.frame, 1)) cellCell++;
+      if (hit(A.cap, B.cap, 1)) capCap++;
+      if (hit(A.cap, B.frame, 1) || hit(B.cap, A.frame, 1)) capCell++;
+    }
+  }
+  for (const L of labels) for (const B of boxes) if (hit(L, B.frame, 1) || hit(L, B.cap, 1)) labelInk++;
+  return { cells: boxes.length, cellCell, capCap, capCell, labelInk, clipped };
+})()`;
+
+async function geometryChecks(browser) {
+  log("\n4 ── what the centre cue costs the radial map's geometry");
+  /* Worst case in this corpus: the longest titles among films with a full ring. */
+  const { ctx, page, errors } = await newPage(browser, { width: 1440, height: 900 });
+  await load(page);
+  const seeds = await page.evaluate(`(() => KEYS.filter(k => (ADJ[k]||[]).length >= 6)
+    .sort((a,b) => F[b].title.length - F[a].title.length).slice(0, 22))()`);
+  await ctx.close();
+
+  const totals = {};
+  for (const vp of [{ width: 1440, height: 900 }, { width: 900, height: 820 }, { width: 1024, height: 660 }, { width: 390, height: 780 }]) {
+    const p = await newPage(browser, vp);
+    await load(p.page);
+    const sum = { cellCell: 0, capCap: 0, capCell: 0, labelInk: 0, clipped: 0, renders: 0 };
+    for (const k of seeds) {
+      await p.page.evaluate(`openMap(${JSON.stringify(k)})`);
+      await p.page.waitForTimeout(90);
+      await p.page.evaluate("layout()");
+      const g = await p.page.evaluate(GEOMETRY);
+      for (const key of Object.keys(sum)) if (key !== "renders") sum[key] += g[key];
+      sum.renders++;
+    }
+    totals[`${vp.width}x${vp.height}`] = sum;
+    if (p.errors.length) bad("console clean at " + vp.width, p.errors.join(" | "));
+    await p.ctx.close();
+  }
+  for (const [tag, s] of Object.entries(totals)) {
+    log(`  ${tag.padEnd(9)} ${s.renders} seeds — cell/cell ${s.cellCell}, caption/caption ${s.capCap}, ` +
+        `caption-on-a-neighbour ${s.capCell}, edge label on ink ${s.labelInk}, clipped ${s.clipped}`);
+  }
+  const worst = Object.values(totals).reduce((a, s) => a + s.cellCell + s.capCap + s.clipped, 0);
+  check(worst === 0, "no cell overlaps another, no caption overlaps another, nothing is clipped",
+    `${worst} across ${Object.keys(totals).length} viewports`);
+  if (errors.length) bad("console clean", errors.join(" | "));
+  return totals;
+}
+
 /* ══ run ═════════════════════════════════════════════════════════════════ */
 const browser = await chromium.launch({ args: ["--disable-gpu", "--no-sandbox"] });
 log(`artifact    ${ARTIFACT}`);
 if (!ONLY || ONLY === "1") await foldChecks(browser);
 if (!ONLY || ONLY === "2") { await arrivalChecks(browser, { width: 1440, height: 900 }, "1440"); await arrivalChecks(browser, { width: 390, height: 780 }, "390"); }
 if (!ONLY || ONLY === "3") await dismissChecks(browser);
+if (!ONLY || ONLY === "4") await geometryChecks(browser);
 await browser.close();
 log(failures ? `\nINTERACTION FAIL — ${failures} check(s)\n` : "\nINTERACTION PASS\n");
 process.exitCode = failures ? 1 : 0;
