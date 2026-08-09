@@ -309,7 +309,7 @@ const GUARDS = {
   measured: { after: /^\s*(against|by|in|from|out|through|the|his|her|its|their|critical|response|praise|plaudits|acclaim|reviews?|terms)\b/i },
   /* verb use: "actors haunting the corridors" */
   haunting: { before: /\bghost\s*$/i, after: /^\s*["'“‘]?(the|a|an|his|her|its|their|him|them|our|your)\b/i },
-  theatrical: { after: /^\s*(trailer|release|run|exhibition|distribution|version|cut)\b/i },
+  theatrical: { after: /^\s*(trailer|release|run|exhibition|distribution|version|cut|audience|reissue|re-release|showing)\b/i },
   deliberate: { requireAfter: /^\s*(pace|pacing|pac[ei]|rhythm|tempo|slowness|tread|speed|deliberateness)/i },
   tense: { before: /\b(past|present|future|verb)\s*$/i },
   abstract: { after: /^\s*(idea|notion|concept|principle|level|sense|term|question|thought|noun|the|to|it)\b/i },
@@ -319,28 +319,35 @@ const GUARDS = {
   spare: { before: /\bto\s*$/i, after: /^\s*(a|the|him|her|them|us|me|no|any|time|change|moment|thought|you)\b/i },
   circular: { after: /^\s*(saw|argument|reasoning|logic)/i },
   clinical: { after: /^\s*(trial|depression|psycholog|diagnos)/i },
-  severe: { after: /^\s*(injur|illness|weather|winter|case|drought|storm)/i },
+  severe: { after: /^\s*(injur|illness|weather|winter|case|drought|storm|criticism|punishment|penalt)/i },
   tender: { after: /^\s*(age|years|meat)/i },
   /* noun use: "a personal intimate" */
-  intimate: { before: /\bpersonal\s*$/i, after: /^\s*(knowledge|acquaintance|relations|relationship|partner|detail)/i },
+  intimate: { before: /\bpersonal\s*$/i, after: /^\s*(knowledge|acquaintance|relations|relationship|partner|detail|parts|areas|body)/i },
   saturated: { after: /^\s*(market|media)/i },
-  static: { after: /^\s*(electricity|noise|on the)/i },
+  static: { after: /^\s*(electricity|noise|on the|radio)/i },
   pastoral: { after: /^\s*(care|letter|visit)/i },
+  stark: { after: /^\s*contrast/i },
+  starkly: { after: /^\s*(contrast|literal)/i },
+  understatement: { before: /\ban\s*$/i },
+  sculptural: { after: /^\s*(exhibit|exhibition)/i },
+  brutal: { after: /^\s*(crackdown|repression|regime|war\b|occupation|dictatorship|suppression|massacre)/i },
+  hazy: { before: /\b(facts?|details?|memory|memories|recollections)\b[^.;]{0,40}$/i },
+  lyrical: { before: /\bwax(?:es|ed|ing)?\s*$/i },
 };
 
 /* Negation / distancing cues, scanned in the clause window before the term. */
 const NEG = /\b(not|never|no|nor|neither|hardly|scarcely|barely|without|less|least|lack|lacks|lacking|lacked|far from|anything but|rather than|instead of|refuse[sd]?|refusing|refusal|avoid(?:s|ed|ing)?|eschew(?:s|ed|ing)?|resist(?:s|ed|ing)?|reject(?:s|ed|ing)?|abandon(?:s|ed|ing)?|aspir(?:es?|ing|ation)|striv(?:es?|ing)|attempt(?:s|ed|ing)?|tries to|trying to|wants? to|wanted to|would-be|pseudo|quasi|faux|supposedly|allegedly|ostensibly)\b/i;
 const NEG_OK = /\b(not only|not just|not merely|not simply|no less|nothing if not|nothing short of)\b/i;
 /* œuvre-comparison cues: sentence predicates of the director's work at large */
-const OEUVRE = /\b(earlier|previous|later|subsequent|next|other|another|preceding|prior)\s+(films?|features?|works?|pictures?|movies?|efforts?)\b|\b(his|her|their|whose|the director[’']s?)\s+(work|works|films|movies|oeuvre|œuvre|filmography|career|body of work)\b/i;
+const OEUVRE = /\b(earlier|previous|later|subsequent|next|other|another|preceding|prior)\s+(films?|features?|works?|pictures?|movies?|efforts?)\b|\b(his|her|their|whose|the director[’']s?)\s+(work|works|films|movies|oeuvre|œuvre|filmography|career|adaptations?|body of work)\b|\b(?:better|best|lesser|less|least|most)[- ]known\s+(?:films?|works?|movies?)\b/i;
 /* comparative frame: the predication may belong to the other side of it */
 const COMPARATIVE = /\b(unlike|as opposed to|in contrast (?:to|with)|by contrast with|whereas|compared (?:to|with)|in comparison (?:to|with))\b/i;
 /* generic register: claims about films/directors at large, or received ideas */
-const GENERIC = /\bfilms that\b|\btends? to be\b|\bmany (?:directors|filmmakers|films|movies)\b|\bso-called\b|\bare often\b|\bis often (?:depicted|described|seen|said)\b/i;
+const GENERIC = /\bfilms that\b|\btends? to be\b|\bmany (?:directors|filmmakers|films|movies)\b|\bso-called\b|\bare often\b|\bis often (?:depicted|described|seen|said)\b|\bthe novel\b|\bexpect(?:ing|s)?\b[^.;]*\bdisappoint|\bI (?:had|was|did|am|have|will|would|could)\b/i;
 /* citation / theory register: the sentence reports someone else's general
    claim, or talks about cinema/art in the abstract, not this film */
-const CITATION = /\b(argu(?:es|ed|ing)|according to|et al|as \w+ (?:says|writes|notes|puts|argues|observes)|(?:s?he|they) (?:argues|writes|says|notes|claims|suggests)|identifi(?:es|ed)|characteris(?:es|ed)|characteriz(?:es|ed)|defin(?:es|ed|ition)|observ(?:es|ed) that|suggest(?:s|ed) that|claim(?:s|ed) that|writes that|notes that|puts it)\b/i;
-const THEORY = /\b(modernis[mt]|postmodernis\w*|meta-?textual\w*|representation|signifiers?|signifieds?|discourse|dialectic\w*|paradigm|ontolog\w*|epistemolog\w*|phenomenolog\w*|spectatorship|a work of art|this model|theor(?:y|ies|ist|ists|etical))\b/i;
+const CITATION = /\b(argu(?:es|ed|ing)|according to|et al|as [A-Z]\w+(?: [A-Z]\w+)? (?:has |have )?(?:says?|said|writes?|wrote|notes?|noted|puts?|argues?|argued|observes?|observed)|for [A-Z][\w’']+,\s|(?:s?he|they) (?:argues|writes|says|notes|claims|suggests)|identifi(?:es|ed)|characteris(?:es|ed)|characteriz(?:es|ed)|defin(?:es|ed|ition)|observ(?:es|ed) that|suggest(?:s|ed) that|claim(?:s|ed) that|writes that|notes that|puts it)\b/i;
+const THEORY = /\b(modernis[mt]|postmodernis\w*|meta-?textual\w*|representation|signifiers?|signifieds?|discourse|dialectic\w*|paradigm|ontolog\w*|epistemolog\w*|phenomenolog\w*|spectatorship|spectators?|a work of art|watching a (?:movie|film)|this model|theor(?:y|ies|ist|ists|etical))\b/i;
 /* another author's work invoked possessively: "McElwee's sonorous voice" */
 const POSSESSIVE_WORK = /\b([A-ZÀ-Þ][a-zà-ÿ’'-]+)[’']s\s+(work|films|movies|works|oeuvre|œuvre|filmography|career|cinema|voice|style|approach|aesthetics?|camera|documentaries|narration|body of work)\b/g;
 const OEUVRE_NOUN = /^(work|films|movies|works|oeuvre|œuvre|filmography|career|body of work)$/i;
@@ -529,6 +536,8 @@ for (const key of surface) {
 
     for (const sent of sentences(markedText(html))) {
       if (sent.length < 40 || sent.length > 700) continue;
+      /* unpunctuated lines are verse quotations, captions, list items */
+      if (!/[.!?\u2026]["\u201d\u2019)]?\s*$/.test(sent)) continue;
       if (/\?["\u201d)]?\s*$/.test(sent)) { dropStats.question++; continue; }
 
       const plain = sent.replace(/[\x01\x02]/g, "");
