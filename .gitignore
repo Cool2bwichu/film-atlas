@@ -80,3 +80,6 @@ __pycache__/
 # Local linked worktrees used to isolate reviewed feature work from active
 # pipeline outputs in the main checkout.
 /.worktrees/
+
+# Screenshots from .claude/skills/run-film-atlas/driver.mjs
+/.atlas-shots/
