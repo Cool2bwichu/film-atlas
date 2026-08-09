@@ -2842,11 +2842,16 @@ function skyStratumRender(){
      second button in the readout was 50px of a 575px field. */
   const out=`<button type="button" class="sky-stratum-x" aria-label="Show the whole atlas again">&times;</button>`;
   box.hidden=false;
+  const live=skyLiveCount();
   box.innerHTML = sky.formPending
     ? `<span>re-forming</span><b>${esc(label)}</b>`+
       `<span class="n">solving ${sky.formPending} films…</span>`
+    /* An empty sky has not been re-formed into anything, and saying it has
+       would be the interface describing a picture that is not there. */
+    : !live
+    ? `<span>no films</span><b>${esc(label)}</b><span class="n">0 / ${sky.n}</span>${out}`
     : `<span>re-formed</span><b>${esc(label)}</b>`+
-      `<span class="n">${skyLiveCount()} / ${sky.n}</span>${out}`;
+      `<span class="n">${live} / ${sky.n}</span>${out}`;
   const x=box.querySelector(".sky-stratum-x");
   if (x) x.onclick=skyClearFacets;
 }
@@ -3033,6 +3038,31 @@ function skyEdgeBetween(a,b){
     if (s>bestS){ bestS=s; best=E[sky.eSrc[id]]; }
   }
   return best;
+}
+
+/* HOW MANY OF A FILM'S CONNECTIONS ARE ACTUALLY IN THIS SKY.
+   ADJ[key].length is its degree in the whole corpus, and printing that under a
+   re-formed atlas is a small lie with a large effect: John Carpenter's
+   Vampires reads "20 connections" while one line is drawn, because the other
+   nineteen go to films the selection flew out. The readout says both numbers
+   when they differ, and neither is a ranking — it is a statement about what is
+   on screen. */
+function skyLiveDegree(key){
+  const i=sky.at[key];
+  if (i===undefined) return 0;
+  const seen=new Set();
+  for (const id of sky.inc[i]){
+    const j = sky.ea[id]===i ? sky.eb[id] : sky.ea[id];
+    if (sky.live[j]) seen.add(j);
+  }
+  return seen.size;
+}
+/* Reads "20 connections" on the whole atlas and "1 of 20 connections here"
+   once the atlas has been re-formed under a selection. */
+function skyDegreeLine(key){
+  const all=ADJ[key].length;
+  if (!skyFilterOn()) return `${all} connection${all===1?"":"s"}`;
+  return `${skyLiveDegree(key)} of ${all} connections here`;
 }
 
 /* Which films the anchor holds open. Same ranking the labels use, so the ring
@@ -3761,7 +3791,7 @@ function skyReadout(){
     const reading = e && isLowConfidence(e);
     box.innerHTML=`<span class="slate">connected to ${esc(F[anchor].title)}</span>
       <span class="t">${esc(f.title)}</span>
-      <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${ADJ[key].length} connections</span>
+      <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${skyDegreeLine(key)}</span>
       ${e?`<div class="sky-why" style="--wc:${EDGE_META[e.type].color}">
         <span class="rel">${esc(rel)}${reading?` · <i>reading, not record</i>`:""}</span>
         <span class="claim">${esc(e.claim)}</span>
@@ -3825,7 +3855,7 @@ function skyReadout(){
   const held = anchor===key;
   box.innerHTML=`<span class="slate">${held?"holding":"in hand"}</span>
     <span class="t">${esc(f.title)}</span>
-    <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${ADJ[key].length} connections</span>
+    <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${skyDegreeLine(key)}</span>
     ${held?`<span class="y sky-hint">Its connections are held open — pick one to see why they are joined.</span>`:""}
     ${(pinned||held)?`<button class="btn" id="sky-open" type="button">Open its map</button>`:""}
     ${held?`<button class="btn ghost" id="sky-release" type="button">Release</button>`:""}`;
@@ -3889,7 +3919,7 @@ function skyPinKey(key){
   sky.pinKey=key;
   skyHand();
   if (key!=null && F[key]){
-    $("#sr-status").textContent=`${F[key].title}${F[key].year?", "+F[key].year:""}. ${ADJ[key].length} connections. Press Enter to open its map.`;
+    $("#sr-status").textContent=`${F[key].title}${F[key].year?", "+F[key].year:""}. ${skyDegreeLine(key)}. Press Enter to open its map.`;
   }
 }
 
