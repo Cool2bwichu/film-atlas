@@ -28,6 +28,15 @@
  * films[k].enwiki, the English Wikipedia article title, taken from the sitelink
  * in the same query. enrich.js uses it to fetch posters without having to ask
  * Wikidata a second time.
+ *
+ * THREE FIELDS ONLY THIS PATH PRODUCES. `enwiki`, `runtime`/`runtimeCuts`
+ * (P2047) and `colour` (P462) are absent from a harvest.js-produced file. The
+ * "byte-compatible" promise above is about the SHAPE consumers read — films,
+ * labels, placeTypes — not about every key inside a film. Anything downstream
+ * that reads these must treat them as optional: `runtime` is null when Wikidata
+ * has no usable duration, and `colour` is [] when it records no P462. Do not
+ * write a consumer that assumes they are always there, because the REST
+ * fallback exists precisely for the runs where the endpoint is unreachable.
  */
 
 const fs = require("fs");
@@ -443,6 +452,96 @@ SELECT ?f ?v ?vLabel WHERE {
   return rows;
 }
 
+/* --------------------------------------------------------------- duration
+ *
+ * P2047 does not go through fetchProp, and the reason is not tidiness — it is
+ * that fetchProp reads `wdt:` and would produce a WRONG NUMBER rather than a
+ * missing one.
+ *
+ * A quantity statement carries an amount and a unit, and `wdt:P2047` exposes
+ * only the amount. Measured against live WDQS on 2026-08-09 over every
+ * Q11424, the units actually in use are:
+ *
+ *     Q7727  minute  161,134     Q199    "1" (unitless)  24
+ *     Q11574 second    1,049     Q11573  metre            3
+ *     Q25235 hour        149     six other singletons
+ *
+ * So roughly 1,200 statements are NOT in minutes. Reading the bare amount
+ * turns a 90-minute film recorded in seconds into 5,400 and a 2-hour film
+ * recorded in hours into 2 — errors of 60x in both directions, silently, on
+ * the exact tail (shorts, silents, hand-entered items) this corpus is full of.
+ * Q11573 is worse than a unit error: it is film LENGTH IN METRES entered
+ * against the duration property, a different physical quantity wearing the
+ * same field.
+ *
+ * Unitless (Q199) is dropped rather than assumed to be minutes. Twenty-four
+ * statements is small enough to guess at and that is exactly why it should not
+ * be: a guess here is indistinguishable in the output from a record, which is
+ * the AGENTS rule 8 line. A dropped value reads as "Wikidata does not say";
+ * a guessed one reads as a fact.
+ */
+const DURATION_UNITS = { Q7727: 1, Q11574: 1 / 60, Q25235: 60 };
+
+/* Lower median of the distinct minute values, not the mean and not the first.
+   A film with several duration statements has several CUTS — theatrical,
+   director's, a restoration, a 16-vs-24fps silent transfer — and averaging
+   them produces a runtime no print has ever had. The lower median lands on the
+   theatrical figure for the common two-statement case (139 / 170 -> 139) and
+   resists a single outlying restoration when there are three or more.
+   `cuts` ships beside it so the collapse is visible: a reader who needs to
+   know that this film's runtime is contested can see it in the record instead
+   of trusting a scalar that hides it. */
+function pickRuntime(minutes) {
+  const distinct = [...new Set(minutes.map((m) => Math.round(m)))].sort((a, b) => a - b);
+  if (!distinct.length) return { value: null, cuts: 0 };
+  return { value: distinct[Math.floor((distinct.length - 1) / 2)], cuts: distinct.length };
+}
+
+/* Statement-level rather than truthy, because rank has to be read: a
+   deprecated duration is usually a value an editor has explicitly marked
+   WRONG, and `wdt:` would hide that decision by simply not returning it in
+   some cases and returning it in others. Preferred wins outright where an
+   editor has nominated a canonical runtime; otherwise every non-deprecated
+   statement counts and pickRuntime decides. */
+async function fetchDuration(qids, stats) {
+  const byFilm = {};
+  const groups = chunks(qids, CHUNK);
+  let i = 0;
+  for (const g of groups) {
+    const values = g.map((q) => "wd:" + q).join(" ");
+    const q = `
+SELECT ?f ?v ?unit ?rank WHERE {
+  VALUES ?f { ${values} }
+  ?f p:P2047 ?st .
+  ?st psv:P2047 ?node .
+  ?node wikibase:quantityAmount ?v .
+  ?node wikibase:quantityUnit ?unit .
+  ?st wikibase:rank ?rank .
+}`;
+    const rows = await sparql("duration_" + i, q);
+    i++;
+    for (const r of rows || []) {
+      const f = qid(cell(r, "f"));
+      const rank = cell(r, "rank") || "";
+      if (/DeprecatedRank$/.test(rank)) { stats.deprecated++; continue; }
+      const unit = qid(cell(r, "unit"));
+      const factor = DURATION_UNITS[unit];
+      if (!factor) { stats.badUnit++; continue; }
+      const amount = parseFloat(cell(r, "v"));
+      /* Non-positive and non-finite amounts are corrupt, not short. */
+      if (!Number.isFinite(amount) || amount <= 0) { stats.badAmount++; continue; }
+      const rec = byFilm[f] = byFilm[f] || { preferred: [], normal: [] };
+      rec[/PreferredRank$/.test(rank) ? "preferred" : "normal"].push(amount * factor);
+    }
+  }
+  const out = {};
+  for (const f of Object.keys(byFilm)) {
+    const rec = byFilm[f];
+    out[f] = pickRuntime(rec.preferred.length ? rec.preferred : rec.normal);
+  }
+  return out;
+}
+
 async function main() {
   const seeds = parseSeeds(fs.readFileSync(process.argv[2] || path.join(__dirname, "seeds.txt"), "utf8"));
   console.log("seeds: " + seeds.length);
@@ -550,8 +649,9 @@ async function main() {
       title: r.label, year: r.year, qid: r.qid, director: "",
       shadow: pal.shadow, highlight: pal.highlight, paletteSource: "era",
       enwiki: r.article || null,
+      runtime: null, runtimeCuts: 0,
       crew: {}, genre: [], movementDirect: [], movementInherited: [], movement: [], setting: [], subject: [], cast: [],
-      studio: [], country: [], basedOn: [], sourceAuthors: [],
+      studio: [], country: [], basedOn: [], sourceAuthors: [], colour: [],
     };
   }
   const byQid = {};
@@ -563,6 +663,17 @@ async function main() {
     ["genre", "P136", "flat"], ["movement", "P135", "flat"], ["setting", "P840", "flat"],
     ["subject", "P921", "flat"], ["cast", "P161", "flat"], ["studio", "P272", "flat"],
     ["country", "P495", "flat"], ["basedOn", "P144", "flat"], ["inspiredBy", "P941", "flat"],
+    /* P462 is a RECORD about the print — Q838368 black-and-white, Q22006653
+       colour — and it is the field the `silver-print` register should rest on.
+       It currently rests on the TMDB keyword "black and white", which is a
+       third-party editorial tag on a film's page, not a property of the
+       photography. The poster palette cannot substitute: a source audit
+       measured minimum highlight chroma 23.8 across 2,008 films, so no
+       achromatic highlight exists in this corpus at all, and monochrome films
+       carry slightly HIGHER median poster saturation (0.601 vs 0.568) because
+       a one-sheet for a black-and-white film is routinely printed in colour.
+       The poster is marketing; P462 is the print. */
+    ["colour", "P462", "flat"],
   ];
 
   for (const [name, prop, kind] of PROPS) {
@@ -587,6 +698,27 @@ async function main() {
   }
 
   for (const f of Object.values(films)) f.cast = f.cast.slice(0, 12);
+
+  /* ---- runtime ---- */
+  const durStats = { deprecated: 0, badUnit: 0, badAmount: 0 };
+  const durations = await fetchDuration(qids, durStats);
+  let withRuntime = 0, contested = 0;
+  for (const k of keys) {
+    const d = durations[resolved[k].qid];
+    if (!d || d.value == null) continue;
+    films[k].runtime = d.value;
+    films[k].runtimeCuts = d.cuts;
+    withRuntime++;
+    if (d.cuts > 1) contested++;
+  }
+  console.log("  " + "runtime".padEnd(15) + withRuntime + " films (" + contested + " with more than one recorded cut)");
+  /* Rejections are printed, never folded into "no duration". A film with a
+     metre-valued P2047 is not a film Wikidata is silent about, and the two
+     have to stay tellable apart if anyone later asks why coverage is short. */
+  if (durStats.deprecated || durStats.badUnit || durStats.badAmount) {
+    console.log("  " + "".padEnd(15) + "rejected: " + durStats.deprecated + " deprecated, "
+      + durStats.badUnit + " unusable unit, " + durStats.badAmount + " non-positive amount");
+  }
 
   /* ---- authors of the works films adapt ---- */
   const works = [...new Set(Object.values(films).flatMap((f) => f.basedOn))];
@@ -658,4 +790,12 @@ async function main() {
   console.log("\nDONE -- wrote pipeline/out/harvest.json");
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+/* Exported so a measurement of a harvested field runs the SAME fetcher the
+   harvest runs, against the same .cache-sparql/ keys — the reason plot-source.js
+   exports runGate1 to axis-gates.js. A field measured by a second copy of the
+   query is a field whose coverage number can disagree with the corpus. */
+module.exports = { fetchProp, fetchDuration, pickRuntime, sparql, DURATION_UNITS, CHUNK };
+
+if (require.main === module) {
+  main().catch((e) => { console.error(e); process.exit(1); });
+}
