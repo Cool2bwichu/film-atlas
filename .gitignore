@@ -99,3 +99,4 @@ __pycache__/
 /.judge/
 /.atlas-films/
 /.atlas-films-snap/
+/atlas/pipeline/out/fingerprints.shard-*.json

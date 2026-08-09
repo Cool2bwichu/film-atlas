@@ -1147,8 +1147,12 @@ main{flex:1;position:relative;overflow:hidden}
     <section class="view" id="sky" aria-label="Constellation of the whole atlas"
       aria-hidden="true" inert>
       <div class="sky-field" id="sky-field">
+        <!-- THE LAMP, behind the print. Pinned to the frame, never to a film. -->
+        <div class="sky-gate" id="sky-gate" aria-hidden="true"></div>
         <canvas id="sky-c" tabindex="0" role="application" aria-describedby="sky-help"
           aria-label="Constellation. Arrow keys step between films, Enter opens the selected film's map, plus and minus zoom, zero refits the whole atlas."></canvas>
+        <!-- THE GRAIN, in print space. Under the labels; see AGENTS rule 4. -->
+        <div class="sky-grain" id="sky-grain" aria-hidden="true"></div>
         <div class="sky-labels" id="sky-labels" aria-hidden="true"></div>
         <!-- The canvas's description lives here rather than inside #sky-read,
              which the readout rebuilds on every hover: an aria-describedby
@@ -1704,6 +1708,48 @@ function recommend(limit){
    Reads and writes are guarded so privacy modes and strict embeds still work.
    ═══════════════════════════════════════════════════════════════════════ */
 const STORAGE_KEY="atlas-preferences-v1";
+/* ══ THE STORE KEYS ON filmId, NOT ON THE SLUG ════════════════════════════
+   A corpus key is a slug and slugs mutate between releases: `earth` once meant
+   a 1930 Macedonian short and now resolves to Dovzhenko. Measured against the
+   frozen 803-film cohort, 802 of 803 stored keys still resolve and exactly one
+   is SILENTLY RETARGETED — the reader's record of one film quietly becomes a
+   record of a different film. `filmId` is present and distinct on 2,204 of
+   2,204 and discovery.json's keyByFilmId agrees on all 2,204, so it is the
+   stable name and it is the one the store now uses.
+
+   The migration is one-way and it reports what it drops. Silent loss of a
+   personal record is not acceptable in a feature whose entire subject is that
+   record, so a v1 store is read as slugs, anything that no longer resolves is
+   COUNTED, and the count is available to the interface rather than swallowed.
+   Nothing is invented to replace it: a name this edition cannot resolve is a
+   film the reader will have to mark again, and saying so is the whole of the
+   honest answer. */
+const PREF_VERSION=2;
+const PREF_BY_ID = (typeof DISCOVERY==="object" && DISCOVERY && DISCOVERY.keyByFilmId) ? DISCOVERY.keyByFilmId : null;
+const prefLoss={seen:0,loved:0,from:0};
+/* hasOwnProperty on BOTH maps, never a truthy index. F and keyByFilmId are
+   plain parsed objects that inherit Object.prototype, so a stored name of
+   "constructor" indexes to the Object function — truthy, therefore accepted by
+   a `F[k]` test — and lands in state.seen, where recommend()'s
+   `for (const i of ADJ[L]||[])` iterates a function and throws before the wall
+   paints. That is the blank page STATE.md records as never diagnosed; it is
+   why this file has a negative control for it. */
+function prefResolve(list,version){
+  const out=[];
+  let lost=0;
+  if (!Array.isArray(list)) return {keys:out,lost};
+  for (const raw of list){
+    if (typeof raw!=="string"){ lost++; continue; }
+    let key=null;
+    if (version>=2){
+      if (PREF_BY_ID && Object.prototype.hasOwnProperty.call(PREF_BY_ID,raw)) key=PREF_BY_ID[raw];
+    } else if (Object.prototype.hasOwnProperty.call(F,raw)) key=raw;
+    if (key!=null && typeof key==="string" && Object.prototype.hasOwnProperty.call(F,key)) out.push(key);
+    else lost++;
+  }
+  return {keys:out,lost};
+}
+const prefName = key => (F[key] && F[key].filmId) || key;
 function readPreferences(){
   try{
     const raw=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null")||{};
@@ -1722,8 +1768,15 @@ function readPreferences(){
          is robustness rather than an attack path -- but Latent Image is about
          to read and write this same store with more fields, and skyBuild
          already defends itself with Object.create(null) at its own index. */
-      seen:Array.isArray(raw.seen)?raw.seen.filter(k=>Object.prototype.hasOwnProperty.call(F,k)):[],
-      loved:Array.isArray(raw.loved)?raw.loved.filter(k=>Object.prototype.hasOwnProperty.call(F,k)):[],
+      ...(()=>{
+        /* An unrecognised version is read as v1, because v1 is the only thing
+           that was ever written before this edit and guessing forward would
+           invent a record. A number that is not 2 is not a v2 store. */
+        const v = raw.v===PREF_VERSION ? PREF_VERSION : 1;
+        const s=prefResolve(raw.seen,v), l=prefResolve(raw.loved,v);
+        prefLoss.seen=s.lost; prefLoss.loved=l.lost; prefLoss.from=v;
+        return { seen:s.keys, loved:l.keys };
+      })(),
       filter:["all","silent","golden","new","modern","now"].includes(raw.filter)?raw.filter:"all",
       /* `===true`, not a truthy read, for the same reason the two arrays above
          are filtered through hasOwnProperty: this object came out of a store a
@@ -1754,13 +1807,128 @@ const radialSnapshotOptions={
   filmExists:(key)=>Boolean(F[key]),
 };
 
+/* EVERY FIELD READ IN readPreferences() MUST BE WRITTEN HERE, IN THE SAME
+   EDIT. This function is the whole of the store: it does not merge, it
+   replaces, so a preference that is read and not written is destroyed by the
+   first toggle of any other preference. It writes five keys today — seen,
+   loved, filter, skyFolded and the schema version — and the version is what
+   lets the next edition know whether `seen` is a list of slugs or of film ids
+   without having to guess from the contents. */
 function persistPreferences(){
   try{
     localStorage.setItem(STORAGE_KEY,JSON.stringify({
-      seen:[...state.seen],loved:[...state.loved],filter:state.filter,
+      v:PREF_VERSION,
+      seen:[...state.seen].map(prefName),loved:[...state.loved].map(prefName),filter:state.filter,
       skyFolded:state.skyFolded===true,
     }));
   }catch(_error){}
+}
+
+/* ══ MARKING, AND THE DEVELOP ═════════════════════════════════════════════
+   ONE FUNCTION, BECAUSE THERE ARE NOW FOUR WAYS IN. Until this edit the whole
+   feature was fed by two buttons that exist only inside the detail panel, with
+   no keyboard path and no way to mark from the wall or from the constellation.
+   A map of your viewing life fed through that funnel stays empty for ever, and
+   an empty personal atlas is not a design decision, it is a dead feature.
+
+   A MARK IS A PICTURE CHANGE, SO IT IS ONE SETTLE AND NOT A CLOCK. It
+   invalidates the plate, the integration buffer, the strip miniatures and
+   whichever view is on screen, then runs a single bounded transition. Nothing
+   here schedules a repeating repaint; at rest the atlas costs zero.
+
+   Marking is device-local and always will be. There is no account, no sync and
+   no server in this file — "a trail is a particular night, not a profile", and
+   a plate somebody else can read is not your print. */
+const DEVELOP_MS=1600, DEVELOP_INDUCTION=0.0875;   /* 140ms of 1600 */
+function developEase(x){
+  /* --ease-develop, cubic-bezier(.48,.02,.26,1): a long slow induction, a
+     sharp rise through the mid-tones, a weighted settle. Solved the same way
+     skyEase solves the camera curve rather than eyeballed, because a print
+     coming up and a camera move must not read as the same gesture. */
+  let t=x;
+  for (let i=0;i<6;i++){
+    const u=1-t;
+    const dx=3*u*u*0.48+6*u*t*(0.26-0.48)+3*t*t*(1-0.26);
+    const err=skyBez(t,0.48,0.26)-x;
+    if (Math.abs(err)<1e-5) break;
+    t=Math.min(1,Math.max(0,t-err/(dx||1e-6)));
+  }
+  return skyBez(t,0.02,1);
+}
+function markFilm(key,which,force){
+  if (!Object.prototype.hasOwnProperty.call(F,key)) return false;
+  const set = which==="loved" ? state.loved : state.seen;
+  const want = force===undefined ? !set.has(key) : !!force;
+  const wasDeveloped = state.seen.has(key)||state.loved.has(key);
+  if (want){
+    set.add(key);
+    /* Loving a film you have not marked seen is still a film you have seen.
+       The panel already did this; every other door has to agree with it. */
+    if (which==="loved") state.seen.add(key);
+  } else {
+    set.delete(key);
+    if (which==="seen") state.loved.delete(key);
+  }
+  const isDeveloped = state.seen.has(key)||state.loved.has(key);
+  persistPreferences();
+  developFilm(key, wasDeveloped, isDeveloped);
+  const n=$("#loved-n"); if (n) n.textContent=state.loved.size;
+  skyMiniInvalidate();
+  if (state.view==="wall") renderWall();
+  else if (state.view==="map") renderMap();
+  return true;
+}
+/* THE PRINT COMES UP. 1,600ms, chroma the only animating quantity, and 140ms
+   of induction at the head where nothing happens at all — a print does not
+   switch on. Un-marking is not the same gesture in reverse: it is a
+   correction, so it arrives.
+
+   The transition runs ONLY while the constellation is the view on screen. A
+   1,600ms animation of a canvas nobody is looking at is 96 frames spent on
+   nothing, and the state it would have reached is reached instantly instead. */
+function developFilm(key,was,now){
+  if (!sky.ready) return;
+  if (now===was || state.view!=="sky" || sky.at[key]===undefined){
+    sky.devKey=null; skyTone(); if (state.view==="sky") skyRender();
+    return;
+  }
+  if (!now || skyReduced()){
+    /* prefers-reduced-motion keeps the develop but at --t-mid with the
+       induction dropped. Argued exception, and narrow: this transition
+       contains no translation, no scale and no parallax — the setting protects
+       against vestibular motion and a colour arriving is not that. Anything
+       future that MOVES is dropped entirely rather than shortened. */
+    if (!now){ sky.devKey=null; skyTone(); skyRender(); return; }
+    sky.devKey=key; sky.devT=0; sky.devT0=performance.now(); sky.devMs=340;
+  } else {
+    sky.devKey=key; sky.devT=0; sky.devT0=performance.now(); sky.devMs=DEVELOP_MS;
+  }
+  skyTone();
+  skyRender();
+}
+/* Stepped from skyFrame, which is the app's one clock. Returns true while the
+   print is still coming up, which is what keeps the frame loop alive for
+   exactly as long as the gesture lasts and not one frame longer. */
+function developStep(now){
+  const key=sky.devKey;
+  if (key==null) return false;
+  const raw=Math.min(1,(now-sky.devT0)/Math.max(1,sky.devMs));
+  const ind=sky.devMs>400?DEVELOP_INDUCTION:0;
+  sky.devT = raw<=ind ? 0 : developEase((raw-ind)/(1-ind));
+  const i=sky.at[key];
+  if (i!==undefined){
+    sky.tone[i]=develop(sky.fill[i],sky.devT);
+    sky.glow[i]=skyHaloCss(sky.fill[i],sky.devT);
+    /* THE DIRTY RECT. Redrawing 2,204 additive sprites 96 times for one film
+       changing colour is the one place this architecture could have got
+       expensive, and it is also unnecessary: development is LOCAL. Only the
+       kernel around the film that is coming up has changed, so only that
+       square of the integration buffer is cleared and re-integrated. */
+    const px=sky.sx[i], py=sky.sy[i], pad=SKY_HALO_KERNEL*1.6;
+    sky.devRect={ x:px-pad, y:py-pad, w:pad*2, h:pad*2 };
+  }
+  if (raw>=1){ sky.devKey=null; sky.devT=1; skyTone(); sky.devRect=null; return false; }
+  return true;
 }
 
 const $ = s => document.querySelector(s);
@@ -2722,7 +2890,7 @@ const sky = {
      "your print of the same negative" is one array, not a second picture.
      `devKey`/`devT` are the single film mid-develop; `halo` is the chroma-only
      integration buffer and `haloDirty` invalidates it. */
-  tone:null, devKey:null, devT:1, devT0:0, devMs:0, devRect:null,
+  tone:null, glow:null, devKey:null, devT:1, devT0:0, devMs:0, devRect:null,
   halo:null, haloCtx:null, haloDirty:true, haloK:0, haloScale:0.24,
   gate:null,
   ea:null, eb:null, eBucket:null, eStrength:null, eOrder:null, eN:0, inc:null,
@@ -3733,8 +3901,9 @@ function skyDevOf(key){
 function skyTone(){
   if (!sky.n || !sky.tone) return;
   for (let i=0;i<sky.n;i++){
-    const k=sky.keys[i];
-    sky.tone[i]=develop(sky.fill[i], skyDevOf(k));
+    const t=skyDevOf(sky.keys[i]);
+    sky.tone[i]=develop(sky.fill[i], t);
+    sky.glow[i]=skyHaloCss(sky.fill[i], t);
   }
   sky.haloDirty=true;
 }
@@ -4826,7 +4995,7 @@ function skyBuild(){
 
   Object.assign(sky,{
     ready:true, n, keys, at, wx, wy, fill,
-    tone:fill.slice(),
+    tone:fill.slice(), glow:new Array(n).fill("0,0,0"),
     homeX:Float64Array.from(wx), homeY:Float64Array.from(wy),
     live:new Uint8Array(n).fill(1), alpha:new Float32Array(n).fill(1),
     ea:Int32Array.from(ea), eb:Int32Array.from(eb),
@@ -4868,6 +5037,200 @@ function skyResize(){
   sky.chrome=null;
   sky.cam.k=skyClampK(sky.cam.k);
   skyClampC(sky.cam);
+  sky.haloDirty=true;
+  skyGateApply();
+}
+
+/* ══ THE APERTURE ═════════════════════════════════════════════════════════
+   1.37 Academy, inscribed in the band the camera already fits to. The band is
+   what skySafeBand() already computes — the rectangle left over once the
+   readout, the zoom controls, the standing notice and the worlds strip have
+   taken theirs — so THE CHROME IS OUTSIDE THE APERTURE BY CONSTRUCTION rather
+   than by a second set of numbers that could disagree with the first.
+
+   The aspect is clamped to [0.82, 1.37] and the largest rectangle of that
+   aspect is fitted inside the band. On a desktop the band is wide, so the gate
+   is 1.37 and stands well inside the frame; on a phone the band is taller than
+   it is wide and the gate goes to 0.82 and hugs the edges. In both cases
+   min(gate.w, gate.h) === min(canvas.w, band.h), which is the quantity
+   skyFitK() already uses — SO THE APERTURE MOVES NO FILM AND CHANGES NO
+   CAMERA. It is the edge of the light, not a crop of the atlas. Verified in
+   the build gate rather than asserted here. */
+const SKY_ACADEMY=1.37, SKY_ACADEMY_PORTRAIT=0.82;
+function skyGate(){
+  const w=sky.w||1, h=sky.h||1;
+  const b=skySafeBand();
+  const bh=Math.max(140,b.bot-b.top), cy=(b.top+b.bot)/2;
+  const aspect=Math.max(SKY_ACADEMY_PORTRAIT,Math.min(SKY_ACADEMY,w/bh));
+  const ah=Math.min(bh, w/aspect), aw=ah*aspect;
+  return { x:(w-aw)/2, y:cy-ah/2, w:aw, h:ah, cy };
+}
+function skyGateApply(){
+  const f=$("#sky-field");
+  if (!f || !sky.w) return;
+  const g=skyGate();
+  sky.gate=g;
+  f.style.setProperty("--ap-x",g.x.toFixed(1)+"px");
+  f.style.setProperty("--ap-y",g.y.toFixed(1)+"px");
+  f.style.setProperty("--ap-w",g.w.toFixed(1)+"px");
+  f.style.setProperty("--ap-h",g.h.toFixed(1)+"px");
+  /* The lamp is a percentage of the field, because it is the light BEHIND the
+     gate and it does not stop at the aperture edge — the gate is what stops
+     it. Slightly wider than the aperture so the falloff is visible inside it. */
+  f.style.setProperty("--ap-cy",(100*g.cy/Math.max(1,sky.h)).toFixed(1)+"%");
+}
+
+/* THE GRAIN. Seeded once from a fixed PRNG at first use, tiled in frame space,
+   and never regenerated — the same page draws the same grain twice, which is
+   the determinism promise applied to the one part of this picture that is
+   noise on purpose. It reads nothing about any film, which is what makes it
+   apparatus rather than a data channel: a treatment may not touch it and a
+   mark may not move it.
+
+   Measured in print space against DESIGN.md's resting field (11,10,9): the
+   tile's own mean is (129,127,125) at 5.2% screen, i.e. it lifts the ground by
+   about (7,6,6) and keeps blue-minus-red NEGATIVE, so a grained field is still
+   warm near-black and never violet. */
+let skyGrainMade=false;
+function skyGrainApply(){
+  if (skyGrainMade) return;
+  const box=$("#sky-grain");
+  if (!box) return;
+  const S=96, c=document.createElement("canvas");
+  c.width=S; c.height=S;
+  const g=c.getContext("2d");
+  const img=g.createImageData(S,S);
+  let s=0x9E3779B9>>>0;
+  const rnd=()=>{ s^=s<<13; s>>>=0; s^=s>>17; s^=s<<5; s>>>=0; return s/4294967296; };
+  for (let i=0;i<S*S;i++){
+    /* Two samples averaged: one uniform draw per texel is white noise and
+       reads as digital dither, two is closer to the clumped distribution
+       silver halide actually has. Warm by one level, like everything else on
+       this page. */
+    const v=Math.round(((rnd()+rnd())/2)*255);
+    img.data[i*4]=Math.min(255,v+3); img.data[i*4+1]=Math.min(255,v+1); img.data[i*4+2]=v;
+    img.data[i*4+3]=255;
+  }
+  g.putImageData(img,0,0);
+  box.style.backgroundImage="url("+c.toDataURL("image/png")+")";
+  box.style.backgroundSize=S+"px "+S+"px";
+  skyGrainMade=true;
+}
+
+/* ══ THE INTEGRATION PASS ═════════════════════════════════════════════════
+   A PROJECTOR INTEGRATES, AND THAT IS WHERE THE COLOUR NOBODY MEASURED LIVES.
+
+   Every film on the plate throws a little light into the emulsion around it —
+   halation. Summed over a ~22px kernel that covers roughly 25 films at the fit
+   zoom, the result is not per-film colour, which DESIGN.md correctly measured
+   as carrying no spatial information at all (0.979x a shuffle). It is the
+   INTEGRAL of per-film colour, and the integral of noise is not noise.
+
+   THE ONE INVARIANT THIS WHOLE OBJECT STANDS ON. A latent film's halo carries
+   IDENTICAL LUMINANCE to a developed one and differs only in chroma. The
+   emission colour is a straight line between the film's own grey-at-its-own-
+   luma and the film's own colour:
+
+       C(t) = (1-t)*(Y,Y,Y) + t*(R,G,B),   Y = 0.2126R + 0.7152G + 0.0722B
+
+   Rec.709 luma is a LINEAR functional of the channel triple and canvas
+   compositing is additive in exactly those channels, so luma(C(t)) = Y for
+   every t, exactly, with no appeal to anybody's colour science. Both endpoints
+   are in gamut and so is every point between them. That is why marking a film
+   cannot add one photon to the atlas: the light was always there, and what a
+   mark changes is what colour it is.
+
+   THE COMPOSITE FLOOR. The buffer is blitted BENEATH the discs and the disc
+   loop reads sky.tone[] and nothing else, so a latent film standing inside a
+   developed film's pool still draws silver. If the pool were allowed to
+   multiply the discs, 40 marks would visibly colour about a thousand film
+   positions — the 21x neighbour overclaim arriving through the compositor
+   instead of through a spread rule. The probe in the build gate samples every
+   latent film's COMPOSITED pixel and fails if its OKLab chroma exceeds 0.02.
+
+   COST. One 16px sprite per distinct emission colour, blitted once per film
+   into a buffer at 0.24 of the device raster, rebuilt only when the camera or
+   the plate changes — zero rebuilds at rest, one per frame while the print
+   travels, which is the cheap direction for this architecture. */
+const skyHaloSprites=new Map();
+function skyHaloSprite(css){
+  let s=skyHaloSprites.get(css);
+  if (s) return s;
+  const S=16, c=document.createElement("canvas");
+  c.width=S; c.height=S;
+  const g=c.getContext("2d");
+  const grad=g.createRadialGradient(S/2,S/2,0,S/2,S/2,S/2);
+  grad.addColorStop(0,   "rgba("+css+",1)");
+  grad.addColorStop(0.34,"rgba("+css+",.42)");
+  grad.addColorStop(0.66,"rgba("+css+",.12)");
+  grad.addColorStop(1,   "rgba("+css+",0)");
+  g.fillStyle=grad;
+  g.fillRect(0,0,S,S);
+  skyHaloSprites.set(css,c);
+  return c;
+}
+/* The emission triple for one film at development t. Kept beside sky.tone[]
+   rather than derived in the draw loop, because the draw loop must be able to
+   run without doing colour arithmetic per film per frame. */
+function skyHaloCss(hex,t){
+  const n=parseInt(hex.slice(1),16);
+  const r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+  const Y=0.2126*r+0.7152*g+0.0722*b;
+  return Math.round(Y+t*(r-Y))+","+Math.round(Y+t*(g-Y))+","+Math.round(Y+t*(b-Y));
+}
+const SKY_HALO_KERNEL=22;      /* CSS px; median film gap at the fit zoom is 7.6px */
+function skyHaloBuild(k,ox,oy){
+  const scale=sky.haloScale, dpr=sky.dpr||1;
+  const bw=Math.max(1,Math.round(sky.w*dpr*scale)), bh=Math.max(1,Math.round(sky.h*dpr*scale));
+  let c=sky.halo;
+  if (!c || c.width!==bw || c.height!==bh){
+    c=sky.halo=document.createElement("canvas");
+    c.width=bw; c.height=bh;
+    sky.haloCtx=c.getContext("2d");
+    sky.haloDirty=true;
+  }
+  const sig=k+"|"+ox.toFixed(2)+"|"+oy.toFixed(2);
+  const full = sky.haloDirty || sky.haloK!==sig;
+  /* THE DIRTY RECT. A develop is a local event — one ~22px kernel changing
+     hue — so while the camera is still, only that square is cleared and
+     re-integrated. Everything else in the buffer is already correct and
+     re-blitting it 96 times would be the one expensive thing this design does.
+     A camera move invalidates the signature and takes the full path, which is
+     the same rebuild the pass has always done and is the cheap direction. */
+  const rect = full ? null : sky.devRect;
+  if (!full && !rect) return c;
+  sky.haloK=sig; sky.haloDirty=false;
+  const g=sky.haloCtx, A=sky.alpha, SX=sky.sx, SY=sky.sy;
+  g.setTransform(1,0,0,1,0,0);
+  let rx0=0, ry0=0, rx1=bw, ry1=bh;
+  if (rect){
+    const s=dpr*scale;
+    rx0=Math.max(0,Math.floor(rect.x*s)); ry0=Math.max(0,Math.floor(rect.y*s));
+    rx1=Math.min(bw,Math.ceil((rect.x+rect.w)*s)); ry1=Math.min(bh,Math.ceil((rect.y+rect.h)*s));
+    if (rx1<=rx0||ry1<=ry0) return c;
+    g.save();
+    g.beginPath(); g.rect(rx0,ry0,rx1-rx0,ry1-ry0); g.clip();
+    g.clearRect(rx0,ry0,rx1-rx0,ry1-ry0);
+  } else g.clearRect(0,0,bw,bh);
+  g.globalCompositeOperation="lighter";
+  /* The kernel is a fixed angular size at the fit zoom and grows with the
+     print, the way a halation ring in an emulsion does — it is a property of
+     the print, not of the graph. Nothing in this loop reads degree, strength,
+     year or adjacency. */
+  const zr=skyZoomRatio();
+  const R=SKY_HALO_KERNEL*dpr*scale*0.5*Math.max(0.75,Math.min(2.4,Math.sqrt(zr)));
+  const px=dpr*scale;
+  g.globalAlpha=0.30;
+  for (let i=0;i<sky.n;i++){
+    if (A[i]<=0.004) continue;
+    const x=SX[i]*px, y=SY[i]*px;
+    if (x<rx0-R||y<ry0-R||x>rx1+R||y>ry1+R) continue;
+    g.drawImage(skyHaloSprite(sky.glow[i]),x-R,y-R,R*2,R*2);
+  }
+  g.globalAlpha=1;
+  g.globalCompositeOperation="source-over";
+  if (rect) g.restore();
+  return c;
 }
 
 /* CLAMPS. You cannot lose the constellation: the world point under the centre
@@ -4916,6 +5279,11 @@ function skyFrame(){
      never live at the same time (skyFormTo clears sky.anim). */
   const forming=sky.form;
   skyFormStep(now);
+  /* THE PRINT COMING UP. Stepped before the draw so the frame that is about to
+     be painted carries this frame's chroma, and it is the only continuous
+     thing this feature adds — bounded to one film, to 1,600ms, and to the view
+     actually being on screen. */
+  const developing=developStep(now);
   skyDraw();
   skyPlaceLabels();
   /* MEASURED, NOT ASSUMED. A tween adds a position write for every film on
@@ -4936,7 +5304,7 @@ function skyFrame(){
       sky.lastForm.mean=forming.sum/forming.frames;
     }
   }
-  if (sky.anim || sky.form) skyRender();
+  if (sky.anim || sky.form || developing) skyRender();
   else skyIdleSchedule();
 }
 
@@ -5193,6 +5561,30 @@ function skyDraw(){
      to know whether the atlas is moving. */
   const A=sky.alpha, forming=!!sky.form;
 
+  /* ── THE INTEGRATION PASS, BENEATH EVERYTHING THE GRAPH DRAWS ────────────
+     The light the print throws into its own emulsion. It goes down before the
+     lines and before the discs, which is not a stacking preference: it is the
+     composite floor. A latent film standing inside a developed film's pool has
+     to draw silver, and the only way to guarantee that structurally rather
+     than by tuning an alpha is for the pool to be UNDER the disc.
+
+     It is skipped while a register governs the picture or a strip frame is
+     being grazed: DESIGN.md rules that at field scale colour carries the
+     stratum, and two chroma channels cannot own one disc. Inside a world the
+     discs stay the world's; the plate is yours everywhere else, which is the
+     state the atlas is in at rest and the state it opens on. Skipped under a
+     route for the same reason the halo pass is — a route dims the field it
+     crosses to 7% and lighting it back up would undo that. */
+  const integrate = !sky.treat && !sky.previewSet && !(sky.passage.route&&sky.passage.onEdge&&sky.passage.onEdge.size);
+  if (integrate && sky.glow){
+    const buf=skyHaloBuild(k,ox,oy);
+    ctx.globalCompositeOperation="lighter";
+    ctx.globalAlpha=1;
+    ctx.imageSmoothingEnabled=true;
+    ctx.drawImage(buf,0,0,w,h);
+    ctx.globalCompositeOperation="source-over";
+  }
+
   /* THE EDGE BUDGET, AND WHY IT IS NOT A LIE ABOUT THE GRAPH.
      All 7,759 connections drawn at the fit zoom is not a map, it is a grey
      wash: the lines cover the films and no structure survives. So the field
@@ -5373,10 +5765,13 @@ function skyDraw(){
     /* Under a treatment every disc takes the register's colour, EXCEPT a
        recorded one, where each film keeps its own measured value drained of
        hue — 194 prints in 194 greys rather than one house grey. */
+    /* sky.tone[], NEVER sky.fill[] and never the integration buffer. This one
+       line is the composite floor: a disc's colour is its own film's dye at
+       its own development and nothing else on the plate can reach it. */
     ctx.fillStyle = (T && inPreview)
       ? (T.mono ? skyMonoFill(F[sky.keys[i]].highlight) : T.hue)
       : (PV && inPreview) ? PVT.treatment.hue
-      : sky.fill[i];
+      : sky.tone[i];
     ctx.fill();
   }
   ctx.globalAlpha=0.82;
@@ -5406,7 +5801,7 @@ function skyDraw(){
       const end=si===0||si===stops.length-1;
       ctx.globalAlpha=1;
       ctx.beginPath(); ctx.arc(SX[i],SY[i],r*(end?2.6:1.9),0,TAU);
-      ctx.fillStyle=sky.fill[i]; ctx.fill();
+      ctx.fillStyle=sky.tone[i]; ctx.fill();
       ctx.beginPath(); ctx.arc(SX[i],SY[i],r*(end?2.6:1.9),0,TAU);
       ctx.strokeStyle=end?"#F0EAE0":"rgba(240,234,224,.45)";
       ctx.lineWidth=end?1.6:1; ctx.stroke();
@@ -5414,22 +5809,33 @@ function skyDraw(){
     ctx.globalAlpha=0.82;
   }
 
-  /* Seen and loved: a ring, not a size and not a second colour scheme. The
-     mark has to be findable when you are looking for it and invisible when
-     you are not — the same job the dot on a wall tile does. */
+  /* A ring is a mark somebody made ON the print; it is not the print. The
+     refill used to run at globalAlpha 1 while every other disc in the field
+     ran at 0.82 — so a marked film was literally the brightest thing on the
+     plate, and it ignored the preview's 0.16 as well, which under this design
+     would read as "loving a film adds light to the map". It now takes the
+     same alpha the disc pass gives that film, and the preview dim applies. */
   const ringed=(key,stroke,pad,width,a)=>{
     const i=sky.at[key];
     if (i===undefined || A[i]<=0.004) return;
     const px=SX[i], py=SY[i];
     if (px<-12||py<-12||px>w+12||py>h+12) return;
-    ctx.globalAlpha=1;
+    const lit=(PV && !PV[i]) ? 0.16 : 0.82;
+    ctx.globalAlpha=lit*A[i];
     ctx.beginPath(); ctx.arc(px,py,r,0,TAU);
-    ctx.fillStyle=sky.fill[i]; ctx.fill();
-    ctx.globalAlpha=a;
+    ctx.fillStyle=sky.tone[i]; ctx.fill();
+    ctx.globalAlpha=a*A[i];
     ctx.beginPath(); ctx.arc(px,py,r+pad,0,TAU);
     ctx.strokeStyle=stroke; ctx.lineWidth=width; ctx.stroke();
   };
-  for (const key of state.seen) if(!state.loved.has(key)) ringed(key,"#F0EAE0",2.4,1,0.3);
+  /* THE SEEN RING IS GONE, AND ITS ABSENCE IS THE FEATURE.
+     A film you have seen is DEVELOPED — it is holding its own colour where
+     every latent film holds silver — so a ring around it would be the same
+     fact drawn twice, and the second copy was an unbounded O(|seen|) second
+     pass over the whole marked set on every frame. Development is a property
+     of the image. Love is a chinagraph mark on the print, so it keeps its
+     ring: eight loved films are eight landmarks, and a seen set has no spatial
+     shape worth marking that way. */
   for (const key of state.loved) ringed(key,"#E8C87A",2.6,1.2,0.72);
 
   /* The held neighbourhood gets a quiet ring so the films you can actually
