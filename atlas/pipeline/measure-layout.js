@@ -945,6 +945,27 @@ function main() {
   console.log("measure-layout.js — AGENTS rule 1, measured on the layout that ships");
   console.log("solver " + LAYOUT_ALGORITHM_VERSION + " / strata " + STRATA_LAYOUT_VERSION +
     " / corpus " + corpus.meta.corpusVersion);
+  /* EVERY number this file prints depends on BOTH files: corpus.json supplies
+     the edges the solver is given, discovery.json supplies the film order, the
+     stratum memberships and the director/country/era attributes behind nnLift.
+     They can disagree — a reading pass that lands corpus.json without re-running
+     build-discovery.js leaves exactly that state, and app/build.js dies on it
+     with CorpusIdentityError. Measuring across the seam produces numbers that
+     look fine and describe a corpus that does not exist, and a BASELINE taken
+     across it is worse than none, because it will fire on the correct state
+     later. This is a warning rather than a throw so the tool can still be used
+     to diagnose the mismatch, but a baseline may not be written over it. */
+  const SPLIT = discovery.corpusVersion && discovery.corpusVersion !== corpus.meta.corpusVersion;
+  if (SPLIT) {
+    console.log("WARNING: corpus.json and discovery.json disagree — discovery was built against " +
+      discovery.corpusVersion + ".");
+    console.log("  Every stratum membership and every nnLift below is measured across that seam.");
+    console.log("  Run pipeline/build-discovery.js, then re-run this tool.");
+    if (WRITE_BASELINE) {
+      console.log("  REFUSED: a baseline may not be written across a corpus/discovery mismatch.");
+      process.exit(1);
+    }
+  }
   console.log();
 
   if (DO_SELFTEST) { selftest(corpus, discovery, attrs); return; }

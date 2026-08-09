@@ -35,23 +35,30 @@ MEASURED — 300 seeded three-film profiles, 3,600 suggestions at the shipped
 limit of 12, by pipeline/measure-recommender.js, which parses recommend() and
 connections() out of template.html rather than copying them:
 
-                                        HEAD      patched     map view, same K
-    share a director with a loved film  62.6%      20.9%        17.0%
-    type = hand                         67.4%      44.3%
-    industrial signal (crew + cast)     67.4%      43.9%        52.8%
-    trivia signal (measure-claims' set)  7.2%       1.4%        46.5%
-    authored claim carries the "why"    15.3%      21.1%
-    keyword claim carries the "why"      6.7%      18.8%
-    most films by one director on a shelf 3.97      1.77         (of 12)
-    shelves that came back short             0         0
-    distinct films ever suggested        1,611      1,493        (of 2,204)
+Measured at corpus-3d0f9305f3b2ff8a (2,204 films, 22,219 edges):
 
-    gate: sameDirector vs the map view   3.69x      1.23x        ceiling 2.00x
-    gate: worst shelf, one director       3.97       1.77        ceiling 3.00
+                                        HEAD      patched     map view, same K
+    share a director with a loved film  62.0%      20.3%        16.8%
+    type = hand                         65.1%      41.5%
+    industrial signal (crew + cast)     65.1%      41.1%        51.8%
+    trivia signal (measure-claims' set)  6.2%       1.2%        45.5%
+    authored claim carries the "why"    18.2%      25.3%
+    keyword claim carries the "why"      6.4%      18.1%
+    most films by one director on a shelf 3.95      1.74         (of 12)
+    shelves that came back short             0         0
+    distinct films ever suggested        1,610      1,503        (of 2,204)
+
+    gate: sameDirector vs the map view   3.68x      1.21x        ceiling 2.00x
+    gate: worst shelf, one director       3.95       1.74         ceiling 3.00
+
+The same table at the previous corpus (corpus-f777aa7e51564ff6, 22,050 edges)
+read 62.6% -> 20.9% against a map view of 17.0%, so the effect is not an
+artefact of one corpus version.
 
 (The workflow brief quotes 58.8% and 70.4% from an earlier harness with a
 different profile seed. Same phenomenon, same magnitude; the seed is fixed at
-0x5eed here so the number is reproducible.)
+0x5eed here so the number is reproducible, and re-running the harness is the
+way to check it rather than trusting this table.)
 
 THE COST, WHICH IS REAL
 -----------------------

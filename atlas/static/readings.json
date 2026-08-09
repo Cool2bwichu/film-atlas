@@ -10210,16 +10210,6 @@
   },
   {
    "a": "liza",
-   "b": "the woman in the dunes",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 0.44,
-   "claim": "Two people sealed into a place with no way off, where the arrangement forced on them stops being a captivity and becomes the only relationship either of them still wants.",
-   "source": "reading"
-  },
-  {
-   "a": "liza",
    "b": "au hasard balthazar",
    "type": "rhyme",
    "from": "none",
@@ -10666,16 +10656,6 @@
    "strength": 0.58,
    "confidence": 0.42,
    "claim": "One premise run repeatedly with the same person at its centre, the branch point political in one film and purely tonal in the other, and neither version offered as the true one.",
-   "source": "reading"
-  },
-  {
-   "a": "melinda and melinda",
-   "b": "rashomon",
-   "type": "rebuttal",
-   "from": "a",
-   "strength": 0.55,
-   "confidence": 0.38,
-   "claim": "Retellings in which the facts never move and only the genre does, so the disagreement stops being about what happened and becomes an argument about whether it is funny.",
    "source": "reading"
   },
   {

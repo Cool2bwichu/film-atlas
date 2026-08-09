@@ -542504,18 +542504,6 @@
   },
   {
    "a": "liza",
-   "b": "the woman in the dunes",
-   "type": "convergence",
-   "from": "none",
-   "strength": 0.6,
-   "confidence": 0.44,
-   "claim": "Two people sealed into a place with no way off, where the arrangement forced on them stops being a captivity and becomes the only relationship either of them still wants.",
-   "source": "reading",
-   "aId": "film-0d139b0fce73829f",
-   "bId": "film-e7232289b8035cb7"
-  },
-  {
-   "a": "liza",
    "b": "au hasard balthazar",
    "type": "rhyme",
    "from": "none",
@@ -543128,18 +543116,6 @@
    "source": "reading",
    "aId": "film-91abde79b11f4f81",
    "bId": "film-6bcdbcd5115b83a4"
-  },
-  {
-   "a": "melinda and melinda",
-   "b": "rashomon",
-   "type": "rebuttal",
-   "from": "a",
-   "strength": 0.55,
-   "confidence": 0.38,
-   "claim": "Retellings in which the facts never move and only the genre does, so the disagreement stops being about what happened and becomes an argument about whether it is funny.",
-   "source": "reading",
-   "aId": "film-91abde79b11f4f81",
-   "bId": "film-08a33cc704c1fa09"
   },
   {
    "a": "holy smoke",
@@ -544805,6 +544781,6 @@
  "meta": {
   "schemaVersion": 2,
   "identityVersion": "identity-2249bcb9a060c319",
-  "corpusVersion": "corpus-3d0f9305f3b2ff8a"
+  "corpusVersion": "corpus-e7d72e282fdbb554"
  }
 }

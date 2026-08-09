@@ -2472,8 +2472,13 @@ const EDGES = [
     "Two early-sixties films that make a woman's working day a series of thresholds crossed in public — a staircase climbed every evening, a stranger's door knocked on every morning — and price her competence against her respectability at each one."),
 
   /* ---------- the island, and the animal in the way ---------- */
-  r("liza", "the woman in the dunes", "convergence", "none", 0.6, 0.44,
-    "Two people sealed into a place with no way off, where the arrangement forced on them stops being a captivity and becomes the only relationship either of them still wants."),
+  /* CUT (ninth-pass audit): "Two people sealed into a place with no way off, where the
+     arrangement forced on them stops being a captivity and becomes the only relationship
+     either of them still wants." Fails the paste test — it is a confinement PREMISE, not a
+     formal observation, and stays true of The Collector, Misery, Room and Swept Away. It also
+     ranked into the top slot of The Woman in the Dunes' map directly above the existing
+     Stalker reading, which makes the same argument with an image attached. Nothing here is
+     recoverable by rewriting it; Liza keeps its Balthazar claim. */
   r("liza", "au hasard balthazar", "rhyme", "none", 0.55, 0.4,
     "The animal is the only uncomplicated attachment on screen and the exact measure of everyone handling it; the moment it is killed for being loved more than they are, the film stops being a romance."),
 
@@ -2609,8 +2614,12 @@ const EDGES = [
     "Allen ran the braid twice: one film cuts a murder plot against a comic one and lets them meet for a minute at a wedding, the other puts the device on screen with two playwrights at a table arguing the same premise into tragedy and into farce."),
   r("melinda and melinda", "blind chance", "convergence", "none", 0.58, 0.42,
     "One premise run repeatedly with the same person at its centre, the branch point political in one film and purely tonal in the other, and neither version offered as the true one."),
-  r("melinda and melinda", "rashomon", "rebuttal", "a", 0.55, 0.38,
-    "Retellings in which the facts never move and only the genre does, so the disagreement stops being about what happened and becomes an argument about whether it is funny."),
+  /* CUT (ninth-pass audit): "Retellings in which the facts never move and only the genre
+     does..." The premise is false about Rashomon, where the facts move in every retelling and
+     that IS the film. It rendered in the top slot of Melinda and Melinda's map and two lines
+     under Rashomon's own Prestige reading ("two self-serving accounts... refusing to say which
+     is true"), so the corpus contradicted itself on one screen. Melinda keeps Crimes and
+     Misdemeanors and Blind Chance, which carry the braided-premise argument correctly. */
 
   /* ---------- the session, and who is actually dependent ---------- */
   r("holy smoke", "the piano", "descent", "b", 0.66, 0.5,

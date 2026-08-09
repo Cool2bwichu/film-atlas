@@ -2496,6 +2496,11 @@ const sky = {
      removed one. */
   filter:Object.fromEntries(FACET_FIELDS.map(f=>[f.key,new Set()])),
   visible:null, visibleN:0,
+  /* The selection an incoming address named that this edition cannot honour,
+     kept so the fallback can say what it dropped. A stale link lands on the
+     whole atlas, and a whole atlas with no explanation is indistinguishable
+     from a link that silently did nothing. See skyAddrParse. */
+  staleAddr:null,
   /* THE GEOMETRY IS NOW TWO THINGS, AND THEY ARE NOT THE SAME THING.
      `homeX/homeY` are the whole-atlas positions the build solved and never
      change. `wx/wy` are where the films are RIGHT NOW, which during a re-form
