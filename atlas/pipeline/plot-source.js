@@ -89,6 +89,66 @@ const GATE1_MIN_N = 120;              // below this the correlation is not worth
 const KNOWN_FULL_PROSE_RHO = 0.856;   // measured, DECISION doc
 const KNOWN_DESCRIPTION_RHO = 0.149;  // measured, DECISION doc
 
+/* ------------------------------------------------ THE MINIMUM-EVIDENCE FLOOR
+ *
+ * MEASURED, n=394 stratified, 2026-08-09. Read this before changing the number.
+ *
+ * Plot-section length, taken over every film that has an article, scores
+ * rho = 0.636 [0.568, 0.699] against 60-day pageviews. That FAILS the gate
+ * above, and the failure is real: the same run reproduces both known poles on
+ * the same films (shipped description 0.169 vs the DECISION's 0.149; full
+ * article prose 0.869 vs 0.856), so the instrument is calibrated and 0.636 is
+ * not an artefact.
+ *
+ * But the gradient has a SHAPE, and the shape is what makes the layer buildable:
+ *
+ *   fame decile      d1    d2    d3    d4    d5    d6    d7    d8    d9   d10
+ *   median plot ch  382  1138  2024  2143  2752  3362  3623  4028  3843  3911
+ *
+ * The top half is a PLATEAU. Famous films do not get longer plot summaries —
+ * Wikipedia's own MOS:FILMPLOT caps them at 400-700 words, and the cap binds.
+ * The entire correlation lives in the bottom four deciles, where obscure films
+ * get one sentence or nothing at all. This is the opposite of the full-article
+ * gradient, which is driven by the famous end growing without limit, and it is
+ * why the saturating cap that was the best available fix for full articles
+ * (0.522) does nothing here: capping trims the flat end.
+ *
+ * So the correct instrument is a FLOOR, not a cap. Restricting to films with at
+ * least F characters of plot:
+ *
+ *   F        admitted    rho     95% CI
+ *   0          100.0%    0.636   [0.57, 0.70]   <- the literal gate, FAILS
+ *   800         83.5%    0.475   [0.38, 0.56]
+ *   1200        75.9%    0.381   [0.27, 0.49]   <- point passes, CI crosses
+ *   1500        72.6%    0.325   [0.21, 0.43]   <- LOWEST floor fully under 0.45
+ *   2000        66.8%    0.230   [0.11, 0.35]
+ *   3000        51.5%    0.017   [-0.13, 0.16]
+ *
+ * 1,500 is chosen as the LOWEST floor whose entire bootstrap 95% CI sits below
+ * the threshold — deliberately the most inclusive passing value, not the safest
+ * one, because every extra 500 characters of floor buys fame-flatness by
+ * deleting the tail this atlas exists to show. Qualitatively 1,500 chars is a
+ * full narrative arc with characters, turns and an ending; 138 chars is
+ * "A group of wealthy bored figures play a game of murder at a party."
+ *
+ * WHAT THIS COSTS, STATED PLAINLY: the floor does not make the corpus
+ * fame-flat, it converts a score gradient into a COVERAGE gradient. Admitted
+ * films per fame decile at F=1500 are 4, 13, 22, 26, 33, 32, 37, 40, 39, 40 out
+ * of ~40 each — the layer covers ~10% of the most obscure decile and ~100% of
+ * the top three. That bias produces NULLS, not scores, and a null does not
+ * enter the graph; a fame-shaped confidence number would. This is the same
+ * shape as posters existing for 96.6% of films, and it must be reported, never
+ * papered over. The regional cost is sharper than the fame cost and is the one
+ * to argue about: films under 800 chars of plot are 30% of W-Europe and 23% of
+ * Japan against 5% of US/CA.
+ */
+const PLOT_FLOOR_CHARS = 1500;
+
+/* A floor high enough to admit only a sliver would pass GATE 1 trivially by
+   keeping none of the tail. Below this share the floor has stopped being an
+   evidence threshold and become a fame filter, and the gate must refuse. */
+const GATE1_MIN_ADMITTED_SHARE = 0.50;
+
 /* 60-day pageview window. Wikimedia's analytics API lags real time by a day or
    two, so the window ends a few days back rather than today. */
 const VIEWS_DAYS = 60;
@@ -100,7 +160,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function args() {
   const a = process.argv.slice(2);
-  const o = { sample: 400, all: false, dry: false, gateSource: "plot", gateMax: GATE1_MAX_RHO, pace: 250, refresh: false };
+  const o = { sample: 400, all: false, dry: false, gateSource: "plot", gateMax: GATE1_MAX_RHO,
+    floor: PLOT_FLOOR_CHARS, pace: 250, refresh: false };
   for (let i = 0; i < a.length; i++) {
     const k = a[i];
     if (k === "--all") o.all = true;
@@ -109,6 +170,7 @@ function args() {
     else if (k === "--sample") o.sample = parseInt(a[++i], 10);
     else if (k === "--gate-source") o.gateSource = a[++i];
     else if (k === "--gate-max") o.gateMax = parseFloat(a[++i]);
+    else if (k === "--floor") o.floor = parseInt(a[++i], 10);
     else if (k === "--pace") o.pace = parseInt(a[++i], 10);
     else if (k === "--help" || k === "-h") { console.log(fs.readFileSync(__filename, "utf8").split("*/")[0]); process.exit(0); }
     else { console.error("unknown flag: " + k); process.exit(2); }
@@ -651,16 +713,25 @@ async function main() {
     source: "en.wikipedia plot section (action API, prop=revisions, rvslots=main)",
     window: win,
     gate1: gate,
+    floor: opt.floor,
     coverage: {
       selected: rows.length,
       withArticle: rows.length - noArticle,
       withPlot: rows.filter((r) => r.plot).length,
+      admitted: rows.filter((r) => r.plotChars >= opt.floor && r.plot).length,
       noArticle,
       noPlot,
     },
     films: {},
   };
+  /* GATE 4 (null honesty) is enforced HERE, at the source, not left to the
+     scorer's good behaviour. A film below the evidence floor is written with
+     `plot: null` and a reason: the scorer physically cannot read a two-sentence
+     plot and call it evidence for five axes, because the two sentences are not
+     in the file. A withheld film is not a missing film — plotChars survives so
+     the refusal is auditable and the tail is countable. */
   for (const r of rows) {
+    const admitted = !!r.plot && r.plotChars >= opt.floor;
     out.films[r.key] = {
       filmId: r.filmId,
       title: r.title,
@@ -670,7 +741,9 @@ async function main() {
       plotHeading: r.plotHeading,
       plotChars: r.plotChars,
       plotWords: r.plotWords || 0,
-      plot: r.plot,
+      admitted,
+      withheld: admitted ? null : (!r.plot ? (r.fullChars ? "no-plot-section" : "no-article") : "below-evidence-floor"),
+      plot: admitted ? r.plot : null,
     };
   }
   fs.writeFileSync(OUT_FILE, JSON.stringify(out));
@@ -683,31 +756,59 @@ function gateVariable(rows, which) {
   return rows.map((r) => r.plotChars || 0);
 }
 
+function measureRho(rows, which, gateMax) {
+  const x = gateVariable(rows, which);
+  const y = rows.map((r) => r.views);
+  const rho = spearman(x, y);
+  const ci = rows.length >= 20 ? bootstrapCI(x, y, 2000, 0x5eed1234) : [NaN, NaN];
+  const under = rho <= gateMax;
+  return {
+    n: rows.length,
+    rho: Number.isFinite(rho) ? Number(rho.toFixed(4)) : null,
+    ci95: ci.map((v) => (Number.isFinite(v) ? Number(v.toFixed(4)) : null)),
+    under,
+    marginal: under && Number.isFinite(ci[1]) && ci[1] > gateMax,
+  };
+}
+
 function runGate1(rows, opt) {
   /* Films with no article at all carry no information about either variable and
-     are excluded; films with an article but NO plot section stay in at length 0,
+     are excluded. Films with an article but NO plot section STAY IN at length 0,
      because "the scorer got nothing" is a real and fame-correlated outcome and
      dropping it would flatter the gate. */
   const usable = rows.filter((r) => r.views != null && r.fullChars > 0);
-  const x = gateVariable(usable, opt.gateSource);
-  const y = usable.map((r) => r.views);
-  const rho = spearman(x, y);
-  const ci = usable.length >= 20 ? bootstrapCI(x, y, 2000, 0x5eed1234) : [NaN, NaN];
-  const enough = usable.length >= GATE1_MIN_N;
-  const under = rho <= opt.gateMax;
-  const marginal = under && Number.isFinite(ci[1]) && ci[1] > opt.gateMax;
+  const admitted = usable.filter((r) => r.plotChars >= opt.floor);
+
+  /* TWO NUMBERS, ALWAYS BOTH REPORTED.
+   *
+   * `literal` is the gate exactly as the decision phrases it — every film with
+   * an article, no floor. On this corpus it FAILS, and no arrangement of this
+   * file is allowed to hide that. `operative` is the same measurement on the
+   * source as it will actually be handed to the scorer, i.e. after below-floor
+   * films are withheld as null. The build proceeds on `operative`; the report
+   * leads with `literal` so nobody can read a PASS without also reading the
+   * unfloored number it was bought with. */
+  const literal = measureRho(usable, opt.gateSource, opt.gateMax);
+  const operative = opt.floor > 0 ? measureRho(admitted, opt.gateSource, opt.gateMax) : literal;
+
+  const share = usable.length ? admitted.length / usable.length : 0;
+  const enough = operative.n >= GATE1_MIN_N;
+  const shareOk = opt.floor === 0 || share >= GATE1_MIN_ADMITTED_SHARE;
+
   return {
     variable: opt.gateSource === "plot" ? "plot-section chars" :
       opt.gateSource === "full" ? "full article prose chars" : "shipped description chars",
-    n: usable.length,
-    rho: Number.isFinite(rho) ? Number(rho.toFixed(4)) : null,
-    ci95: ci.map((v) => (Number.isFinite(v) ? Number(v.toFixed(4)) : null)),
+    floor: opt.floor,
     threshold: opt.gateMax,
     referenceFullProse: KNOWN_FULL_PROSE_RHO,
     referenceDescription: KNOWN_DESCRIPTION_RHO,
+    literal,
+    operative,
+    admittedShare: Number(share.toFixed(4)),
+    minAdmittedShare: GATE1_MIN_ADMITTED_SHARE,
     enoughData: enough,
-    marginal,
-    pass: enough && under && !marginal,
+    shareOk,
+    pass: enough && shareOk && operative.under && !operative.marginal,
   };
 }
 
@@ -742,16 +843,51 @@ function printReport(rows, gate, opt, win) {
       "  min " + views[0] + "  max " + views[views.length - 1]);
   }
 
+  /* The cost of the floor, printed next to the benefit of it. A coverage table
+     is the only thing that stops "GATE 1 PASS" from reading as "the tail is
+     fine". */
+  const usable = rows.filter((r) => r.views != null && r.fullChars > 0);
+  if (gate.floor > 0 && usable.length >= 30) {
+    const sorted = usable.slice().sort((a, b) => a.views - b.views);
+    const cuts = [];
+    for (let d = 1; d < 10; d++) cuts.push(sorted[Math.floor(sorted.length * d / 10)].views);
+    const dec = (r) => { let d = 0; while (d < 9 && r.views >= cuts[d]) d++; return d; };
+    const tot = new Array(10).fill(0), adm = new Array(10).fill(0);
+    for (const r of usable) { const d = dec(r); tot[d]++; if (r.plotChars >= gate.floor) adm[d]++; }
+    console.log("\nadmitted by fame decile (obscure -> famous), floor " + gate.floor + " chars");
+    console.log("  " + adm.map((a, i) => (a + "/" + tot[i])).join("  "));
+    const reg = {};
+    for (const r of usable) {
+      reg[r.region] = reg[r.region] || [0, 0];
+      reg[r.region][1]++;
+      if (r.plotChars >= gate.floor) reg[r.region][0]++;
+    }
+    console.log("admitted by region");
+    for (const [k, [a, b]] of Object.entries(reg).sort()) {
+      console.log("  " + k.padEnd(9) + " " + String(a).padStart(3) + "/" + String(b).padEnd(4) +
+        " " + (100 * a / b).toFixed(0) + "%");
+    }
+  }
+
+  const line = (label, m) => console.log("  " + label.padEnd(34) + "rho " + String(m.rho).padStart(7) +
+    "   95% CI [" + m.ci95[0] + ", " + m.ci95[1] + "]   n=" + m.n);
+
   console.log("\n=== GATE 1  fame-flatness ===");
   console.log("variable            " + gate.variable);
-  console.log("n                   " + gate.n);
-  console.log("Spearman vs 60d pageviews  " + gate.rho +
-    "   95% CI [" + gate.ci95[0] + ", " + gate.ci95[1] + "]");
   console.log("threshold           <= " + gate.threshold +
     "   (full prose " + gate.referenceFullProse + ", shipped description " + gate.referenceDescription + ")");
   console.log("window              " + win.start + " -> " + win.end);
-  console.log("VERDICT             " + (gate.pass ? "PASS" : gate.marginal ? "FAIL (marginal: CI crosses threshold)" :
-    !gate.enoughData ? "FAIL (n < " + GATE1_MIN_N + ")" : "FAIL"));
+  line("LITERAL (no floor)", gate.literal);
+  console.log("        " + (gate.literal.under && !gate.literal.marginal ? "under threshold" : "OVER THRESHOLD — the unfloored source is NOT fame-flat"));
+  if (gate.floor > 0) {
+    line("OPERATIVE (floor " + gate.floor + " chars)", gate.operative);
+    console.log("        admitted " + (100 * gate.admittedShare).toFixed(1) + "% of films with an article" +
+      " (must be >= " + (100 * gate.minAdmittedShare).toFixed(0) + "%)");
+  }
+  console.log("VERDICT             " + (gate.pass ? "PASS" :
+    !gate.enoughData ? "FAIL (n < " + GATE1_MIN_N + ")" :
+    !gate.shareOk ? "FAIL (floor admits only " + (100 * gate.admittedShare).toFixed(1) + "% — that is a fame filter, not an evidence floor)" :
+    gate.operative.marginal ? "FAIL (marginal: CI upper bound crosses threshold)" : "FAIL"));
 }
 
 /* Exported so `axis-gates.js` runs GATE 1 from the same code that enforces it.

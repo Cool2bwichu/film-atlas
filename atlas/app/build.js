@@ -222,6 +222,55 @@ if(Object.keys(positions).length!==Object.keys(corpus.films).length){
  * filter in the app, on a desktop, and worse on a phone. The full argument,
  * with the measurements, is at the top of layout-strata.js. */
 const {strata,report:strataReport}=strataLayouts(corpus,discovery);
+
+/* ── THE REGISTERS ─────────────────────────────────────────────────────────
+ * static/registers.json is DERIVED (pipeline/build-registers.js evaluates a
+ * rule over themes), where discovery.json is RECORDED. They ship as separate
+ * files for that reason and the interface labels them differently.
+ *
+ * Every register is baked down to eight films rather than the twenty a
+ * recorded stratum needs, and the difference is not a double standard. A
+ * genre with fifteen films is a thin slice of a taxonomy; a register with
+ * fifteen films is the honest size of that region of cinema in this corpus,
+ * and its constellation is the whole point of the door. Folk horror is ten
+ * films here, and ten films is a real answer to "show me folk horror".
+ *
+ * Registers are optional: a checkout without the file builds an artifact with
+ * no register layer rather than failing, because the file is regenerated from
+ * a rule and is not part of the corpus contract. */
+let REGISTERS=null;
+const REGISTERS_PATH=path.join(ROOT,"static","registers.json");
+let registerStrataCount=0;
+if(fs.existsSync(REGISTERS_PATH)){
+  REGISTERS=JSON.parse(fs.readFileSync(REGISTERS_PATH,"utf8"));
+  if(REGISTERS.identityVersion!==discovery.identityVersion){
+    throw new Error("registers.json was built against a different identity version than discovery.json — "+
+      "re-run pipeline/build-registers.js");
+  }
+  /* Projected the same way discovery is when --films packs a subset: a posting
+     that points outside the retained film order would place a film at another
+     film's coordinates. */
+  const retained=new Set(discovery.filmOrder);
+  const sourceOrder=REGISTERS.filmOrder||null;
+  if(sourceOrder&&sourceOrder.length!==discovery.filmOrder.length){
+    throw new Error("registers.json film order disagrees with discovery.json");
+  }
+  const postings={};
+  for(const [id,list] of Object.entries(REGISTERS.postings)){
+    const kept=list.filter(i=>retained.has(discovery.filmOrder[i]));
+    if(kept.length>=8) postings[id]=kept;
+  }
+  for(const id of Object.keys(REGISTERS.definitions)) if(!postings[id]) delete REGISTERS.definitions[id];
+  REGISTERS.postings=postings;
+  const {strata:regStrata,report:regReport}=
+    strataLayouts(corpus,discovery,{register:postings},{minFilms:8,facets:[]});
+  Object.assign(strata,regStrata);
+  registerStrataCount=regReport.length;
+  for(const r of regReport){
+    if(REGISTERS.definitions[r.value]) REGISTERS.definitions[r.value].edges=r.edges;
+  }
+}
+
 const layoutManifest={
   version:discovery.layoutVersion,
   algorithmVersion:LAYOUT_ALGORITHM_VERSION,
@@ -247,6 +296,7 @@ const pack=(name,value)=>{
 const block=pack("CORPUS",corpus);
 const discoveryBlock=pack("DISCOVERY",discovery);
 const layoutBlock=pack("LAYOUT",layoutManifest);
+const registerBlock=pack("REGISTERS",REGISTERS);
 
 let html=fs.readFileSync(path.join(__dirname,"template.html"),"utf8");
 const marker="/* __CORPUS__ */";
@@ -261,6 +311,10 @@ const layoutMarker="/* __LAYOUT__ */";
 if(!html.includes(layoutMarker)) throw new Error("Atlas template is missing its layout marker");
 html=html.replace(layoutMarker,layoutBlock);
 if(html.includes(layoutMarker)) throw new Error("Atlas template contains more than one layout marker");
+const registerMarker="/* __REGISTERS__ */";
+if(!html.includes(registerMarker)) throw new Error("Atlas template is missing its registers marker");
+html=html.replace(registerMarker,registerBlock);
+if(html.includes(registerMarker)) throw new Error("Atlas template contains more than one registers marker");
 const inspectionMarker="/* __RADIAL_INSPECTION__ */";
 if(!html.includes(inspectionMarker)) throw new Error("Atlas template is missing its radial inspection marker");
 const inspectionSource=fs.readFileSync(path.join(__dirname,"radial-inspection.js"),"utf8");
@@ -332,3 +386,6 @@ console.log(`${OUT}  ${(fs.statSync(OUT).size/1024).toFixed(0)} KB — ${Object.
    that dims instead of re-forming, and that failure is invisible on screen
    unless you already know which strata were supposed to move. */
 console.log(`${strataReport.length} strata re-formed — ${strataReport.reduce((n,r)=>n+r.films,0)} film placements, ${(JSON.stringify(strata).length/1024).toFixed(0)} KB`);
+console.log(REGISTERS
+  ? `${Object.keys(REGISTERS.definitions).length} registers, ${registerStrataCount} of them with their own baked constellation`
+  : "no registers — static/registers.json absent, atlas builds without the register layer");
