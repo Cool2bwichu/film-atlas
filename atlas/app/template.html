@@ -676,6 +676,14 @@ main{flex:1;position:relative;overflow:hidden}
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sky-stratum .n{margin-left:auto;flex-shrink:0;color:var(--faint);
   font-variant-numeric:tabular-nums}
+/* The way back to the whole atlas, printed as a mark rather than a chip —
+   nothing in this world has a rounded corner on it. On a coarse pointer the
+   target grows through an invisible overlay, the same correction the era
+   chips make, so the glyph keeps the size it was drawn at. */
+.sky-stratum-x{position:relative;flex-shrink:0;margin:-4px -5px -4px 2px;
+  padding:4px 5px;background:none;border:0;cursor:pointer;
+  font:inherit;letter-spacing:0;color:var(--faint);line-height:1}
+.sky-stratum-x:hover,.sky-stratum-x:focus-visible{color:var(--accent)}
 .sky-read .slate{display:block}
 .sky-read .t{font-family:var(--display);font-size:19px;line-height:1.1;
   letter-spacing:var(--track-display);display:block;margin-top:5px;
@@ -879,6 +887,8 @@ main{flex:1;position:relative;overflow:hidden}
   .filters{gap:12px 2px}
   .linky{padding-top:10px}
   .sky-ctl .btn{min-width:44px}
+  .sky-stratum-x::after{content:"";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);width:44px;height:44px}
   .panel-x{width:44px;height:44px;top:4px;right:4px}
   .trail-step{min-width:44px;min-height:44px;display:grid;place-items:center}
   .why-item{min-height:44px}
@@ -2672,6 +2682,21 @@ function skyFormTo(target, opts){
     }
   }
 
+  sky.formKind = target.kind;
+  sky.formScale = target.scale;
+  sky.formLabel = o.label || "";
+  /* THE CHROME IS MEASURED FOR WHERE THE FLIGHT IS GOING, NOT WHERE IT STARTS.
+     "Fit" means the rectangle the opaque readout leaves free, and the readout
+     is a different height once it is describing a re-formed atlas — so
+     computing the camera against the old one parked the bottom of the new
+     constellation behind the box that had just grown. Membership flips now
+     rather than at the end: nothing reads sky.live during a flight except the
+     readout, which should be describing the destination anyway. */
+  sky.live = target.live;
+  skyStratumRender();
+  skyReadout();
+  sky.chrome = null;
+
   const camNow = { cx:sky.cam.cx, cy:sky.cam.cy, k:sky.cam.k };
   const fit = skyFitTarget(target.live,tx,ty,target.count) || camNow;
 
@@ -2685,16 +2710,11 @@ function skyFormTo(target, opts){
   }
   for (let i=0;i<n;i++) delay[i]=SKY_FORM_STAGGER*Math.min(1,delay[i]/maxD);
 
-  sky.formKind = target.kind;
-  sky.formScale = target.scale;
-  sky.formLabel = o.label || "";
-
   if (skyReduced() || !o.ms){
     /* REDUCED MOTION STILL CHANGES STATE. Someone who asked for less motion
        did not ask for less atlas: the whole re-form happens, it simply
        arrives instead of flying. */
     for (let i=0;i<n;i++){ sky.wx[i]=tx[i]; sky.wy[i]=ty[i]; sky.alpha[i]=ta[i]; }
-    sky.live=target.live;
     sky.form=null;
     skyRegrid();
     sky.cam.cx=fit.cx; sky.cam.cy=fit.cy; sky.cam.k=fit.k;
@@ -2762,7 +2782,6 @@ function skyFormStep(now){
   skyClampC(sky.cam);
   if (p>=1){
     for (let i=0;i<sky.n;i++){ wx[i]=fm.tx[i]; wy[i]=fm.ty[i]; A[i]=fm.ta[i]; }
-    sky.live=fm.live;
     sky.lastForm={kind:sky.formKind,films:fm.count,scale:sky.formScale,
       frames:fm.frames,ms:now-fm.t0,worst:fm.worst,
       mean:fm.frames?fm.sum/fm.frames:0,solveMs:fm.solveMs||0,reduced:false};
@@ -2796,16 +2815,18 @@ function skyStratumRender(){
   const sel=skySelected();
   if (!sel.length){ box.hidden=true; box.innerHTML=""; return; }
   const label=skySelectionLabel(sel);
-  if (sky.formPending){
-    box.hidden=false;
-    box.innerHTML=`<span>re-forming</span><b>${esc(label)}</b>`+
-      `<span class="n">solving ${sky.formPending} films…</span>`;
-    return;
-  }
-  const live=skyLiveCount();
+  /* The way out lives here rather than in the readout: this strip is the one
+     thing that persists for as long as the state does, and on a phone a
+     second button in the readout was 50px of a 575px field. */
+  const out=`<button type="button" class="sky-stratum-x" aria-label="Show the whole atlas again">&times;</button>`;
   box.hidden=false;
-  box.innerHTML=`<span>re-formed</span><b>${esc(label)}</b>`+
-    `<span class="n">${live} / ${sky.n}</span>`;
+  box.innerHTML = sky.formPending
+    ? `<span>re-forming</span><b>${esc(label)}</b>`+
+      `<span class="n">solving ${sky.formPending} films…</span>`
+    : `<span>re-formed</span><b>${esc(label)}</b>`+
+      `<span class="n">${skyLiveCount()} / ${sky.n}</span>${out}`;
+  const x=box.querySelector(".sky-stratum-x");
+  if (x) x.onclick=skyClearFacets;
 }
 
 /* ── APPLYING A SELECTION ─────────────────────────────────────────────────
@@ -3759,11 +3780,9 @@ function skyReadout(){
          not repeat them — it answers the question the strip raises. */
       box.innerHTML=`<span class="slate">a different picture of the same corpus</span>
         <span class="y sky-hint">These ${live} films have been placed again, against only each
-          other. Your selection chose who is here; the connections still choose where each
-          sits — so these are not their places in the whole atlas.</span>
-        ${key5}
-        <button class="btn ghost" id="sky-clear" type="button">Show the whole atlas</button>`;
-      const b=$("#sky-clear"); if (b) b.onclick=skyClearFacets;
+          other. Your selection chose who is here; the connections still choose where —
+          these are not their places in the whole atlas.</span>
+        ${key5}`;
       return;
     }
     box.innerHTML=`<span class="slate">${sky.keys.length} films · ${sky.eN} connections</span>
