@@ -813,12 +813,57 @@ control, and it moves *before* the flight is fitted. Camera moves also land on
 their target rather than on `exp(log(target))`: one ULP, invisible on screen,
 and the difference between two routes to one picture agreeing and not.
 
+**One token is not the same question as "is this baked", which is the case a
+flag in the URL would get wrong.** `#/sky/country:Q28` is Hungary, sixteen
+films, under the twenty-film bake floor — a single-value address that is
+nevertheless solved live, and it prints `SOLVED HERE` because the sentence is
+keyed to how the picture was made rather than to how many words are in the
+link.
+
+**The caveat and the fallback are spoken as well as printed.** `#sr-status`
+had been announcing "the whole atlas, re-formed" over a stale link, which is
+true and is not the news; and announcing a live-solved intersection with no
+mention that it was solved here, which made the announcement the one surface
+in the app that overstated. Both now carry it.
+
 Verified in real Chromium (`.claude/skills/run-film-atlas/address-probe.mjs`):
 compose by clicking, read the address, cold-load it in a fresh page, and
 membership, every position and the camera compare identical for a register, a
 recorded stratum and a live-solved intersection alike; every restored sky was
 measured for ink. Ten corrupted addresses all land on the whole atlas with
-the notice shown.
+the notice shown. Also at 900×820 and 390×780, under `prefers-reduced-motion`,
+and across hash-to-hash moves inside one session.
+
+**Every guarantee was broken on purpose and confirmed to report it** (negative
+controls built by patching the artifact, the way the meteor probe's are):
+all-or-none dropped → a half-valid link restored a selection nobody sent; the
+empty-selection fallback removed → a valid-but-empty address opened an empty
+sky; the caveat never printed → the intersection lost it; the caveat always
+printed → both baked cases carried one that is not true; `.sort()` deleted →
+two genres clicked in two orders gave two different links; the route-clear
+writing a bare `#/sky` again → a world's address lost while the world was on
+screen; `#/sky` no longer clearing → 194 films on screen under a link
+promising 2,204; the camera landing at `exp(log(fit))` → camera differs on
+both baked cases; the click paths retracting the strip after the fit → camera
+differs on both baked cases; the whole branch removed from `fromHash` → every
+address lands on the wall; and, on a deliberately unplaceable layout, the
+`sky.ready` guard removed → an uncaught `Cannot read properties of null`
+during load.
+
+**Two controls did not fire, and both were the check's fault rather than the
+code's.** Reverting only `skyRestoreSelection`'s chrome-then-camera order left
+the camera correct, because `skyWorldsOpen`'s arrival re-fit corrects it
+independently — the restore path is protected twice and one edit cannot defeat
+it, the same structure as the meteor's off-view guard, and the control that
+does isolate it is the one on the click paths, which have no second mechanism.
+Deleting `.sort()` also passed at first: the check compared a genre against an
+era, and `skySelected()` already walks the facets in a fixed order, so it was
+testing an ordering nothing could disturb. Two values in **one** facet is the
+only case that can fail, because a facet's selection is an insertion-ordered
+Set. A third control crashed the probe instead of failing it — the snapshot
+reached into `sky.wy` and a page that lands on the wall has none — which is
+its own lesson: a check that throws cannot tell you which of the two things
+broke.
 
 ## Deliberately avoided
 

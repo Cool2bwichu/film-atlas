@@ -577,7 +577,9 @@ const GEOMETRY = `(() => {
     }
   }
   for (const L of labels) for (const B of boxes) if (hit(L, B.frame, 1) || hit(L, B.cap, 1)) labelInk++;
-  return { cells: boxes.length, cellCell, capCap, capCell, labelInk, clipped };
+  const cue = document.querySelector("#stage .node.centre .cue");
+  return { cells: boxes.length, cellCell, capCap, capCell, labelInk, clipped,
+    cueShown: cue && cue.offsetHeight > 2 ? 1 : 0 };
 })()`;
 
 async function geometryChecks(browser) {
@@ -593,7 +595,7 @@ async function geometryChecks(browser) {
   for (const vp of [{ width: 1440, height: 900 }, { width: 900, height: 820 }, { width: 1024, height: 660 }, { width: 390, height: 780 }]) {
     const p = await newPage(browser, vp);
     await load(p.page);
-    const sum = { cellCell: 0, capCap: 0, capCell: 0, labelInk: 0, clipped: 0, renders: 0 };
+    const sum = { cellCell: 0, capCap: 0, capCell: 0, labelInk: 0, clipped: 0, cueShown: 0, renders: 0 };
     for (const k of seeds) {
       await p.page.evaluate(`openMap(${JSON.stringify(k)})`);
       await p.page.waitForTimeout(90);
@@ -608,7 +610,8 @@ async function geometryChecks(browser) {
   }
   for (const [tag, s] of Object.entries(totals)) {
     log(`  ${tag.padEnd(9)} ${s.renders} seeds — cell/cell ${s.cellCell}, caption/caption ${s.capCap}, ` +
-        `caption-on-a-neighbour ${s.capCell}, edge label on ink ${s.labelInk}, clipped ${s.clipped}`);
+        `caption-on-a-neighbour ${s.capCell}, edge label on ink ${s.labelInk}, clipped ${s.clipped}, ` +
+        `cue printed on ${s.cueShown}/${s.renders}`);
   }
   const worst = Object.values(totals).reduce((a, s) => a + s.cellCell + s.capCap + s.clipped, 0);
   check(worst === 0, "no cell overlaps another, no caption overlaps another, nothing is clipped",
