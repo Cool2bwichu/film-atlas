@@ -674,7 +674,7 @@ main{flex:1;position:relative;overflow:hidden}
 .sky-stratum[hidden]{display:none}
 .sky-stratum b{font-weight:400;color:var(--ink);min-width:0;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sky-stratum .n{margin-left:auto;flex-shrink:0;color:var(--faint);
+.sky-stratum .n{margin-left:auto;flex-shrink:0;color:#5C5550;
   font-variant-numeric:tabular-nums}
 /* The way back to the whole atlas, printed as a mark rather than a chip —
    nothing in this world has a rounded corner on it. On a coarse pointer the
@@ -2560,6 +2560,7 @@ function skyTargetLive(mask){
     edges.push(e);
   }
   const pos = SKY_SOLVER.layout(films, edges);
+  sky.lastSolve={films:order.length, edges:edges.length};
   const live=new Uint8Array(sky.n), x=new Float64Array(sky.n), y=new Float64Array(sky.n);
   let count=0;
   for (const i of order){
@@ -2708,7 +2709,18 @@ function skyFormTo(target, opts){
     delay[i]=d;
     if ((use || fa[i]>0.002) && d>maxD) maxD=d;
   }
-  for (let i=0;i<n;i++) delay[i]=SKY_FORM_STAGGER*Math.min(1,delay[i]/maxD);
+  /* A SURVIVOR HOLDS ITS PLACE UNTIL THE FIELD HAS CLEARED. Without the
+     floor, everything moved at once and the middle of the flight was an
+     almost empty frame: the departing atlas was gone by 0.34 and the survivors
+     had already collapsed to a knot in the centre, so for a small stratum
+     there was a moment with nothing in it. Holding them for the first eighth
+     means the atlas is seen to empty AROUND them, and only then do they
+     travel — which is also the truer statement, since they were always in
+     those places and it is the company they keep that changed. */
+  for (let i=0;i<n;i++){
+    const wave=Math.min(1,delay[i]/maxD);
+    delay[i]= target.live[i] ? 0.13+ (SKY_FORM_STAGGER-0.13)*wave : SKY_FORM_STAGGER*wave;
+  }
 
   if (skyReduced() || !o.ms){
     /* REDUCED MOTION STILL CHANGES STATE. Someone who asked for less motion
@@ -2732,7 +2744,10 @@ function skyFormTo(target, opts){
     fx,fy,fa,tx,ty,ta,delay, live:target.live, count:target.count,
     c0x:camNow.cx, c0y:camNow.cy, lk0:Math.log(camNow.k),
     c1x:fit.cx, c1y:fit.cy, lk1:Math.log(fit.k),
-    lead: fit.k>=camNow.k ? -0.20 : 0.20,   /* <0 lags the camera, >0 leads it */
+    /* Closing in, the camera waits until the field it is closing on is the
+       only thing left; opening out, it goes early so the frame is already
+       wide when the films reach the edges of it. */
+    lead: fit.k>=camNow.k ? -0.28 : 0.22,   /* <0 lags the camera, >0 leads it */
     frames:0, worst:0, sum:0, solveMs:o.solveMs||0,
     /* Edge classes, decided once. 0 both ends stay, 1 an end is leaving,
        2 an end is arriving, 3 neither end is in the picture at either time.
@@ -2766,11 +2781,18 @@ function skyFormStep(now){
     wx[i]=fm.fx[i]+(fm.tx[i]-fm.fx[i])*e;
     wy[i]=fm.fy[i]+(fm.ty[i]-fm.fy[i])*e;
     const f=fm.fa[i], t=fm.ta[i];
-    /* A film leaving is gone well before it stops travelling, so it does not
-       fly visibly through the constellation forming behind it. A film
-       arriving holds back and comes up late, for the same reason. */
+    /* THE CLEARING IS ONE BEAT, AND IT FINISHES BEFORE THE CAMERA MOVES.
+       A leaving film's fade is keyed to the GLOBAL progress, not to its own
+       staggered one — the stagger is for the constellation that is forming,
+       and giving it to the departure as well kept the outermost films at full
+       opacity into the second half of the flight. Measured on the western
+       stratum (74 films, a 5.5x close-in): the camera had magnified a field
+       already expanded 2x, so at 428ms the frame was an opaque mat of grey
+       edges belonging to films that had already left. Everything on its way
+       out is gone by 0.34, which is 391ms, which is before the camera starts.
+       Arriving films still hold back on their own clock and come up late. */
     A[i] = f===t ? f
-      : t<f ? f*(1-skyEaseFast(Math.min(1,l/0.55)))
+      : t<f ? f*(1-skyEaseFast(Math.min(1,p/0.34)))
             : t*skyEaseFast(Math.max(0,(l-0.35)/0.65));
   }
   const lead=fm.lead;
@@ -3330,7 +3352,11 @@ function skyDraw(){
   const classAlpha=[1,0,0];
   if (forming){
     const p=Math.min(1,(performance.now()-sky.form.t0)/sky.form.ms);
-    classAlpha[1]=Math.max(0,1-p/0.45);
+    /* Lines go first and come back last. A stretched line is a much bigger
+       object than the disc at each end of it, so a departing bond that is
+       still half-inked while the camera closes in covers the constellation
+       that is forming underneath it. */
+    classAlpha[1]=Math.max(0,1-p/0.26);
     classAlpha[2]=Math.max(0,(p-0.55)/0.45);
   }
   const eClass=forming?sky.form.eClass:null;
@@ -3996,12 +4022,15 @@ function skyExit(){
    and `form()` reports the frame cost of the flight that caused it. Read
    only; nothing here can change what is on screen. */
 window.__ATLAS_SKY__ = {
-  form: () => sky.lastForm && Object.assign({},sky.lastForm),
+  form: () => sky.lastForm && Object.assign({},sky.lastForm,{solve:sky.lastSolve}),
   state: () => ({ n:sky.n, live:sky.ready?skyLiveCount():0, forming:!!sky.form,
                   pending:sky.formPending, kind:sky.formKind, scale:sky.formScale,
                   camK:sky.cam.k, fitK:sky.ready?skyFitK():0 }),
   positions: () => sky.ready ? Array.from(sky.wx) : [],
   alphas: () => sky.ready ? Array.from(sky.alpha) : [],
+  liveMask: () => sky.ready ? Array.from(sky.live) : [],
+  keys: () => sky.ready ? sky.keys.slice() : [],
+  progress: () => sky.form ? (performance.now()-sky.form.t0)/sky.form.ms : null,
   strata: () => Object.keys(SKY_STRATA),
   facets: () => FACET_FIELDS.map(f=>f.key),
   select: (field,value) => { if (sky.filter[field]) skyToggleFacet(field,value); },
