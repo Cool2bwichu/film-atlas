@@ -1,0 +1,483 @@
+# CI — the checks this project already owns, run by a system instead of by a person.
+#
+# Before this file the only workflow was pages.yml, which fires on push to main.
+# Every check the project owns — 52 unit tests, validate-corpus, the layout gate,
+# the browser smoke harness — was run by hand, which means a regression is caught
+# by whoever happens to be paying attention. This runs them on pull requests and
+# on pushes to the working branches, where a regression is still cheap.
+#
+# ── THE SPLIT, AND WHY IT IS NOT COWARDICE ───────────────────────────────────
+#
+# `npm test` EXITS 1 AT HEAD, on purpose:
+#
+#     test              = build && node --test && test:atlas-layout && test:atlas-engine
+#     test:atlas-engine = validate-corpus.js && measure-maps.js && measure-claims.js
+#
+# `measure-maps.js` reports interpretive edges at 14% against a 15% target and
+# exits 1. That is atlas/STATE.md open problem 2 — the harvest grew the corpus
+# 2.7x and the authored reading layer has not caught up — and it predates this
+# workflow and will not be fixed by it. Note also that `&&` short-circuits, so
+# under `npm test` today `measure-claims.js` NEVER RUNS: the trivia and crew
+# numbers, which are the ones STATE.md says to watch, are invisible behind a
+# failure in the tool before them.
+#
+# So a workflow that ran `npm test` would be red on arrival, and a red-on-arrival
+# check is ignored inside a week. A workflow that dropped the engine checks to
+# get green would hide the two numbers that say whether the corpus is getting
+# better. Neither is acceptable, so the checks are separated by what they are:
+#
+#   BLOCKING  — a pass/fail contract with a defined right answer. If one of
+#               these goes red, something is broken and the PR is not mergeable.
+#               jobs: `checks`, `browser`.
+#
+#   REPORTING — a measured quality number on a trend line, with no defined right
+#               answer today. Printed into the job summary so a reader watches it
+#               move; never fails the build. job: `trends`, which always exits 0.
+#
+# Each reporting step below carries its own PROMOTE WHEN condition. The general
+# rule for all of them: a reporting check is promoted by making the NUMBER meet
+# the target, never by moving the target to meet the number. atlas/STATE.md and
+# the run-film-atlas skill both say this about measure-maps.js in as many words.
+#
+# ── COST ─────────────────────────────────────────────────────────────────────
+#
+# Measured in the dev container (a 2-core runner will be slower):
+#   npm ci 18s · npm run build 19s (atlas 14s + vinext 5s) · unit tests 5s ·
+#   validate-corpus 0.3s · layout --selftest 15s · layout --strata 20s ·
+#   atlas build 14s · browser smoke 8s
+# Nothing here harvests SPARQL, calls Wikidata or TMDB, or touches the network
+# except to install Node, playwright and Chromium. The corpus is committed; every
+# check reads it off disk.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    # Every working branch, by exclusion rather than by prefix: the branches in
+    # flight are a mix of claude/*, codex/* and bare names (crew-cap-per-film,
+    # constellation-narrow-and-thread-continuity), and a prefix list would
+    # silently skip the bare ones. gh-pages is published output, not source.
+    branches-ignore:
+      - gh-pages
+  workflow_dispatch:
+
+# A PR from a branch in this repo triggers both the push run and the
+# pull_request run. That duplication is deliberate: a push run tells you a branch
+# is broken before anyone opens a PR for it. Repeated pushes to the same ref
+# cancel their own superseded runs, which is where the real saving is.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  # Pinned to the version the project is actually developed and verified on.
+  # package.json engines says ">=22.13.0"; that is the floor, this is the fact.
+  NODE_VERSION: '22.22.2'
+  # Pinned because it decides which Chromium gets downloaded. playwright 1.56.0
+  # resolves to Chromium build 1194, which is the build sitting in the dev
+  # container at /opt/pw-browsers/chromium-1194. Bumping this bumps the browser
+  # the smoke harness runs in, so it is a deliberate change, not a floating one.
+  PLAYWRIGHT_VERSION: '1.56.0'
+
+jobs:
+  # ───────────────────────────────────────────────────────────────────────────
+  # BLOCKING. Unit tests, the corpus validator, the layout gate.
+  # ───────────────────────────────────────────────────────────────────────────
+  checks:
+    name: blocking · tests, corpus, layout gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      # BLOCKING, and required by the unit tests rather than by taste. Three of
+      # the 52 tests read `dist/client/atlas.html` and `dist/server/index.js` —
+      # they render the worker against the real built artifact — so `node --test`
+      # on a fresh checkout fails 3 tests for a missing build and not for a
+      # regression. This is the `npm run build` that `npm test` runs first.
+      - name: Build (atlas artifact + worker bundle)
+        run: npm run build
+
+      # BLOCKING. 52 tests. These are contracts: the discovery manifest agrees
+      # with the corpus it was generated against, the build embeds the whole
+      # corpus rather than a sample, permanent film IDs resolve, generated
+      # artifacts stay out of the authored source.
+      - name: Unit tests
+        run: node --test tests/*.test.mjs
+
+      # BLOCKING. Schema, edge endpoints, claim length, component structure.
+      # Lifted out of `npm run test:atlas-engine` on purpose: it is the FIRST
+      # command in that script and the only one of the three with a defined
+      # right answer. The other two are in the `trends` job below.
+      #
+      # atlas/STATE.md: the corpus is one component of 2,204 films with no
+      # orphans, and that property is what lets Passage promise a chain between
+      # any two films at all. It is worth a gate.
+      - name: Validate corpus
+        run: node atlas/pipeline/validate-corpus.js atlas/static/corpus.json
+
+      # BLOCKING, both halves.
+      #
+      # --selftest is 18 negative controls: every assertion the gate makes is
+      # broken on purpose (positions shuffled, rest-lengths inverted, a
+      # degree-ordered layout, a director-packed one) and confirmed to report
+      # the failure. It is the check that proves the other check can fail, which
+      # is the standard atlas/AGENTS.md sets: "prove it can fail: break the thing
+      # deliberately, confirm the probe reports it, then fix it again."
+      #
+      # --strata is the rule 1 regression gate: it compares every stratum's
+      # solved layout against a committed baseline and fails only on a NEW
+      # breach, not on the 66 standing ones. It does not go red merely because
+      # the corpus moved — when it does fail after a corpus edit it prints the
+      # exact remedy (--write-baseline, committed alongside the corpus).
+      - name: Layout gate (self-test + strata regression)
+        run: npm run test:atlas-layout
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Blocking checks"
+            echo
+            echo "- unit tests (\`node --test tests/*.test.mjs\`)"
+            echo "- \`validate-corpus.js\`"
+            echo "- layout gate: \`--selftest\` (18 negative controls) + \`--strata\` (regression vs baseline)"
+            echo
+            echo "Status: \`${{ job.status }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # ───────────────────────────────────────────────────────────────────────────
+  # BLOCKING. The browser smoke harness, in real Chromium.
+  #
+  # atlas/STATE.md, under "Traps that have already cost time": "jsdom cannot tell
+  # you a page is visible. It mounts and evaluates; it does no layout and no
+  # paint. Two handoffs passed it while rendering a black screen." Every
+  # assertion in driver.mjs therefore ends in ink — laid-out tile boxes, painted
+  # canvas pixels. A screenshot that exists is not evidence.
+  #
+  # Which makes the install below the load-bearing part of this job. A workflow
+  # that installs Chromium wrong does not fail loudly; it fails the way this
+  # project keeps failing, by quietly not checking the thing.
+  # ───────────────────────────────────────────────────────────────────────────
+  browser:
+    name: blocking · real-Chromium smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # PLAYWRIGHT IS NOT A DEPENDENCY OF THIS PROJECT. It is not in
+      # package.json and not in package-lock.json — the dev container simply has
+      # it in node_modules, unsaved, with PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+      # pointing at a preinstalled Chromium. A GitHub runner has neither, so
+      # `npm ci` here would install 472 packages and still not have playwright.
+      #
+      # Nothing else in this job needs node_modules at all: build.js, the corpus
+      # tools and the tests import only node: builtins (verified — `playwright`
+      # is the single third-party import anywhere under atlas/, tests/ and the
+      # skill). So instead of a 472-package install, install exactly playwright,
+      # pinned, into a scratch directory.
+      #
+      # It has to be reachable from the workspace, though: driver.mjs is ESM
+      # (`import { chromium } from "playwright"`) and NODE_PATH does NOT apply to
+      # the ESM resolver — that is a real trap and the reason for the symlink
+      # rather than an env var. The skill notes the same thing from the other
+      # side: "a driver outside the repo cannot resolve playwright."
+      #
+      # PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD stops the npm postinstall from fetching
+      # Chromium AND Firefox AND WebKit. We want one browser, chosen below.
+      - name: Install playwright ${{ env.PLAYWRIGHT_VERSION }} (pinned, no project deps)
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/pw"
+          cd "$RUNNER_TEMP/pw"
+          npm init -y > /dev/null
+          npm install --no-audit --no-fund "playwright@${PLAYWRIGHT_VERSION}"
+          ln -s "$RUNNER_TEMP/pw/node_modules" "$GITHUB_WORKSPACE/node_modules"
+          cd "$GITHUB_WORKSPACE"
+          echo "playwright CLI: $(node node_modules/playwright/cli.js --version)"
+
+      # Cache the browser binary, not the system libraries. ~120 MB of Chromium
+      # keyed on the pinned playwright version, so a version bump misses the
+      # cache and downloads the browser that version actually wants.
+      #
+      # Deliberately NOT setting PLAYWRIGHT_BROWSERS_PATH: the default is
+      # ~/.cache/ms-playwright and the default is what `chromium.executablePath()`
+      # will look up. The dev container overrides it to /opt/pw-browsers; a
+      # runner that inherited that override would look in an empty directory.
+      - name: Cache Chromium
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ env.PLAYWRIGHT_VERSION }}-chromium
+
+      # Two steps, not one `install --with-deps`, so the cache above is worth
+      # having: the shared-library install always runs (it is apt, it is not
+      # cacheable, and it is what a bare `install chromium` silently omits),
+      # while the 120 MB download is skipped on a cache hit.
+      #
+      # `node node_modules/playwright/cli.js` rather than `npx playwright`: the
+      # CLI that downloads the browser must be the exact version of the library
+      # that later launches it, and this invocation cannot resolve to anything
+      # else.
+      #
+      # This one step is allowed to fail. It is an `apt-get` against Ubuntu's
+      # mirrors and apt flakiness is the commonest cause of a spuriously red
+      # blocking job — and it is the one step here whose success is not the thing
+      # we care about. What we care about is whether Chromium LAUNCHES, and the
+      # next step proves that directly. If the libraries really were missing, the
+      # launch fails and the job goes red there, with a message that says so.
+      # Verified on Ubuntu 24.04, the same family as ubuntu-latest.
+      - name: Install Chromium system dependencies
+        continue-on-error: true
+        run: node node_modules/playwright/cli.js install-deps chromium
+
+      - name: Install Chromium
+        run: node node_modules/playwright/cli.js install chromium
+
+      # THE ANTI-SKIP ASSERTION. Everything above can succeed while leaving no
+      # usable browser behind — wrong browsers path, cache restored from a
+      # different version, a download that 200s and writes nothing. So prove it:
+      # resolve the executable, check it exists on disk, then actually launch it
+      # and print the build. If this step is green, the smoke below ran in a real
+      # browser; if the browser is missing, the job stops here with a clear
+      # message instead of at a confusing failure inside the harness.
+      - name: Prove Chromium is really installed and launchable
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const { chromium } = require("playwright");
+            const exe = chromium.executablePath();
+            if (!fs.existsSync(exe)) {
+              console.error("No Chromium at " + exe + " — the install step did not leave a browser behind.");
+              process.exit(1);
+            }
+            chromium.launch({ args: ["--disable-gpu", "--no-sandbox"] })
+              .then(async (b) => { console.log("launched " + b.version() + "\n  at " + exe); await b.close(); })
+              .catch((e) => { console.error("Chromium is present at " + exe + " but will not launch:\n" + e); process.exit(1); });
+          '
+
+      # BLOCKING. ~14s, of which ~9 is solving the 44 per-stratum constellation
+      # layouts. No npm ci needed: build.js imports only node: builtins.
+      #
+      # The size floor is not decoration. The artifact is ~9 MB because the whole
+      # corpus is inlined; a build that emitted a stub — a template with no
+      # corpus, an early return, a sample instead of the full 2,204 — would
+      # otherwise sail through and then produce an empty-but-painting page.
+      - name: Build the Atlas artifact
+        run: |
+          set -euo pipefail
+          node atlas/app/build.js --out public/atlas.html
+          SIZE=$(stat -c%s public/atlas.html)
+          echo "public/atlas.html is $((SIZE / 1024)) KB"
+          if [ "$SIZE" -lt 5000000 ]; then
+            echo "::error::Atlas artifact is only $SIZE bytes; the whole-corpus build is ~9 MB. Something built a stub."
+            exit 1
+          fi
+
+      # BLOCKING. The harness itself: wall, a film's radial map, the
+      # constellation, narrowing the field into a re-formed stratum, and a
+      # Passage route — each ending in a measurement of what actually painted.
+      # It exits non-zero on failure, including on `ink 0%`, which is the black
+      # screen that produced zero console errors and a 1.2 MB screenshot the two
+      # times it shipped.
+      - name: Browser smoke (wall, map, sky, narrow, passage)
+        run: |
+          set -euo pipefail
+          node .claude/skills/run-film-atlas/driver.mjs smoke | tee "$RUNNER_TEMP/smoke.txt"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Browser smoke (blocking)"
+            echo
+            if [ -f "$RUNNER_TEMP/smoke.txt" ]; then
+              echo '```'
+              cat "$RUNNER_TEMP/smoke.txt"
+              echo '```'
+              echo
+              echo "Read the ink figures, not just the verdict: \`ink 0%\` is a black page that passes every other check."
+            else
+              echo "The smoke harness did not produce output — it never ran. Status: \`${{ job.status }}\`"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # The screenshots are the evidence when it fails, and dead weight when it
+      # does not. ~5 PNGs, ~1 MB each.
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-shots-${{ github.run_id }}
+          path: .atlas-shots/
+          retention-days: 7
+          if-no-files-found: warn
+
+  # ───────────────────────────────────────────────────────────────────────────
+  # REPORTING ONLY. Never fails the build. Every step captures its tool's exit
+  # status, prints the number into the job summary, and exits 0 regardless.
+  #
+  # These are quality TRENDS, not contracts. They move when the corpus grows for
+  # reasons that have nothing to do with the diff under review — the harvest to
+  # 2,204 films pushed trivia share UP from 20.9% to 23.0% without a single line
+  # of code changing — so gating a pull request on them would block work that did
+  # nothing wrong and teach everyone to ignore the check.
+  #
+  # The job is green even when a number is bad, and that is the honest state:
+  # "we measured it, here it is, nobody has committed to a threshold yet."
+  # ───────────────────────────────────────────────────────────────────────────
+  trends:
+    name: reporting only · quality numbers (never blocks)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      # Only eslint needs this; the two measure tools import node: builtins only.
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      # REPORTING. `measure-maps.js` exits 1 today: interpretive edges 14%
+      # against a target of 15%. That is a recorded, understood regression —
+      # atlas/STATE.md open problem 2 — and it is about the CORPUS, not about
+      # anyone's diff: the harvest grew the map count 2.7x while the 967 authored
+      # claims stayed put, and each reading pass since has walked it back
+      # (11% -> 14%). Blocking on it would make every PR red for a condition no
+      # PR caused and no PR can fix.
+      #
+      # PROMOTE WHEN: this tool prints PASS on main. That happens when readings
+      # cover enough of the corpus — 1,186 of 2,204 films still carry none — not
+      # when the 15% target is lowered. atlas/STATE.md and the run-film-atlas
+      # skill both say so explicitly: "Do not 'fix' the target."
+      # The promotion is then mechanical: delete this step, and put
+      # `npm run test:atlas-engine` in the `checks` job, which is exactly this
+      # tool plus validate-corpus (already blocking) and measure-claims.
+      - name: measure-maps.js — interpretive share
+        run: |
+          set +e
+          node atlas/pipeline/measure-maps.js > "$RUNNER_TEMP/maps.txt" 2>&1
+          STATUS=$?
+          set -e
+          cat "$RUNNER_TEMP/maps.txt"
+          {
+            echo "## Quality trends — reported, never enforced"
+            echo
+            echo "### measure-maps.js &mdash; exit status \`$STATUS\` (not enforced)"
+            echo
+            grep -E '^(FAIL|PASS)|interpretive edges|same director|single dominant type|distinct types per map' "$RUNNER_TEMP/maps.txt" \
+              | sed 's/^/    /' || true
+            echo
+            echo "<details><summary>full output</summary>"
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/maps.txt"
+            echo '```'
+            echo
+            echo "</details>"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      # REPORTING. `measure-claims.js` exits 0 whatever it finds — it has no
+      # threshold to fail. Under `npm test` it never even runs, because
+      # measure-maps.js fails ahead of it in the same `&&` chain, so today these
+      # numbers are only ever seen by someone who runs the tool by hand.
+      #
+      # The two to watch, per atlas/STATE.md:
+      #   TRIVIA SHARE — genre/era coincidence and incidental cast.
+      #   crew %       — "shares a cinematographer" is checkable, unfalsifiable
+      #                  and teaches nothing; it is the failure a clean trivia
+      #                  figure cannot show you.
+      #
+      # PROMOTE WHEN: the tool grows a threshold and exits non-zero against it.
+      # That threshold has to be a RATCHET (never worse than the last recorded
+      # value, committed alongside it) rather than an absolute, because the
+      # number moves with corpus size for reasons unrelated to claim quality —
+      # exactly the drift atlas/STATE.md open problem 1 documents. Today's
+      # values, for whoever writes that ratchet: trivia 21.9%, crew 39.0%,
+      # authored 15.9%, repeated 6.1%.
+      - name: measure-claims.js — trivia and crew share
+        run: |
+          set +e
+          node atlas/pipeline/measure-claims.js > "$RUNNER_TEMP/claims.txt" 2>&1
+          STATUS=$?
+          set -e
+          cat "$RUNNER_TEMP/claims.txt"
+          {
+            echo "### measure-claims.js &mdash; exit status \`$STATUS\` (no threshold exists yet)"
+            echo
+            grep -E 'TRIVIA SHARE|AUTHORED|REPEATED|^  crew ' "$RUNNER_TEMP/claims.txt" \
+              | sed 's/^/    /' || true
+            echo
+            echo "<details><summary>full output</summary>"
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/claims.txt"
+            echo '```'
+            echo
+            echo "</details>"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      # REPORTING. AGENTS.md ("Delivery") says to run `npm run lint` before
+      # saving or deploying a version, and nothing automated it. It cannot block
+      # yet: it is red, and every error is in agent tooling rather than in the
+      # app, the pipeline's shipped path or the tests. Two classes, measured
+      # 2026-08-09 —
+      #   * the driver and probes under .claude/skills/run-film-atlas/ trip
+      #     no-undef on the app's own browser globals (sky, KEYS, skyDraw...)
+      #     which they evaluate INSIDE the page. That is an eslint config gap,
+      #     not a defect; those files need an override, not edits. Scratch probes
+      #     agents leave at the repo root land in the same bucket, and their
+      #     count moves between sessions — which is exactly why this reports.
+      #   * atlas/pipeline/measure-recommender.js redeclares the global `print`.
+      #
+      # PROMOTE WHEN: `npm run lint` is green on main. Then move this step into
+      # the `checks` job and drop the `exit 0`. Do not promote it by adding
+      # ignore patterns wide enough to cover the app.
+      - name: eslint — repository lint
+        run: |
+          set +e
+          npm run lint > "$RUNNER_TEMP/lint.txt" 2>&1
+          STATUS=$?
+          set -e
+          cat "$RUNNER_TEMP/lint.txt"
+          {
+            echo "### eslint &mdash; exit status \`$STATUS\` (not enforced)"
+            echo
+            grep -E '✖ .* problems' "$RUNNER_TEMP/lint.txt" | sed 's/^/    /' || echo "    clean"
+            echo
+            echo "<details><summary>full output</summary>"
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/lint.txt"
+            echo '```'
+            echo
+            echo "</details>"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0

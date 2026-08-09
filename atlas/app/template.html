@@ -2931,18 +2931,19 @@ function skyRestoreSelection(pairs){
        pasting a stale address into a sky that already holds a selection must
        leave the previous constellation nowhere on screen, and clearing
        sky.filter alone would leave it drawn under a caption saying otherwise. */
+    skyWorldsOpen(true);
     skyApplySelection(0);
     skyFilterRender();
-    skyWorldsOpen(true);
     skyWorldsRender();
     return false;
   }
   sky.staleAddr=null;
+  /* Chrome before camera, exactly as the two click paths do it — this is the
+     end of the round trip and it has to land on the same frame they do. */
+  skyWorldsOpen(false);
   skyApplySelection(0);
   skyFilterRender();
   skyStratumRender();
-  skyWorldsOpen(false);
-  skyWorldsRender();
   return true;
 }
 
@@ -3564,7 +3565,7 @@ function skyFormTo(target, opts){
     t0:performance.now(), ms:o.ms, span:SKY_FORM_STAGGER,
     fx,fy,fa,tx,ty,ta,delay, live:target.live, count:target.count,
     c0x:camNow.cx, c0y:camNow.cy, lk0:Math.log(camNow.k),
-    c1x:fit.cx, c1y:fit.cy, lk1:Math.log(fit.k),
+    c1x:fit.cx, c1y:fit.cy, lk1:Math.log(fit.k), k1:fit.k,
     /* Closing in, the camera waits until the field it is closing on is the
        only thing left; opening out, it goes early so the frame is already
        wide when the films reach the edges of it. */
@@ -3636,6 +3637,12 @@ function skyFormStep(now){
     for (let i=0;i<sky.n;i++){ wx[i]=fm.tx[i]; wy[i]=fm.ty[i]; A[i]=fm.ta[i]; }
     sky.extent=fm.ext1;
     sky.liveEdges=fm.liveEdges1;
+    /* Land on the fit itself, in the same order the instant path lands on it
+       (extent, then camera, then clamp) — see the note in skyFrame. This is
+       what makes a flight to a selection and a cold load of that selection's
+       address end at the same camera rather than at two cameras a ULP apart. */
+    sky.cam.cx=fm.c1x; sky.cam.cy=fm.c1y; sky.cam.k=fm.k1;
+    skyClampC(sky.cam);
     sky.lastForm={kind:sky.formKind,films:fm.count,scale:sky.formScale,
       frames:fm.frames,ms:now-fm.t0,worst:fm.worst,
       mean:fm.frames?fm.sum/fm.frames:0,solveMs:fm.solveMs||0,reduced:false};
@@ -3897,10 +3904,26 @@ function skyWorldChoose(id){
   set.clear();
   if (!was) set.add(id);
   sky.preview=null; sky.previewSet=null;
+  /* THE CHROME RETRACTS FIRST, AND THEN THE CAMERA IS FITTED TO IT.
+     This used to run after skyApplySelection and it was a measured defect, of
+     exactly the kind DESIGN.md already describes for the arrival fit. The
+     strip is 147 px of the top of the field; skyFormTo computes the flight's
+     destination camera from skyChrome() at the moment it is called, and
+     skyWorldsOpen's own corrective re-fit is (rightly) suppressed while a
+     form is in flight. So choosing a world measured the frame WITH the index
+     in it and then removed the index, and the door landed at k=1418 where its
+     own fit is k=1795 — the whole atlas drawn 1.27x outside itself, on the
+     view whose entire job is to be fitted to the part you can see.
+     Retracting first costs one forced layout and makes the door land where a
+     cold load of its address lands, which is the same statement twice.
+
+     `!skyFilterOn()` rather than `!set.size`: the strip comes back with the
+     WHOLE ATLAS, and deselecting a world while a genre is still on does not
+     make the atlas whole. */
+  skyWorldsOpen(!skyFilterOn());
   skyApplySelection();
   skyFilterRender();
   skyStratumRender();
-  skyWorldsOpen(!set.size);
   skyWorldsRender();
 }
 
@@ -4065,6 +4088,13 @@ function skyApplySelection(ms){
 function skyToggleFacet(field,idx){
   const set=sky.filter[field];
   set.has(idx) ? set.delete(idx) : set.add(idx);
+  /* THE STRIP IS OPEN IF AND ONLY IF THE ATLAS IS WHOLE, whichever control
+     narrowed it. It was the door and skyEnter that said so and the filter
+     panel that did not, which left one selection with two possible chromes
+     and therefore two possible cameras — and a picture with two cameras
+     cannot have one address. Before skyApplySelection for the reason spelled
+     out in skyWorldChoose. */
+  skyWorldsOpen(!skyFilterOn());
   skyApplySelection();
   skyFilterRender();
   skyStratumRender();
@@ -4072,12 +4102,14 @@ function skyToggleFacet(field,idx){
 
 function skyClearFacets(){
   for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+  /* Back to the whole atlas is back to the arrival, so the index comes back
+     with it — otherwise the way in exists only once per page load. It comes
+     back BEFORE the flight is fitted, or the whole atlas is fitted to a frame
+     147 px taller than the one it lands in. */
+  skyWorldsOpen(true);
   skyApplySelection();
   skyFilterRender();
   skyStratumRender();
-  /* Back to the whole atlas is back to the arrival, so the index comes back
-     with it — otherwise the way in exists only once per page load. */
-  skyWorldsOpen(true);
   skyWorldsRender();
 }
 
@@ -4445,7 +4477,15 @@ function skyFrame(){
     sky.cam.cy=a.c0y+(a.c1y-a.c0y)*e;
     /* zoom interpolates in log space; linear zoom lurches */
     sky.cam.k=Math.exp(a.lk0+(a.lk1-a.lk0)*e);
-    if (p>=1) sky.anim=null;
+    /* A MOVE ENDS WHERE IT WAS AIMED, NOT AT exp(log(WHERE IT WAS AIMED)).
+       The last frame used to be evaluated like every other one, so the camera
+       came to rest one ULP off its target — Math.exp and Math.log are not
+       exact inverses and neither is required to be correctly rounded. It is
+       invisible on screen and it is not invisible to an address: two arrivals
+       at the same fit by different routes have to agree bit for bit, or a
+       shared selection is only nearly the same picture for a reason that has
+       nothing to do with the solver. */
+    if (p>=1){ sky.cam.cx=a.c1x; sky.cam.cy=a.c1y; sky.cam.k=a.k1; sky.anim=null; }
   }
   /* The re-form owns positions AND the camera while it runs, so it is stepped
      after the ordinary camera animation and would overwrite one; the two are
@@ -4484,7 +4524,7 @@ function skyGo(cx,cy,k,ms){
     sky.anim=null; sky.cam.cx=to.cx; sky.cam.cy=to.cy; sky.cam.k=to.k;
   } else {
     sky.anim={c0x:sky.cam.cx,c0y:sky.cam.cy,lk0:Math.log(sky.cam.k),
-      c1x:to.cx,c1y:to.cy,lk1:Math.log(to.k),t0:performance.now(),ms};
+      c1x:to.cx,c1y:to.cy,lk1:Math.log(to.k),k1:to.k,t0:performance.now(),ms};
   }
   skyRender();
 }
