@@ -5430,9 +5430,13 @@ function skyDraw(){
   const ctx=sky.ctx;
   if (!ctx || !sky.n) return;
   /* The aperture is inscribed in the safe band, and the safe band moves when
-     the readout folds, the strip rolls up or a notice appears. Recomputed
-     here, written only when it changed. */
-  skyGateApply();
+     the readout folds, the strip rolls up or a notice appears — all of which
+     clear sky.chrome. So the gate is recomputed when that cache is cold and
+     not otherwise: computing it on every frame cost a measured 0.18ms, which
+     took the night sky's meteor frame from 0.74x the untreated whole atlas to
+     1.12x and broke a standing cost claim in DESIGN.md. Chrome must not join
+     the draw loop. */
+  if (!sky.chrome || !sky.gate) skyGateApply();
   const w=sky.w, h=sky.h, n=sky.n, cam=sky.cam, k=cam.k;
   ctx.setTransform(sky.dpr,0,0,sky.dpr,0,0);
   ctx.clearRect(0,0,w,h);

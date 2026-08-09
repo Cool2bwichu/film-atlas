@@ -67,7 +67,21 @@ const f2 = x => (x === undefined ? "n/a" : x.toFixed(2));
    The 40 brightest stars are recomputed from SKY_STARS and the camera, then
    the canvas is sampled at exactly those pixels. It cannot be satisfied by a
    canvas that merely has ink on it, and on the untreated whole atlas — where
-   the star block is a branch not taken — it must report ~0. */
+   the star block is a branch not taken — it must report ~0.
+
+   IT ASKS FOR THE STAR'S COLOUR AND NOT MERELY FOR BRIGHTNESS, AND THAT IS A
+   REPAIR RATHER THAN A LOOSENING. A brightness threshold of 45 was enough
+   while the resting atlas was near-black everywhere a star was not. The print's
+   integration pass put ambient light across the whole plate, and the negative
+   control went from ~0 to 11 of 39 — pixels that are bright because the atlas
+   is now lit, not because a star is there — which is the control TELLING you
+   it had stopped discriminating. Raising the threshold would have been fitting
+   the check to the change. What a star actually is, is #DCE6F2: blue minus red
+   of +22, in a page whose whole palette is settled at blue-minus-red NEGATIVE
+   (DESIGN.md, "the ground is almost pure black, and it is warm"). So the check
+   asks for a COOL bright pixel, which the halation of a warm plate cannot
+   counterfeit and a star cannot fail. Measured after the repair: night sky
+   39 of 39, whole atlas 1 of 39. */
 const STAR_CHECK = `(() => {
   const st=SKY_STARS, cam=sky.cam, w=sky.w, h=sky.h, dpr=sky.dpr;
   const PX=110;
@@ -89,7 +103,9 @@ const STAR_CHECK = `(() => {
     for(let dy=-1;dy<=1;dy++) for(let dx=-1;dx<=1;dx++){
       const o=((py+dy)*c.width+(px+dx))*4;
       const v=(d[o]+d[o+1]+d[o+2])/3;
-      if(v>best) best=v;
+      /* bright AND cool: a star is #DCE6F2, b-r = +22, on a page whose ground
+         and whose halation are both warm (b-r negative). */
+      if(v>=45 && d[o+2]-d[o]>=6 && v>best) best=v;
     }
     if(best>=45) lit++;
   }

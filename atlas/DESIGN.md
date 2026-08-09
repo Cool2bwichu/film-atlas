@@ -971,6 +971,278 @@ reached into `sky.wy` and a page that lands on the wall has none — which is
 its own lesson: a check that throws cannot tell you which of the two things
 broke.
 
+## The print in the gate — Latent Image, settled 2026-08
+
+ATLAS is one photographic print of the whole of cinema, held in a projector
+gate with a single lamp behind it.
+
+**The negative is the corpus and it is identical for everyone.** 2,204 films,
+positions solved from bond strength at build time, each holding the tonal value
+measured from its own photography — complete before anyone arrives and complete
+for a reader who never marks a thing. What the beam passes through is **dye**,
+and the dye is the only thing on the plate that is anybody's.
+
+> **A film you have not marked is silver: exact size, exact place, exact
+> lightness, missing only its colour.**
+
+So the apparatus is what the atlas IS, and the dye is whose it is. Both were
+already here — the corpus's own measured highlights, and a layout the solver
+had already normalised — and neither is a layer over the other.
+
+### develop() moves one quantity, and it is chroma
+
+`develop(hex, t)` converts a film's measured highlight to OKLab, scales `a` and
+`b` by `t`, and converts back. `L` is untouched. Measured on the shipped
+corpus, asked of the running page rather than of a copy of the maths:
+
+| | |
+|---|---|
+| `develop(hex, 1)` reproduces the film's own hex | **0 of 2,204 differ** |
+| OKLab `L` after the round trip at `t = 0` | within **0.00167** at worst; that residue is the 8-bit sRGB encode |
+| developed chroma, median | 0.1355 |
+| films whose developed colour is below chroma 0.05 | **44**, every one of them from the 222 with a curated or era-default palette; **0 of 1,982 poster-measured films** |
+
+`t` is read from `state.seen` / `state.loved` and from nothing else. It is not
+a function of degree, of strength, of year, or of any neighbour.
+
+> **Development does not propagate. You do not half-know *Sansho the Bailiff*
+> because you have seen *Ugetsu*.**
+
+### The integration pass — where the colour nobody measured lives
+
+DESIGN measured per-film hue at field scale at **0.979x a shuffle** and
+concluded, correctly, that 2,204 measured highlights side by side carry no
+spatial information. That conclusion is about *per-film* colour. A projector
+integrates: every film throws light into the emulsion around it, and the
+integral of noise is not noise. One 16px sprite per emission colour, blitted
+additively into a buffer at **0.24 of the device raster**, beneath everything
+the graph draws.
+
+**The kernel is measured in film gaps, not in pixels.** 2.9 gaps of diameter is
+6.6 gap-areas, which at the solver's own `0.669/√N` spacing is about 25 films —
+the same 25 at every viewport and every zoom. It was 22 CSS px flat first,
+which is right on a desktop (the median gap at the fit zoom is 6.6px there) and
+wrong on a phone, where it covered 31 gaps over a disc half the radius: the
+measured result was a washed-out silver ball, **23.4% ink at 390×780 against
+13.6% at 1440×900**. In gaps, both viewports draw the same print.
+
+### The one invariant this whole object stands on
+
+> **A latent film's halo carries identical luminance to a developed one and
+> differs only in chroma.**
+
+The emission colour is a straight line between the film's own grey-at-its-own-
+luma and the film's own colour:
+
+    C(t) = (1−t)·(Y,Y,Y) + t·(R,G,B),   Y = 0.2126R + 0.7152G + 0.0722B
+
+Rec.709 luma is a **linear functional** of the channel triple and canvas
+compositing is additive in exactly those channels, so `luma(C(t)) = Y` for
+every `t`, exactly, with no appeal to anybody's colour science. Both endpoints
+are in gamut and so is every point between them. Measured drift: **0.5 of 255**,
+one rounding step, and that is the whole residue.
+
+That is what makes marking a film unable to add one photon to the atlas.
+
+### The composite floor, and the number it is guarding
+
+The integration buffer composites **strictly beneath** the discs, and the disc
+loop reads `sky.tone[]` and nothing else. The kernel covers ~25 films and the
+corpus's mean degree is 20.16 — the same number — so a pool that was allowed to
+tint the latent discs standing inside it would colour about a thousand film
+positions from forty marks. That is the 21x neighbour overclaim arriving
+through the compositor instead of through a spread rule.
+
+`print-probe.mjs` samples **every latent film's composited pixel** and requires
+OKLab chroma ≤ 0.02:
+
+| marks | latent | developed | latent p99 chroma | developed median | ink | mean luma | luma at the films |
+|---|---|---|---|---|---|---|---|
+| 0 | 2,204 | 0 | 0.0067 | — | 13.206% | 20.927 | 154.304 |
+| 40, canon-first | 2,164 | 40 | 0.0067 | 0.1137 | 13.206% | 20.925 | 154.152 |
+| 300, canon-first | 1,904 | 300 | 0.0067 | 0.1267 | 13.206% | 20.887 | 152.813 |
+| 300, random | 1,904 | 300 | 0.0071 | 0.1288 | 13.206% | 20.885 | 152.780 |
+| 2,204 | 0 | 2,204 | — | — | 13.206% | 20.633 | 143.063 |
+
+**Inked pixels move 0.000% from zero marks to 2,204.** The light at the films
+moves **−7.3%**, downward, and that is arithmetic rather than a concession:
+OKLab `L` is exactly preserved, and OKLab `L` and Rec.709 luma disagree about a
+chromatic colour — a colour is the darker of the two at equal perceptual
+lightness. The ceiling on that reading is therefore **one-sided**: a mark may
+not add light; getting darker is what a dye does.
+
+### No denominator. Anywhere. Ever.
+
+No counter, no percentage, no "n of 2,204", no total, no remaining, no streak,
+no `seenAt` rendered as a timeline. The existing "For you *n*" header is the
+pattern not to extend.
+
+A sentence *was* written into the resting readout — shown only once at least
+one film was marked — explaining that marked films hold their own colour and
+the rest stay silver. **It changed the height of the readout**, `skyChrome()`
+seeds the readout into the camera's safe band, and the arrival fit came back
+smaller: measured, ink fell **13.578% → 10.779%** at 1440×900 and **23.414% →
+13.859%** at 390×780 between zero marks and forty. *The atlas got smaller
+because the reader had watched forty films.* That is the same defect as a mark
+adding light, arriving through a paragraph instead of a pixel, and it is why
+"nothing is dimmed, removed, resized or moved" has to be checked rather than
+asserted. The explanation lives on the **film** readout instead, which is about
+one film and appears the same way whatever the reader has marked.
+
+### The gate
+
+Four physical objects, none of which knows anything about any film, all of them
+static CSS at **zero repaints**:
+
+- **The lamp**, behind the print, pinned to the FRAME. Distinct from
+  `.sky-field::before`, which is the film in hand lighting the room and is
+  pinned to that film. The anchor is what tells you which light is which.
+- **The gate edge**: a **1.37 Academy** aperture inscribed in the band the
+  camera already fits to (clamped to [0.82, 1.37] and fitted to the band), hard
+  crop outside, soft falloff inside. It replaces the old full-bleed radial
+  vignette — a gate has a *shape*, and the shape is a rectangle.
+- **The grain**, a 96px tile seeded once from a fixed PRNG, tiled in frame
+  space, under the label layer (AGENTS rule 4).
+
+**The aperture moves no film and changes no camera.** By construction
+`min(gate.w, gate.h) === min(canvas.w, band.h)`, which is the quantity
+`skyFitK()` already uses. Verified at three viewports to **0.000px**.
+
+### Marking, and the develop
+
+`markFilm()` is the one route in, because there are now four ways: the panel's
+two buttons, and **`s` / `l` on the focused film in all three views**. Until
+this the entire feature was fed by two buttons that exist only inside a panel
+that opens on the *second* gesture of the map view, with no keyboard path and
+no way to mark from the wall or the constellation at all.
+
+The develop is **1,600ms**, `--ease-develop` `cubic-bezier(.48,.02,.26,1)`,
+with **140ms of induction at the head where nothing happens** — a print does
+not switch on. Chroma is the only animating quantity. Only the ~22px kernel
+around the developing film is re-integrated (a dirty rect), never the frame.
+Un-marking arrives rather than reversing: it is a correction, not a gesture.
+
+Under `prefers-reduced-motion` it is **retained at `--t-mid` with the induction
+dropped**. Narrow, argued exception: it contains no translation, no scale and
+no parallax, and the setting protects against vestibular motion. Anything
+future that MOVES is dropped entirely rather than shortened.
+
+**The seen ring is gone**, and its absence is the feature: a seen film is
+already holding its own colour where every latent film holds silver, so a ring
+was the same fact drawn twice — and it was an unbounded O(|seen|) second pass
+per frame. `ringed()`'s refill also ran at `globalAlpha` **1** while every other
+disc ran at 0.82, so a marked film was literally the brightest thing on the
+plate and ignored the preview dim; it now takes the same alpha the disc pass
+gives that film. **Loved keeps its gold ring**: development is a property of the
+image, love is a chinagraph mark on the print.
+
+The wall and the map sign the same way — `.tile.developed::after` and
+`.node.developed .frame::after`, the rule the tile already draws on hover, in
+that film's own measured highlight, standing at rest. The 6px gold dot is gone
+from *seen* and survives for *loved* only. **A wall with nothing marked is
+pixel-identical to the wall that shipped.**
+
+`@keyframes resolve` lost its `saturate(.35)`. Desaturation is now the
+vocabulary of *undeveloped* everywhere else in this application, so an arriving
+poster fading up out of grey was saying, in the project's own new grammar, "you
+have not seen this" about a film the reader had just opened.
+
+### What is NOT claimed
+
+- **No regional-weather sentence ships.** The integral genuinely carries colour
+  a single highlight does not, but at a few hundred marks that statistic is
+  about the reader's subset and not about cinema. The sentence is gated on a
+  Moran's I of the *integrated field* clearing degree's own 0.115 control, and
+  that has not been measured.
+- **Inside a chosen world the integration pass is off.** DESIGN rules that at
+  field scale colour carries the stratum, and two chroma channels cannot own one
+  disc. The discs stay the world's; the plate is yours everywhere else, which is
+  the state the atlas rests and arrives in.
+
+### AGENTS rule 1, measured on the most adversarial history there is
+
+The seen sets in the gate are the **degree-sorted head of the corpus** — a
+history that *is* the degree order, which is both the realistic canon-heavy case
+and the worst case for this rule. Local composited brightness against
+whole-corpus degree, on a latent field:
+
+| | r |
+|---|---|
+| 2,204 films, nothing developed | **−0.009** |
+| the 40 highest-degree films developed | **−0.040** |
+| the 300 highest-degree films developed | **−0.051** |
+
+Ceiling 0.20. And the reason nothing here *can* become a popularity gradient is
+a property of this corpus, verified rather than inherited: **2,204 films, 22,217
+edges, median degree 20, mean 20.161, 55.4% at exactly 20, 82.0% in 20–22, 8.2%
+below 19, max 41 on one film, CV 0.146.** The distribution is near-regular;
+there is no hub structure to amplify. We propagate through nothing anyway.
+
+### Six negative controls, and two of them caught the checks rather than the code
+
+`print-probe.mjs --controls` patches the real artifact and requires each patch
+to be reported by the gate it defeats.
+
+| break | reported |
+|---|---|
+| development spreads one hop through the graph | latent p99 chroma **0.106** against a floor of 0.02, at 40 marks |
+| `develop()` scales L as well as a and b | L moved 0.274; light at the films **+46.4%** |
+| the halo carries full chroma whether or not developed | **2,202 latent halos carry a hue** |
+| the store validates with `F[k]` instead of `hasOwnProperty` | **0 tiles laid out**, 3 prototype keys in `state.seen`, 1 console error |
+| the develop snaps | painted **1 frame** |
+| a marked film glows | light at the films **+22.4%** |
+
+**Two controls passed at first, and both were the check's fault.** A halo that
+ignored `t` altogether was trivially luma-invariant — and was also the whole
+plate showing everybody's colour before a single mark; the gate now asks
+separately that a latent halo be *grey*. And a build that multiplied a marked
+disc's alpha by 1.22 passed everything, because 0.82 × 1.22 clamps to 1 and a
+disc at alpha 1 *replaces* the halation behind it: the "brighter" build measured
+1.1 points **darker** at the films. A control has to be checked for doing what
+its name says, exactly like the checks it is testing. The replacement draws an
+additive glow on marked films and is caught at +22.4%.
+
+A seventh control is kept deliberately **expecting to pass**: blitting the
+buffer a second time *over* the discs. Measured, the ordering alone is worth
+p99 chroma **0.0174** — under the floor. That is a finding, not a pass. The
+floor is guarding against dye reaching a neighbour, which is the first control;
+the ordering is worth about a third of it, and keeping this control is what
+stops that sentence being a guess.
+
+### The store keys on filmId
+
+A corpus key is a slug and slugs mutate between releases: `earth` once meant a
+1930 Macedonian short. Against the frozen 803-film cohort, 802 of 803 keys
+resolve and exactly one is **silently retargeted** — a reader's record of one
+film quietly becomes a record of a different one. `filmId` is present and
+distinct on 2,204 of 2,204 and `discovery.json`'s `keyByFilmId` agrees on all
+2,204. A v1 store is read as slugs, migrated, and **anything that no longer
+resolves is counted in `prefLoss`** rather than swallowed.
+
+`persistPreferences()` now writes five keys — `v`, `seen`, `loved`, `filter`,
+`skyFolded`. It does not merge, it replaces: **a field that is read and not
+written here is destroyed by the first toggle of any other preference.**
+
+### Cost
+
+The develop is the only continuous thing this feature adds, and it is bounded to
+one film, to 1,600ms, and to the constellation actually being on screen.
+Measured in this container: **0 repaints in 5s at rest with 40 films developed**,
+25 frames over the develop, **0 more in the 1.5s after it landed**.
+
+`film develop` is a new scene and it needed a new channel. Luma is the right
+measure for a field sliding or a streak crossing; it is the **wrong** measure
+for a develop, and that is not a defect in either — a develop moves chroma at
+constant luminance by construction, so a luma delta of exactly 0.00 across the
+whole gesture is the invariant being confirmed rather than the motion being
+missed. The first version of the scene reported delta 0.00 on every frame and
+then failed on four "pixel-identical" frames that were all painted and all
+different. `channel: "chroma"` differences |R−G| + |G−B| instead. Its
+identical-frame check is opted out **for that scene only**, with the reason
+written down: the gesture opens with 140ms in which nothing changes on purpose,
+and a JPEG screencast subsamples and quantises chroma. The curve itself is
+gated on the app's own clock in `print-probe.mjs`.
+
 ## Deliberately avoided
 
 The generic AI-design tells: interchangeable rounded cards, purple-blue
@@ -1000,6 +1272,18 @@ world is made of film and paper, not plastic.
    without imposing an axis on it** — grazing the strip shows that folk horror
    is a corner and family drama is weather across the whole plate — but only
    while a frame is being grazed. At rest the disc is still even.
+3a. **The strip's ground is your plate, and the frames are still the register's.**
+   `skyMiniGroundCanvas` draws the whole atlas underneath every one of the 28
+   frames, so developing it develops all 28 for the cost of one pass — silver
+   where you have not watched, the film's own dye where you have — and a mark
+   rebuilds it once, on the gesture, never on a clock. Same alpha and the same
+   one pixel either way: a mark may not make a dot brighter or bigger anywhere
+   in this application, and a 66px thumbnail is exactly where that would be
+   easiest to break quietly. What is NOT built is the spec's frame 0, "your
+   whole plate" as a door of its own, and the reason is the channel collision
+   this file already rules on — the register owns a frame's chroma, and a
+   second chroma channel in 66px is the thing the cut list forbids.
+
 3. **Residual geometry, and it now has a second victim.** Across 44 worst-case
    seeds (longest titles + highest degree) at eight viewports: 7 of 704 renders
    still place a caption on a neighbouring poster, all of them at 1024×660 — a
