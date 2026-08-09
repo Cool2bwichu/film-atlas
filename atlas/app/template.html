@@ -2337,6 +2337,16 @@ const sky = {
      coordinate that no longer means anything. */
   homeX:null, homeY:null, live:null, alpha:null,
   form:null, formKind:"whole", formLabel:"", formScale:1, formPending:null, lastForm:null,
+  /* HOW BIG THE PICTURE CURRENTLY IS, AND HOW MUCH OF THE GRAPH IS IN IT.
+     Ink weight, disc size and the edge budget were all keyed to the WHOLE
+     ATLAS's fit zoom, which stops being the right question the moment the
+     atlas can be something else: a 12-film sky is displayed at 13x that zoom,
+     so it was drawn as though deeply zoomed in — near-invisible lines and fat
+     dots — when it is in fact the same star density seen at its own fit.
+     `extent` is the world span of what is on screen (1 for the whole atlas)
+     and `liveEdges` is how many connections are in it; both are what those
+     three decisions actually depend on. */
+  extent:1, liveEdges:0,
   entered:false, raf:0, anim:null, drag:null, pinch:null, ptrs:new Map(), chrome:null,
   /* [clientX, clientY, time] of a touch tap that navigated, so the synthetic
      click a touch screen fires afterwards can be told apart from a real one.
@@ -2601,7 +2611,12 @@ function skyFitTarget(live,x,y,count){
      equal bond strength render at different lengths — the same reason
      layout-sky.js normalises with a similarity rather than a stretch. */
   const span=Math.max(1e-3, Math.max(x1-x0, y1-y0));
-  const k=skyClampK(Math.min(sky.w, skySafeH())*0.92/span);
+  /* Clamped against the target's own span, not the extent still on screen:
+     this runs before the flight starts, so sky.extent is still the picture
+     being left behind. */
+  const raw=Math.min(sky.w, skySafeH())*0.92/span;
+  const f=skyFitK();
+  const k=Math.max(f*0.82, Math.min(f/span*26, raw));
   return { cx:(x0+x1)/2, cy:(y0+y1)/2 + (sky.h-skySafeH())/2/k, k };
 }
 
@@ -2615,6 +2630,24 @@ function skyLiveCount(){
   let n=0;
   for (let i=0;i<sky.n;i++) if (sky.live[i]) n++;
   return n;
+}
+/* Connections with both ends in the picture. Recomputed only when the picture
+   settles — skyDraw runs per frame during a pan and must not be counting. */
+function skyLiveEdges(live){
+  let n=0;
+  for (let id=0; id<sky.eN; id++) if (live[sky.ea[id]] && live[sky.eb[id]]) n++;
+  return n;
+}
+/* The world span of a set of placed films, longer axis. */
+function skySpan(live,x,y){
+  let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity,any=false;
+  for (let i=0;i<sky.n;i++){
+    if (!live[i]) continue;
+    any=true;
+    if (x[i]<x0)x0=x[i]; if (x[i]>x1)x1=x[i];
+    if (y[i]<y0)y0=y[i]; if (y[i]>y1)y1=y[i];
+  }
+  return any ? Math.max(1e-3, Math.max(x1-x0, y1-y0)) : 1;
 }
 
 /* The hit grid is built from positions, so it is rebuilt when they settle —
@@ -2728,6 +2761,8 @@ function skyFormTo(target, opts){
        arrives instead of flying. */
     for (let i=0;i<n;i++){ sky.wx[i]=tx[i]; sky.wy[i]=ty[i]; sky.alpha[i]=ta[i]; }
     sky.form=null;
+    sky.extent=skySpan(target.live,tx,ty);
+    sky.liveEdges=skyLiveEdges(target.live);
     skyRegrid();
     sky.cam.cx=fit.cx; sky.cam.cy=fit.cy; sky.cam.k=fit.k;
     sky.anim=null;
@@ -2748,6 +2783,14 @@ function skyFormTo(target, opts){
        only thing left; opening out, it goes early so the frame is already
        wide when the films reach the edges of it. */
     lead: fit.k>=camNow.k ? -0.28 : 0.22,   /* <0 lags the camera, >0 leads it */
+    /* The extent travels with the camera, so ink weight and disc size move
+       continuously from one picture's fit to the other's instead of snapping
+       on the first frame. The edge budget takes the LARGER of the two counts
+       for the same reason: a flight out of the whole atlas must not suddenly
+       ink all 22,050 connections because the destination has 200. */
+    ext0:sky.extent, ext1:skySpan(target.live,tx,ty),
+    edgeRef:Math.max(sky.liveEdges||sky.eN, skyLiveEdges(target.live)),
+    liveEdges1:skyLiveEdges(target.live),
     frames:0, worst:0, sum:0, solveMs:o.solveMs||0,
     /* Edge classes, decided once. 0 both ends stay, 1 an end is leaving,
        2 an end is arriving, 3 neither end is in the picture at either time.
@@ -2801,9 +2844,12 @@ function skyFormStep(now){
   sky.cam.cx=fm.c0x+(fm.c1x-fm.c0x)*ce;
   sky.cam.cy=fm.c0y+(fm.c1y-fm.c0y)*ce;
   sky.cam.k=Math.exp(fm.lk0+(fm.lk1-fm.lk0)*ce);
+  sky.extent=fm.ext0+(fm.ext1-fm.ext0)*ce;
   skyClampC(sky.cam);
   if (p>=1){
     for (let i=0;i<sky.n;i++){ wx[i]=fm.tx[i]; wy[i]=fm.ty[i]; A[i]=fm.ta[i]; }
+    sky.extent=fm.ext1;
+    sky.liveEdges=fm.liveEdges1;
     sky.lastForm={kind:sky.formKind,films:fm.count,scale:sky.formScale,
       frames:fm.frames,ms:now-fm.t0,worst:fm.worst,
       mean:fm.frames?fm.sum/fm.frames:0,solveMs:fm.solveMs||0,reduced:false};
@@ -3086,6 +3132,11 @@ const skySafeH = () => {
   return c.length ? Math.max(140, Math.min(...c.map(b => b.y))) : sky.h;
 };
 const skyFitK = () => Math.max(1, Math.min(sky.w, skySafeH()) * 0.92);
+/* Zoom, measured against the fit of THE PICTURE THAT IS ON SCREEN rather than
+   of the whole atlas. 1 means "as far out as this sky goes", whatever this sky
+   currently is, so a re-formed stratum at rest is inked and dotted exactly the
+   way the whole atlas at rest is. */
+const skyZoomRatio = () => sky.cam.k * Math.max(1e-6, sky.extent || 1) / skyFitK();
 /* The camera lands the world's centre on the centre of the VISIBLE rectangle,
    not of the canvas — cy is offset by half the covered strip, in world units. */
 function skyFitCam(){
@@ -3222,6 +3273,13 @@ function skyBuild(){
   return true;
 }
 
+/* The picture the field opens on is the whole atlas: full extent, every
+   connection. Set once, then maintained by the flights. */
+function skySettleWhole(){
+  sky.extent=skySpan(sky.live,sky.wx,sky.wy);
+  sky.liveEdges=sky.eN;
+}
+
 function skyResize(){
   const c=$("#sky-c");
   if (!c) return;
@@ -3247,7 +3305,14 @@ function skyResize(){
    of the viewport is held inside the field's own [0,1] box plus a small
    margin, so panning always leaves something on screen no matter how far in
    you are. Zoom stops just below the fit — there is nothing out there. */
-function skyClampK(k){ const f=skyFitK(); return Math.max(f*0.82, Math.min(f*26, k)); }
+/* The zoom-out floor is the whole atlas — there is nothing outside it. The
+   ceiling is 26x the fit OF THE PICTURE ON SCREEN: a 74-film stratum is
+   already displayed at 5x the whole-atlas fit, so a ceiling measured against
+   the atlas would have left it barely able to push in at all. */
+function skyClampK(k){
+  const f=skyFitK(), own=f/Math.max(1e-6, sky.extent||1);
+  return Math.max(f*0.82, Math.min(own*26, k));
+}
 function skyClampC(c){
   c.cx=Math.max(-0.08,Math.min(1.08,c.cx));
   c.cy=Math.max(-0.08,Math.min(1.08,c.cy));
@@ -3344,7 +3409,7 @@ function skyDraw(){
   const SX=sky.sx, SY=sky.sy;
   for (let i=0;i<n;i++){ SX[i]=sky.wx[i]*k+ox; SY[i]=sky.wy[i]*k+oy; }
 
-  const zr=k/skyFitK(), r=skyRadius(zr);
+  const zr=skyZoomRatio(), r=skyRadius(zr);
   /* Opacity per film. At rest it is 1 for everything in the picture and 0 for
      everything outside it; during a re-form it is the flight's own fade, so
      one array answers "is this drawn" in both states and the draw never has
@@ -3367,7 +3432,17 @@ function skyDraw(){
      weak ties still pull the sky into one object, they just do not all have
      to be inked at once. */
   const spread=Math.min(1,Math.max(0,Math.log2(Math.max(1,zr))/2.6));
-  const budget=Math.min(sky.eN, Math.round(SKY_EDGE_FLOOR+(sky.eN-SKY_EDGE_FLOOR)*spread));
+  /* The budget is a share of the connections IN THE PICTURE, not of the
+     corpus. Drawing a prefix of the stratified order is how the whole atlas
+     avoids being a grey wash; a 200-edge stratum has no wash to avoid, and the
+     old formula cut it at the same absolute prefix and hid most of it. When
+     there are fewer live edges than the floor the whole order is scanned and
+     the per-edge liveness test does the work — one extra pass over an integer
+     array, against a view that would otherwise be missing its lines. */
+  const ref=sky.form ? sky.form.edgeRef : (sky.liveEdges||sky.eN);
+  const want=SKY_EDGE_FLOOR+Math.max(0,ref-SKY_EDGE_FLOOR)*spread;
+  const budget=ref<=SKY_EDGE_FLOOR ? sky.eN
+    : Math.min(sky.eN, Math.round(sky.eN*want/ref));
   /* denser field, quieter lines — the ink stays roughly constant */
   const alpha=0.34-0.19*spread;
 
@@ -3630,7 +3705,7 @@ function skyPlaceLabels(){
   if (!sky.labels.length) return;
   const w=sky.w, h=sky.h, cam=sky.cam, k=cam.k;
   const ox=w/2-cam.cx*k, oy=h/2-cam.cy*k;
-  const r=skyRadius(k/skyFitK());
+  const r=skyRadius(skyZoomRatio());
   const placed=skyChrome().slice();
   for (const L of sky.labels){
     const px=sky.wx[L.i]*k+ox, py=sky.wy[L.i]*k+oy;
@@ -3890,7 +3965,7 @@ function skyPick(px,py){
   if (!sky.n || sky.form) return null;
   const cam=sky.cam, k=cam.k;
   const wx=(px-sky.w/2)/k+cam.cx, wy=(py-sky.h/2)/k+cam.cy;
-  const grab=Math.max(12, skyRadius(k/skyFitK())+7)/k;      /* a finger, in world units */
+  const grab=Math.max(12, skyRadius(skyZoomRatio())+7)/k;   /* a finger, in world units */
   const g0x=Math.floor((wx-grab)/SKY_CELL), g1x=Math.floor((wx+grab)/SKY_CELL);
   const g0y=Math.floor((wy-grab)/SKY_CELL), g1y=Math.floor((wy+grab)/SKY_CELL);
   let best=null, bestD=grab*grab;
@@ -3949,7 +4024,7 @@ function skyOrbit(key){
        point is to stay in the field and still see the neighbourhood, so the
        camera only closes to where the held names are comfortably readable. */
     const i=sky.at[key];
-    skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()*2.2), 620);
+    skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()/Math.max(1e-6,sky.extent)*2.2), 620);
   }
   skyHand();
 }
@@ -3968,7 +4043,7 @@ function skyFocus(key){
      empty coordinate. */
   if (i===undefined || !sky.live[i]) return false;
   skyPinKey(key);
-  skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()*5.5), 950);
+  skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()/Math.max(1e-6,sky.extent)*5.5), 950);
   return true;
 }
 function skyOrMap(key){
@@ -4013,6 +4088,7 @@ function skyStep(dx,dy){
 
 function skyEnter(){
   if (!skyBuild()) return;
+  if (!sky.liveEdges) skySettleWhole();
   skyResize();
   if (!sky.entered){
     sky.entered=true;
@@ -4055,6 +4131,7 @@ window.__ATLAS_SKY__ = {
   form: () => sky.lastForm && Object.assign({},sky.lastForm,{solve:sky.lastSolve}),
   state: () => ({ n:sky.n, live:sky.ready?skyLiveCount():0, forming:!!sky.form,
                   pending:sky.formPending, kind:sky.formKind, scale:sky.formScale,
+                  extent:sky.extent, liveEdges:sky.liveEdges,
                   camK:sky.cam.k, fitK:sky.ready?skyFitK():0 }),
   positions: () => sky.ready ? Array.from(sky.wx) : [],
   alphas: () => sky.ready ? Array.from(sky.alpha) : [],

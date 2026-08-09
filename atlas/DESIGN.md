@@ -308,27 +308,54 @@ connections here"** once the atlas is re-formed. `ADJ[key].length` is its degree
 in the whole corpus, and printing that under a stratum reads "20 connections"
 while one line is drawn.
 
+### Ink, disc and budget follow the picture, not the corpus
+
+The same correction, one level down, and it was a real defect until the small
+strata made it visible. Line alpha, disc radius and the edge budget were all
+keyed to `k / skyFitK()` — zoom measured against **the whole atlas's** fit. A
+12-film sky is displayed at 13× that zoom, so it was drawn as though deeply
+pushed in: near-invisible lines (alpha 0.15 against 0.34) and fattened dots,
+on the view with the most room in the atlas.
+
+`sky.extent` is now the world span of what is on screen and zoom is measured
+against *its* fit, so **a re-formed stratum at rest is inked and dotted exactly
+the way the whole atlas at rest is** — the same invariant as the density scale,
+carried through to the ink. The extent is interpolated on the camera's clock
+during a flight so nothing snaps on the first frame.
+
+The budget is likewise a share of the connections **in the picture**. Drawing a
+prefix of the stratified order is how the whole atlas avoids being a grey wash;
+a 200-edge stratum has no wash to avoid, and the absolute prefix was hiding
+most of it. Below the floor the whole order is scanned and the per-edge
+liveness test does the work.
+
 ### Measured cost
 
-Frame timings, real Chromium, 2,204 discs and the full edge budget:
+Frame intervals, real Chromium at devicePixelRatio 2, 1440×900, software
+rasteriser (no GPU in the sandbox), with the two shipped animations as
+controls:
 
-| | frames | mean JS/frame | worst |
+| | fps | mean JS/frame | worst frame |
 |---|---|---|---|
-| re-form → drama (1,552) | 68–70 | 2.4 ms | 13.4 ms (first frame) |
-| re-form → whole atlas | 71 | 2.2 ms | 5.2 ms |
-| re-form → horror (164) | 65 | 2.0 ms | 6.6 ms |
-| live solve, drama × 1960–79 (488) | 38 | 1.6 ms | 5.2 ms + 484 ms solve |
+| pan drag, 2,204 films *(control, existing)* | 26.7 | — | — |
+| camera-only 620 ms move *(control, existing)* | 25.4 | — | — |
+| re-form → drama (1,552) | 33.3 | 2.32 ms | 6.5 ms |
+| re-form → whole atlas (2,204) | 36.9 | 2.00 ms | 5.2 ms |
+| re-form → horror (164) | 47.5 | 0.89 ms | 4.8 ms |
+| live solve, drama × 1960–79 (488) | — | 1.29 ms | 5.7 ms + **430 ms solve** |
 
-The tween's own cost is the difference between the existing camera-only
-animation (2.16 ms/frame) and a full re-form (2.44 ms/frame): **~0.3 ms** for
-2,204 position writes, two eased interpolations each. `skyEase` is a Newton
-solve and was going to be called 4,408 times a frame for a fixed curve, so the
-form loop reads a 513-sample table instead.
+**The re-form is faster than the camera move it replaces**, because the budget
+is now right-sized for the picture. At dpr 1 everything holds 57–61 fps; the
+dpr-2 numbers are dominated by rasterising 2,204 arcs at 2880×1800 in software
+and are a property of the harness, not of the tween. The tween's own JS cost —
+2,204 position writes and two eased interpolations each — is ~0.3 ms/frame.
+`skyEase` is a Newton solve and would have been called 4,408 times a frame for
+a fixed curve, so the form loop reads a 513-sample table instead.
 
-Everything holds 57–61 fps at dpr 1 in the sandbox. At dpr 2 the *existing*
-camera animation drops to 23 fps and a re-form to 17, on a software rasteriser
-with no GPU — the bottleneck is rasterising 2,204 arcs at 2880×1800, not the
-tween, and it is a property of the harness rather than of a real machine.
+Verified in a real browser at 1440×900, 900×820 and 390×780, panel open and
+closed: zero labels over chrome, zero label collisions, zero blurred labels
+(rule 4), every new piece of type at or above 5.0:1 on its own ground, the
+clear mark reaching 44 px on a coarse pointer, and no console errors.
 
 ## Deliberately avoided
 
