@@ -1088,8 +1088,13 @@ main{flex:1;position:relative;overflow:hidden}
   .claim-tip{max-width:220px}
   /* The readout gives up the field before the constellation does: on a phone
      the map itself is the scarce thing. */
-  .sky-hud{flex-direction:column;align-items:stretch;gap:10px;padding:10px 12px
-    calc(10px + env(safe-area-inset-bottom))}
+  /* justify-content, because the main axis turns vertical here and the HUD now
+     spans the field (it is ceilinged by the strip's leading edge — see
+     .sky-hud). Without it a column starts at the TOP: measured, the phone's
+     readout jumped 196px up the field and the aperture went with it. The HUD
+     hugs the bottom edge in both directions. */
+  .sky-hud{flex-direction:column;align-items:stretch;justify-content:flex-end;
+    gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
   .sky-ctl{justify-content:flex-end}
   .sky-hud-main{max-width:none;gap:7px}
   .sky-fold{padding:7px 10px 7px 11px}
@@ -1183,7 +1188,8 @@ main{flex:1;position:relative;overflow:hidden}
           <h1>Every film is <em>downstream</em> of another.</h1>
           <p>Pick one and Atlas draws what it descends from, argues with and quietly rhymes
              with — each line carrying a specific claim you can read. Follow the connections
-             and the map keeps opening.</p>
+             and the map keeps opening. The wall below leads with the films it has the most
+             to say about.</p>
           <div class="lede-foot"><span class="slate">Press <kbd>/</kbd> to search — or pick a face</span>
             <span class="slate" style="margin:0 8px">·</span>
             <button class="linky" id="sky-lede" type="button">See the whole atlas at once</button></div>
@@ -2041,31 +2047,123 @@ for (const k of KEYS){
   BEST_BOND[k] = best;
 }
 
-/* Films are ordered by how much the map can DO with them, not by fame: a
-   well-connected film is one you can travel from. The wall shows the first
-   240, so what happens AT THE CUT is the front page of the whole project, and
-   two things were deciding it that should not have been.
+/* HOW MUCH THE ATLAS HAS TO SAY ABOUT A FILM. Authored claims only — a reading
+   or an attestation, never a record — because a record is something the atlas
+   LOOKED UP and a reading is something it ARGUED. Weighted by confidence, so
+   the number answers "how strong is the strongest thing we can say", which is
+   the question the front page is now sorted on.
  *
- * A POSTER WAS WORTH THREE CONNECTIONS. The score was `degree + (poster?3:0)`
- * on a scale whose middle half is 21–24, so a film with no artwork needed
- * three more real connections than its neighbours to stand next to them.
- * AGENTS rule 9 says the generated cell is not a fallback — it IS that film's
- * visual identity — and a three-edge handicap says the opposite. The poster is
- * a TIEBREAK now, which is what the old comment already claimed it was.
+ * The best claim counts whole and every further claim counts half of the one
+ * above it, so the series is bounded by twice the best: a film with twenty
+ * middling readings can never overtake a film with one superb one. That bound
+ * is the point. Ranked on raw authored COUNT this corpus returns Bicycle
+ * Thieves, Vertigo, Tokyo Story, Persona, In the Mood for Love — the canon
+ * again, one rung down, because a count of readings is a record of where the
+ * reading passes spent their effort and they spent it on famous films. */
+const CLAIM_SCORE = {}, CONFIDENT_CLAIMS = {};
+for (const k of KEYS){
+  const q = [];
+  let confident = 0;
+  for (const i of ADJ[k]){
+    const e = E[i];
+    if (!e.source || e.source === "record") continue;
+    /* Same reading of a missing confidence as isLowConfidence() below: an
+       authored edge that never declared one is treated as under the line. */
+    const c = Number.isFinite(e.confidence) ? e.confidence : 0.4;
+    if (c >= 0.5) confident++;
+    q.push((e.strength || 0) * c);
+  }
+  q.sort((x,y) => y - x);
+  let s = 0;
+  for (let i = 0; i < q.length; i++) s += q[i] / Math.pow(2, i);
+  CLAIM_SCORE[k] = s;
+  CONFIDENT_CLAIMS[k] = confident;
+}
+
+/* The wall shows the first WALL_SHOWS films, so what happens AT THE CUT is the
+ * front page of the whole project.
  *
- * THE YEAR TIEBREAK WAS ADVERTISING THE LAST FIVE YEARS. Measured on this
- * corpus: 250 films tie at the cut and only 34 of them fit. Ranked by year,
- * those 34 had a median of 2019 against 1986 for the 250 they were drawn
- * from — a 33-year jump decided by a tiebreak nobody chose, on the front door
- * of a lineage atlas. It is also the exact error AGENTS rule 1 forbids one
- * level down: distance encodes bond strength, never recency or fame, and the
- * wall should not contradict the map. Ties now break on the strongest single
- * claim a film carries, which is the project's own idea of worth; the front
- * page's median year moves 1983 -> 1977 against a corpus median of 1979.
+ * IT USED TO BE A DEGREE RANKING, AND THAT IS THE FOUNDING ERROR ON THE FRONT
+ * DOOR. The first key was `ADJ[b].length - ADJ[a].length`. Measured on this
+ * corpus: rank against degree correlated -0.679, the front page's degree floor
+ * was 22, and only 374 of 2,204 films (17%) could ever clear it — with 1,222
+ * films tied at exactly degree 20 and separated by nothing but whether they had
+ * a poster. AGENTS rule 1 is written about edge distance so this was not a
+ * literal breach, but it is that rule's own sentence — "a degree-weighted graph
+ * collapses toward the canon and confirms what the user already knows" —
+ * enacted on the door. Degree now appears nowhere in this sort: not as a key,
+ * not as a tiebreak.
+ *
+ * THREE BANDS, AND ONLY THE FIRST IS RANKED.
+ *
+ *   THE HEAD — the highest-scoring films that carry at least one authored claim
+ *   the atlas STANDS BEHIND: confidence >= 0.5, the same line AGENTS rule 3
+ *   draws between a claim and a reading. 453 films qualify; the head takes the
+ *   top 120 of them and is ranked, because here the ranking means something —
+ *   these are the strongest statements in the corpus and the top left of the
+ *   wall should be one of them. The front page does not lead with a film whose
+ *   best claim is marked "reading, not record"; those are dealt for, below.
+ *   The size is half the wall by construction rather than a tuned number, so
+ *   the deal can never be squeezed out as the reading passes grow — at 10,000
+ *   films a proportional head would swallow the whole wall and the atlas would
+ *   be back to a fixed leaderboard.
+ *
+ *   THE DEAL — every other film the atlas has written about, 898 today, in an
+ *   order dealt from the CORPUS VERSION. Not ranked, because below the head the
+ *   score is false precision: a reading's confidence is a hand-set number in
+ *   steps of 0.05 and sorting 898 films on the third decimal of it invents an
+ *   authority nobody measured. Dealing instead means 120 of the 240 front-page
+ *   tiles are drawn from the whole authored corpus rather than from its top
+ *   quarter: 1,018 films (46.2%) can reach the front page against 374 (17.0%)
+ *   before. THE SEED IS THE CORPUS VERSION, so the wall is identical for every
+ *   reader of one build and re-deals exactly when the corpus learns something.
+ *   That is AGENTS rule 7 — the same answer twice — rather than a shuffle that
+ *   moves under a reader's hands on reload.
+ *
+ *   THE REST — films the atlas has only recorded, ordered by the strongest
+ *   single claim they carry. They never reach the unfiltered front page and
+ *   they fill out the thinner era filters. This band keeps the two fixes the
+ *   old order got right: ties break on BEST_BOND, never on year (ranked by year
+ *   the 34 films that fit at the cut had a median of 2019 against 1986 for the
+ *   250 they were drawn from — a lineage atlas silently advertising the last
+ *   five years), and the poster is a tiebreak, never a handicap. It has no job
+ *   in the two bands above it: the deal is a deal, and letting artwork jump the
+ *   queue inside it would reinstate the three-edge poster handicap AGENTS rule
+ *   9 was written against. Measured, it costs nothing — 236 of the 240 films on
+ *   the new front page have a poster, against a corpus rate of 96.6%.
+ *
  * The final key comparison keeps the order total and deterministic. */
+const WALL_SHOWS = 240;
+/* FNV-1a over the corpus version and the key. Cheap, stable across engines,
+   and — decisively — not Math.random(): the wall has to be the same object for
+   two people looking at one build. */
+const dealHash = k => {
+  let h = 2166136261;
+  const s = (CORPUS.meta && CORPUS.meta.corpusVersion || "atlas") + " " + k;
+  for (let i = 0; i < s.length; i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+};
+const HEAD_RANK = new Map();
+KEYS.filter(k => CONFIDENT_CLAIMS[k] >= 1)
+    .sort((a,b) => (CLAIM_SCORE[b] - CLAIM_SCORE[a]) || (a < b ? -1 : 1))
+    .slice(0, WALL_SHOWS / 2)
+    .forEach((k,i) => HEAD_RANK.set(k, i));
+const wallBand = k => HEAD_RANK.has(k) ? 2 : CLAIM_SCORE[k] > 0 ? 1 : 0;
 const WALL_ORDER = KEYS.slice().sort((a,b)=>
-     (ADJ[b].length - ADJ[a].length)
-  || ((F[b].poster?1:0) - (F[a].poster?1:0))
+     (wallBand(b) - wallBand(a))
+  || (HEAD_RANK.has(a) ? HEAD_RANK.get(a) - HEAD_RANK.get(b)
+      : CLAIM_SCORE[a] ? dealHash(a) - dealHash(b)
+      : (BEST_BOND[b] - BEST_BOND[a]) || ((F[b].poster?1:0) - (F[a].poster?1:0)))
+  || (a < b ? -1 : 1));
+
+/* THE WALL DEALS; SEARCH DOES NOT. The suggestion list walks this order and
+   stops at the first eight prefix matches, so the order decides WHICH eight a
+   reader is offered — and an autocomplete that returns a different eight after
+   a corpus update is a worse instrument than one that is merely imperfect.
+   Same bands, same claim ranking, no deal. */
+const SUGGEST_ORDER = KEYS.slice().sort((a,b)=>
+     (wallBand(b) - wallBand(a))
+  || (CLAIM_SCORE[b] - CLAIM_SCORE[a])
   || (BEST_BOND[b] - BEST_BOND[a])
   || (a < b ? -1 : 1));
 
@@ -2115,12 +2213,12 @@ function renderWall(){
 
   const list = WALL_ORDER.filter(k=>era.test(F[k]));
   const h2=el("div","sec-head");
-  const shown=Math.min(240,list.length);
+  const shown=Math.min(WALL_SHOWS,list.length);
   h2.innerHTML = `<h2>${state.filter==="all"?"Start anywhere":esc(era.label)}</h2>
     <span class="slate">${shown<list.length?`${shown} of ${list.length}`:list.length} films</span>`;
   body.appendChild(h2);
   const g2=el("div","grid");
-  list.slice(0,240).forEach(k=>g2.appendChild(tile(k)));
+  list.slice(0,WALL_SHOWS).forEach(k=>g2.appendChild(tile(k)));
   body.appendChild(g2);
 }
 
@@ -6807,7 +6905,7 @@ function search(v){
   const n=norm(v);
   if(n.length<2){ setSuggestions(false); suggList=[]; return; }
   const starts=[], has=[];
-  for(const k of WALL_ORDER){
+  for(const k of SUGGEST_ORDER){
     if(k.startsWith(n)) starts.push(k);
     else if(k.includes(n)) has.push(k);
     if(starts.length>=8) break;
@@ -6947,10 +7045,27 @@ addEventListener("click",(e)=>{
 });
 
 $("#surprise").onclick=()=>{
-  /* weighted toward films with somewhere to go: landing on a dead end makes
-     the whole thing feel empty on the very first click */
-  const pool=WALL_ORDER.slice(0, Math.min(260, WALL_ORDER.length));
-  openMap(pool[Math.floor(Math.random()*pool.length)]);
+  /* NO FLOOR. NOT A QUALITY ONE, NOT A DEGREE ONE, NOT THE WALL'S.
+     This drew from `WALL_ORDER.slice(0,260)` on the argument that landing on a
+     dead end feels empty. Measured, that argument cost the whole idea: the pool
+     had a mean degree of 24.0 against a corpus mean of 20.2 and a floor of 22,
+     so the one button in this product labelled serendipity could not show you a
+     film outside the best-connected 11.8% of the atlas. Five hundred presses
+     returned 223 distinct films out of 2,204. It is now uniform over every
+     film — 451 distinct in 500 presses, mean degree 20.1, 45 cinemas against
+     33. The dead-end worry was also overstated: the thinnest film in the corpus
+     has one connection, not none, and fourteen films in 2,204 have fewer than
+     six. A map with three lines on it is a real answer, and it is a truer one
+     than never being shown at all.
+
+     THE ONLY WEIGHT IS THE READER'S OWN. A film they have already marked is not
+     a surprise, so a marked draw gets one re-roll — once, never a loop, because
+     a reader who has marked most of the atlas must not be made to wait for the
+     button to find them something new. With nothing marked, which is every
+     first press, this is exactly uniform. */
+  const draw=()=>KEYS[Math.floor(Math.random()*KEYS.length)];
+  const first=draw();
+  openMap(state.seen.has(first)||state.loved.has(first) ? draw() : first);
 };
 
 $("#foryou").onclick=()=>{
