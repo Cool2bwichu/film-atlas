@@ -120,7 +120,8 @@ const DEFAULTS = {
      sized. Absolute numbers here would silently re-tune themselves as the
      corpus grew, which is exactly the failure mode STATE.md item 1 is about. */
   restStrong: 0.35,    /* rest length at strength 1                            */
-  restWeak: 48,        /* rest length at strength 0 — read the note below      */
+  restWeak: 48,        /* rest length at strength 0, in k, AT restWeakN films  */
+  restWeakN: 2204,     /* the corpus size restWeak is quoted at — see below    */
   restExp: 2.0,        /* shape of the strength -> length curve; 1 = linear    */
 
   stiffFloor: 0.01,    /* a strength-0 spring still pulls this much            */
@@ -167,6 +168,69 @@ const DEFAULTS = {
  * That is the trade being made, deliberately, and it is the same trap STATE.md
  * records under "a metric can improve while the thing it measures gets worse".
  * If you retune this file, re-check that ratio; the harness will not.
+ *
+ * ── WHY restWeak CARRIES A CORPUS SIZE WITH IT — added 2026-08-09 ───────────
+ *
+ * "The harness will not" was true for three sessions, because the harness was
+ * never committed. It is committed now (`pipeline/measure-layout.js`), it
+ * reports that ratio as `weakRatio`, and the first thing it found was that this
+ * constant is NOT scale-free in the units the block above claims for it.
+ *
+ * Every other length here is LOCAL: restStrong 0.35k is a third of the typical
+ * gap between two films, and that stays a third of the gap at any n. restWeak
+ * is 48k, and 48k is 1.02 times the width of the ENTIRE PICTURE at n=2,204 and
+ * 1.69 times it at n=803. A length longer than the map is a fraction-of-the-map
+ * quantity wearing k's clothes, and that fraction decays as 1/sqrt(n). So the
+ * weak end of the strength->length curve silently re-tuned itself as the corpus
+ * grew — which is the exact failure STATE.md item 1 describes for `idf`,
+ * relocated from the associator into the solver.
+ *
+ * It failed in BOTH directions at once, which is what proves it is the unit and
+ * not the value:
+ *
+ *   - On the whole atlas it drifted CONSERVATIVE. weakRatio was 0.83 when this
+ *     block was written at n=803; measured at n=2,204 it is 0.495. The picture
+ *     is well inside its constraint and paying bondFit for margin nobody asked
+ *     for. (Restoring 0.83 needs restWeak 120 and returns bondFit to -0.584.
+ *     That is a design decision about where to sit on the trade curve above,
+ *     not a bug fix, and it is not taken here — see RUN NOTES in the harness.)
+ *
+ *   - On the 72 re-formed skies it drifted VIOLENT, and those are baked and
+ *     shipped and nothing had ever measured one. 48k is 5.0 picture-widths for
+ *     a 94-film register and 15.2 for a 10-film one, so every weak spring in a
+ *     small layout is compressed to the point of shoving. Measured before this
+ *     change: 41 of 64 scoreable strata had weakRatio >= 1.0 — they drew their
+ *     weakest edges FURTHER apart than two films sharing no edge at all, which
+ *     is precisely the failure restWeak 180 was rejected for above. The
+ *     `coming-of-age` register scored weakRatio 1.83 and weakCloserP 0.051: in
+ *     that constellation a weak tie was drawn as evidence of unrelatedness
+ *     nineteen times out of twenty.
+ *
+ * So restWeak is now quoted WITH the corpus size it was measured at, and the
+ * solver holds restWeak * k constant instead of restWeak: the weak rest length
+ * is a fraction of the finished picture, which is what it always was in fact.
+ *
+ *     restWeakK = restWeak * sqrt(n / restWeakN)     ->  restWeakK * k = 1.022
+ *
+ * restWeakN is 2204 rather than 803 deliberately: sqrt(2204/2204) is exactly 1,
+ * so the whole-atlas layout that ships today is reproduced BIT-IDENTICALLY and
+ * this change moves nothing a reader has already seen. It repairs the 72
+ * re-formed skies and freezes the drift where it stands rather than undoing it,
+ * because undoing it costs closerP 0.839 -> 0.768 and weakCloserP 0.765 ->
+ * 0.574 and that belongs to whoever owns the sky, not to the harness.
+ *
+ * Measured across all 73 baked layouts, before -> after:
+ *
+ *     weakRatio >= 1.0          41 of 64  ->   4 of 64
+ *     weakCloserP < 0.45        33 of 64  ->   1 of 64
+ *     closerP < 0.65            14 of 64  ->   0 of 64
+ *     mean stratum bondFit        -0.797  ->  -0.661
+ *     whole atlas bondFit         -0.4163 -> -0.4163  (unchanged, by construction)
+ *
+ * The 0.136 of mean stratum bondFit is not a loss, it is a refund. Those strata
+ * were winning bondFit by exactly the mechanism the block above forbids: shoving
+ * weak pairs to the rim makes the rank correlation beautiful and makes the
+ * picture say the opposite of what drawing an edge means.
  *
  * THAT TRADE IS WHY THIS FILE SHIPPED OVER TWO CANDIDATES THAT SCORED BETTER
  * ON bondFit, and the next person to read the harness output needs the reason
@@ -260,6 +324,13 @@ function layout(films, edges, opts) {
   const ea = new Int32Array(m), eb = new Int32Array(m);
   const rest = new Float64Array(m), stiff = new Float64Array(m);
   let live = 0;
+
+  /* The weak rest length is a fraction of the WHOLE PICTURE, not a multiple of
+     the local spacing — see the restWeakN block in the header. Written this way
+     `restWeakK * k` is invariant at 1.022 picture-widths for every n, so one
+     constant means the same thing to the 2,204-film atlas and to a ten-film
+     register. At n = restWeakN the factor is exactly 1 and nothing moves. */
+  const restWeakK = P.restWeak * Math.sqrt(n / P.restWeakN);
   for (let e = 0; e < m; e++) {
     const A = idx.get(edges[e].a), B = idx.get(edges[e].b);
     if (A === undefined || B === undefined || A === B) continue;
@@ -280,7 +351,7 @@ function layout(films, edges, opts) {
        monotone, so "shorter means stronger" is still true everywhere — only the
        spacing between rungs changes. */
     rest[live] = k * (P.restStrong +
-      Math.pow(1 - s, P.restExp) * (P.restWeak - P.restStrong));
+      Math.pow(1 - s, P.restExp) * (restWeakK - P.restStrong));
 
     /* Stiffness rises with strength, with a floor. The floor is load-bearing
        and it is not a tuning convenience: STATE.md records that deleting weak

@@ -3018,11 +3018,19 @@ function skyMeteorStep(now, w, h) {
      a line that meets the frame at all. */
   const px = -uy, py = ux;
   const halfP = (w * Math.abs(px) + h * Math.abs(py)) / 2;
-  const cx = w / 2, cy = h / 2;
-  /* A chord has to be a crossing, not a graze. Any line through the centre is
-     at least min(w,h) long, so this floor is always reachable and halving the
-     offset always converges on it — which also biases the chord toward the
-     middle of the frame, and the middle is where a meteor gets seen. */
+  /* The family of parallel chords is centred on the middle of the VISIBLE
+     band, not the middle of the canvas — the same correction skyFitTarget
+     makes for the same reason. On a phone the readout and the panel cover the
+     lower 45% of the canvas, so a family centred on the canvas sends nearly
+     half of its meteors across sky nobody can see. This constrains no
+     direction and shortens no crossing: the chord is still computed against
+     the whole frame and still enters and leaves off its real edges. It only
+     decides WHICH parallel gets drawn. */
+  const cx = w / 2, cy = skySafeMid();
+  /* A chord has to be a crossing, not a graze. Halving the offset walks the
+     line back toward that centre, where the chord is longest, so the floor is
+     always reachable — and the bias it leaves behind is toward the middle of
+     the picture, which is where a meteor gets seen. */
   const minChord = 0.75 * Math.min(w, h);
   let s = Math.random() * 2 - 1, seg = null, ox = cx, oy = cy;
   for (let i = 0; i < 8; i++) {
@@ -4387,12 +4395,12 @@ function skyDraw(){
          It used to be 0.24 of the travel, which was fine while the travel was
          a third of the diagonal and would now be a 400px bar laid across the
          constellation. A real trail is a roughly fixed angular length that
-         shortens as the burn runs out: ~13% of the diagonal at entry, ~5.5%
-         at burnout. It is also what keeps the per-frame fill area independent
+         shortens as the burn runs out: 16% of the diagonal at entry, 7.5% at
+         burnout. It is also what keeps the per-frame fill area independent
          of how far the meteor travels, so a full traversal costs the same per
          frame as the partial one did — see the frame table in DESIGN.md. */
       const D=Math.hypot(w,h);
-      const tail=D*(0.055+0.075*(1-p)**1.2);
+      const tail=D*(0.075+0.085*(1-p)**1.2);
       /* Deliberately NOT clamped to the start of the path: the trail reaches
          back off the frame so the thing arrives already at full length. A
          streak that grows out of a point at the frame edge is a line being
@@ -4426,19 +4434,33 @@ function skyDraw(){
            - IT IS UNDERNEATH. Drawn before the room tint, the lines and the
              discs, so a film always passes in FRONT of it — the layering
              says "behind the map" the way the star field does. */
-        const nx=-mt.uy, ny=mt.ux, hw=1.55;
+        const nx=-mt.uy, ny=mt.ux, hw=1.7;
         ctx.globalCompositeOperation="lighter";
         const g=ctx.createLinearGradient(bx,by,hx,hy);
-        g.addColorStop(0,   "rgba(190,210,238,0)");
-        g.addColorStop(0.58,"rgba(214,229,247,"+(0.20*bright).toFixed(3)+")");
-        g.addColorStop(0.92,"rgba(236,244,254,"+(0.72*bright).toFixed(3)+")");
-        g.addColorStop(1,   "rgba(255,255,255,"+(0.90*bright).toFixed(3)+")");
+        g.addColorStop(0,   "rgba(186,206,236,0)");
+        g.addColorStop(0.30,"rgba(200,218,242,"+(0.07*bright).toFixed(3)+")");
+        g.addColorStop(0.66,"rgba(218,232,248,"+(0.26*bright).toFixed(3)+")");
+        g.addColorStop(0.93,"rgba(238,246,254,"+(0.74*bright).toFixed(3)+")");
+        g.addColorStop(1,   "rgba(255,255,255,"+(0.92*bright).toFixed(3)+")");
         ctx.fillStyle=g;
+        /* A CONVEX taper, not a straight cone — measured, not preferred. A
+           cone's width falls linearly, so the back two thirds of it is under
+           a pixel wide, the rasteriser resolves it to nothing, and a 165px
+           trail renders as a 68px dash: stubbier, blunter and closer to a
+           mark on the map than a longer streak would be. (1-t)^0.62 holds it
+           just over a pixel to about four fifths of its length and then
+           closes fast, which is also the profile a trail actually has. */
         ctx.beginPath();
-        ctx.moveTo(bx,by);
-        ctx.lineTo(hx+nx*hw, hy+ny*hw);
-        ctx.lineTo(hx+mt.ux*hw*1.5, hy+mt.uy*hw*1.5);
-        ctx.lineTo(hx-nx*hw, hy-ny*hw);
+        ctx.moveTo(hx+mt.ux*hw*1.4, hy+mt.uy*hw*1.4);      /* the nose */
+        const K=7;
+        for (let i=0;i<=K;i++){
+          const t=i/K, s=t*tail, ww=hw*(1-t)**0.62;
+          ctx.lineTo(hx-mt.ux*s+nx*ww, hy-mt.uy*s+ny*ww);
+        }
+        for (let i=K;i>=0;i--){
+          const t=i/K, s=t*tail, ww=hw*(1-t)**0.62;
+          ctx.lineTo(hx-mt.ux*s-nx*ww, hy-mt.uy*s-ny*ww);
+        }
         ctx.closePath();
         ctx.fill();
         /* The head is the one thing in this file entitled to glow without

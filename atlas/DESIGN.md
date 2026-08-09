@@ -305,6 +305,140 @@ ticks at **~20 fps** rather than the display's, because every signature is
 under 2 Hz. Measured draws in 3 seconds: **drifting 45, whole atlas at rest 0,
 a still register 0.**
 
+## The night sky — one register stops being a metaphor
+
+This view has been called the constellation since it was built: the discs are
+stars, the edges are the lines somebody drew between them, and none of that was
+ever made good on. *Cold science fiction* is where it is — a real star field
+behind the films, real scintillation, and a meteor across the frame from time to
+time.
+
+**It is spent on exactly one register, and that is the point.** Given to two it
+would be a skin; being the only one, it is the moment the map admits what it has
+been claiming. It is also the register that earned it: **6.75 SD** of measured
+palette separation, the largest in the corpus, so the blue is closer to
+reportage than anything else on this screen and the readout says so in the same
+breath.
+
+**The background stars are not films, and that is the whole trick.** 2,204 dots
+with twinkle on them is still a field of dots; 59 dots in front of 760 faint
+ones is a night sky, because the eye reads two populations as two distances. It
+also puts the one thing a star chart does that this project may not — vary a dot
+by magnitude — where it carries no information at all. Rule 1 governs films;
+these are weather, and nothing about them comes from the corpus. They sit **at
+infinity**: they translate a fraction of a pan and do not scale with zoom, which
+is what stops the layer reading as a texture pasted over the page. Every phase
+is an index into a 512-sample table — the answer `skyEase` already reached for —
+so not one `Math.sin` runs in a loop of 760.
+
+### The meteors, and the rule that was withdrawn — settled 2026-08
+
+The owner asked for shooting stars that **pass through the entire night sky at
+random intervals and in random directions.** All three words moved.
+
+**Full traversal.** A meteor used to start inside the viewport and cover a fixed
+third of the diagonal. That was itself the fix for an older bug — a first
+version entered from outside at a wide angle and spent most of its life off
+screen — and crossing edge to edge keeps that lesson rather than reversing it.
+It now enters just off one edge and leaves off another: **83.4% of its life** at
+1440×900 has the head inside the frame at worst, 88.5% on average, and **0 of
+20,000** sampled paths begin or end inside the frame. The chord is floored at
+0.75·min(w,h) so a crossing is never a corner graze, and the family of parallel
+chords is centred on the **middle of the visible band**, not of the canvas — the
+same correction `skyFitTarget` makes, and worth most on a phone, where crossings
+shorter than 120px in the seen band fall from **30.6% to 16.6%**.
+
+**Any direction.** The old angle was confined to 20–40° below horizontal, put
+there so a streak could never read as a line drawn on the map. The owner has
+ruled the sky unruled; the angle is now uniform over 360° (χ² 30–60 on 35 df
+over 20,000 samples at three viewports).
+
+> **The worry the angle rule was protecting was real, so it moved into the
+> rendering, where it always belonged.** An angle restriction only ever hid the
+> problem for most angles. Rule 1 is now carried by what a meteor *looks like*,
+> and the test is a still frame with one crossing the densest part of the field
+> parallel to the edges around it.
+
+An edge here is a constant-width 1px stroke (1.5px when its film is held), in
+one of five relationship hues, laid down source-over, joining two visible discs,
+and motionless. Every one of those is inverted on purpose:
+
+- **Tapered.** Zero width at the tail, 3.4px at the head, drawn as a filled
+  wedge rather than a stroke. Nothing else in this grammar changes width along
+  its length, so a still frame reads direction of travel off shape alone. The
+  taper is **convex, `(1-t)^0.62`, and that is measured rather than preferred**:
+  a straight cone falls under a pixel across its back two thirds, the rasteriser
+  discards it, and a 165px trail renders as a **68px dash** — stubbier, blunter
+  and closer to a mark on the map than the longer streak it replaced.
+- **Additive**, in `lighter`, in a white the graph has no way to produce.
+- **It has a head and no other end** — a bloom at the leading point, nothing at
+  the trailing one. An edge has two identical ends and both are on a disc.
+- **It ends in the air.** Both extremes are off-frame by construction.
+- **It is underneath** the room tint, the lines and the discs, so a film always
+  passes in front of it.
+- **The trail is measured in pixels, never as a fraction of the path** —
+  16% of the diagonal at entry, 7.5% at burnout. It reaches back off the frame
+  rather than being clamped to the start, so the thing arrives already at full
+  length: a streak that grows out of a point at the frame edge is a line being
+  *drawn*, which is the one thing this may never look like. It is also what
+  keeps the fill area per frame independent of how far the meteor travels.
+
+The **structural** guarantee is unchanged and is the one that matters:
+`skyMeteorStep` reads the frame and a counter and cannot see `sky.wx`, `sky.at`
+or `ADJ`, so a meteor has no way to begin at a film, end at one, or point at
+one. That is not a rule anybody has to remember.
+
+**Exponential intervals, not a uniform window.** 5.5–11 s has the same mean as
+what ships and reads as a slow metronome — a window that narrow makes every gap
+roughly the gap before it and the eye learns the beat inside a minute. Arrivals
+independent of each other are Poisson, and Poisson gaps are exponential. The
+mean is deliberately held: **8,239 ms against the old 8,250** over 4M samples.
+The shape is what changed — median **6.1 s** rather than 8.25, **7.9%** of gaps
+under a second (the pair, which is most of what makes a sky feel alive), **9.3%**
+over twenty (the dry spell). Floored at 320 ms so a pair is two meteors and not
+one forked streak; capped at 26 s because a tail running to a minute is
+indistinguishable from the feature being broken.
+
+Speed is held roughly constant (1,500 px/s) rather than lifetime, so a short
+crossing on a phone is not a slow one: a meteor is recognised by how fast it
+moves far more than by how long it lasts. Life is 430–1,100 ms.
+
+### Measured cost — the part that decides whether this ships
+
+`skyDraw`, real Chromium at devicePixelRatio 2, 1440×900, software rasteriser,
+40 frames each:
+
+| | mean | worst |
+|---|---|---|
+| whole atlas, no treatment (2,204) *(control)* | 1.93 ms | 2.7 ms |
+| night sky, between meteors (59) | 1.33 ms | 2.2 ms |
+| night sky, **meteor in flight** (59) | 1.43 ms | 3.6 ms |
+
+A full-diagonal crossing costs **+0.10 ms** over the same frame with no meteor
+in it, and the whole thing is **0.74×** the untreated whole atlas. The reason a
+three-times-longer path did not cost three times more is the trail being fixed
+in pixels rather than scaled to the travel.
+
+The clock is bounded by arithmetic rather than by hope: it lifts from ~20 fps to
+~45 only while one is in flight — 0.43–1.1 s against a mean gap of 8.2 s, so
+**under 10%** of the clock — and at 45 fps the head moves ~33 px a frame inside a
+trail 90–265 px long, so consecutive frames overlap several times over and the
+streak never dashes. Measured idle draws in 3 s: **night sky selected 62, tab
+hidden 0, view is the wall 0, whole atlas 0.** Under
+`prefers-reduced-motion`: **no meteor at all** (`skyMeteorStep` returns null even
+when one is forced due), **0 idle draws**, and the static sky still arrives —
+39 of the 39 brightest stars lit where the seed says they should be.
+
+**Every one of those checks was broken on purpose and confirmed to report it**
+(`.claude/skills/run-film-atlas/meteor-probe.mjs`, negative controls built by patching the artifact): the old
+20–40° wedge → χ² 333,304; negative margins → 20,000 of 20,000 endpoints inside
+the frame; no chord floor → a meteor visible 0% of its life; `skyReduced()`
+removed from the meteor step → "reduced motion still produces a meteor"; the
+`view === "sky" && !hidden` guard removed → 63 draws with the tab hidden. The
+off-view check needed **two** breaks to fire, because `skyExit()` cancels the
+timer unconditionally as well — two independent mechanisms, which is why it is
+the one guard a single edit cannot defeat.
+
 ## The worlds strip — a contact sheet of one negative
 
 Across the top of the field, printed the way the thread is: perforations as the
