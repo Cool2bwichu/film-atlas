@@ -96,5 +96,6 @@ __pycache__/
 /bench-tmp.mjs
 /.gate-*.mjs
 /.gate-*.cjs
+/.judge/
 /.atlas-films/
 /.atlas-films-snap/
