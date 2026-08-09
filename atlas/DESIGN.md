@@ -637,6 +637,118 @@ been, both fixed 2026-08:
   on the strongest single claim a film carries. Front-page median year moved
   1983 → 1977 against a corpus median of 1979.
 
+### The primary key was degree, and that was the founding error on the door — settled 2026-08-09
+
+Both fixes above were right and both were tiebreaks. Nobody looked at the first
+key, which was `ADJ[b].length - ADJ[a].length`. The 2026-08-09 review measured
+what that cost: rank against degree correlated **−0.679**, the front page's
+degree floor was **22**, and only **374 of 2,204 films (17%)** could ever clear
+it — with 1,222 films tied at exactly degree 20, separated by nothing but
+whether they had a poster. AGENTS rule 1 is written about edge distance, so
+this was not a literal breach. It is that rule's own sentence — *"a
+degree-weighted graph collapses toward the canon and confirms what the user
+already knows"* — enacted on the front door.
+
+**The front page is now sorted by what the atlas can SAY about a film.**
+Degree appears nowhere in it: not as a key, not as a tiebreak.
+
+`CLAIM_SCORE` counts **authored** edges only — a reading or an attestation,
+never a record, because a record is something the atlas looked up and a reading
+is something it argued. Each is weighted by its confidence. The best claim
+counts whole and every further claim counts **half of the one above it**, so
+the series is bounded by twice the best and a film with twenty middling
+readings can never overtake a film with one superb one. That bound is the
+point: ranked on raw authored *count*, this corpus returns Bicycle Thieves,
+Vertigo, Tokyo Story, Persona, In the Mood for Love — the canon again, one rung
+down, because a count of readings records where the reading passes spent their
+effort and they spent it on famous films.
+
+Three bands, and **only the first is ranked**:
+
+| band | what it is | today | ranked? |
+|---|---|---|---|
+| head | highest-scoring films carrying ≥1 authored claim at confidence ≥ 0.5 | 120 of 453 eligible | by claim score |
+| deal | every other film the atlas has written about | 898 | dealt |
+| rest | films it has only recorded | 1,186 | by `BEST_BOND`, poster tiebreak |
+
+- **The head's threshold is AGENTS rule 3's own line.** The front page does not
+  lead with a film whose best claim is marked *reading, not record*; those are
+  dealt for, below. **Its size is half the wall by construction**, not a tuned
+  number — at 10,000 films a proportional head would swallow the whole front
+  page and the atlas would be back to a fixed leaderboard.
+- **The deal is not ranked, because below the head the score is false
+  precision.** A reading's confidence is a hand-set number in steps of 0.05;
+  sorting 898 films on its third decimal invents an authority nobody measured.
+- **The deal's seed is the corpus version.** Same build, same wall; same corpus,
+  same wall for every reader — AGENTS rule 7, not a shuffle that moves under a
+  reader's hands on reload. It re-deals **exactly when the corpus learns
+  something**, which is the honest trigger: a reading pass changes what the
+  atlas can say, so it changes what the atlas leads with. Measured across three
+  synthetic corpus versions, a re-deal replaces **98–111 of the 240** tiles.
+- **The poster has no job in the head or the deal.** Letting artwork jump the
+  queue inside a dealt band would reinstate the three-edge handicap in a new
+  costume. It costs nothing measurable: **236 of 240** front-page films have a
+  poster against a corpus rate of 96.6%, and the four that do not (Chronique
+  d'un été, A Confucian Confusion, Sambizanga, Siegfried) render as generated
+  cells with their captions permanently on, which reads as intentional rather
+  than as a hole.
+
+Measured, old → new, on 2,204 films:
+
+| | old | new |
+|---|---|---|
+| rank vs degree, Pearson | **−0.679** | **−0.265** |
+| front-page mean degree | 24.19 | 21.91 (corpus 20.16) |
+| front-page degree floor | 22 | **1** |
+| corpus that can reach the front page | 374 (**17.0%**) | 1,018 (**46.2%**) |
+| distinct cinemas on the front page | 33 | **40** of 73 |
+| American share | 38.3% | **32.1%** (corpus 32.8%) |
+| distinct directors | 147 | 148 (top director 9 → 8) |
+| median year | 1973 | 1973 (corpus 1977) |
+
+The residual −0.265 is **not a sort key**. It is a property of the pool: films
+the reading passes wrote about happen to average 20.93 connections against
+19.50 for the ones they did not. That is a fact about where the writing went,
+and the honest fix for it is more readings on thin films, not a term in the
+sort.
+
+**The wall deals; search does not.** The suggestion list walks its own
+`SUGGEST_ORDER` — same bands, same claim ranking, no deal. It stops at the
+first eight prefix matches, so the order decides *which* eight a reader is
+offered, and an autocomplete that returns a different eight after a corpus
+update is a worse instrument than one that is merely imperfect.
+
+The lede says the one sentence a reader needs for any of this to be legible:
+*"The wall below leads with the films it has the most to say about."* It is in
+the serif with the rest of the prose, not in the slate — see the standing note
+that the slate is for metadata, labels and legends, never for argument.
+
+### *Surprise me* has no floor — settled 2026-08-09
+
+It drew from `WALL_ORDER.slice(0, 260)`, on the argument that landing on a dead
+end feels empty. Measured, that argument cost the whole idea: pool mean degree
+**24.0** against a corpus mean of 20.2, a floor of 22, and **500 presses
+returned 223 distinct films out of 2,204**. The one button in this product
+labelled serendipity could not show you a film outside the best-connected 11.8%
+of the atlas.
+
+It is now **uniform over every film**. Measured by clicking the real button 500
+times in Chromium: **442 distinct films**, mean degree **20.11** against a
+corpus mean of 20.16, degrees **2–37**, median year 1977 (corpus 1977), and
+only 55 of the 442 were in the old pool at all. The dead-end worry was
+overstated — the thinnest film in the corpus has one connection, not none, and
+14 films in 2,204 have fewer than six. *The Round-Up* at degree 1 renders one
+dashed convergence to *The Ascent*, labelled and readable. A map with one line
+on it is a real answer and a truer one than never being shown.
+
+**The only weight is the reader's own.** A film already marked is not a
+surprise, so a marked draw gets **one** re-roll — once, never a loop, because a
+reader who has marked half the atlas must not be made to wait for the button.
+With nothing marked, which is every first press, this is exactly uniform.
+Measured with 300 films marked seen: the button landed on a marked film **12
+times per 500** against **68** expected under uniform, and distinct reach went
+up rather than down (447).
+
 ## The constellation
 
 One disc per film in that film's own measured highlight; **size is identical
