@@ -2989,8 +2989,29 @@ function skyPassageEdgeSet(route){
   for(const st of route.steps) set.add([st.edge.a,st.edge.b].sort().join("\u0000"));
   return set;
 }
+/* A PASSAGE IS AN ADDRESS. DIRECTION.md wants published Threads eventually and
+   a route is the same object -- a path through cinema someone else should be
+   able to open. Each key is encodeURIComponent'd, which also encodes "/", so
+   the two halves can never run together however the slugs are spelled.
+   replaceState rather than pushState: composing a route is one intent, and a
+   back button that walked you through "picked one film / picked another /
+   found a route" would be reporting the machinery instead of the journey. */
+function skyPassageHash(){
+  const p=sky.passage;
+  const url = p.from&&p.to&&p.route
+    ? "#/passage/"+encodeURIComponent(p.from)+"/"+encodeURIComponent(p.to)
+    : "#/sky";
+  if (location.hash===url) return;
+  passageHashWrite=url;
+  try{ history.replaceState(null,"",url); }catch(_error){}
+}
+/* Set immediately before we write the hash, and cleared by the listener, so
+   our own write cannot be mistaken for a user pasting a link and re-entered. */
+let passageHashWrite=null;
+
 function skyPassageClear(){
   sky.passage={from:null,to:null,route:null,pending:false,onEdge:null};
+  skyPassageHash();
   skyReadout(); skyRender();
 }
 function skyPassageStart(key){
@@ -3008,6 +3029,7 @@ function skyPassageTo(key){
     const r=passageRoute(p.from,p.to);
     p.route=r; p.pending=false;
     p.onEdge=skyPassageEdgeSet(r);
+    skyPassageHash();
     skyReadout(); skyRender();
   }));
 }
@@ -3626,6 +3648,22 @@ function fromHash(historyMode="replace"){
   const h=location.hash||"";
   /* #/sky is an address too: the whole map is a place worth sending someone */
   if(/^#\/sky\/?$/.test(h)){ if(!SKY_POS) return false; openSky(); return true; }
+  /* A shared route. Both films are validated against the corpus before
+     anything opens -- a stale link from an older edition names keys this
+     corpus may no longer hold, and "the duel" has already been re-pointed at
+     a different film once. A bad link falls through to the wall rather than
+     opening an empty sky. */
+  const pm=h.match(/^#\/passage\/([^/]+)\/([^/]+)\/?$/);
+  if(pm){
+    if(!SKY_POS) return false;
+    let a,b;
+    try{ a=decodeURIComponent(pm[1]); b=decodeURIComponent(pm[2]); }catch(_error){ return false; }
+    if(!F[a]||!F[b]||a===b) return false;
+    openSky();
+    skyPassageStart(a);
+    skyPassageTo(b);
+    return true;
+  }
   const m=h.match(/^#\/film\/(.+)$/);
   if(!m) return false;
   let k;
@@ -3643,6 +3681,8 @@ addEventListener("popstate",(event)=>{
   if(!fromHash("none")){ show("wall"); renderWall(); }
 });
 addEventListener("hashchange",()=>{
+  if(passageHashWrite&&location.hash===passageHashWrite){ passageHashWrite=null; return; }
+  passageHashWrite=null;
   if(popstateLocation===location.href){ popstateLocation=null; return; }
   popstateLocation=null;
   if(!fromHash()){ show("wall"); renderWall(); }
