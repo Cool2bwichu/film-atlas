@@ -658,10 +658,43 @@ main{flex:1;position:relative;overflow:hidden}
     var(--nc,var(--accent)) 0%,transparent 70%);
   opacity:0;transition:opacity var(--t-slow) var(--ease)}
 .sky-field.lit::before{opacity:.085}
+/* THE GATE — the apparatus the atlas has been sitting inside all along.
+   Four physical objects, in the order light meets them, and not one of them
+   knows a single thing about any film:
+
+     1. THE LAMP, behind the print (z-index 0). A soft tungsten rise centred on
+        the aperture, falling to nothing well before the frame edge. It is not
+        the ::before key light, which is the FILM IN HAND lighting the room and
+        is pinned to that film; this one is pinned to the FRAME and never
+        moves. The anchor is what tells you which light is which.
+     2. THE PRINT — the canvas, unchanged, at z-index 2.
+     3. THE GATE EDGE (z-index 4). A 1.37 Academy aperture inscribed in the
+        band the camera already fits to — 0.82 when that band is portrait, on a
+        phone — with a hard crop outside and a soft falloff inside. It replaces
+        the old full-bleed vignette, which was a radial wash with no object
+        behind it: a gate has a SHAPE and the shape is a rectangle.
+     4. THE GRAIN (z-index 5), a 96px tile seeded once at boot from a fixed
+        PRNG, tiled in frame space, under the label layer so no caption is ever
+        laid over it (AGENTS rule 4). It reads nothing about any film and it
+        costs nothing per frame: it is one background-image that never changes.
+
+   All four are static CSS. They cost zero repaints at rest, they cannot enter
+   the ink measurement (which reads the canvas, i.e. the print), and they are
+   identical for a reader who has marked nothing — which is the point. The
+   beauty here is apparatus, not data. */
+.sky-gate{position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(var(--ap-w,70%) var(--ap-h,80%) at 50% var(--ap-cy,50%),
+    rgba(255,226,186,.062) 0%,rgba(255,214,164,.030) 44%,rgba(255,198,140,0) 76%)}
 .sky-field::after{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:4;
-  background:radial-gradient(120% 100% at 50% 48%,transparent 40%,
-    rgba(2,1,1,.34) 78%,rgba(2,1,1,.62) 100%)}
+  content:"";position:absolute;pointer-events:none;z-index:4;
+  left:var(--ap-x,0px);top:var(--ap-y,0px);
+  width:var(--ap-w,100%);height:var(--ap-h,100%);
+  box-shadow:0 0 0 9999px rgba(2,1,1,.30),
+             inset 0 0 74px 26px rgba(2,1,1,.44),
+             inset 0 0 0 1px rgba(232,223,211,.045)}
+.sky-grain{position:absolute;inset:0;pointer-events:none;z-index:5;
+  opacity:.052;mix-blend-mode:screen;background-repeat:repeat}
+@media (prefers-reduced-motion:reduce){ .sky-grain{opacity:.052} }
 #sky-c{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;
   touch-action:none;cursor:grab}
 /* the cursor says what a click will do: grab the field, or open a film */
