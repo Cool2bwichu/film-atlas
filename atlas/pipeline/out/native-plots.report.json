@@ -1,0 +1,920 @@
+{
+ "generated": "2026-08-09T14:53:51Z",
+ "window": {
+  "start": "20260608",
+  "end": "20260806"
+ },
+ "floor": 1500,
+ "report": {
+  "quiet": {
+   "films": 663,
+   "withNativeArticle": 534,
+   "withNativePlotSection": 433,
+   "withNativeCriticism": 185,
+   "clearFloorOnNativeAlone": 133,
+   "clearFloorOnCombined": 100,
+   "clearFloorEitherWay": 233,
+   "belowFloorWithSomeNative": 200,
+   "stillQuiet": 230,
+   "overviewSensitivity": 5
+  },
+  "nativePlotChars": {
+   "n": 433,
+   "p10": 206,
+   "median": 922,
+   "p75": 1684,
+   "p90": 2913,
+   "max": 19351
+  },
+  "fame": {
+   "instrument": "Spearman rho vs 60-day en.wikipedia pageviews, 20260608-20260806; deterministic bootstrap CI, same code as plot-source.js",
+   "referenceEnglishWholeCorpus": {
+    "n": 2088,
+    "rho": 0.6437,
+    "ci95": [
+     0.6157,
+     0.6702
+    ],
+    "under": false,
+    "marginal": false
+   },
+   "referenceEnglishOperative": {
+    "n": 1453,
+    "rho": 0.3473,
+    "ci95": [
+     0.2991,
+     0.3906
+    ],
+    "under": true,
+    "marginal": false
+   },
+   "nativeOnQuiet": {
+    "label": "native plot chars vs views, quiet films with a native article",
+    "n": 524,
+    "rho": 0.0912,
+    "ci95": [
+     0.0063,
+     0.1769
+    ],
+    "underGate": true,
+    "marginal": false,
+    "pass": true
+   },
+   "englishOnQuiet": {
+    "label": "English plot chars vs views, same films (ATTENUATED BY CONSTRUCTION: the quiet half is selected on this very variable being under 1,500)",
+    "n": 524,
+    "rho": 0.3279,
+    "ci95": [
+     0.2505,
+     0.4048
+    ],
+    "underGate": true,
+    "marginal": false,
+    "pass": true
+   },
+   "englishOnControlAll": {
+    "label": "SANITY CHECK — English plot chars vs views over the whole control sample (435 films). Should reproduce the corpus-wide 0.64; if it does not, the sample is not representative and nothing below means anything.",
+    "n": 435,
+    "rho": 0.6565,
+    "ci95": [
+     0.593,
+     0.7113
+    ],
+    "underGate": false,
+    "marginal": false,
+    "pass": false
+   },
+   "nativeOnControl": {
+    "label": "native plot chars vs views, control films that have a native article (289 films, no selection on either plot length)",
+    "n": 289,
+    "rho": 0.3037,
+    "ci95": [
+     0.1936,
+     0.4053
+    ],
+    "underGate": true,
+    "marginal": false,
+    "pass": true
+   },
+   "englishOnSameControlFilms": {
+    "label": "English plot chars vs views, THE SAME 289 films",
+    "n": 289,
+    "rho": 0.6816,
+    "ci95": [
+     0.6081,
+     0.7434
+    ],
+    "underGate": false,
+    "marginal": false,
+    "pass": false
+   },
+   "nativeVsNativeWikiViews": {
+    "label": "native plot chars vs 60-day pageviews ON THE FILM'S OWN WIKI (289 control films) — the check that native flatness is not just 'these editors ignore anglophone fame'",
+    "n": 289,
+    "rho": 0.4262,
+    "ci95": [
+     0.328,
+     0.5179
+    ],
+    "underGate": true,
+    "marginal": true,
+    "pass": false
+   },
+   "englishVsNativeWikiViews": {
+    "label": "English plot chars vs the film's own-wiki pageviews, same 289 films (fame travels: the two audiences are not independent)",
+    "n": 289,
+    "rho": 0.4464,
+    "ci95": [
+     0.3441,
+     0.5363
+    ],
+    "underGate": true,
+    "marginal": true,
+    "pass": false
+   },
+   "nativeVsEnglishLength": {
+    "label": "native plot chars vs English plot chars (agreement between the two rulers, not a fame measure)",
+    "n": 289,
+    "rho": 0.2899,
+    "ci95": [
+     0.1743,
+     0.3956
+    ],
+    "underGate": true,
+    "marginal": false,
+    "pass": true
+   }
+  },
+  "control": {
+   "sampled": 444,
+   "quietMembers": 130,
+   "admittedMembers": 314,
+   "withNativeArticle": 293,
+   "withNativePlot": 254
+  },
+  "gate1Native": {
+   "threshold": 0.45,
+   "englishPageviews": {
+    "literal": {
+     "label": "unfloored",
+     "n": 289,
+     "rho": 0.3037,
+     "ci95": [
+      0.1936,
+      0.4053
+     ],
+     "underGate": true,
+     "marginal": false,
+     "pass": true
+    },
+    "operative": {
+     "label": "floored at 1500 chars",
+     "n": 120,
+     "rho": 0.2277,
+     "ci95": [
+      0.0579,
+      0.388
+     ],
+     "underGate": true,
+     "marginal": false,
+     "pass": true
+    }
+   },
+   "ownWikiPageviews": {
+    "literal": {
+     "label": "unfloored",
+     "n": 289,
+     "rho": 0.4262,
+     "ci95": [
+      0.328,
+      0.5179
+     ],
+     "underGate": true,
+     "marginal": true,
+     "pass": false
+    },
+    "operative": {
+     "label": "floored at 1500 chars",
+     "n": 120,
+     "rho": 0.1772,
+     "ci95": [
+      -0.0155,
+      0.3529
+     ],
+     "underGate": true,
+     "marginal": false,
+     "pass": true
+    }
+   }
+  },
+  "byRegion": {
+   "W-Europe": {
+    "films": 353,
+    "article": 337,
+    "plot": 298,
+    "criticism": 132,
+    "clearsFloor": 109,
+    "combined": 68,
+    "medianPlotChars": 1162
+   },
+   "US/CA": {
+    "films": 114,
+    "article": 27,
+    "plot": 24,
+    "criticism": 14,
+    "clearsFloor": 9,
+    "combined": 4,
+    "medianPlotChars": 777
+   },
+   "Japan": {
+    "films": 111,
+    "article": 101,
+    "plot": 64,
+    "criticism": 19,
+    "clearsFloor": 5,
+    "combined": 14,
+    "medianPlotChars": 388
+   },
+   "E-Asia": {
+    "films": 24,
+    "article": 24,
+    "plot": 16,
+    "criticism": 6,
+    "clearsFloor": 2,
+    "combined": 4,
+    "medianPlotChars": 370
+   },
+   "E-Europe": {
+    "films": 22,
+    "article": 18,
+    "plot": 13,
+    "criticism": 7,
+    "clearsFloor": 4,
+    "combined": 1,
+    "medianPlotChars": 743
+   },
+   "S-Asia": {
+    "films": 14,
+    "article": 14,
+    "plot": 7,
+    "criticism": 3,
+    "clearsFloor": 2,
+    "combined": 4,
+    "medianPlotChars": 1146
+   },
+   "UK/IE": {
+    "films": 14,
+    "article": 3,
+    "plot": 2,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 1,
+    "medianPlotChars": 281
+   },
+   "Other": {
+    "films": 6,
+    "article": 5,
+    "plot": 4,
+    "criticism": 2,
+    "clearsFloor": 0,
+    "combined": 2,
+    "medianPlotChars": 617
+   },
+   "LatAm": {
+    "films": 5,
+    "article": 5,
+    "plot": 5,
+    "criticism": 2,
+    "clearsFloor": 2,
+    "combined": 2,
+    "medianPlotChars": 1269
+   }
+  },
+  "byWiki": {
+   "it": {
+    "films": 135,
+    "article": 135,
+    "plot": 128,
+    "criticism": 61,
+    "clearsFloor": 50,
+    "combined": 32,
+    "medianPlotChars": 1297
+   },
+   "(none)": {
+    "films": 129,
+    "article": 0,
+    "plot": 0,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 0
+   },
+   "fr": {
+    "films": 105,
+    "article": 105,
+    "plot": 99,
+    "criticism": 36,
+    "clearsFloor": 28,
+    "combined": 23,
+    "medianPlotChars": 749
+   },
+   "ja": {
+    "films": 96,
+    "article": 96,
+    "plot": 61,
+    "criticism": 18,
+    "clearsFloor": 5,
+    "combined": 14,
+    "medianPlotChars": 390
+   },
+   "de": {
+    "films": 62,
+    "article": 62,
+    "plot": 59,
+    "criticism": 40,
+    "clearsFloor": 34,
+    "combined": 12,
+    "medianPlotChars": 1626
+   },
+   "sv": {
+    "films": 51,
+    "article": 51,
+    "plot": 29,
+    "criticism": 4,
+    "clearsFloor": 1,
+    "combined": 2,
+    "medianPlotChars": 278
+   },
+   "zh": {
+    "films": 20,
+    "article": 20,
+    "plot": 14,
+    "criticism": 8,
+    "clearsFloor": 2,
+    "combined": 4,
+    "medianPlotChars": 370
+   },
+   "fa": {
+    "films": 11,
+    "article": 11,
+    "plot": 6,
+    "criticism": 3,
+    "clearsFloor": 1,
+    "combined": 4,
+    "medianPlotChars": 988
+   },
+   "pl": {
+    "films": 10,
+    "article": 10,
+    "plot": 7,
+    "criticism": 6,
+    "clearsFloor": 4,
+    "combined": 1,
+    "medianPlotChars": 1926
+   },
+   "es": {
+    "films": 7,
+    "article": 7,
+    "plot": 7,
+    "criticism": 4,
+    "clearsFloor": 2,
+    "combined": 4,
+    "medianPlotChars": 1269
+   },
+   "bn": {
+    "films": 5,
+    "article": 5,
+    "plot": 3,
+    "criticism": 0,
+    "clearsFloor": 1,
+    "combined": 2,
+    "medianPlotChars": 1146
+   },
+   "el": {
+    "films": 5,
+    "article": 5,
+    "plot": 4,
+    "criticism": 1,
+    "clearsFloor": 2,
+    "combined": 1,
+    "medianPlotChars": 1205
+   },
+   "ru": {
+    "films": 4,
+    "article": 4,
+    "plot": 4,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 576
+   },
+   "ko": {
+    "films": 4,
+    "article": 4,
+    "plot": 2,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 331
+   },
+   "hi": {
+    "films": 3,
+    "article": 3,
+    "plot": 1,
+    "criticism": 1,
+    "clearsFloor": 1,
+    "combined": 0,
+    "medianPlotChars": 9881
+   },
+   "no": {
+    "films": 3,
+    "article": 3,
+    "plot": 2,
+    "criticism": 0,
+    "clearsFloor": 1,
+    "combined": 0,
+    "medianPlotChars": 1088
+   },
+   "hu": {
+    "films": 2,
+    "article": 2,
+    "plot": 2,
+    "criticism": 1,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 303
+   },
+   "pt": {
+    "films": 2,
+    "article": 2,
+    "plot": 1,
+    "criticism": 1,
+    "clearsFloor": 1,
+    "combined": 0,
+    "medianPlotChars": 1599
+   },
+   "nl": {
+    "films": 2,
+    "article": 2,
+    "plot": 2,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 460
+   },
+   "da": {
+    "films": 2,
+    "article": 2,
+    "plot": 1,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 593
+   },
+   "zh-yue": {
+    "films": 2,
+    "article": 2,
+    "plot": 0,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 0
+   },
+   "sh": {
+    "films": 1,
+    "article": 1,
+    "plot": 1,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 1,
+    "medianPlotChars": 556
+   },
+   "hy": {
+    "films": 1,
+    "article": 1,
+    "plot": 0,
+    "criticism": 0,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 0
+   },
+   "cs": {
+    "films": 1,
+    "article": 1,
+    "plot": 0,
+    "criticism": 1,
+    "clearsFloor": 0,
+    "combined": 0,
+    "medianPlotChars": 0
+   }
+  },
+  "byEnWithheld": {
+   "below-evidence-floor": {
+    "films": 450,
+    "article": 365,
+    "plot": 308,
+    "criticism": 139,
+    "clearsFloor": 95,
+    "combined": 99,
+    "medianPlotChars": 1023
+   },
+   "no-plot-section": {
+    "films": 207,
+    "article": 168,
+    "plot": 124,
+    "criticism": 45,
+    "clearsFloor": 37,
+    "combined": 1,
+    "medianPlotChars": 784
+   },
+   "absent-from-plots.json": {
+    "films": 6,
+    "article": 1,
+    "plot": 1,
+    "criticism": 1,
+    "clearsFloor": 1,
+    "combined": 0,
+    "medianPlotChars": 9881
+   }
+  },
+  "headingAudit": {
+   "termsNeverObserved": [
+    "ar/plot/القصة",
+    "ar/plot/قصة الفيلم",
+    "ar/plot/ملخص",
+    "bg/plot/сюжет",
+    "ca/plot/argument",
+    "ca/plot/sinopsi",
+    "cs/plot/obsah",
+    "da/plot/resumé",
+    "et/plot/süžee",
+    "fi/plot/juoni",
+    "he/plot/עלילה",
+    "hi/plot/कहानी",
+    "hr/plot/radnja",
+    "hu/plot/történet",
+    "hy/plot/սյուժե",
+    "hy/plot/սյուժեն",
+    "id/plot/alur",
+    "id/plot/sinopsis",
+    "is/plot/söguþráður",
+    "lt/plot/siužetas",
+    "lv/plot/sižets",
+    "nl/plot/plot",
+    "nl/plot/synopsis",
+    "pt/plot/sinopse",
+    "ro/plot/rezumat",
+    "ro/plot/subiect",
+    "sh/plot/sadržaj",
+    "sk/plot/dej",
+    "sl/plot/vsebina",
+    "sl/plot/zgodba",
+    "sr/plot/радња",
+    "th/plot/เรื่องย่อ",
+    "tr/plot/konu",
+    "tr/plot/özet",
+    "uk/plot/сюжет",
+    "vi/plot/cốt truyện",
+    "vi/plot/nội dung",
+    "zh-yue/plot/故事"
+   ],
+   "usedUnverifiedTerms": {},
+   "articlesWithNoPlotHeadingButLongProse": 15,
+   "residualExamples": [
+    {
+     "title": "The World's Most Beautiful Swindlers",
+     "wiki": "fr",
+     "headings": [
+      "liens externes"
+     ]
+    },
+    {
+     "title": "Paris, je t'aime",
+     "wiki": "fr",
+     "headings": [
+      "voir aussi",
+      "concept"
+     ]
+    },
+    {
+     "title": "Six in Paris",
+     "wiki": "fr",
+     "headings": [
+      "les six sketches"
+     ]
+    },
+    {
+     "title": "Woyzeck",
+     "wiki": "de",
+     "headings": [
+      "entstehung"
+     ]
+    },
+    {
+     "title": "The Decalogue",
+     "wiki": "pl",
+     "headings": [
+      "produkcja"
+     ]
+    },
+    {
+     "title": "Japan's Longest Day",
+     "wiki": "ja",
+     "headings": [
+      "2015年版の映画",
+      "1967年版の映画",
+      "外部リンク"
+     ]
+    },
+    {
+     "title": "Especially on Sunday",
+     "wiki": "it",
+     "headings": [
+      "curiosità"
+     ]
+    },
+    {
+     "title": "Visions of Europe",
+     "wiki": "fr",
+     "headings": [
+      "liens externes"
+     ]
+    },
+    {
+     "title": "The Suspended Step of the Stork",
+     "wiki": "el",
+     "headings": [
+      "το περίεργο περιστατικό",
+      "εξωτερικοί σύνδεσμοι"
+     ]
+    },
+    {
+     "title": "Tokyo Olympiad",
+     "wiki": "ja",
+     "headings": [
+      "製作",
+      "撮影",
+      "ポストプロダクション"
+     ]
+    },
+    {
+     "title": "Pearls of the Deep",
+     "wiki": "cs",
+     "headings": [
+      "povídky"
+     ]
+    },
+    {
+     "title": "I Graduated, But...",
+     "wiki": "ja",
+     "headings": [
+      "小津安二郎版"
+     ]
+    },
+    {
+     "title": "United Red Army",
+     "wiki": "ja",
+     "headings": [
+      "元連合赤軍メンバーからの批判"
+     ]
+    },
+    {
+     "title": "Unholy Desire",
+     "wiki": "ja",
+     "headings": [
+      "映画"
+     ]
+    },
+    {
+     "title": "8",
+     "wiki": "fr",
+     "headings": [
+      "voir aussi"
+     ]
+    }
+   ]
+  },
+  "examples": [
+   {
+    "title": "La Ronde",
+    "year": 1950,
+    "wiki": "fr",
+    "wikiTitle": "La Ronde (film, 1950)",
+    "heading": "Synopsis",
+    "enPlotChars": 1093,
+    "nativePlotChars": 19351,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Un narrateur, le , présente une série d'histoires tournant autour de rencontres amoureuses ou . La passe de la prostituée au soldat, du soldat à la femme de cha"
+   },
+   {
+    "title": "The Magic Flute",
+    "year": 1975,
+    "wiki": "sv",
+    "wikiTitle": "Trollflöjten (film)",
+    "heading": "Handling",
+    "enPlotChars": 0,
+    "nativePlotChars": 16883,
+    "enWithheld": "no-plot-section",
+    "opening": "Under ouvertyren visas ansikten tillhörande personer i teaterpubliken. Kameran växlar i takt med musiken mellan de olika ansiktena; det är gamla och unga, män o"
+   },
+   {
+    "title": "Gangs of Wasseypur – Part 1",
+    "year": 2012,
+    "wiki": "hi",
+    "wikiTitle": "गैंग्स ऑफ वासेपुर – भाग 1",
+    "heading": "कथानक",
+    "enPlotChars": 0,
+    "nativePlotChars": 9881,
+    "enWithheld": "absent-from-plots.json",
+    "opening": "कहानी से ज्यादा कहानी की प्रस्तुति से संकेत और प्रभाव अभिव्यक्त करने वाली इस फिल्म के आरंभ में भारी हथियारों से लैस लोगों का एक गिरोह वासेपुर के एक घर पर धावा ब"
+   },
+   {
+    "title": "Palermo Shooting",
+    "year": 2008,
+    "wiki": "de",
+    "wikiTitle": "Palermo Shooting",
+    "heading": "Handlung",
+    "enPlotChars": 225,
+    "nativePlotChars": 9052,
+    "enWithheld": "below-evidence-floor",
+    "opening": "=== Düsseldorf === Finn ist ein international erfolgreicher Fotograf. Er hat ein großräumiges Atelier in einem Gebäude im Düsseldorfer Medienhafen gemietet (tat"
+   },
+   {
+    "title": "Kings of the Road",
+    "year": 1976,
+    "wiki": "de",
+    "wikiTitle": "Im Lauf der Zeit",
+    "heading": "Handlung",
+    "enPlotChars": 988,
+    "nativePlotChars": 8381,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Im Mittelpunkt der Spielhandlung steht die Beziehung zwischen zwei Männern. Bruno Winter, Spitzname „King Of The Road“, zieht mit seinem Werkstattwagen, einem u"
+   },
+   {
+    "title": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles",
+    "year": 1975,
+    "wiki": "fr",
+    "wikiTitle": "Jeanne Dielman, 23, quai du Commerce, 1080 Bruxelles",
+    "heading": "Synopsis",
+    "enPlotChars": 1173,
+    "nativePlotChars": 8282,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Chaque scène est filmée en plan fixe et en temps réel.  Une femme, Jeanne, prépare une soupe dans sa cuisine. Après avoir ôté son tablier, habillée et coiffée é"
+   },
+   {
+    "title": "Espion, lève-toi",
+    "year": 1982,
+    "wiki": "fr",
+    "wikiTitle": "Espion, lève-toi",
+    "heading": "Synopsis",
+    "enPlotChars": 0,
+    "nativePlotChars": 6247,
+    "enWithheld": "no-plot-section",
+    "opening": "Sébastien Grenier (Lino Ventura) est un agent secret français du Service de documentation extérieure et de contre-espionnage (SDECE), en sommeil depuis huit ans"
+   },
+   {
+    "title": "San Babila-8 P.M.",
+    "year": 1976,
+    "wiki": "it",
+    "wikiTitle": "San Babila ore 20: un delitto inutile",
+    "heading": "Trama",
+    "enPlotChars": 970,
+    "nativePlotChars": 6415,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Milano. Nell'arco di un'unica giornata si snodano le vicende di quattro ragazzi; tre milanesi: Michele, Franco e Fabrizio e uno, Alfredo, immigrato campano. I p"
+   },
+   {
+    "title": "I Am the Law",
+    "year": 1977,
+    "wiki": "it",
+    "wikiTitle": "Il prefetto di ferro",
+    "heading": "Trama",
+    "enPlotChars": 819,
+    "nativePlotChars": 5923,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Nel 1925 il prefetto Cesare Mori arriva a Palermo, inviato da Mussolini con poteri speciali per combattere la mafia, sebbene lo stesso Mori non sia fascista, av"
+   },
+   {
+    "title": "Il Divo",
+    "year": 2008,
+    "wiki": "it",
+    "wikiTitle": "Il divo (film)",
+    "heading": "Trama",
+    "enPlotChars": 711,
+    "nativePlotChars": 5748,
+    "enWithheld": "below-evidence-floor",
+    "opening": "La vita di Giulio Andreotti, protagonista della storia politica italiana per decenni, nel periodo tra 1991 e 1993, a cavallo tra la presentazione del suo VII go"
+   },
+   {
+    "title": "The Great Ecstasy of Woodcarver Steiner",
+    "year": 1974,
+    "wiki": "de",
+    "wikiTitle": "Die große Ekstase des Bildschnitzers Steiner",
+    "heading": "Inhalt",
+    "enPlotChars": 0,
+    "nativePlotChars": 4981,
+    "enWithheld": "no-plot-section",
+    "opening": "Der Film beginnt mit einer Einstellung, die einen Sprung Walter Steiners in Zeitlupe zeigt. Danach wird Steiner in seiner Holzwerkstatt bei der Arbeit an einem "
+   },
+   {
+    "title": "Two Evil Eyes",
+    "year": 1990,
+    "wiki": "it",
+    "wikiTitle": "Due occhi diabolici",
+    "heading": "Trama",
+    "enPlotChars": 0,
+    "nativePlotChars": 4781,
+    "enWithheld": "no-plot-section",
+    "opening": "Fatti nella vita del signor Valdemar (regia di George A. Romero)  Il sessantacinquenne signor Valdemar è un ricco possidente che viene condotto alla morte da Ro"
+   },
+   {
+    "title": "The Fifth Day of Peace",
+    "year": 1970,
+    "wiki": "it",
+    "wikiTitle": "Gott mit uns (Dio è con noi)",
+    "heading": "Trama",
+    "enPlotChars": 979,
+    "nativePlotChars": 5489,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Paesi Bassi, 1945. Negli ultimi giorni della seconda guerra mondiale, il guardiamarina tedesco Bruno Grauber, un veterano che, non credendo più nella guerra, ha"
+   },
+   {
+    "title": "The Angel Who Pawned Her Harp",
+    "year": 1959,
+    "wiki": "de",
+    "wikiTitle": "Der Engel, der seine Harfe versetzte",
+    "heading": "Handlung",
+    "enPlotChars": 323,
+    "nativePlotChars": 4594,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Der graue Alltag des alten Pfandleihers Josua Webmann und seines Lehrlings Klaas Henning bietet wenig Besonderes. Da ist zum Beispiel die pummelige und stets bo"
+   },
+   {
+    "title": "Il mostro",
+    "year": 1977,
+    "wiki": "it",
+    "wikiTitle": "Il mostro (film 1977)",
+    "heading": "Trama",
+    "enPlotChars": 0,
+    "nativePlotChars": 4242,
+    "enWithheld": "no-plot-section",
+    "opening": "Valerio Barigozzi è un cronista fallito, con un matrimonio a pezzi alle spalle e un figlio adolescente e introverso, Luca, che preferirebbe vivere con il padre,"
+   },
+   {
+    "title": "The Teacher from Vigevano",
+    "year": 1963,
+    "wiki": "it",
+    "wikiTitle": "Il maestro di Vigevano (film)",
+    "heading": "Trama",
+    "enPlotChars": 435,
+    "nativePlotChars": 4371,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Il maestro Antonio Mombelli insegna in una scuola elementare di Vigevano. La sua vita si trascina tra le miserie quotidiane, le angherie del direttore della scu"
+   },
+   {
+    "title": "Giordano Bruno",
+    "year": 1973,
+    "wiki": "it",
+    "wikiTitle": "Giordano Bruno (film)",
+    "heading": "Trama",
+    "enPlotChars": 0,
+    "nativePlotChars": 3883,
+    "enWithheld": "no-plot-section",
+    "opening": "Il film racconta gli ultimi anni della vita del filosofo nolano Giordano Bruno, dal 1592 fino all'uccisione nel 1600.  Inizia a Venezia con una processione comm"
+   },
+   {
+    "title": "Why Does Herr R. Run Amok?",
+    "year": 1970,
+    "wiki": "de",
+    "wikiTitle": "Warum läuft Herr R. Amok?",
+    "heading": "Handlung",
+    "enPlotChars": 1112,
+    "nativePlotChars": 4925,
+    "enWithheld": "below-evidence-floor",
+    "opening": "Der Film spielt in der Vorweihnachtszeit in München. Herr R. ist um die dreißig und lebt mit Frau und Sohn ein bürgerliches, unauffälliges Leben. Er arbeitet al"
+   },
+   {
+    "title": "According to Pereira",
+    "year": 1995,
+    "wiki": "it",
+    "wikiTitle": "Sostiene Pereira (film)",
+    "heading": "Trama",
+    "enPlotChars": 299,
+    "nativePlotChars": 4034,
+    "enWithheld": "below-evidence-floor",
+    "opening": "A Lisbona, capitale del Portogallo, nel 1938, nel pieno del periodo della dittatura di António Salazar, vive il dottor Pereira (il nome di battesimo del protago"
+   },
+   {
+    "title": "The Niklashausen Journey",
+    "year": 1970,
+    "wiki": "de",
+    "wikiTitle": "Niklashauser Fart",
+    "heading": "Handlung",
+    "enPlotChars": 0,
+    "nativePlotChars": 3515,
+    "enWithheld": "no-plot-section",
+    "opening": "Drei Freunde, der Bauer Antonio, ein „schwarzer Mönch“ in schwarzer Lederjacke und Johanna überlegen, mit welchen Mitteln sie das Volk dazu bringen können zu re"
+   }
+  ]
+ }
+}

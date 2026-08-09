@@ -46,7 +46,7 @@ yarn-error.log*
 # per SPARQL response here; they are regenerable, large, and say nothing the
 # corpus does not already record.
 #
-# All FIVE cache directories belong here, not three. The growth run to ~2,200
+# All EIGHT cache directories belong here, not three. The growth run to ~2,200
 # films fills .cache-posters/ with roughly 190 MB of poster bytes and the other
 # four with tens of thousands of small JSON files; leaving any of them tracked
 # turns `git status` after a harvest into an unreadable wall and makes an
@@ -57,6 +57,13 @@ yarn-error.log*
 /atlas/pipeline/.cache-sparql/
 /atlas/pipeline/.cache-expand/
 /atlas/pipeline/.cache-posters/
+/atlas/pipeline/.cache-plots/
+/atlas/pipeline/.cache-views/
+/atlas/pipeline/.cache-axes/
+/atlas/pipeline/.cache-scholar/
+/atlas/pipeline/.cache-native-wd/
+/atlas/pipeline/.cache-native-wt/
+/atlas/pipeline/.cache-native-views/
 
 # Generated seed expansion. Regenerable with:
 #   node atlas/pipeline/expand-seeds.js --target N > atlas/pipeline/seeds-expansion.txt
@@ -80,3 +87,21 @@ __pycache__/
 # Local linked worktrees used to isolate reviewed feature work from active
 # pipeline outputs in the main checkout.
 /.worktrees/
+
+# Screenshots from .claude/skills/run-film-atlas/driver.mjs
+/.atlas-shots/
+
+# Scratch probes written at the repo root by agents driving the app — the
+# driver and its harness live in .claude/skills/run-film-atlas/, so anything
+# loose up here is somebody's in-flight measurement, not a deliverable. They
+# have to sit inside the repo because `playwright` will not resolve from /tmp.
+/.probe*.mjs
+/.atlas-*.mjs
+/bench-tmp.mjs
+/.gate-*.mjs
+/.gate-*.cjs
+/.judge/
+/.atlas-films/
+/.atlas-films-snap/
+/atlas/pipeline/out/fingerprints.shard-*.json
+/atlas/pipeline/.cache-soc/

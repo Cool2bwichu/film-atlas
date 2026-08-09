@@ -1,0 +1,244 @@
+{
+  "version": "registers-1",
+  "note": "A REGISTER IS A NAMED REGION OF THE ATLAS, DEFINED BY A RULE — never a tag assigned per film. Assigned per film by a model these fragment (cerebral horror / intellectual horror / elevated horror / psychological horror: four labels, one idea, zero shared edges). Defined by a rule they cannot fragment, they are auditable (the terms that matched are right there), and they are correctable in one place. See docs/specs/atlas-fingerprint-layer-v1.1.md section C for the original 46-register list, and atlas/DESIGN.md for why this file defines them on THEMES rather than on axes.\n\nWHAT A RULE MAY READ. Themes (TMDB keywords, evidenced by a plot summary) and the recorded facets discovery.json already carries: genre, movement, era, country. It may NOT read degree, fame, poster presence, year of release as a ranking, or anything else AGENTS rule 1 forbids. Every rule below is a membership test over evidence; none of them ranks.\n\nTHE LINE THAT DECIDES WHAT SURVIVES: a register lives if it is about WHAT A FILM IS ABOUT, and dies if it is about HOW A FILM BEHAVES. Slow cinema, near-wordless, talk-driven, deadpan, chamber drama, sun-bleached dread — measured, all dead here, because a plot summary never states a cutting rate. Those wait for the axis build and are deliberately absent rather than faked.",
+  "treatmentNote": "EVERY REGISTER CARRIES A RENDERING TREATMENT, AND SAYS HOW MUCH OF IT IS MEASURED. At field scale a per-film colour carries no information — nearest-neighbour hue difference across the solved layout is 67.6 degrees against 69.0 for a random shuffle, a ratio of 0.979 — so 2,204 discs in 2,204 measured highlights is the generic rainbow AGENTS rule 5 was written to forbid, arriving through the front door. Colour at field scale is a data channel and has to carry the stratum. `hue`, `glow`, `scale`, `edge`, `mono` and `motion` below are that channel.\n\nThe honesty is the three-tier `tier`, and build-registers.js DECIDES IT BY MEASUREMENT rather than taking this file's word for it: it compares each register's mean member highlight in Oklab against the corpus mean, in units of the null SD of same-size random samples.\n\n  recorded  — the treatment reports a fact about the print itself (black and white).\n  amplified — the register's own films measurably separate in colour, and the shipped\n              hue is that measured direction with its chroma pushed. The gain ships.\n  authored  — the films do NOT separate; the colour was chosen. Said out loud.\n\n`hue` here is the AUTHORED proposal. A register that measures as separating has its hue replaced by the amplified measurement at build time, and the file records both. Rule 1 still binds absolutely: `scale` is uniform across every film in a register, so nothing on screen is ever larger for being better connected, and `motion.kind: pulse` moves every disc in unison for the same reason. `drift` and `flicker` take their phase from a film's index in the corpus, which is arbitrary and carries no graph information whatsoever.",
+  "gates": {
+    "minFilms": 8,
+    "maxShare": 0.12,
+    "maxFacetJaccard": 0.8
+  },
+  "motionKinds": {
+    "still": "No idle animation at all. As expressive as a pulse, and free.",
+    "pulse": "One slow swell, every disc in unison — a held breath, not a heartbeat per film.",
+    "drift": "Each disc on its own slow phase, taken from its corpus index. A field that shimmers.",
+    "flicker": "Fast, shallow, desynchronised. Gate flicker, not a strobe: depth stays under a quarter.",
+    "twinkle": "Scintillation. Same per-index phase as drift, but two beats against each other so the rhythm never resolves — which is what makes a star read as a star and a lamp read as a lamp."
+  },
+  "skyNote": "`sky: true` is the one treatment that changes what the field IS rather than how it is coloured, and it is spent on ONE register on purpose. This view has called itself the constellation since it was built: the discs are stars, the edges are the lines drawn between them, and the whole conceit has been a metaphor the interface never admitted to. Cold science fiction is where it stops pretending — a real star field behind the films, scintillation on the films themselves, and a meteor across the frame from time to time. It is also the register that earned it: at 6.8 SD it is the largest measured palette separation in the corpus, so its blue is reportage rather than decoration, and the readout says so. Do not give this to a second register. It is legible precisely because nothing else does it.",
+
+  "treatments": {
+    "folk-horror":           { "hue": "#C8A24A", "glow": 0.55, "scale": 1.12, "edge": 0.85, "motion": { "kind": "pulse",   "rate": 0.16, "depth": 0.22 } },
+    "haunted-house":         { "hue": "#9FB4BC", "glow": 0.70, "scale": 1.10, "edge": 0.70, "motion": { "kind": "pulse",   "rate": 0.13, "depth": 0.26 } },
+    "cerebral-horror":       { "hue": "#B8894F", "glow": 0.45, "scale": 1.08, "edge": 0.80, "motion": { "kind": "pulse",   "rate": 0.11, "depth": 0.20 } },
+    "body-horror":           { "hue": "#C4707C", "glow": 0.60, "scale": 1.14, "edge": 0.80, "motion": { "kind": "drift",   "rate": 0.22, "depth": 0.26 } },
+    "gothic":                { "hue": "#A8434B", "glow": 0.50, "scale": 1.10, "edge": 0.75, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "the-killer-outside":    { "hue": "#CE3A30", "glow": 0.90, "scale": 1.18, "edge": 0.70, "motion": { "kind": "pulse",   "rate": 0.24, "depth": 0.30 } },
+    "dream-logic":           { "hue": "#9A7BC8", "glow": 0.75, "scale": 1.12, "edge": 0.90, "motion": { "kind": "drift",   "rate": 0.15, "depth": 0.30 } },
+    "films-about-films":     { "hue": "#E8E2D6", "glow": 0.55, "scale": 1.06, "edge": 1.00, "motion": { "kind": "flicker", "rate": 1.10, "depth": 0.18 } },
+    "argument-as-plot":      { "hue": "#7E9AC0", "glow": 0.35, "scale": 1.06, "edge": 1.10, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "faith-and-silence":     { "hue": "#D2B25E", "glow": 0.40, "scale": 1.04, "edge": 0.70, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "family-as-trap":        { "hue": "#C9873F", "glow": 0.35, "scale": 1.06, "edge": 1.00, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "marriage-in-decay":     { "hue": "#B87C86", "glow": 0.35, "scale": 1.06, "edge": 1.05, "motion": { "kind": "pulse",   "rate": 0.09, "depth": 0.16 } },
+    "coming-of-age":         { "hue": "#7FB268", "glow": 0.45, "scale": 1.08, "edge": 0.95, "motion": { "kind": "drift",   "rate": 0.28, "depth": 0.22 } },
+    "aching-romance":        { "hue": "#C85A6E", "glow": 0.55, "scale": 1.08, "edge": 0.95, "motion": { "kind": "pulse",   "rate": 0.10, "depth": 0.22 } },
+    "melancholy-drift":      { "hue": "#6E93A8", "glow": 0.40, "scale": 1.04, "edge": 0.75, "motion": { "kind": "drift",   "rate": 0.07, "depth": 0.18 } },
+    "paranoid-thriller":     { "hue": "#93A75C", "glow": 0.45, "scale": 1.08, "edge": 0.85, "motion": { "kind": "flicker", "rate": 0.80, "depth": 0.16 } },
+    "noir-fatalism":         { "hue": "#7F97AA", "glow": 0.35, "scale": 1.06, "edge": 0.80, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "the-professional-job":  { "hue": "#B9A46C", "glow": 0.35, "scale": 1.06, "edge": 1.05, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "the-institution":       { "hue": "#8E8C7E", "glow": 0.30, "scale": 1.04, "edge": 1.10, "motion": { "kind": "still",   "rate": 0,    "depth": 0 } },
+    "cyberpunk-mood":        { "hue": "#B45BD8", "glow": 1.00, "scale": 1.16, "edge": 1.25, "motion": { "kind": "drift",   "rate": 0.34, "depth": 0.30 } },
+    "cold-science-fiction":  { "hue": "#5EA8D8", "glow": 0.80, "scale": 1.10, "edge": 1.05, "sky": true, "motion": { "kind": "twinkle", "rate": 0.55, "depth": 0.34 } },
+    "artificial-life":       { "hue": "#54C0B0", "glow": 0.85, "scale": 1.12, "edge": 1.05, "motion": { "kind": "flicker", "rate": 0.55, "depth": 0.20 } },
+    "after-the-end":         { "hue": "#C87A45", "glow": 0.50, "scale": 1.08, "edge": 0.75, "motion": { "kind": "drift",   "rate": 0.09, "depth": 0.20 } },
+    "dystopian-satire":      { "hue": "#D8A83F", "glow": 0.55, "scale": 1.08, "edge": 1.00, "motion": { "kind": "flicker", "rate": 0.95, "depth": 0.20 } },
+    "war-as-attrition":      { "hue": "#8E8058", "glow": 0.35, "scale": 1.06, "edge": 0.85, "motion": { "kind": "pulse",   "rate": 0.08, "depth": 0.18 } },
+    "wilderness-obsession":  { "hue": "#6FA07A", "glow": 0.45, "scale": 1.08, "edge": 0.85, "motion": { "kind": "drift",   "rate": 0.10, "depth": 0.22 } },
+    "new-wave-restlessness": { "hue": "#E0DCCF", "glow": 0.45, "scale": 1.06, "edge": 1.15, "motion": { "kind": "flicker", "rate": 1.30, "depth": 0.22 } },
+    "silver-print":          { "hue": "#C6C4C0", "glow": 0.40, "scale": 1.06, "edge": 0.90, "mono": 1, "tier": "recorded", "motion": { "kind": "flicker", "rate": 1.6, "depth": 0.14 } }
+  },
+  "registers": [
+    {
+      "id": "silver-print",
+      "label": "The silver print",
+      "blurb": "Films whose prints are monochrome — the record says so, and so does the field.",
+      "recordedTreatment": "black and white / silent film are keywords about the PRINT, not readings of it. Desaturating these discs reports a fact.",
+      "themes_any": ["black and white", "silent film", "silent film star"]
+    },
+    {
+      "id": "folk-horror",
+      "label": "Folk horror",
+      "blurb": "Dread grown out of a place, and the things the people there still believe.",
+      "themes_all": [
+        ["folk horror", "paganism", "pagan", "witchcraft", "witch", "witch hunt", "witch burning", "black magic", "coven (akelarre)", "occult", "cult", "religious cult", "satanic ritual", "ritual", "ritual murder", "mourning ritual", "dance ritual", "based on myths, legends or folklore", "japanese folklore", "folklore", "superstition", "human sacrifice", "shamanism", "curse", "exorcism", "evil force", "séance"],
+        ["village", "village life", "small village", "mountain village", "village massacre", "rural area", "rural setting", "rural life", "rural town", "isolated community", "countryside", "island", "isolated island", "deserted island", "forest", "woods", "haunted woods", "moor", "farm", "farmland", "farm life", "harvest", "harvest festival", "small town", "field", "swamp", "midsummer", "summer festival", "may day", "bonfire", "seclusion", "new england", "english colony", "puritan", "peasant", "mountain country", "goat", "wilderness"]
+      ]
+    },
+    {
+      "id": "haunted-house",
+      "label": "Haunted house",
+      "blurb": "A building that remembers, and a family that cannot leave it.",
+      "themes_all": [
+        ["ghost", "ghost story", "ghost child", "vengeful ghost", "ghostly hauntings", "haunted house", "haunted manor", "haunted hotel", "poltergeist", "supernatural", "supernatural horror", "supernatural power", "possession", "demonic possession", "possessed child", "demon", "séance", "exorcism", "premonition", "psychic power", "telepathy", "extrasensory perception"],
+        ["house", "old house", "isolated house", "country house", "farm house", "household", "mansion", "estate", "castle", "hotel", "haunted house", "haunted manor", "haunted hotel", "apartment", "attic", "basement", "cellar", "boarding house", "manor", "dollhouse", "caretaker", "isolation", "seclusion"]
+      ]
+    },
+    {
+      "id": "cerebral-horror",
+      "label": "Cerebral horror",
+      "blurb": "Dread that works on the mind first, and may never touch the body.",
+      "genre_any": ["genre:horror", "genre:mystery", "genre:thriller"],
+      "themes_any": ["psychological thriller", "psychological drama", "psychological horror", "psychological disorders", "psychological disintegration", "paranoia", "paranoid", "hallucination", "insanity", "madness", "mental illness", "mental breakdown", "dual personality", "identity crisis", "loss of sense of reality", "subconsciousness", "dreams", "amnesia", "memory loss", "false memory", "hypnosis", "ambiguous", "delusion", "obsession", "sexual obsession", "nightmare"]
+    },
+    {
+      "id": "body-horror",
+      "label": "Body horror",
+      "blurb": "The body as the thing that betrays you.",
+      "genre_any": ["genre:horror", "genre:science-fiction", "genre:drama", "genre:thriller"],
+      "themes_any": ["body horror", "mutation", "transformation", "metamorphosis", "parasite", "infection", "disease", "epidemic", "plague", "surgery", "sadomasochism", "possession", "demonic possession", "cancer", "body modification", "dismemberment", "cannibalism", "hysteria", "mutilation", "shapeshifting"]
+    },
+    {
+      "id": "gothic",
+      "label": "Gothic",
+      "blurb": "Old stone, inherited guilt, and something alive in the west wing.",
+      "themes_any": ["gothic", "gothic horror", "gothic romance", "gothic thriller", "southern gothic", "urban gothic", "castle", "vampire", "vampire hunter (slayer)", "vampiress (female vampire)", "crypt", "mansion", "manor", "haunted manor", "victorian era", "inquisition", "monster", "frankenstein’s monster", "witch burning", "grave", "cemetery", "coffin", "corpse in coffin", "curse", "transylvania"]
+    },
+    {
+      "id": "the-killer-outside",
+      "label": "Something is out there",
+      "blurb": "A killer, a countdown, and a house full of people who do not know yet.",
+      "themes_any": ["slasher", "proto-slasher", "serial killer", "masked killer", "survival horror", "stalking", "final girl", "psychopath", "murder spree", "mission of murder", "child murder", "ritual murder", "whodunit", "giallo", "prowler", "body snatchers"]
+    },
+    {
+      "id": "dream-logic",
+      "label": "Dream logic",
+      "blurb": "Films that obey the rules of a dream and refuse the rules of a plot.",
+      "movement_any": ["movement:Q39427", "movement:Q6034"],
+      "themes_any": ["surrealism", "surreal", "surreal comedy", "czech surrealism", "french surrealism", "experimental surrealism", "dreamlike", "dream world", "dream sequence", "dream within a dream", "recurring dream", "haunting dreams", "dreams", "hallucination", "absurdism", "absurdist", "loss of sense of reality", "subconsciousness", "nonlinear timeline", "phallic symbol"]
+    },
+    {
+      "id": "films-about-films",
+      "label": "Films about films",
+      "blurb": "Cinema turning round to look at its own apparatus.",
+      "themes_any": ["filmmaking", "film within a film", "documentary filmmaking", "cinema on cinema", "movie business", "movie studio", "movie star", "movie theater", "film director", "screenwriter", "screenplay", "writer's block", "silent film star", "portrait of a filmmaker", "young filmmaker", "theater play", "theater director", "playwright", "actress", "film set", "audition", "storytelling", "unreliable narrator", "repeated line", "cinema propaganda"]
+    },
+    {
+      "id": "argument-as-plot",
+      "label": "Argument as plot",
+      "blurb": "Films where the question is the event.",
+      "themes_any": ["philosophical", "philosophy", "philosophical debate", "philosophic conflict", "philosophical depiction of war", "eastern philosophy", "philosophy of mind", "existentialism", "existentialist", "existential crisis", "existential drama", "existential emptiness", "meaningless existence", "nihilism", "morality", "moral dilemma", "moral transformation", "human nature", "life and death", "matter of life and death", "free will", "metaphysics, mysticism, kabbalah, spiritism", "religious allegory", "allegory"]
+    },
+    {
+      "id": "faith-and-silence",
+      "label": "Faith and its silence",
+      "blurb": "Belief filmed without ornament, and mostly without an answer.",
+      "themes_any": ["faith", "crisis of faith", "loss of faith", "christian faith", "belief in god", "god", "seeking a god", "voice of god", "priest", "catholic priest", "young priest", "ex-priest", "monk", "buddhist monk", "monks", "nun", "convent", "monastery", "spirituality", "spiritual quest", "spiritual community", "spiritual awareness", "spiritual journey", "religion", "religious conversion", "religious persecution", "religious fundamentalism", "christianity", "martyr", "martyrdom", "woman martyr", "saint", "pilgrimage", "transcendence", "afterlife", "church", "bible", "crucifixion", "heresy", "sin", "confession", "purity", "praying"]
+    },
+    {
+      "id": "family-as-trap",
+      "label": "Family as a trap",
+      "blurb": "The house you grew up in, and what it costs to stay in it.",
+      "genre_any": ["genre:drama"],
+      "themes_any": ["family", "family relationships", "dysfunctional family", "family drama", "family history", "family secret", "family argument", "nuclear family", "parent child relationship", "sibling relationship", "father son relationship", "mother daughter relationship", "mother daughter reunion", "father daughter relationship", "mother son relationship", "toxic parents", "japanese family", "generation gap", "inheritance", "death of parent", "orphan siblings", "sibling rivalry", "matriarch", "patriarch", "grandparent grandchild relationship"]
+    },
+    {
+      "id": "marriage-in-decay",
+      "label": "Marriage in decay",
+      "blurb": "Two people at close range, and the years of evidence between them.",
+      "themes_all": [
+        ["marriage crisis", "failing marriage", "unhappy marriage", "divorce", "impending divorce", "marital separation", "husband wife estrangement", "adultery", "adulterous wife", "adulterous husband", "suspicion of adultery", "infidelity", "extramarital affair", "unfaithful wife", "unfaithful girlfriend", "deceived husband", "jealous husband", "jealousy", "love affair", "break-up", "falling out of love", "toxic relationship", "relationship problems", "domestic violence", "violent husband"],
+        ["husband wife relationship", "marriage", "married couple", "married woman", "wife", "housewife", "divorce", "marriage crisis", "failing marriage", "unhappy marriage", "adultery", "infidelity", "extramarital affair", "family relationships", "relationship problems", "toxic relationship", "love triangle", "boyfriend girlfriend relationship", "couple"]
+      ]
+    },
+    {
+      "id": "coming-of-age",
+      "label": "Coming of age",
+      "blurb": "The year somebody stopped being a child, filmed while it happened.",
+      "themes_any": ["coming of age", "childhood", "childhood trauma", "difficult childhood", "childhood friends", "adolescence", "teenager", "teenage girl", "teenage boy", "teenage protagonist", "teenage love", "teenage daughter", "troubled teen", "rebellious youth", "first love", "sexual awakening", "loss of virginity", "high school", "high school student", "boarding school", "girls' boarding school", "schoolboy", "youth", "youth gang", "growing up", "summer camp"]
+    },
+    {
+      "id": "aching-romance",
+      "label": "Aching romance",
+      "blurb": "Love filmed as something withheld — and the film knows it.",
+      "genre_any": ["genre:romance", "genre:drama"],
+      "themes_any": ["unrequited love", "forbidden love", "secret love", "first love", "love triangle", "tragic romance", "doomed love", "lost love", "love of one's life", "love affair", "longing", "melancholy", "falling out of love", "impossible love", "boys' love (bl)", "queer loneliness", "summer romance", "gothic romance", "interracial romance", "dark romance"]
+    },
+    {
+      "id": "melancholy-drift",
+      "label": "Melancholy drift",
+      "blurb": "Nothing is resolved. The film keeps moving anyway.",
+      "themes_any": ["melancholy", "loneliness", "urban loneliness", "queer loneliness", "alienation", "isolation", "social isolation", "unsociability", "drifter", "wandering", "road movie", "road trip", "roadtrip", "on the road", "aimlessness", "ennui", "nostalgia", "nostalgic memory", "existential crisis", "existential emptiness", "depression", "wistful", "reminiscent"]
+    },
+    {
+      "id": "paranoid-thriller",
+      "label": "Paranoid thriller",
+      "blurb": "Somebody is listening, and the film will not tell you who.",
+      "themes_any": ["paranoia", "paranoid", "paranoid thriller", "surveillance", "surveillance camera", "surveillance state", "video surveillance", "fbi surveillance", "conspiracy", "conspiracy thriller", "conspiracy theory", "corporate conspiracy", "alien conspiracy", "corruption", "political corruption", "government corruption", "police corruption", "corrupt system", "police state", "cover-up", "wiretapping", "informant", "double agent", "treason", "double cross"]
+    },
+    {
+      "id": "noir-fatalism",
+      "label": "Noir fatalism",
+      "blurb": "A man who has already lost, walking toward the reason why.",
+      "themes_any": ["film noir", "neo-noir", "french noir", "japanese noir", "future noir", "tech noir", "western noir", "british noir", "femme fatale", "private detective", "double cross", "blackmail", "guilt", "survivor's guilt", "betrayal", "greed"]
+    },
+    {
+      "id": "the-professional-job",
+      "label": "The professional job",
+      "blurb": "Crime as craft: the plan, the crew, and the thing that goes wrong.",
+      "genre_any": ["genre:crime", "genre:thriller"],
+      "themes_any": ["heist", "bank heist", "jewelry heist", "robbery", "bank robbery", "armed robbery", "botched robbery", "train robbery", "hold-up robbery", "attempted robbery", "hitman", "contract killer", "professional assassin", "gangster", "mafia", "mafia boss", "sicilian mafia", "yakuza", "organized crime", "criminal gang", "gang", "stakeout"]
+    },
+    {
+      "id": "the-institution",
+      "label": "The institution",
+      "blurb": "The corridor, the form, and the office that has already decided.",
+      "themes_any": ["bureaucracy", "bureaucrat", "civil servant", "institution", "mental institution", "totalitarian regime", "totalitarianism", "police state", "state security", "courtroom", "courtroom drama", "court case", "murder trial", "trial", "judge", "sentence", "prison", "prison cell", "women's prison", "prison escape", "release from prison", "asylum", "government agency", "propaganda", "colonialism propaganda", "corrupt system", "immigration law"]
+    },
+    {
+      "id": "cyberpunk-mood",
+      "label": "Cyberpunk mood",
+      "blurb": "A city of rain and signage, and machines that want something.",
+      "themes_all": [
+        ["cyberpunk", "cyber thriller", "cyber warfare", "tech noir", "future noir", "artificial intelligence (a.i.)", "artificial intelligence", "android", "human android relationship", "robot", "humanoid robot", "killer robot", "robot cop", "cyborg", "technology", "high technology", "advanced technology", "technological evolution", "virtual reality", "hacker", "super computer", "computer virus", "surveillance state", "dystopia", "megacorporation", "corporate"],
+        ["dystopia", "future", "distant future", "near future", "dark future", "future war", "future vision", "city portrait", "cyberpunk", "tech noir", "future noir", "alienation", "loneliness", "urban loneliness", "isolation", "identity loss", "identity crisis", "anime", "neon"]
+      ]
+    },
+    {
+      "id": "cold-science-fiction",
+      "label": "Cold science fiction",
+      "blurb": "Space treated as a philosophical problem, not an action set.",
+      "genre_any": ["genre:science-fiction"],
+      "themes_any": ["space", "space travel", "spacecraft", "space station", "space mission", "space colony", "outer space", "astronaut", "alien contact", "alien life-form", "alien language", "extraterrestrial life form", "extraterrestrial technology", "experiment", "scientist", "computer scientist", "laboratory", "artificial intelligence (a.i.)", "philosophical", "existentialism", "subconsciousness", "loss of sense of reality"]
+    },
+    {
+      "id": "artificial-life",
+      "label": "Artificial life",
+      "blurb": "Something made, asking what it is.",
+      "themes_any": ["artificial intelligence (a.i.)", "artificial intelligence", "android", "human android relationship", "robot", "humanoid robot", "robot boy", "real robot", "giant robot", "cyborg", "clone", "cloning", "replicant", "implanted memory", "memory transfer", "false memory", "identity loss", "super computer", "virtual reality", "frankenstein’s monster"]
+    },
+    {
+      "id": "after-the-end",
+      "label": "After the end",
+      "blurb": "What is left, who took it, and how far you have to walk.",
+      "themes_any": ["post-apocalyptic future", "post-apocalyptic", "apocalypse", "apocalyptic vision", "zombie apocalypse", "end of the world", "nuclear war", "nuclear weapons", "wasteland", "desert wasteland", "dystopia", "survival", "struggle for survival", "on the road", "epidemic", "plague", "famine", "totalitarian regime", "totalitarianism", "black death"]
+    },
+    {
+      "id": "dystopian-satire",
+      "label": "Dystopian satire",
+      "blurb": "The joke and the nightmare are the same shot.",
+      "genre_any": ["genre:comedy", "genre:science-fiction"],
+      "themes_any": ["satire", "satirical", "black comedy", "dark comedy", "political satire", "propaganda", "bureaucracy", "totalitarian regime", "totalitarianism", "dystopia", "nuclear war", "absurd", "absurdism", "absurdist", "modern society", "modernity", "consumerism", "capitalism", "counter-culture"]
+    },
+    {
+      "id": "war-as-attrition",
+      "label": "War as attrition",
+      "blurb": "Not the campaign — the mud, the waiting, and what it does to a face.",
+      "genre_any": ["genre:war"],
+      "themes_any": ["soldier", "soldiers", "japanese soldier", "russian soldier", "german soldier", "british soldier", "soldier on leave", "trench warfare", "battlefield", "children in wartime", "prisoner of war", "pow survivor", "massacre", "village massacre", "atrocity", "war crime", "anti war", "desertion", "occupation", "resistance", "partisan", "survival", "brutality", "torture", "famine", "refugee", "bombing", "air raid", "holocaust (shoah) survivor", "concentration camp", "wartime", "post war japan", "post world war ii", "liberation of prisoners"]
+    },
+    {
+      "id": "wilderness-obsession",
+      "label": "Wilderness obsession",
+      "blurb": "A landscape that does not care, and a plan that will not survive it.",
+      "themes_all": [
+        ["wilderness", "jungle", "jungle adventure", "jungle survival", "amazon rainforest", "amazon river", "nature", "human vs nature", "man vs nature", "human in nature", "forces of nature", "monsters of the wild", "mountain", "mountain village", "himalaya mountain range", "river", "riverboat", "expedition", "desert", "arctic", "snow", "snowbound", "forest", "sea", "island", "south america", "peru", "safari", "plantation"],
+        ["obsession", "obsessive quest", "quest", "insanity", "madness", "megalomania", "hubris", "ambition", "greed", "gold", "gold rush", "conquest", "imperialism", "survival", "struggle for survival", "isolation", "expedition"]
+      ]
+    },
+    {
+      "id": "new-wave-restlessness",
+      "label": "New wave restlessness",
+      "blurb": "Young film-makers breaking the grammar in public, on borrowed money.",
+      "movement_any": ["movement:Q193541", "movement:Q837388", "movement:Q16885381", "movement:Q62086465", "movement:Q95875016", "movement:Q4824505", "movement:Q3393199", "movement:Q2843729", "movement:Q1092442", "movement:Q2356541", "movement:Q727553"]
+    }
+  ]
+}

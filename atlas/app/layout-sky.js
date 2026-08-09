@@ -120,7 +120,9 @@ const DEFAULTS = {
      sized. Absolute numbers here would silently re-tune themselves as the
      corpus grew, which is exactly the failure mode STATE.md item 1 is about. */
   restStrong: 0.35,    /* rest length at strength 1                            */
-  restWeak: 48,        /* rest length at strength 0 — read the note below      */
+  restWeak: 120,       /* rest length at strength 0, in k, AT restWeakN films  */
+  restWeakN: 2204,     /* the corpus size restWeak is quoted at — see below    */
+  restWeakExp: 0.75,   /* how restWeak scales off restWeakN — see below        */
   restExp: 2.0,        /* shape of the strength -> length curve; 1 = linear    */
 
   stiffFloor: 0.01,    /* a strength-0 spring still pulls this much            */
@@ -161,12 +163,123 @@ const DEFAULTS = {
  *     median(length of weakest-decile edges) / median(distance between
  *     unconnected pairs)   must stay comfortably below 1.0
  *
- * At restWeak 48 that ratio is 0.83 — an edge, even the weakest kind the corpus
+ * That ratio is 0.83 — an edge, even the weakest kind the corpus
  * carries, still means "closer than chance", with margin left for the ratio to
  * drift as the corpus grows. bondFit gives up about 0.16 of correlation for it.
  * That is the trade being made, deliberately, and it is the same trap STATE.md
  * records under "a metric can improve while the thing it measures gets worse".
- * If you retune this file, re-check that ratio; the harness will not.
+ * If you retune this file, re-check that ratio. The harness now will —
+ * `pipeline/measure-layout.js` reports it as `weakRatio` and gates it at 1.0 on
+ * the whole atlas and on all 72 re-formed skies.
+ *
+ * 0.83 is the TARGET. It is not a property of the number 48, or of 120, or of
+ * any bare integer: which integer lands on it depends on the corpus size, which
+ * is the whole subject of the next two blocks.
+ *
+ * ── WHY restWeak CARRIES A CORPUS SIZE WITH IT — added 2026-08-09 ───────────
+ *
+ * "The harness will not" was true for three sessions, because the harness was
+ * never committed. It is committed now (`pipeline/measure-layout.js`), it
+ * reports that ratio as `weakRatio`, and the first thing it found was that this
+ * constant is NOT scale-free in the units the block above claims for it.
+ *
+ * Every other length here is LOCAL: restStrong 0.35k is a third of the typical
+ * gap between two films, and that stays a third of the gap at any n. restWeak
+ * is 48k, and 48k is 1.02 times the width of the ENTIRE PICTURE at n=2,204 and
+ * 1.69 times it at n=803. A length longer than the map is a fraction-of-the-map
+ * quantity wearing k's clothes, and that fraction decays as 1/sqrt(n). So the
+ * weak end of the strength->length curve silently re-tuned itself as the corpus
+ * grew — which is the exact failure STATE.md item 1 describes for `idf`,
+ * relocated from the associator into the solver.
+ *
+ * It failed in BOTH directions at once, which is what proves it is the unit and
+ * not the value:
+ *
+ *   - On the whole atlas it drifted CONSERVATIVE. weakRatio was 0.83 when this
+ *     block was written at n=803; measured at n=2,204 it was 0.495. The picture
+ *     sat at half its stated constraint and paid bondFit for margin nobody
+ *     asked for.
+ *
+ *   - On the 72 re-formed skies it drifted VIOLENT, and those are baked and
+ *     shipped and nothing had ever measured one. 48k is 5.0 picture-widths for
+ *     a 94-film register and 15.2 for a 10-film one, so every weak spring in a
+ *     small layout was compressed to the point of shoving. Measured before any
+ *     of this: 41 of 64 scoreable strata had weakRatio >= 1.0 — they drew their
+ *     weakest edges FURTHER apart than two films sharing no edge at all, which
+ *     is precisely the failure restWeak 180 was rejected for above. The
+ *     `coming-of-age` register scored weakRatio 1.83 and weakCloserP 0.051: in
+ *     that constellation a weak tie was drawn as evidence of unrelatedness
+ *     nineteen times out of twenty.
+ *
+ * So restWeak is quoted WITH the corpus size it was measured at, and the solver
+ * scales it off that size rather than holding the bare integer:
+ *
+ *     restWeakK = restWeak * (n / restWeakN)^restWeakExp
+ *
+ * ── WHY THE EXPONENT IS 0.75 AND NOT 0.5, WHICH IS THE OBVIOUS ANSWER ────────
+ *
+ * 0.5 is the exponent that makes restWeakK * k dead flat, and flat is what the
+ * diagnosis above argues for: restWeak is a fraction of the picture, so hold
+ * that fraction. It was implemented that way first, and it is wrong, and the
+ * harness is why we know.
+ *
+ * A rest length is a WISH, not an outcome. Whether a spring gets what it asks
+ * for depends on what else is pulling on its two films. On the whole atlas each
+ * film carries ~20 edge-ends and a strength-0 spring is outvoted almost always;
+ * in a 90-film register a film carries ~2 and the weak spring is frequently the
+ * only thing acting on it, so it realises nearly its whole rest length. Ask for
+ * the same fraction of the picture in both and you have asked for two different
+ * pictures. Measured, at restWeakK * k = 2.556 everywhere — the value that puts
+ * the whole atlas exactly on its tuned 0.83:
+ *
+ *     exponent 0.50 (flat)   whole atlas weakRatio 0.837    13 of 64 strata >= 1.0
+ *     exponent 0.75          whole atlas weakRatio 0.837     3 of 64 strata >= 1.0
+ *
+ * Both columns are the same whole atlas — the anchor makes the exponent a no-op
+ * at n = restWeakN — and 10 of the 72 re-formed skies are the difference. 0.75
+ * lets restWeakK * k rise as n^0.25, from 0.66 picture-widths for a ten-film
+ * register to 2.56 for the atlas, which is the correction for that competition.
+ *
+ * The exponent was swept, not derived. Strata over weakRatio 1.0, from
+ * `measure-layout.js --strata`, everything else held:
+ *
+ *     exponent   0.50   0.65   0.70   0.75   0.80   0.85
+ *     over 1.0     13      4      3      3      4      3
+ *
+ * That is a flat basin from 0.65 up with a cliff off its low side, so 0.75 is
+ * chosen as the round number in the middle of the basin, not as a fitted
+ * optimum — a minimum picked to one decimal off counts this small would be
+ * noise with a constant attached. If the corpus's mean degree
+ * changes shape — this one runs ~2 edge-ends per film in a small register and
+ * 20.2 across the atlas — re-sweep it; `measure-layout.js --strata` prints
+ * every number above in one run.
+ *
+ * ── WHAT IT COST AND WHAT IT BOUGHT, MEASURED ───────────────────────────────
+ *
+ * restWeak 48 flat -> restWeak 120 with exponent 0.75, across all 73 layouts:
+ *
+ *     whole atlas   bondFit          -0.4161 -> -0.5836
+ *                   formFit          -0.1532 -> -0.4062
+ *                   weakRatio          0.499 ->   0.837   (the tuned target)
+ *                   closerP            0.837 ->   0.766   (invariant floor 0.70)
+ *                   weakCloserP        0.766 ->   0.577   (invariant floor 0.52)
+ *                   director nnLift    19.0x ->   10.1x
+ *     strata        weakRatio >= 1.0  4 of 64 -> 3 of 64
+ *                   weakCloserP<0.45  2 of 64 -> 1 of 64
+ *                   closerP  <  0.65  0 of 64 -> 0 of 64
+ *                   mean bondFit      -0.673  -> -0.689
+ *     total standing invariant breaches    66 ->      61
+ *
+ * closerP and weakCloserP are the real price and they are paid on purpose: this
+ * is the trade curve the block above describes, walked to the point the file
+ * always said it was tuned to and no further. Both stay above their invariants
+ * with room. What the picture gets back is that formFit — rule 1 measured on
+ * the edges that carry an ARGUMENT rather than a production credit — nearly
+ * triples, and the sky's nearest-neighbour director lift almost halves: at
+ * restWeak 48 a film's twelve nearest neighbours were 19x more likely than
+ * chance to share its director, which is a filmography browser wearing a star
+ * map's clothes. Longer weak springs push a director's shelf apart and let the
+ * formal edges decide the shape, which is what rule 1 asks for.
  *
  * THAT TRADE IS WHY THIS FILE SHIPPED OVER TWO CANDIDATES THAT SCORED BETTER
  * ON bondFit, and the next person to read the harness output needs the reason
@@ -260,6 +373,22 @@ function layout(films, edges, opts) {
   const ea = new Int32Array(m), eb = new Int32Array(m);
   const rest = new Float64Array(m), stiff = new Float64Array(m);
   let live = 0;
+
+  /* The weak rest length is a fraction of the WHOLE PICTURE, not a multiple of
+     the local spacing — see the restWeakN block in the header. `restWeakK * k`
+     is therefore what the constant actually means, and it works out as
+
+         restWeakK * k = restWeak / sqrt(restWeakN) * (n / restWeakN)^(exp-0.5)
+
+     so restWeakExp 0.5 would hold it flat and 0.75 lets it grow as n^0.25. It
+     grows because a rest length is a WISH, not an outcome: a weak spring in the
+     2,204-film atlas is one of ~20 pulling on each of its ends and almost never
+     gets what it asks for, while in a 90-film register it is often the only
+     spring on a film and gets nearly all of it. Asking for the same fraction of
+     the picture in both therefore DRAWS two different pictures. The exponent is
+     the correction for that competition, measured rather than reasoned — see
+     the header. At n = restWeakN the factor is exactly 1 for any exponent. */
+  const restWeakK = P.restWeak * Math.pow(n / P.restWeakN, P.restWeakExp);
   for (let e = 0; e < m; e++) {
     const A = idx.get(edges[e].a), B = idx.get(edges[e].b);
     if (A === undefined || B === undefined || A === B) continue;
@@ -280,7 +409,7 @@ function layout(films, edges, opts) {
        monotone, so "shorter means stronger" is still true everywhere — only the
        spacing between rungs changes. */
     rest[live] = k * (P.restStrong +
-      Math.pow(1 - s, P.restExp) * (P.restWeak - P.restStrong));
+      Math.pow(1 - s, P.restExp) * (restWeakK - P.restStrong));
 
     /* Stiffness rises with strength, with a floor. The floor is load-bearing
        and it is not a tuning convenience: STATE.md records that deleting weak

@@ -18,6 +18,7 @@ const fs=require("fs"), path=require("path"), os=require("os"), cp=require("chil
 const {canonicalJson,contentVersion,projectDiscovery,validateDiscovery}=
   require("../pipeline/discovery-contract.js");
 const {LAYOUT_ALGORITHM_VERSION,layout}=require("./layout-sky.js");
+const {STRATA_LAYOUT_VERSION,strataLayouts}=require("./layout-strata.js");
 const {isTrivia}=require("../pipeline/claim-tiers.js");
 const ROOT=path.join(__dirname,"..");
 const arg=(n,d)=>{
@@ -214,11 +215,69 @@ for(const filmId of discovery.filmOrder){
 if(Object.keys(positions).length!==Object.keys(corpus.films).length){
   throw new Error("Layout position count does not match the supplied corpus");
 }
+/* ONE MORE CONSTELLATION PER STRATUM, SO NARROWING RE-FORMS THE SKY.
+ * Same solver, same rules, run again over each stratum's own films and only
+ * the edges with both ends inside it. Costs ~9s of build and ~54 KB on the
+ * wire; the alternative is a 1.9-second freeze on every click of the most-used
+ * filter in the app, on a desktop, and worse on a phone. The full argument,
+ * with the measurements, is at the top of layout-strata.js. */
+const {strata,report:strataReport}=strataLayouts(corpus,discovery);
+
+/* ── THE REGISTERS ─────────────────────────────────────────────────────────
+ * static/registers.json is DERIVED (pipeline/build-registers.js evaluates a
+ * rule over themes), where discovery.json is RECORDED. They ship as separate
+ * files for that reason and the interface labels them differently.
+ *
+ * Every register is baked down to eight films rather than the twenty a
+ * recorded stratum needs, and the difference is not a double standard. A
+ * genre with fifteen films is a thin slice of a taxonomy; a register with
+ * fifteen films is the honest size of that region of cinema in this corpus,
+ * and its constellation is the whole point of the door. Folk horror is ten
+ * films here, and ten films is a real answer to "show me folk horror".
+ *
+ * Registers are optional: a checkout without the file builds an artifact with
+ * no register layer rather than failing, because the file is regenerated from
+ * a rule and is not part of the corpus contract. */
+let REGISTERS=null;
+const REGISTERS_PATH=path.join(ROOT,"static","registers.json");
+let registerStrataCount=0;
+if(fs.existsSync(REGISTERS_PATH)){
+  REGISTERS=JSON.parse(fs.readFileSync(REGISTERS_PATH,"utf8"));
+  if(REGISTERS.identityVersion!==discovery.identityVersion){
+    throw new Error("registers.json was built against a different identity version than discovery.json — "+
+      "re-run pipeline/build-registers.js");
+  }
+  /* Projected the same way discovery is when --films packs a subset: a posting
+     that points outside the retained film order would place a film at another
+     film's coordinates. */
+  const retained=new Set(discovery.filmOrder);
+  const sourceOrder=REGISTERS.filmOrder||null;
+  if(sourceOrder&&sourceOrder.length!==discovery.filmOrder.length){
+    throw new Error("registers.json film order disagrees with discovery.json");
+  }
+  const postings={};
+  for(const [id,list] of Object.entries(REGISTERS.postings)){
+    const kept=list.filter(i=>retained.has(discovery.filmOrder[i]));
+    if(kept.length>=8) postings[id]=kept;
+  }
+  for(const id of Object.keys(REGISTERS.definitions)) if(!postings[id]) delete REGISTERS.definitions[id];
+  REGISTERS.postings=postings;
+  const {strata:regStrata,report:regReport}=
+    strataLayouts(corpus,discovery,{register:postings},{minFilms:8,facets:[]});
+  Object.assign(strata,regStrata);
+  registerStrataCount=regReport.length;
+  for(const r of regReport){
+    if(REGISTERS.definitions[r.value]) REGISTERS.definitions[r.value].edges=r.edges;
+  }
+}
+
 const layoutManifest={
   version:discovery.layoutVersion,
   algorithmVersion:LAYOUT_ALGORITHM_VERSION,
   corpusVersion:discovery.corpusVersion,
   positions,
+  strataAlgorithmVersion:STRATA_LAYOUT_VERSION,
+  strata,
 };
 
 /* Chunked, never one enormous line: a 250k-character line is valid JavaScript
@@ -237,6 +296,7 @@ const pack=(name,value)=>{
 const block=pack("CORPUS",corpus);
 const discoveryBlock=pack("DISCOVERY",discovery);
 const layoutBlock=pack("LAYOUT",layoutManifest);
+const registerBlock=pack("REGISTERS",REGISTERS);
 
 let html=fs.readFileSync(path.join(__dirname,"template.html"),"utf8");
 const marker="/* __CORPUS__ */";
@@ -251,11 +311,49 @@ const layoutMarker="/* __LAYOUT__ */";
 if(!html.includes(layoutMarker)) throw new Error("Atlas template is missing its layout marker");
 html=html.replace(layoutMarker,layoutBlock);
 if(html.includes(layoutMarker)) throw new Error("Atlas template contains more than one layout marker");
+const registerMarker="/* __REGISTERS__ */";
+if(!html.includes(registerMarker)) throw new Error("Atlas template is missing its registers marker");
+html=html.replace(registerMarker,registerBlock);
+if(html.includes(registerMarker)) throw new Error("Atlas template contains more than one registers marker");
 const inspectionMarker="/* __RADIAL_INSPECTION__ */";
 if(!html.includes(inspectionMarker)) throw new Error("Atlas template is missing its radial inspection marker");
 const inspectionSource=fs.readFileSync(path.join(__dirname,"radial-inspection.js"),"utf8");
 html=html.replace(inspectionMarker,inspectionSource);
 if(html.includes(inspectionMarker)) throw new Error("Atlas template contains more than one radial inspection marker");
+
+/* THE SOLVER SHIPS, BECAUSE AN INTERSECTION HAS NO BAKED LAYOUT.
+ * One selected value re-forms into a constellation solved here (see
+ * layout-strata.js). Two or more is a different set every time and there are
+ * combinatorially many of them, so those are solved in the browser. Measured
+ * on this corpus, genre x era and genre x country intersections run median 31
+ * films / 30 ms, p90 116 / 76 ms, worst 518 / 498 ms on a desktop — inside a
+ * budget the 1,552-film single strata never could be.
+ *
+ * It is EMBEDDED FROM layout-sky.js rather than reimplemented in the template,
+ * and that is the whole point: a second hand-written copy of a force solver is
+ * a copy that drifts, and the day it drifts, an intersection stops being drawn
+ * by the same rules as the stratum it sits inside. One algorithm, one file,
+ * one set of tuned constants, embedded — the same discipline
+ * radial-inspection.js is embedded under. Determinism (AGENTS rule 7) comes
+ * for free: it is literally the code that baked the strata, seeded the same
+ * way, and the app feeds it films in corpus order and edges in corpus order.
+ *
+ * The export line is rewritten into a return so the source can be wrapped in
+ * one expression, which also keeps `layout` from colliding with the radial
+ * map's own layout() at template scope. A rename in layout-sky.js fails the
+ * build here rather than shipping a page whose filter silently cannot solve. */
+const solverMarker="/* __SKY_SOLVER__ */";
+if(!html.includes(solverMarker)) throw new Error("Atlas template is missing its sky solver marker");
+const solverExport=/^module\.exports\s*=\s*\{[^}]*\};[ \t]*$/m;
+let solverSource=fs.readFileSync(path.join(__dirname,"layout-sky.js"),"utf8").replace(/^#![^\n]*\n/,"");
+if(!solverExport.test(solverSource)){
+  throw new Error("layout-sky.js no longer ends in the module.exports form the template embed rewrites");
+}
+solverSource=solverSource.replace(solverExport,"return { LAYOUT_ALGORITHM_VERSION, layout };");
+/* Function replacement, never a string: a `$&` anywhere in the embedded source
+   would otherwise be expanded by String.replace as a capture reference. */
+html=html.replace(solverMarker,()=>`const SKY_SOLVER = (function(){\n${solverSource}\n})();`);
+if(html.includes(solverMarker)) throw new Error("Atlas template contains more than one sky solver marker");
 if(ORIGIN!==null){
   /* Trailing slash trimmed because every template usage already supplies its
      own ("__ATLAS_ORIGIN__/", "__ATLAS_ORIGIN__/og.png"). */
@@ -284,3 +382,10 @@ try{
   fs.rmSync(staged,{force:true});
 }
 console.log(`${OUT}  ${(fs.statSync(OUT).size/1024).toFixed(0)} KB — ${Object.keys(corpus.films).length} films, ${corpus.edges.length} edges, ${Object.keys(positions).length} placed`);
+/* Say what was baked. A stratum silently missing its layout is a filter
+   that dims instead of re-forming, and that failure is invisible on screen
+   unless you already know which strata were supposed to move. */
+console.log(`${strataReport.length} strata re-formed — ${strataReport.reduce((n,r)=>n+r.films,0)} film placements, ${(JSON.stringify(strata).length/1024).toFixed(0)} KB`);
+console.log(REGISTERS
+  ? `${Object.keys(REGISTERS.definitions).length} registers, ${registerStrataCount} of them with their own baked constellation`
+  : "no registers — static/registers.json absent, atlas builds without the register layer");

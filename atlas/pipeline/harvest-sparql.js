@@ -28,6 +28,22 @@
  * films[k].enwiki, the English Wikipedia article title, taken from the sitelink
  * in the same query. enrich.js uses it to fetch posters without having to ask
  * Wikidata a second time.
+ *
+ * THREE FIELDS ONLY THIS PATH PRODUCES. `enwiki`, `runtime`/`runtimeCuts`
+ * (P2047) and `colour` (P462) are absent from a harvest.js-produced file. The
+ * "byte-compatible" promise above is about the SHAPE consumers read — films,
+ * labels, placeTypes — not about every key inside a film. Anything downstream
+ * that reads these must treat them as optional: `runtime` is null when Wikidata
+ * has no usable duration, and `colour` is [] when it records no P462. Do not
+ * write a consumer that assumes they are always there, because the REST
+ * fallback exists precisely for the runs where the endpoint is unreachable.
+ *
+ * The same optionality applies to the EXTENSION SWEEP fields (see EXTEND_PROPS
+ * below): aspect/format/language/filmingLocation and the lineage lists on each
+ * film, productionDesigner/artDirector/costumeDesigner inside crew, and the
+ * top-level `makers` map. A full run produces them; the REST fallback and any
+ * harvest.json written before 2026-08-09 do not. `--extend` retrofits them
+ * onto an existing harvest.json without re-running the resolve.
  */
 
 const fs = require("fs");
@@ -423,8 +439,15 @@ ORDER BY ?f`;
 
 /* One query per property across all films in a chunk, values and labels
    together. The REST path needed a second pass over several thousand entities
-   purely to turn Q-ids into words; here the label service does it inline. */
-async function fetchProp(name, prop, qids) {
+   purely to turn Q-ids into words; here the label service does it inline.
+
+   `stats`, when given, counts chunks that failed all retries. A failed chunk
+   here is the same hole the resolve guard shouts about: downstream, a film in
+   a dead chunk is indistinguishable from a film Wikidata records nothing for,
+   and any coverage number computed over the output silently reads low. Callers
+   that measure coverage must pass a stats object and refuse to write when
+   failedChunks is non-zero. */
+async function fetchProp(name, prop, qids, stats) {
   const rows = [];
   const groups = chunks(qids, CHUNK);
   let i = 0;
@@ -439,8 +462,161 @@ SELECT ?f ?v ?vLabel WHERE {
     const r = await sparql(name + "_" + i, q);
     i++;
     if (r) rows.push.apply(rows, r);
+    else if (stats) stats.failedChunks++;
   }
   return rows;
+}
+
+/* ------------------------------------------------- extension sweep (2026-08)
+ *
+ * The P-numbers from the owner's data-layer enrichment report (docs/specs/
+ * data-layer-enrichment-report.md, Phase 1 item 1) that the original harvest
+ * did not carry. All statement-level facts, all CC0, all citable as
+ * wikidata:<QID>#<P-number>. Deliberately absent: box office P2142 and budget
+ * P2130 (Hollywood-skewed and fame-adjacent — AGENTS rule 1 forbids anything
+ * ranking-shaped), distributor/certification/EIDR (not discriminating for
+ * lineage).
+ *
+ * P144 based-on and P941 inspired-by are NOT here: the original PROPS already
+ * harvests both into `basedOn`. The lineage properties below are kept under
+ * their own names rather than merged, because their directions differ —
+ * P4969 points from a film TO its derivatives (the reverse of based-on), and
+ * P155/P156 order a series. Collapsing them into one bag would lose the arrow.
+ */
+const EXTEND_PROPS = [
+  /* GOLD — long-tailed technical facts */
+  ["aspect", "P2061", "flat"], ["format", "P437", "flat"],
+  /* CREW DEPTH — the departments beyond DoP/editor already in PROPS */
+  ["productionDesigner", "P2554", "crew"], ["artDirector", "P3174", "crew"],
+  ["costumeDesigner", "P2515", "crew"],
+  /* LINEAGE — thin, but every edge is citable */
+  ["influencedBy", "P737", "flat"], ["derivativeWork", "P4969", "flat"],
+  ["afterWorkBy", "P1877", "flat"], ["quotesWork", "P6166", "flat"],
+  ["precededBy", "P155", "flat"], ["followedBy", "P156", "flat"],
+  /* CONTEXT — multi-value on purpose; a co-production's structure and a
+     film's language mix are the data, not noise to collapse */
+  ["language", "P364", "flat"], ["filmingLocation", "P915", "flat"],
+];
+const EXTEND_FLAT_FIELDS = EXTEND_PROPS.filter(([, , k]) => k === "flat").map(([n]) => n);
+
+/* Maker formation, harvested for the corpus's directors rather than its films:
+   where a director trained and who they name as teacher/influence. Stored in a
+   top-level `makers` map keyed by the person's QID — a person is not a film,
+   and hanging their education off every film they made would multiply one fact
+   by the length of their shelf. */
+const MAKER_PROPS = [
+  ["makerEducatedAt", "P69", "educatedAt"],
+  ["makerStudentOf", "P1066", "studentOf"],
+  ["makerInfluencedBy", "P737", "influencedBy"],
+];
+
+async function fetchMakers(directors, labels, stats) {
+  const makers = {};
+  for (const [name, prop, field] of MAKER_PROPS) {
+    const rows = await fetchProp(name, prop, directors, stats);
+    let n = 0;
+    for (const r of rows) {
+      const d = qid(cell(r, "f"));
+      const v = qid(cell(r, "v"));
+      if (!d || !v) continue;
+      const m = makers[d] = makers[d] || { educatedAt: [], studentOf: [], influencedBy: [] };
+      if (m[field].indexOf(v) < 0) { m[field].push(v); n++; }
+      const lab = cell(r, "vLabel");
+      if (lab && !/^Q\d+$/.test(lab)) labels[v] = lab;
+    }
+    console.log("  " + name.padEnd(19) + n + " statements across " + directors.length + " directors");
+  }
+  return makers;
+}
+
+/* --------------------------------------------------------------- duration
+ *
+ * P2047 does not go through fetchProp, and the reason is not tidiness — it is
+ * that fetchProp reads `wdt:` and would produce a WRONG NUMBER rather than a
+ * missing one.
+ *
+ * A quantity statement carries an amount and a unit, and `wdt:P2047` exposes
+ * only the amount. Measured against live WDQS on 2026-08-09 over every
+ * Q11424, the units actually in use are:
+ *
+ *     Q7727  minute  161,134     Q199    "1" (unitless)  24
+ *     Q11574 second    1,049     Q11573  metre            3
+ *     Q25235 hour        149     six other singletons
+ *
+ * So roughly 1,200 statements are NOT in minutes. Reading the bare amount
+ * turns a 90-minute film recorded in seconds into 5,400 and a 2-hour film
+ * recorded in hours into 2 — errors of 60x in both directions, silently, on
+ * the exact tail (shorts, silents, hand-entered items) this corpus is full of.
+ * Q11573 is worse than a unit error: it is film LENGTH IN METRES entered
+ * against the duration property, a different physical quantity wearing the
+ * same field.
+ *
+ * Unitless (Q199) is dropped rather than assumed to be minutes. Twenty-four
+ * statements is small enough to guess at and that is exactly why it should not
+ * be: a guess here is indistinguishable in the output from a record, which is
+ * the AGENTS rule 8 line. A dropped value reads as "Wikidata does not say";
+ * a guessed one reads as a fact.
+ */
+const DURATION_UNITS = { Q7727: 1, Q11574: 1 / 60, Q25235: 60 };
+
+/* Lower median of the distinct minute values, not the mean and not the first.
+   A film with several duration statements has several CUTS — theatrical,
+   director's, a restoration, a 16-vs-24fps silent transfer — and averaging
+   them produces a runtime no print has ever had. The lower median lands on the
+   theatrical figure for the common two-statement case (139 / 170 -> 139) and
+   resists a single outlying restoration when there are three or more.
+   `cuts` ships beside it so the collapse is visible: a reader who needs to
+   know that this film's runtime is contested can see it in the record instead
+   of trusting a scalar that hides it. */
+function pickRuntime(minutes) {
+  const distinct = [...new Set(minutes.map((m) => Math.round(m)))].sort((a, b) => a - b);
+  if (!distinct.length) return { value: null, cuts: 0 };
+  return { value: distinct[Math.floor((distinct.length - 1) / 2)], cuts: distinct.length };
+}
+
+/* Statement-level rather than truthy, because rank has to be read: a
+   deprecated duration is usually a value an editor has explicitly marked
+   WRONG, and `wdt:` would hide that decision by simply not returning it in
+   some cases and returning it in others. Preferred wins outright where an
+   editor has nominated a canonical runtime; otherwise every non-deprecated
+   statement counts and pickRuntime decides. */
+async function fetchDuration(qids, stats) {
+  const byFilm = {};
+  const groups = chunks(qids, CHUNK);
+  let i = 0;
+  for (const g of groups) {
+    const values = g.map((q) => "wd:" + q).join(" ");
+    const q = `
+SELECT ?f ?v ?unit ?rank WHERE {
+  VALUES ?f { ${values} }
+  ?f p:P2047 ?st .
+  ?st psv:P2047 ?node .
+  ?node wikibase:quantityAmount ?v .
+  ?node wikibase:quantityUnit ?unit .
+  ?st wikibase:rank ?rank .
+}`;
+    const rows = await sparql("duration_" + i, q);
+    i++;
+    for (const r of rows || []) {
+      const f = qid(cell(r, "f"));
+      const rank = cell(r, "rank") || "";
+      if (/DeprecatedRank$/.test(rank)) { stats.deprecated++; continue; }
+      const unit = qid(cell(r, "unit"));
+      const factor = DURATION_UNITS[unit];
+      if (!factor) { stats.badUnit++; continue; }
+      const amount = parseFloat(cell(r, "v"));
+      /* Non-positive and non-finite amounts are corrupt, not short. */
+      if (!Number.isFinite(amount) || amount <= 0) { stats.badAmount++; continue; }
+      const rec = byFilm[f] = byFilm[f] || { preferred: [], normal: [] };
+      rec[/PreferredRank$/.test(rank) ? "preferred" : "normal"].push(amount * factor);
+    }
+  }
+  const out = {};
+  for (const f of Object.keys(byFilm)) {
+    const rec = byFilm[f];
+    out[f] = pickRuntime(rec.preferred.length ? rec.preferred : rec.normal);
+  }
+  return out;
 }
 
 async function main() {
@@ -550,9 +726,11 @@ async function main() {
       title: r.label, year: r.year, qid: r.qid, director: "",
       shadow: pal.shadow, highlight: pal.highlight, paletteSource: "era",
       enwiki: r.article || null,
+      runtime: null, runtimeCuts: 0,
       crew: {}, genre: [], movementDirect: [], movementInherited: [], movement: [], setting: [], subject: [], cast: [],
-      studio: [], country: [], basedOn: [], sourceAuthors: [],
+      studio: [], country: [], basedOn: [], sourceAuthors: [], colour: [],
     };
+    for (const n of EXTEND_FLAT_FIELDS) films[k][n] = [];
   }
   const byQid = {};
   for (const k of keys) byQid[resolved[k].qid] = films[k];
@@ -563,9 +741,20 @@ async function main() {
     ["genre", "P136", "flat"], ["movement", "P135", "flat"], ["setting", "P840", "flat"],
     ["subject", "P921", "flat"], ["cast", "P161", "flat"], ["studio", "P272", "flat"],
     ["country", "P495", "flat"], ["basedOn", "P144", "flat"], ["inspiredBy", "P941", "flat"],
+    /* P462 is a RECORD about the print — Q838368 black-and-white, Q22006653
+       colour — and it is the field the `silver-print` register should rest on.
+       It currently rests on the TMDB keyword "black and white", which is a
+       third-party editorial tag on a film's page, not a property of the
+       photography. The poster palette cannot substitute: a source audit
+       measured minimum highlight chroma 23.8 across 2,008 films, so no
+       achromatic highlight exists in this corpus at all, and monochrome films
+       carry slightly HIGHER median poster saturation (0.601 vs 0.568) because
+       a one-sheet for a black-and-white film is routinely printed in colour.
+       The poster is marketing; P462 is the print. */
+    ["colour", "P462", "flat"],
   ];
 
-  for (const [name, prop, kind] of PROPS) {
+  for (const [name, prop, kind] of PROPS.concat(EXTEND_PROPS)) {
     const rows = await fetchProp(name, prop, qids);
     let n = 0;
     for (const r of rows) {
@@ -587,6 +776,27 @@ async function main() {
   }
 
   for (const f of Object.values(films)) f.cast = f.cast.slice(0, 12);
+
+  /* ---- runtime ---- */
+  const durStats = { deprecated: 0, badUnit: 0, badAmount: 0 };
+  const durations = await fetchDuration(qids, durStats);
+  let withRuntime = 0, contested = 0;
+  for (const k of keys) {
+    const d = durations[resolved[k].qid];
+    if (!d || d.value == null) continue;
+    films[k].runtime = d.value;
+    films[k].runtimeCuts = d.cuts;
+    withRuntime++;
+    if (d.cuts > 1) contested++;
+  }
+  console.log("  " + "runtime".padEnd(15) + withRuntime + " films (" + contested + " with more than one recorded cut)");
+  /* Rejections are printed, never folded into "no duration". A film with a
+     metre-valued P2047 is not a film Wikidata is silent about, and the two
+     have to stay tellable apart if anyone later asks why coverage is short. */
+  if (durStats.deprecated || durStats.badUnit || durStats.badAmount) {
+    console.log("  " + "".padEnd(15) + "rejected: " + durStats.deprecated + " deprecated, "
+      + durStats.badUnit + " unusable unit, " + durStats.badAmount + " non-positive amount");
+  }
 
   /* ---- authors of the works films adapt ---- */
   const works = [...new Set(Object.values(films).flatMap((f) => f.basedOn))];
@@ -620,6 +830,9 @@ async function main() {
     for (const d of f.crew.director || []) for (const m of dirMove[d] || []) addInheritedMovement(f, m, d);
   }
 
+  /* ---- maker formation: where the directors trained, who taught them ---- */
+  const makers = await fetchMakers(directors, labels, null);
+
   /* ---- what kind of place is each setting ----
      "Both set in Arizona" is administrative trivia; "both set in Kyoto" is a
      fact about the film's world, and only the place's own type separates them. */
@@ -638,7 +851,7 @@ async function main() {
   }
 
   fs.writeFileSync(path.join(OUT, "harvest.json"),
-    JSON.stringify({ films: films, labels: labels, placeTypes: placeTypes }, null, 1));
+    JSON.stringify({ films: films, labels: labels, placeTypes: placeTypes, makers: makers }, null, 1));
 
   console.log("\nfilms      : " + Object.keys(films).length);
   console.log("labels     : " + Object.keys(labels).length);
@@ -658,4 +871,107 @@ async function main() {
   console.log("\nDONE -- wrote pipeline/out/harvest.json");
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+/* --------------------------------------------------------------- --extend
+ *
+ *   node pipeline/harvest-sparql.js --extend
+ *
+ * Sweeps ONLY the extension properties (EXTEND_PROPS, maker formation, plus
+ * colour/runtime if the file predates them) across the films already in
+ * out/harvest.json, and writes the same file back with the new fields filled
+ * in. No seed resolution, no re-fetch of the original PROPS: the resolve is
+ * the fragile, human-checked half of a harvest (qid-overrides, slug claims,
+ * check-harvest.js), and re-running it to add an aspect ratio would put every
+ * settled key back on the table. Keying off the existing file cannot move a
+ * film.
+ *
+ * Same cache, same chunking, same query text as a full run would produce, so
+ * the two paths stay warm for each other: an --extend today makes the
+ * extension queries free in the next full harvest, and vice versa.
+ *
+ * Refuses to write when any chunk failed all retries, for the same reason the
+ * resolve guard does: a film in a dead chunk is indistinguishable downstream
+ * from a film Wikidata records nothing for, and every coverage number computed
+ * over the output would silently read low. Re-run to resume from the cache.
+ */
+async function extendExisting() {
+  const file = path.join(OUT, "harvest.json");
+  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  const films = data.films;
+  const labels = data.labels = data.labels || {};
+  const keys = Object.keys(films);
+  const qids = keys.map((k) => films[k].qid);
+  const byQid = {};
+  for (const k of keys) byQid[films[k].qid] = films[k];
+  console.log("extending harvest: " + keys.length + " films");
+
+  const stats = { failedChunks: 0 };
+  for (const f of Object.values(films)) {
+    for (const n of EXTEND_FLAT_FIELDS) if (!Array.isArray(f[n])) f[n] = [];
+    if (!Array.isArray(f.colour)) f.colour = [];
+    if (!("runtime" in f)) { f.runtime = null; f.runtimeCuts = 0; }
+  }
+
+  /* colour first: the extension brief's "colour-process detail" question is
+     answered by P462's own value space (Technicolor and Eastmancolor are P462
+     values, not a separate property), so a harvest.json written before P462
+     landed in PROPS gets it filled here rather than by a full re-run. */
+  const sweep = [["colour", "P462", "flat"]].concat(EXTEND_PROPS);
+  for (const [name, prop, kind] of sweep) {
+    const rows = await fetchProp(name, prop, qids, stats);
+    let n = 0;
+    for (const r of rows) {
+      const f = byQid[qid(cell(r, "f"))];
+      const v = qid(cell(r, "v"));
+      if (!f || !v) continue;
+      const lab = cell(r, "vLabel");
+      if (lab && !/^Q\d+$/.test(lab)) labels[v] = lab;
+      if (kind === "crew") { (f.crew[name] = f.crew[name] || []); if (f.crew[name].indexOf(v) < 0) { f.crew[name].push(v); n++; } }
+      else if (f[name].indexOf(v) < 0) { f[name].push(v); n++; }
+    }
+    console.log("  " + name.padEnd(19) + n + " statements");
+  }
+
+  /* runtime, when this file predates fetchDuration. Statement-level with unit
+     handling — see the P2047 comment above for why wdt: would be wrong. */
+  if (!keys.some((k) => films[k].runtime != null)) {
+    const durStats = { deprecated: 0, badUnit: 0, badAmount: 0 };
+    const durations = await fetchDuration(qids, durStats);
+    let withRuntime = 0;
+    for (const k of keys) {
+      const d = durations[films[k].qid];
+      if (!d || d.value == null) continue;
+      films[k].runtime = d.value;
+      films[k].runtimeCuts = d.cuts;
+      withRuntime++;
+    }
+    console.log("  " + "runtime".padEnd(19) + withRuntime + " films"
+      + (durStats.badUnit || durStats.deprecated ? " (rejected: " + durStats.deprecated + " deprecated, " + durStats.badUnit + " unusable unit)" : ""));
+  }
+
+  const directors = [...new Set(Object.values(films).flatMap((f) => (f.crew.director || [])))];
+  console.log("maker formation for " + directors.length + " directors ...");
+  const makers = await fetchMakers(directors, labels, stats);
+  data.makers = makers;
+
+  if (stats.failedChunks) {
+    console.error("!! " + stats.failedChunks + " chunk(s) never answered after retries. Coverage "
+      + "numbers computed over a harvest with holes read low with no way to tell. "
+      + "Nothing written — re-run to resume from .cache-sparql/.");
+    process.exit(1);
+  }
+  fs.writeFileSync(file, JSON.stringify(data, null, 1));
+  console.log("\nDONE -- rewrote pipeline/out/harvest.json with extension fields"
+    + " (films " + keys.length + ", labels " + Object.keys(labels).length
+    + ", makers " + Object.keys(makers).length + ")");
+}
+
+/* Exported so a measurement of a harvested field runs the SAME fetcher the
+   harvest runs, against the same .cache-sparql/ keys — the reason plot-source.js
+   exports runGate1 to axis-gates.js. A field measured by a second copy of the
+   query is a field whose coverage number can disagree with the corpus. */
+module.exports = { fetchProp, fetchDuration, pickRuntime, sparql, DURATION_UNITS, CHUNK, EXTEND_PROPS, MAKER_PROPS };
+
+if (require.main === module) {
+  const run = process.argv.indexOf("--extend") > -1 ? extendExisting : main;
+  run().catch((e) => { console.error(e); process.exit(1); });
+}

@@ -1388,8 +1388,6 @@ const EDGES = [
     "The extended firefight as the film's real architecture, choreographed and mapped so you always know where everyone is."),
   r("a chinese ghost story", "onibaba", "convergence", "none", 0.5, 0.32,
     "Folk supernatural played for beauty and speed, the ghost a matter of design and wire-work rather than of dread."),
-  r("once upon a time in china", "the duel", "convergence", "none", 0.56, 0.38,
-    "Martial cinema as national argument, the fight scenes staged to demonstrate a school and a discipline rather than a grudge."),
   r("hero", "rashomon", "descent", "b", 0.7, 0.52,
     "The same assassination retold in incompatible versions, each rendered in its own colour scheme so you always know whose account you are in."),
   r("hero", "the assassin", "convergence", "none", 0.56, 0.38,
@@ -1618,8 +1616,6 @@ const EDGES = [
     "A summer of talk and deferred desire, the film's real events entirely conversational and the setting doing the seduction."),
   r("lancelot of the lake", "the trial of joan of arc", "rhyme", "none", 0.64, 0.46,
     "Bresson filming legend as procedure — armour, hooves, hands — with the myth deliberately drained from it."),
-  r("the duel", "seven samurai", "convergence", "none", 0.46, 0.3,
-    "Combat filmed as a demonstrable craft, each fight staged to show a technique rather than to advance a grudge."),
 
   /* ==================================================================
      SEVENTH PASS. The long tail: Ophuls and the moving camera, Naruse
@@ -2058,6 +2054,1148 @@ const EDGES = [
     "Lang building myth at architectural scale, the sets monumental enough that the human figures read as ornament on them."),
   r("nine queens", "uncut gems", "convergence", "none", 0.56, 0.38,
     "A hustle that keeps having to be re-solved in real time, every fix opening a worse problem."),
+
+  /* ---------- eighth pass: the 2,204-film expansion ----------
+     The growth run tripled the corpus and every new film arrived describable
+     only by record coincidence: authored coverage fell 803/803 -> 835/2204 and
+     measure-maps went to FAIL on interpretive share. These are written against
+     that, and they are deliberately NOT uniform coverage.
+
+     What is here: films I can say something specific and defensible about.
+     What is not: the long tail of minor works I know by reputation only, and
+     everything dated 2024 or later -- Disclosure Day, Wild Horse Nine, The
+     Odyssey, One Battle After Another and the rest. A formal claim about a
+     film's camera requires having some purchase on the film. Inventing one
+     produces a sentence indistinguishable from a real claim, carrying a
+     confidence number, inside a corpus whose whole value is that its claims
+     are real. Leaving a film uncovered is visible in the metrics; a fabricated
+     reading is not. That asymmetry decides it.
+
+     Bias here is toward pairs in DIFFERENT traditions, per the standing note
+     that those are the edges which let a viewer travel somewhere they would
+     not otherwise have gone. */
+
+  /* Kurosawa's unharvested run. The corpus held the canon and almost none of
+     the rest, which made his region a shelf of famous titles rather than a
+     working life. */
+  r("the bad sleep well", "hamlet", "descent", "b", 0.72, 0.62,
+    "Hamlet relocated to a postwar construction firm: the revenge is against a company, and the ghost is a corruption scandal nobody will name aloud."),
+  r("the bad sleep well", "the godfather part ii", "rhyme", "a", 0.62, 0.5,
+    "Both open on a ceremony filmed as a business meeting — a wedding where the real transactions happen at the edge of frame, among men who never stop working."),
+  r("i live in fear", "dr strangelove", "rebuttal", "b", 0.66, 0.55,
+    "Kubrick made nuclear terror absurd and institutional; Kurosawa made it one old man's private conviction, treated by his family as senility rather than sight."),
+  r("i live in fear", "black rain", "convergence", "a", 0.6, 0.58,
+    "Nuclear dread as a domestic condition rather than an event: one films the slow social consequence of having been under it, the other a man whose terror of it his family treats as a legal problem."),
+  r("one wonderful sunday", "bicycle thieves", "convergence", "b", 0.68, 0.6,
+    "A couple with almost no money spending a day trying to enjoy a city that keeps charging them for it — postwar poverty filmed as an afternoon rather than a tragedy."),
+  r("madadayo", "wild strawberries", "convergence", "b", 0.64, 0.55,
+    "An old teacher surrounded by former students, taking stock — age filmed as an annual ritual of being loved, and the quiet terror underneath it."),
+  r("rhapsody in august", "hiroshima mon amour", "convergence", "b", 0.66, 0.58,
+    "The bomb as something the young must be taught to remember: an elderly survivor and a generation who know it only as history, in a landscape that has healed over."),
+  r("dreams", "the mirror", "convergence", "b", 0.63, 0.5,
+    "Memory filmed without a plot to carry it — episodes that follow the logic of dreaming, where a house, a fox's wedding or a field of flowers arrives with the weight of something recalled."),
+  r("dreams", "fantasia", "rhyme", "a", 0.5, 0.4,
+    "An anthology where each part sets its own rules — a portmanteau built so that a change of style between segments is the form, not an inconsistency."),
+  r("scandal", "network", "convergence", "b", 0.65, 0.56,
+    "A press that has discovered it can manufacture the story rather than find it, filmed with contempt for the machinery and pity for whoever it lands on."),
+
+  /* Bertolucci, Visconti: the Italian historical epic as a class argument. */
+  r("1900", "the leopard", "descent", "b", 0.72, 0.6,
+    "The same century of Italian land seen from the other end: Visconti mourns an aristocracy that knows it is finished, Bertolucci follows the two boys — landowner's son and peasant's — born on the estate the same day."),
+  r("1900", "once upon a time in america", "rebuttal", "b", 0.58, 0.45,
+    "Two boys bound to each other across a violent century, the friendship carrying the history — an epic measured in what a lifelong tie survives rather than in events."),
+  r("the leopard", "barry lyndon", "convergence", "a", 0.66, 0.55,
+    "Aristocratic time filmed at aristocratic pace — long ceremonial sequences where the point is not what happens but how thoroughly a world is furnished before it disappears."),
+  r("last tango in paris", "in the mood for love", "rebuttal", "b", 0.6, 0.48,
+    "Two strangers meeting in an empty apartment and agreeing to withhold their names: one strips everything away to the bodies, the other everything away except restraint."),
+
+  /* Hitchcock's uncovered early and minor work, which is where the tricks were
+     found before they became signatures. */
+  r("stage fright", "rashomon", "convergence", "b", 0.7, 0.72,
+    "Both stage a flashback that lies. Hitchcock's audience took the image as fact for decades and objected when it wasn't; Kurosawa built the lie in from the start and made it the subject."),
+  r("sabotage", "the battle of algiers", "rhyme", "b", 0.64, 0.6,
+    "A bomb travelling through ordinary civilian traffic, the camera staying with the carrier and the clock rather than the target — suspense built from knowing what is in the bag."),
+  r("the pleasure garden 1925", "citizen kane", "convergence", "b", 0.5, 0.38,
+    "A first feature already showing the hand: a director learning that where you put the camera is an argument, not a description."),
+  r("the paradine case", "anatomy of a fall", "convergence", "b", 0.6, 0.5,
+    "The courtroom as a place where the lawyer's own judgement is on trial — a defence undone by the advocate wanting his client to be innocent."),
+
+  /* Spielberg's uncovered corners: the television thriller, the flop, the
+     sequel that broke the rating system. */
+  r("duel", "jaws", "descent", "a", 0.8, 0.85,
+    "The rehearsal for the shark: an unseen predator with no motive and no face, and a protagonist who cannot get anyone to believe the threat is real."),
+  r("duel", "the wages of fear", "convergence", "b", 0.6, 0.5,
+    "A road picture where the road is the antagonist — a vehicle, a gradient and a driver's nerve, with almost nothing else in the frame."),
+
+  /* Cronenberg's early body horror, which the corpus held only in its late,
+     respectable form. */
+  r("shivers", "rear window", "rebuttal", "b", 0.56, 0.45,
+    "The apartment block as a closed society, filmed by Hitchcock as a set of windows to be read and by Cronenberg as a single organism to be infected."),
+  r("shivers", "the thing", "convergence", "b", 0.7, 0.68,
+    "Contagion as the engine: a sealed building, a parasite that rewrites whoever it enters, and no way to tell who is still themselves."),
+  r("the dead zone", "minority report", "rhyme", "a", 0.64, 0.55,
+    "A man who sees a death before it happens and has to decide whether foreknowledge obliges him to act — precognition treated as a moral problem rather than a power."),
+
+  /* Truffaut and Bresson: French interiors the corpus was missing. */
+  r("the green room", "vertigo", "convergence", "b", 0.68, 0.6,
+    "A man who keeps a room for the dead and cannot let a living woman occupy it — devotion to a lost person filmed as a slowly closing trap."),
+  r("the soft skin", "brief encounter", "rebuttal", "b", 0.62, 0.55,
+    "An affair filmed without romance: the hotel corridors, the timetables and the switching of lights, so that the logistics become the subject and the passion is barely visible."),
+  r("a gentle woman", "pickpocket", "convergence", "a", 0.66, 0.6,
+    "Bresson's method turned on a marriage — hands, objects and flat voices, with the emotional event withheld and reconstructed by the audience from evidence."),
+  r("a gentle woman", "cries and whispers", "rhyme", "a", 0.58, 0.45,
+    "A woman dying inside a household that cannot address her directly, so her interior life reaches us only as the silence the others arrange themselves around."),
+
+  /* Bergman's uncovered middle period. */
+  r("the magician", "persona", "descent", "a", 0.6, 0.5,
+    "A performer whose act may be entirely fraudulent, examined by people who want him unmasked — the first working of the question Persona later turns on itself."),
+  r("secrets of women", "eyes wide shut", "rhyme", "a", 0.55, 0.42,
+    "Married couples telling each other what they have done, filmed so the telling is the event and the marriage is what has to survive it."),
+
+  /* Kieślowski, Wenders, Haneke: European moral cinema. */
+  r("happy end", "autumn sonata", "convergence", "b", 0.64, 0.58,
+    "A family reunion conducted entirely in good manners, where the accusation arrives as politeness and the damage is decades old before the camera turns up."),
+  r("summer in the city", "kings of the road", "descent", "a", 0.62, 0.55,
+    "The first sketch of the Wenders road picture: a man moving between German cities with no destination, the film taking its shape from the travelling rather than a plot."),
+  r("the scarlet letter", "the witch", "convergence", "b", 0.55, 0.5,
+    "Puritan New England as a machine for punishing women publicly — the scaffold as civic architecture."),
+
+  /* Miyazaki and Studio Ghibli's uncovered ends. */
+  r("the boy and the heron", "spirited away", "descent", "a", 0.74, 0.72,
+    "A child pulled into a world with its own rules while grieving a mother — the same structure re-entered decades later, with the wonder shot through by loss."),
+  r("the boy and the heron", "the mirror", "convergence", "b", 0.55, 0.4,
+    "Wartime childhood and a mother's absence rendered as association rather than narrative, so the film moves the way a memory does."),
+  r("tales from earthsea", "princess mononoke", "rebuttal", "b", 0.52, 0.42,
+    "The Ghibli ecological fable attempted by a different hand: the same balance-of-nature argument, without the ambivalence that made the original refuse a villain."),
+
+  /* Asian action and genre cinema the expansion reached. */
+  r("once upon a time in china", "hero", "descent", "a", 0.68, 0.62,
+    "Wire-work choreographed as argument rather than spectacle — a master whose fighting style is his politics, filmed in long takes that let you read the technique."),
+  r("once upon a time in china", "the wind rises", "rhyme", "b", 0.5, 0.38,
+    "A national modernisation story told through a single disciplined man watching his country arm itself around him."),
+
+  /* Italian genre: Bava and Petri, the pop end of the 1960s. */
+  r("two evil eyes", "spirits of the dead", "convergence", "b", 0.58, 0.55,
+    "Poe divided between directors, the portmanteau structure used to set two temperaments against each other on the same source."),
+
+  /* Zhang Yimou, Eisenstein, Ozu: colour, montage, and the family. */
+  r("red sorghum", "days of heaven", "rhyme", "b", 0.64, 0.55,
+    "A field filmed as the whole world — labour, weather and a love triangle staged in standing crops, with the colour doing the emotional work."),
+  r("red sorghum", "raise the red lantern", "descent", "a", 0.7, 0.68,
+    "Saturated colour as social structure: red as celebration here, red as surveillance and rank there, by the same hand five years apart."),
+  r("the general line", "man with a movie camera", "convergence", "b", 0.66, 0.62,
+    "Machinery filmed as ecstasy — a cream separator or a projector cut so fast that the mechanism becomes the emotion of the scene."),
+  r("a mother should be loved", "tokyo story", "descent", "a", 0.62, 0.55,
+    "The Ozu family drama in its early form: the camera already low and still, the conflict already handled as something the family declines to say out loud."),
+
+  /* Coens, Malle, Wilder: American craft in unfamous registers. */
+  r("hail caesar", "the making of fanny and alexander", "convergence", "b", 0.62, 0.58,
+    "A picture about making pictures, filmed from inside the machinery — affectionate about the craft and unsentimental about the product it exists to deliver."),
+  r("pretty baby", "taxi driver", "rhyme", "b", 0.55, 0.45,
+    "A child inside an adult economy, filmed without commentary so that the composure of the framing becomes the accusation."),
+  r("the spirit of st louis", "2001 a space odyssey", "convergence", "b", 0.62, 0.58,
+    "A man alone in a small machine for a very long time, the achievement measured in fuel, instruments and staying awake — flight filmed as procedure rather than as triumph."),
+
+  /* War, and the long take. */
+  r("1917", "come and see", "rebuttal", "b", 0.62, 0.52,
+    "Both put you inside a soldier's continuous experience; one uses the unbroken take to make war navigable as a mission, the other to make it a thing done to a face."),
+  r("1917", "children of men", "descent", "b", 0.68, 0.7,
+    "The long take as a way of refusing cutaways — the camera bound to one body so the audience cannot look away to a wider view that would explain the danger."),
+  r("black hawk down", "the battle of algiers", "rebuttal", "b", 0.56, 0.45,
+    "Urban combat filmed with documentary grammar but no politics — procedure and geography in place of the argument the older film was built to make."),
+  r("fear and desire", "paths of glory", "descent", "a", 0.6, 0.62,
+    "The first, disowned run at Kubrick's subject: an anonymous war, a patrol behind an unnamed line, and officers whose reasoning is already the horror."),
+
+  /* Malick, Pasolini, Godard: film as essay. */
+  r("voyage of time", "koyaanisqatsi", "convergence", "b", 0.7, 0.68,
+    "Cosmic time without narration or characters — geological and biological process filmed as spectacle, the argument carried entirely by scale and cutting."),
+  r("arabian nights", "the decameron", "descent", "a", 0.72, 0.72,
+    "Pasolini's trilogy method: bawdy folk tales filmed with non-professional faces and real dirt, the frankness offered as pre-industrial rather than transgressive."),
+
+  /* ---------- backported from readings.json ----------
+     These were authored directly into static/readings.json and never into this
+     file, so every regeneration silently destroyed them: 52 rebuttals and 6
+     attested claims, discovered only because a regeneration was diffed against
+     HEAD before being merged. readings.json is a BUILD ARTIFACT of this script.
+     Anything authored only in the artifact is one `node write-readings.js` away
+     from being gone, with no error and no warning -- the file simply comes back
+     shorter. Backported so the generator is authoritative again.
+
+     Two of the original 54 are not here: the wuxia-choreography readings on
+     "the duel", whose film left the corpus when the key was corrected from Chang
+     Cheh to Spielberg. They were written about a film the corpus no longer holds. */
+  r("alexander nevsky", "andrei rublev", "rebuttal", "b", 0.78, 0.65,
+    "A nation rallied on the ice against the outsider, answered by a cathedral sacked with the prince's own brother guiding the raiders in."),
+  r("lawrence of arabia", "burn", "rebuttal", "b", 0.8, 0.6,
+    "An Englishman consumed by the revolt he raised, answered by an agent who engineers a slave uprising for sugar, then kills the man he made."),
+  at("apocalypse now", "jarhead", "rebuttal", "b", 0.8, 0.78,
+    "The helicopter attack flown in to Wagner as an indictment of the war, answered by marines howling along to that same reel on their way to deploy.",
+    "Anthony Swofford's memoir Jarhead (2003), the film's source, on marines screening Vietnam films as war pornography before deployment"),
+  r("rambo first blood part ii", "born on the fourth of july", "rebuttal", "b", 0.75, 0.6,
+    "A veteran sent back to Vietnam to win it properly, answered by one who comes home paralysed to a ward with broken equipment and rats in it."),
+  r("rome open city", "difficult years", "rebuttal", "b", 0.72, 0.55,
+    "The priest and the communist dying together, answered by a town clerk who signs the Fascist party card to keep a job he loses anyway."),
+  r("is paris burning", "section speciale", "rebuttal", "b", 0.75, 0.6,
+    "Liberation as a whole city rising to free itself, answered by judges assembling a court that could sentence men retroactively for the occupier."),
+  r("the searchers", "meek s cutoff", "rebuttal", "b", 0.75, 0.6,
+    "Five years spent hunting the Comanche who took a white girl, answered by a lost party whose water depends on a captive the film never translates."),
+  r("walkabout", "rabbit proof fence", "rebuttal", "b", 0.72, 0.55,
+    "White children saved in the desert by an Aboriginal boy left unnamed, answered by three Aboriginal girls walking home along a government fence."),
+  r("the most beautiful", "no regrets for our youth", "rebuttal", "b", 0.72, 0.62,
+    "Girls urged to grind more lenses for the war, answered by the same director with a woman planting rice in a village that shuns her as a spy's widow."),
+  r("the 47 ronin", "harakiri", "rebuttal", "b", 0.78, 0.62,
+    "Retainers avenging their lord, filmed to order as a morale booster, answered by a masterless samurai pricing what the code costs the poor."),
+  r("kanal", "ida", "rebuttal", "b", 0.72, 0.58,
+    "An uprising ending in the sewers as martyrdom, answered by two women driving out for one wartime grave and meeting who farms the land now."),
+  r("the godfather", "goodfellas", "rebuttal", "b", 0.85, 0.7,
+    "The mob as dynasty and amber-lit ceremony, answered by the mob as a job, with bodies that have to be moved before dinner."),
+  r("goodfellas", "the irishman", "rebuttal", "b", 0.8, 0.65,
+    "A life of appetite and forward motion, answered by the same director with freeze-frames that pre-announce each death and a last stretch in a care home."),
+  r("stagecoach", "meek s cutoff", "rebuttal", "b", 0.8, 0.62,
+    "Wide vistas and a cavalry bugle over the ridge, answered by a boxed-in near-square frame, no rescue, and a captive who may know where the water is."),
+  r("shane", "heaven s gate", "rebuttal", "b", 0.8, 0.6,
+    "The range war as one gunfighter saving the homesteaders, answered by cattlemen who draw up a list of names and hire an army."),
+  r("high noon", "the great silence", "rebuttal", "b", 0.8, 0.6,
+    "A lawman who pleads with his town and wins the street anyway, answered by a gunman whose throat was cut as a child and cannot ask."),
+  r("my darling clementine", "mccabe mrs miller", "rebuttal", "b", 0.8, 0.65,
+    "A town founded in a dance on its half-built church floor, answered by a settlement whose church never fills and whose first business is a brothel."),
+  r("the man who shot liberty valance", "the assassination of jesse james by the coward robert ford", "rebuttal", "b", 0.75, 0.62,
+    "The newspaperman who burns his notes and prints the legend, answered by the killer re-enacting the shooting on stage for people who came to hiss."),
+  r("the thing from another world", "the thing", "rebuttal", "b", 0.8, 0.65,
+    "Wisecrackers who pool what they know and beat the visitor, answered by a version where it wears their faces and only a blood test is trusted."),
+  r("the maltese falcon", "klute", "rebuttal", "b", 0.75, 0.6,
+    "A private eye whose case is a woman he sees through and hands over, answered by a film that turns to her work and her sessions with an analyst."),
+  r("meet me in st louis", "new york new york", "rebuttal", "b", 0.75, 0.6,
+    "Painted seasons and a family that will not leave for New York, answered on soundstages just as artificial, where the songs work and the marriage fails."),
+  r("two or three things i know about her", "jeanne dielman 23 quai du commerce 1080 bruxelles", "rebuttal", "b", 0.8, 0.65,
+    "A housewife selling herself while a man narrates theories over her, answered by a widow nobody explains, the potatoes taking longer than the client."),
+  r("bicycle thieves", "los olvidados", "rebuttal", "b", 0.75, 0.65,
+    "The poor as a father and son whose bond survives humiliation, refused by a blind beggar turned predator, boys preying on boys, no lesson at the end."),
+  r("rear window", "peeping tom", "rebuttal", "b", 0.75, 0.6,
+    "Watching the neighbours as a hobby the plot vindicates, refused by a blade in the tripod leg and a mirror, so the filmed woman watches her own face."),
+  r("fitzcarraldo", "embrace of the serpent", "rebuttal", "b", 0.75, 0.6,
+    "A steamship hauled over an Amazon ridge on indigenous shoulders, answered from the far bank: the rubber trade an atrocity, the white man a sick passenger."),
+  r("tokyo story", "the insect woman", "rebuttal", "b", 0.75, 0.65,
+    "Decorum at tatami height, answered by the same low camera tracking a woman through farm, mill and brothel like an insect that refuses to die."),
+  r("street of shame", "girls of the night", "rebuttal", "b", 0.7, 0.6,
+    "Brothel women filmed with sympathy as the law closes the house, answered by his leading actress with a woman expelled from every job her past reaches."),
+  r("the color purple", "daughters of the dust", "rebuttal", "b", 0.7, 0.6,
+    "Black women of the rural South turned into melodrama with suffering redeemed, answered on the Sea Islands in Gullah, narrated by a child not yet born."),
+  r("raise the red lantern", "the story of qiu ju", "rebuttal", "b", 0.7, 0.6,
+    "Concubines arranged under red lanterns, a China composed for the eye, answered by the same actress sent into real villages with hidden cameras."),
+  r("2001 a space odyssey", "dark star", "rebuttal", "b", 0.75, 0.65,
+    "The immaculate white ship and its calm computer, answered by a filthy scout vessel arguing a talking bomb out of detonating."),
+  r("close encounters of the third kind", "war of the worlds", "rebuttal", "b", 0.8, 0.65,
+    "A father leaving his children for ships descending in benediction, answered by machines rising from the tarmac and a father who only keeps them moving."),
+  r("ordet", "winter light", "rebuttal", "b", 0.75, 0.65,
+    "The dead raised in a parlour because a son written off as mad asks aloud, answered by a pastor in an empty church whose prayers are met with silence."),
+  r("pinocchio", "a i artificial intelligence", "rebuttal", "b", 0.75, 0.6,
+    "A wooden boy made real as the reward for goodness, answered by a machine child who asks the same blue fairy and is left asking."),
+  r("metropolis", "alphaville", "rebuttal", "b", 0.6, 0.55,
+    "A future raised as a colossal set of towers and machine halls, answered by one shot after dark in Paris corridors, with nothing built for it at all."),
+  r("children of hiroshima", "hiroshima mon amour", "rebuttal", "b", 0.7, 0.55,
+    "The bombing restaged so it can be seen and mourned, answered by a film insisting the museum and the newsreels show you nothing at all."),
+  at("chronique d un ete", "lessons of darkness", "rebuttal", "b", 0.8, 0.8,
+    "Passers-by asked on camera whether they are happy, answered by burning oil fields shot as alien apocalypse under an invented Pascal epigraph.",
+    "Werner Herzog, 'Minnesota Declaration: Truth and Fact in Documentary Cinema' (Walker Art Center, 1999), which attacks cinema verite by name as reaching only 'the truth of accountants'"),
+  r("salesman", "the thin blue line", "rebuttal", "b", 0.78, 0.65,
+    "Bible salesmen followed by a camera that never asks a question, answered by a crime restaged in slow motion with a Philip Glass score doubting it."),
+  r("black orpheus", "black god white devil", "rebuttal", "b", 0.8, 0.65,
+    "Favela carnival in ravishing colour for audiences abroad, answered from the parched backlands in hard black and white by a balladeer counting the dead."),
+  r("battleship potemkin", "man with a movie camera", "rebuttal", "b", 0.8, 0.7,
+    "A mutiny restaged with a cast and a massacre invented for the steps, answered with no script or actors, cutting to the editor splicing what you watch."),
+  r("z", "tout va bien", "rebuttal", "b", 0.75, 0.62,
+    "Political murder made gripping as a thriller, answered by the occupied factory built as a cutaway dolls' house no one mistakes for real."),
+  r("straw dogs", "funny games u s", "rebuttal", "b", 0.8, 0.66,
+    "A siege where a mild man discovers his own violence and the audience cheers, answered by an intruder who picks up a remote and rewinds it away."),
+  r("dont look back", "rolling thunder revue a bob dylan story by martin scorsese", "rebuttal", "b", 0.72, 0.64,
+    "Proximity to the singer as the promise of revelation, answered by a tour film that salts its interviews with people who never existed."),
+  r("bicycle thieves", "accattone", "rebuttal", "b", 0.75, 0.66,
+    "The poor man as a worker wanting only the bicycle that keeps his job, answered by a hustler who cannot bear a day's labour, framed like a saint to Bach."),
+  r("high school", "homework", "rebuttal", "b", 0.7, 0.58,
+    "A school watched in silence from the corner, answered by a lens set in front of each child, keeping the moments when it frightens them."),
+  at("high noon", "rio bravo", "rebuttal", "b", 0.85, 0.88,
+    "A lawman begging his town for help, answered by a sheriff who turns every offer away and holds the jail with a drunk and a crippled old man.",
+    "Howard Hawks, interviewed by Joseph McBride in Hawks on Hawks (1982): \"Rio Bravo was made because I didn't like a picture called High Noon… I didn't think a good sheriff was going to go running around town like a chicken with his head off asking for help.\""),
+  at("the decameron", "salo or the 120 days of sodom", "rebuttal", "b", 0.82, 0.85,
+    "Pasolini renounced his sunlit bawdy tales for making nakedness look like freedom, then filmed the same nakedness as inventory in a locked villa.",
+    "Pasolini, \"Abiura dalla Trilogia della vita\", written 15 June 1975, published in Corriere della Sera and collected in Lettere luterane."),
+  at("solaris", "stalker", "rebuttal", "b", 0.75, 0.8,
+    "Orbital hardware judged to have crowded out the idea, answered by the same director with three men on foot in wet grass, walking towards a room.",
+    "Tarkovsky, Sculpting in Time: \"the science-fiction element in Solaris was nonetheless too prominent and became a distraction\"; he adds the idea would have stood out more had the rockets and stations been dispensed with altogether."),
+  at("tout va bien", "letter to jane", "rebuttal", "b", 0.7, 0.8,
+    "A strike film built on Fonda's stardom, answered by the same directors spending fifty minutes on one press photograph of her listening in Hanoi.",
+    "Godard and Gorin's own narration in Letter to Jane, made and screened as a postscript to Tout Va Bien."),
+  r("the exorcist", "exorcist ii the heretic", "rebuttal", "b", 0.72, 0.65,
+    "A child strapped to a bed, answered by a sequel in which the girl is grown, shares her memories through a hypnosis machine, and is a source of good."),
+  r("the ballad of narayama", "the ballad of narayama 1983", "rebuttal", "b", 0.8, 0.68,
+    "The old carried up the mountain on painted sets under lights that change on cue, answered by the same story dragged into snow, mud and rutting animals."),
+  r("cape fear 1962", "cape fear", "rebuttal", "b", 0.75, 0.65,
+    "A hunted family given a spotless lawyer to root for, answered by one who buried a report that would have helped his stalker: the siege as a debt."),
+  r("my darling clementine", "the man who shot liberty valance", "rebuttal", "b", 0.7, 0.6,
+    "One town raised by a dance on the bare floorboards of its church, answered by the same director with a newspaper choosing legend over what happened."),
+
+  /* ==================================================================
+     NINTH PASS — degree-20 films the 2,204 harvest brought in with no
+     authored edge at all. Every film below was drawing a map made
+     almost entirely of "X appears in both films": Buster's Bedroom got
+     six cast lines, The Misfits eleven. merge-corpus supersedes the
+     record on any pair a reading claims, so these are aimed at the
+     specific pairs where the trivia was loudest — Clift in two films,
+     Adjani in two, Madhabi Mukherjee in two — and the claim has to earn
+     the slot it takes. Two films from the assigned set are missing
+     here on purpose: John Goldfarb and Kristin Lavransdatter have no
+     plot section and a description too thin to say anything specific
+     and true about, so nothing was written for them.
+     ================================================================== */
+
+  /* ---------- the dead comedian's house, and the villa that performs ---------- */
+  r("buster s bedroom", "the general", "descent", "b", 0.66, 0.48,
+    "Keaton's comedy was a body outlasting the machinery that trapped it; here an admirer makes a pilgrimage to the sanatorium where he was actually strapped into a straitjacket, is put into one herself, and escapes — the gag replayed as biography."),
+  r("buster s bedroom", "sunset boulevard", "rhyme", "none", 0.6, 0.42,
+    "A decaying villa where the finished go on performing their best scenes for each other — a homecoming embrace staged nightly, a wheelchair with nothing wrong under it — and the visitor who arrived as a fan is absorbed into the act."),
+
+  /* ---------- Prague built somewhere else ---------- */
+  r("the unbearable lightness of being", "hangmen also die", "rhyme", "none", 0.58, 0.42,
+    "Prague reconstructed twice outside Prague: once by émigrés on Hollywood soundstages while the occupation they were describing was still running, once by a film that degrades its own footage until its actors can be matted into the real 1968 newsreel."),
+
+  /* ---------- Wenders, and the face inside its own pictures ---------- */
+  r("pope francis a man of his word", "the salt of the earth", "descent", "b", 0.7, 0.5,
+    "The same rig used twice: the subject looks at the interviewer in a mirror while the camera shoots through it, so a man addresses you straight down the lens with his own images sharing the glass — the photographer standing inside his photographs, the pope inside the poverty he is preaching about."),
+  r("the salt of the earth", "koyaanisqatsi", "convergence", "none", 0.58, 0.44,
+    "Human labour photographed until it turns into pattern — thousands of bodies on ladders in a single pit, crowds sped up until traffic reads as circuitry — and both films are left answering for whether making it beautiful betrays what it shows."),
+
+  /* ---------- the frontier as industry ---------- */
+  r("far and away", "heaven s gate", "rhyme", "none", 0.55, 0.38,
+    "The same decade of European steerage arrivals staged as mass horse choreography across open prairie, and the two films cannot agree what waits at the end of it: a stake driven into your own quarter-section, or a hired army carrying a list with your name on it."),
+  r("wild wild west", "once upon a time in the west", "rhyme", "none", 0.55, 0.38,
+    "Both hand the frontier's destruction to a crippled man carried by his own machinery — a railroad baron hauling himself on crutches toward a painted ocean, an inventor on steam legs driving a mechanical spider — so the villain is the industry, wearing a body it has already ruined."),
+
+  /* ---------- the gunfighter's biographer ---------- */
+  r("my name is nobody", "the man who shot liberty valance", "descent", "b", 0.68, 0.5,
+    "\"Print the legend\" converted into a favour: a young admirer arranges the duel, the photographer and the crowd of witnesses, so the old gunfighter can be dead in the newspapers and alive in a cabin bound for Europe."),
+  r("my name is nobody", "once upon a time in the west", "descent", "b", 0.66, 0.48,
+    "Fonda's face used a second time as the western's own memory — hired first so the genre's most trustworthy man could shoot a child, brought back here to be walked into retirement by a fan who has memorised his every feat."),
+  r("my name is nobody", "unforgiven", "rhyme", "none", 0.6, 0.44,
+    "Each stations a besotted chronicler at the aging gunman's elbow — one reciting his hero's kills from memory, one taking them down as dictation — and makes the gap between what happened and what gets written the actual plot."),
+
+  /* ---------- the witness nobody will believe ---------- */
+  r("the house on carroll street", "rear window", "descent", "b", 0.62, 0.44,
+    "The neighbour's window as the whole case: she hears an argument she cannot see, no official will believe her, and the film sends her into the house alone — except that she is a picture editor just fired for refusing to name people, so scrutinising strangers is the exact crime she stands accused of."),
+  r("the house on carroll street", "high noon", "convergence", "none", 0.56, 0.44,
+    "Two films written by men the blacklist was happening to, arriving at it from opposite ends: one displaces the abandonment into an empty western street, the other opens in the committee room and then makes its witness the only person willing to look at what the country is quietly importing."),
+
+  /* ---------- the schoolroom as a rehearsal ---------- */
+  r("torment", "the white ribbon", "convergence", "none", 0.6, 0.45,
+    "The classroom as the place a country's coming cruelty is rehearsed: a disciplinarian shot in hard monochrome as a respectable monster, filmed once in 1944 from inside a country staying out of the war and once in hindsight, about the generation that would fight it."),
+  r("torment", "the 400 blows", "convergence", "none", 0.58, 0.44,
+    "School filmed as a custodial institution with one adult who visibly enjoys the work, and an ending that simply puts the boy outside in open air with nothing arranged for him and nobody following."),
+
+  /* ---------- Powell and Pressburger, and the cut across centuries ---------- */
+  r("a canterbury tale", "2001 a space odyssey", "rhyme", "none", 0.6, 0.46,
+    "A falcon loosed above the old pilgrims' road becomes, in one frame, a Spitfire in the same patch of sky — six centuries crossed in a single edit, twenty-four years before Kubrick made the same cut with a thrown bone."),
+  r("a canterbury tale", "a matter of life and death", "rhyme", "none", 0.58, 0.44,
+    "Two wartime films whose entire apparatus — a pilgrimage, a celestial courtroom — exists to argue one American serviceman into belonging in an English landscape, with the blessing delivered as the last reel's business."),
+
+  /* ---------- the man who finds out he can shoot ---------- */
+  r("a dangerous toy", "taxi driver", "convergence", "none", 0.6, 0.46,
+    "A solitary man acquires a pistol, discovers he is unexpectedly good with it, kills someone in a public room and is briefly made a hero by the newspapers — and both films treat the applause as the worst thing that happens to him."),
+
+  /* ---------- Farhadi's chain of confessions ---------- */
+  r("the past", "a separation", "descent", "b", 0.68, 0.5,
+    "The same engine moved to a Paris suburb: no villain anywhere, a chain of people each surrendering one more piece, every confession making the previous account wrong, and the question of who sent the message answered three times before it stops moving."),
+  r("the past", "loveless", "convergence", "none", 0.55, 0.4,
+    "A divorce filmed as property and paperwork — a flat being emptied, a signature pending — with the child who has been listening at the door as the only real casualty, and neither film granting the parents a scene of remorse."),
+
+  /* ---------- the closed vessel on the last night ---------- */
+  r("the palace", "and the ship sails on", "descent", "b", 0.62, 0.44,
+    "A sealed luxury vessel packed with grotesques on the last night before the century turns over — a funeral cruise in July 1914, a New Year's party in December 1999 — with the staff sprinting below decks while the guests fail to notice what is arriving."),
+  r("the palace", "the trouble with harry", "rhyme", "none", 0.56, 0.42,
+    "A corpse demoted to a scheduling problem: the body has to be kept unnoticed and in the correct posture until a legal hour has passed, and the entire comedy is the logistics of moving it past people who must not see it."),
+  r("and the ship sails on", "fitzcarraldo", "convergence", "none", 0.64, 0.48,
+    "Opera loaded onto a boat and carried where it does not belong, twice within a year and by opposite ethics: one hauls a real steamship over a real hill, the other floats on sheets of plastic and shows you the hydraulic jacks in its final shot."),
+  r("and the ship sails on", "man with a movie camera", "rhyme", "none", 0.58, 0.44,
+    "The film halts and shows you its own machinery — the ocean revealed as plastic, the ship rocking on jacks, a camera filming the camera — after spending its whole length asking to be believed."),
+
+  /* ---------- the garrison waiting for an enemy ---------- */
+  r("the desert of the tartars", "beau travail", "convergence", "none", 0.64, 0.46,
+    "A garrison drilling at the edge of a desert against an enemy that never comes, where the ritual of readiness becomes the men's entire content and the real subject is what waiting does to a body over years."),
+
+  /* ---------- Scorsese, the archive and the staged concert ---------- */
+  r("no direction home", "dont look back", "descent", "b", 0.66, 0.48,
+    "One camera is in the hotel room in 1965 and never asks a question; the other is assembled four decades later out of that same tour footage, cut against the man at sixty finally sitting down to answer — the same face at both ends of the edit."),
+  r("no direction home", "the last waltz", "rebuttal", "a", 0.62, 0.46,
+    "The farewell concert built as a lit set with a borrowed opera backdrop and cameras placed by name cinematographers, answered by the same director with a portrait that films no performance at all and lives entirely off what other people's cameras happened to catch."),
+
+  /* ---------- the building burned as a prayer ---------- */
+  r("enjo", "the sacrifice", "convergence", "none", 0.6, 0.44,
+    "A man sets fire to the most beautiful thing he has access to, and the film stages the arson as a devotional act rather than a crime — the blaze is the only prayer either character has left."),
+  r("enjo", "first reformed", "convergence", "none", 0.56, 0.4,
+    "A servant of the temple whose faith curdles into a plan against the building that houses it, filmed in still centred frames that leave the architecture holding all the power in the room."),
+
+  /* ---------- the picture house and the town ---------- */
+  r("empire of light", "the last picture show", "rhyme", "none", 0.56, 0.42,
+    "A picture house standing in for the town around it — the screen still running, the upper floors shut and full of pigeons — and the staff more marooned in the place than any customer."),
+
+  /* ---------- the West as leftover work ---------- */
+  r("the misfits", "red river", "rebuttal", "a", 0.7, 0.5,
+    "The same young actor put back on a horse thirteen years later: the cattle drive that founded the country restaged as three men in a flatbed truck and a spotter plane running down six exhausted mustangs to be sold for dog food."),
+  r("the misfits", "junior bonner", "convergence", "none", 0.56, 0.42,
+    "The modern West as leftover work: men who can still do a thing nobody needs done any more, filmed in towns that have turned the last of their skill into a weekend event with a ticket price."),
+
+  /* ---------- Death as an official ---------- */
+  r("destiny", "the seventh seal", "rhyme", "none", 0.6, 0.45,
+    "Death arrives as a courteous functionary who explains the terms, and the film is one person's attempt to buy back a single life under rules that turn out to be administrative rather than moral."),
+  r("destiny", "intolerance", "descent", "b", 0.6, 0.44,
+    "Griffith cross-cut four centuries into one climax; Lang takes the same argument and runs the eras end to end instead, recasting the same pair of lovers in Baghdad, Venice and China so the point lands by repetition rather than by editing."),
+  r("destiny", "a matter of life and death", "rhyme", "none", 0.56, 0.42,
+    "A single life formally appealed in the afterlife's own offices: the bereaved is granted a hearing, given conditions and made to argue the case — the beyond imagined as a department with procedures rather than as a mystery."),
+
+  /* ---------- the sequel, and the heist run backwards ---------- */
+  r("halloween ii", "halloween", "descent", "b", 0.7, 0.5,
+    "The sequel resumes in the minute the first one ended and moves the night indoors into a half-staffed hospital, so wide suburban streets become corridors — and the shape the original deliberately refused to explain is handed a sister and a motive."),
+  r("before the devil knows you re dead", "dog day afternoon", "rebuttal", "a", 0.66, 0.48,
+    "A robbery played out across one public afternoon with a crowd on the pavement cheering the robber, answered thirty years later by the same director with a robbery that fails in ninety seconds and is then taken apart backwards, in private, one family member at a time."),
+  r("before the devil knows you re dead", "the killing", "descent", "b", 0.6, 0.44,
+    "The job is over inside the first ten minutes and the film then rewinds it once per participant, each pass supplying what the last one withheld, until the botched robbery is explained entirely by the family that planned it."),
+
+  /* ---------- Ozu twice, and the son's picture of his father ---------- */
+  r("a story of floating weeds", "floating weeds", "descent", "a", 0.75, 0.55,
+    "Ozu shot his own film again twenty-five years later in colour and sound, and the difference sits in one scene: the quarrel the silent version keeps indoors is moved out into falling rain, the couple shouting from opposite sides of a village street and never once sharing a frame."),
+  r("a story of floating weeds", "i was born but", "rhyme", "none", 0.6, 0.44,
+    "Two years apart, the same discovery staged twice: a boy's picture of his father collapses — once as comedy, watching him clown for his boss, once as ruin, learning that the uncle who visits is the man who left."),
+
+  /* ---------- the working wife, and the threshold ---------- */
+  r("mahanagar", "charulata", "rhyme", "none", 0.66, 0.48,
+    "The same actress placed on either side of one threshold: a wife watching the street through opera glasses from a shuttered house, and a wife out in that street with a sample case — each marriage measured by exactly how much she is permitted to see."),
+  r("mahanagar", "when a woman ascends the stairs", "convergence", "none", 0.58, 0.44,
+    "Two early-sixties films that make a woman's working day a series of thresholds crossed in public — a staircase climbed every evening, a stranger's door knocked on every morning — and price her competence against her respectability at each one."),
+
+  /* ---------- the island, and the animal in the way ---------- */
+  /* CUT (ninth-pass audit): "Two people sealed into a place with no way off, where the
+     arrangement forced on them stops being a captivity and becomes the only relationship
+     either of them still wants." Fails the paste test — it is a confinement PREMISE, not a
+     formal observation, and stays true of The Collector, Misery, Room and Swept Away. It also
+     ranked into the top slot of The Woman in the Dunes' map directly above the existing
+     Stalker reading, which makes the same argument with an image attached. Nothing here is
+     recoverable by rewriting it; Liza keeps its Balthazar claim. */
+  r("liza", "au hasard balthazar", "rhyme", "none", 0.55, 0.4,
+    "The animal is the only uncomplicated attachment on screen and the exact measure of everyone handling it; the moment it is killed for being loved more than they are, the film stops being a romance."),
+
+  /* ---------- the love with one participant ---------- */
+  r("the story of adele h", "letter from an unknown woman", "rhyme", "none", 0.62, 0.46,
+    "A whole life organised around a man who barely registers her, and handed to us as her own writing — a letter, a journal kept partly in cipher — so the film is her account of a love that only ever had one participant."),
+  r("the story of adele h", "possession", "rhyme", "none", 0.56, 0.4,
+    "The same actress used twice as a body that cannot contain its own feeling: one film keeps her in lamplit rooms writing the obsession down in a private code, the other lets it out into a subway corridor as pure physical convulsion."),
+
+  /* ---------- casting a person for what they already are ---------- */
+  r("invincible", "the enigma of kaspar hauser", "rhyme", "none", 0.62, 0.46,
+    "Herzog casts for what a person actually is rather than what they can play — a genuine world's-strongest-man, a man raised inside institutions — so a good part of each performance is simply a body being itself in front of a lens."),
+
+  /* ---------- whose child ---------- */
+  r("like father like son", "shoplifters", "rebuttal", "b", 0.68, 0.5,
+    "The blood tie interrogated from the comfortable side, where a father can afford to choose between the son he raised and the son he made — answered by a household with no legal claim to any of its members, whose only real crime is having chosen each other."),
+
+
+  /* ==================================================================
+     NINTH PASS, second set — thirty films the harvest brought in at
+     degree 17-20 with no authored edge at all. Francesco's twenty
+     lines were twenty craft credits; Taira Clan Saga's were one
+     composer and nine films made the same year in the same country;
+     Gintama's were fourteen consecutive "Japan, the same moment of
+     each other". These aim at the pair the record was wasting.
+
+     Written only where the plot section in pipeline/out/plots.json,
+     the description or the keyword list could actually carry the
+     claim. Where the evidence stopped at a premise — Tricheurs and
+     Mata Hari have no plot and three lines of description between
+     them — the confidence stops below 0.5 and the interface says so
+     rather than the claim being dressed up.
+     ================================================================== */
+
+  /* ---------- the saint's life, and what the camera does with a body ---------- */
+  r("francesco", "the flowers of st francis", "rebuttal", "a", 0.7, 0.5,
+    "Rossellini cast actual friars and played the saint's life as a string of sunlit comic parables; Cavani answers with mud, illness and a body going wrong, so holiness registers as damage."),
+  r("francesco", "europe 51", "convergence", "none", 0.66, 0.5,
+    "The same scandal in two centuries: someone rich gives everything away and the family reaches not for admiration but for a doctor — one stripped in the square by his cloth-merchant father, the other signed into an asylum by her industrialist husband."),
+  r("francesco", "andrei rublev", "convergence", "none", 0.58, 0.4,
+    "The medieval century filmed for its cold, its mud and its untreated wounds, with the transcendent moment withheld so long that when it arrives it can only be read as something that happened to a body."),
+  r("simon of the desert", "ordet", "rebuttal", "a", 0.66, 0.5,
+    "Dreyer stages his resurrection with total gravity and dares you to accept it; Buñuel grants his stylite a miracle and has the man whose hands are restored use them, in the next shot, to cuff his child."),
+  r("simon of the desert", "the exterminating angel", "rhyme", "none", 0.64, 0.46,
+    "Buñuel's trap twice, and neither time is it sprung: guests who cannot walk out of a drawing room, an ascetic who cannot come down off his pillar — and both films end by moving the confinement somewhere new, into a cathedral, into a Manhattan nightclub."),
+  r("europe 51", "the passion of joan of arc", "rhyme", "none", 0.66, 0.5,
+    "A woman set in front of a panel of law, medicine and the church and required to account for her charity in their vocabulary; she will not, and the panel decides what she is instead."),
+  r("europe 51", "the flowers of st francis", "descent", "b", 0.66, 0.5,
+    "Rossellini moved the saint's life out of the thirteenth century and into post-war Rome: the same string of small unexplained charities, except that the world which cannot classify her does not laugh at her, it certifies her."),
+  r("europe 51", "diary of a country priest", "convergence", "none", 0.58, 0.42,
+    "Sanctity treated as a medical problem — the institutions around a person's charity reaching for a diagnosis, and neither film supplying a miracle that would overrule them."),
+
+  /* ---------- the tribunal, and the verdict written first ---------- */
+  r("danton", "the confession", "convergence", "none", 0.62, 0.48,
+    "A revolution putting its own founder in the dock with the verdict settled in a committee room before the hearing opens — one accused shouts over the court until it changes its rules, the other is worn down into reciting the script."),
+  r("danton", "ashes and diamonds", "rhyme", "none", 0.6, 0.45,
+    "Wajda's recurring bet: the doomed man gets the appetite, the noise and the warm rooms, while the side that wins is filmed as thin, cold and correct — a partisan dying on a rubbish heap, then a Danton eating and shouting his way to the scaffold."),
+  r("doubt", "winter light", "rebuttal", "a", 0.6, 0.46,
+    "Bergman empties the pews around a pastor who has stopped believing; here a nun is given total conviction on no evidence at all, drives the priest out of the parish with it, and is allowed her doubt only in the last line."),
+  r("doubt", "anatomy of a fall", "convergence", "none", 0.62, 0.46,
+    "A case assembled entirely out of domestic detail — who kept whose shirt, what was on whose breath, which door stood open — by a film that then declines to say whether the detail meant anything, leaving you holding a verdict you have already formed."),
+
+  /* ---------- Bergman's parents, filmed by other people ---------- */
+  r("the best intentions", "private confessions", "descent", "a", 0.7, 0.6,
+    "Not two roles but one woman: Pernilla August plays Bergman's mother in both, so the marriage being contracted in one film is the marriage being confessed out of in the other, carried across two directors neither of whom is the son who wrote them."),
+  r("the best intentions", "fanny and alexander", "rebuttal", "a", 0.66, 0.48,
+    "Bergman had already filmed the severe clergyman as a fairy-tale ogre; here he writes that man's youth for another director — a poor theology student marrying above himself — and grants him the sympathy his own film withheld."),
+  r("the best intentions", "sunday s children", "rhyme", "none", 0.62, 0.5,
+    "The same marriage before and after, from two Bergman scripts filmed the same year by two other hands: the courtship of his parents in one, and in the other a day alone with that father seen from the child's seat, the man already unreachable."),
+
+  /* ---------- the machine you think you can beat ---------- */
+  r("tricheurs", "bob le flambeur", "rhyme", "none", 0.58, 0.4,
+    "The casino approached as a machine with a solvable fault — a wheel rigged by radio, a safe timed to the hour — by people whose actual problem is that solving it does not touch the appetite that made them try."),
+  r("tricheurs", "l argent", "convergence", "none", 0.54, 0.36,
+    "Money as the film's real protagonist: a forged note passed from hand to hand until it has produced a murderer, a stake pushed round a wheel until it has produced two cheats, the person in each case a by-product of the transaction."),
+  r("the music man", "yojimbo", "rhyme", "none", 0.58, 0.4,
+    "A stranger arrives in a town with nothing to sell but a problem he has invented, works both halves of it and takes his fee out of the panic — one manufactures a gang war, the other a moral emergency about a pool table."),
+  r("the music man", "f for fake", "convergence", "none", 0.55, 0.4,
+    "The fraud that works because the audience needs it to: a bandmaster who cannot read music teaching a town to hear a march nobody is playing, and an essay film that admits mid-flow it has been lying and asks you to enjoy the swindle anyway."),
+
+  /* ---------- the enemy officer, and the rule used as the weapon ---------- */
+  r("the battle of the river plate", "the life and death of colonel blimp", "descent", "b", 0.64, 0.5,
+    "The same team's insistence on the decent enemy, thirteen years on: the German officer who carried the earlier film's moral weight becomes a Kriegsmarine captain filmed so respectfully that the Royal Navy's closing line is a compliment to him."),
+  r("bridge of spies", "the battle of the river plate", "convergence", "none", 0.6, 0.46,
+    "Both hand the last act to a rule rather than a weapon — neutrality law, a prisoner-exchange protocol — and both reserve their warmest gesture for the enemy officer who behaves better than the side that sent him."),
+  r("bridge of spies", "harakiri", "rhyme", "none", 0.56, 0.4,
+    "The rulebook used as the weapon: a lawyer who makes his own government honour a warrant it would rather skip, and a masterless samurai who makes a great house perform its own code to the letter until the house cannot survive it."),
+
+  /* ---------- Truffaut's hidden man, and the woman doing the walking ---------- */
+  r("confidentially yours", "the last metro", "descent", "b", 0.7, 0.55,
+    "Truffaut ran the same machine twice in three years: the man shut inside the building he owns while the woman who works for him goes out and does everything in the world above — a theatre cellar under the Occupation, then an estate agency in a murder case."),
+  r("confidentially yours", "the maltese falcon", "rebuttal", "a", 0.62, 0.45,
+    "The private-eye picture with the private eye taken out of it: the suspect hides in his own office while his secretary does the walking, the questioning and the deducing, shot in the same wet monochrome the genre reserved for the man."),
+  r("mata hari agent h 21", "notorious", "convergence", "none", 0.58, 0.42,
+    "The woman assigned to sleep with the enemy as national service and then held responsible for having done it — one carried out of the house at the last possible moment, the other walked to a firing squad."),
+
+  /* ---------- the recruitment structure, still wearing its source ---------- */
+  r("the five man army", "seven samurai", "descent", "b", 0.62, 0.45,
+    "The recruitment structure exported twice over and still visible underneath: five specialists introduced one demonstration at a time for a job in the Mexican Revolution, and the fifth of them is a silent Japanese blade man."),
+  r("the five man army", "the wild bunch", "rhyme", "none", 0.58, 0.4,
+    "Two 1969 westerns in which American professionals hire out to the Mexican Revolution and end by throwing the payday away — one in a suicidal charge for a comrade, the other by handing over the whole gold train and riding out unpaid."),
+  r("rob roy", "the duellists", "convergence", "none", 0.6, 0.45,
+    "The duel as class argument rather than climax: a schooled English rapier against a broadsword's weight, settled when the worse technician takes the blade in his bare hand — and elsewhere, fifteen years of impeccable fencing etiquette between two men who cannot remember what began it."),
+  r("rob roy", "barry lyndon", "rhyme", "none", 0.55, 0.42,
+    "The eighteenth century as a credit system in which a man's word and his manners are the only collateral available, and the violence is what happens when a gentleman calls the loan in."),
+
+  /* ---------- the wilderness expert, and the officials who record him ---------- */
+  r("the savage innocents", "nanook of the north", "descent", "b", 0.64, 0.48,
+    "Flaherty's instructional patience — the seal hunt, the shelter built in real time, the food divided by rule — carried whole into colour fiction, with the crisis arriving when a missionary refuses the hospitality the film has just taught you to read."),
+  r("the savage innocents", "dersu uzala", "convergence", "none", 0.58, 0.42,
+    "The wilderness man filmed as an expert rather than a curiosity, his weather and shelter and hunting shown as technique you could learn, and then measured against an official world whose law has no category for any of it."),
+
+  /* ---------- the workplace as the whole political world ---------- */
+  r("orchestra rehearsal", "the working class goes to heaven", "convergence", "none", 0.62, 0.46,
+    "Italian cinema of the same few years staging the workplace as the entire political world — a factory line, a rehearsal room — with a union that turns up and makes things worse, and both films ending with the worker back at his bench."),
+  r("orchestra rehearsal", "8", "rhyme", "none", 0.6, 0.44,
+    "Fellini's man in charge, twice: a director herding a crowd who all want something from him into a ring, a conductor barking his players back into line — and in both the revolt is where the film comes alive and the restored authority is the ending nobody trusts."),
+  r("the river", "harlan county usa", "rebuttal", "a", 0.6, 0.48,
+    "The picket line filmed from the wrong side: a documentary that stands with the strikers and their guns, answered by a drama that puts its farmer in among the strikebreakers and asks you to keep rooting for him while the two lines look each other over."),
+
+  /* ---------- the double, and the man who does the job better ---------- */
+  r("pardon my past", "double indemnity", "rhyme", "none", 0.56, 0.45,
+    "Fred MacMurray's salesman affability used twice inside a year: it talks a woman into killing her husband in one film and a rich family into believing he is their son in the other, and the manner does not shift by a hair between them."),
+  r("pardon my past", "kagemusha", "convergence", "none", 0.5, 0.36,
+    "The impostor who does the job better than the man he stands in for — a household that prefers the heir it has been handed, a war camp that prefers the thief — so the discovery is less about the double than about how little the position needed the original."),
+  r("memoirs of an invisible man", "the conversation", "rhyme", "none", 0.58, 0.44,
+    "Two San Francisco men who arranged their lives to leave no trace, no family and nobody who would report them missing, then find the trace is the only thing anyone wants: one tears his own apartment apart hunting a bug, the other watches rain draw his outline."),
+  r("memoirs of an invisible man", "a ghost story", "convergence", "none", 0.55, 0.4,
+    "Invisibility taken as a social fact rather than an effect: a man standing in rooms where his own life carries on without him, with the joke and the grief working off the identical discovery that nobody is looking."),
+
+  /* ---------- one premise, run more than once ---------- */
+  r("melinda and melinda", "crimes and misdemeanors", "descent", "b", 0.64, 0.5,
+    "Allen ran the braid twice: one film cuts a murder plot against a comic one and lets them meet for a minute at a wedding, the other puts the device on screen with two playwrights at a table arguing the same premise into tragedy and into farce."),
+  r("melinda and melinda", "blind chance", "convergence", "none", 0.58, 0.42,
+    "One premise run repeatedly with the same person at its centre, the branch point political in one film and purely tonal in the other, and neither version offered as the true one."),
+  /* CUT (ninth-pass audit): "Retellings in which the facts never move and only the genre
+     does..." The premise is false about Rashomon, where the facts move in every retelling and
+     that IS the film. It rendered in the top slot of Melinda and Melinda's map and two lines
+     under Rashomon's own Prestige reading ("two self-serving accounts... refusing to say which
+     is true"), so the corpus contradicted itself on one screen. Melinda keeps Crimes and
+     Misdemeanors and Blind Chance, which carry the braided-premise argument correctly. */
+
+  /* ---------- the session, and who is actually dependent ---------- */
+  r("holy smoke", "the piano", "descent", "b", 0.66, 0.5,
+    "Campion's transaction run again: a man sets the terms of an arrangement over a woman and the film hands her the leverage one item at a time — piano keys traded for skin in one, a deprogramming that ends with the counsellor in a red dress in the desert in the other."),
+  r("holy smoke", "the master", "convergence", "none", 0.6, 0.45,
+    "The session as the film's central form — one person putting another through repeated processing designed to install or remove a belief — with both films arriving at the conclusion that the examiner is the more dependent of the two."),
+  r("chaplin", "citizen kane", "descent", "b", 0.62, 0.46,
+    "The biopic borrowing Kane's frame in order to admit what it is: an old man in a lakeside house pressed by an editor invented for the film about everything the memoir left out, so the life arrives as something its subject is still selling."),
+  r("chaplin", "modern times", "rhyme", "none", 0.58, 0.42,
+    "The film's real stunt is re-performance — an actor rebuilding the routines gesture for gesture, with the last reel handed over to the original footage, so the comparison it cannot possibly win is the one it keeps requesting."),
+
+  /* ---------- endurance, and who keeps the tally ---------- */
+  r("unbroken", "come and see", "rebuttal", "a", 0.6, 0.45,
+    "Two films made almost entirely of one body absorbing punishment: this one counts the ordeals like laps — days adrift, beatings taken, a beam held overhead — and delivers a record broken, where the other lets a boy's face age past reading and keeps no tally at all."),
+  r("unbroken", "schindler s list", "descent", "b", 0.58, 0.45,
+    "Both close by handing the film over to the record itself — survivors filed past a grave, then photographs and captions of the real man's later life — so the last feeling the audience is given comes from documents rather than from the drama."),
+
+  /* ---------- the line dissolved, the plot refused ---------- */
+  r("my neighbors the yamadas", "the tale of the princess kaguya", "descent", "a", 0.72, 0.6,
+    "The Ghibli line dissolved here first: watercolour washes that stop short of the frame's edge and leave the paper showing, tried out on a newspaper-strip family and then pushed to charcoal, blank space and a folk tale fourteen years later."),
+  r("my neighbors the yamadas", "grave of the fireflies", "rebuttal", "a", 0.64, 0.48,
+    "The same hand that filmed two children starving in the ruins turned to a household whose emergencies are a lost bicycle, a wedding speech and the television remote, and refused it a plot at all — the whole thing staged as gags on white paper."),
+  r("black moon", "valerie and her week of wonders", "convergence", "none", 0.62, 0.45,
+    "A girl's adolescence staged as folk dream — talking animals, a house of predatory adults, a rule-set the film never states — and shot in plain daylight, so nothing is ever marked as the unreal part."),
+  r("black moon", "the night of the hunter", "rhyme", "none", 0.56, 0.4,
+    "A child fleeing adult violence across a landscape that stops obeying realism, arriving at a farm where an old woman keeps animals and stray children together like an ark."),
+
+  /* ---------- Resnais forward, and the cell that outlived its war ---------- */
+  r("the war is over", "last year at marienbad", "rebuttal", "a", 0.66, 0.5,
+    "Resnais turned his own conditional montage around: where the earlier film cut away to a past that may never have happened, this one cuts forward to what has not happened yet, imagining a woman he has never met as three different women before he reaches her door."),
+  r("the war is over", "the battle of algiers", "convergence", "none", 0.56, 0.42,
+    "Two 1966 films about an underground cell — one shot in the streets as an insurrection that works, one in Paris flats where the same forged papers and safe-house discipline have hardened into a career, twenty-seven years after the war they belong to was lost."),
+  r("la luna", "autumn sonata", "convergence", "none", 0.62, 0.46,
+    "The performing mother put in front of her child: a pianist made to sit through her daughter playing the same prelude, an opera singer teaching her son to sing while he is coming off heroin — in both, the music is the only channel she has and the child knows it."),
+  r("la luna", "oedipus rex", "rhyme", "none", 0.55, 0.4,
+    "Italian cinema taking the Oedipus material twice in a dozen years: once restaged in the desert as ancient rite, once in a Roman flat where the mother sings tragedy for a living, so the myth arrives as repertoire."),
+
+  /* ---------- looking as the injury ---------- */
+  r("the stendhal syndrome", "vertigo", "rebuttal", "a", 0.64, 0.46,
+    "Hitchcock's man remakes a woman into the dead one he wants; here the remaking is handed to the woman herself — after the assault she cuts her hair, takes a blonde wig and a new voice, and the film lets her finish as the man who attacked her."),
+  r("the stendhal syndrome", "peeping tom", "convergence", "none", 0.58, 0.44,
+    "Both make the act of looking do the damage: a lens that kills what it films, and a painting that pulls the woman studying it out of the room and leaves her defenceless in front of the man who has been watching her look."),
+  r("the stendhal syndrome", "repulsion", "rhyme", "none", 0.55, 0.38,
+    "A woman's collapse rendered as the architecture around her rather than as a diagnosis — walls that give, rooms that will not hold their dimensions — with the film staying inside the failure instead of examining it from outside."),
+
+  /* ---------- the blade, the ceremony, and the class that takes over ---------- */
+  r("gintama the movie", "the sword of doom", "descent", "b", 0.6, 0.42,
+    "The cursed blade that consumes whoever holds it, filmed as possession rather than as swordplay: the fighter's own body wrecking itself to feed the weapon while the technique keeps getting better."),
+  r("gintama the movie", "hail caesar", "convergence", "none", 0.55, 0.4,
+    "Both put the business itself on screen — one from the studio fixer's side keeping the product moving, the other by letting its cast step outside the film and haggle with the distributor over whether a sequel is worth making."),
+  r("taira clan saga", "the 47 ronin", "rebuttal", "a", 0.6, 0.46,
+    "Mizoguchi filmed the samurai code under wartime commission as obedience unto death; thirteen years after the defeat he filmed the moment that same class first took power from a court that despised it, and gave the young warrior the sympathy."),
+  r("taira clan saga", "the leopard", "convergence", "none", 0.58, 0.44,
+    "The hinge where one ruling class hands over to another, filmed as ceremony instead of battle — a court procession met by armed monks, a ball that runs for an hour — with the new men's manners doing the historical argument."),
+
+  /* ==================================================================
+     NINTH PASS. Aimed at films that arrived in the 2,204-film harvest
+     carrying twenty edges of record coincidence and no authored claim
+     at all — the tranche where the measured trivia share went back up.
+     Selection rule inside that tranche: write only where the plot text
+     or the description supports a claim about FORM, and prefer the
+     pair whose current connection reads "shares a cinematographer" or
+     "both are 1970s thrillers", since displacing one of those is worth
+     more than adding a second reading to a film that already has six.
+     One film in the set (Krull) is skipped: nothing in the corpus
+     evidences a formal claim about it that would not be invented.
+     ================================================================== */
+
+  /* ---------- the firm succeeds, the household does not ---------- */
+  r("le clan des siciliens", "the godfather", "convergence", "none", 0.62, 0.44,
+    "Both films let the business run perfectly and the family fail: the score goes exactly to plan — an airliner full of jewels hijacked in mid-flight and put down on an unopened stretch of motorway — and the clan is destroyed instead by a domestic betrayal that costs nothing, exposed at a dinner table by a six-year-old repeating what he saw. In both, the patriarch personally sentences a member of his own household, and in both the execution is filed as maintenance."),
+  r("le clan des siciliens", "rififi", "descent", "b", 0.6, 0.44,
+    "The same novelist's underworld fifteen years on and scaled up out of all recognition: Le Breton's earlier gang spend half an hour in silence around one hole in one ceiling, this one runs Rome, Paris and New York and takes an aircraft. What survives the inflation is the failure mode — both crews are undone not by police work but by one member who cannot keep away from a woman, and both films spend their last reel on the tidying rather than the theft."),
+
+  /* ---------- the procedural, and what it does with the criminal ---------- */
+  r("castle of sand", "high and low", "convergence", "none", 0.62, 0.46,
+    "Two Japanese procedurals that spend their length on legwork — timetables, dialect maps, doors knocked on in the wrong prefecture — and then hand the ending to the criminal's biography instead of to his capture. One closes on class hatred spoken through prison glass; the other lays the detective's summation over a wordless flashback of a father and son begging their way round the coast, scored by the concerto the murderer is premiering in another building at that same hour."),
+  r("castle of sand", "memories of murder", "rebuttal", "b", 0.6, 0.42,
+    "The Japanese procedural's faith in shoe leather — one mispronounced syllable chased across the country until it yields a name and a childhood — answered by a Korean film that runs the identical exhaustive method and gets nothing at all, and ends with the detective looking into the lens because there is no one left to look at."),
+
+  /* ---------- the town rebuilt indoors ---------- */
+  r("cannery row", "one from the heart", "convergence", "none", 0.58, 0.42,
+    "Two 1982 American pictures that refused to shoot the real place and built it whole inside a sound stage instead — a Monterey cannery front lit by Sven Nykvist, a Las Vegas strip lit by Vittorio Storaro — so that in both the town is openly a memory of a town rather than a location. Both were received as extravagance rather than as the choice they were, and both films are only legible if you accept the artifice as the point."),
+
+  /* ---------- the newsroom that makes a person ---------- */
+  r("it could happen to you", "network", "rhyme", "none", 0.5, 0.34,
+    "Both films run on a New York newsroom's power to turn one gesture into a public person: a half-joking promise to split a lottery ticket with a waitress, and an anchorman's on-air threat to shoot himself. One lets the readership it manufactured send its money back and rescue the couple; the other keeps its man alive exactly as long as he performs, and has him shot on camera when the numbers drop."),
+
+  /* ---------- the raid, and the illness kept off screen ---------- */
+  r("arrietty", "rififi", "rhyme", "none", 0.58, 0.42,
+    "The first borrowing is staged with a heist's grammar: a pin used as a grappling hook, double-sided tape for the climb, one permitted item per trip, and a rule that being seen even once ends the career. Both sequences run almost without dialogue, both make the tools legible before they are used, and both let one dropped object — a sugar cube, a loosened fitting — do the work of a scream."),
+  r("arrietty", "my neighbor totoro", "rhyme", "none", 0.58, 0.42,
+    "Two Ghibli films that keep the illness just off screen — a mother in a hospital bed, a boy waiting on heart surgery with poor odds — and put the fantasy precisely in the gap the waiting leaves. Neither creature cures anything; what they offer is a way of passing the time, and both films are careful to end with the child still facing the thing they were facing at the start."),
+
+  /* ---------- one actor as the whole pantheon ---------- */
+  r("7 faces of dr lao", "dr strangelove", "convergence", "none", 0.56, 0.4,
+    "Two 1964 American comedies that hand a single actor every face of the crisis: Tony Randall under seven sets of prosthetics as the entire mythology an Arizona town needs in order to see itself, Peter Sellers as three of the men steering a nuclear exchange. In both the multiplication is the argument — there is only one performer available, so the town or the world is being lectured by the same man wearing different heads."),
+
+  /* ---------- the patter as the symptom ---------- */
+  r("the pick up artist", "uncut gems", "rhyme", "none", 0.54, 0.36,
+    "A man who cannot stop talking, where the patter is not the trade but the symptom — rehearsed in a car between approaches, or run down a phone line between deals — and a film that finally converts it into one number that has to come up. Both settle the whole plot at a table with money that was raised by liquidating everything else the man owned."),
+
+  /* ---------- the redundancy handled as a hiring problem ---------- */
+  r("no other choice", "monsieur verdoux", "convergence", "none", 0.68, 0.5,
+    "A devoted family man laid off from a respectable job who turns the removal of other people into his new profession, keeps the household in another room and never tells them, and performs the killings as diligent office work — a shortlist drawn up, each candidate researched, the practical problem of the body treated as an administrative task. Both films end by pointing out that the murderer's employers did it at a scale he could not reach."),
+  r("no other choice", "parasite", "rhyme", "none", 0.6, 0.44,
+    "Two Korean films in which a household conspires to take jobs that are already occupied, and in which the wife's decision to go along is the real turn. One removes each incumbent with a forged reference and a peach; the other simply shoots them. Both end with a body under the family's own ground, an improved standard of living, and everybody agreeing not to mention it."),
+
+  /* ---------- the mother who will only say it in character ---------- */
+  r("the truth 2019", "autumn sonata", "rebuttal", "a", 0.64, 0.46,
+    "The great-artist mother and the daughter's ledger of grievances, replayed on a film set. Bergman puts his pianist and her daughter in one house for one night and lets the accusation land directly, in the room; Koreeda makes both women act instead, so the reckoning only becomes sayable when the mother is playing somebody else's mother in a science-fiction picture and the daughter, who wrote the scene, is standing off camera feeding her the lines."),
+  r("the truth 2019", "still walking", "rhyme", "none", 0.58, 0.42,
+    "Koreeda's Japanese households argue by preparing food and let the grievance go unspoken through an entire visit. Moved to Paris with French actors, the accusations arrive out loud within ten minutes — so he builds a film set inside the film and puts the unsayable part back where the rest of his work keeps it, in a scene the characters are only pretending to mean."),
+
+  /* ---------- Carmen, twice, in one year ---------- */
+  r("first name carmen", "carmen", "convergence", "none", 0.6, 0.44,
+    "Two Carmens a year apart that agree on nothing. Rosi films the opera whole, on location in Andalusia with real singers and the score performed as written; Godard throws the singing out entirely and replaces it with a string quartet visibly rehearsing late Beethoven — stopping, restarting, arguing over a bar — so the music arrives as unfinished work rather than as a number, and the story around it is a bank robbery."),
+  r("first name carmen", "bande a part", "descent", "b", 0.58, 0.42,
+    "Godard's heist rebuilt twenty years on with the amateurism moved from the robbers to the film. The earlier gang are three innocents running the Louvre and dancing in a café; this one uses a film shoot as the cover story until nobody on screen can tell whether they are robbing a bank or shooting a scene about robbing one — and the only people in the building who know exactly what they are doing are four musicians rehearsing in the next room."),
+
+  /* ---------- the camp, and what escape is for ---------- */
+  r("stalag 17", "a man escaped", "convergence", "none", 0.6, 0.44,
+    "Two prison films that agree escape is a craft and disagree completely about what it is for. Bresson gives it to one man's hands in near-silence and films the scraping of a door frame as prayer; Wilder gets two escapees shot in the opening minutes and spends the rest of the picture in a barracks run as a black market, where the real hunt is not for the wire but for whoever is selling the plans."),
+  r("stalag 17", "sunset boulevard", "rhyme", "none", 0.58, 0.42,
+    "Wilder used the same actor twice as a man who says out loud that he is for sale and is despised for the honesty — a screenwriter kept by an older woman in a Sunset mansion, a sergeant running a distillery and a viewing telescope inside a prison camp. Both films make him the only person in the room telling the truth and then charge him for it: one goes out through the tunnel with the man he was accused of betraying, the other face down in the pool he is narrating from."),
+
+  /* ---------- Lang puts a crowd in the dock ---------- */
+  r("fury", "m", "rebuttal", "a", 0.7, 0.5,
+    "Lang tried the mob twice. In Berlin the criminals convene their own court and the child-murderer is given a plea good enough to hear; in his first American film the crowd that burned a jail is put in a real dock, and the evidence against them is a newsreel — run, stopped and enlarged frame by frame until each grinning face can be named aloud. The first film asks you to feel a lynch mob's logic from inside; the second makes the camera the witness for the prosecution."),
+  r("fury", "blowup", "rhyme", "none", 0.56, 0.4,
+    "The photographic image pushed past its own resolution to make it give up a face. One film stops a newsreel of a lynching in open court and blows it up until every bystander is identifiable; the other enlarges a park photograph until the body dissolves into grain and the photographer is left with nothing he can show anyone. One trusts the negative to convict, the other discovers it cannot."),
+
+  /* ---------- the director assembled out of other people's cameras ---------- */
+  r("the other side of the wind", "8", "rebuttal", "a", 0.66, 0.48,
+    "The blocked director surrounded by people who want something from him, filmed from opposite sides of his skull. Fellini gives Guido an interior — daydream, harem, childhood — and lets us live in it; Welles denies Hannaford one entirely, assembling the whole birthday out of the guests' own cameras in a dozen film stocks, gauges and aspect ratios, so the man exists only as footage other people shot of him and never once gets a scene alone."),
+  r("the other side of the wind", "citizen kane", "descent", "b", 0.64, 0.46,
+    "Welles built the same machine at both ends of his career and reversed its polarity. Kane is a man assembled after death out of newsreel and the accounts of people who knew him, and the film keeps promising a key; Hannaford is assembled while still alive out of the party guests' handheld cameras, and there is no key, no reporter and no last word — only the footage, and the fact that everyone pointing a camera at him wants to become him."),
+
+  /* ---------- the Italian house after the men ---------- */
+  r("let s hope it s a girl", "the leopard", "rebuttal", "a", 0.62, 0.45,
+    "The Italian noble house filmed twice as it goes under. Visconti gives the prince a ballroom and an hour of elegy and lets the class die with its dignity intact; Monicelli takes the same decaying estate, kills the count off the side of a cliff in a vintage convertible while a senile uncle releases a pigeon, and ends with the household — daughters, niece, housekeeper, the dead man's creditor-mistress — sitting down to dinner and deciding to keep the place by farming it."),
+  r("let s hope it s a girl", "my friends", "rebuttal", "a", 0.58, 0.42,
+    "Monicelli's Tuscany twice, with its men and without them. In the earlier film five middle-aged friends organise their whole lives around elaborate pranks and staying out of the house, and the women are an off-screen nuisance; here the men are dead, senile, bankrupt or asking for money, the camera never leaves the villa they failed to keep, and the joke lands the other way round — the household that survives is the one they spent their lives avoiding."),
+
+  /* ---------- the identity taken over by lease ---------- */
+  r("single white female", "the tenant", "rhyme", "none", 0.62, 0.45,
+    "The lease as the mechanism of possession: someone moves into a space still shaped by its previous occupant and is gradually filled in by them. Polanski's tenant inherits a dead woman's flat, then her dress and wig, then her fall; Schroeder's roommate inherits a living woman's haircut first, then her wardrobe, then her name in a bar and the man who answers to it. In both the transformation is done entirely through hair and clothes, and in both the other residents notice nothing."),
+  r("single white female", "3 women", "rhyme", "none", 0.58, 0.4,
+    "Altman's Pinky copies her roommate's diary, signature and name until the older woman is simply displaced, and lets the swap happen in desert dream logic that is never explained. Schroeder puts the identical theft into an apartment thriller and gives it a mechanism you can buy — a salon appointment, a duplicate dress, a cut key — which makes the copying legible and turns the ending into a chase down a basement stair."),
+
+  /* ---------- Wenders looking for his fathers ---------- */
+  r("tokyo ga", "tokyo story", "descent", "b", 0.7, 0.52,
+    "A film that goes to Tokyo looking for the city in Ozu's films and cannot find it — pachinko halls, rooftop driving ranges, wax food being moulded for restaurant windows — and finds the ancestor instead in an old man and a piece of equipment: Ozu's cameraman setting up the special low tripod, showing exactly how far off the floor the camera sat for thirty years, and then breaking down."),
+  r("tokyo ga", "sans soleil", "convergence", "none", 0.64, 0.46,
+    "Two foreign essayists in the same Tokyo within a year of each other, both assembling the city out of pachinko parlours, sleeping commuters and ceremonies performed over broken objects — and dividing on what they came for. Marker never claims to be looking for anything he could fail to find; Wenders arrives with one dead father to locate and spends the film admitting the search is not going to work."),
+  r("tokyo ga", "lightning over water", "rhyme", "none", 0.62, 0.46,
+    "Wenders filmed his cinematic fathers twice in five years: once at a bedside, with a dying director staging his own last scene for the camera and the film unable to settle whether that is collaboration or extraction; once at the grave, with the director long dead and only a surviving cameraman and a tripod left to interview. The first cannot look away and the second has nothing left to look at."),
+
+  /* ---------- the professional walks into it ---------- */
+  r("the professional", "le samourai", "rhyme", "none", 0.58, 0.4,
+    "The French professional walks knowingly into the ambush his own side has arranged, and the film hands the last word to the music rather than to him: Melville's hitman raises an unloaded gun in a nightclub so the police will fire, Lautner's agent completes the assassination he was recalled from, reaches the helicopter and is shot in the back on the tarmac while the score arrives in place of a line. Both suicides are filed as competence."),
+
+  /* ---------- the emperor, near and far ---------- */
+  r("war and peace", "napoleon", "rhyme", "none", 0.56, 0.4,
+    "The same emperor filmed from opposite ends of the telescope. Gance builds his entire apparatus around Bonaparte — cameras strapped to horses and sledges, the frame finally opening into three panels so one man can fill the horizon; Vidor keeps him a small distant figure crossing a field with a spyglass, and gives the wide screen instead to a bespectacled civilian in a pale coat wandering through Borodino with no idea what he is looking at."),
+
+  /* ---------- the show finishes ---------- */
+  r("pret a porter", "nashville", "rhyme", "none", 0.6, 0.44,
+    "Altman's ensemble machine pointed twice at an industry that can absorb anything: a country-music week that ends with the crowd singing through an assassination, and a fashion week that ends with a designer sending every model down the runway with no clothes on. In both the outrage is scheduled as the finale, and in both the show finishes and the applause is real."),
+  r("pret a porter", "blowup", "rhyme", "none", 0.56, 0.4,
+    "A death that refuses to become a plot, inside a business too busy photographing itself to follow it up. Antonioni's photographer enlarges a corpse out of a park and then loses it; Altman opens by choking the head of the fashion council to death in the back of a car and lets the murder inquiry dissolve into fittings, parties and a hotel room. In both, the shoot carries on, and nobody with the power to care does."),
+
+  /* ---------- Ōshima's two crimes ---------- */
+  r("empire of passion", "in the realm of the senses", "rebuttal", "a", 0.7, 0.5,
+    "Ōshima's two films with the same actor, two years apart, take the same crime in opposite directions. The first seals the couple into a rented room and lets the outside world — an army marching past the window — become genuinely irrelevant; the second has them murder the husband and stay in the village, where the world comes for them in the form of neighbours' questions, a patient policeman, and a dead man who keeps turning up pulling his own rickshaw."),
+  r("empire of passion", "the postman always rings twice", "rhyme", "none", 0.6, 0.44,
+    "Two lovers kill the husband and are then finished off by the thing they cannot dispose of. In Rafelson's it is suspicion — each begins to read the other as the next candidate; in Ōshima's it is literal, a murdered rickshaw man still arriving for fares, so the guilt is not a private mental state but a passenger the whole village can see and gossip about."),
+
+  /* ---------- the affair with a departure time ---------- */
+  r("terminal station", "brief encounter", "convergence", "none", 0.66, 0.48,
+    "The affair confined to a railway terminus and timed by the departure board: two films in which the lovers are never once alone, because every scene has to be played in a public concourse under other people's eyes, and it is the clock rather than any moral argument that ends it. Lean's couple have a refreshment room and a Rachmaninoff record; De Sica's have the whole of Roma Termini, a goods wagon and a police office, and are caught."),
+  r("terminal station", "bicycle thieves", "descent", "b", 0.62, 0.44,
+    "The same director and the same screenwriter running neorealism's method against Hollywood's, five years apart. The earlier film uses non-professionals in real streets so that nothing can look staged; this one keeps the real station and the real crowd and puts Jennifer Jones and Montgomery Clift at the centre of it — and the method turns on itself, because a terminus full of genuine strangers is exactly what makes two stars look like a set-up."),
+
+  /* ---------- the father who performs his own standing ---------- */
+  r("champagne", "i was born but", "rhyme", "none", 0.56, 0.4,
+    "Two late-silent comedies in which a father stages his own standing for a child, and it collapses in opposite directions. Ozu's boys watch home-movie footage of their father clowning for his boss and lose him on the spot; Hitchcock's millionaire invents the loss of the family fortune to teach his daughter a lesson, watches her take a job in a restaurant and turn out to be good at it, and when the lie is exposed it is the father who comes out smaller."),
+
+  /* ---------- the game that is the film's own structure ---------- */
+  r("chinese roulette", "last year at marienbad", "rhyme", "none", 0.62, 0.45,
+    "A great house, a camera that never stops gliding past glass and mirrored surfaces, and a game with rules announced aloud that turns out to be the film's own structure. Resnais's guests play a matchstick game the narrator always wins; Fassbinder's are assembled for a weekend by the disabled child who arranged the whole gathering and made to play a guessing game about each other — and the answer she extracts about her mother is the only thing anybody in either film says plainly."),
+  r("chinese roulette", "the exterminating angel", "rhyme", "none", 0.54, 0.38,
+    "Buñuel's guests physically cannot leave the drawing room; Fassbinder's can leave whenever they like and stay anyway, because the game is more interesting than the door. The same joke about polite society, turned from a trap into an experiment its subjects volunteer for and then cannot stop running."),
+
+  /* ---------- the centenary, celebrated and mourned ---------- */
+  r("one hundred and one nights", "sunset boulevard", "rhyme", "none", 0.66, 0.48,
+    "The ruined star in the big house with the devoted majordomo and a young hireling engaged to keep them company — except Varda's centenarian is not a forgotten actress but cinema itself, played by Piccoli under a hundred years of make-up, memory failing, mistaking himself for other people, while real stars queue at the gate to be received. Wilder's mansion is a mausoleum; Varda's is a birthday party that keeps tipping over into a diagnosis."),
+  r("one hundred and one nights", "goodbye dragon inn", "rebuttal", "b", 0.62, 0.45,
+    "Cinema's hundredth birthday marked twice and incompatibly. One is a château outside Paris where Depardieu, Deneuve, Delon and Mastroianni arrive in person to pay court to a century personified as a rich old man with a fortune to leave; the other is a leaking Taipei picture palace on its final night, three people in the auditorium and nobody to say goodbye to. One assumes cinema is a person with a guest list; the other films the building and lets the absence do the work."),
+  r("one hundred and one nights", "the other side of the wind", "convergence", "none", 0.56, 0.4,
+    "Two films that hire the industry to play itself around a dying patriarch of cinema: Welles fills a Hollywood birthday with real directors and critics circling a man whose picture cannot be finished, Varda fills a château with stars paying court to a hundred-year-old who is cinema in person. In both, the young are there for the estate — one to get a feature completed, one to get a short film funded — and in both the old man's memory is the only thing anybody actually wants."),
+
+  /* ---------- the memory that finishes at the moment of killing ---------- */
+  r("death rides a horse", "once upon a time in the west", "rhyme", "none", 0.62, 0.45,
+    "The revenge western built on an image the film refuses to complete: a massacre witnessed in childhood returns in short flashes drenched in red, each one giving up one more identifying detail — a skull tattoo, an earring, a scar on the throat — so the plot is an act of recognition rather than a manhunt, and the memory only runs to the end at the moment the last man is killed. Leone did it a year later with a harmonica and a brother standing on a man's shoulders."),
+  r("death rides a horse", "for a few dollars more", "rhyme", "none", 0.58, 0.42,
+    "Lee Van Cleef twice inside two years as the same figure: the older gunman who attaches himself to a younger one on the same trail and conceals until very late that he has his own account to settle with the men they are both hunting. In both films the partnership is really a competition over who has the better right to the killing, and in both the younger man has to be told to stand down."),
+
+  /* ---------- the actor doubled, the narrator dead ---------- */
+  r("legend 2015", "dead ringers", "rhyme", "none", 0.6, 0.44,
+    "One actor doubled so that the film's central relationship is a performance played opposite himself, and both films make the technically hardest shot — the two brothers sharing a frame, touching, fighting — carry the emotional weight. In both, the twin who cannot function is the one who destroys the pair, and the functioning one's tragedy is that leaving was always available to him and he never takes it."),
+  r("legend 2015", "sunset boulevard", "rhyme", "none", 0.58, 0.42,
+    "Both films are narrated by someone who is already dead, and both use it to compromise the audience. Wilder's screenwriter speaks from the pool he is floating in, so the cynicism is retrospective and paid for; Helgeland's narrator is the wife the film shows being ground down and killed, which means the East End glamour is being sold to you in the stolen voice of its principal victim."),
+
+  /* ---------- Taipei 1994, twice ---------- */
+  r("a confucian confusion", "vive l amour", "convergence", "none", 0.64, 0.46,
+    "Taipei in 1994 from two directors at once, and the two films are exact negatives. Yang's is nothing but talk — a company, a play, a television show about happiness, every conversation an argument about whether anyone's feeling is genuine or a market position; Tsai's is almost wordless, three people circling an empty apartment none of them has a right to be in, never managing to say anything at all. Both are about a city where property and careers have replaced intimacy: one plays it as overtalk, the other as silence."),
+  r("a confucian confusion", "yi yi", "descent", "a", 0.6, 0.45,
+    "Yang wrote the same city twice. The farce version gives young professionals in glass offices three days to accuse each other of faking sincerity, and keeps everyone at the speed of an argument; six years later he slows the identical material to one family's year and hands the thesis to a child with a camera, photographing the backs of people's heads so they can see the half of themselves they never can."),
+
+  /* ---------- the death converted into a payment ---------- */
+  r("scattered clouds", "a separation", "convergence", "none", 0.62, 0.45,
+    "A death converted into a sum of money, and a film that watches what the transaction does to the people at either end of it. Naruse's salaryman kills a man in a road accident, is transferred to the provinces and pays the widow compensation in instalments; she takes it, then takes work at the inn where he is staying, and the payments become the only language the two of them are permitted for something neither will name. Farhadi's families argue in stairwells over whether a sum can settle a death; Naruse's answer is that it can, and that this is the horror."),
+  r("scattered clouds", "when a woman ascends the stairs", "rhyme", "none", 0.58, 0.42,
+    "Naruse's women are always doing arithmetic. A Ginza bar hostess enters her feelings and her debts in the same ledger; a widow receives her grief as an envelope from the man who killed her husband. In both films money is not the obstacle to the romance but the medium it is conducted in, and the tenderness is in how precisely the film keeps count."),
+
+  /* ---------- London, and the decision not to look ---------- */
+  r("frenzy", "peeping tom", "rebuttal", "a", 0.6, 0.42,
+    "Two London murder films by the two directors who taught audiences to look, solving the same problem in opposite directions. Powell bolts the camera to the killer's own tripod and makes you watch down the blade; Hitchcock, twelve years later, walks his camera up a staircase to a closed door and then reverses all the way back down, out of the building and into the ordinary noise of a Covent Garden street while the murder happens behind him. The most famous shot in the film is a refusal to look, made by the man who invented the habit."),
+  r("frenzy", "m", "rhyme", "none", 0.58, 0.42,
+    "A city turned into a manhunt, with the wrong man caught inside it. Lang puts police and underworld on the same search and lets a crowd's certainty nearly destroy an innocent in the street; Hitchcock hangs the killings on a man whose real offence is losing his temper in public, and gives the actual murderer a legitimate trade and a stall in a produce market — so the corpse travels across London in a sack of potatoes, in daylight, on a lorry nobody looks at twice."),
+
+  /* ==================================================================
+     NINTH PASS, fourth set. Thirty films from the harvest, chosen
+     because their maps were almost entirely record coincidence:
+     Nazarín's eight
+     edges were six Buñuel credits and two "Mexico, within N years";
+     There Was a Father's twenty were three Ozu credits and thirteen
+     "Japan, the same moment of each other"; Tess, Panic Room, The
+     Cowboys and Working Girl were twenty lines of shared crew apiece.
+
+     Written only where the plot section in pipeline/out/plots.json,
+     the description or the TMDB keyword list could actually carry the
+     claim. Where the evidence stopped at a premise — no plot section,
+     two lines of description — the claim stays below 0.5 and the
+     interface says "reading, not record" rather than dressing it up.
+
+     Deliberately weighted across traditions: Ozu against Wenders,
+     Mizoguchi against Mike Nichols, Ray against Flaherty, a Hungarian
+     apartment against a Manhattan brownstone. A pair inside one
+     national cinema is usually already carried by a record edge; the
+     pairs the record cannot reach are the ones worth authoring.
+     ================================================================== */
+
+  /* ---------- the woman moved between households ---------- */
+  r("tess", "the life of oharu", "convergence", "none", 0.62, 0.44,
+    "Both are built as a descending ladder of households — a girl sent to a rich family to trade on a name her father has just discovered he owns, a court lady sold down one rung at a time — and both keep the camera far enough back that her ruin registers as a change of address rather than as a scene played for grief."),
+  r("tess", "barry lyndon", "rhyme", "none", 0.6, 0.42,
+    "The countryside filmed as landscape painting in available light, figures kept small in the field, while the entire plot underneath is a question of whose name will be accepted by whom. In both, the beauty of the frame is what makes the class machinery look like weather rather than like something people decided."),
+  r("a geisha", "tess", "convergence", "none", 0.56, 0.4,
+    "A young woman is put into a richer house to solve a family's money problem — one sent to claim kinship with the branch that owns the name her father has adopted, one asking to be trained because her mother is dead and her father will not pay — and both films keep the ledger on screen, so what is done to her there arrives as a line in the same account rather than as private misfortune."),
+  r("a geisha", "working girl", "convergence", "none", 0.58, 0.42,
+    "The apprenticeship that quietly includes being handed to a client: a trainee whose debut is financed by a loan the teahouse expects a businessman to recover in kind, and a secretary sent out in a limousine with a customer who has cocaine and expectations. Both make her refusal cost somebody money, and both keep the arithmetic visible."),
+
+  /* ---------- the affair written up and sold ---------- */
+  r("with beauty and sorrow", "persona", "convergence", "none", 0.6, 0.42,
+    "A young woman attaches herself to an older artist, sleeps with the man who ruined her and then with his son, and carries out a revenge the older woman has never been willing to want. Made a year apart, in Kyoto gardens and on a Baltic shore, both end unable to say whose feeling has just been acted on."),
+  r("with beauty and sorrow", "anatomy of a fall", "rhyme", "none", 0.56, 0.4,
+    "The bestseller made out of a lover's catastrophe, produced later as evidence: a novel written from a teenage girl's miscarriage and typed up by the writer's own wife, and a novel read aloud in court by a prosecutor as proof of what its author was capable of."),
+  r("something s gotta give", "with beauty and sorrow", "rebuttal", "a", 0.56, 0.4,
+    "Turning the affair into a hit is the same device on both sides of the world, with the authorship swapped. There, a novelist mines a teenager's ruined pregnancy for a bestseller his wife types up. Here the woman writes the play, puts the man who walked out in it, and he has to buy a ticket and sit in the audience recognising himself."),
+  r("something s gotta give", "all that heaven allows", "rebuttal", "a", 0.58, 0.4,
+    "Sirk's scandal — a woman of a certain age wanting the wrong-aged man, judged by her grown children and consoled with a television set — replayed with every objection dropped: the daughter's protest lasts one scene, the fatal illness is moved into the man's chest, and the woman gets a writing desk and a hit instead of the console."),
+
+  /* ---------- the voyage, and the face at both ends of it ---------- */
+  r("ulysses", "ugetsu", "convergence", "none", 0.6, 0.42,
+    "Two films a year apart in which a man is kept in a beautiful house by a woman who is not human while the wife he left holds his home together, and in both the film is shaped toward the homecoming rather than the enchantment — the marvels are what has to be got through."),
+  r("ulysses", "vertigo", "rhyme", "none", 0.55, 0.38,
+    "One actress plays both the wife waiting at the end of the voyage and the sorceress who detains him halfway, so what keeps him from home and home itself wear the same face — the doubling a later film would build an entire plot out of, one woman made to play two."),
+
+  /* ---------- the room as a diagram ---------- */
+  r("panic room", "night of the living dead", "rebuttal", "a", 0.62, 0.44,
+    "Romero's siege turns on one argument — barricade the cellar or hold the ground floor — and he settles it by killing everyone who chose wrong. Here the strongest room in the house is the one the intruders have come for, so the safe place and the prize occupy the same few cubic metres and hiding is not a strategy but the thing that loses."),
+  r("autumn almanac", "panic room", "rhyme", "none", 0.55, 0.4,
+    "The camera takes up positions no person in the building could occupy — up through the glass of the floor, down between the joists, out through a keyhole — so the flat and the brownstone stop being places to live in and become cutaway diagrams with people stuck inside them."),
+  r("autumn almanac", "the exterminating angel", "convergence", "none", 0.6, 0.44,
+    "A handful of people in one flat who never manage to leave it, filmed until the apartment's own logic outranks anybody's intentions: one household is held by a rule the film refuses to explain, the other by a mother's money, a lease and a lodger, which bind just as hard."),
+
+  /* ---------- the married man's modern arrangement ---------- */
+  r("help me", "contempt", "convergence", "none", 0.6, 0.44,
+    "The husband who gives his wife away in principle and cannot survive it in fact: one keeps insisting he does not mind while manoeuvring her into the producer's car, the other announces at the wheel that he is modern enough to permit an affair provided they discuss it openly, and ends up beating her on a beach. Both hand that argument far more running time than any plot needs."),
+  r("help me", "jules and jim", "rebuttal", "a", 0.55, 0.36,
+    "Truffaut treats the shared arrangement as a genuine invention that only time defeats. Here the same modern tolerance is announced by a husband as evidence of his own sophistication, and lasts exactly as long as it stays hypothetical — the first real Wednesday concert ends it."),
+
+  /* ---------- the detective who declines the genre's romance ---------- */
+  r("honey don t", "the maltese falcon", "rebuttal", "a", 0.58, 0.44,
+    "Huston's detective is propositioned by everyone in the picture and answers with a speech about what a man has to do. This one is propositioned by everyone too — the homicide cop asks twice, in the same words — and answers 'I like girls' every time, so the running gag is also the genre's romantic engine being quietly switched off."),
+  r("honey don t", "the night of the hunter", "rhyme", "none", 0.56, 0.42,
+    "The preacher as predator with the congregation as his supply: one is a lone hunter with scripture on his knuckles, the other runs a franchise — four numbered virtues, fellowship conducted in bed, a narcotics route underneath — and in both, the town's willingness to trust a collar is the mechanism rather than the disguise."),
+
+  /* ---------- the father, and what is never said out loud ---------- */
+  r("there was a father", "paris texas", "rhyme", "none", 0.6, 0.46,
+    "Reconciliation staged as matched movement instead of speech: a father and son casting fishing lines into a river in the same rhythm, and a father and son walking parallel down opposite sides of a road until the boy falls into his step. In both, the warmest scene in the film contains no admission of anything."),
+  r("there was a father", "tokyo story", "rebuttal", "b", 0.64, 0.5,
+    "Ozu filmed the same separation twice, on either side of a war. In 1942 the son who wants to give up his teaching post to live near his father is told his duty is where he was placed, and the film agrees with the father. Eleven years later, children who stayed at their posts while the parents came to visit are the tragedy."),
+
+  /* ---------- the cell, and the signature at the end of it ---------- */
+  r("the confession", "a man escaped", "rebuttal", "a", 0.62, 0.46,
+    "Bresson's cell is a workshop: every sound, hour and scrap of metal is inventory, and the prisoner's close attention is what gets him out. Here the identical attention — paces counted, hours without sleep, the walking, the bread — is the machinery taking a man apart, and there is nothing in the room to build."),
+  r("the confession", "the passion of joan of arc", "rhyme", "none", 0.58, 0.44,
+    "Both films end at a signature. Dreyer's girl puts her name to the abjuration, takes it back, and burns. The party man signs everything, performs it word-perfect in court, survives, and is left to go on living as the author of a text he does not believe."),
+
+  /* ---------- the western, and who is handed the gun ---------- */
+  r("the cowboys", "shane", "rebuttal", "a", 0.64, 0.48,
+    "Shane sends the boy indoors and rides off carrying the killing so the child will not have to. Here the man is shot dead two-thirds of the way through and the schoolboys finish the cattle drive and the revenge themselves, with the film staging their first killings as the completion of the education he began."),
+  r("the patriot", "unforgiven", "rhyme", "none", 0.55, 0.4,
+    "The retired killer whose children have never seen what he is: both keep the man's reputation offstage as an atrocity nobody will describe, then stage the return of the skill as something appalling to witness rather than thrilling — here, hatchet work done in front of his two youngest sons."),
+  r("the patriot", "the battle of algiers", "rebuttal", "b", 0.6, 0.46,
+    "Both put the audience with irregulars against a professional army, then split on the only decision that matters. One gives its militia an atrocity to avenge — a church filled with townspeople and set alight — so that everything they do afterwards reads as clean. The other sends its own sympathetic heroine into a milk bar with a bomb and holds on the faces of the people about to be killed."),
+
+  /* ---------- verse, and the bodies made to say it ---------- */
+  r("romeo and juliet", "hamlet", "convergence", "none", 0.56, 0.42,
+    "Two attempts to stop Shakespeare sounding like recital, from opposite directions. One casts actors the age of the characters and puts them in the right century, sweating in real streets, so the verse comes out of bodies with nothing to do but feel it. The other keeps every word and moves it into a Manhattan of glass towers and camcorders, where the same lines are spoken by someone with nowhere to put a sword."),
+  r("romeo and juliet", "mean streets", "rhyme", "none", 0.56, 0.4,
+    "Street fighting that begins as showing off for an audience and turns fatal because nobody can stop performing — a word nobody will let go of, a duel fought like horseplay — and both films keep the comic pitch running straight through the killing, so the death arrives while everyone on screen is still laughing."),
+
+  /* ---------- the autobiography assembled out of film ---------- */
+  r("my voyage to italy", "the beaches of agnes", "convergence", "none", 0.6, 0.46,
+    "Two directors writing an autobiography out of film itself and choosing opposite places to stand: one never appears, narrating a childhood by playing four hours of other people's pictures the way his family watched them on a small television; the other is in nearly every shot, walking backwards through her own past on a beach she has had dressed with mirrors."),
+  r("the beaches of agnes", "8", "descent", "b", 0.58, 0.4,
+    "The autobiography staged instead of recalled: the maker walks through purpose-built reconstructions of their own past with the apparatus left in shot — a ring holding everyone he has ever known, a beach dressed with mirrors and a room built out of old film cans — so the film's real subject becomes the difficulty of assembling it."),
+  r("life and nothing more", "the beaches of agnes", "convergence", "none", 0.55, 0.4,
+    "Two directors who put themselves inside their own films and pick opposite methods: one appears in every shot and rebuilds her past on a beach; the other hires an actor to drive his car and be him, so the self-portrait is delivered by a stand-in and the director exists only as the person the camera is sitting beside."),
+
+  /* ---------- the office tower, measured from outside ---------- */
+  r("working girl", "the crowd", "rhyme", "none", 0.6, 0.46,
+    "One film cranes up the face of an office tower, in at a window and along a hall of identical desks to find its man at one of them. The other ends by starting on the woman who has finally won a door of her own and pulling back until her lit window is one of ten thousand in the block. The same shot run in opposite directions, arriving at the same verdict."),
+
+  /* ---------- the child and the adult, as one economic unit ---------- */
+  r("the kid", "the 400 blows", "rhyme", "none", 0.6, 0.46,
+    "The child removed by the authorities in the back of a vehicle, filmed from inside on his face as the street pulls away: one reaches back over the tailgate and is chased across the rooftops to get him back, the other says nothing at all while the lights of Paris go past."),
+  r("the kid", "bicycle thieves", "descent", "a", 0.6, 0.42,
+    "The man and the small boy working a hostile city as a single economic unit — the child who breaks the windows the adult is paid to mend, the child who watches the adult try to steal a bicycle — and in both, the man's humiliation is played on the boy's face rather than his own."),
+  r("tom sawyer", "the night of the hunter", "rhyme", "none", 0.55, 0.4,
+    "The American river as the only jurisdiction a child can reach: boys who have watched a murder pushing a raft out onto the Mississippi while the town below tries the wrong man for it, and children drifting down the Ohio with the killer still singing somewhere behind them."),
+  r("tom sawyer", "the third man", "rhyme", "none", 0.52, 0.36,
+    "A funeral held for someone who is not dead: boys slipping into the back of the church to hear what the town says about them, and a racketeer who supplied a substitute corpse so the mourners would let him go on working. In both, the service is where the film weighs what the missing man was actually worth."),
+  r("flight of the red balloon", "the 400 blows", "rhyme", "none", 0.5, 0.36,
+    "The Paris child who has learned to run his own day around the adult who is the one actually in crisis — the film keeps to his height, so the parent's shouting arrives the way weather does, from somewhere above the top of the frame."),
+
+  /* ---------- the cargo nobody in the car knows about ---------- */
+  r("the sucker", "touch of evil", "rhyme", "none", 0.58, 0.44,
+    "Welles opens by loading a car with something its occupants know nothing about and holds the shot until crossing a border is unbearable. This runs the identical device for ninety minutes as farce: a Cadillac packed with gold, heroin and a diamond driven across Europe by the one man in the film who has not been told, so every customs post is a punchline instead of a detonation."),
+  r("the sucker", "the wages of fear", "rebuttal", "a", 0.55, 0.36,
+    "Clouzot's drivers know exactly what is in the truck, and every metre of road is calculated against that knowledge. Here the cargo is just as lethal and the driver has simply not been informed, so the same journey becomes weather he passes through — the road-cargo thriller with the knowledge taken out of the man at the wheel and given entirely to us."),
+
+  /* ---------- the brother, the parent, and the unreadable work ---------- */
+  r("tetro", "rumble fish", "descent", "b", 0.62, 0.5,
+    "Coppola's brother picture run again twenty-six years later: a younger boy arriving in a city to attach himself to an older brother who has withdrawn into his own legend, shot in high-contrast black and white with colour held back for whatever is remembered, dreamed or performed."),
+  r("tetro", "la luna", "convergence", "none", 0.55, 0.4,
+    "The celebrated musician as the parent who uses up all the air in the house: an opera singer in Rome teaching her son to sing while he comes off heroin, and a conductor whose son writes his own work in mirror script, so the child's art is built to be unreadable by the parent it is aimed at."),
+
+  /* ---------- the guest, and who is entitled to do the examining ---------- */
+  r("the stranger", "teorema", "convergence", "none", 0.6, 0.44,
+    "The visitor who arrives in a comfortable household and, largely by declining to explain himself, turns the family's own assumptions into the film's subject: one takes each of them to bed in turn, the other simply refuses to produce proof of who he is — and in both it is the hosts, not the guest, who come apart."),
+  r("the stranger", "nanook of the north", "rebuttal", "a", 0.58, 0.42,
+    "The ethnographic frame turned around. A camera goes north and has a family stage their own daily life for an audience that will never meet them; here the anthropologist comes back from exactly that kind of fieldwork into a Calcutta drawing room and is cross-examined for a whole film by the educated class that normally does the examining."),
+
+  /* ---------- the same ruins, lit two ways ---------- */
+  r("without pity", "bicycle thieves", "rebuttal", "a", 0.58, 0.4,
+    "The same wrecked Italy in the same year, lit two ways. De Sica keeps to daylight errands and refuses his film a plot; here the identical locations and untrained faces are lit like an American crime picture, so the ruins acquire shadows, a pistol, and a couple with somewhere to drive."),
+  r("without pity", "paisa", "convergence", "none", 0.58, 0.42,
+    "The one relationship post-war Italian cinema could film and Hollywood could not — a Black American soldier and an Italian who owns nothing — arriving twice within two years: once as a single episode that ends when he sees the cave the boy who robbed him lives in and walks away, and once stretched to a whole film, with a stolen car and a cliff at the end of it."),
+
+  /* ---------- glass, reflection, and the flat as a stage ---------- */
+  r("flight of the red balloon", "playtime", "rhyme", "none", 0.58, 0.44,
+    "Paris filmed through glass, so the reflection of the street lies on top of the room's interior and you are never allowed to settle on one plane: a monument that exists only in the swing of a glass door, a balloon that appears in a window above a woman shouting into a telephone."),
+
+  /* ---------- the fairy tale that keeps its cruelty ---------- */
+  r("peau d ane", "valerie and her week of wonders", "convergence", "none", 0.6, 0.44,
+    "Two 1970 films that keep the incest inside the fairy tale rather than cleaning it out — a girl pursued by her own father, a girl pursued by the elder who calls himself her grandfather — and both stage it in flat pastel daylight with talking animals and magic rings, so nothing is ever marked as the unreal part."),
+  r("peau d ane", "black moon", "rhyme", "none", 0.55, 0.4,
+    "The machinery of the present left standing inside the fairy tale with no comment offered: a fairy godmother who arrives by helicopter and a prince who quotes a poet born three centuries after him; a girl who drives a car through a war into a house where the unicorn talks and the old woman upstairs works a radio."),
+
+  /* ---------- the sacred, staged without a change of register ---------- */
+  r("hail mary", "the passion of joan of arc", "convergence", "none", 0.58, 0.44,
+    "A young woman whose body is the site of a claim nobody else can check, held in close-up while the men around her — clerics, a doctor, the man engaged to her — demand that she account for it in their vocabulary, and the film gives them nothing to work with."),
+  r("hail mary", "teorema", "convergence", "none", 0.55, 0.4,
+    "The sacred dropped into a completely secular modern setting with no change of register to help you — no lighting cue, no music: the annunciation delivered by a man who turns up in a taxi at a filling station, the visitation conducted in the spare bedroom of a Milanese villa."),
+
+  /* ---------- the operation, and the argument about what it was for ---------- */
+  r("ogro", "rififi", "rhyme", "none", 0.58, 0.44,
+    "Political assassination filmed as a heist: weeks of tunnelling under a Madrid street measured out in sacks of soil, a rented basement, and the fear of a sound carrying up through the pavement — the same near-wordless attention to hands and tools that a safe-cracking sequence runs on, pointed at a car instead of a jeweller's."),
+  r("ogro", "the war is over", "convergence", "none", 0.56, 0.42,
+    "Two films about clandestine work against the same regime, thirteen years apart. One follows a man carrying forged papers into Spain who privately knows his organisation's certainties expired years ago; the other is the operation those certainties finally produced, with a coda in which the survivors cannot agree what it was for."),
+
+  /* ---------- the village, the soldiers, and the beautiful blast ---------- */
+  r("welcome to dongmakgol", "seven samurai", "descent", "b", 0.6, 0.44,
+    "Kurosawa's closing arithmetic run again: the fighting men are wanted by nobody, are fed by the village, die defending it, and the farmers who never asked for them go on planting. Here the swords are a North Korean squad and a South Korean squad, who have to be marooned together and disarmed by the villagers' total ignorance of the war before either side is any use to anyone."),
+  r("welcome to dongmakgol", "zabriskie point", "rhyme", "none", 0.52, 0.38,
+    "The explosion filmed as a slow-motion shower of plenty — a desert house and the contents of its refrigerator coming apart against blue sky, a village's entire winter store of corn falling back to earth as popcorn — with the image at its most beautiful exactly where the damage is worst."),
+
+  /* ---------- the appetite that outlives the catastrophe ---------- */
+  r("life and nothing more", "bicycle thieves", "convergence", "none", 0.58, 0.44,
+    "The catastrophe interrupted by an appetite the film refuses to treat as a distraction: a father spending the last of his money on a restaurant meal for his son, and survivors two days after an earthquake raising an aerial over the tents so they can watch the World Cup. In both, the ordinary want is offered as the answer rather than as relief from it."),
+
+  /* ---------- the priest whose ministry does not work ---------- */
+  r("nazarin", "diary of a country priest", "convergence", "none", 0.6, 0.46,
+    "The priest whose ministry visibly fails everyone he offers it to, filmed with no suggestion that a better priest would have done better: one is refused at every door in his parish and writes it down; the other walks out of his parish altogether and is followed by two women who convert him into the miracle-worker he keeps denying he is."),
+  r("nazarin", "pickpocket", "convergence", "none", 0.58, 0.46,
+    "Two 1959 films that end on a gift the man cannot account for. One takes a hand through the bars as grace and says so outright. The other is offered a pineapple by a fruit seller on the road to prison, refuses it twice, accepts it, and is led away in a confusion the film declines to resolve for him."),
+  r("nazarin", "winter light", "convergence", "none", 0.55, 0.42,
+    "The clergyman measured entirely by the one person in front of him who needs help, and failing: a pastor who talks a frightened man into going home and shooting himself, and a priest whose charity produces a brawl on a building site, a burnt room, and a fever that breaks only after somebody else's superstitious rite."),
+
+  /* =================================================================
+     TENTH PASS — claims about BEHAVIOUR, written off Senses of Cinema.
+
+     Wikipedia tells you what a film is about; it names the
+     cinematographer more often than it describes the photography. The
+     Senses archive (6,153 essays, harvested into pipeline/.cache-soc,
+     indexed by pipeline/index-soc.js) inverts that, so this block is
+     deliberately weighted toward how films MOVE, are LIT and are CUT —
+     the column the corpus does not have. Films with no focused essay
+     were skipped rather than filled in from memory.
+     ================================================================= */
+
+  /* ---------- the plain, the crane, and power as choreography ---------- */
+  r("the round up", "werckmeister harmonies", "descent", "a", 0.68, 0.46,
+    "Hungarian plain, 2.35:1, and state power filmed as choreography: white-shirted prisoners moved between a whitewashed wall and open grass by a crane-mounted camera that slides sideways instead of cutting, with almost no close-ups and almost no dialogue, so cruelty arrives as a change of formation. Thirty-four years later the same unbroken lateral shot is handed to a crowd walking to a hospital, and the film's whole argument is carried by how long it refuses to stop."),
+
+  /* ---------- the lens that does the diagnosis ---------- */
+  r("the cremator", "repulsion", "convergence", "none", 0.62, 0.46,
+    "Two films that put a distorting lens on a private interior and let it do the diagnosis. One bends a family portrait in a mirror with a fish-eye and cuts an extreme close-up of a man's lined forehead straight against an elephant's trunk at the zoo; the other widens the lens until a drawing-room ceiling seems to press down and the corridor walls grow arms. Neither ever announces madness — the room is simply photographed the way the person inside it is experiencing it."),
+  r("the cremator", "citizen kane", "descent", "b", 0.6, 0.44,
+    "The Wellesian kit, twenty-eight years on and pointed at a crematorium clerk: wide-angle lenses that hold a face and the far wall equally sharp, ceilings left in shot, and transitions that slip from one place to another on a matched movement rather than a cut. Herz uses the deep-focus grammar built to make a newspaper magnate look enormous to make a small, courteous man look like something with an appetite."),
+
+  /* ---------- the western moved into snow ---------- */
+  r("the great silence", "mccabe mrs miller", "rhyme", "none", 0.6, 0.44,
+    "The western relocated to snow, so the genre's red rock and dust give way to a white field on which a figure is a small dark mark the weather can simply erase. One opens on a slow pan across an abstraction that only gradually resolves into falling snow; the other ends in a blizzard nobody in the town looks up from. Both let cold reduce every movement to a trudge, and both finish with the gunfight won by the wrong side while the drifts go on filling in."),
+
+  /* ---------- the camera taken off the tripod ---------- */
+  r("the last laugh", "sunrise a song of two humans", "descent", "a", 0.7, 0.5,
+    "The camera cut loose from its tripod — strapped to a bicycle, ridden down in a lift, sent spinning through a revolving glass door — so that a hotel doorman's demotion is delivered as vertigo instead of described in a title card. Three years later, in Hollywood, the same unchained camera walks a husband through a night marsh and then abandons him mid-shot to drift into the woman he is imagining."),
+  r("the last laugh", "mean streets", "rhyme", "none", 0.55, 0.44,
+    "Drunkenness filmed from inside the drunk: rather than watch a man sway, the camera is fixed to him so the room does the swaying — a doorman's hotel tilting and doubling after the wedding party, and fifty years later a young man carried backwards through a red barroom on a rig bolted to his own body while the jukebox keeps time."),
+
+  /* ---------- the fixed frame and domestic labour in real time ---------- */
+  r("amour", "jeanne dielman 23 quai du commerce 1080 bruxelles", "descent", "b", 0.64, 0.42,
+    "The fixed camera that will not look away from housework. Akerman set hers at one unmoving height and let a woman peel potatoes for as long as peeling potatoes takes, so the labour of a life became the film's actual duration. Haneke holds the same head-on, unmoving frame while a nurse washes an eighty-year-old body and the water is audibly too warm. Neither cuts for mercy, and the discomfort you feel is the argument."),
+
+  /* ---------- a colour issued to each woman ---------- */
+  r("cries and whispers", "gate of flesh", "convergence", "none", 0.58, 0.44,
+    "Two films that issue each woman a colour and let the decor carry the psychology. Suzuki dresses four black-market sex workers in flat single hues — red, green, purple, yellow — so a scene can be read as an arrangement of blocks before anyone speaks; Bergman puts three sisters in white against crimson walls and, between scenes, fades not to black but to red. Neither film explains its scheme; both expect you to take it as temperature."),
+
+  /* ---------- the hitman's flat as still life ---------- */
+  r("branded to kill", "le samourai", "convergence", "none", 0.6, 0.44,
+    "The same year, two contract killers whose flats are photographed as still life. Melville drains his to grey-blue and gives the man a single caged bird to watch; Suzuki pans across a minimalist apartment as an architectural tour while a couple have sex inside it, then breaks the space into held shots of a spiral staircase, a frosted pane, a telephone. In both, the professionalism is conveyed entirely by how the objects are framed."),
+
+  /* ---------- reading, filmed as a physical event ---------- */
+  r("fahrenheit 451", "diary of a country priest", "descent", "b", 0.6, 0.44,
+    "Reading filmed as a physical act rather than an interior state. Bresson shows the hand forming the words in the diary while the voice speaks them, so image and speech take separate routes to the same sentence; Truffaut puts the camera over Montag's shoulder as his finger travels under the first lines of David Copperfield, cutting twice to tighter framings and staying at the reader's own pace to the end of the paragraph."),
+
+  /* ---------- the wagon train as a waiting period ---------- */
+  r("meek s cutoff", "nanook of the north", "rhyme", "none", 0.55, 0.42,
+    "The wagon train filmed as an ethnographic waiting period rather than a western. The camera is set low on the riverbank at the settlers' own eye height and left there while the crossing takes as long as a crossing takes; a slow dissolve rather than a cut stands in for a day's walk; and the only rhythm is a squeaking wheel where a score would be. The model is not Ford but Flaherty's patience with people doing hard work in a place indifferent to them."),
+
+  /* ---------- the camera that disobeys the story ---------- */
+  r("children of men", "gomorrah", "convergence", "none", 0.6, 0.46,
+    "Two films that give the camera a will of its own and then let it disobey. Cuaron's stays glued to one man through a cafe bombing and then strays off him to watch a woman carrying her own severed arm out of the smoke; Garrone's prowls at shoulder height through housing-estate stairwells and then, without warning, retreats to an extreme high angle that establishes nothing and leaves you unsure where you had been standing."),
+  r("children of men", "son of saul", "convergence", "none", 0.62, 0.46,
+    "The atrocity kept at the edge of the lens. Nemes locks a shallow-focus, almost square frame to the back of one man's head so the killing behind him is a blur and a sound; Cuaron keeps a take running on one man's shoulder while a war happens in the parts of the shot he is not looking at, blood landing on the lens and staying there. Both make you strain at the periphery, and both treat that straining as the moral content."),
+
+  /* ---------- the building that bends, and the one that refuses to ---------- */
+  r("repulsion", "the shining", "rebuttal", "b", 0.6, 0.4,
+    "Opposite ways to make a building frightening. Polanski deforms his: wide lenses lower the ceilings, walls grow arms, the corridor is longer than it was a shot ago, so you watch a flat bend to fit a mind. Kubrick refuses to deform anything — the hotel's geometry is impossibly stable, corridors meet at clean right angles, the Steadicam glides them at tricycle height without a wobble — and the dread comes from a space that stays perfectly sane while the man in it does not."),
+
+  /* ---------- the ambush of images that arrives too late ---------- */
+  r("letter from an unknown woman", "vertigo", "descent", "a", 0.6, 0.42,
+    "A man is handed a woman's entire life at once and still cannot recognise her. Ophuls ends with remembered images breaking over Stefan while he covers his eyes; Hitchcock ends the same way, a necklace clasped at a throat and a barrage of the film's own earlier shots returning to a man who had to build the woman twice before he could see her once. In both, recognition is staged as an ambush of pictures, and in both it arrives too late to be any use."),
+  r("el", "vertigo", "rhyme", "none", 0.64, 0.44,
+    "A man selects a woman out of a congregation by her feet. The camera finds a pair of high heels on a church floor and tilts slowly up seamed stockings and gloved hands to a face lit from the side, and an entire pathology is settled inside that one movement; five years later another obsessive picks a woman out at a museum, seen from behind, side-lit, hair coiled. Bunuel even opens over a fixed shot inside a bell tower and cuts a first kiss to an exploding dam."),
+
+  /* ---------- the harvest cut as one body ---------- */
+  r("earth", "days of heaven", "descent", "a", 0.6, 0.42,
+    "Harvest filmed as a single accelerating body. Dovzhenko cuts close-ups of faces without ever establishing where they stand in relation to one another, so the graphic matches across the cuts fuse the workers into one organism, and apples, sunflowers and sky carry the same weight as people. Malick runs the method through a Texas wheat field: magic-hour fragments, faces against grain, no geography, and a plot that keeps being interrupted by the field."),
+
+  /* ---------- the man eaten by the machine, twice ---------- */
+  r("modern times", "metropolis", "rebuttal", "a", 0.58, 0.42,
+    "The same image — a worker swallowed by his machine — played at two registers. Lang builds it as a vision: the plant becomes a stone god and men are fed into its mouth in slow monumental montage. Chaplin films the identical idea literally and at music-hall tempo, sending the Tramp through the gears, returning him unhurt and still wrenching, and adding a feeding machine that wipes his mouth for him. The terror is answered by a gag that concedes nothing."),
+
+  /* ---------- history as re-enactment, staged from both ends ---------- */
+  r("the battle of algiers", "the act of killing", "convergence", "none", 0.6, 0.46,
+    "Two films made entirely of re-enactment, built from opposite ends. Pontecorvo casts non-professionals to replay an insurrection they lived through and degrades the image — grain, snap zooms, hand-held — until it forges newsreel that never existed. Oppenheimer hands the camera to the killers and lets them restage their own murders in the genres they love, so the performance stops being evidence about the past and becomes evidence about the men performing it."),
+  r("le petit soldat", "the battle of algiers", "convergence", "none", 0.58, 0.44,
+    "The war neither country would allow on a screen, approached from the two ends of a camera. Godard films it as a first-person notebook: Coutard hand-held in Geneva streets, whip pans that yank your attention off the narrator and onto whoever is watching him, and the torture done in a hotel bathroom with the taps running. Pontecorvo films it as mass reconstruction, grained and zoomed until it passes for archive. One was banned for three years; the other was screened to armies."),
+
+  /* ---------- melodrama's colour: the lamp or the wallpaper ---------- */
+  r("the umbrellas of cherbourg", "all that heaven allows", "rebuttal", "a", 0.6, 0.42,
+    "Melodrama's colour moved off the lamp and onto the wallpaper. Sirk lights his widow apart from her house — autumn leaves through glass, blue snow, her own face caught in the new television — so colour isolates her. Demy paints the walls to match the coats, colour-coordinating people with the rooms they stand in until nobody separates from the decor at all, and the impossibility of leaving is stated by the fact that everyone in shot is the same shade as the room."),
+
+  /* ---------- the countryside rebuilt as a lit set ---------- */
+  r("the night of the hunter", "sunrise a song of two humans", "descent", "b", 0.6, 0.44,
+    "The countryside rebuilt indoors as a lit set. Murnau's marsh and streetcar city were constructed with forced perspective so that a walk could be a state of mind; Laughton and Stanley Cortez put two children in a skiff on studio water under painted stars, the riverbank a cut-out, a drowned woman's hair moving in the weeds. Both use the visible artifice to make a murder look like something read aloud at bedtime."),
+
+  /* ---------- faith, with the face taken away ---------- */
+  r("ordet", "diary of a country priest", "convergence", "none", 0.6, 0.46,
+    "Two films about faith that get there by removing expression. Dreyer, who had pushed the close-up as far as it goes in Jeanne d'Arc, moves the feeling off the face entirely and onto slow unbroken camera circuits of a farmhouse and the change of light on a wall, and puts the dying off-screen. Bresson strips his non-actor of inflection until the face gives nothing and the diary's voice carries what the image withholds. Neither will help you believe."),
+  r("ordet", "rope", "descent", "b", 0.55, 0.36,
+    "The invisible-cut long take, borrowed from a stunt and turned into liturgy. Hitchcock hid his joins behind a passing back so one apartment murder could run in apparent real time and suspense would have nowhere to hide. Dreyer walks the same unbroken circuits round a farmhouse where nothing needs concealing, and the device stops meaning tension and starts meaning patience — a family held in one continuous room, waiting to find out whether God intends to act."),
+
+  /* ---------- the child, the lens, and the voice outside the frame ---------- */
+  r("homework", "the 400 blows", "rhyme", "none", 0.6, 0.44,
+    "A child alone in front of the lens with the adult questioner reduced to a voice from outside the frame. Truffaut sits Antoine before a psychologist we never see and lets him answer straight to camera. Kiarostami seats one schoolboy after another before his own camera to be asked why the homework is not done, keeps himself off-screen, and keeps cutting to an insert of his cameraman aiming a lens into another lens — so the machine doing the asking is on screen even when the man is not."),
+
+  /* ---------- the picture palace, restored and abandoned ---------- */
+  r("goodbye dragon inn", "hugo", "rebuttal", "b", 0.58, 0.44,
+    "Tsai had already filmed the death of the picture palace the hard way: a fixed camera in an emptying Taipei cinema, rain outside, a martial-arts film running to almost nobody, and a final static long shot of the seats held so far past the exit of the last body that the loss becomes something you sit through rather than something you are told. Scorsese answers with restoration — 3D, a camera that never stops moving, Melies rebuilt in colour and handed back to an audience that applauds."),
+  r("goodbye dragon inn", "in the mood for love", "convergence", "none", 0.58, 0.44,
+    "Both films end by staying in a room after the person has walked out of it. Wong's camera glides round Mr Chow as he murmurs into a hole in a temple wall, lets him leave through a doorway, and then simply goes on travelling the empty stone passages, pausing at the sealed hole. Tsai holds one unmoving shot of an auditorium after the audience has gone. In both, the architecture is left holding what the people could not say."),
+
+  /* ---------- time you can walk through ---------- */
+  r("the hour glass sanatorium", "valerie and her week of wonders", "convergence", "none", 0.6, 0.44,
+    "Time made walkable. The camera pushes through a curtain, a door or a wall of hanging cloth and is simply in another year — no dissolve, no title, no change of light to mark the transition. A son walks out of his father's sanatorium into his own childhood and back; a girl walks out of a courtyard into a century that has not happened yet. In both, the fantastic is denied any special lighting, so nothing is ever flagged as the unreal part."),
+
+  /* ---------- changing the decade without a cut ---------- */
+  r("once upon a time in america", "the mirror", "convergence", "none", 0.6, 0.44,
+    "Two films that change decade without letting you see it happen. Leone does it inside the frame: the camera pans off a face to a shop sign and back, and the hair has gone grey and the hoarding behind it belongs to another era, so the cut you were braced for never comes. Tarkovsky does it by casting — one actress plays the mother in the 1930s and the wife in the 1960s, one boy plays the father as a child and the son — so the only marker of a jump is a face you have already met."),
+
+  /* ---------- the empty shot that is not an establishing shot ---------- */
+  r("nobody knows", "equinox flower", "descent", "b", 0.6, 0.44,
+    "The empty shot that is not an establishing shot. Ozu holds a corridor junction longer than any information requires, movement only far off at the end of it, so the cut-away becomes somewhere to breathe rather than somewhere to orient. Koreeda returns again and again to one unremarkable suburban intersection — a vending machine, a payphone, nothing else — and each time it comes back it has collected more of what has happened to the children, until a street corner is doing the work of a funeral."),
+
+  /* ---------- point of audition ---------- */
+  r("sound of metal", "the conversation", "convergence", "none", 0.6, 0.46,
+    "Two films that put you inside a man's hearing rather than behind his eyes. Coppola degrades and re-degrades one recorded sentence until the stress moves and the meaning inverts, so the plot turns on an act of listening you have to perform yourself. Marder cuts the mix to muffle, tinnitus and abrupt silence, and then, when the implants are switched on, to a metallic scrape nothing on screen has prepared you for. In both the sound is not accompaniment, it is the point of view."),
+
+  /* ---------- the atrocity staged for an audience inside the frame ---------- */
+  r("salo or the 120 days of sodom", "a clockwork orange", "rebuttal", "a", 0.6, 0.42,
+    "Two films that stage atrocity as a show with an audience inside the frame, and take opposite positions on your pleasure. Kubrick shoots the violence wide-angle, symmetrical and set to music you enjoy, then straps his protagonist into a cinema seat with his eyes clamped open and makes the cure the punishment. Pasolini removes every handhold: static camera, symmetrical compositions, long takes for the storytellers broken by an unrelenting run of close-ups, and victims given no interior life to enter."),
+
+  /* ---------- the fork in the past, the fork in the future ---------- */
+  r("blind chance", "rashomon", "rebuttal", "a", 0.58, 0.38,
+    "One scene replayed until it splits, forking in opposite directions. Kurosawa replays a killing through four incompatible accounts, so the branch is in the past and what the film withholds is the truth. Kieslowski replays a man running for a train and lets him catch it, miss it, and miss it again — the branch is in the future, each version is lived out in full, and each switch is marked in the film's own material by a shudder of slow motion and the same rising theme, so you feel the fork before you understand it."),
+
+  /* ---------- what the camera costs the person holding it ---------- */
+  r("camera buff", "man with a movie camera", "rebuttal", "a", 0.6, 0.44,
+    "Vertov's cameraman is a hero of the new world, superimposed over rooftops, climbing chimneys, his machine spliced into the machinery of a city that is better for being filmed. Kieslowski hands the same instrument to a factory worker and follows what it actually costs: the camera records what the plant would rather it had not, helps end the career of the manager who commissioned it, and ends his marriage, and the film closes with him turning the lens round onto himself, the only subject he still has the right to."),
+
+  /* ---------- the essay film, and whether the author may be in shot ---------- */
+  r("sans soleil", "the gleaners and i", "rebuttal", "b", 0.58, 0.42,
+    "Two first-person essay films that decide opposite things about the author's body. Marker never appears and never speaks: his images are attributed to a cameraman we never meet and read aloud by a woman quoting his letters, so the I of the film is always at one remove. Varda cannot stop appearing — she turns the little digital camera on her own spotted hand and her grey roots, and makes the ageing of the person holding it part of what the film is gathering."),
+
+  /* ---------- the shot that is a document of its own making ---------- */
+  r("greed", "fitzcarraldo", "rhyme", "none", 0.55, 0.42,
+    "Two films whose central image is a fact rather than an effect. Stroheim took his cast into Death Valley in real summer heat, so the sweat running off them on screen is sweat; Herzog had a three-hundred-ton steamer physically dragged over a hill in Peru rather than build a model of one. In both, what you are watching is a document of the labour it took to obtain it — and in both, the story of the shoot has half-eaten the film that came out of it."),
+
+  /* ---------- Technicolor, with the sickness inside the warmth ---------- */
+  r("leave her to heaven", "bigger than life", "convergence", "none", 0.58, 0.44,
+    "Domestic horror in full Technicolor, where the warmth of the palette is the trap. Both put a beautiful home in advertisement colours — glowing wood, saturated fabrics, sun on water — and let the sickness belong to the person keeping it: a woman rowing steadily in dark glasses while a boy drowns in front of her, a father lit from below in a bathroom mirror deciding that God was wrong. Neither film reaches for a shadow; the light stays perfect while the household comes apart."),
+
+  /* ---------- the film made of stories that hand off to each other ---------- */
+  r("the saragossa manuscript", "the phantom of liberty", "descent", "a", 0.58, 0.42,
+    "A film built entirely out of stories that hand off to each other: a minor figure walks out of one tale and the camera goes with them into the next, which turns out to contain another teller. Has builds his as a nested Spanish spiral that keeps returning its officer to the same gallows; Bunuel, who admired it, builds his as a relay of French sketches with no return at all, dropping each protagonist the moment somebody more interesting crosses the frame."),
+
+  /* ---------- the town, and the image that belongs to nobody ---------- */
+  r("shadow of a doubt", "blue velvet", "descent", "a", 0.6, 0.44,
+    "The clean American town established in postcard shots and then contradicted by one image that belongs to nobody's point of view. Hitchcock keeps dissolving to couples waltzing to the Merry Widow — never marked as anyone's memory, arriving as a bridge between the two Charlies as though the film itself were humming it. Lynch cranes down off the white picket fence into a churning mass of beetles under the lawn. In neither case is the daylight ever disproved; something is simply laid on top of it."),
+
+  /* ---------- the drifter, and the framing that does the judging ---------- */
+  r("il grido", "vagabond", "rhyme", "none", 0.55, 0.42,
+    "Two drifter films in which the framing, not the dialogue, delivers the verdict. Antonioni over-exposes the Po delta until the sky burns out white and sets the horizon high, then reverses the field with pans and cuts across the line, so a man walking is repeatedly enclosed by empty ground. Varda tracks her drifter laterally across winter vineyards in a series of movements that each begin on something else and end by leaving her behind. Neither character is explained; the camera declines to."),
+
+  /* ---------- the monochrome film that hoards its colour ---------- */
+  r("andrei rublev", "eureka", "rhyme", "none", 0.55, 0.4,
+    "The monochrome film that hoards its only colour until the end. Tarkovsky runs three hours of grey Russia and then, with no explanation, moves the camera across Rublev's actual icons in saturated colour, refusing every time to pull back far enough to show a whole one. Aoyama runs three and a half hours of nearly static black-and-white CinemaScope and switches to colour for a single closing shot on a hill. In both, a change of stock is asked to do the work a resolution would normally do."),
+
 ];
 
 /* ---------- assemble ---------- */

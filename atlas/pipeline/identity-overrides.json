@@ -1,7 +1,9 @@
 {
   "schemaVersion": 1,
   "films": {
-    "Q55188": { "filmId": "film-3f2291d64ebbcb25" }
+    "Q55188": {
+      "filmId": "film-3f2291d64ebbcb25"
+    }
   },
   "qidCorrections": [],
   "retiredQidAliases": [
@@ -9,14 +11,6 @@
       "stableSlug": "earth",
       "qid": "Q12280475",
       "reason": "Landed correction: the released misidentification, kept resolvable so links to Dovzhenko's Earth under the old QID still work. Was a qidCorrections entry until the corrected edition became the release."
-    }
-  ],
-  "legacyRetained": [
-    {
-      "stableSlug": "the duel",
-      "qid": "Q17498893",
-      "status": "legacy-release-only",
-      "reason": "Retain the released Chang Cheh identity and authored endpoint without confusing it with Spielberg's Duel; exclude it from the 2,204-film candidate release."
     }
   ]
 }
