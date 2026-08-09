@@ -10887,6 +10887,1096 @@
    "confidence": 0.44,
    "claim": "The hinge where one ruling class hands over to another, filmed as ceremony instead of battle — a court procession met by armed monks, a ball that runs for an hour — with the new men's manners doing the historical argument.",
    "source": "reading"
+  },
+  {
+   "a": "le clan des siciliens",
+   "b": "the godfather",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Both films let the business run perfectly and the family fail: the score goes exactly to plan — an airliner full of jewels hijacked in mid-flight and put down on an unopened stretch of motorway — and the clan is destroyed instead by a domestic betrayal that costs nothing, exposed at a dinner table by a six-year-old repeating what he saw. In both, the patriarch personally sentences a member of his own household, and in both the execution is filed as maintenance.",
+   "source": "reading"
+  },
+  {
+   "a": "le clan des siciliens",
+   "b": "rififi",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The same novelist's underworld fifteen years on and scaled up out of all recognition: Le Breton's earlier gang spend half an hour in silence around one hole in one ceiling, this one runs Rome, Paris and New York and takes an aircraft. What survives the inflation is the failure mode — both crews are undone not by police work but by one member who cannot keep away from a woman, and both films spend their last reel on the tidying rather than the theft.",
+   "source": "reading"
+  },
+  {
+   "a": "castle of sand",
+   "b": "high and low",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Two Japanese procedurals that spend their length on legwork — timetables, dialect maps, doors knocked on in the wrong prefecture — and then hand the ending to the criminal's biography instead of to his capture. One closes on class hatred spoken through prison glass; the other lays the detective's summation over a wordless flashback of a father and son begging their way round the coast, scored by the concerto the murderer is premiering in another building at that same hour.",
+   "source": "reading"
+  },
+  {
+   "a": "castle of sand",
+   "b": "memories of murder",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "The Japanese procedural's faith in shoe leather — one mispronounced syllable chased across the country until it yields a name and a childhood — answered by a Korean film that runs the identical exhaustive method and gets nothing at all, and ends with the detective looking into the lens because there is no one left to look at.",
+   "source": "reading"
+  },
+  {
+   "a": "cannery row",
+   "b": "one from the heart",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Two 1982 American pictures that refused to shoot the real place and built it whole inside a sound stage instead — a Monterey cannery front lit by Sven Nykvist, a Las Vegas strip lit by Vittorio Storaro — so that in both the town is openly a memory of a town rather than a location. Both were received as extravagance rather than as the choice they were, and both films are only legible if you accept the artifice as the point.",
+   "source": "reading"
+  },
+  {
+   "a": "it could happen to you",
+   "b": "network",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.34,
+   "claim": "Both films run on a New York newsroom's power to turn one gesture into a public person: a half-joking promise to split a lottery ticket with a waitress, and an anchorman's on-air threat to shoot himself. One lets the readership it manufactured send its money back and rescue the couple; the other keeps its man alive exactly as long as he performs, and has him shot on camera when the numbers drop.",
+   "source": "reading"
+  },
+  {
+   "a": "arrietty",
+   "b": "rififi",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The first borrowing is staged with a heist's grammar: a pin used as a grappling hook, double-sided tape for the climb, one permitted item per trip, and a rule that being seen even once ends the career. Both sequences run almost without dialogue, both make the tools legible before they are used, and both let one dropped object — a sugar cube, a loosened fitting — do the work of a scream.",
+   "source": "reading"
+  },
+  {
+   "a": "arrietty",
+   "b": "my neighbor totoro",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Two Ghibli films that keep the illness just off screen — a mother in a hospital bed, a boy waiting on heart surgery with poor odds — and put the fantasy precisely in the gap the waiting leaves. Neither creature cures anything; what they offer is a way of passing the time, and both films are careful to end with the child still facing the thing they were facing at the start.",
+   "source": "reading"
+  },
+  {
+   "a": "7 faces of dr lao",
+   "b": "dr strangelove",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Two 1964 American comedies that hand a single actor every face of the crisis: Tony Randall under seven sets of prosthetics as the entire mythology an Arizona town needs in order to see itself, Peter Sellers as three of the men steering a nuclear exchange. In both the multiplication is the argument — there is only one performer available, so the town or the world is being lectured by the same man wearing different heads.",
+   "source": "reading"
+  },
+  {
+   "a": "the pick up artist",
+   "b": "uncut gems",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.36,
+   "claim": "A man who cannot stop talking, where the patter is not the trade but the symptom — rehearsed in a car between approaches, or run down a phone line between deals — and a film that finally converts it into one number that has to come up. Both settle the whole plot at a table with money that was raised by liquidating everything else the man owned.",
+   "source": "reading"
+  },
+  {
+   "a": "no other choice",
+   "b": "monsieur verdoux",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.68,
+   "confidence": 0.5,
+   "claim": "A devoted family man laid off from a respectable job who turns the removal of other people into his new profession, keeps the household in another room and never tells them, and performs the killings as diligent office work — a shortlist drawn up, each candidate researched, the practical problem of the body treated as an administrative task. Both films end by pointing out that the murderer's employers did it at a scale he could not reach.",
+   "source": "reading"
+  },
+  {
+   "a": "no other choice",
+   "b": "parasite",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two Korean films in which a household conspires to take jobs that are already occupied, and in which the wife's decision to go along is the real turn. One removes each incumbent with a forged reference and a peach; the other simply shoots them. Both end with a body under the family's own ground, an improved standard of living, and everybody agreeing not to mention it.",
+   "source": "reading"
+  },
+  {
+   "a": "the truth 2019",
+   "b": "autumn sonata",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "The great-artist mother and the daughter's ledger of grievances, replayed on a film set. Bergman puts his pianist and her daughter in one house for one night and lets the accusation land directly, in the room; Koreeda makes both women act instead, so the reckoning only becomes sayable when the mother is playing somebody else's mother in a science-fiction picture and the daughter, who wrote the scene, is standing off camera feeding her the lines.",
+   "source": "reading"
+  },
+  {
+   "a": "the truth 2019",
+   "b": "still walking",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Koreeda's Japanese households argue by preparing food and let the grievance go unspoken through an entire visit. Moved to Paris with French actors, the accusations arrive out loud within ten minutes — so he builds a film set inside the film and puts the unsayable part back where the rest of his work keeps it, in a scene the characters are only pretending to mean.",
+   "source": "reading"
+  },
+  {
+   "a": "first name carmen",
+   "b": "carmen",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two Carmens a year apart that agree on nothing. Rosi films the opera whole, on location in Andalusia with real singers and the score performed as written; Godard throws the singing out entirely and replaces it with a string quartet visibly rehearsing late Beethoven — stopping, restarting, arguing over a bar — so the music arrives as unfinished work rather than as a number, and the story around it is a bank robbery.",
+   "source": "reading"
+  },
+  {
+   "a": "first name carmen",
+   "b": "bande a part",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Godard's heist rebuilt twenty years on with the amateurism moved from the robbers to the film. The earlier gang are three innocents running the Louvre and dancing in a café; this one uses a film shoot as the cover story until nobody on screen can tell whether they are robbing a bank or shooting a scene about robbing one — and the only people in the building who know exactly what they are doing are four musicians rehearsing in the next room.",
+   "source": "reading"
+  },
+  {
+   "a": "stalag 17",
+   "b": "a man escaped",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two prison films that agree escape is a craft and disagree completely about what it is for. Bresson gives it to one man's hands in near-silence and films the scraping of a door frame as prayer; Wilder gets two escapees shot in the opening minutes and spends the rest of the picture in a barracks run as a black market, where the real hunt is not for the wire but for whoever is selling the plans.",
+   "source": "reading"
+  },
+  {
+   "a": "stalag 17",
+   "b": "sunset boulevard",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Wilder used the same actor twice as a man who says out loud that he is for sale and is despised for the honesty — a screenwriter kept by an older woman in a Sunset mansion, a sergeant running a distillery and a viewing telescope inside a prison camp. Both films make him the only person in the room telling the truth and then charge him for it: one goes out through the tunnel with the man he was accused of betraying, the other face down in the pool he is narrating from.",
+   "source": "reading"
+  },
+  {
+   "a": "fury",
+   "b": "m",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "Lang tried the mob twice. In Berlin the criminals convene their own court and the child-murderer is given a plea good enough to hear; in his first American film the crowd that burned a jail is put in a real dock, and the evidence against them is a newsreel — run, stopped and enlarged frame by frame until each grinning face can be named aloud. The first film asks you to feel a lynch mob's logic from inside; the second makes the camera the witness for the prosecution.",
+   "source": "reading"
+  },
+  {
+   "a": "fury",
+   "b": "blowup",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The photographic image pushed past its own resolution to make it give up a face. One film stops a newsreel of a lynching in open court and blows it up until every bystander is identifiable; the other enlarges a park photograph until the body dissolves into grain and the photographer is left with nothing he can show anyone. One trusts the negative to convict, the other discovers it cannot.",
+   "source": "reading"
+  },
+  {
+   "a": "the other side of the wind",
+   "b": "8",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The blocked director surrounded by people who want something from him, filmed from opposite sides of his skull. Fellini gives Guido an interior — daydream, harem, childhood — and lets us live in it; Welles denies Hannaford one entirely, assembling the whole birthday out of the guests' own cameras in a dozen film stocks, gauges and aspect ratios, so the man exists only as footage other people shot of him and never once gets a scene alone.",
+   "source": "reading"
+  },
+  {
+   "a": "the other side of the wind",
+   "b": "citizen kane",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Welles built the same machine at both ends of his career and reversed its polarity. Kane is a man assembled after death out of newsreel and the accounts of people who knew him, and the film keeps promising a key; Hannaford is assembled while still alive out of the party guests' handheld cameras, and there is no key, no reporter and no last word — only the footage, and the fact that everyone pointing a camera at him wants to become him.",
+   "source": "reading"
+  },
+  {
+   "a": "let s hope it s a girl",
+   "b": "the leopard",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The Italian noble house filmed twice as it goes under. Visconti gives the prince a ballroom and an hour of elegy and lets the class die with its dignity intact; Monicelli takes the same decaying estate, kills the count off the side of a cliff in a vintage convertible while a senile uncle releases a pigeon, and ends with the household — daughters, niece, housekeeper, the dead man's creditor-mistress — sitting down to dinner and deciding to keep the place by farming it.",
+   "source": "reading"
+  },
+  {
+   "a": "let s hope it s a girl",
+   "b": "my friends",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Monicelli's Tuscany twice, with its men and without them. In the earlier film five middle-aged friends organise their whole lives around elaborate pranks and staying out of the house, and the women are an off-screen nuisance; here the men are dead, senile, bankrupt or asking for money, the camera never leaves the villa they failed to keep, and the joke lands the other way round — the household that survives is the one they spent their lives avoiding.",
+   "source": "reading"
+  },
+  {
+   "a": "single white female",
+   "b": "the tenant",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The lease as the mechanism of possession: someone moves into a space still shaped by its previous occupant and is gradually filled in by them. Polanski's tenant inherits a dead woman's flat, then her dress and wig, then her fall; Schroeder's roommate inherits a living woman's haircut first, then her wardrobe, then her name in a bar and the man who answers to it. In both the transformation is done entirely through hair and clothes, and in both the other residents notice nothing.",
+   "source": "reading"
+  },
+  {
+   "a": "single white female",
+   "b": "3 women",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Altman's Pinky copies her roommate's diary, signature and name until the older woman is simply displaced, and lets the swap happen in desert dream logic that is never explained. Schroeder puts the identical theft into an apartment thriller and gives it a mechanism you can buy — a salon appointment, a duplicate dress, a cut key — which makes the copying legible and turns the ending into a chase down a basement stair.",
+   "source": "reading"
+  },
+  {
+   "a": "tokyo ga",
+   "b": "tokyo story",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.7,
+   "confidence": 0.52,
+   "claim": "A film that goes to Tokyo looking for the city in Ozu's films and cannot find it — pachinko halls, rooftop driving ranges, wax food being moulded for restaurant windows — and finds the ancestor instead in an old man and a piece of equipment: Ozu's cameraman setting up the special low tripod, showing exactly how far off the floor the camera sat for thirty years, and then breaking down.",
+   "source": "reading"
+  },
+  {
+   "a": "tokyo ga",
+   "b": "sans soleil",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Two foreign essayists in the same Tokyo within a year of each other, both assembling the city out of pachinko parlours, sleeping commuters and ceremonies performed over broken objects — and dividing on what they came for. Marker never claims to be looking for anything he could fail to find; Wenders arrives with one dead father to locate and spends the film admitting the search is not going to work.",
+   "source": "reading"
+  },
+  {
+   "a": "tokyo ga",
+   "b": "lightning over water",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Wenders filmed his cinematic fathers twice in five years: once at a bedside, with a dying director staging his own last scene for the camera and the film unable to settle whether that is collaboration or extraction; once at the grave, with the director long dead and only a surviving cameraman and a tripod left to interview. The first cannot look away and the second has nothing left to look at.",
+   "source": "reading"
+  },
+  {
+   "a": "the professional",
+   "b": "le samourai",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The French professional walks knowingly into the ambush his own side has arranged, and the film hands the last word to the music rather than to him: Melville's hitman raises an unloaded gun in a nightclub so the police will fire, Lautner's agent completes the assassination he was recalled from, reaches the helicopter and is shot in the back on the tarmac while the score arrives in place of a line. Both suicides are filed as competence.",
+   "source": "reading"
+  },
+  {
+   "a": "war and peace",
+   "b": "napoleon",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The same emperor filmed from opposite ends of the telescope. Gance builds his entire apparatus around Bonaparte — cameras strapped to horses and sledges, the frame finally opening into three panels so one man can fill the horizon; Vidor keeps him a small distant figure crossing a field with a spyglass, and gives the wide screen instead to a bespectacled civilian in a pale coat wandering through Borodino with no idea what he is looking at.",
+   "source": "reading"
+  },
+  {
+   "a": "pret a porter",
+   "b": "nashville",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Altman's ensemble machine pointed twice at an industry that can absorb anything: a country-music week that ends with the crowd singing through an assassination, and a fashion week that ends with a designer sending every model down the runway with no clothes on. In both the outrage is scheduled as the finale, and in both the show finishes and the applause is real.",
+   "source": "reading"
+  },
+  {
+   "a": "pret a porter",
+   "b": "blowup",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "A death that refuses to become a plot, inside a business too busy photographing itself to follow it up. Antonioni's photographer enlarges a corpse out of a park and then loses it; Altman opens by choking the head of the fashion council to death in the back of a car and lets the murder inquiry dissolve into fittings, parties and a hotel room. In both, the shoot carries on, and nobody with the power to care does.",
+   "source": "reading"
+  },
+  {
+   "a": "empire of passion",
+   "b": "in the realm of the senses",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.7,
+   "confidence": 0.5,
+   "claim": "Ōshima's two films with the same actor, two years apart, take the same crime in opposite directions. The first seals the couple into a rented room and lets the outside world — an army marching past the window — become genuinely irrelevant; the second has them murder the husband and stay in the village, where the world comes for them in the form of neighbours' questions, a patient policeman, and a dead man who keeps turning up pulling his own rickshaw.",
+   "source": "reading"
+  },
+  {
+   "a": "empire of passion",
+   "b": "the postman always rings twice",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two lovers kill the husband and are then finished off by the thing they cannot dispose of. In Rafelson's it is suspicion — each begins to read the other as the next candidate; in Ōshima's it is literal, a murdered rickshaw man still arriving for fares, so the guilt is not a private mental state but a passenger the whole village can see and gossip about.",
+   "source": "reading"
+  },
+  {
+   "a": "terminal station",
+   "b": "brief encounter",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The affair confined to a railway terminus and timed by the departure board: two films in which the lovers are never once alone, because every scene has to be played in a public concourse under other people's eyes, and it is the clock rather than any moral argument that ends it. Lean's couple have a refreshment room and a Rachmaninoff record; De Sica's have the whole of Roma Termini, a goods wagon and a police office, and are caught.",
+   "source": "reading"
+  },
+  {
+   "a": "terminal station",
+   "b": "bicycle thieves",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "The same director and the same screenwriter running neorealism's method against Hollywood's, five years apart. The earlier film uses non-professionals in real streets so that nothing can look staged; this one keeps the real station and the real crowd and puts Jennifer Jones and Montgomery Clift at the centre of it — and the method turns on itself, because a terminus full of genuine strangers is exactly what makes two stars look like a set-up.",
+   "source": "reading"
+  },
+  {
+   "a": "champagne",
+   "b": "i was born but",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Two late-silent comedies in which a father stages his own standing for a child, and it collapses in opposite directions. Ozu's boys watch home-movie footage of their father clowning for his boss and lose him on the spot; Hitchcock's millionaire invents the loss of the family fortune to teach his daughter a lesson, watches her take a job in a restaurant and turn out to be good at it, and when the lie is exposed it is the father who comes out smaller.",
+   "source": "reading"
+  },
+  {
+   "a": "chinese roulette",
+   "b": "last year at marienbad",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "A great house, a camera that never stops gliding past glass and mirrored surfaces, and a game with rules announced aloud that turns out to be the film's own structure. Resnais's guests play a matchstick game the narrator always wins; Fassbinder's are assembled for a weekend by the disabled child who arranged the whole gathering and made to play a guessing game about each other — and the answer she extracts about her mother is the only thing anybody in either film says plainly.",
+   "source": "reading"
+  },
+  {
+   "a": "chinese roulette",
+   "b": "the exterminating angel",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.54,
+   "confidence": 0.38,
+   "claim": "Buñuel's guests physically cannot leave the drawing room; Fassbinder's can leave whenever they like and stay anyway, because the game is more interesting than the door. The same joke about polite society, turned from a trap into an experiment its subjects volunteer for and then cannot stop running.",
+   "source": "reading"
+  },
+  {
+   "a": "one hundred and one nights",
+   "b": "sunset boulevard",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.66,
+   "confidence": 0.48,
+   "claim": "The ruined star in the big house with the devoted majordomo and a young hireling engaged to keep them company — except Varda's centenarian is not a forgotten actress but cinema itself, played by Piccoli under a hundred years of make-up, memory failing, mistaking himself for other people, while real stars queue at the gate to be received. Wilder's mansion is a mausoleum; Varda's is a birthday party that keeps tipping over into a diagnosis.",
+   "source": "reading"
+  },
+  {
+   "a": "one hundred and one nights",
+   "b": "goodbye dragon inn",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "Cinema's hundredth birthday marked twice and incompatibly. One is a château outside Paris where Depardieu, Deneuve, Delon and Mastroianni arrive in person to pay court to a century personified as a rich old man with a fortune to leave; the other is a leaking Taipei picture palace on its final night, three people in the auditorium and nobody to say goodbye to. One assumes cinema is a person with a guest list; the other films the building and lets the absence do the work.",
+   "source": "reading"
+  },
+  {
+   "a": "one hundred and one nights",
+   "b": "the other side of the wind",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Two films that hire the industry to play itself around a dying patriarch of cinema: Welles fills a Hollywood birthday with real directors and critics circling a man whose picture cannot be finished, Varda fills a château with stars paying court to a hundred-year-old who is cinema in person. In both, the young are there for the estate — one to get a feature completed, one to get a short film funded — and in both the old man's memory is the only thing anybody actually wants.",
+   "source": "reading"
+  },
+  {
+   "a": "death rides a horse",
+   "b": "once upon a time in the west",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "The revenge western built on an image the film refuses to complete: a massacre witnessed in childhood returns in short flashes drenched in red, each one giving up one more identifying detail — a skull tattoo, an earring, a scar on the throat — so the plot is an act of recognition rather than a manhunt, and the memory only runs to the end at the moment the last man is killed. Leone did it a year later with a harmonica and a brother standing on a man's shoulders.",
+   "source": "reading"
+  },
+  {
+   "a": "death rides a horse",
+   "b": "for a few dollars more",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Lee Van Cleef twice inside two years as the same figure: the older gunman who attaches himself to a younger one on the same trail and conceals until very late that he has his own account to settle with the men they are both hunting. In both films the partnership is really a competition over who has the better right to the killing, and in both the younger man has to be told to stand down.",
+   "source": "reading"
+  },
+  {
+   "a": "legend 2015",
+   "b": "dead ringers",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "One actor doubled so that the film's central relationship is a performance played opposite himself, and both films make the technically hardest shot — the two brothers sharing a frame, touching, fighting — carry the emotional weight. In both, the twin who cannot function is the one who destroys the pair, and the functioning one's tragedy is that leaving was always available to him and he never takes it.",
+   "source": "reading"
+  },
+  {
+   "a": "legend 2015",
+   "b": "sunset boulevard",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Both films are narrated by someone who is already dead, and both use it to compromise the audience. Wilder's screenwriter speaks from the pool he is floating in, so the cynicism is retrospective and paid for; Helgeland's narrator is the wife the film shows being ground down and killed, which means the East End glamour is being sold to you in the stolen voice of its principal victim.",
+   "source": "reading"
+  },
+  {
+   "a": "a confucian confusion",
+   "b": "vive l amour",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.64,
+   "confidence": 0.46,
+   "claim": "Taipei in 1994 from two directors at once, and the two films are exact negatives. Yang's is nothing but talk — a company, a play, a television show about happiness, every conversation an argument about whether anyone's feeling is genuine or a market position; Tsai's is almost wordless, three people circling an empty apartment none of them has a right to be in, never managing to say anything at all. Both are about a city where property and careers have replaced intimacy: one plays it as overtalk, the other as silence.",
+   "source": "reading"
+  },
+  {
+   "a": "a confucian confusion",
+   "b": "yi yi",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.45,
+   "claim": "Yang wrote the same city twice. The farce version gives young professionals in glass offices three days to accuse each other of faking sincerity, and keeps everyone at the speed of an argument; six years later he slows the identical material to one family's year and hands the thesis to a child with a camera, photographing the backs of people's heads so they can see the half of themselves they never can.",
+   "source": "reading"
+  },
+  {
+   "a": "scattered clouds",
+   "b": "a separation",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.45,
+   "claim": "A death converted into a sum of money, and a film that watches what the transaction does to the people at either end of it. Naruse's salaryman kills a man in a road accident, is transferred to the provinces and pays the widow compensation in instalments; she takes it, then takes work at the inn where he is staying, and the payments become the only language the two of them are permitted for something neither will name. Farhadi's families argue in stairwells over whether a sum can settle a death; Naruse's answer is that it can, and that this is the horror.",
+   "source": "reading"
+  },
+  {
+   "a": "scattered clouds",
+   "b": "when a woman ascends the stairs",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "Naruse's women are always doing arithmetic. A Ginza bar hostess enters her feelings and her debts in the same ledger; a widow receives her grief as an envelope from the man who killed her husband. In both films money is not the obstacle to the romance but the medium it is conducted in, and the tenderness is in how precisely the film keeps count.",
+   "source": "reading"
+  },
+  {
+   "a": "frenzy",
+   "b": "peeping tom",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Two London murder films by the two directors who taught audiences to look, solving the same problem in opposite directions. Powell bolts the camera to the killer's own tripod and makes you watch down the blade; Hitchcock, twelve years later, walks his camera up a staircase to a closed door and then reverses all the way back down, out of the building and into the ordinary noise of a Covent Garden street while the murder happens behind him. The most famous shot in the film is a refusal to look, made by the man who invented the habit.",
+   "source": "reading"
+  },
+  {
+   "a": "frenzy",
+   "b": "m",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "A city turned into a manhunt, with the wrong man caught inside it. Lang puts police and underworld on the same search and lets a crowd's certainty nearly destroy an innocent in the street; Hitchcock hangs the killings on a man whose real offence is losing his temper in public, and gives the actual murderer a legitimate trade and a stall in a produce market — so the corpse travels across London in a sack of potatoes, in daylight, on a lorry nobody looks at twice.",
+   "source": "reading"
+  },
+  {
+   "a": "tess",
+   "b": "the life of oharu",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Both are built as a descending ladder of households — a girl sent to a rich family to trade on a name her father has just discovered he owns, a court lady sold down one rung at a time — and both keep the camera far enough back that her ruin registers as a change of address rather than as a scene played for grief.",
+   "source": "reading"
+  },
+  {
+   "a": "tess",
+   "b": "barry lyndon",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "The countryside filmed as landscape painting in available light, figures kept small in the field, while the entire plot underneath is a question of whose name will be accepted by whom. In both, the beauty of the frame is what makes the class machinery look like weather rather than like something people decided.",
+   "source": "reading"
+  },
+  {
+   "a": "a geisha",
+   "b": "tess",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "A young woman is put into a richer house to solve a family's money problem — one sent to claim kinship with the branch that owns the name her father has adopted, one asking to be trained because her mother is dead and her father will not pay — and both films keep the ledger on screen, so what is done to her there arrives as a line in the same account rather than as private misfortune.",
+   "source": "reading"
+  },
+  {
+   "a": "a geisha",
+   "b": "working girl",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The apprenticeship that quietly includes being handed to a client: a trainee whose debut is financed by a loan the teahouse expects a businessman to recover in kind, and a secretary sent out in a limousine with a customer who has cocaine and expectations. Both make her refusal cost somebody money, and both keep the arithmetic visible.",
+   "source": "reading"
+  },
+  {
+   "a": "with beauty and sorrow",
+   "b": "persona",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "A young woman attaches herself to an older artist, sleeps with the man who ruined her and then with his son, and carries out a revenge the older woman has never been willing to want. Made a year apart, in Kyoto gardens and on a Baltic shore, both end unable to say whose feeling has just been acted on.",
+   "source": "reading"
+  },
+  {
+   "a": "with beauty and sorrow",
+   "b": "anatomy of a fall",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "The bestseller made out of a lover's catastrophe, produced later as evidence: a novel written from a teenage girl's miscarriage and typed up by the writer's own wife, and a novel read aloud in court by a prosecutor as proof of what its author was capable of.",
+   "source": "reading"
+  },
+  {
+   "a": "something s gotta give",
+   "b": "with beauty and sorrow",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Turning the affair into a hit is the same device on both sides of the world, with the authorship swapped. There, a novelist mines a teenager's ruined pregnancy for a bestseller his wife types up. Here the woman writes the play, puts the man who walked out in it, and he has to buy a ticket and sit in the audience recognising himself.",
+   "source": "reading"
+  },
+  {
+   "a": "something s gotta give",
+   "b": "all that heaven allows",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "Sirk's scandal — a woman of a certain age wanting the wrong-aged man, judged by her grown children and consoled with a television set — replayed with every objection dropped: the daughter's protest lasts one scene, the fatal illness is moved into the man's chest, and the woman gets a writing desk and a hit instead of the console.",
+   "source": "reading"
+  },
+  {
+   "a": "ulysses",
+   "b": "ugetsu",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "Two films a year apart in which a man is kept in a beautiful house by a woman who is not human while the wife he left holds his home together, and in both the film is shaped toward the homecoming rather than the enchantment — the marvels are what has to be got through.",
+   "source": "reading"
+  },
+  {
+   "a": "ulysses",
+   "b": "vertigo",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.38,
+   "claim": "One actress plays both the wife waiting at the end of the voyage and the sorceress who detains him halfway, so what keeps him from home and home itself wear the same face — the doubling a later film would build an entire plot out of, one woman made to play two.",
+   "source": "reading"
+  },
+  {
+   "a": "panic room",
+   "b": "night of the living dead",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.44,
+   "claim": "Romero's siege turns on one argument — barricade the cellar or hold the ground floor — and he settles it by killing everyone who chose wrong. Here the strongest room in the house is the one the intruders have come for, so the safe place and the prize occupy the same few cubic metres and hiding is not a strategy but the thing that loses.",
+   "source": "reading"
+  },
+  {
+   "a": "autumn almanac",
+   "b": "panic room",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The camera takes up positions no person in the building could occupy — up through the glass of the floor, down between the joists, out through a keyhole — so the flat and the brownstone stop being places to live in and become cutaway diagrams with people stuck inside them.",
+   "source": "reading"
+  },
+  {
+   "a": "autumn almanac",
+   "b": "the exterminating angel",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "A handful of people in one flat who never manage to leave it, filmed until the apartment's own logic outranks anybody's intentions: one household is held by a rule the film refuses to explain, the other by a mother's money, a lease and a lodger, which bind just as hard.",
+   "source": "reading"
+  },
+  {
+   "a": "help me",
+   "b": "contempt",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The husband who gives his wife away in principle and cannot survive it in fact: one keeps insisting he does not mind while manoeuvring her into the producer's car, the other announces at the wheel that he is modern enough to permit an affair provided they discuss it openly, and ends up beating her on a beach. Both hand that argument far more running time than any plot needs.",
+   "source": "reading"
+  },
+  {
+   "a": "help me",
+   "b": "jules and jim",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.55,
+   "confidence": 0.36,
+   "claim": "Truffaut treats the shared arrangement as a genuine invention that only time defeats. Here the same modern tolerance is announced by a husband as evidence of his own sophistication, and lasts exactly as long as it stays hypothetical — the first real Wednesday concert ends it.",
+   "source": "reading"
+  },
+  {
+   "a": "honey don t",
+   "b": "the maltese falcon",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Huston's detective is propositioned by everyone in the picture and answers with a speech about what a man has to do. This one is propositioned by everyone too — the homicide cop asks twice, in the same words — and answers 'I like girls' every time, so the running gag is also the genre's romantic engine being quietly switched off.",
+   "source": "reading"
+  },
+  {
+   "a": "honey don t",
+   "b": "the night of the hunter",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "The preacher as predator with the congregation as his supply: one is a lone hunter with scripture on his knuckles, the other runs a franchise — four numbered virtues, fellowship conducted in bed, a narcotics route underneath — and in both, the town's willingness to trust a collar is the mechanism rather than the disguise.",
+   "source": "reading"
+  },
+  {
+   "a": "there was a father",
+   "b": "paris texas",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Reconciliation staged as matched movement instead of speech: a father and son casting fishing lines into a river in the same rhythm, and a father and son walking parallel down opposite sides of a road until the boy falls into his step. In both, the warmest scene in the film contains no admission of anything.",
+   "source": "reading"
+  },
+  {
+   "a": "there was a father",
+   "b": "tokyo story",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.64,
+   "confidence": 0.5,
+   "claim": "Ozu filmed the same separation twice, on either side of a war. In 1942 the son who wants to give up his teaching post to live near his father is told his duty is where he was placed, and the film agrees with the father. Eleven years later, children who stayed at their posts while the parents came to visit are the tragedy.",
+   "source": "reading"
+  },
+  {
+   "a": "the confession",
+   "b": "a man escaped",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.62,
+   "confidence": 0.46,
+   "claim": "Bresson's cell is a workshop: every sound, hour and scrap of metal is inventory, and the prisoner's close attention is what gets him out. Here the identical attention — paces counted, hours without sleep, the walking, the bread — is the machinery taking a man apart, and there is nothing in the room to build.",
+   "source": "reading"
+  },
+  {
+   "a": "the confession",
+   "b": "the passion of joan of arc",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Both films end at a signature. Dreyer's girl puts her name to the abjuration, takes it back, and burns. The party man signs everything, performs it word-perfect in court, survives, and is left to go on living as the author of a text he does not believe.",
+   "source": "reading"
+  },
+  {
+   "a": "the cowboys",
+   "b": "shane",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.64,
+   "confidence": 0.48,
+   "claim": "Shane sends the boy indoors and rides off carrying the killing so the child will not have to. Here the man is shot dead two-thirds of the way through and the schoolboys finish the cattle drive and the revenge themselves, with the film staging their first killings as the completion of the education he began.",
+   "source": "reading"
+  },
+  {
+   "a": "the patriot",
+   "b": "unforgiven",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The retired killer whose children have never seen what he is: both keep the man's reputation offstage as an atrocity nobody will describe, then stage the return of the skill as something appalling to witness rather than thrilling — here, hatchet work done in front of his two youngest sons.",
+   "source": "reading"
+  },
+  {
+   "a": "the patriot",
+   "b": "the battle of algiers",
+   "type": "rebuttal",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Both put the audience with irregulars against a professional army, then split on the only decision that matters. One gives its militia an atrocity to avenge — a church filled with townspeople and set alight — so that everything they do afterwards reads as clean. The other sends its own sympathetic heroine into a milk bar with a bomb and holds on the faces of the people about to be killed.",
+   "source": "reading"
+  },
+  {
+   "a": "romeo and juliet",
+   "b": "hamlet",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "Two attempts to stop Shakespeare sounding like recital, from opposite directions. One casts actors the age of the characters and puts them in the right century, sweating in real streets, so the verse comes out of bodies with nothing to do but feel it. The other keeps every word and moves it into a Manhattan of glass towers and camcorders, where the same lines are spoken by someone with nowhere to put a sword.",
+   "source": "reading"
+  },
+  {
+   "a": "romeo and juliet",
+   "b": "mean streets",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.4,
+   "claim": "Street fighting that begins as showing off for an audience and turns fatal because nobody can stop performing — a word nobody will let go of, a duel fought like horseplay — and both films keep the comic pitch running straight through the killing, so the death arrives while everyone on screen is still laughing.",
+   "source": "reading"
+  },
+  {
+   "a": "my voyage to italy",
+   "b": "the beaches of agnes",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "Two directors writing an autobiography out of film itself and choosing opposite places to stand: one never appears, narrating a childhood by playing four hours of other people's pictures the way his family watched them on a small television; the other is in nearly every shot, walking backwards through her own past on a beach she has had dressed with mirrors.",
+   "source": "reading"
+  },
+  {
+   "a": "the beaches of agnes",
+   "b": "8",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The autobiography staged instead of recalled: the maker walks through purpose-built reconstructions of their own past with the apparatus left in shot — a ring holding everyone he has ever known, a beach dressed with mirrors and a room built out of old film cans — so the film's real subject becomes the difficulty of assembling it.",
+   "source": "reading"
+  },
+  {
+   "a": "life and nothing more",
+   "b": "the beaches of agnes",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "Two directors who put themselves inside their own films and pick opposite methods: one appears in every shot and rebuilds her past on a beach; the other hires an actor to drive his car and be him, so the self-portrait is delivered by a stand-in and the director exists only as the person the camera is sitting beside.",
+   "source": "reading"
+  },
+  {
+   "a": "working girl",
+   "b": "the crowd",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "One film cranes up the face of an office tower, in at a window and along a hall of identical desks to find its man at one of them. The other ends by starting on the woman who has finally won a door of her own and pulling back until her lit window is one of ten thousand in the block. The same shot run in opposite directions, arriving at the same verdict.",
+   "source": "reading"
+  },
+  {
+   "a": "the kid",
+   "b": "the 400 blows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "The child removed by the authorities in the back of a vehicle, filmed from inside on his face as the street pulls away: one reaches back over the tailgate and is chased across the rooftops to get him back, the other says nothing at all while the lights of Paris go past.",
+   "source": "reading"
+  },
+  {
+   "a": "the kid",
+   "b": "bicycle thieves",
+   "type": "descent",
+   "from": "a",
+   "strength": 0.6,
+   "confidence": 0.42,
+   "claim": "The man and the small boy working a hostile city as a single economic unit — the child who breaks the windows the adult is paid to mend, the child who watches the adult try to steal a bicycle — and in both, the man's humiliation is played on the boy's face rather than his own.",
+   "source": "reading"
+  },
+  {
+   "a": "tom sawyer",
+   "b": "the night of the hunter",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The American river as the only jurisdiction a child can reach: boys who have watched a murder pushing a raft out onto the Mississippi while the town below tries the wrong man for it, and children drifting down the Ohio with the killer still singing somewhere behind them.",
+   "source": "reading"
+  },
+  {
+   "a": "tom sawyer",
+   "b": "the third man",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.36,
+   "claim": "A funeral held for someone who is not dead: boys slipping into the back of the church to hear what the town says about them, and a racketeer who supplied a substitute corpse so the mourners would let him go on working. In both, the service is where the film weighs what the missing man was actually worth.",
+   "source": "reading"
+  },
+  {
+   "a": "flight of the red balloon",
+   "b": "the 400 blows",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.5,
+   "confidence": 0.36,
+   "claim": "The Paris child who has learned to run his own day around the adult who is the one actually in crisis — the film keeps to his height, so the parent's shouting arrives the way weather does, from somewhere above the top of the frame.",
+   "source": "reading"
+  },
+  {
+   "a": "the sucker",
+   "b": "touch of evil",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Welles opens by loading a car with something its occupants know nothing about and holds the shot until crossing a border is unbearable. This runs the identical device for ninety minutes as farce: a Cadillac packed with gold, heroin and a diamond driven across Europe by the one man in the film who has not been told, so every customs post is a punchline instead of a detonation.",
+   "source": "reading"
+  },
+  {
+   "a": "the sucker",
+   "b": "the wages of fear",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.55,
+   "confidence": 0.36,
+   "claim": "Clouzot's drivers know exactly what is in the truck, and every metre of road is calculated against that knowledge. Here the cargo is just as lethal and the driver has simply not been informed, so the same journey becomes weather he passes through — the road-cargo thriller with the knowledge taken out of the man at the wheel and given entirely to us.",
+   "source": "reading"
+  },
+  {
+   "a": "tetro",
+   "b": "rumble fish",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.62,
+   "confidence": 0.5,
+   "claim": "Coppola's brother picture run again twenty-six years later: a younger boy arriving in a city to attach himself to an older brother who has withdrawn into his own legend, shot in high-contrast black and white with colour held back for whatever is remembered, dreamed or performed.",
+   "source": "reading"
+  },
+  {
+   "a": "tetro",
+   "b": "la luna",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The celebrated musician as the parent who uses up all the air in the house: an opera singer in Rome teaching her son to sing while he comes off heroin, and a conductor whose son writes his own work in mirror script, so the child's art is built to be unreadable by the parent it is aimed at.",
+   "source": "reading"
+  },
+  {
+   "a": "the stranger",
+   "b": "teorema",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "The visitor who arrives in a comfortable household and, largely by declining to explain himself, turns the family's own assumptions into the film's subject: one takes each of them to bed in turn, the other simply refuses to produce proof of who he is — and in both it is the hosts, not the guest, who come apart.",
+   "source": "reading"
+  },
+  {
+   "a": "the stranger",
+   "b": "nanook of the north",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The ethnographic frame turned around. A camera goes north and has a family stage their own daily life for an audience that will never meet them; here the anthropologist comes back from exactly that kind of fieldwork into a Calcutta drawing room and is cross-examined for a whole film by the educated class that normally does the examining.",
+   "source": "reading"
+  },
+  {
+   "a": "without pity",
+   "b": "bicycle thieves",
+   "type": "rebuttal",
+   "from": "a",
+   "strength": 0.58,
+   "confidence": 0.4,
+   "claim": "The same wrecked Italy in the same year, lit two ways. De Sica keeps to daylight errands and refuses his film a plot; here the identical locations and untrained faces are lit like an American crime picture, so the ruins acquire shadows, a pistol, and a couple with somewhere to drive.",
+   "source": "reading"
+  },
+  {
+   "a": "without pity",
+   "b": "paisa",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.42,
+   "claim": "The one relationship post-war Italian cinema could film and Hollywood could not — a Black American soldier and an Italian who owns nothing — arriving twice within two years: once as a single episode that ends when he sees the cave the boy who robbed him lives in and walks away, and once stretched to a whole film, with a stolen car and a cliff at the end of it.",
+   "source": "reading"
+  },
+  {
+   "a": "flight of the red balloon",
+   "b": "playtime",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Paris filmed through glass, so the reflection of the street lies on top of the room's interior and you are never allowed to settle on one plane: a monument that exists only in the swing of a glass door, a balloon that appears in a window above a woman shouting into a telephone.",
+   "source": "reading"
+  },
+  {
+   "a": "peau d ane",
+   "b": "valerie and her week of wonders",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Two 1970 films that keep the incest inside the fairy tale rather than cleaning it out — a girl pursued by her own father, a girl pursued by the elder who calls himself her grandfather — and both stage it in flat pastel daylight with talking animals and magic rings, so nothing is ever marked as the unreal part.",
+   "source": "reading"
+  },
+  {
+   "a": "peau d ane",
+   "b": "black moon",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The machinery of the present left standing inside the fairy tale with no comment offered: a fairy godmother who arrives by helicopter and a prince who quotes a poet born three centuries after him; a girl who drives a car through a war into a house where the unicorn talks and the old woman upstairs works a radio.",
+   "source": "reading"
+  },
+  {
+   "a": "hail mary",
+   "b": "the passion of joan of arc",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "A young woman whose body is the site of a claim nobody else can check, held in close-up while the men around her — clerics, a doctor, the man engaged to her — demand that she account for it in their vocabulary, and the film gives them nothing to work with.",
+   "source": "reading"
+  },
+  {
+   "a": "hail mary",
+   "b": "teorema",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.4,
+   "claim": "The sacred dropped into a completely secular modern setting with no change of register to help you — no lighting cue, no music: the annunciation delivered by a man who turns up in a taxi at a filling station, the visitation conducted in the spare bedroom of a Milanese villa.",
+   "source": "reading"
+  },
+  {
+   "a": "ogro",
+   "b": "rififi",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "Political assassination filmed as a heist: weeks of tunnelling under a Madrid street measured out in sacks of soil, a rented basement, and the fear of a sound carrying up through the pavement — the same near-wordless attention to hands and tools that a safe-cracking sequence runs on, pointed at a car instead of a jeweller's.",
+   "source": "reading"
+  },
+  {
+   "a": "ogro",
+   "b": "the war is over",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.56,
+   "confidence": 0.42,
+   "claim": "Two films about clandestine work against the same regime, thirteen years apart. One follows a man carrying forged papers into Spain who privately knows his organisation's certainties expired years ago; the other is the operation those certainties finally produced, with a coda in which the survivors cannot agree what it was for.",
+   "source": "reading"
+  },
+  {
+   "a": "welcome to dongmakgol",
+   "b": "seven samurai",
+   "type": "descent",
+   "from": "b",
+   "strength": 0.6,
+   "confidence": 0.44,
+   "claim": "Kurosawa's closing arithmetic run again: the fighting men are wanted by nobody, are fed by the village, die defending it, and the farmers who never asked for them go on planting. Here the swords are a North Korean squad and a South Korean squad, who have to be marooned together and disarmed by the villagers' total ignorance of the war before either side is any use to anyone.",
+   "source": "reading"
+  },
+  {
+   "a": "welcome to dongmakgol",
+   "b": "zabriskie point",
+   "type": "rhyme",
+   "from": "none",
+   "strength": 0.52,
+   "confidence": 0.38,
+   "claim": "The explosion filmed as a slow-motion shower of plenty — a desert house and the contents of its refrigerator coming apart against blue sky, a village's entire winter store of corn falling back to earth as popcorn — with the image at its most beautiful exactly where the damage is worst.",
+   "source": "reading"
+  },
+  {
+   "a": "life and nothing more",
+   "b": "bicycle thieves",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.44,
+   "claim": "The catastrophe interrupted by an appetite the film refuses to treat as a distraction: a father spending the last of his money on a restaurant meal for his son, and survivors two days after an earthquake raising an aerial over the tents so they can watch the World Cup. In both, the ordinary want is offered as the answer rather than as relief from it.",
+   "source": "reading"
+  },
+  {
+   "a": "nazarin",
+   "b": "diary of a country priest",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.6,
+   "confidence": 0.46,
+   "claim": "The priest whose ministry visibly fails everyone he offers it to, filmed with no suggestion that a better priest would have done better: one is refused at every door in his parish and writes it down; the other walks out of his parish altogether and is followed by two women who convert him into the miracle-worker he keeps denying he is.",
+   "source": "reading"
+  },
+  {
+   "a": "nazarin",
+   "b": "pickpocket",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.58,
+   "confidence": 0.46,
+   "claim": "Two 1959 films that end on a gift the man cannot account for. One takes a hand through the bars as grace and says so outright. The other is offered a pineapple by a fruit seller on the road to prison, refuses it twice, accepts it, and is led away in a confusion the film declines to resolve for him.",
+   "source": "reading"
+  },
+  {
+   "a": "nazarin",
+   "b": "winter light",
+   "type": "convergence",
+   "from": "none",
+   "strength": 0.55,
+   "confidence": 0.42,
+   "claim": "The clergyman measured entirely by the one person in front of him who needs help, and failing: a pastor who talks a frightened man into going home and shooting himself, and a priest whose charity produces a brawl on a building site, a burnt room, and a fever that breaks only after somebody else's superstitious rite.",
+   "source": "reading"
   }
  ]
 }

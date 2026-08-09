@@ -1,0 +1,162 @@
+[PROPOSAL — NOT APPLIED] recommend() ranks on filmography; give it the map's own policy
+=======================================================================================
+
+A design agent owns atlas/app/template.html, so this is the measured proposal
+rather than an edit. It is a real `git apply` patch and it was verified to apply
+cleanly to the working tree at the time of writing, applied, measured, and
+reverted byte-identically.
+
+    git apply atlas/proposals/recommender-rule1.patch
+    node atlas/pipeline/measure-recommender.js            # must go FAIL -> PASS
+    node atlas/pipeline/measure-recommender.js --selftest
+
+and, in the same commit, add it to the release command — it is left OUT of
+`npm test` deliberately, because it FAILS at HEAD and wiring a failing gate into
+the build would break it for whoever is holding the template:
+
+    "test:atlas-recommender": "node atlas/pipeline/measure-recommender.js --selftest && node atlas/pipeline/measure-recommender.js"
+
+WHAT IS WRONG
+-------------
+`recommend()` is the only ranked surface in the app that does not use
+SIGNAL_WEIGHT. It scores `strength * (authored ? 1.2 : 1)` and takes the top
+twelve. `connections()`, thirty lines above it in the same file, already ships
+three devices against exactly this failure, each argued for at length in the
+source: sigWeight, a x0.55 same-hand penalty ("same hand is the least surprising
+link"), and a per-director cap with an uncapped second pass.
+
+Raw strength is very nearly a test for "is this a production credit". Measured
+at HEAD: same-director edges carry median strength 0.699 against 0.558 for
+everything else, and 3,106 of the corpus's 5,605 crew edges join two films by
+the same director. So a scorer that ranks on strength alone ranks on
+filmography, and the shelf fills with the director you already picked.
+
+MEASURED — 300 seeded three-film profiles, 3,600 suggestions at the shipped
+limit of 12, by pipeline/measure-recommender.js, which parses recommend() and
+connections() out of template.html rather than copying them:
+
+                                        HEAD      patched     map view, same K
+    share a director with a loved film  62.6%      20.9%        17.0%
+    type = hand                         67.4%      44.3%
+    industrial signal (crew + cast)     67.4%      43.9%        52.8%
+    trivia signal (measure-claims' set)  7.2%       1.4%        46.5%
+    authored claim carries the "why"    15.3%      21.1%
+    keyword claim carries the "why"      6.7%      18.8%
+    most films by one director on a shelf 3.97      1.77         (of 12)
+    shelves that came back short             0         0
+    distinct films ever suggested        1,611      1,493        (of 2,204)
+
+    gate: sameDirector vs the map view   3.69x      1.23x        ceiling 2.00x
+    gate: worst shelf, one director       3.97       1.77        ceiling 3.00
+
+(The workflow brief quotes 58.8% and 70.4% from an earlier harness with a
+different profile seed. Same phenomenon, same magnitude; the seed is fixed at
+0x5eed here so the number is reproducible.)
+
+THE COST, WHICH IS REAL
+-----------------------
+Distinct films ever suggested falls 1,611 -> 1,493 of 2,204. Demoting crew and
+cast concentrates the shelf on the 1,839 films that carry TMDB keywords, so the
+recommender becomes more specific and slightly narrower in the same move. If
+that trade is judged wrong the lever is SIGNAL_WEIGHT.cast (0.24), not the
+director cap — the cap costs no coverage on its own.
+
+WHAT THIS DOES NOT FIX
+----------------------
+The shelf still rests on crew for 42.5% of its "why" lines, because 55.4% of the
+corpus's crew edges are same-director edges and re-ranking cannot remove an edge
+that is there. That is a corpus problem, in pipeline/associate.js, and it is
+priced separately. This patch stops the recommender AMPLIFYING it; it does not
+stop the graph containing it.
+
+diff --git a/atlas/app/template.html b/atlas/app/template.html
+index 47f8801..b091b19 100644
+--- a/atlas/app/template.html
++++ b/atlas/app/template.html
+@@ -1532,30 +1532,80 @@ function connections(key, limit, exclude){
+ 
+ /* THE RECOMMENDER
+    A film is worth suggesting in proportion to how strongly it is bound to
+    things you already love — and it must be able to say why. Summing over
+    every loved neighbour rather than taking the single best one is what makes
+    a film that sits between two of your favourites outrank one that hangs off
+-   a single strong edge. */
++   a single strong edge.
++
++   IT RANKS BY WHAT A BOND REVEALS, NOT BY ITS RAW STRENGTH, AND THAT IS THE
++   SAME CORRECTION connections() ALREADY MAKES THIRTY LINES ABOVE.
++
++   Scoring on `strength` alone is very nearly scoring on "is this a production
++   credit". Same-director edges carry median strength 0.699 against 0.558 for
++   everything else, and 3,106 of the corpus's 5,605 crew edges join two films by
++   the same director — so the strongest thing attached to a film you loved is
++   usually another film by its director. Measured over 300 seeded three-film
++   profiles at the shipped limit of 12, the strength-only version put a film by
++   a director already in the profile in 62.6% of its 3,600 suggestions, against
++   17.0% for the map view at the same K. A recommender that mostly recommends
++   more of the same hand is a filmography browser, and AGENTS rule 1 is about
++   exactly that distinction.
++
++   So the three devices connections() already ships apply here too, unchanged:
++   sigWeight, the x0.55 same-hand penalty ("same hand is the least surprising
++   link"), and a per-director cap with an uncapped second pass. Same 300
++   profiles: same-director 62.6% -> 20.9%, crew+cast 67.4% -> 43.9%, trivia
++   signal 7.2% -> 1.4%, authored claims carrying the "why" 15.3% -> 21.1%, and
++   the most films by one director on a shelf 3.97 of 12 -> 1.77.
++
++   The repetition decay is deliberately NOT copied across. It exists to stop one
++   MAP printing the same sentence six times; a shelf shows one line per film.
++
++   The honest cost: distinct films ever suggested across the 300 profiles falls
++   1,611 -> 1,493 of 2,204. Demoting crew and cast concentrates the shelf on the
++   1,839 films that carry keywords, so it gets more specific and slightly
++   narrower in the same move. If that is judged the wrong trade the lever is
++   SIGNAL_WEIGHT.cast, not the cap — the cap costs no coverage on its own. */
++const SHELF_DIR_CAP = 2;
+ function recommend(limit){
+   const loved = [...state.loved];
+   if (!loved.length) return [];
+   const score = {}, because = {};
+   for (const L of loved){
+     for (const i of ADJ[L]||[]){
+       const e = E[i], other = e.a===L ? e.b : e.a;
+       if (state.seen.has(other) || state.loved.has(other) || !F[other]) continue;
+-      const w = (e.strength||0) * (e.source && e.source!=="record" ? 1.2 : 1);
++      /* sigWeight gives an authored reading 1.0 against crew 0.60 and cast
++         0.24, so the flat x1.2 this replaces is subsumed, not dropped. */
++      let w = (e.strength||0) * sigWeight(e);
++      if (F[other].director && F[other].director===F[L].director) w *= 0.55;
+       score[other] = (score[other]||0) + w;
+       if (!because[other] || w > because[other].w) because[other] = { w, from:L, claim:e.claim, type:e.type };
+     }
+   }
+-  return Object.keys(score)
+-    .sort((a,b)=>score[b]-score[a])
+-    .slice(0, limit||18)
+-    .map(k => ({ key:k, score:score[k], why:because[k] }));
++  const ranked = Object.keys(score).sort((a,b)=>score[b]-score[a]);
++  const out = [], dirCount = {}, cap = limit||18;
++  const push = k => { out.push({ key:k, score:score[k], why:because[k] });
++    const d = F[k].director; if (d) dirCount[d] = (dirCount[d]||0)+1; };
++  for (const k of ranked){
++    if (out.length>=cap) break;
++    const d = F[k].director;
++    if (d && (dirCount[d]||0) >= SHELF_DIR_CAP) continue;
++    push(k);
++  }
++  /* A thin shelf is worse than a slightly repetitive one — connections() makes
++     the same climbdown with its second fill() pass. Someone who loves three
++     films by one director must still be given twelve cards. Measured, this pass
++     fires on 0 of the 300 profiles at limit 12; it is here for the profile that
++     has nowhere else to go. */
++  if (out.length < cap){
++    const have = new Set(out.map(o=>o.key));
++    for (const k of ranked){ if (out.length>=cap) break; if (!have.has(k)) push(k); }
++  }
++  return out;
+ }
+ 
+ /* ═══════════════════════════════════════════════════════════════════════
+    STATE
+    The Sites edition remembers only device-local preferences. The journey
+    itself remains session-scoped: a trail is a particular night, not a profile.
