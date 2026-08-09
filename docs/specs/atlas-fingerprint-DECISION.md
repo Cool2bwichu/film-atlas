@@ -124,3 +124,43 @@ against a long-tail median of 5,834 (max 8,974) — the distributions barely
 overlap. A gate calibrated only on anchors passes on exactly the films where
 scoring is easiest and says nothing about the 1,324. Hold out a stratified set
 and report MAE per stratum.
+
+---
+
+## OWNER DECISION, 2026-08-09: the 1,500-character floor is accepted
+
+Gate 1 failed as written — Spearman(plot-section chars, 60-day pageviews) =
+0.6374 against an adopted 0.45 threshold. The remedy, a 1,500-character
+minimum-evidence floor, brings it to 0.325 with the whole bootstrap CI under
+threshold, and admits 72.6% of films that have an article.
+
+**The owner has accepted it, with the cost stated rather than buried.** What
+the floor does is not make the source fame-flat; it converts a *score* gradient
+into a *coverage* gradient. Films below the floor are written `plot: null` with
+a `withheld` reason, so the scorer physically cannot read a two-sentence plot
+and call it evidence. A null does not enter the graph. A fame-shaped confidence
+number would.
+
+**The cost is regional and it is the part to keep watching:**
+
+| | admitted |
+|---|---|
+| US / Canada | 85% |
+| UK / Ireland | 94% |
+| South Asia | 86% |
+| Eastern Europe | 71% |
+| Western Europe | 59% |
+| Japan | 57% |
+
+Films under 800 characters of plot are 30% of Western Europe and 23% of Japan
+against 5% of US/Canada. So the axis layer will describe the anglophone canon
+well and Ozu's neighbours less well, and every downstream number — prevalence,
+pole balance, edge emission — inherits that shape.
+
+**What follows from accepting it.** The floor is a coverage statement and must
+be reported as one wherever axes are shown: a film without axes is a film the
+evidence did not support, not a film without qualities. Any later interface
+that ranks or compares on axes has to say how many films it silently excluded.
+And if a better source of critical writing ever lands, the floor is the first
+thing to re-measure — it exists because of what Wikipedia is, not because of
+what the axes need.
