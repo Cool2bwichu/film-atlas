@@ -682,7 +682,12 @@
       "the image is the point",
       "pictorial",
       "every frame a painting",
-      "composed images"
+      "composed images",
+      "beautiful to look at",
+      "beautiful",
+      "gorgeous",
+      "ravishing",
+      "a beautiful image"
     ],
     "texture:handheld-raw": [
       "handheld",
@@ -717,7 +722,9 @@
       "gore",
       "bloody",
       "brutal violence",
-      "hard to watch violence"
+      "hard to watch violence",
+      "violence",
+      "blood"
     ],
     "texture:music-led": [
       "music led",

@@ -66,9 +66,19 @@
  *
  *    One trap this file exists to avoid, and it is the owner's own sentence:
  *    "LITTLE DIALOGUE" IS NOT A NEGATION. `texture:sparse-dialogue` already IS
- *    the absence; negating it a second time asks for a talky film, which is the
- *    opposite of what was typed. Lexicon entries carry `polarity: "inherent"`
- *    and the negation scanner refuses to invert them. `--selftest` checks it.
+ *    the absence; reading "little" as a negator would ask for a talky film,
+ *    which is the opposite of what was typed. Longest-phrase-first matching is
+ *    what saves it — "little dialogue" is one entry and wins over "dialogue" —
+ *    and the `inherent` guard behind it catches the double negative, "no
+ *    dialogue" with another "no" in front of it.
+ *
+ *    `inherent` IS COMPUTED, NOT ASSERTED, and that correction matters more than
+ *    the guard does. A phrase is inherent when its own text carries a negator:
+ *    "no dialogue" does, "wordless" does not. My first draft flagged "wordless"
+ *    and "quiet film" by hand, which would have refused a reader who typed
+ *    "nothing wordless" or "not a quiet film" — real sentences meaning the exact
+ *    opposite. The hand flag in the lexicon is now a declaration of intent that
+ *    is checked against the text and overruled by it.
  *
  * ── WHAT IT REFUSES TO DO ────────────────────────────────────────────────────
  *
@@ -154,7 +164,7 @@ function walls(text, toks) {
   const set = new Set([0]);
   for (let i = 1; i < toks.length; i++) {
     const between = text.slice(toks[i - 1].end, toks[i].start);
-    if (/[,;.:—–()\/]|\n/.test(between)) set.add(i);
+    if (/[,;.:—–()/]|\n/.test(between)) set.add(i);
   }
   for (let i = 0; i < toks.length; i++) {
     if (toks[i].t === "and" || toks[i].t === "but" || toks[i].t === "also") set.add(i + 1);
@@ -167,6 +177,7 @@ function walls(text, toks) {
 function buildLexicon(lex) {
   const byPhrase = new Map();          /* normalised phrase -> [{attr, polarity}] */
   let maxLen = 1;
+  const neg0 = new Set(lex.negation.map(norm));
   const add = (phrase, attr, polarity) => {
     const n = norm(phrase);
     if (!n) return;
@@ -178,8 +189,22 @@ function buildLexicon(lex) {
   };
   for (const [attr, list] of Object.entries(lex.phrases)) {
     for (const e of list) {
-      if (typeof e === "string") add(e, attr, "plain");
-      else add(e.phrase, attr, e.polarity);
+      const text = typeof e === "string" ? e : e.phrase;
+      /* `inherent` is COMPUTED, not asserted, and the hand-written flag in the
+         lexicon is only a declaration of intent that is checked against it.
+         A phrase is inherent when its own text carries a negator — "no dialogue"
+         does, "wordless" does not. Marking "wordless" inherent by hand would
+         refuse a reader who typed "nothing wordless", which is a real sentence
+         with the opposite meaning, so the flag cannot be a matter of taste. */
+      const declared = typeof e === "string" ? null : e.polarity;
+      const carries = norm(text).split(" ").some((w) => neg0.has(w));
+      if (declared === "inherent" && !carries) {
+        /* the lexicon said inherent and the text does not contain a negator:
+           the flag would suppress a legitimate "not X", so it is not honoured */
+        add(text, attr, "plain");
+      } else {
+        add(text, attr, carries ? "inherent" : "plain");
+      }
     }
   }
   const cues = [];                     /* film-reference cues, longest first */
