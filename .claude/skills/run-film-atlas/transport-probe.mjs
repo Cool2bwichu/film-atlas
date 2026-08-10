@@ -469,6 +469,81 @@ async function run(browser, url) {
   }
 
   /* ── 6. nothing parked under the track ────────────────────────────────── */
+  /* ── 5b. IS THE PICTURE IN THE FRAME? ──────────────────────────────────────
+     The 2026-08-10 design review found what six sections of this file could not:
+     holding a year grew the readout from 155px to 264px, skyGate() correctly
+     inscribed a smaller rectangle in what was left — 435x318, 55% of the resting
+     area — and the constellation then OVERFLOWED it, 389px of picture in a 318px
+     frame. Every check above passed on that build and was right to: 11,487 discs
+     matched back at 11 cursors, 0 films under the track at three viewports. Not
+     one of them asked whether the year you are holding is inside the print.
+     The review put it better than I would: the checks establish that the
+     picture's MECHANISM is right and nothing asks whether it is COMPOSED.
+     This is the dullest imaginable check and it is the one that was missing. */
+  if (!ONLY || ONLY === "compose") {
+    log("\n── 5b. the held year is inside the print ─────────────────────────");
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.waitForTimeout(700);
+    await page.evaluate(() => { const f = skyFitCam(); skyGo(f.cx, f.cy, f.k, 0); });
+    await page.waitForTimeout(500);
+    const measure = async (year) => {
+      if (year !== null) {
+        await page.evaluate((y) => {
+          const s = document.getElementById("sky-track-scrub");
+          s.value = String(y);
+          s.dispatchEvent(new Event("input", { bubbles: true }));
+        }, year);
+        await page.waitForTimeout(420);
+      }
+      return page.evaluate(() => {
+        const g = sky.gate, k = sky.cam.k, c = document.getElementById("sky-c");
+        const ox = c.width / 2 - sky.cam.cx * k, oy = c.height / 2 - sky.cam.cy * k;
+        let vis = 0, inside = 0, miny = 1e9, maxy = -1e9, minx = 1e9, maxx = -1e9;
+        for (let i = 0; i < sky.n; i++) {
+          if (!sky.live[i]) continue;
+          if (sky.alpha && sky.alpha[i] <= 0.02) continue;
+          const X = sky.wx[i] * k + ox, Y = sky.wy[i] * k + oy;
+          vis++;
+          if (X >= g.x && X <= g.x + g.w && Y >= g.y && Y <= g.y + g.h) inside++;
+          if (Y < miny) miny = Y; if (Y > maxy) maxy = Y;
+          if (X < minx) minx = X; if (X > maxx) maxx = X;
+        }
+        const rb = document.getElementById("sky-readbox");
+        return { gw: Math.round(g.w), gh: Math.round(g.h), area: Math.round(g.w * g.h),
+                 vis, inside, pct: vis ? inside / vis : 0,
+                 bboxH: Math.round(maxy - miny), bboxW: Math.round(maxx - minx),
+                 readout: rb ? Math.round(rb.getBoundingClientRect().height) : 0 };
+      });
+    };
+    const rest = await measure(null);
+    log(`  rest    gate ${rest.gw}x${rest.gh}  readout ${rest.readout}px  ${(rest.pct*100).toFixed(1)}% inside`);
+    let worstPct = 1, worstAt = null, worstArea = 1, worstAreaAt = null, overflow = 0, overflowAt = null;
+    for (const y of [1920, 1930, 1945, 1960, 1975, 1990, 2005]) {
+      const r = await measure(y);
+      const areaRatio = r.area / rest.area;
+      log(`  ${y}    gate ${r.gw}x${r.gh}  area ${(areaRatio*100).toFixed(0)}%  readout ${r.readout}px  ` +
+          `${(r.pct*100).toFixed(1)}% inside  bboxH ${r.bboxH} vs ${r.gh}`);
+      if (r.pct < worstPct) { worstPct = r.pct; worstAt = y; }
+      if (areaRatio < worstArea) { worstArea = areaRatio; worstAreaAt = y; }
+      if (r.bboxH > r.gh && r.bboxH - r.gh > overflow) { overflow = r.bboxH - r.gh; overflowAt = y; }
+    }
+    await measure(2026);
+    /* 98% rather than 100%: a disc's centre may sit a pixel outside a frame its
+       body is still inside, and that is not the defect this is aimed at. */
+    check(worstPct >= 0.98,
+      "every held year is drawn inside the aperture",
+      `worst ${(worstPct*100).toFixed(1)}% at ${worstAt}`);
+    /* The aperture is a function of the chrome. A held year that shrinks it is
+       the readout growing, and the fix is the readout — re-fitting the camera per
+       cursor would buy composition by breaking "nothing has moved". */
+    check(worstArea >= 0.9,
+      "holding a year does not shrink the print",
+      `smallest ${(worstArea*100).toFixed(0)}% of the resting aperture at ${worstAreaAt}`);
+    check(overflow === 0,
+      "the picture is never taller than the frame it is drawn in",
+      overflow ? `${overflow}px of overflow at ${overflowAt}` : "0px at every cursor");
+  }
+
   if (!ONLY || ONLY === "chrome") {
     log("\n── 5. the track is chrome the camera fits above ──────────────────");
     for (const vp of [{ width: 1440, height: 900 }, { width: 900, height: 820 }, { width: 390, height: 780 }]) {
