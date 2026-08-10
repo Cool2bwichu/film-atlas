@@ -1,0 +1,57 @@
+{
+  "note": "The 30 queries the rule-1 / reach / floor / cost audit runs on BOTH sides. Superset of the 3 sanity queries in bakeoff-queries.json, which are carried verbatim (positions 1-3) and asserted equal at load time by audit-run.js. Written for the audit, then frozen: no query was added, dropped or reworded after seeing a result, because a query set tuned against outcomes measures the tuner.",
+  "universes": {
+    "corpus": "all 2204 films. THE PRIMARY. bakeoff-queries.json says the dense side can only reach 1541; that stopped being true when build-index.py added the description-tier fallback, so both sides now see all 2204 and this is the honest shared universe.",
+    "plotted": "the 1541 films at or above the 1500-char plot floor. Secondary, kept so the like-for-like run against the older assumption still exists."
+  },
+  "design": {
+    "mood": "a felt quality, no plot noun to grab. Where dense retrieval is expected to degenerate to title matching.",
+    "shape": "the form of the story rather than its content.",
+    "setting": "a place or period. Concrete, but a place is not an attribute in the 59-term vocabulary.",
+    "tone": "register — irony, sincerity, dryness. The atlas vocabulary is strongest here.",
+    "concrete": "names things that literally happen on screen. Where dense retrieval over plot text should win if it wins anywhere.",
+    "negation": "carries a 'not'. One side has an operator for it and one cannot represent it at all.",
+    "quiet": "aimed at the unfamous half of the corpus on purpose. A retriever that only knows canon should visibly fail these, and the fame audit reads them hardest.",
+    "exemplar": "names a film as the example. query-parse.js has a code path for this; the dense side sees only a title string."
+  },
+  "queries": [
+    { "id": "q01", "tag": "concrete", "q": "a paranoid film about surveillance and control", "sanity": true },
+    { "id": "q02", "tag": "mood", "q": "a slow quiet film about a friendship that quietly ends", "sanity": true },
+    { "id": "q03", "tag": "negation", "q": "a revenge film that isn't violent", "sanity": true },
+
+    { "id": "q04", "tag": "mood", "q": "a film that feels like grief without ever saying so" },
+    { "id": "q05", "tag": "mood", "q": "something warm and gentle for a tired sunday evening" },
+    { "id": "q06", "tag": "mood", "q": "a bleak film with no comfort anywhere in it" },
+    { "id": "q07", "tag": "mood", "q": "a film about loneliness in a crowded city" },
+
+    { "id": "q08", "tag": "shape", "q": "a film where nothing is resolved by the end" },
+    { "id": "q09", "tag": "shape", "q": "a story told out of order that only makes sense at the end" },
+    { "id": "q10", "tag": "shape", "q": "a film about a journey that changes nobody" },
+    { "id": "q11", "tag": "shape", "q": "a film that follows one ordinary day from morning to night" },
+
+    { "id": "q12", "tag": "setting", "q": "a film set almost entirely in one room" },
+    { "id": "q13", "tag": "setting", "q": "a film set during a war but not about the fighting" },
+    { "id": "q14", "tag": "setting", "q": "a film about a small town in winter" },
+    { "id": "q15", "tag": "setting", "q": "a film set in a hotel where strangers keep meeting" },
+
+    { "id": "q16", "tag": "tone", "q": "a dry ironic comedy about failure" },
+    { "id": "q17", "tag": "tone", "q": "a completely sincere film with no irony in it at all" },
+    { "id": "q18", "tag": "tone", "q": "a cruel film that knows it is being cruel" },
+    { "id": "q19", "tag": "tone", "q": "a playful film that keeps breaking its own rules" },
+
+    { "id": "q20", "tag": "concrete", "q": "a film about a heist that goes wrong" },
+    { "id": "q21", "tag": "concrete", "q": "a courtroom film about a man convicted of something he did not do" },
+    { "id": "q22", "tag": "concrete", "q": "a film about a musician who is losing their hearing" },
+    { "id": "q23", "tag": "concrete", "q": "a film about migrant workers and the people who exploit them" },
+    { "id": "q24", "tag": "concrete", "q": "a film about a nuclear accident and the people covering it up" },
+
+    { "id": "q25", "tag": "negation", "q": "a horror film with no gore in it" },
+    { "id": "q26", "tag": "negation", "q": "a love story that is not romantic" },
+
+    { "id": "q27", "tag": "quiet", "q": "a slow film about farm work and the passing of the seasons" },
+    { "id": "q28", "tag": "quiet", "q": "an unhurried film about ordinary people at home doing very little" },
+    { "id": "q29", "tag": "quiet", "q": "a film where the camera barely moves and people mostly wait" },
+
+    { "id": "q30", "tag": "exemplar", "q": "something like Stalker but warmer" }
+  ]
+}

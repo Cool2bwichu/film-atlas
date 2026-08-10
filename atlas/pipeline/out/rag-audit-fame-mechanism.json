@@ -1,0 +1,67 @@
+{
+ "generated": "2026-08-10T11:59:10.677Z",
+ "vocabulary": 59,
+ "coverage": {
+  "note": "attributes with a value in the consensus table, per film. Bimodal, not graded: 1640 films have all 59 and the p25 film has 7.",
+  "mean": 44.8,
+  "fullyCovered": 1640,
+  "films": 2204
+ },
+ "step1_evidenceIsFameShaped": {
+  "rho": 0.6107,
+  "n": 2175,
+  "reads": "rho(attributes filled, pageviews). Positive means the corpus knows more about famous films."
+ },
+ "step2_scorerRewardsSparsity": {
+  "meanRho": -0.5124,
+  "min": -0.7630155857413254,
+  "max": -0.23658102678616777,
+  "queries": 15,
+  "reads": "rho(match score, attributes filled). NEGATIVE: a film with few attributes clears a one-clause query trivially, which is where the whole-corpus anti-fame rho comes from."
+ },
+ "step3_stratifiedControl": [
+  {
+   "minAttributesFilled": 0,
+   "films": 2204,
+   "atlas": {
+    "medianBandLift": 2.9620165745856353,
+    "ci95": [
+     2.161774861878453,
+     4.497755524861878
+    ],
+    "medianBand": 21,
+    "queries": 15
+   },
+   "dense": {
+    "medianBandLift": 0.9580455801104972,
+    "ci95": [
+     0.5478245856353591,
+     1.911256906077348
+    ],
+    "queries": 15
+   }
+  },
+  {
+   "minAttributesFilled": 59,
+   "films": 1640,
+   "atlas": {
+    "medianBandLift": 1.3723702103831694,
+    "ci95": [
+     1.0015998720102393,
+     2.083913286937045
+    ],
+    "medianBand": 21,
+    "queries": 15
+   },
+   "dense": {
+    "medianBandLift": 0.8016958643308535,
+    "ci95": [
+     0.46844252459803215,
+     1.471082313414927
+    ],
+    "queries": 15
+   }
+  }
+ ],
+ "conclusion": "The head lift falls from 2.96x to 1.37x once every film in the pool is equally well described. Coverage is most of the route, not all of it."
+}

@@ -1,0 +1,57 @@
+{
+ "shipped": {
+  "public/atlas.html": {
+   "bytes": 9987041,
+   "gzipBytes": 1660679
+  },
+  "atlas/static/corpus.json": {
+   "bytes": 13512619,
+   "gzipBytes": 1572294
+  },
+  "atlas/static/fingerprints.json": {
+   "bytes": 2834435,
+   "gzipBytes": 552401
+  }
+ },
+ "encoder": {
+  "tokenizer.json": {
+   "bytes": 466247,
+   "gzipBytes": 191822
+  },
+  "model.onnx": {
+   "bytes": 90405214,
+   "gzipBytes": 82861320
+  },
+  "totalBytes": 90872535
+ },
+ "vectors": {
+  "filmVectors": {
+   "rows": 2204,
+   "dim": 384,
+   "float32Bytes": 3385344,
+   "float32GzipBytes": 3138081,
+   "int8Bytes": 855152,
+   "int8GzipBytes": 795192,
+   "base64Float32Bytes": 4513792,
+   "base64Int8Bytes": 1140204
+  },
+  "chunkVectors": {
+   "rows": 4307,
+   "dim": 384,
+   "float32Bytes": 6615552,
+   "float32GzipBytes": 6132992,
+   "int8Bytes": 1671116,
+   "int8GzipBytes": 1552363,
+   "base64Float32Bytes": 8820736,
+   "base64Int8Bytes": 2228156
+  }
+ },
+ "int8Fidelity": {
+  "note": "film-vector ranking, float32 vs per-row symmetric int8, same 30 queries",
+  "meanAbsRankShift": 2.803,
+  "maxAbsRankShift": 27,
+  "meanTop10Kept": 9.97,
+  "queriesWithSameTop1": 30,
+  "queries": 30
+ }
+}
