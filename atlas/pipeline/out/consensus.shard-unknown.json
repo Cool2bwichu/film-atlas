@@ -3,7 +3,7 @@
  "vocabVersion": "consensus-vocab-1",
  "model": "claude-opus-5",
  "promptVersion": "consensus-prompt-1",
- "generated": "2026-08-10T01:41:08.002Z",
+ "generated": "2026-08-10T06:40:59.942Z",
  "tier": "unknown",
  "note": "the model did not know these films. passed = unknown on every attribute",
  "films": {
@@ -145,9 +145,6 @@
   "a matter of morals": {
    "passed": true
   },
-  "seven guns for the macgregors": {
-   "passed": true
-  },
   "ingmar bergman s cinema": {
    "passed": true
   },
@@ -158,6 +155,9 @@
    "passed": true
   },
   "rabies": {
+   "passed": true
+  },
+  "where are you going on holiday": {
    "passed": true
   },
   "how i lost the war": {
@@ -172,16 +172,7 @@
   "the passionate adventure": {
    "passed": true
   },
-  "up the macgregors": {
-   "passed": true
-  },
-  "woman to woman": {
-   "passed": true
-  },
   "scusi facciamo l amore": {
-   "passed": true
-  },
-  "salka valka": {
    "passed": true
   },
   "a yank in rome": {
@@ -202,13 +193,13 @@
   "playing on the rainbow": {
    "passed": true
   },
-  "the wolves": {
-   "passed": true
-  },
   "wild horse nine": {
    "passed": true
   },
   "il carro armato dell 8 settembre": {
+   "passed": true
+  },
+  "the marriage of mr mississippi": {
    "passed": true
   },
   "suzakumon": {
@@ -232,6 +223,9 @@
   "the venetian": {
    "passed": true
   },
+  "katinka": {
+   "passed": true
+  },
   "epitome": {
    "passed": true
   },
@@ -245,9 +239,6 @@
    "passed": true
   },
   "bullet for stefano": {
-   "passed": true
-  },
-  "deadline": {
    "passed": true
   },
   "make way for lila": {
@@ -268,12 +259,6 @@
   "his last twelve hours": {
    "passed": true
   },
-  "the jerusalem file": {
-   "passed": true
-  },
-  "good news": {
-   "passed": true
-  },
   "love has to be learned": {
    "passed": true
   },
@@ -287,6 +272,15 @@
    "passed": true
   },
   "morderspiel": {
+   "passed": true
+  },
+  "ningen": {
+   "passed": true
+  },
+  "i tre corsari": {
+   "passed": true
+  },
+  "portrait werner herzog": {
    "passed": true
   },
   "akuto film": {
@@ -307,6 +301,9 @@
   "tsubasa no gaika": {
    "passed": true
   },
+  "the secret ways": {
+   "passed": true
+  },
   "sword for hire": {
    "passed": true
   },
@@ -323,6 +320,9 @@
    "passed": true
   },
   "his young wife": {
+   "passed": true
+  },
+  "let sleeping cops lie": {
    "passed": true
   }
  }

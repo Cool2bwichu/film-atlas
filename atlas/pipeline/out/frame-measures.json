@@ -42,15 +42,15 @@
   "worst": {
    "baseline_reproduced": 0.24209560361755342,
    "tmdb_raw": 0.24861527029022626,
-   "fg": 0.29607501187852087,
-   "mixed_raw": 0.30734418466359625,
-   "mixed_cal": 0.30734418466359625
+   "fg": 0.30166025911925176,
+   "mixed_raw": 0.3118915656142031,
+   "mixed_cal": 0.3118915656142031
   },
   "n": {
    "baseline": 220,
    "tmdb": 224,
-   "fg": 722,
-   "mixed": 836
+   "fg": 727,
+   "mixed": 841
   },
   "worst_axis_note": "worst |rho| across the seven measures vs 60-day en.wikipedia pageviews"
  },
@@ -65,16 +65,16 @@
    "at_zero": 31,
    "max_chroma": 0.0344
   },
-  "colour_films_median_chroma": 0.0238,
+  "colour_films_median_chroma": 0.0239,
   "note": "chroma < 0.002 counted as monochrome; residual outliers are tinted/toned prints and part-colour films Wikidata tags black-and-white, not measurement error"
  },
  "coverage": {
   "corpus": 2204,
   "filmgrab_matched": 904,
-  "filmgrab_attempted": 732,
-  "filmgrab_measured": 732,
+  "filmgrab_attempted": 737,
+  "filmgrab_measured": 737,
   "tmdb_only": 114,
-  "total": 846,
+  "total": 851,
   "filmgrab_no_usable_frames": []
  },
  "caveat": "film-grab coverage carries a steep fame gradient (9.7% of the quietest pageview quartile, 76.1% of the loudest), so this file has a PRECISION gradient favouring the canon: famous films get 32-frame measurements, quiet films 8-frame ones, and much of the corpus none. Never compare these numbers without carrying source and n alongside them.",
@@ -512,6 +512,20 @@
    "chroma90": 0.048827,
    "warmth": -0.021251,
    "warmspread": 0.044993
+  },
+  "star wars episode viii the last jedi": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2019/03/22/star-wars-the-last-jedi/",
+   "calibrated": false,
+   "glare": 0.262312,
+   "Lrange": 0.338501,
+   "hardness": 0.15697,
+   "chroma": 0.018453,
+   "chroma90": 0.044195,
+   "warmth": 0.012251,
+   "warmspread": 0.056682
   },
   "the dead zone": {
    "source": "film-grab",
@@ -1241,6 +1255,20 @@
    "warmth": 0.006561,
    "warmspread": 0.018755
   },
+  "twin peaks fire walk with me": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2013/11/24/twin-peaks-fire-walk-with-me/",
+   "calibrated": false,
+   "glare": 0.314077,
+   "Lrange": 0.300066,
+   "hardness": 0.107219,
+   "chroma": 0.04482,
+   "chroma90": 0.070274,
+   "warmth": 0.044397,
+   "warmspread": 0.043317
+  },
   "picnic at hanging rock": {
    "source": "film-grab",
    "n": 32,
@@ -1352,6 +1380,20 @@
    "chroma90": 0.063119,
    "warmth": 0.031164,
    "warmspread": 0.038226
+  },
+  "kiki s delivery service": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2020/04/13/kikis-delivery-service/",
+   "calibrated": false,
+   "glare": 0.533247,
+   "Lrange": 0.398049,
+   "hardness": 0.199635,
+   "chroma": 0.043006,
+   "chroma90": 0.076777,
+   "warmth": -0.022867,
+   "warmspread": 0.039396
   },
   "still walking": {
    "source": "film-grab",
@@ -6827,6 +6869,20 @@
    "warmth": 0.008068,
    "warmspread": 0.031733
   },
+  "ponyo": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 46,
+   "provenance": "https://film-grab.com/2020/05/11/ponyo/",
+   "calibrated": false,
+   "glare": 0.523207,
+   "Lrange": 0.330027,
+   "hardness": 0.210006,
+   "chroma": 0.060312,
+   "chroma90": 0.099305,
+   "warmth": -0.010637,
+   "warmspread": 0.045325
+  },
   "the lower depths": {
    "source": "film-grab",
    "n": 32,
@@ -6924,6 +6980,20 @@
    "chroma90": 0.0,
    "warmth": 0.000973,
    "warmspread": 0.001125
+  },
+  "past lives": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2023/12/14/past-lives/",
+   "calibrated": false,
+   "glare": 0.377272,
+   "Lrange": 0.384749,
+   "hardness": 0.245515,
+   "chroma": 0.031313,
+   "chroma90": 0.055519,
+   "warmth": 0.028095,
+   "warmspread": 0.038679
   },
   "peppermint candy": {
    "source": "film-grab",

@@ -1,7 +1,7 @@
 {
  "version": 1,
  "model": "claude-opus-5",
- "generated": "2026-08-10T01:21:22.852Z",
+ "generated": "2026-08-10T06:41:05.747Z",
  "note": "Hallucination probe for the consensus layer. Decoy films DO NOT EXIST and must never enter consensus.json.",
  "decoyTally": {
   "well": 0,
@@ -16,96 +16,6 @@
   "n": 96
  },
  "results": [
-  {
-   "decoy": false,
-   "title": "Music in Darkness",
-   "year": 1947,
-   "director": "Ingmar Bergman",
-   "known": "outline",
-   "recall": "",
-   "filled": 5
-  },
-  {
-   "decoy": false,
-   "title": "Sweet Charity",
-   "year": 1969,
-   "director": "Bob Fosse",
-   "known": "well",
-   "recall": "the hostesses draped over the ballroom rail for 'Big Spender', staring dead at camera",
-   "filled": 10
-  },
-  {
-   "decoy": true,
-   "title": "A Room Above the Harbour",
-   "year": 1958,
-   "director": "Kon Ichikawa",
-   "known": "no",
-   "recall": "",
-   "filled": 0
-  },
-  {
-   "decoy": false,
-   "title": "News from Home",
-   "year": 1976,
-   "director": "Chantal Akerman",
-   "known": "well",
-   "recall": "her mother's letters read over static NY street shots, drowned by subway noise; ferry pulls away at the end",
-   "filled": 9
-  },
-  {
-   "decoy": false,
-   "title": "Tokyo Drifter",
-   "year": 1966,
-   "director": "Seijun Suzuki",
-   "known": "well",
-   "recall": "Tetsu in the powder-blue suit whistling his own theme; the white nightclub set for the last shootout",
-   "filled": 8
-  },
-  {
-   "decoy": false,
-   "title": "Girls of the Night",
-   "year": 1961,
-   "director": "Kinuyo Tanaka",
-   "known": "outline",
-   "recall": "",
-   "filled": 5
-  },
-  {
-   "decoy": false,
-   "title": "The Professional",
-   "year": 1981,
-   "director": "Georges Lautner",
-   "known": "well",
-   "recall": "Belmondo shot in the back crossing the airfield while Morricone's 'Chi Mai' plays",
-   "filled": 7
-  },
-  {
-   "decoy": true,
-   "title": "The Quiet Inheritance",
-   "year": 1996,
-   "director": "Otar Iosseliani",
-   "known": "no",
-   "recall": "",
-   "filled": 0
-  },
-  {
-   "decoy": false,
-   "title": "Far from Vietnam",
-   "year": 1967,
-   "director": "Jean-Luc Godard, Chris Marker, Alain Resnais, Agnès Varda, Joris Ivens, Claude Lelouch, William Klein",
-   "known": "well",
-   "recall": "Godard to camera beside his Mitchell, admitting he never got to Vietnam and can only film himself",
-   "filled": 8
-  },
-  {
-   "decoy": false,
-   "title": "Breathless",
-   "year": 1960,
-   "director": "Jean-Luc Godard",
-   "known": "well",
-   "recall": "Michel dragging his thumb across his lips at a Bogart poster; jump cuts in the car through Paris",
-   "filled": 8
-  },
   {
    "decoy": false,
    "title": "Fanny and Alexander",
@@ -194,6 +104,96 @@
    "director": "Les Blank",
    "known": "well",
    "recall": "Herzog in the mud calling the jungle 'obscenity'; the steamship winched over the hill",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Music in Darkness",
+   "year": 1947,
+   "director": "Ingmar Bergman",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Sweet Charity",
+   "year": 1969,
+   "director": "Bob Fosse",
+   "known": "well",
+   "recall": "the hostesses draped over the ballroom rail for 'Big Spender', staring dead at camera",
+   "filled": 10
+  },
+  {
+   "decoy": true,
+   "title": "A Room Above the Harbour",
+   "year": 1958,
+   "director": "Kon Ichikawa",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "News from Home",
+   "year": 1976,
+   "director": "Chantal Akerman",
+   "known": "well",
+   "recall": "her mother's letters read over static NY street shots, drowned by subway noise; ferry pulls away at the end",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Tokyo Drifter",
+   "year": 1966,
+   "director": "Seijun Suzuki",
+   "known": "well",
+   "recall": "Tetsu in the powder-blue suit whistling his own theme; the white nightclub set for the last shootout",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Girls of the Night",
+   "year": 1961,
+   "director": "Kinuyo Tanaka",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "The Professional",
+   "year": 1981,
+   "director": "Georges Lautner",
+   "known": "well",
+   "recall": "Belmondo shot in the back crossing the airfield while Morricone's 'Chi Mai' plays",
+   "filled": 7
+  },
+  {
+   "decoy": true,
+   "title": "The Quiet Inheritance",
+   "year": 1996,
+   "director": "Otar Iosseliani",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Far from Vietnam",
+   "year": 1967,
+   "director": "Jean-Luc Godard, Chris Marker, Alain Resnais, Agnès Varda, Joris Ivens, Claude Lelouch, William Klein",
+   "known": "well",
+   "recall": "Godard to camera beside his Mitchell, admitting he never got to Vietnam and can only film himself",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Breathless",
+   "year": 1960,
+   "director": "Jean-Luc Godard",
+   "known": "well",
+   "recall": "Michel dragging his thumb across his lips at a Bogart poster; jump cuts in the car through Paris",
    "filled": 8
   },
   {
