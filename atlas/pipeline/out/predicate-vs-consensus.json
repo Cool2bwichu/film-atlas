@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-10T16:26:55.606Z",
+  "generated": "2026-08-10T16:28:30.403Z",
   "note": "Adversarial redundancy test: how much of the predicate layer could the existing consensus layer have produced? Consensus is given every advantage (best of four metrics, ties resolved in its favour, predictors fitted on the same films they are scored on). Read-only; nothing merged.",
   "alignment": {
     "filmsWithPredicateEdges": 292,
@@ -1767,6 +1767,16 @@
       "shareAtLeast3Attrs": 8725,
       "shareAtLeast5Attrs": 1196,
       "predicateEdges": 7299
+    },
+    "inBandAttributeCoOccurrenceRule": {
+      "rule": "both films hold, at weight >= 0.5, at least one consensus attribute whose corpus prevalence is inside the predicate band 0.4-8% — i.e. consensus used exactly the way a predicate is used",
+      "attributesUsed": 16,
+      "pairsEmitted": 1613,
+      "ofThosePredicateEdges": 342,
+      "precisionAgainstPredicateEdges": 21.2,
+      "recallOfPredicateEdges": 4.7,
+      "chancePrecision": 17.2,
+      "lift": 1.234
     }
   },
   "predicateOnly": {

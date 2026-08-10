@@ -227,36 +227,56 @@ Sites edition, 2026-08-06:
 5. Corpus payload is 13.4 MB, and the built artifact 8.8 MB — fine on a
    desktop connection, genuinely heavy on mobile. It was 3.6 MB at N=803.
 
-## Proposed, not merged — the predicate layer
+## Tried and not merged — the predicate layer
 
-`proposals/predicate-layer.md`. A third descriptive layer for what happens
-BETWEEN the people in a film, distinct from the signature (how the film behaves
-on screen) and the fingerprint (its temperature). Aimed squarely at item 2
-above: `crew` at 40.3% and 1,324 films with no reading. RE-MEASURED 2026-08-10 over
-the top-six edge slots of every film — the slots a reader actually sees — crew is
-**52.5%** and crew+cast is **72.7%**. The proposal's figure understates it.
+`proposals/predicate-layer.md` (the proposal), `docs/specs/predicate-trial-result.md`
+(the verdict). A third descriptive layer for what happens BETWEEN the people in a
+film. Aimed at item 2 above: crew at **52.5%** of the top-six edge slots a reader
+actually sees, crew+cast **72.7%**, and 1,324 films with no reading.
 
-Why it exists, in one measurement: the fingerprint's nearest film to *The
-Banshees of Inisherin* is **Ex Machina at distance 2.8 of ~200**, while *Old
-Joy* — a friendship that ends without either man saying so — ranks **#1286 of
-1,531**. Distance in a temperature space is not measuring what a viewer means
-by related, and tuning it will not get there.
+**Trialled in full on 2026-08-10 and it did not move the numbers.** Pass A read
+300 stratified readable films, Pass B mined a 175-predicate vocabulary
+(`predicate-vocab-1.0.0`, frozen), Pass C tagged the 300 against it (1,257 tags,
+4.19/film, 12 films "none of these"), and `associate-predicates.js` produced 7,299
+edges over 292 films. Measured on the same top-six-by-raw-strength rule that
+reproduces the baseline: **crew 52.5% → 52.4%, crew+cast 72.7% → 72.6%,
+predicate 0.4% of visible slots, 27 of 2,204 maps changed.** Nothing merged;
+`corpus.json` byte-unchanged.
 
-Films match by **co-occurrence on a named predicament**, not by distance, so two
-films in different traditions can land on the same situation. The predicate
-selects the family; the fingerprint orders it. Tonal distance never enters
-strength.
+Three findings decide it, and only the first is about scale:
 
-Sequence: `readings.js` (free-prose pass, plot text only) -> cluster a
-controlled vocabulary out of the readings -> re-tag as classification ->
-`associate-predicates.js` for edges. `wishlist.js` turns the pass's by-product
-into seed candidates; `measure-predicate-coverage.js` aims later expansion
-rounds at gaps rather than at whatever the model reached for.
+- **The founding benchmark fails.** *Old Joy* is **absent** from the *Banshees*
+  map — the two films' tags are disjoint (`the-bond-ended-without-account` vs
+  `devotion-that-runs-one-way`). The granularity that would join them collapses
+  8 ids held by 42 of 304 films = **13.8% prevalence**, a genre by the proposal's
+  own 0.4–8% band. **The band and the benchmark cannot both hold.** *Ex Machina*,
+  the fingerprint's wrong answer at distance 2.8, is correctly absent too.
+- **The layer is genuinely NOT redundant** with consensus: at equal budget and
+  every advantage, consensus recovers 21.6% of its pairs at **1.26x chance** and
+  **4.8% of its strongest 500 edges**; best overfitted per-predicate F1 max 0.667,
+  0 of 85 reach 0.70. Edge strength vs pageviews **ρ +0.011** — fame-blind, where
+  corpus degree on the same films is +0.468 and fails the project's own gate.
+- **The edges are weak and two things built on them select nothing.** 30 random
+  edges hand-read: **24/30 factually sound, 10/30 worth a reader's slot**. 91.9%
+  rest on a single shared predicate; median edge is a **1-in-5.4 coincidence**.
+  `rebuttal` typing is **at chance (32.7% observed vs 38.5% under independence,
+  ratio 0.85)**. 35.2% of edges lead on a predicate above the proposal's own band.
+  The tagging underneath is good — 92.8% of bases name a proper noun, 0 tags lift
+  30%+ of their 8-grams from the plot.
 
-**Nothing is merged. `readings.js` has never made a live model call. The 18
-hand-tagged films in `predicate-tags.seed.json` were written from model recall
-rather than plot text and must not be scaled.** Read the proposal's "Status"
-section before touching any of it — it lists seven things that must not happen.
+**Recommendation recorded: delete the edge layer, keep `pipeline/out/predicate-tags.json`
+as a measured result, do not spend the ~414 calls full-corpus tagging would take.**
+Cost so far: 266 metered batch calls, 5h 23m wall, 4.54 MB corpus-shaped edges for
+292 films — projecting to **~204,000 edges / ~130 MB** at 1,541 readable films. 663
+films (30.1%) sit below the evidence floor and can never be tagged.
+
+Two defects to carry forward if it is ever re-run: one third of Pass C (cohort
+lines 101–200) was tagged in-agent rather than through `tag-predicates.js` and
+carries systematically higher centrality (0.61 vs 0.51/0.52), supplying 35.6% of
+edge endpoints but 47.3% of the top-500; and `sigWeight()` hands any non-record
+edge a weight of 1.0, so merging without a deliberate `SIGNAL_WEIGHT.predicate`
+sends trivia share and repeated-line rate to 0.0% while the maps fill with
+1-in-5 coincidences — the "metric improves while the thing gets worse" trap below.
 
 ## Traps that have already cost time
 
