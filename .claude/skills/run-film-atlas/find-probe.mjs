@@ -8,7 +8,7 @@
  * WHY THIS EXISTS.
  * Three of the numbers this feature was built on contradict the headers of the
  * files they came from. layout-match.js claims Spearman(score, radius) = -0.993
- * and cites `measure-match-layout.js`, which does not exist anywhere in the
+ * and cited `measure-match-layout.js`, which did not exist anywhere in the
  * repository. query-parse.js's header used to say `r.clauses` was ready for
  * buildMatcher().score(), and believing it makes "nothing violent" return Salo
  * and Straw Dogs at 1.000 with no error. match.js's own comment at line 410
@@ -82,7 +82,7 @@ function control(name, wouldPass, note) {
 /* ══ 0. THE ENGINE, IN NODE ═══════════════════════════════════════════════ */
 
 const { buildFind, packAttributes, unpackAttributes } = require("./atlas/app/query-runtime.js");
-const { buildMatcher, buildTable, attributeModel } = require("./atlas/pipeline/match.js");
+const { buildMatcher, buildTable, attributeModel, conjunctive: CONJ } = require("./atlas/pipeline/match.js");
 const { withComplements } = require("./atlas/pipeline/questioner.js");
 const ps = require("./atlas/pipeline/plot-source.js");
 
@@ -398,7 +398,15 @@ head("8. the offer arithmetic is not an approximation");
       const d = r.explain(k);
       const v = FIND.table.value(k, attr);
       const credit = v === undefined ? M.prior : M.sigmaAt(v);
-      const s = Math.max(0, Math.min(1, (d.raw + credit) / (d.denom + M.sigmaMax)));
+      const mean = Math.max(0, Math.min(1, (d.raw + credit) / (d.denom + M.sigmaMax)));
+      /* THE CONJUNCTIVE TERM RIDES IN THE SAME CLOSED FORM. match.js multiplies
+         the weighted mean by conjunctive(held weight, checkable weight), and
+         both move by the added clause's own weight — by w if the corpus has a
+         reading for this film on it, by nothing if it does not. Leaving it out
+         made this check read 1.857e-1, which is the term, not a drift. */
+      const knownW = d.knownWeight + (v === undefined ? 0 : 1);
+      const holdW = d.holdWeight + (v !== undefined && v > 0 ? 1 : 0);
+      const s = mean * CONJ(holdW, knownW);
       worst = Math.max(worst, Math.abs(s - full.scores[k])); pairs++;
     }
   }
@@ -522,7 +530,7 @@ head("10. the sky the sentence draws");
   check("distance really does encode match strength",
     st.spearman <= -0.80 && st.inversions <= 0.16,
     `spearman ${st.spearman.toFixed(4)} and ${(st.inversions * 100).toFixed(2)}% inversions ` +
-    `(layout-match.js's header claims -0.993 and cites measure-match-layout.js, which does not exist)`);
+    `(the header's uncited -0.993 is gone; pipeline/measure-match-layout.js exists)`);
   say(`    solve ${st.q.solveMs} ms   engine build ${st.q.buildMs} ms`);
 }
 

@@ -1763,10 +1763,10 @@ with the slack spent in proportion to the score gaps.
 |---|---|---|
 | Spearman(radius, score), owner sentence | −0.876 | **−0.995** |
 | ordered pairs drawn backwards | 13.31% | **0.00%** |
-| top-30 by score ∩ nearest-30 drawn | 21 of 30 | **29 of 30** |
-| worst score-rank inside the nearest 30 | 466 | **31** |
+| top-30 by score ∩ nearest-30 drawn | 19 of 30 | **30 of 30** |
+| worst score-rank inside the nearest 30 | 779 | **30** |
 | widest tie | 396 films over 60% of the radius | 396 films over **12%** |
-| films inside r = 0.25 | 0 | **217** |
+| films inside r = 0.25 | 0 | **245** |
 
 **And the radius is normalised against what the query can reach.** The absolute
 map put nothing inside r=0.246 on the owner's sentence — the best score in the
@@ -1812,6 +1812,31 @@ perfect answer at the front — there is not one. The rest is disclosure, and it
 is not optional: the slate now names, per clause, how many of the nearest twelve
 score zero on it, and lists the nearest five films with what each one misses.
 
+**An offer on an axis the reader already spoke on is a correction, not a
+question — settled 2026-08-10.** A namespace IS an axis: `pace` has four values
+and they are four points on one line. The row's heading is *"you did not say —
+want to?"*, and on the owner's own sentence the first offer was **UNHURRIED**
+(`pace:contemplative`) to somebody who had typed "fast pacing". Measured, the
+top offer sat in an already-spoken namespace in **4 of 14** sentences. The pool
+is still not narrowed — restricting offers to unspoken namespaces is the slot
+rule this design rejects on rule-1 grounds, because a sentence written in the
+interior vocabulary leaves `mode` and `setting` silent and those are the two
+most fame-loaded namespaces. What changed is that such an offer is **printed as
+a correction, carrying the reader's own words**, and demoted behind any question
+of comparable value (×0.75 on the pick rank, not an exclusion). The owner's
+sentence now leads with SPECTACLE, and UNHURRIED follows marked *"you said
+relentless or quick and light — the other end of the same axis"*.
+
+**And the coverage guard was a share where it should have been evidence.** A
+one-clause sentence — *"set in space"* — got **no follow-up at all**, because 30
+of its nearest 60 are films nobody read and every one of the 59 attributes
+failed a 75%-of-the-band test. The sentence with the most room left to narrow
+was the one the system declined to ask about. The guard now asks for **20 read
+films**, which is what an estimate of *q* actually needs, and the share is
+reported rather than used as a gate. `OFFER_STANDOUT` was re-measured against
+the new scorer at the same time: 1.8 → **1.5**, because the conjunctive term
+makes the front of the sky more stable and every influx figure fell with it.
+
 ### Rule 3 is drawn, not only written
 
 An unknown film is credited the corpus average on every clause it was not read
@@ -1836,6 +1861,42 @@ belongs to its neighbours. The centre is now taken out of the plate with
 zoom and at every density, and an unread film's halo contributes at 0.055
 instead of 0.26. Position and size are untouched — AGENTS rule 1 owns both, and
 neither may say "we did not read this one".
+
+### The slate says the four things it used to keep to itself — settled 2026-08-10
+
+Every one of these was already computed and simply not printed.
+
+**The contradiction.** `query-parse.js` states, in the clause pass: *"A
+contradiction (said and un-said) is kept and reported: the interface must show
+it, not silently pick a side."* It was kept and never shown — `grep -c
+conflicts app/template.html` was **0**, and `conflicts` was not among the 17
+keys `__ATLAS_SKY__.query()` exposed, so the field was unreachable from the view
+layer at all. *"a very violent film with nothing violent in it"* drew *Flesh for
+Frankenstein*, *Hannibal* and *Salò* at 0.975 dead centre under two chips saying
+the opposite of each other and no third word. Both spans are now named, and the
+per-film miss list under them says which side each of the nearest films fails.
+
+**One chip per clause, not per repetition.** A 500-word sentence built from 11
+vocabulary words repeated 45 times rendered **500 chips** and a **7,038px**
+scroll inside a 708px box, with the offers 6,300px below the fold. The parser
+had always deduplicated correctly — 11 clauses, weights combined by MAX — and it
+was the chip grouping that described 500 things the query does not contain.
+Now 11 chips, one carrying "said ×45", and its × takes back all forty-five
+spans, because taking back a forty-fifth of a repeated word is not a thing
+anybody asked for. Measured after: **11 chips, 1,239px**.
+
+**The unread echo is the reader's own string.** `readMarks` re-tokenised every
+unread span through `markNorm` and rebuilt the text from the normalised tokens,
+so *"¿un film… «très» spirituel"* was echoed as *"un film tres spirituel"* and
+*"sí"* as *"si"* — against `query-parse.js`'s own rule that the reader's span
+survives "rather than replacing what they said with schema vocabulary they never
+chose". The span is now sliced out of the source. `query-runtime.js` contained a
+literally empty block under the comment *"nothing found: keep the original span
+verbatim"*: the intent was written and never implemented.
+
+**A failed film pointer is not an unknown adjective.** *"the mood of Amélie"*
+came back as "not in the vocabulary" — the words were; the film is not in the
+2,204. Those spans now read **"a film this atlas does not hold"**.
 
 ### The offers, and why there is no "no"
 

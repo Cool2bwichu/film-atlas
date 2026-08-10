@@ -162,13 +162,29 @@ const SPY = () => {
      last one the page drew, and it is a different object from the frame the
      same state draws when something asks for it again — section 6 is about
      exactly that gap, and it can only be measured if both are captured. */
-  window.__sp = { on: true, discs: [], last: [] };
+  window.__sp = { on: true, discs: [], last: [], punches: 0 };
   const proto = { beginPath: C.beginPath, arc: C.arc, fill: C.fill, stroke: C.stroke };
   let pending = null;
   C.beginPath = function () { pending = null; return proto.beginPath.call(this); };
   C.arc = function (x, y, r, a, b, cc) { if (window.__sp.on) pending = [x, y, r]; return proto.arc.call(this, x, y, r, a, b, cc); };
+  /* A destination-out fill IS NOT A DISC, IT IS AN ERASE. The hollow disc
+     punches its own centre out of the plate before the ring is stroked — see
+     template.html, "THE HOLE IS PUNCHED, NOT LEFT" — and counting that punch as
+     a drawn disc reported 2,600 discs for 2,204 films and 563 strokes against
+     1,126 hollow films. The composite operation is recorded so the instrument
+     can tell the two apart rather than being fooled by both. */
   C.fill = function (...a) {
-    if (window.__sp.on && pending) { window.__sp.discs.push({ x: pending[0], y: pending[1], r: pending[2], kind: "fill", alpha: this.globalAlpha }); pending = null; }
+    if (window.__sp.on && pending) {
+      const op = this.globalCompositeOperation;
+      /* A destination-out fill is the film's cell taken OUT of the plate: it
+         is the hollow mark itself, not a disc, and below a ~3px disc it is the
+         only mark an unread film gets (the ring has no inside left to leave —
+         see template.html). It is recorded as its own kind so the instrument
+         can count one mark per film and still tell filled from hollow. */
+      if (op === "destination-out") window.__sp.discs.push({ x: pending[0], y: pending[1], r: pending[2], kind: "hole", alpha: 1 });
+      else window.__sp.discs.push({ x: pending[0], y: pending[1], r: pending[2], kind: "fill", alpha: this.globalAlpha });
+      pending = null;
+    }
     return proto.fill.call(this, ...a);
   };
   C.stroke = function (...a) {
@@ -203,14 +219,24 @@ const MEASURE = (opts) => {
   const k = sky.cam.k, ox = sky.w / 2 - sky.cam.cx * k, oy = sky.h / 2 - sky.cam.cy * k;
   const at = new Map();
   for (let i = 0; i < sky.n; i++) at.set((sky.wx[i] * k + ox).toFixed(3) + "|" + (sky.wy[i] * k + oy).toFixed(3), i);
+  /* ONE ROW PER FILM, NOT ONE PER DRAW CALL. An unread film can leave two
+     marks — the punched cell and, where there is room, the ring around it — and
+     counting both would report 2,600 discs for 2,204 films. A film is HOLLOW if
+     any of its marks is a hole or a stroke. */
   const rows = [];
+  const byFilm = new Map();
   let unmatched = 0, filled = 0, hollow = 0;
   for (const d of discs) {
     const i = at.get(d.x.toFixed(3) + "|" + d.y.toFixed(3));
     if (i === undefined) { unmatched++; continue; }
-    if (d.kind === "fill") filled++; else hollow++;
-    rows.push({ i, key: sky.keys[i], x: d.x, y: d.y, r: d.r, kind: d.kind, alpha: d.alpha });
+    let row = byFilm.get(i);
+    if (!row) {
+      row = { i, key: sky.keys[i], x: d.x, y: d.y, r: d.r, kind: d.kind, alpha: d.alpha };
+      byFilm.set(i, row); rows.push(row);
+    }
+    if (d.kind !== "fill") { row.kind = "stroke"; row.r = Math.max(row.r, d.r); }
   }
+  for (const row of rows) { if (row.kind === "fill") filled++; else hollow++; }
   /* THE CENTRE IS FITTED TO THE DRAWN CLOUD, not assumed to be the middle of
      the viewport and not read off the camera. layoutMatch puts the rim on a
      circle, so the bounding box of what was drawn has that circle's centre in
@@ -512,7 +538,7 @@ head("2. rule 1 — radius against score, against fame, against degree");
     rScore.rho <= -0.80, `rho ${sig(rScore.rho)} against a gate of -0.80; ` +
     `${((wrong / Math.max(1, ordered)) * 100).toFixed(2)}% of ${ordered.toLocaleString("en-US")} ordered pairs ` +
     `are drawn backwards — the better answer is further out ` +
-    `(layout-match.js's header claims Spearman -0.993 and cites measure-match-layout.js, which is not in the repo)`);
+    `(the header's uncited -0.993 is gone; pipeline/measure-match-layout.js exists and --v1 runs the pre-band arrangement as a control)`);
   check("fame does not explain the layout",
     Math.abs(rFame.rho) <= 0.45, `|rho| ${Math.abs(rFame.rho).toFixed(4)} against the 0.45 gate match.js holds the scorer to`);
   check("degree does not explain the layout",
@@ -542,15 +568,20 @@ head("2. rule 1 — radius against score, against fame, against degree");
      Two numbers, both hard: how many films from another score are drawn inside
      some tie's radial band, and how wide the widest band is as a share of the
      radius, which is the figure the slate is required to print. */
+  /* THE GROUP KEY IS THE STRING, NOT THE NUMBER BACK OUT OF IT. `+s` on a
+     12-place round-trip does not always return the double it came from, so
+     comparing a row's score to the reparsed key counted 233 of the 396 films
+     in the largest tie as intruders INTO THEIR OWN BAND. Membership is decided
+     by the same key the grouping used. */
   const groups = [...byScore.entries()]
-    .map(([s, list]) => ({ score: +s, n: list.length,
+    .map(([s, list]) => ({ key: s, score: +s, n: list.length,
       lo: Math.min(...list.map((r) => r.rad)), hi: Math.max(...list.map((r) => r.rad)) }))
     .filter((g) => g.n > 1);
   let intruders = 0, worstBand = null;
   for (const g of groups) {
     let bad = 0;
     for (const r of rows) {
-      if (r.score === null || r.score === g.score) continue;
+      if (r.score === null || r.score.toFixed(12) === g.key) continue;
       /* ONE PIXEL OF TOLERANCE AT EACH EDGE, BECAUSE THE SCREEN IS PIXELS.
          456 distinct scores share a 183px radius, so adjacent bands are
          routinely under a pixel apart and quantisation alone puts a neighbour
@@ -770,7 +801,7 @@ head("5. rule 3 — thin data is drawn thin");
       `hollow +${s0.meanHollow.toFixed(1)} (n=${s0.nh}), AUC ${s0.auc.toFixed(3)} against a 0.90 gate — ` +
       `${(s0.auc * 100).toFixed(0)}% of hollow/filled pairs are the right way round, and ${s0.below} of ${s0.nh} ` +
       `hollow discs are even half as dark at the centre as a median filled one. At a ${m.drawnDiscR.toFixed(2)}px ` +
-      `disc the ring's own line width (max(0.7, r*0.42)) closes the hole it is supposed to leave`
+      `disc the cell is punched out of the plate and the ring is drawn only where it has an inside`
       : "no isolated discs to sample");
   /* AND WHETHER IT EVER BECOMES VISIBLE. Same picture, camera pushed in, so
      the disc is big enough to have an inside. */

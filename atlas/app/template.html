@@ -1068,6 +1068,12 @@ main{flex:1;position:relative;overflow:hidden}
   text-transform:uppercase;color:var(--dim)}
 .find-take span{font-family:var(--serif);font-size:11.5px;line-height:1.45;color:var(--ink)}
 .find-take .brings{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--faint)}
+/* An offer on an axis the reader already spoke on is a CORRECTION, and says so
+   in their own words rather than under "you did not say". --faint is 5.0:1 on
+   this ground and the rule is the same hairline every other aside uses. */
+.find-offer.correction{border-left:2px solid var(--accent-dim,#8A7440)}
+.find-take .corrects{font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--faint)}
 .find-take:hover b,.find-take:focus-visible b{color:var(--accent)}
 .find-either{flex-shrink:0;width:52px;border:0;border-left:1px solid var(--hair);
   background:none;color:var(--faint);cursor:pointer;
@@ -5042,6 +5048,16 @@ function skyFormStep(now){
 
 /* Everything that has to be true once the geometry has stopped moving. */
 function skyFormSettled(){
+  /* THE PLATE THE READER IS LEFT WITH IS INTEGRATED FROM THE PLATE THE READER
+     IS LEFT WITH. The halation buffer is keyed on the camera alone, and during
+     a flight the alphas are still animating — a film under 0.004 contributes
+     nothing to the integral — so whichever frame happened to be the last one to
+     rebuild at the final camera decided which films were in the buffer. That is
+     a race, and a race is a different picture for the same address: measured,
+     two cold loads of one sentence differed in 38 of 256 tiles and a forced
+     rebuild made them identical. One rebuild at the end, from the settled
+     state, costs one integration and removes the whole class. */
+  sky.haloDirty=true;
   sky.labelKey=undefined;
   skyFilterRender();
   skyStratumRender();
@@ -5483,7 +5499,7 @@ function skyApplySelection(ms){
      two meanings for its radius and — decisively — two addresses. One picture,
      one sentence about it. The typed box stays live, so saying it again is one
      keystroke away. */
-  if (sky.query){ sky.query=null; sky.qcov=null; skyFindRender(); }
+  if (sky.query){ sky.query=null; skyQcov(null); skyFindRender(); }
   sky.pinKey=null; sky.hoverKey=null; sky.examineKey=null;
   /* The held neighbourhood is a fact about the picture that is being
      replaced; it is released rather than dragged through the flight, and the
@@ -6173,6 +6189,14 @@ function skyHaloBuild(k,ox,oy){
      draws pays one property read per film and nothing else. */
   const QCH=sky.qcov;
   g.globalAlpha=0.26;
+  /* THE SIGNATURE IS THE CAMERA, AND THE PLATE IS NOW ALSO AN INPUT.
+     `sky.haloK` keys the buffer on (k, ox, oy) alone, which was complete while
+     the integral depended only on where the films were. It depends on WHICH
+     films were read as well now, so a reading that arrives without moving the
+     camera would leave the previous reading's halation on the plate — measured
+     before this line existed: two cold loads of one address differed in 38 of
+     256 tiles, and forcing a rebuild made them identical. Every write to
+     sky.qcov raises sky.haloDirty; see skyQcov(). */
   for (let i=0;i<sky.n;i++){
     if (A[i]<=0.004) continue;
     const x=SX[i]*px, y=SY[i]*px;
@@ -7529,7 +7553,25 @@ function skyDraw(){
          zoom and at every density. Nothing about position or size changes —
          rule 1 owns both — and the ring is still drawn at full ink on top, so
          the grammar reads exactly as it always did once the reader pushes in. */
-      const core=Math.max(0.55, r*0.50);
+      const lw=Math.max(0.7, r*0.42);
+      const inner=r*0.92 - lw/2;
+      /* THE RING GIVES GROUND BELOW ABOUT A 3px DISC, AND THAT IS THE WHOLE
+         FIX. Measured, with the hole punched and the ring still stroked at the
+         resting 1.46px disc, the two populations still read the same — because
+         the ring's INNER EDGE lands at 0.99px and a disc centre is fractional,
+         so the pixel at the centre of the cell sits about 0.98px out and is
+         inside the ring's own stroke. The ring was painting the hole.
+         So: the cell is punched out of the plate, and the ring is drawn only
+         where there is room for one to have an inside (inner edge >= 1.7px,
+         which is 0.5 + sqrt(2)/2 plus a hair — the distance a fractional centre
+         can put a pixel from its own film). Below that an unread film is an
+         ABSENCE OF LIGHT at its own position: a dark cell among lit ones, which
+         is what "hollow" means when there are two pixels to say it in. The ring
+         comes back at full width the moment the reader pushes in.
+         Position and size never move — AGENTS rule 1 owns both, and neither may
+         say "we did not read this one". */
+      const ring = inner >= 1.7;
+      const core = ring ? inner : Math.min(r*0.92 + lw/2, Math.max(1.7, r*1.15));
       const keepA=ctx.globalAlpha, keepOp=ctx.globalCompositeOperation;
       ctx.globalCompositeOperation="destination-out";
       ctx.globalAlpha=1;
@@ -7538,11 +7580,13 @@ function skyDraw(){
       ctx.fill();
       ctx.globalCompositeOperation=keepOp;
       ctx.globalAlpha=keepA;
-      ctx.beginPath();
-      ctx.arc(px,py,r*0.92,0,TAU);
-      ctx.lineWidth=Math.max(0.7,r*0.42);
-      ctx.strokeStyle=sky.tone[i];
-      ctx.stroke();
+      if (ring){
+        ctx.beginPath();
+        ctx.arc(px,py,r*0.92,0,TAU);
+        ctx.lineWidth=lw;
+        ctx.strokeStyle=sky.tone[i];
+        ctx.stroke();
+      }
       continue;
     }
     ctx.beginPath();
@@ -8777,6 +8821,14 @@ function skyTargetQuery(scores){
 
 /* ── RUNNING A READING ──────────────────────────────────────────────────── */
 
+/* ONE WRITER FOR sky.qcov, BECAUSE THE HALATION BUFFER READS IT.
+   Assigning the field in four places and remembering the invalidation in none
+   of them is how the buffer came to be drawn from the previous reading. */
+function skyQcov(v){
+  sky.qcov = v || null;
+  sky.haloDirty = true;
+}
+
 function skyQueryRun(text, opts){
   const o=opts||{};
   const E=findEngine();
@@ -8797,14 +8849,14 @@ function skyQueryRun(text, opts){
      confidence it does not have. They are drawn HOLLOW instead: the same
      record-versus-reading grammar the edges already use, at the same radius,
      so nothing about size or distance is touched. */
-  sky.qcov = null;
+  skyQcov(null);
   if (r.drawable && r.explain){
     const cov=new Uint8Array(sky.n);
     for (let i=0;i<sky.n;i++){
       const d=r.explain(sky.keys[i]);
       cov[i] = (d && d.coverage>0) ? 0 : 1;
     }
-    sky.qcov=cov;
+    skyQcov(cov);
   }
   /* THE BAND TABLE IS PART OF THE ANSWER, NOT PART OF THE SOLVE. matchBands is
      a pure function of the scores — no relaxation, no randomness — so the slate
@@ -8943,7 +8995,7 @@ function skyQueryRun(text, opts){
 function skyQueryClear(){
   if (!sky.query) return;
   sky.query=null;
-  sky.qcov=null;
+  skyQcov(null);
   findFocusKey=null;
   skySyncHash();
   skyTpApply();
@@ -9139,10 +9191,14 @@ function skyFindSlate(){
     out.push(`<span class="y" style="margin-top:9px">you said both</span>`);
     out.push(`<div class="find-conflicts">${cf.map(c=>{
       const label=c.terms.map(a=>{ try{ return FIND_ENGINE.labelOf(a); }catch(_e){ return a; } }).join(" · ");
-      return `<span class="find-conflict"><b>“${esc(c.against)}”</b> and <b>“${esc(c.text)}”</b>`+
-        `<span>Both point at ${esc(label)}. The atlas kept both and scored the `+
-        `LAST one — “${esc(c.text)}” — so the sky in front of you is the one that `+
-        `answers that. Take either chip back with its × to see the other picture.</span></span>`;
+      /* One element, not two with a bare text node between them: .find-conflict is
+         a flex column, so "and" on its own became its own row at heading size. */
+      return `<span class="find-conflict"><b>“${esc(c.against)}” and “${esc(c.text)}”</b>`+
+        `<span>Both point at ${esc(label)}, one way and the other. The atlas kept both `+
+        `rather than quietly picking a side, so both are in the arithmetic and nothing `+
+        `can satisfy them at once — which is why the films at the front hold one of them `+
+        `and fail the other. Which one each of them fails is listed below. Take either `+
+        `chip back with its × to see the sky without it.</span></span>`;
     }).join("")}</div>`);
   }
 
@@ -9272,12 +9328,24 @@ function skyFindSlate(){
      drawn behind this, the typed box is still live, and ignoring the row is a
      complete, silent, zero-click answer. Each door shows what is behind it. */
   if (r.offers.length){
+    /* THE HEADING IS A CLAIM ABOUT THE READER'S SENTENCE AND IT WAS SOMETIMES
+       FALSE. A namespace is an AXIS — `pace` has four values and they are four
+       points on one line — so offering UNHURRIED under "you did not say" to
+       somebody who typed "fast pacing" states the opposite of what they said as
+       a question they had not answered. Measured, the first offer sat in an
+       already-spoken namespace in 4 of 14 sentences. The pool is deliberately
+       not narrowed (query-runtime.js says why, on rule-1 grounds); what changes
+       is that an offer on an axis the reader already committed to is printed as
+       a CORRECTION, carrying their own words, and is demoted behind any
+       question of comparable value. */
     out.push(`<span class="y" style="margin-top:12px">you did not say — want to?</span>`);
     out.push(`<div class="find-offers">${r.offers.map(o=>{
       const brings=o.brings.map(k=>F[k]?F[k].title:k).filter(Boolean);
-      return `<div class="find-offer">`+
+      const corr=(o.corrects&&o.corrects.length)
+        ? `<span class="corrects">you said ${esc(o.corrects.join(" and "))} — the other end of the same axis</span>` : "";
+      return `<div class="find-offer${o.corrects?" correction":""}">`+
         `<button type="button" class="find-take" data-take="${esc(o.attr)}">`+
-          `<b>${esc(o.label)}</b><span>${esc(o.gloss)}</span>`+
+          `<b>${esc(o.label)}</b>${corr}<span>${esc(o.gloss)}</span>`+
           (brings.length?`<span class="brings">would bring in ${brings.map(esc).join(" · ")}</span>`:"")+
         `</button>`+
         `<button type="button" class="find-either" data-spend="${esc(o.attr)}" `+
