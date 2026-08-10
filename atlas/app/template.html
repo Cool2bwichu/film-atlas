@@ -935,14 +935,27 @@ main{flex:1;position:relative;overflow:hidden}
    — how much of what you are seeing was measured — and never a claim about a
    film. --dim is 7.6:1 on this ground; the glyph carries the register's own
    hue, and every one of the 28 clears 3.4:1 there (it is a mark, not type). */
+/* THE APERTURE IS A SHARED RESOURCE AND THE READOUT KEEPS TAKING IT.
+   skyGate() inscribes its rectangle in whatever the chrome leaves, so every line
+   added to this box comes straight out of the picture. Measured: a held year
+   took the readout 155px -> 276px, the aperture 584x427 -> 419x306 (51% of its
+   resting area), and 83px of constellation ended up outside the frame it was
+   drawn in. That happened twice in one afternoon, from two different authors,
+   because nobody writing a sentence here can see what it costs.
+   So the box is capped at the height it has at rest and scrolls past it. The
+   transport's own content is six short blocks and does not reach the cap; the
+   cap is here so that the NEXT thing added cannot silently shrink the print.
+   Section 5b of transport-probe.mjs is the check that fails when it does. */
+.sky-readbox.tp .sky-read{max-height:168px;overflow-y:auto;scrollbar-width:thin}
 /* The transport's statistics live behind a fold. They were 55 words of caps-lock
    standard deviations, byte-identical at every cursor bar two numbers, and they
    grew the readout to 264px — which shrank the aperture skyGate() inscribes to
    55% of its resting area and pushed the picture out of its own frame. The tier
    word and the "authored" admission stay in the open, because AGENTS rule 8 is
    what that sentence is for; only the arithmetic folds. */
-.sky-read .sky-tp-how{display:block;margin-top:4px}
-.sky-read .sky-tp-how summary{cursor:pointer;color:var(--dim);
+.sky-read .sky-tp-how{display:inline}
+.sky-read .sky-tp-how[open]{display:block;margin-top:4px}
+.sky-read .sky-tp-how summary{display:inline;cursor:pointer;color:var(--dim);
   text-decoration:underline;text-underline-offset:2px;list-style:none}
 .sky-read .sky-tp-how summary::-webkit-details-marker{display:none}
 .sky-read .sky-tp-how[open] summary{margin-bottom:3px}
@@ -6702,7 +6715,7 @@ function skyTpYearFilms(y, n){
 /* The sentence that names them. Printed for a HELD or GRAZED year, where the
    reader has stopped on one year and is entitled to know what is in it. */
 function skyTpYearLine(y){
-  const r=skyTpYearFilms(y,5);
+  const r=skyTpYearFilms(y,4);
   if (!r) return "";
   const shownN=r.titles.length;
   const more=r.total-shownN;
@@ -7992,6 +8005,10 @@ function skyFoldSummary(folded){
 function skyFoldApply(){
   const shell=$("#sky-readbox"), body=$("#sky-read"), btn=$("#sky-fold"), sum=$("#sky-fold-sum");
   if (!shell||!body||!btn) return;
+  /* The cap is a property of WHO IS SPEAKING, not of the fold, so it is set on
+     the same guarded pass rather than in a second place that can disagree. */
+  const tp = typeof skyTpSpeaking==="function" && skyTpSpeaking();
+  if (shell.classList.contains("tp")!==!!tp) shell.classList.toggle("tp",!!tp);
   const folded=state.skyFolded===true;
   /* Guarded: this runs on every readout repaint, which is every pointer move
      over a disc. Re-writing `hidden` to the value it already has still reflects
@@ -8243,14 +8260,16 @@ function skyReadoutBody(){
       const loose=["convergence","rhyme","hand"].reduce((a2,k)=>a2+(t.tense[k]?t.tense[k].n:0),0);
       const looseDir=["convergence","rhyme","hand"].reduce((a2,k)=>a2+(t.tense[k]?t.tense[k].directed:0),0);
       box.innerHTML=`<span class="slate" id="sky-tp-count">${esc(count)}</span>
-        <span class="sky-tier" style="--wc:#E8C87A"><i>${mark}</i> ${esc(sep.tier||"authored")} \u00b7
-          the light is this year's own prints \u2014 hue <b id="sky-tp-hue"
-          style="font-weight:inherit">${t.yearHue[i]}</b>\u00b0 from <b id="sky-tp-prints"
-          style="font-weight:inherit">${nf(t.yearN[i])}</b>, chroma raised, authored.<details
+        <span class="sky-tier" style="--wc:#E8C87A"><i>${mark}</i> ${esc(sep.tier||"authored")} \u00b7 <b id="sky-tp-prints"
+          style="font-weight:inherit">${nf(t.yearN[i])}</b> prints, hue <b id="sky-tp-hue"
+          style="font-weight:inherit">${t.yearHue[i]}</b>\u00b0, chroma raised, authored.<details
           class="sky-tp-how"><summary>how it was measured</summary>The decade separates at
           ${sep.sigma} SD and explains ${(sep.share*100).toFixed(1)}% of one film's own colour, so it
           lights the room and never a disc \u2014 and a year is read as a wash over the whole plate,
-          never off one film's position (RMSE 20.9 years against a corpus SD of 23.4).</details></span>
+          never off one film's position (RMSE 20.9 years against a corpus SD of 23.4).
+          The other three types carry a recorded direction on ${nf(looseDir)} of ${nf(loose)}
+          edges, so they are drawn from the middle out to both ends rather than given an arrow
+          nobody measured.</details></span>
         <span class="y sky-tp-year-films" id="sky-tp-films">${esc(skyTpYearLine(shown))}</span>
         <div class="sky-key sky-key-tense">
           ${tenseRow("descent","descends from")}
@@ -8260,12 +8279,13 @@ function skyReadoutBody(){
           ${tenseRow("hand","shares a hand")}
           <i class="dash">reading, not record</i>
         </div>
-        <span class="y sky-hint" style="margin-top:7px"><span id="sky-tp-say">${esc(say)}</span> The other three types carry a
-          recorded direction on ${nf(looseDir)} of ${nf(loose)} edges, so they are drawn from the
-          middle out to both ends rather than given an arrow nobody measured.</span>
-        ${TP.t<TP.end||grazing?`<button class="btn ghost" id="sky-tp-rest" type="button">Back to the whole atlas</button>`:""}`;
-      const b=$("#sky-tp-rest");
-      if (b) b.onclick=()=>skyTpRest(true);
+        <span class="y sky-hint" style="margin-top:7px"><span id="sky-tp-say">${esc(say)}</span></span>
+`;
+      /* THE BUTTON IS GONE, AND ITS 30px WENT BACK INTO THE PICTURE. It said
+         "Back to the whole atlas" while the track two inches below already says
+         "end returns to now", is draggable, and answers End from the keyboard.
+         Two affordances for one action, and the duplicate was costing the
+         aperture more than it was worth. */
       return;
     }
     const key5=`<div class="sky-key">${SKY_TYPES.map(t=>
