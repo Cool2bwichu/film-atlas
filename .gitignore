@@ -107,3 +107,4 @@ __pycache__/
 /.atlas-films-snap/
 /atlas/pipeline/out/fingerprints.shard-*.json
 /atlas/pipeline/.cache-soc/
+/scratchpad/
