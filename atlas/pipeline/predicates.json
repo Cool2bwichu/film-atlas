@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "vocabVersion": "predicates-1",
+  "about": "A controlled vocabulary of relational predicaments: what happens BETWEEN the people in a film. Distinct from the signature (how the film behaves on screen) and the fingerprint (the film's temperature). A predicate is a shared object, so two films match by co-occurrence, not by distance in a space. That is the whole point: distance collapses toward films of similar temperature, co-occurrence lets two films in different traditions land on the same situation.",
+  "rules": {
+    "prevalenceBand": [
+      0.004,
+      0.08
+    ],
+    "prevalenceNote": "A predicate held by more than ~8% of the corpus is a genre, not a situation, and must be split or cut. One held by fewer than ~0.4% is a dead end. Measured after tagging, not guessed before it — same discipline as signature-schema.md test 2, but a tighter band, because a situation is rarer than a formal property.",
+    "centrality": "0-1. Is this the film's spine or something it passes through? Edges multiply by min(centrality_a, centrality_b), so a subplot never outranks a spine.",
+    "outcomes": [
+      "restored",
+      "unrestored",
+      "fatal",
+      "ambiguous",
+      "transfigured"
+    ],
+    "outcomeIsTheEdgeType": "Same predicate + same outcome = rhyme. Same predicate + opposed outcome = rebuttal. This is a GENERATOR for rebuttal edges, which currently have to be hand-authored one pair at a time.",
+    "basis": "One sentence naming the specific instantiation in THIS film, written for someone who has not seen it. The edge claim is composed from the two bases; it is never written as a generic template.",
+    "estPrevalence": "Hand estimate of corpus-scale share, used by --prior so the seed cohort can be ranked as it would rank at N=2204. Replaced by the measured count as soon as a real tagging pass exists. Never ship these as measurements."
+  },
+  "predicates": [
+    {
+      "id": "bond-severed-unilaterally",
+      "label": "One party ends the bond and will not give a reason the other can accept",
+      "roles": [
+        "severing",
+        "severed"
+      ],
+      "axis": "wound",
+      "estPrevalence": 0.012
+    },
+    {
+      "id": "friendship-outgrown",
+      "label": "One has moved into adult life and the other has not; the gap does the ending",
+      "roles": [
+        "departing",
+        "remaining"
+      ],
+      "axis": "wound",
+      "estPrevalence": 0.008
+    },
+    {
+      "id": "unequal-knowledge-of-the-end",
+      "label": "One party knows the relationship is finished long before the other does",
+      "roles": [
+        "knowing",
+        "unknowing"
+      ],
+      "axis": "wound",
+      "estPrevalence": 0.02
+    },
+    {
+      "id": "final-scene-of-politeness",
+      "label": "The bond ends in ordinary courtesy rather than confrontation",
+      "roles": [],
+      "axis": "wound",
+      "estPrevalence": 0.006
+    },
+    {
+      "id": "escalation-by-self-harm",
+      "label": "A demand is enforced by damaging oneself rather than the other",
+      "roles": [
+        "enforcer",
+        "witness"
+      ],
+      "axis": "spine",
+      "estPrevalence": 0.004
+    },
+    {
+      "id": "grievance-outlives-its-cause",
+      "label": "The feud continues long past the point where anyone can justify it",
+      "roles": [
+        "pursuer",
+        "pursued"
+      ],
+      "axis": "spine",
+      "estPrevalence": 0.01
+    },
+    {
+      "id": "innocent-pays",
+      "label": "The cost of the conflict lands on someone who had no stake in it",
+      "roles": [
+        "combatant",
+        "bystander"
+      ],
+      "axis": "spine",
+      "estPrevalence": 0.045
+    },
+    {
+      "id": "animal-as-hostage",
+      "label": "An animal's fate carries the moral weight of a human quarrel",
+      "roles": [],
+      "axis": "spine",
+      "estPrevalence": 0.012
+    },
+    {
+      "id": "macro-violence-indifferent",
+      "label": "A larger war or collapse runs in parallel, audible and unconcerned",
+      "roles": [],
+      "axis": "grammar",
+      "estPrevalence": 0.055
+    },
+    {
+      "id": "chorus-that-watches",
+      "label": "A community observes, comments, and declines to intervene",
+      "roles": [],
+      "axis": "grammar",
+      "estPrevalence": 0.03
+    },
+    {
+      "id": "confinement-forces-escalation",
+      "label": "Two people who cannot leave each other, so the only available move is upward",
+      "roles": [],
+      "axis": "spine",
+      "estPrevalence": 0.035
+    },
+    {
+      "id": "work-over-love",
+      "label": "A character trades intimacy for the chance of making something that lasts",
+      "roles": [
+        "renouncer",
+        "renounced"
+      ],
+      "axis": "wound",
+      "estPrevalence": 0.03
+    },
+    {
+      "id": "mortality-clock",
+      "label": "A known and finite remaining span is what drives the behaviour",
+      "roles": [],
+      "axis": "wound",
+      "estPrevalence": 0.05
+    },
+    {
+      "id": "admiration-refused",
+      "label": "One man's regard is coldly declined, and he escalates rather than withdraw",
+      "roles": [
+        "idol",
+        "acolyte"
+      ],
+      "axis": "spine",
+      "estPrevalence": 0.015
+    },
+    {
+      "id": "drink-as-the-third-party",
+      "label": "Alcohol is present at every turn of the relationship and is never the subject",
+      "roles": [],
+      "axis": "register",
+      "estPrevalence": 0.04
+    },
+    {
+      "id": "comedy-that-stops-being-funny",
+      "label": "The film is played for laughs until the same behaviour is played for horror",
+      "roles": [],
+      "axis": "register",
+      "estPrevalence": 0.02
+    },
+    {
+      "id": "family-that-cannot-be-reassembled",
+      "label": "A child cannot put a household back together and keeps trying",
+      "roles": [
+        "child",
+        "parent"
+      ],
+      "axis": "wound",
+      "estPrevalence": 0.035
+    },
+    {
+      "id": "pursuer-is-the-only-intimacy",
+      "label": "Hunter and hunted understand each other better than anyone else does",
+      "roles": [
+        "hunter",
+        "hunted"
+      ],
+      "axis": "spine",
+      "estPrevalence": 0.008
+    },
+    {
+      "id": "identity-as-performance",
+      "label": "A borrowed self is worn well enough to pass, and fits better than the real one",
+      "roles": [
+        "impostor",
+        "audience"
+      ],
+      "axis": "spine",
+      "estPrevalence": 0.025
+    },
+    {
+      "id": "performing-for-a-parent-who-cannot-see-it",
+      "label": "The whole achievement is addressed to someone who will never witness it",
+      "roles": [
+        "performer",
+        "absent"
+      ],
+      "axis": "wound",
+      "estPrevalence": 0.015
+    },
+    {
+      "id": "absorbed-by-what-hunted-him",
+      "label": "The institution ends by taking in the person it spent the film pursuing",
+      "roles": [],
+      "axis": "spine",
+      "estPrevalence": 0.006
+    },
+    {
+      "id": "fabricated-family",
+      "label": "Kin assembled by choice rather than blood, and the world refuses to recognise it",
+      "roles": [],
+      "axis": "wound",
+      "estPrevalence": 0.02
+    },
+    {
+      "id": "flight-from-the-broken-home",
+      "label": "A child's answer to the household is simply to run",
+      "roles": [],
+      "axis": "spine",
+      "estPrevalence": 0.018
+    },
+    {
+      "id": "the-forgery-outlives-the-original",
+      "label": "The counterfeit turns out to be as good as, or better than, the real thing",
+      "roles": [],
+      "axis": "grammar",
+      "estPrevalence": 0.005
+    },
+    {
+      "id": "child-watches-a-parent-diminish",
+      "label": "A child is present for the exact moments a parent gets smaller",
+      "roles": [
+        "child",
+        "parent"
+      ],
+      "axis": "wound",
+      "estPrevalence": 0.012
+    }
+  ]
+}

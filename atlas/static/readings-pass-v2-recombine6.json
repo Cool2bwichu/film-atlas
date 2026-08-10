@@ -1,0 +1,460 @@
+{
+ "version": 1,
+ "promptVersion": "readings-prompt-2",
+ "model": "claude-opus-5",
+ "source": "reading",
+ "note": "Per-film readings. Predicaments are free text on purpose — the vocabulary is mined from them afterwards, not imposed before. `relatives` is NOT an edge list: see the header of readings.js.",
+ "generated": "2026-08-10T12:05:43.908Z",
+ "films": [
+  {
+   "n": 1,
+   "title": "Rashomon",
+   "engine": "Four people who were in the same clearing when a man died each describe it in a way that leaves themselves standing, and none of the versions can be squared with the others. Two men sheltering from the rain listen to all of them and lose their footing on whether anyone tells the truth about themselves, until one of them takes on a burden that costs him something and gives the other his footing back.",
+   "predicaments": [
+    {
+     "situation": "no one can agree what happened",
+     "basis": "The bandit, the wife, the dead husband speaking through a medium, and the woodcutter each give an incompatible account of the same killing in the grove.",
+     "centrality": 1,
+     "outcome": "ambiguous"
+    },
+    {
+     "situation": "each person tells the version that spares them",
+     "basis": "Tajōmaru claims an honourable duel he won, the wife claims she fainted and woke to the body, the husband claims dignified suicide — each account flatters the one giving it.",
+     "centrality": 0.9,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a witness lies to hide his own theft",
+     "basis": "The woodcutter conceals having watched the killing because he took the wife's dagger from the scene, and the commoner works this out from the gap in his story.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "concealing": "the woodcutter",
+      "exposing": "the commoner"
+     }
+    },
+    {
+     "situation": "a husband turns on his violated wife",
+     "basis": "Freed from his ropes after the rape, the samurai looks at his wife with loathing and refuses to risk his life for a ruined woman.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "condemning": "the samurai",
+      "condemned": "the wife"
+     }
+    },
+    {
+     "situation": "a stranger takes in an abandoned child",
+     "basis": "The woodcutter carries the foundling left at the gate away to raise alongside his own children, and the monk's faith in people returns as the rain stops.",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "roles": {
+      "taking in": "the woodcutter",
+      "given up": "the infant"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Last Duel",
+     "shares": "one assault recounted three ways, each teller shaped by what the version costs them"
+    },
+    {
+     "title": "Anatomy of a Fall",
+     "shares": "a death with no reliable witness, where testimony can only produce competing stories"
+    },
+    {
+     "title": "Hero",
+     "shares": "a killing narrated in successive incompatible versions, each retold to serve the teller"
+    },
+    {
+     "title": "Courage Under Fire",
+     "shares": "an investigator collecting accounts of the same event that cannot all be true"
+    }
+   ],
+   "year": 1950,
+   "source": "reading",
+   "plotChars": 4012
+  },
+  {
+   "n": 2,
+   "title": "Blowup",
+   "engine": "A photographer who moves through everyone around him as material — models, strangers in a park, girls at his door — enlarges a stolen picture until he is sure it shows a man being shot, then discovers that the more closely he looks the less there is, and that nobody in his life will stand beside him and say it happened. He is left holding a certainty with no object and nobody to share it with.",
+   "predicaments": [
+    {
+     "situation": "a man knows what he cannot prove",
+     "basis": "Thomas blows the negatives up until a shape under a bush resolves into a body, goes to the park and touches it, and then loses every print, the negatives and the corpse itself.",
+     "centrality": 0.9,
+     "outcome": "ambiguous"
+    },
+    {
+     "situation": "no one will believe what he saw",
+     "basis": "He begs his agent Ron to come to the park as a witness, but Ron is too far gone at the party to hear him and pulls him back in instead.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "claiming": "Thomas",
+      "disbelieving": "Ron"
+     }
+    },
+    {
+     "situation": "the watcher is confronted by the watched",
+     "basis": "Jane, photographed without consent in the park, chases Thomas down, follows him to his studio and bargains for the film; he hands her the wrong roll and she leaves a false number.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "watching": "Thomas",
+      "watched": "Jane"
+     }
+    },
+    {
+     "situation": "a man treats those around him as material",
+     "basis": "He walks out mid-shoot on models and staff, brushes off the two aspiring girls until he wants them, then dismisses them again with \"Tomorrow!\"",
+     "centrality": 0.5,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "the guilty one is never found",
+     "basis": "The figure with the pistol in the trees is never identified, the body disappears from the park, and the killing is left with no name attached to it.",
+     "centrality": 0.7,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a man joins a game that isn't there",
+     "basis": "Thomas throws back the mime troupe's invisible tennis ball and then hears it being struck, before he himself fades out of the grass.",
+     "centrality": 0.7,
+     "outcome": "transfigured"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Conversation",
+     "shares": "a technician enlarging his own recording into evidence of a killing he can never confirm"
+    },
+    {
+     "title": "Blow Out",
+     "shares": "a man certain of a crime captured by accident, whose proof is taken from him piece by piece"
+    },
+    {
+     "title": "Caché",
+     "shares": "surveillance images that force a watcher into the position of the watched"
+    },
+    {
+     "title": "Picnic at Hanging Rock",
+     "shares": "an event that resists explanation and is simply left unresolved"
+    },
+    {
+     "title": "Memories of Murder",
+     "shares": "certainty about a killer that no evidence will ever support"
+    }
+   ],
+   "year": 1966,
+   "source": "reading",
+   "plotChars": 3413
+  },
+  {
+   "n": 3,
+   "title": "Memories of Murder",
+   "engine": "Two detectives with opposite ideas of how truth is obtained — one who reads faces and beats confessions out of whoever fits, one who reads documents and waits for evidence — spend years on a series of killings that leaves them nothing to hold, and by the end each has become the other. The one man they can neither clear nor convict walks away, and the last word on him is that he looks like anybody.",
+   "predicaments": [
+    {
+     "situation": "two men disagree on how truth is found",
+     "basis": "Park claims he can identify a criminal by eye contact and lets his partner kick out confessions; Seo, sent from Seoul, rebuilds the case from reports, weather and the victims' red clothing — and by the end Park is the cautious one and Seo is reaching for a gun.",
+     "centrality": 0.9,
+     "outcome": "transfigured",
+     "roles": {
+      "intuition": "Park",
+      "method": "Seo"
+     }
+    },
+    {
+     "situation": "a confession is beaten out of an innocent",
+     "basis": "Cho beats a statement out of Baek Kwang-ho, a scarred disabled boy whose only connection to a victim was following her around town.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "forcing": "Park and Cho",
+      "forced": "Baek"
+     }
+    },
+    {
+     "situation": "no one will believe what he saw",
+     "basis": "Only when they replay Baek's coerced confession do they realise he actually witnessed a murder, and he is killed by a train while fleeing them before he can say what he knows.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "telling": "Baek",
+      "not hearing": "the detectives"
+     }
+    },
+    {
+     "situation": "a man knows what he cannot prove",
+     "basis": "The semen sample sent to the United States comes back inconclusive on Hyeon-gyu, and Park looks into his eyes, believes he is the killer anyway, and still has to let him walk.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "certain": "Park",
+      "suspected": "Hyeon-gyu"
+     }
+    },
+    {
+     "situation": "a lapse in watching costs a life",
+     "basis": "Seo falls asleep while tailing Hyeon-gyu on a rainy night, and the schoolgirl who had befriended him is murdered in the woods that same night.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "watching": "Seo",
+      "unprotected": "the schoolgirl"
+     }
+    },
+    {
+     "situation": "the guilty one is never found",
+     "basis": "By 2003 the case is unsolved; a girl at the first ditch describes a man who came back to reminisce and whose face has nothing in it worth describing.",
+     "centrality": 0.9,
+     "outcome": "unrestored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Zodiac",
+     "shares": "investigators certain of a man the evidence will never confirm, worn down by a case that never closes"
+    },
+    {
+     "title": "Prisoners",
+     "shares": "a statement forced from a vulnerable man who may only have witnessed something"
+    },
+    {
+     "title": "Cure",
+     "shares": "a detective whose method dissolves against a killer who leaves nothing to read"
+    },
+    {
+     "title": "In the Heat of the Night",
+     "shares": "two investigators with incompatible methods forced to work one case together"
+    },
+    {
+     "title": "Blowup",
+     "shares": "conviction about a killing that no proof will ever support"
+    }
+   ],
+   "year": 2003,
+   "source": "reading",
+   "plotChars": 4406
+  },
+  {
+   "n": 4,
+   "title": "Jules and Jim",
+   "engine": "Two friends who love the same woman would rather share her than lose each other, and arrange it openly — one husband hands his wife to the other man with his blessing so as to keep her in the house at all. She will not be held by any arrangement they can build, and when the man she wants finally chooses an ordinary life instead, she takes him with her and makes the other one watch.",
+   "predicaments": [
+    {
+     "situation": "two friends want the same woman",
+     "basis": "Jules and Jim are both entranced by Catherine, who reminds them of a statue they travelled to see; Jules speaks for her first and Jim stands aside without the friendship breaking.",
+     "centrality": 1,
+     "outcome": "fatal",
+     "roles": {
+      "first": "Jules",
+      "second": "Jim"
+     }
+    },
+    {
+     "situation": "a husband hands his wife to his friend",
+     "basis": "Fearing Catherine will leave for good, Jules gives Jim his blessing to marry her so that he can keep visiting and seeing her.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "yielding": "Jules",
+      "receiving": "Jim"
+     }
+    },
+    {
+     "situation": "a woman refuses the place she is given",
+     "basis": "Catherine takes lovers to punish Jules, abandons him and their daughter for six months, misses the café meeting she asked for, and will be settled by neither the marriage nor the arrangement.",
+     "centrality": 0.8,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "a couple cannot make a child",
+     "basis": "Jim and Catherine's happiness in the chalet breaks over their failure to conceive, and the pregnancy that would have reunited them ends in miscarriage.",
+     "centrality": 0.5,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a departure is answered with a killing",
+     "basis": "When Jim tells Catherine he will marry Gilberte she draws a gun on him, and later asks Jules to watch as she drives Jim off a ruined bridge into the river.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "leaving": "Jim",
+      "left": "Catherine"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Design for Living",
+     "shares": "two friends and one woman negotiating an arrangement rather than letting one of them lose"
+    },
+    {
+     "title": "Y tu mamá también",
+     "shares": "a friendship between two men reorganised around the woman they both want"
+    },
+    {
+     "title": "Cold War",
+     "shares": "a couple no arrangement or country can hold, ending by their own decision together"
+    },
+    {
+     "title": "Vicky Cristina Barcelona",
+     "shares": "an openly agreed three-way arrangement that holds only while nobody asks it for a future"
+    }
+   ],
+   "year": 1962,
+   "source": "reading",
+   "plotChars": 2925
+  },
+  {
+   "n": 5,
+   "title": "A Serious Man",
+   "engine": "A physics professor is hit at once by a wife who wants out, a student's bribe he can be sued for either accepting or reporting, anonymous letters against his tenure, a brother he can neither house nor rescue, and no explanation for any of it. He goes up the ladder of religious authorities asking what it means and gets a suggestion about perspective, an anecdote with no ending, and a closed door — and the moment he finally does one small dishonest thing, the telephone rings with worse news.",
+   "predicaments": [
+    {
+     "situation": "a man is punished for nothing he did",
+     "basis": "Larry's marriage, his bank account, his tenure and his brother's freedom all come apart at once while he insists, accurately, that he hasn't done anything.",
+     "centrality": 1,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a man asks the wise for an answer",
+     "basis": "Rabbi Scott offers him a change of perspective, Rabbi Nachtner tells an unfinished story about writing on a patient's teeth, and Marshak will not see him at all.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "asking": "Larry",
+      "withholding": "the rabbis"
+     }
+    },
+    {
+     "situation": "a wife leaves him to bear the cost",
+     "basis": "Judith demands a get for Sy Ableman, empties the joint accounts, moves Larry and Arthur into a motel, and has Larry pay for Sy's funeral.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "leaving": "Judith",
+      "left": "Larry"
+     }
+    },
+    {
+     "situation": "he is threatened whichever choice he makes",
+     "basis": "Clive's father promises to sue Larry for defamation if he reports the envelope of cash, and to sue him for keeping it if he doesn't award a passing grade.",
+     "centrality": 0.6,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a brother cannot be saved or sent away",
+     "basis": "Arthur occupies the couch filling a notebook with his probability map of the universe, then faces gambling and solicitation charges and a three-thousand-dollar legal bill Larry cannot pay.",
+     "centrality": 0.5,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "the small wrong is answered at once",
+     "basis": "Larry changes Clive's F to a C−, and his doctor telephones in the same breath asking to discuss the chest X-ray in person, as a tornado closes on his son's school.",
+     "centrality": 0.7,
+     "outcome": "ambiguous"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Trial",
+     "shares": "a man penalised without cause who gets only parables from the authorities he consults"
+    },
+    {
+     "title": "Winter Light",
+     "shares": "a man bringing an unanswerable question to religious authority and receiving nothing usable"
+    },
+    {
+     "title": "Ikiru",
+     "shares": "a life reframed the instant a medical result is about to be delivered"
+    },
+    {
+     "title": "After Hours",
+     "shares": "an ordinary man on whom unearned catastrophes accumulate faster than he can answer them"
+    }
+   ],
+   "year": 2009,
+   "source": "reading",
+   "plotChars": 3832
+  },
+  {
+   "n": 6,
+   "title": "Tár",
+   "engine": "A conductor at the top of her profession has used her power to place, promote and pursue the young women near her, and to shut out one who became inconvenient; when that woman kills herself and the assistant who carried the messages is passed over for promotion, the assistant hands over what she kept. Everything the conductor held — orchestra, book, wife, daughter — is taken back, and she ends up working for an audience that has no idea who she used to be.",
+   "predicaments": [
+    {
+     "situation": "a buried past is brought forward",
+     "basis": "Krista Taylor, blacklisted after falling out with Lydia, kills herself, and the emails Lydia ordered deleted resurface at the deposition brought by Krista's parents.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "hiding": "Lydia",
+      "exposing": "Francesca"
+     }
+    },
+    {
+     "situation": "favour flows to the one desired",
+     "basis": "Lydia alters her scorecard at a blind audition to admit Olga and programmes the Elgar concerto to hand her the solo, having earlier mentored and then destroyed Krista.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "granting": "Lydia",
+      "dependent": "Olga and Krista"
+     }
+    },
+    {
+     "situation": "the one passed over turns on them",
+     "basis": "Francesca is denied the assistant conductor post after Sebastian's outburst, resigns, retitles the memoir draft Rat on Rat, and supplies the incriminating correspondence.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "withholding": "Lydia",
+      "withheld from": "Francesca"
+     }
+    },
+    {
+     "situation": "a doctored account of a person is believed",
+     "basis": "A manipulatively cut video of her Juilliard masterclass goes viral, an accusation runs in the press, and an unseen hand rewrites her Wikipedia entry to match.",
+     "centrality": 0.6,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a person is sent back to the beginning",
+     "basis": "Barred from her daughter, removed from the podium and told to disappear, Lydia returns to the Staten Island house where the certificates read Linda Tarr, then takes work conducting a game score abroad.",
+     "centrality": 0.7,
+     "outcome": "transfigured"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "All About Eve",
+     "shares": "a subordinate close enough to see everything, who converts that access into the senior figure's position"
+    },
+    {
+     "title": "The Assistant",
+     "shares": "the young woman who handles the correspondence of a powerful person and must decide what to do with what she knows"
+    },
+    {
+     "title": "Whiplash",
+     "shares": "a mentor whose control over a young musician's future is inseparable from what he does to them"
+    },
+    {
+     "title": "The Servant",
+     "shares": "a dependent and a master who quietly exchange positions"
+    },
+    {
+     "title": "Sunset Boulevard",
+     "shares": "a figure stripped of standing who cannot accept an audience that no longer knows the name"
+    }
+   ],
+   "year": 2022,
+   "source": "reading",
+   "plotChars": 4474
+  }
+ ]
+}

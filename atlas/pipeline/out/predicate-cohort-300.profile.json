@@ -1,0 +1,6046 @@
+{
+ "version": 1,
+ "generated": "2026-08-10T11:29:07.762Z",
+ "n": 300,
+ "seed": 1,
+ "floor": 1500,
+ "note": "Pass-A reading cohort. Every film is at or above plot-source.js's evidence floor. Targets are the CORPUS's shares, not the readable pool's.",
+ "source": {
+  "plots": "pipeline/out/plots.json",
+  "fame": "pipeline/.cache-views (60-day pageviews)",
+  "genre": "static/discovery.json"
+ },
+ "pool": {
+  "inPlots": 2198,
+  "readable": 1541,
+  "selectable": 1492,
+  "excludedAmbiguousTitle": 32,
+  "excludedSeedTagged": 17
+ },
+ "carriedFrom60": [
+  "Yeelen",
+  "Something to Talk About",
+  "Mother Joan of the Angels",
+  "Safety Last!",
+  "A Serious Man",
+  "Persona",
+  "The Salt of the Earth",
+  "The Red Shoes",
+  "Rashomon",
+  "La Chinoise",
+  "La Strada",
+  "Stalag 17",
+  "No End",
+  "One Hundred and One Nights",
+  "The Man Who Shot Liberty Valance",
+  "Like Father, Like Son",
+  "The Elephant Man",
+  "Aftersun",
+  "Jules and Jim",
+  "The Iron Giant",
+  "Le Samouraï",
+  "Memories of Murder",
+  "The Cat o' Nine Tails",
+  "Autumn Sonata",
+  "Street of Shame",
+  "Blowup",
+  "Tár",
+  "A Taxi Driver",
+  "Killers of the Flower Moon",
+  "Devi",
+  "Honey Don't!",
+  "Flesh for Frankenstein",
+  "Memories",
+  "Eureka",
+  "A City of Sadness",
+  "La Jetée",
+  "Seven Samurai",
+  "Hangmen Also Die!",
+  "The White Ribbon",
+  "Women of the Night",
+  "Panic Room",
+  "Black Rain",
+  "Koyaanisqatsi",
+  "Seemabaddha",
+  "Once Upon a Time in the West",
+  "Intolerable Cruelty",
+  "Taxi Driver",
+  "Lucky Luciano",
+  "The Battle of Algiers",
+  "Last Tango in Paris",
+  "Trois places pour le 26",
+  "Gladiator"
+ ],
+ "stress": [
+  {
+   "title": "The Cabinet of Dr. Caligari",
+   "year": 1920,
+   "region": "W-Europe",
+   "fame": "7",
+   "why": "silent"
+  },
+  {
+   "title": "The Burning Soil",
+   "year": 1922,
+   "region": "W-Europe",
+   "fame": "1",
+   "why": "silent"
+  },
+  {
+   "title": "Battleship Potemkin",
+   "year": 1925,
+   "region": "E-Europe",
+   "fame": "7",
+   "why": "silent"
+  },
+  {
+   "title": "Strike",
+   "year": 1925,
+   "region": "E-Europe",
+   "fame": "3",
+   "why": "silent"
+  },
+  {
+   "title": "A Page of Madness",
+   "year": 1926,
+   "region": "Japan",
+   "fame": "4",
+   "why": "silent"
+  },
+  {
+   "title": "The General",
+   "year": 1926,
+   "region": "US/CA",
+   "fame": "6",
+   "why": "silent"
+  },
+  {
+   "title": "Metropolis",
+   "year": 1927,
+   "region": "Other",
+   "fame": "8",
+   "why": "silent"
+  },
+  {
+   "title": "Sunrise: A Song of Two Humans",
+   "year": 1927,
+   "region": "US/CA",
+   "fame": "6",
+   "why": "silent"
+  },
+  {
+   "title": "Sword of Penitence",
+   "year": 1927,
+   "region": "Japan",
+   "fame": "1",
+   "why": "silent"
+  },
+  {
+   "title": "The Crowd",
+   "year": 1928,
+   "region": "US/CA",
+   "fame": "4",
+   "why": "silent"
+  },
+  {
+   "title": "The Passion of Joan of Arc",
+   "year": 1928,
+   "region": "W-Europe",
+   "fame": "6",
+   "why": "silent"
+  },
+  {
+   "title": "The Manxman",
+   "year": 1929,
+   "region": "UK/IE",
+   "fame": "2",
+   "why": "silent"
+  },
+  {
+   "title": "Rabindranath Tagore",
+   "year": 1961,
+   "region": "S-Asia",
+   "fame": "2",
+   "why": "documentary"
+  },
+  {
+   "title": "La Jetée",
+   "year": 1962,
+   "region": "W-Europe",
+   "fame": "6",
+   "why": "non-narrative / essayistic"
+  },
+  {
+   "title": "I Am Cuba",
+   "year": 1964,
+   "region": "Other",
+   "fame": "5",
+   "why": "non-narrative / essayistic"
+  },
+  {
+   "title": "Daisies",
+   "year": 1966,
+   "region": "Other",
+   "fame": "6",
+   "why": "non-narrative / essayistic"
+  },
+  {
+   "title": "Dont Look Back",
+   "year": 1967,
+   "region": "US/CA",
+   "fame": "5",
+   "why": "documentary"
+  },
+  {
+   "title": "Rocky Road to Dublin",
+   "year": 1967,
+   "region": "UK/IE",
+   "fame": "1",
+   "why": "documentary"
+  },
+  {
+   "title": "Sympathy for the Devil",
+   "year": 1968,
+   "region": "W-Europe",
+   "fame": "4",
+   "why": "documentary"
+  },
+  {
+   "title": "Joy of Learning",
+   "year": 1969,
+   "region": "W-Europe",
+   "fame": "1",
+   "why": "non-narrative / essayistic"
+  },
+  {
+   "title": "The Mirror",
+   "year": 1975,
+   "region": "E-Europe",
+   "fame": "7",
+   "why": "non-narrative / essayistic"
+  },
+  {
+   "title": "Harlan County, USA",
+   "year": 1976,
+   "region": "US/CA",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Eraserhead",
+   "year": 1977,
+   "region": "US/CA",
+   "fame": "8",
+   "why": "non-narrative / essayistic"
+  },
+  {
+   "title": "Germany in Autumn",
+   "year": 1978,
+   "region": "W-Europe",
+   "fame": "2",
+   "why": "documentary"
+  },
+  {
+   "title": "The Last Waltz",
+   "year": 1978,
+   "region": "US/CA",
+   "fame": "7",
+   "why": "documentary"
+  },
+  {
+   "title": "Koyaanisqatsi",
+   "year": 1982,
+   "region": "US/CA",
+   "fame": "8",
+   "why": "documentary"
+  },
+  {
+   "title": "Shoah",
+   "year": 1985,
+   "region": "W-Europe",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Close-Up",
+   "year": 1990,
+   "region": "W-Europe",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Lessons of Darkness",
+   "year": 1992,
+   "region": "W-Europe",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Hoop Dreams",
+   "year": 1994,
+   "region": "US/CA",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Lumière and Company",
+   "year": 1995,
+   "region": "W-Europe",
+   "fame": "3",
+   "why": "documentary"
+  },
+  {
+   "title": "Little Dieter Needs to Fly",
+   "year": 1997,
+   "region": "UK/IE",
+   "fame": "5",
+   "why": "documentary"
+  },
+  {
+   "title": "My Best Fiend",
+   "year": 1999,
+   "region": "W-Europe",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Grizzly Man",
+   "year": 2005,
+   "region": "US/CA",
+   "fame": "7",
+   "why": "documentary"
+  },
+  {
+   "title": "Inland Empire",
+   "year": 2006,
+   "region": "US/CA",
+   "fame": "8",
+   "why": "non-narrative / essayistic"
+  },
+  {
+   "title": "Encounters at the End of the World",
+   "year": 2007,
+   "region": "US/CA",
+   "fame": "5",
+   "why": "documentary"
+  },
+  {
+   "title": "Waltz with Bashir",
+   "year": 2008,
+   "region": "W-Europe",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Le Quattro Volte",
+   "year": 2010,
+   "region": "W-Europe",
+   "fame": "1",
+   "why": "documentary"
+  },
+  {
+   "title": "Into the Abyss",
+   "year": 2011,
+   "region": "US/CA",
+   "fame": "6",
+   "why": "documentary"
+  },
+  {
+   "title": "Pina",
+   "year": 2011,
+   "region": "W-Europe",
+   "fame": "3",
+   "why": "documentary"
+  },
+  {
+   "title": "The Act of Killing",
+   "year": 2012,
+   "region": "W-Europe",
+   "fame": "8",
+   "why": "documentary"
+  },
+  {
+   "title": "The Salt of the Earth",
+   "year": 2014,
+   "region": "W-Europe",
+   "fame": "4",
+   "why": "documentary"
+  },
+  {
+   "title": "Honeyland",
+   "year": 2019,
+   "region": "Other",
+   "fame": "4",
+   "why": "documentary"
+  },
+  {
+   "title": "Rolling Thunder Revue: A Bob Dylan Story by Martin Scorsese",
+   "year": 2019,
+   "region": "US/CA",
+   "fame": "5",
+   "why": "documentary"
+  }
+ ],
+ "stressUnavailable": [
+  {
+   "title": "F for Fake",
+   "why": "non-narrative / essayistic",
+   "reason": "excluded: hand-tagged in predicate-tags.seed.json"
+  }
+ ],
+ "profile": {
+  "region": [
+   {
+    "bucket": "US/CA",
+    "corpus": 780,
+    "corpusPct": 35.5,
+    "readable": 666,
+    "cohort": 105,
+    "target": 106,
+    "gapPts": -0.5
+   },
+   {
+    "bucket": "W-Europe",
+    "corpus": 755,
+    "corpusPct": 34.3,
+    "readable": 405,
+    "cohort": 101,
+    "target": 103,
+    "gapPts": -0.7
+   },
+   {
+    "bucket": "Japan",
+    "corpus": 299,
+    "corpusPct": 13.6,
+    "readable": 188,
+    "cohort": 41,
+    "target": 41,
+    "gapPts": 0.1
+   },
+   {
+    "bucket": "E-Asia",
+    "corpus": 92,
+    "corpusPct": 4.2,
+    "readable": 68,
+    "cohort": 13,
+    "target": 13,
+    "gapPts": 0.1
+   },
+   {
+    "bucket": "UK/IE",
+    "corpus": 90,
+    "corpusPct": 4.1,
+    "readable": 76,
+    "cohort": 12,
+    "target": 12,
+    "gapPts": -0.1
+   },
+   {
+    "bucket": "E-Europe",
+    "corpus": 73,
+    "corpusPct": 3.3,
+    "readable": 53,
+    "cohort": 11,
+    "target": 10,
+    "gapPts": 0.3
+   },
+   {
+    "bucket": "S-Asia",
+    "corpus": 57,
+    "corpusPct": 2.6,
+    "readable": 44,
+    "cohort": 8,
+    "target": 8,
+    "gapPts": 0.1
+   },
+   {
+    "bucket": "Other",
+    "corpus": 23,
+    "corpusPct": 1,
+    "readable": 17,
+    "cohort": 5,
+    "target": 3,
+    "gapPts": 0.6
+   },
+   {
+    "bucket": "LatAm",
+    "corpus": 22,
+    "corpusPct": 1,
+    "readable": 17,
+    "cohort": 3,
+    "target": 3,
+    "gapPts": 0
+   },
+   {
+    "bucket": "Oceania",
+    "corpus": 7,
+    "corpusPct": 0.3,
+    "readable": 7,
+    "cohort": 1,
+    "target": 1,
+    "gapPts": 0
+   }
+  ],
+  "era": [
+   {
+    "bucket": "pre-1950",
+    "corpus": 197,
+    "corpusPct": 9,
+    "readable": 143,
+    "cohort": 28,
+    "target": 27,
+    "gapPts": 0.4
+   },
+   {
+    "bucket": "1950-69",
+    "corpus": 622,
+    "corpusPct": 28.3,
+    "readable": 375,
+    "cohort": 85,
+    "target": 85,
+    "gapPts": 0
+   },
+   {
+    "bucket": "1970-89",
+    "corpus": 620,
+    "corpusPct": 28.2,
+    "readable": 411,
+    "cohort": 84,
+    "target": 85,
+    "gapPts": -0.2
+   },
+   {
+    "bucket": "1990-09",
+    "corpus": 487,
+    "corpusPct": 22.2,
+    "readable": 380,
+    "cohort": 66,
+    "target": 66,
+    "gapPts": -0.2
+   },
+   {
+    "bucket": "2010+",
+    "corpus": 272,
+    "corpusPct": 12.4,
+    "readable": 232,
+    "cohort": 37,
+    "target": 37,
+    "gapPts": 0
+   }
+  ],
+  "fame": [
+   {
+    "bucket": "0",
+    "corpus": 217,
+    "corpusPct": 9.9,
+    "readable": 24,
+    "cohort": 24,
+    "target": 29,
+    "gapPts": -1.9
+   },
+   {
+    "bucket": "1",
+    "corpus": 217,
+    "corpusPct": 9.9,
+    "readable": 57,
+    "cohort": 29,
+    "target": 29,
+    "gapPts": -0.2
+   },
+   {
+    "bucket": "2",
+    "corpus": 217,
+    "corpusPct": 9.9,
+    "readable": 112,
+    "cohort": 31,
+    "target": 30,
+    "gapPts": 0.5
+   },
+   {
+    "bucket": "3",
+    "corpus": 217,
+    "corpusPct": 9.9,
+    "readable": 141,
+    "cohort": 29,
+    "target": 29,
+    "gapPts": -0.2
+   },
+   {
+    "bucket": "4",
+    "corpus": 217,
+    "corpusPct": 9.9,
+    "readable": 168,
+    "cohort": 31,
+    "target": 30,
+    "gapPts": 0.5
+   },
+   {
+    "bucket": "5",
+    "corpus": 216,
+    "corpusPct": 9.8,
+    "readable": 181,
+    "cohort": 30,
+    "target": 29,
+    "gapPts": 0.2
+   },
+   {
+    "bucket": "6",
+    "corpus": 218,
+    "corpusPct": 9.9,
+    "readable": 200,
+    "cohort": 31,
+    "target": 30,
+    "gapPts": 0.4
+   },
+   {
+    "bucket": "7",
+    "corpus": 217,
+    "corpusPct": 9.9,
+    "readable": 210,
+    "cohort": 31,
+    "target": 30,
+    "gapPts": 0.5
+   },
+   {
+    "bucket": "8",
+    "corpus": 217,
+    "corpusPct": 9.9,
+    "readable": 214,
+    "cohort": 30,
+    "target": 30,
+    "gapPts": 0.1
+   },
+   {
+    "bucket": "9",
+    "corpus": 218,
+    "corpusPct": 9.9,
+    "readable": 218,
+    "cohort": 30,
+    "target": 30,
+    "gapPts": 0.1
+   },
+   {
+    "bucket": "unknown",
+    "corpus": 27,
+    "corpusPct": 1.2,
+    "readable": 16,
+    "cohort": 4,
+    "target": 4,
+    "gapPts": 0.1
+   }
+  ]
+ },
+ "traditionAudit": [
+  {
+   "tradition": "Africa",
+   "corpus": 11,
+   "corpusPct": 0.5,
+   "readable": 7,
+   "cohort": 1,
+   "gapPts": -0.2
+  },
+  {
+   "tradition": "MENA",
+   "corpus": 33,
+   "corpusPct": 1.5,
+   "readable": 20,
+   "cohort": 5,
+   "gapPts": 0.2
+  },
+  {
+   "tradition": "S-Asia",
+   "corpus": 45,
+   "corpusPct": 2,
+   "readable": 38,
+   "cohort": 7,
+   "gapPts": 0.3
+  },
+  {
+   "tradition": "SE-Asia",
+   "corpus": 5,
+   "corpusPct": 0.2,
+   "readable": 4,
+   "cohort": 1,
+   "gapPts": 0.1
+  },
+  {
+   "tradition": "E-Asia",
+   "corpus": 119,
+   "corpusPct": 5.4,
+   "readable": 91,
+   "cohort": 17,
+   "gapPts": 0.3
+  },
+  {
+   "tradition": "Japan",
+   "corpus": 290,
+   "corpusPct": 13.2,
+   "readable": 181,
+   "cohort": 40,
+   "gapPts": 0.1
+  },
+  {
+   "tradition": "LatAm",
+   "corpus": 48,
+   "corpusPct": 2.2,
+   "readable": 39,
+   "cohort": 7,
+   "gapPts": 0.1
+  },
+  {
+   "tradition": "Oceania",
+   "corpus": 24,
+   "corpusPct": 1.1,
+   "readable": 23,
+   "cohort": 3,
+   "gapPts": -0.1
+  },
+  {
+   "tradition": "E-Europe",
+   "corpus": 102,
+   "corpusPct": 4.6,
+   "readable": 75,
+   "cohort": 14,
+   "gapPts": 0
+  },
+  {
+   "tradition": "N-Europe",
+   "corpus": 102,
+   "corpusPct": 4.6,
+   "readable": 43,
+   "cohort": 14,
+   "gapPts": 0
+  },
+  {
+   "tradition": "UK/IE",
+   "corpus": 200,
+   "corpusPct": 9.1,
+   "readable": 174,
+   "cohort": 27,
+   "gapPts": -0.1
+  },
+  {
+   "tradition": "W-Europe",
+   "corpus": 638,
+   "corpusPct": 29,
+   "readable": 347,
+   "cohort": 86,
+   "gapPts": -0.4
+  },
+  {
+   "tradition": "US/CA",
+   "corpus": 580,
+   "corpusPct": 26.4,
+   "readable": 499,
+   "cohort": 78,
+   "gapPts": -0.4
+  },
+  {
+   "tradition": "unmapped",
+   "corpus": 1,
+   "corpusPct": 0,
+   "readable": 0,
+   "cohort": 0,
+   "gapPts": 0
+  }
+ ],
+ "films": [
+  {
+   "title": "The Cabinet of Dr. Caligari",
+   "year": 1920,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "pre-1950",
+   "fame": "7",
+   "views": 35889,
+   "plotChars": 3944,
+   "genres": [
+    "crime",
+    "uncategorized",
+    "fantasy",
+    "horror",
+    "experimental"
+   ]
+  },
+  {
+   "title": "The Burning Soil",
+   "year": 1922,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "pre-1950",
+   "fame": "1",
+   "views": 623,
+   "plotChars": 2144,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Safety Last!",
+   "year": 1923,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "5",
+   "views": 6982,
+   "plotChars": 3302,
+   "genres": [
+    "romance",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Battleship Potemkin",
+   "year": 1925,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Soviet Union"
+   ],
+   "era": "pre-1950",
+   "fame": "7",
+   "views": 32674,
+   "plotChars": 3967,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "historical"
+   ]
+  },
+  {
+   "title": "Strike",
+   "year": 1925,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Soviet Union"
+   ],
+   "era": "pre-1950",
+   "fame": "3",
+   "views": 3145,
+   "plotChars": 3907,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "A Page of Madness",
+   "year": 1926,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "pre-1950",
+   "fame": "4",
+   "views": 4315,
+   "plotChars": 2792,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "The General",
+   "year": 1926,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "6",
+   "views": 20788,
+   "plotChars": 3866,
+   "genres": [
+    "romance",
+    "uncategorized",
+    "war"
+   ]
+  },
+  {
+   "title": "Downhill",
+   "year": 1927,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "pre-1950",
+   "fame": "4",
+   "views": 5084,
+   "plotChars": 2384,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Metropolis",
+   "year": 1927,
+   "region": "Other",
+   "tradition": "W-Europe",
+   "countries": [
+    "Weimar Republic"
+   ],
+   "era": "pre-1950",
+   "fame": "8",
+   "views": 94432,
+   "plotChars": 3922,
+   "genres": [
+    "drama",
+    "science-fiction",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Sunrise: A Song of Two Humans",
+   "year": 1927,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "6",
+   "views": 15186,
+   "plotChars": 2628,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Sword of Penitence",
+   "year": 1927,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "pre-1950",
+   "fame": "1",
+   "views": 541,
+   "plotChars": 2600,
+   "genres": [
+    "uncategorized",
+    "action"
+   ]
+  },
+  {
+   "title": "The Crowd",
+   "year": 1928,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "4",
+   "views": 5179,
+   "plotChars": 2568,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "The Passion of Joan of Arc",
+   "year": 1928,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "pre-1950",
+   "fame": "6",
+   "views": 19114,
+   "plotChars": 1893,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Pandora's Box",
+   "year": 1929,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "pre-1950",
+   "fame": "5",
+   "views": 8108,
+   "plotChars": 3494,
+   "genres": [
+    "drama",
+    "crime",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "The Manxman",
+   "year": 1929,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "pre-1950",
+   "fame": "2",
+   "views": 1628,
+   "plotChars": 4148,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Rich and Strange",
+   "year": 1931,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "pre-1950",
+   "fame": "3",
+   "views": 1963,
+   "plotChars": 2646,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Tokyo Chorus",
+   "year": 1931,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "pre-1950",
+   "fame": "0",
+   "views": 416,
+   "plotChars": 3315,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Passing Fancy",
+   "year": 1933,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "pre-1950",
+   "fame": "0",
+   "views": 405,
+   "plotChars": 2103,
+   "genres": [
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "A Mother Should be Loved",
+   "year": 1934,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "pre-1950",
+   "fame": "0",
+   "views": 248,
+   "plotChars": 1980,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Modern Times",
+   "year": 1936,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "6",
+   "views": 18953,
+   "plotChars": 2833,
+   "genres": [
+    "romance",
+    "comedy",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Hangmen Also Die!",
+   "year": 1943,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "5",
+   "views": 9006,
+   "plotChars": 2821,
+   "genres": [
+    "drama",
+    "war"
+   ]
+  },
+  {
+   "title": "I Know Where I'm Going!",
+   "year": 1945,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "pre-1950",
+   "fame": "5",
+   "views": 9088,
+   "plotChars": 3559,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Pardon My Past",
+   "year": 1945,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "1",
+   "views": 628,
+   "plotChars": 5264,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Difficult Years",
+   "year": 1948,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "pre-1950",
+   "fame": "0",
+   "views": 204,
+   "plotChars": 1685,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Red Shoes",
+   "year": 1948,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "pre-1950",
+   "fame": "7",
+   "views": 30700,
+   "plotChars": 4116,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized",
+    "musical"
+   ]
+  },
+  {
+   "title": "Without Pity",
+   "year": 1948,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "pre-1950",
+   "fame": "0",
+   "views": 361,
+   "plotChars": 3251,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Women of the Night",
+   "year": 1948,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "pre-1950",
+   "fame": "1",
+   "views": 571,
+   "plotChars": 4656,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Beyond the Forest",
+   "year": 1949,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "pre-1950",
+   "fame": "3",
+   "views": 2318,
+   "plotChars": 2890,
+   "genres": [
+    "drama",
+    "romance",
+    "crime"
+   ]
+  },
+  {
+   "title": "Rashomon",
+   "year": 1950,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "8",
+   "views": 58402,
+   "plotChars": 4012,
+   "genres": [
+    "drama",
+    "crime",
+    "uncategorized",
+    "action",
+    "historical"
+   ]
+  },
+  {
+   "title": "Task Force",
+   "year": 1950,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1298,
+   "plotChars": 1827,
+   "genres": [
+    "drama",
+    "war"
+   ]
+  },
+  {
+   "title": "Variety Lights",
+   "year": 1950,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1196,
+   "plotChars": 2543,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Awaara",
+   "year": 1951,
+   "region": "S-Asia",
+   "tradition": "S-Asia",
+   "countries": [
+    "India"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 13342,
+   "plotChars": 4089,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Close to My Heart",
+   "year": 1951,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 460,
+   "plotChars": 2565,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Come Fill the Cup",
+   "year": 1951,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 779,
+   "plotChars": 1632,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Cops and Robbers",
+   "year": 1951,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 510,
+   "plotChars": 1939,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Diary of a Country Priest",
+   "year": 1951,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 5074,
+   "plotChars": 4102,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Era lui... sì! sì!",
+   "year": 1951,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 822,
+   "plotChars": 1624,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "The Idiot",
+   "year": 1951,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 5934,
+   "plotChars": 4277,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Children of Hiroshima",
+   "year": 1952,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1174,
+   "plotChars": 2317,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Mara Maru",
+   "year": 1952,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 586,
+   "plotChars": 3201,
+   "genres": [
+    "adventure"
+   ]
+  },
+  {
+   "title": "Secrets of Women",
+   "year": 1952,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "Sweden"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 755,
+   "plotChars": 3501,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Fear and Desire",
+   "year": 1953,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 17293,
+   "plotChars": 2330,
+   "genres": [
+    "drama",
+    "adventure",
+    "action",
+    "war"
+   ]
+  },
+  {
+   "title": "It Happened in the Park",
+   "year": 1953,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 300,
+   "plotChars": 1667,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Jolanda, the Daughter of the Black Corsair",
+   "year": 1953,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 420,
+   "plotChars": 2481,
+   "genres": [
+    "adventure"
+   ]
+  },
+  {
+   "title": "Stalag 17",
+   "year": 1953,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 19806,
+   "plotChars": 4200,
+   "genres": [
+    "drama",
+    "comedy",
+    "uncategorized",
+    "war"
+   ]
+  },
+  {
+   "title": "A Slice of Life",
+   "year": 1954,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 313,
+   "plotChars": 2743,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "La Strada",
+   "year": 1954,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 18062,
+   "plotChars": 3520,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Late Chrysanthemums",
+   "year": 1954,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1347,
+   "plotChars": 1674,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Seven Samurai",
+   "year": 1954,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "8",
+   "views": 91183,
+   "plotChars": 4277,
+   "genres": [
+    "drama",
+    "adventure",
+    "uncategorized",
+    "action",
+    "historical"
+   ]
+  },
+  {
+   "title": "Ordet",
+   "year": 1955,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "Denmark"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 5793,
+   "plotChars": 2675,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Rebel Without a Cause",
+   "year": 1955,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "8",
+   "views": 52706,
+   "plotChars": 4039,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Street of Shame",
+   "year": 1956,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1477,
+   "plotChars": 1993,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Battle of the River Plate",
+   "year": 1956,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 5570,
+   "plotChars": 2219,
+   "genres": [
+    "war"
+   ]
+  },
+  {
+   "title": "The Burmese Harp",
+   "year": 1956,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 3543,
+   "plotChars": 2604,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "War and Peace",
+   "year": 1956,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy",
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 15813,
+   "plotChars": 7563,
+   "genres": [
+    "drama",
+    "romance",
+    "war",
+    "historical"
+   ]
+  },
+  {
+   "title": "Mother India",
+   "year": 1957,
+   "region": "S-Asia",
+   "tradition": "S-Asia",
+   "countries": [
+    "India"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 25077,
+   "plotChars": 2318,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Piece of the Sky",
+   "year": 1958,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 132,
+   "plotChars": 2215,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "The Law Is the Law",
+   "year": 1958,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 348,
+   "plotChars": 5104,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Vertigo",
+   "year": 1958,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "9",
+   "views": 146723,
+   "plotChars": 3938,
+   "genres": [
+    "drama",
+    "romance",
+    "thriller",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Hiroshima mon amour",
+   "year": 1959,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "France",
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 14125,
+   "plotChars": 3991,
+   "genres": [
+    "drama",
+    "romance"
+   ]
+  },
+  {
+   "title": "The Great War",
+   "year": 1959,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1474,
+   "plotChars": 1978,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "The Human Condition II: Road to Eternity",
+   "year": 1959,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 989,
+   "plotChars": 2651,
+   "genres": [
+    "war"
+   ]
+  },
+  {
+   "title": "The Last Days of Pompeii",
+   "year": 1959,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "3",
+   "views": 2500,
+   "plotChars": 4177,
+   "genres": [
+    "action",
+    "historical"
+   ]
+  },
+  {
+   "title": "Two Men in Manhattan",
+   "year": 1959,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 865,
+   "plotChars": 3748,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Adua and Her Friends",
+   "year": 1960,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 415,
+   "plotChars": 1577,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Devi",
+   "year": 1960,
+   "region": "S-Asia",
+   "tradition": "S-Asia",
+   "countries": [
+    "India"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 10439,
+   "plotChars": 3262,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Young One",
+   "year": 1960,
+   "region": "LatAm",
+   "tradition": "LatAm",
+   "countries": [
+    "Mexico"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1164,
+   "plotChars": 6127,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Girls of the Night",
+   "year": 1961,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "unknown",
+   "views": null,
+   "plotChars": 2146,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Mother Joan of the Angels",
+   "year": 1961,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Poland"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 3269,
+   "plotChars": 1978,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Rabindranath Tagore",
+   "year": 1961,
+   "region": "S-Asia",
+   "tradition": "S-Asia",
+   "countries": [
+    "India"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1867,
+   "plotChars": 2396,
+   "genres": [
+    "documentary",
+    "historical"
+   ]
+  },
+  {
+   "title": "The Best of Enemies",
+   "year": 1961,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy",
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1532,
+   "plotChars": 2941,
+   "genres": [
+    "comedy",
+    "war"
+   ]
+  },
+  {
+   "title": "Cléo from 5 to 7",
+   "year": 1962,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 15360,
+   "plotChars": 4604,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Foundry Town",
+   "year": 1962,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 265,
+   "plotChars": 6005,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Harakiri",
+   "year": 1962,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 27934,
+   "plotChars": 6065,
+   "genres": [
+    "drama",
+    "action",
+    "historical"
+   ]
+  },
+  {
+   "title": "Jules and Jim",
+   "year": 1962,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 10094,
+   "plotChars": 2925,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "La Jetée",
+   "year": 1962,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 18369,
+   "plotChars": 1929,
+   "genres": [
+    "science-fiction",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Lolita",
+   "year": 1962,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "8",
+   "views": 81532,
+   "plotChars": 4342,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Love under the Crucifix",
+   "year": 1962,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 737,
+   "plotChars": 2347,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Ningen",
+   "year": 1962,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 297,
+   "plotChars": 1519,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Man Who Shot Liberty Valance",
+   "year": 1962,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 42881,
+   "plotChars": 4346,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "western"
+   ]
+  },
+  {
+   "title": "High and Low",
+   "year": 1963,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 29328,
+   "plotChars": 3966,
+   "genres": [
+    "drama",
+    "crime",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Muriel",
+   "year": 1963,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "3",
+   "views": 1892,
+   "plotChars": 3362,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Blood and Black Lace",
+   "year": 1964,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 5571,
+   "plotChars": 3734,
+   "genres": [
+    "crime",
+    "thriller",
+    "uncategorized",
+    "horror",
+    "mystery"
+   ]
+  },
+  {
+   "title": "I Am Cuba",
+   "year": 1964,
+   "region": "Other",
+   "tradition": "LatAm",
+   "countries": [
+    "Soviet Union",
+    "Cuba"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 10610,
+   "plotChars": 3542,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "experimental"
+   ]
+  },
+  {
+   "title": "I maniaci",
+   "year": 1964,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy",
+    "Spain"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 333,
+   "plotChars": 2047,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Loving Couples",
+   "year": 1964,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "Sweden"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 464,
+   "plotChars": 2727,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Onibaba",
+   "year": 1964,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 14305,
+   "plotChars": 3902,
+   "genres": [
+    "drama",
+    "horror"
+   ]
+  },
+  {
+   "title": "Shadows of Forgotten Ancestors",
+   "year": 1964,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Soviet Union"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 5229,
+   "plotChars": 1580,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Zatoichi and the Chest of Gold",
+   "year": 1964,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1950-69",
+   "fame": "0",
+   "views": 358,
+   "plotChars": 5968,
+   "genres": [
+    "historical"
+   ]
+  },
+  {
+   "title": "Casanova 70",
+   "year": 1965,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 860,
+   "plotChars": 4240,
+   "genres": [
+    "romance",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Viva Maria!",
+   "year": 1965,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "3",
+   "views": 2071,
+   "plotChars": 3025,
+   "genres": [
+    "comedy",
+    "adventure",
+    "uncategorized",
+    "western"
+   ]
+  },
+  {
+   "title": "Au Hasard Balthazar",
+   "year": 1966,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "France",
+    "Sweden"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 10921,
+   "plotChars": 4311,
+   "genres": [
+    "drama",
+    "crime",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Blowup",
+   "year": 1966,
+   "region": "W-Europe",
+   "tradition": "UK/IE",
+   "countries": [
+    "Italy",
+    "United Kingdom"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 30703,
+   "plotChars": 3413,
+   "genres": [
+    "drama",
+    "thriller",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Daisies",
+   "year": 1966,
+   "region": "Other",
+   "tradition": "E-Europe",
+   "countries": [
+    "Czechoslovakia"
+   ],
+   "era": "1950-69",
+   "fame": "6",
+   "views": 11386,
+   "plotChars": 3323,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy",
+    "uncategorized",
+    "experimental"
+   ]
+  },
+  {
+   "title": "Is Paris Burning?",
+   "year": 1966,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 6957,
+   "plotChars": 3479,
+   "genres": [
+    "drama",
+    "war"
+   ]
+  },
+  {
+   "title": "Les Créatures",
+   "year": 1966,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "France",
+    "Sweden"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1886,
+   "plotChars": 5685,
+   "genres": [
+    "drama",
+    "science-fiction"
+   ]
+  },
+  {
+   "title": "Persona",
+   "year": 1966,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "Sweden"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 35925,
+   "plotChars": 2803,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "The Battle of Algiers",
+   "year": 1966,
+   "region": "W-Europe",
+   "tradition": "MENA",
+   "countries": [
+    "Italy",
+    "Algeria"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 44968,
+   "plotChars": 2655,
+   "genres": [
+    "drama",
+    "war",
+    "historical"
+   ]
+  },
+  {
+   "title": "Dont Look Back",
+   "year": 1967,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 9604,
+   "plotChars": 2113,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "Grand Slam",
+   "year": 1967,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany",
+    "Italy",
+    "Spain"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 1027,
+   "plotChars": 2438,
+   "genres": [
+    "comedy",
+    "crime",
+    "adventure",
+    "action"
+   ]
+  },
+  {
+   "title": "La Chinoise",
+   "year": 1967,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1950-69",
+   "fame": "5",
+   "views": 6802,
+   "plotChars": 2783,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Le Samouraï",
+   "year": 1967,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "7",
+   "views": 27309,
+   "plotChars": 2769,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Mouchette",
+   "year": 1967,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 4362,
+   "plotChars": 2764,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Rocky Road to Dublin",
+   "year": 1967,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "Ireland"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 436,
+   "plotChars": 4470,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "The Graduate",
+   "year": 1967,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "9",
+   "views": 107895,
+   "plotChars": 3382,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "The Hellbenders",
+   "year": 1967,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy",
+    "Spain"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1602,
+   "plotChars": 3105,
+   "genres": [
+    "western"
+   ]
+  },
+  {
+   "title": "The Oldest Profession",
+   "year": 1967,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 803,
+   "plotChars": 1669,
+   "genres": [
+    "comedy",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "A Quiet Place in the Country",
+   "year": 1968,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1481,
+   "plotChars": 4492,
+   "genres": [
+    "drama",
+    "horror"
+   ]
+  },
+  {
+   "title": "Once Upon a Time in the West",
+   "year": 1968,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy",
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "8",
+   "views": 89426,
+   "plotChars": 3108,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "action",
+    "western"
+   ]
+  },
+  {
+   "title": "Rosemary's Baby",
+   "year": 1968,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1950-69",
+   "fame": "9",
+   "views": 111899,
+   "plotChars": 5833,
+   "genres": [
+    "drama",
+    "thriller",
+    "uncategorized",
+    "fantasy",
+    "horror"
+   ]
+  },
+  {
+   "title": "Sympathy for the Devil",
+   "year": 1968,
+   "region": "W-Europe",
+   "tradition": "UK/IE",
+   "countries": [
+    "France",
+    "United Kingdom"
+   ],
+   "era": "1950-69",
+   "fame": "4",
+   "views": 5511,
+   "plotChars": 2886,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "Joy of Learning",
+   "year": 1969,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany"
+   ],
+   "era": "1950-69",
+   "fame": "1",
+   "views": 821,
+   "plotChars": 2970,
+   "genres": [
+    "uncategorized",
+    "experimental"
+   ]
+  },
+  {
+   "title": "Machine Gun McCain",
+   "year": 1969,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1950-69",
+   "fame": "2",
+   "views": 1299,
+   "plotChars": 2263,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Investigation of a Citizen Above Suspicion",
+   "year": 1970,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 5808,
+   "plotChars": 1514,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "The Bird with the Crystal Plumage",
+   "year": 1970,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 8231,
+   "plotChars": 3583,
+   "genres": [
+    "drama",
+    "romance",
+    "crime",
+    "thriller",
+    "uncategorized",
+    "horror",
+    "mystery"
+   ]
+  },
+  {
+   "title": "The Conformist",
+   "year": 1970,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "6",
+   "views": 20493,
+   "plotChars": 3992,
+   "genres": [
+    "drama",
+    "crime",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "The Wild Child",
+   "year": 1970,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 3562,
+   "plotChars": 1690,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Klute",
+   "year": 1971,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 29689,
+   "plotChars": 3217,
+   "genres": [
+    "crime",
+    "thriller"
+   ]
+  },
+  {
+   "title": "Seemabaddha",
+   "year": 1971,
+   "region": "S-Asia",
+   "tradition": "S-Asia",
+   "countries": [
+    "India"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2660,
+   "plotChars": 1517,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Cat o' Nine Tails",
+   "year": 1971,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 4951,
+   "plotChars": 4003,
+   "genres": [
+    "drama",
+    "thriller",
+    "uncategorized",
+    "horror"
+   ]
+  },
+  {
+   "title": "The Touch",
+   "year": 1971,
+   "region": "US/CA",
+   "tradition": "N-Europe",
+   "countries": [
+    "Sweden",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2321,
+   "plotChars": 2540,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Working Class Goes to Heaven",
+   "year": 1971,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 4108,
+   "plotChars": 1529,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Last Tango in Paris",
+   "year": 1972,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "8",
+   "views": 68287,
+   "plotChars": 1901,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Liza",
+   "year": 1972,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "1",
+   "views": 650,
+   "plotChars": 2040,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Love in the Afternoon",
+   "year": 1972,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 5616,
+   "plotChars": 2528,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "My Dear Killer",
+   "year": 1972,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "1",
+   "views": 901,
+   "plotChars": 2670,
+   "genres": [
+    "thriller"
+   ]
+  },
+  {
+   "title": "Such a Gorgeous Kid Like Me",
+   "year": 1972,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1970-89",
+   "fame": "1",
+   "views": 542,
+   "plotChars": 1560,
+   "genres": [
+    "drama",
+    "comedy",
+    "crime"
+   ]
+  },
+  {
+   "title": "The Cowboys",
+   "year": 1972,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "6",
+   "views": 17586,
+   "plotChars": 3810,
+   "genres": [
+    "western"
+   ]
+  },
+  {
+   "title": "The Merchant of Four Seasons",
+   "year": 1972,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1517,
+   "plotChars": 5825,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Un flic",
+   "year": 1972,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 3799,
+   "plotChars": 3641,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Don't Look Now",
+   "year": 1973,
+   "region": "W-Europe",
+   "tradition": "UK/IE",
+   "countries": [
+    "Italy",
+    "United Kingdom"
+   ],
+   "era": "1970-89",
+   "fame": "8",
+   "views": 45527,
+   "plotChars": 3219,
+   "genres": [
+    "drama",
+    "horror"
+   ]
+  },
+  {
+   "title": "Fantastic Planet",
+   "year": 1973,
+   "region": "W-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "France",
+    "Czechoslovakia"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 31205,
+   "plotChars": 2950,
+   "genres": [
+    "science-fiction",
+    "animation"
+   ]
+  },
+  {
+   "title": "Flesh for Frankenstein",
+   "year": 1973,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 6174,
+   "plotChars": 2836,
+   "genres": [
+    "science-fiction",
+    "horror"
+   ]
+  },
+  {
+   "title": "Lucky Luciano",
+   "year": 1973,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2214,
+   "plotChars": 1903,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Serpico",
+   "year": 1973,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "8",
+   "views": 48900,
+   "plotChars": 2682,
+   "genres": [
+    "drama",
+    "crime",
+    "action",
+    "historical"
+   ]
+  },
+  {
+   "title": "The Wicker Man",
+   "year": 1973,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "1970-89",
+   "fame": "9",
+   "views": 114356,
+   "plotChars": 3764,
+   "genres": [
+    "drama",
+    "science-fiction",
+    "crime",
+    "horror",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Tidal Wave",
+   "year": 1973,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2025,
+   "plotChars": 3826,
+   "genres": [
+    "science-fiction",
+    "uncategorized",
+    "action"
+   ]
+  },
+  {
+   "title": "Trip to Vienna",
+   "year": 1973,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 197,
+   "plotChars": 4034,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Martha",
+   "year": 1974,
+   "region": "Other",
+   "tradition": "W-Europe",
+   "countries": [
+    "West Germany"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1383,
+   "plotChars": 4180,
+   "genres": [
+    "drama",
+    "thriller",
+    "horror"
+   ]
+  },
+  {
+   "title": "The Phantom of Liberty",
+   "year": 1974,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 3569,
+   "plotChars": 4018,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Mother Küsters' Trip to Heaven",
+   "year": 1975,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "1970-89",
+   "fame": "1",
+   "views": 708,
+   "plotChars": 4272,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Mirror",
+   "year": 1975,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Soviet Union"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 25795,
+   "plotChars": 9804,
+   "genres": [
+    "drama",
+    "historical",
+    "experimental"
+   ]
+  },
+  {
+   "title": "Harlan County, USA",
+   "year": 1976,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "6",
+   "views": 14519,
+   "plotChars": 3840,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "Taxi Driver",
+   "year": 1976,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "9",
+   "views": 238327,
+   "plotChars": 4200,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller",
+    "adventure",
+    "action"
+   ]
+  },
+  {
+   "title": "A Little Night Music",
+   "year": 1977,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany",
+    "United States",
+    "Austria"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 3567,
+   "plotChars": 3745,
+   "genres": [
+    "romance",
+    "musical"
+   ]
+  },
+  {
+   "title": "Eraserhead",
+   "year": 1977,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "8",
+   "views": 95076,
+   "plotChars": 2877,
+   "genres": [
+    "drama",
+    "thriller",
+    "uncategorized",
+    "fantasy",
+    "horror",
+    "experimental"
+   ]
+  },
+  {
+   "title": "Exorcist II: The Heretic",
+   "year": 1977,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 30481,
+   "plotChars": 3812,
+   "genres": [
+    "thriller",
+    "horror"
+   ]
+  },
+  {
+   "title": "Il gatto",
+   "year": 1977,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "1",
+   "views": 657,
+   "plotChars": 3079,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Autumn Sonata",
+   "year": 1978,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "France",
+    "Germany",
+    "Sweden",
+    "Norway"
+   ],
+   "era": "1970-89",
+   "fame": "6",
+   "views": 12185,
+   "plotChars": 2883,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Damien: Omen II",
+   "year": 1978,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 22610,
+   "plotChars": 4185,
+   "genres": [
+    "horror",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Eyes of Laura Mars",
+   "year": 1978,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 10626,
+   "plotChars": 3541,
+   "genres": [
+    "science-fiction",
+    "thriller",
+    "horror",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Germany in Autumn",
+   "year": 1978,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1396,
+   "plotChars": 4229,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "documentary"
+   ]
+  },
+  {
+   "title": "Someone's Watching Me!",
+   "year": 1978,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 5061,
+   "plotChars": 4267,
+   "genres": [
+    "thriller",
+    "horror",
+    "mystery"
+   ]
+  },
+  {
+   "title": "The Green Room",
+   "year": 1978,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2320,
+   "plotChars": 2345,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Last Waltz",
+   "year": 1978,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 30084,
+   "plotChars": 2664,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "Where Are You Going on Holiday?",
+   "year": 1978,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 240,
+   "plotChars": 2770,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "A Dangerous Toy",
+   "year": 1979,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 324,
+   "plotChars": 1558,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller"
+   ]
+  },
+  {
+   "title": "Good News",
+   "year": 1979,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 257,
+   "plotChars": 1563,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Joi Baba Felunath",
+   "year": 1979,
+   "region": "S-Asia",
+   "tradition": "S-Asia",
+   "countries": [
+    "India"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2369,
+   "plotChars": 2850,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "mystery"
+   ]
+  },
+  {
+   "title": "The Castle of Cagliostro",
+   "year": 1979,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 24892,
+   "plotChars": 4396,
+   "genres": [
+    "comedy",
+    "action"
+   ]
+  },
+  {
+   "title": "Pixote",
+   "year": 1980,
+   "region": "LatAm",
+   "tradition": "LatAm",
+   "countries": [
+    "Brazil"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 5792,
+   "plotChars": 1779,
+   "genres": [
+    "drama",
+    "crime",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "The Elephant Man",
+   "year": 1980,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "8",
+   "views": 97009,
+   "plotChars": 3992,
+   "genres": [
+    "drama",
+    "historical"
+   ]
+  },
+  {
+   "title": "The Shining",
+   "year": 1980,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "9",
+   "views": 204828,
+   "plotChars": 3513,
+   "genres": [
+    "drama",
+    "thriller",
+    "uncategorized",
+    "horror",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Il Marchese del Grillo",
+   "year": 1981,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "1",
+   "views": 865,
+   "plotChars": 3180,
+   "genres": [
+    "comedy",
+    "historical"
+   ]
+  },
+  {
+   "title": "Blade Runner",
+   "year": 1982,
+   "region": "US/CA",
+   "tradition": "E-Asia",
+   "countries": [
+    "Hong Kong",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "9",
+   "views": 264367,
+   "plotChars": 4163,
+   "genres": [
+    "drama",
+    "science-fiction",
+    "crime",
+    "thriller",
+    "action"
+   ]
+  },
+  {
+   "title": "Koyaanisqatsi",
+   "year": 1982,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "8",
+   "views": 50059,
+   "plotChars": 3031,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "A Love in Germany",
+   "year": 1983,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 410,
+   "plotChars": 2005,
+   "genres": [
+    "drama",
+    "war"
+   ]
+  },
+  {
+   "title": "Krull",
+   "year": 1983,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "Italy",
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "7",
+   "views": 28670,
+   "plotChars": 3671,
+   "genres": [
+    "science-fiction",
+    "adventure",
+    "fantasy",
+    "action"
+   ]
+  },
+  {
+   "title": "Table for Five",
+   "year": 1983,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1810,
+   "plotChars": 3388,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The River",
+   "year": 1984,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 8061,
+   "plotChars": 2965,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Big Deal After 20 Years",
+   "year": 1985,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 182,
+   "plotChars": 3756,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Death of a Salesman",
+   "year": 1985,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 8951,
+   "plotChars": 4027,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "No End",
+   "year": 1985,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Poland"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1300,
+   "plotChars": 2844,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Shoah",
+   "year": 1985,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1970-89",
+   "fame": "6",
+   "views": 20076,
+   "plotChars": 6652,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "The Goonies",
+   "year": 1985,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "9",
+   "views": 142586,
+   "plotChars": 3480,
+   "genres": [
+    "comedy",
+    "adventure",
+    "uncategorized",
+    "action"
+   ]
+  },
+  {
+   "title": "The Time to Live and the Time to Die",
+   "year": 1985,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "Taiwan"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1711,
+   "plotChars": 1988,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Dream Lover",
+   "year": 1986,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1881,
+   "plotChars": 4789,
+   "genres": [
+    "fantasy"
+   ]
+  },
+  {
+   "title": "Let's Hope It's a Girl",
+   "year": 1986,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 375,
+   "plotChars": 3481,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Pirates",
+   "year": 1986,
+   "region": "E-Europe",
+   "tradition": "MENA",
+   "countries": [
+    "France",
+    "Poland",
+    "Tunisia"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 10108,
+   "plotChars": 3582,
+   "genres": [
+    "adventure",
+    "action"
+   ]
+  },
+  {
+   "title": "The Sacrifice",
+   "year": 1986,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "France",
+    "Sweden",
+    "United Kingdom"
+   ],
+   "era": "1970-89",
+   "fame": "6",
+   "views": 22097,
+   "plotChars": 3717,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Terrorizers",
+   "year": 1986,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "Taiwan"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2382,
+   "plotChars": 3522,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Aria",
+   "year": 1987,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 4527,
+   "plotChars": 5140,
+   "genres": [
+    "musical"
+   ]
+  },
+  {
+   "title": "Chronicle of a Death Foretold",
+   "year": 1987,
+   "region": "W-Europe",
+   "tradition": "LatAm",
+   "countries": [
+    "France",
+    "Italy",
+    "Colombia"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1597,
+   "plotChars": 3919,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Intervista",
+   "year": 1987,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Italy"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1467,
+   "plotChars": 3057,
+   "genres": [
+    "drama",
+    "historical"
+   ]
+  },
+  {
+   "title": "King Lear",
+   "year": 1987,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 4483,
+   "plotChars": 12871,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Plot of the Fuma Clan",
+   "year": 1987,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1569,
+   "plotChars": 4955,
+   "genres": [
+    "adventure",
+    "action"
+   ]
+  },
+  {
+   "title": "Yeelen",
+   "year": 1987,
+   "region": "W-Europe",
+   "tradition": "Africa",
+   "countries": [
+    "France",
+    "Germany",
+    "Mali"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1747,
+   "plotChars": 2672,
+   "genres": [
+    "fantasy"
+   ]
+  },
+  {
+   "title": "Akira",
+   "year": 1988,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1970-89",
+   "fame": "9",
+   "views": 111217,
+   "plotChars": 4584,
+   "genres": [
+    "science-fiction",
+    "action"
+   ]
+  },
+  {
+   "title": "Another Woman",
+   "year": 1988,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 8500,
+   "plotChars": 1715,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Decalogue III",
+   "year": 1988,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Germany",
+    "Poland"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1611,
+   "plotChars": 2145,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "It Takes Two",
+   "year": 1988,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2764,
+   "plotChars": 2299,
+   "genres": [
+    "romance"
+   ]
+  },
+  {
+   "title": "Trois places pour le 26",
+   "year": 1988,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1970-89",
+   "fame": "0",
+   "views": 263,
+   "plotChars": 1787,
+   "genres": [
+    "musical"
+   ]
+  },
+  {
+   "title": "A City of Sadness",
+   "year": 1989,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "Taiwan"
+   ],
+   "era": "1970-89",
+   "fame": "5",
+   "views": 7010,
+   "plotChars": 4185,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Black Rain",
+   "year": 1989,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1970-89",
+   "fame": "3",
+   "views": 2558,
+   "plotChars": 1816,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Crimes and Misdemeanors",
+   "year": 1989,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1970-89",
+   "fame": "unknown",
+   "views": null,
+   "plotChars": 3861,
+   "genres": [
+    "drama",
+    "comedy",
+    "crime"
+   ]
+  },
+  {
+   "title": "Decalogue V",
+   "year": 1989,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Germany",
+    "Poland"
+   ],
+   "era": "1970-89",
+   "fame": "2",
+   "views": 1805,
+   "plotChars": 3431,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Sweetie",
+   "year": 1989,
+   "region": "Oceania",
+   "tradition": "Oceania",
+   "countries": [
+    "Australia"
+   ],
+   "era": "1970-89",
+   "fame": "4",
+   "views": 5657,
+   "plotChars": 2148,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Close-Up",
+   "year": 1990,
+   "region": "W-Europe",
+   "tradition": "MENA",
+   "countries": [
+    "France",
+    "Iran"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 13427,
+   "plotChars": 2064,
+   "genres": [
+    "uncategorized",
+    "documentary"
+   ]
+  },
+  {
+   "title": "Days of Thunder",
+   "year": 1990,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 73346,
+   "plotChars": 3662,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized",
+    "action"
+   ]
+  },
+  {
+   "title": "Tasmania Story",
+   "year": 1990,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "1",
+   "views": 429,
+   "plotChars": 1676,
+   "genres": [
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Total Recall",
+   "year": 1990,
+   "region": "US/CA",
+   "tradition": "LatAm",
+   "countries": [
+    "United States",
+    "Mexico"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 105348,
+   "plotChars": 4221,
+   "genres": [
+    "science-fiction",
+    "adventure",
+    "action"
+   ]
+  },
+  {
+   "title": "Doc Hollywood",
+   "year": 1991,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 21146,
+   "plotChars": 2717,
+   "genres": [
+    "romance"
+   ]
+  },
+  {
+   "title": "1492 – Conquest of Paradise",
+   "year": 1992,
+   "region": "W-Europe",
+   "tradition": "UK/IE",
+   "countries": [
+    "France",
+    "Spain",
+    "United Kingdom"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 30244,
+   "plotChars": 3596,
+   "genres": [
+    "drama",
+    "adventure",
+    "historical"
+   ]
+  },
+  {
+   "title": "Goopy Bagha Phire Elo",
+   "year": 1992,
+   "region": "S-Asia",
+   "tradition": "S-Asia",
+   "countries": [
+    "India"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2421,
+   "plotChars": 1896,
+   "genres": [
+    "uncategorized",
+    "fantasy"
+   ]
+  },
+  {
+   "title": "Lessons of Darkness",
+   "year": 1992,
+   "region": "W-Europe",
+   "tradition": "UK/IE",
+   "countries": [
+    "France",
+    "Germany",
+    "United Kingdom"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 14779,
+   "plotChars": 2410,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "The Best Intentions",
+   "year": 1992,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "Sweden"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2637,
+   "plotChars": 3283,
+   "genres": [
+    "drama",
+    "romance"
+   ]
+  },
+  {
+   "title": "Thunderheart",
+   "year": 1992,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 17486,
+   "plotChars": 4140,
+   "genres": [
+    "crime",
+    "western",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Waterland",
+   "year": 1992,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 11341,
+   "plotChars": 4828,
+   "genres": [
+    "drama",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Farewell My Concubine",
+   "year": 1993,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "People's Republic of China"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 46045,
+   "plotChars": 6058,
+   "genres": [
+    "drama",
+    "romance",
+    "historical"
+   ]
+  },
+  {
+   "title": "Guilty as Sin",
+   "year": 1993,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "4",
+   "views": 4537,
+   "plotChars": 3111,
+   "genres": [
+    "thriller",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Schindler's List",
+   "year": 1993,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 247069,
+   "plotChars": 4083,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "war",
+    "historical"
+   ]
+  },
+  {
+   "title": "The Piano",
+   "year": 1993,
+   "region": "W-Europe",
+   "tradition": "Oceania",
+   "countries": [
+    "France",
+    "Australia",
+    "New Zealand"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 126796,
+   "plotChars": 3507,
+   "genres": [
+    "drama",
+    "romance"
+   ]
+  },
+  {
+   "title": "A Confucian Confusion",
+   "year": 1994,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "Taiwan"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2792,
+   "plotChars": 8764,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Hoop Dreams",
+   "year": 1994,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 19272,
+   "plotChars": 4116,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "A Last Note",
+   "year": 1995,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "1",
+   "views": 497,
+   "plotChars": 2580,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Bad Company",
+   "year": 1995,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "4",
+   "views": 3637,
+   "plotChars": 3777,
+   "genres": [
+    "crime"
+   ]
+  },
+  {
+   "title": "Farewell to Nostradamus",
+   "year": 1995,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "2",
+   "views": 1348,
+   "plotChars": 6151,
+   "genres": [
+    "crime"
+   ]
+  },
+  {
+   "title": "Lumière and Company",
+   "year": 1995,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "France",
+    "Spain",
+    "Sweden",
+    "United Kingdom",
+    "Denmark"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2148,
+   "plotChars": 3853,
+   "genres": [
+    "uncategorized",
+    "documentary"
+   ]
+  },
+  {
+   "title": "Memories",
+   "year": 1995,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 34691,
+   "plotChars": 6474,
+   "genres": [
+    "science-fiction",
+    "adventure",
+    "fantasy",
+    "action"
+   ]
+  },
+  {
+   "title": "One Hundred and One Nights",
+   "year": 1995,
+   "region": "W-Europe",
+   "tradition": "UK/IE",
+   "countries": [
+    "France",
+    "United Kingdom"
+   ],
+   "era": "1990-09",
+   "fame": "4",
+   "views": 3773,
+   "plotChars": 4076,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "Something to Talk About",
+   "year": 1995,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 28562,
+   "plotChars": 2863,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy"
+   ]
+  },
+  {
+   "title": "City Hall",
+   "year": 1996,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "5",
+   "views": 8743,
+   "plotChars": 2667,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Hard Eight",
+   "year": 1996,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 30753,
+   "plotChars": 2324,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Lupin III: Dead or Alive",
+   "year": 1996,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "2",
+   "views": 1462,
+   "plotChars": 3162,
+   "genres": [
+    "crime"
+   ]
+  },
+  {
+   "title": "Sleepers",
+   "year": 1996,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 121579,
+   "plotChars": 4659,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Little Dieter Needs to Fly",
+   "year": 1997,
+   "region": "UK/IE",
+   "tradition": "UK/IE",
+   "countries": [
+    "Germany",
+    "United Kingdom"
+   ],
+   "era": "1990-09",
+   "fame": "5",
+   "views": 5887,
+   "plotChars": 2412,
+   "genres": [
+    "drama",
+    "documentary"
+   ]
+  },
+  {
+   "title": "Princess Mononoke",
+   "year": 1997,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 125762,
+   "plotChars": 3711,
+   "genres": [
+    "drama",
+    "fantasy",
+    "action",
+    "war",
+    "animation"
+   ]
+  },
+  {
+   "title": "Flowers of Shanghai",
+   "year": 1998,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "Taiwan"
+   ],
+   "era": "1990-09",
+   "fame": "4",
+   "views": 4022,
+   "plotChars": 2440,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "My Best Fiend",
+   "year": 1999,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 11286,
+   "plotChars": 1934,
+   "genres": [
+    "documentary",
+    "historical"
+   ]
+  },
+  {
+   "title": "Star Wars: Episode I – The Phantom Menace",
+   "year": 1999,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 126518,
+   "plotChars": 4294,
+   "genres": [
+    "science-fiction",
+    "adventure",
+    "fantasy",
+    "action"
+   ]
+  },
+  {
+   "title": "The Iron Giant",
+   "year": 1999,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 71809,
+   "plotChars": 3644,
+   "genres": [
+    "drama",
+    "comedy",
+    "science-fiction",
+    "adventure",
+    "uncategorized",
+    "fantasy",
+    "action"
+   ]
+  },
+  {
+   "title": "Eureka",
+   "year": 2000,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "France",
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "4",
+   "views": 3685,
+   "plotChars": 2856,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Faithless",
+   "year": 2000,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "Germany",
+    "Italy",
+    "Sweden",
+    "Norway",
+    "Finland"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 26235,
+   "plotChars": 2229,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Gladiator",
+   "year": 2000,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 334507,
+   "plotChars": 4296,
+   "genres": [
+    "drama",
+    "adventure",
+    "uncategorized",
+    "action",
+    "historical"
+   ]
+  },
+  {
+   "title": "Nine Queens",
+   "year": 2000,
+   "region": "LatAm",
+   "tradition": "LatAm",
+   "countries": [
+    "Argentina"
+   ],
+   "era": "1990-09",
+   "fame": "4",
+   "views": 5000,
+   "plotChars": 3305,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "Platform",
+   "year": 2000,
+   "region": "Japan",
+   "tradition": "E-Asia",
+   "countries": [
+    "France",
+    "People's Republic of China",
+    "Hong Kong",
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2832,
+   "plotChars": 3058,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Dinner with Friends",
+   "year": 2001,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2017,
+   "plotChars": 4424,
+   "genres": [
+    "comedy"
+   ]
+  },
+  {
+   "title": "The Triangle",
+   "year": 2001,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2580,
+   "plotChars": 3556,
+   "genres": [
+    "thriller"
+   ]
+  },
+  {
+   "title": "Adaptation",
+   "year": 2002,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 70583,
+   "plotChars": 3138,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Dolls",
+   "year": 2002,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2684,
+   "plotChars": 1609,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Infernal Affairs",
+   "year": 2002,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "Hong Kong"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 47816,
+   "plotChars": 4948,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller",
+    "action"
+   ]
+  },
+  {
+   "title": "Panic Room",
+   "year": 2002,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 56529,
+   "plotChars": 3013,
+   "genres": [
+    "drama",
+    "thriller",
+    "horror"
+   ]
+  },
+  {
+   "title": "Unknown Pleasures",
+   "year": 2002,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "People's Republic of China"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2020,
+   "plotChars": 3109,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Intolerable Cruelty",
+   "year": 2003,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 26936,
+   "plotChars": 3894,
+   "genres": [
+    "drama",
+    "romance",
+    "comedy",
+    "crime"
+   ]
+  },
+  {
+   "title": "Memories of Murder",
+   "year": 2003,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "South Korea"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 107645,
+   "plotChars": 4406,
+   "genres": [
+    "drama",
+    "comedy",
+    "crime",
+    "thriller",
+    "mystery"
+   ]
+  },
+  {
+   "title": "The Incredibles",
+   "year": 2004,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 129091,
+   "plotChars": 3943,
+   "genres": [
+    "comedy",
+    "uncategorized",
+    "action"
+   ]
+  },
+  {
+   "title": "The Terminal",
+   "year": 2004,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 149720,
+   "plotChars": 4662,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "Tropical Malady",
+   "year": 2004,
+   "region": "W-Europe",
+   "tradition": "SE-Asia",
+   "countries": [
+    "France",
+    "Germany",
+    "Italy",
+    "Thailand"
+   ],
+   "era": "1990-09",
+   "fame": "unknown",
+   "views": null,
+   "plotChars": 2845,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Grizzly Man",
+   "year": 2005,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 44444,
+   "plotChars": 3314,
+   "genres": [
+    "documentary",
+    "historical"
+   ]
+  },
+  {
+   "title": "Daisy",
+   "year": 2006,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "South Korea"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2038,
+   "plotChars": 4968,
+   "genres": [
+    "drama",
+    "romance"
+   ]
+  },
+  {
+   "title": "Inland Empire",
+   "year": 2006,
+   "region": "US/CA",
+   "tradition": "E-Europe",
+   "countries": [
+    "France",
+    "United States",
+    "Poland"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 88182,
+   "plotChars": 5741,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller",
+    "uncategorized",
+    "fantasy",
+    "horror",
+    "mystery",
+    "experimental"
+   ]
+  },
+  {
+   "title": "Eastern Promises",
+   "year": 2007,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom",
+    "United States",
+    "Canada"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 53429,
+   "plotChars": 5674,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller",
+    "action",
+    "mystery"
+   ]
+  },
+  {
+   "title": "Encounters at the End of the World",
+   "year": 2007,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "5",
+   "views": 8952,
+   "plotChars": 2316,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "Persepolis",
+   "year": 2007,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 63815,
+   "plotChars": 4030,
+   "genres": [
+    "drama",
+    "comedy",
+    "historical",
+    "animation"
+   ]
+  },
+  {
+   "title": "The Man from London",
+   "year": 2007,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "France",
+    "Germany",
+    "Hungary"
+   ],
+   "era": "1990-09",
+   "fame": "3",
+   "views": 2975,
+   "plotChars": 4435,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "There Will Be Blood",
+   "year": 2007,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 171648,
+   "plotChars": 3875,
+   "genres": [
+    "drama",
+    "thriller",
+    "uncategorized",
+    "western",
+    "historical"
+   ]
+  },
+  {
+   "title": "Doubt",
+   "year": 2008,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "8",
+   "views": 62720,
+   "plotChars": 4306,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Dust of Time",
+   "year": 2008,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy",
+    "Greece"
+   ],
+   "era": "1990-09",
+   "fame": "2",
+   "views": 1401,
+   "plotChars": 2063,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Spiderwick Chronicles",
+   "year": 2008,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "unknown",
+   "views": null,
+   "plotChars": 5001,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "fantasy"
+   ]
+  },
+  {
+   "title": "WALL-E",
+   "year": 2008,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "9",
+   "views": 136105,
+   "plotChars": 4090,
+   "genres": [
+    "romance",
+    "comedy",
+    "science-fiction",
+    "adventure",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Waltz with Bashir",
+   "year": 2008,
+   "region": "W-Europe",
+   "tradition": "MENA",
+   "countries": [
+    "France",
+    "Germany",
+    "United Kingdom",
+    "Israel"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 13073,
+   "plotChars": 2527,
+   "genres": [
+    "documentary",
+    "war"
+   ]
+  },
+  {
+   "title": "A Serious Man",
+   "year": 2009,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "France",
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "1990-09",
+   "fame": "7",
+   "views": 43167,
+   "plotChars": 3832,
+   "genres": [
+    "drama",
+    "comedy"
+   ]
+  },
+  {
+   "title": "The White Ribbon",
+   "year": 2009,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany",
+    "Italy",
+    "Austria"
+   ],
+   "era": "1990-09",
+   "fame": "6",
+   "views": 14346,
+   "plotChars": 3702,
+   "genres": [
+    "drama",
+    "mystery",
+    "historical"
+   ]
+  },
+  {
+   "title": "Le Quattro Volte",
+   "year": 2010,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany",
+    "Italy",
+    "Switzerland"
+   ],
+   "era": "2010+",
+   "fame": "1",
+   "views": 1019,
+   "plotChars": 1826,
+   "genres": [
+    "drama",
+    "documentary"
+   ]
+  },
+  {
+   "title": "Postcard",
+   "year": 2010,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "2010+",
+   "fame": "0",
+   "views": 307,
+   "plotChars": 1766,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Ghost Writer",
+   "year": 2010,
+   "region": "W-Europe",
+   "tradition": "UK/IE",
+   "countries": [
+    "France",
+    "Germany",
+    "United Kingdom"
+   ],
+   "era": "2010+",
+   "fame": "7",
+   "views": 29398,
+   "plotChars": 3569,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller"
+   ]
+  },
+  {
+   "title": "From Up on Poppy Hill",
+   "year": 2011,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "2010+",
+   "fame": "7",
+   "views": 33809,
+   "plotChars": 3273,
+   "genres": [
+    "drama",
+    "romance"
+   ]
+  },
+  {
+   "title": "Into the Abyss",
+   "year": 2011,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "Germany",
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "6",
+   "views": 11939,
+   "plotChars": 2034,
+   "genres": [
+    "drama",
+    "documentary"
+   ]
+  },
+  {
+   "title": "Pina",
+   "year": 2011,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Germany"
+   ],
+   "era": "2010+",
+   "fame": "3",
+   "views": 2795,
+   "plotChars": 2726,
+   "genres": [
+    "uncategorized",
+    "documentary",
+    "musical"
+   ]
+  },
+  {
+   "title": "The Day He Arrives",
+   "year": 2011,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "South Korea"
+   ],
+   "era": "2010+",
+   "fame": "1",
+   "views": 953,
+   "plotChars": 1651,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Tree of Life",
+   "year": 2011,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 58919,
+   "plotChars": 5817,
+   "genres": [
+    "drama",
+    "science-fiction",
+    "fantasy"
+   ]
+  },
+  {
+   "title": "Lincoln",
+   "year": 2012,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 145571,
+   "plotChars": 4131,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "war",
+    "historical"
+   ]
+  },
+  {
+   "title": "The Act of Killing",
+   "year": 2012,
+   "region": "W-Europe",
+   "tradition": "N-Europe",
+   "countries": [
+    "United Kingdom",
+    "Norway",
+    "Denmark"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 46506,
+   "plotChars": 3641,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "Like Father, Like Son",
+   "year": 2013,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "2010+",
+   "fame": "5",
+   "views": 8578,
+   "plotChars": 2628,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Prisoners",
+   "year": 2013,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 247966,
+   "plotChars": 3812,
+   "genres": [
+    "drama",
+    "crime"
+   ]
+  },
+  {
+   "title": "The Attorney",
+   "year": 2013,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "South Korea"
+   ],
+   "era": "2010+",
+   "fame": "4",
+   "views": 3213,
+   "plotChars": 2820,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Past",
+   "year": 2013,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France",
+    "Italy"
+   ],
+   "era": "2010+",
+   "fame": "3",
+   "views": 2851,
+   "plotChars": 3592,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Tokyo Family",
+   "year": 2013,
+   "region": "Japan",
+   "tradition": "Japan",
+   "countries": [
+    "Japan"
+   ],
+   "era": "2010+",
+   "fame": "2",
+   "views": 1688,
+   "plotChars": 2053,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "The Salt of the Earth",
+   "year": 2014,
+   "region": "W-Europe",
+   "tradition": "LatAm",
+   "countries": [
+    "France",
+    "Italy",
+    "Brazil"
+   ],
+   "era": "2010+",
+   "fame": "4",
+   "views": 3489,
+   "plotChars": 2248,
+   "genres": [
+    "documentary",
+    "historical"
+   ]
+  },
+  {
+   "title": "Mad Max: Fury Road",
+   "year": 2015,
+   "region": "US/CA",
+   "tradition": "Oceania",
+   "countries": [
+    "United States",
+    "Australia"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 159240,
+   "plotChars": 3939,
+   "genres": [
+    "science-fiction",
+    "adventure",
+    "action"
+   ]
+  },
+  {
+   "title": "Certain Women",
+   "year": 2016,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "5",
+   "views": 7968,
+   "plotChars": 4321,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "A Taxi Driver",
+   "year": 2017,
+   "region": "E-Asia",
+   "tradition": "E-Asia",
+   "countries": [
+    "South Korea"
+   ],
+   "era": "2010+",
+   "fame": "7",
+   "views": 26160,
+   "plotChars": 3934,
+   "genres": [
+    "drama",
+    "thriller",
+    "action"
+   ]
+  },
+  {
+   "title": "All the Money in the World",
+   "year": 2017,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 45066,
+   "plotChars": 3992,
+   "genres": [
+    "drama",
+    "thriller",
+    "mystery",
+    "historical"
+   ]
+  },
+  {
+   "title": "Okja",
+   "year": 2017,
+   "region": "US/CA",
+   "tradition": "E-Asia",
+   "countries": [
+    "United States",
+    "South Korea"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 58454,
+   "plotChars": 3723,
+   "genres": [
+    "drama",
+    "adventure"
+   ]
+  },
+  {
+   "title": "Song to Song",
+   "year": 2017,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "7",
+   "views": 26332,
+   "plotChars": 2709,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized",
+    "musical"
+   ]
+  },
+  {
+   "title": "Honeyland",
+   "year": 2019,
+   "region": "Other",
+   "tradition": "E-Europe",
+   "countries": [
+    "North Macedonia"
+   ],
+   "era": "2010+",
+   "fame": "4",
+   "views": 5714,
+   "plotChars": 1563,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "Midsommar",
+   "year": 2019,
+   "region": "US/CA",
+   "tradition": "N-Europe",
+   "countries": [
+    "Sweden",
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 310543,
+   "plotChars": 4067,
+   "genres": [
+    "drama",
+    "thriller",
+    "horror"
+   ]
+  },
+  {
+   "title": "Portrait of a Lady on Fire",
+   "year": 2019,
+   "region": "W-Europe",
+   "tradition": "W-Europe",
+   "countries": [
+    "France"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 57612,
+   "plotChars": 3101,
+   "genres": [
+    "drama",
+    "romance",
+    "uncategorized",
+    "historical"
+   ]
+  },
+  {
+   "title": "Rolling Thunder Revue: A Bob Dylan Story by Martin Scorsese",
+   "year": 2019,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "5",
+   "views": 6231,
+   "plotChars": 2663,
+   "genres": [
+    "documentary"
+   ]
+  },
+  {
+   "title": "The Tragedy of Macbeth",
+   "year": 2021,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 46953,
+   "plotChars": 2969,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Aftersun",
+   "year": 2022,
+   "region": "US/CA",
+   "tradition": "UK/IE",
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 108052,
+   "plotChars": 3040,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Avatar: The Way of Water",
+   "year": 2022,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 315676,
+   "plotChars": 4042,
+   "genres": [
+    "drama",
+    "science-fiction",
+    "adventure",
+    "uncategorized",
+    "action"
+   ]
+  },
+  {
+   "title": "EO",
+   "year": 2022,
+   "region": "E-Europe",
+   "tradition": "E-Europe",
+   "countries": [
+    "Poland"
+   ],
+   "era": "2010+",
+   "fame": "5",
+   "views": 5996,
+   "plotChars": 2431,
+   "genres": [
+    "drama",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "No Bears",
+   "year": 2022,
+   "region": "S-Asia",
+   "tradition": "MENA",
+   "countries": [
+    "Iran"
+   ],
+   "era": "2010+",
+   "fame": "3",
+   "views": 2958,
+   "plotChars": 4889,
+   "genres": [
+    "drama"
+   ]
+  },
+  {
+   "title": "Tár",
+   "year": 2022,
+   "region": "US/CA",
+   "tradition": "W-Europe",
+   "countries": [
+    "Germany",
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 73689,
+   "plotChars": 4474,
+   "genres": [
+    "drama",
+    "uncategorized",
+    "musical"
+   ]
+  },
+  {
+   "title": "Killers of the Flower Moon",
+   "year": 2023,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 147381,
+   "plotChars": 3568,
+   "genres": [
+    "drama",
+    "crime",
+    "thriller",
+    "uncategorized",
+    "western",
+    "mystery"
+   ]
+  },
+  {
+   "title": "To Catch a Killer",
+   "year": 2023,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "6",
+   "views": 18412,
+   "plotChars": 4526,
+   "genres": [
+    "crime",
+    "thriller",
+    "action"
+   ]
+  },
+  {
+   "title": "Megalopolis",
+   "year": 2024,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 136770,
+   "plotChars": 4380,
+   "genres": [
+    "drama",
+    "science-fiction",
+    "uncategorized"
+   ]
+  },
+  {
+   "title": "Bugonia",
+   "year": 2025,
+   "region": "UK/IE",
+   "tradition": "E-Asia",
+   "countries": [
+    "United States",
+    "Ireland",
+    "South Korea"
+   ],
+   "era": "2010+",
+   "fame": "9",
+   "views": 427522,
+   "plotChars": 4115,
+   "genres": [
+    "comedy",
+    "science-fiction",
+    "thriller"
+   ]
+  },
+  {
+   "title": "Honey Don't!",
+   "year": 2025,
+   "region": "US/CA",
+   "tradition": "US/CA",
+   "countries": [
+    "United States"
+   ],
+   "era": "2010+",
+   "fame": "8",
+   "views": 96042,
+   "plotChars": 2863,
+   "genres": [
+    "comedy",
+    "crime",
+    "uncategorized",
+    "mystery"
+   ]
+  }
+ ]
+}

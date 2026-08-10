@@ -1,0 +1,352 @@
+{
+ "meta": {
+  "config": "article_norating",
+  "model": "sentence-transformers/all-MiniLM-L6-v2 (onnx fp32)",
+  "dim": 384,
+  "chunkTokens": 512,
+  "overlapTokens": 30,
+  "maxSeqLength": 256,
+  "nFilms": 2204,
+  "nChunks": 4230,
+  "chunksPerFilm": 1.92,
+  "maxChunksOnAFilm": 11,
+  "wordpieceCoverage": {
+   "chunkWordpieces": 1351971,
+   "wordpiecesEncoded": 908807,
+   "fractionEncoded": 0.6722,
+   "chunksOverCeiling": 2938,
+   "fractionOfChunksTruncated": 0.6946
+  },
+  "timings": {
+   "chunkSeconds": 11.8,
+   "tokenMeasureSeconds": 2.1,
+   "embedSeconds": 86.2,
+   "buildSeconds": 100.4,
+   "chunksPerSecond": 49.1
+  },
+  "corpus": {
+   "films": 2204,
+   "tierPlot": 1541,
+   "tierDescription": 657,
+   "tierNone": 6,
+   "withRating": 2195,
+   "withGenres": 2186,
+   "ratingPriorC": 7.0794,
+   "votePriorM": 25000
+  },
+  "exactSearch": "numpy dense matmul, exact cosine (unit rows) \u2014 not FAISS-approximate",
+  "indexBytes": 13110388,
+  "indexPath": "/home/user/film-atlas/atlas/pipeline/out/rag-index-norating.npz",
+  "ratingLinesStripped": 2195,
+  "buildSecondsMeasured": 100.5
+ },
+ "summary": {
+  "meanAbsRankShift": 125.4,
+  "meanTop10Kept": 7.8,
+  "queriesWithIdenticalTop10": 0,
+  "queriesWithSameTop1": 21,
+  "queries": 30
+ },
+ "perQuery": [
+  {
+   "id": "q01",
+   "q": "a paranoid film about surveillance and control",
+   "meanAbsRankShift": 122.1,
+   "maxAbsRankShift": 1059,
+   "medianAbsRankShift": 94,
+   "top10Kept": 5,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q02",
+   "q": "a slow quiet film about a friendship that quietly ends",
+   "meanAbsRankShift": 130.5,
+   "maxAbsRankShift": 1262,
+   "medianAbsRankShift": 95,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q03",
+   "q": "a revenge film that isn't violent",
+   "meanAbsRankShift": 137.4,
+   "maxAbsRankShift": 1308,
+   "medianAbsRankShift": 104,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q04",
+   "q": "a film that feels like grief without ever saying so",
+   "meanAbsRankShift": 135.9,
+   "maxAbsRankShift": 1492,
+   "medianAbsRankShift": 103,
+   "top10Kept": 7,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q05",
+   "q": "something warm and gentle for a tired sunday evening",
+   "meanAbsRankShift": 71.7,
+   "maxAbsRankShift": 1753,
+   "medianAbsRankShift": 21,
+   "top10Kept": 10,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q06",
+   "q": "a bleak film with no comfort anywhere in it",
+   "meanAbsRankShift": 128.3,
+   "maxAbsRankShift": 1687,
+   "medianAbsRankShift": 97,
+   "top10Kept": 6,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q07",
+   "q": "a film about loneliness in a crowded city",
+   "meanAbsRankShift": 121.8,
+   "maxAbsRankShift": 1274,
+   "medianAbsRankShift": 89,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q08",
+   "q": "a film where nothing is resolved by the end",
+   "meanAbsRankShift": 162.4,
+   "maxAbsRankShift": 1943,
+   "medianAbsRankShift": 132,
+   "top10Kept": 6,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q09",
+   "q": "a story told out of order that only makes sense at the end",
+   "meanAbsRankShift": 66.6,
+   "maxAbsRankShift": 1459,
+   "medianAbsRankShift": 19,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q10",
+   "q": "a film about a journey that changes nobody",
+   "meanAbsRankShift": 143.6,
+   "maxAbsRankShift": 1063,
+   "medianAbsRankShift": 108,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q11",
+   "q": "a film that follows one ordinary day from morning to night",
+   "meanAbsRankShift": 124.1,
+   "maxAbsRankShift": 1282,
+   "medianAbsRankShift": 92,
+   "top10Kept": 6,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q12",
+   "q": "a film set almost entirely in one room",
+   "meanAbsRankShift": 120.3,
+   "maxAbsRankShift": 1097,
+   "medianAbsRankShift": 88,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q13",
+   "q": "a film set during a war but not about the fighting",
+   "meanAbsRankShift": 139.4,
+   "maxAbsRankShift": 1266,
+   "medianAbsRankShift": 107,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q14",
+   "q": "a film about a small town in winter",
+   "meanAbsRankShift": 135.8,
+   "maxAbsRankShift": 934,
+   "medianAbsRankShift": 101,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q15",
+   "q": "a film set in a hotel where strangers keep meeting",
+   "meanAbsRankShift": 120.7,
+   "maxAbsRankShift": 1393,
+   "medianAbsRankShift": 89,
+   "top10Kept": 7,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q16",
+   "q": "a dry ironic comedy about failure",
+   "meanAbsRankShift": 108.0,
+   "maxAbsRankShift": 1529,
+   "medianAbsRankShift": 67,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q17",
+   "q": "a completely sincere film with no irony in it at all",
+   "meanAbsRankShift": 123.7,
+   "maxAbsRankShift": 1670,
+   "medianAbsRankShift": 89,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q18",
+   "q": "a cruel film that knows it is being cruel",
+   "meanAbsRankShift": 135.3,
+   "maxAbsRankShift": 1501,
+   "medianAbsRankShift": 103,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q19",
+   "q": "a playful film that keeps breaking its own rules",
+   "meanAbsRankShift": 148.9,
+   "maxAbsRankShift": 1143,
+   "medianAbsRankShift": 110,
+   "top10Kept": 7,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q20",
+   "q": "a film about a heist that goes wrong",
+   "meanAbsRankShift": 135.3,
+   "maxAbsRankShift": 1204,
+   "medianAbsRankShift": 108,
+   "top10Kept": 6,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q21",
+   "q": "a courtroom film about a man convicted of something he did not do",
+   "meanAbsRankShift": 131.4,
+   "maxAbsRankShift": 1184,
+   "medianAbsRankShift": 98,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q22",
+   "q": "a film about a musician who is losing their hearing",
+   "meanAbsRankShift": 141.9,
+   "maxAbsRankShift": 1261,
+   "medianAbsRankShift": 108,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q23",
+   "q": "a film about migrant workers and the people who exploit them",
+   "meanAbsRankShift": 135.7,
+   "maxAbsRankShift": 1234,
+   "medianAbsRankShift": 99,
+   "top10Kept": 7,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q24",
+   "q": "a film about a nuclear accident and the people covering it up",
+   "meanAbsRankShift": 127.5,
+   "maxAbsRankShift": 1961,
+   "medianAbsRankShift": 97,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q25",
+   "q": "a horror film with no gore in it",
+   "meanAbsRankShift": 113.3,
+   "maxAbsRankShift": 1044,
+   "medianAbsRankShift": 81,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q26",
+   "q": "a love story that is not romantic",
+   "meanAbsRankShift": 100.8,
+   "maxAbsRankShift": 1517,
+   "medianAbsRankShift": 62,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q27",
+   "q": "a slow film about farm work and the passing of the seasons",
+   "meanAbsRankShift": 139.5,
+   "maxAbsRankShift": 1222,
+   "medianAbsRankShift": 109,
+   "top10Kept": 9,
+   "top10Identical": false,
+   "top1Same": false
+  },
+  {
+   "id": "q28",
+   "q": "an unhurried film about ordinary people at home doing very little",
+   "meanAbsRankShift": 121.8,
+   "maxAbsRankShift": 1040,
+   "medianAbsRankShift": 87,
+   "top10Kept": 7,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q29",
+   "q": "a film where the camera barely moves and people mostly wait",
+   "meanAbsRankShift": 133.8,
+   "maxAbsRankShift": 1801,
+   "medianAbsRankShift": 101,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  },
+  {
+   "id": "q30",
+   "q": "something like Stalker but warmer",
+   "meanAbsRankShift": 103.3,
+   "maxAbsRankShift": 1411,
+   "medianAbsRankShift": 61,
+   "top10Kept": 8,
+   "top10Identical": false,
+   "top1Same": true
+  }
+ ]
+}

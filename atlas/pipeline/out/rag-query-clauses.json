@@ -1,0 +1,296 @@
+{
+ "note": "parsed attribute ids per audit query, from the shipped query-parse.js",
+ "queries": {
+  "q01": {
+   "q": "a paranoid film about surveillance and control",
+   "positive": [
+    "mood:paranoid"
+   ],
+   "negated": [],
+   "unread": [
+    "film about surveillance and",
+    "control"
+   ]
+  },
+  "q02": {
+   "q": "a slow quiet film about a friendship that quietly ends",
+   "positive": [
+    "pace:contemplative",
+    "texture:sparse-dialogue"
+   ],
+   "negated": [],
+   "unread": [
+    "about a friendship that",
+    "ends"
+   ]
+  },
+  "q03": {
+   "q": "a revenge film that isn't violent",
+   "positive": [
+    "story:revenge"
+   ],
+   "negated": [
+    "texture:graphic-violence"
+   ],
+   "unread": []
+  },
+  "q04": {
+   "q": "a film that feels like grief without ever saying so",
+   "positive": [
+    "subject:grief"
+   ],
+   "negated": [],
+   "unread": [
+    "a film that feels like",
+    "without ever saying so"
+   ]
+  },
+  "q05": {
+   "q": "something warm and gentle for a tired sunday evening",
+   "positive": [
+    "mood:warm",
+    "tone:tender"
+   ],
+   "negated": [],
+   "unread": [
+    "for a tired sunday evening"
+   ]
+  },
+  "q06": {
+   "q": "a bleak film with no comfort anywhere in it",
+   "positive": [
+    "tone:bleak"
+   ],
+   "negated": [],
+   "unread": [
+    "anywhere in it"
+   ]
+  },
+  "q07": {
+   "q": "a film about loneliness in a crowded city",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film about loneliness in a crowded city"
+   ]
+  },
+  "q08": {
+   "q": "a film where nothing is resolved by the end",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film where nothing is resolved by the end"
+   ]
+  },
+  "q09": {
+   "q": "a story told out of order that only makes sense at the end",
+   "positive": [
+    "structure:nonlinear"
+   ],
+   "negated": [],
+   "unread": [
+    "a story told",
+    "that only makes sense at the end"
+   ]
+  },
+  "q10": {
+   "q": "a film about a journey that changes nobody",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film about a journey that changes nobody"
+   ]
+  },
+  "q11": {
+   "q": "a film that follows one ordinary day from morning to night",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film that follows one ordinary day from morning to night"
+   ]
+  },
+  "q12": {
+   "q": "a film set almost entirely in one room",
+   "positive": [
+    "structure:single-setting"
+   ],
+   "negated": [],
+   "unread": [
+    "a film set almost entirely in"
+   ]
+  },
+  "q13": {
+   "q": "a film set during a war but not about the fighting",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film set during a war but",
+    "not about the fighting"
+   ]
+  },
+  "q14": {
+   "q": "a film about a small town in winter",
+   "positive": [
+    "setting:small-town"
+   ],
+   "negated": [],
+   "unread": [
+    "in winter"
+   ]
+  },
+  "q15": {
+   "q": "a film set in a hotel where strangers keep meeting",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film set in a hotel where strangers keep meeting"
+   ]
+  },
+  "q16": {
+   "q": "a dry ironic comedy about failure",
+   "positive": [
+    "tone:ironic",
+    "tone:comic"
+   ],
+   "negated": [],
+   "unread": [
+    "a dry",
+    "about failure"
+   ]
+  },
+  "q17": {
+   "q": "a completely sincere film with no irony in it at all",
+   "positive": [
+    "tone:earnest"
+   ],
+   "negated": [],
+   "unread": [
+    "a completely",
+    "in it at all"
+   ]
+  },
+  "q18": {
+   "q": "a cruel film that knows it is being cruel",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a cruel film that knows it is being cruel"
+   ]
+  },
+  "q19": {
+   "q": "a playful film that keeps breaking its own rules",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a playful film that keeps breaking its own rules"
+   ]
+  },
+  "q20": {
+   "q": "a film about a heist that goes wrong",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film about a heist that goes wrong"
+   ]
+  },
+  "q21": {
+   "q": "a courtroom film about a man convicted of something he did not do",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a courtroom film about a man convicted of something he did not do"
+   ]
+  },
+  "q22": {
+   "q": "a film about a musician who is losing their hearing",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film about a musician who is losing their hearing"
+   ]
+  },
+  "q23": {
+   "q": "a film about migrant workers and the people who exploit them",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film about migrant workers and",
+    "the people who exploit them"
+   ]
+  },
+  "q24": {
+   "q": "a film about a nuclear accident and the people covering it up",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film about a nuclear accident and",
+    "the people covering it up"
+   ]
+  },
+  "q25": {
+   "q": "a horror film with no gore in it",
+   "positive": [],
+   "negated": [
+    "texture:graphic-violence"
+   ],
+   "unread": [
+    "a horror film with"
+   ]
+  },
+  "q26": {
+   "q": "a love story that is not romantic",
+   "positive": [
+    "subject:desire"
+   ],
+   "negated": [
+    "subject:desire"
+   ],
+   "unread": []
+  },
+  "q27": {
+   "q": "a slow film about farm work and the passing of the seasons",
+   "positive": [
+    "pace:contemplative",
+    "subject:work"
+   ],
+   "negated": [],
+   "unread": [
+    "film about farm",
+    "the passing of the seasons"
+   ]
+  },
+  "q28": {
+   "q": "an unhurried film about ordinary people at home doing very little",
+   "positive": [
+    "pace:contemplative"
+   ],
+   "negated": [],
+   "unread": [
+    "film about ordinary people at home doing very little"
+   ]
+  },
+  "q29": {
+   "q": "a film where the camera barely moves and people mostly wait",
+   "positive": [],
+   "negated": [],
+   "unread": [
+    "a film where the camera barely moves and",
+    "people mostly wait"
+   ]
+  },
+  "q30": {
+   "q": "something like Stalker but warmer",
+   "positive": [
+    "subject:spiritual",
+    "pace:contemplative",
+    "tone:cerebral",
+    "texture:painterly"
+   ],
+   "negated": [],
+   "unread": [
+    "but",
+    "warmer"
+   ]
+  }
+ }
+}

@@ -1146,6 +1146,227 @@ reached into `sky.wy` and a page that lands on the wall has none — which is
 its own lesson: a check that throws cannot tell you which of the two things
 broke.
 
+## The transport — the century, and a way to run it — settled 2026-08-10
+
+The atlas was already a century laid out left to right and it had never been
+played. `app/layout-sky.js` is handed films and edges and **nothing else** — no
+years, no degree, no ranking — and the constellation still comes out sorted by
+time, west to east, because influence runs forward and the springs mostly point
+that way. Nobody designed that. It is the corpus confessing through the physics,
+and it was the one thing this view knew and could not say.
+
+> **A footage track under the field, a playhead, and a run. The resting
+> constellation is the last frame of a reel that has already run.**
+
+The full argument, the three architectures this beat and the costs measured for
+each, are in `docs/specs/visual-architecture-decision.md`. What follows is what
+shipped and what it is held to.
+
+### It reads the year as a low-frequency aggregate, and never as a coordinate
+
+This is the rule the whole design turns on. Measured at HEAD by
+`pipeline/measure-layout.js`, which now reports it in the layout gate:
+
+| | |
+|---|---|
+| corr(year, x) | **+0.448** |
+| best axis, swept over rotation | **−0.474 at 161°** |
+| five-year centroid: net drift / path length | **0.382** / 1.797 world units, in a box 1.0 wide |
+| mean \|Δyear\| to a nearest neighbour, as a share of a shuffled control | **0.845** (1.000 = no local signal) |
+
+The first three say the century really does cross the plate. The fourth says
+your nearest neighbour is on average 22.5 years away from you against 27.1 for a
+shuffle, and reading a year off one film's x has an RMSE of **20.9 years**
+against a corpus SD of 23.4 — r² = 0.201.
+
+> **Nothing in this view may ever print or imply a year from a position.**
+
+So the light of a year is a broad wash at the centroid of the films actually
+striking, and it is never a front, never a contour and never a focus plane. An
+architecture that turned the year into a per-film geometric coordinate was
+built, measured and rejected for standing *Un Chien Andalou* (1928) on ground
+reading 1996. `measure-layout.js --selftest` now carries three controls for
+these numbers, because the correlation fell from +0.612 to +0.448 across one
+solver retune and nothing noticed for three weeks.
+
+### The five typed relationships become five tenses, and the corpus decides which
+
+An edge appears when its **later** endpoint exists — the moment the connection
+becomes *makeable* — and it is drawn as a line **travelling**, in the direction
+its own type was recorded to run. Using the earlier endpoint was tried in the
+prototype and kills the last third of the run: 26% of this corpus's lineage
+arrives after 2003.
+
+`edge.from` has **three** values and one of them is `"none"`:
+
+| type | edges | carry a recorded direction | of those, run forward |
+|---|---|---|---|
+| `descent` | 315 | **233** | **94.0%** |
+| `rebuttal` | 110 | **110** | 11.8% — i.e. **88.2% reach back** |
+| `convergence` | 7,584 | 22 | — |
+| `rhyme` | 2,178 | 9 | — |
+| `hand` | 12,030 | 0 | — |
+
+**The prototype's headline 80.6% was that third value being swallowed.** It read
+`from === "a" ? a : b`, which turns every `"none"` into `"b"` and invents an
+ancestor for 82 of the 315 descents. A descent whose ancestor the corpus does
+not record is drawn symmetrically here, like everything else, and left out of
+the percentage — and the readout prints the denominator so the claim can be
+checked rather than believed. The three symmetric types are symmetric because
+the corpus records a direction for **31 of their 21,792 edges**. That is a
+better reason than a coin flip and it is the reason the key gives.
+
+### What it is not allowed to do
+
+- **Rule 1.** The premiere flare is `skyTpStrike(age)` — a function of age and
+  of nothing else. At any cursor the corpus takes only five or six distinct
+  ages, so "a function of age alone" has an exact test rather than a statistical
+  one: `transport-probe.mjs` records every sprite blit and requires **one alpha
+  and one size per age group**, measured across degrees 1–34. Edge width is a
+  property of the **type** — 2px directed, 1.15px symmetric, identical for every
+  edge of that type.
+- **Rule 3.** A sub-0.5 claim is dashed at every cursor position. Checked by
+  instrumenting the 2D context, counting stroked segments by the dash state they
+  were laid down under, and comparing with what the page's own data says must be
+  dashed. Eleven cursors, 11/11.
+- **Rule 4.** The readout is DOM type on its own opaque ground; the canvas never
+  touches a glyph, so nothing can blur however fast the reel runs.
+- **Rule 5.** The disc keeps the film's own measured highlight. The year's
+  colour lights the **room** and never a disc — see the tier below.
+- **Rule 7.** Both time constants are measured in **years, never seconds**, so
+  the picture at 1968.0 is the same picture whether you ran there at speed,
+  dragged there by hand or arrived by keyboard, on every machine.
+
+### The year's light prints its own tier, and it is ◐ amplified
+
+Computed at build time with `build-registers.js`'s own instruments, over the
+1,982 poster-measured films only — a film whose palette came from an era default
+cannot be evidence about its era:
+
+- the best-separating decade sits **4.99 null SD** off the corpus mean;
+- the decade explains **2.1%** of an individual film's own colour.
+
+So the **direction is measured and the intensity is authored** (chroma ×3.6, hue
+never rotated), which is `amplified` word for word. The prototype printed
+`● RECORDED`, and that is an overclaim by one tier: `recorded` is reserved for a
+fact about the print itself, the way the silver print's films *are* monochrome
+on the record. A wash over a population **is** a mean; a disc is one film. That
+is the whole reason the light may touch the room and may never touch a disc, and
+the readout says it in those words every time it is on screen.
+
+### The one graft, and it is a sentence rather than a picture
+
+A film's own year minus the **mean** year of its graph neighbours, baked one
+float per film. Negative means its company arrived after it. *Snow White*
+scores −38.3 over 20 connections, *The Other Side of the Wind* +52.5 over 22 —
+a 1970s film released in 2018 whose lineage knows it. A mean and not a degree
+weighting, so a film with forty neighbours and one with four are read the same
+way; floored at three neighbours, which excludes 4 films of 2,204, and `n` is
+printed beside it. Both years are marked on the track and the gap between the
+two marks is the reading.
+
+### Cost — the property that decided whether it ships
+
+The bar is the night sky's: *not more expensive than the view it replaces.*
+Measured by `transport-probe.mjs` in real Chromium at 1440×900, rAF-paced, with
+the untreated control re-measured in the same page, twice, round the treatments:
+
+| | ms/frame | vs control |
+|---|---|---|
+| control, transport switched off | 1.11–1.24 mean · 1.05–1.20 p50 | 1.00× |
+| **at rest** | **1.19–1.31 mean · 1.20 p50** | **0.98–1.14×** |
+| grazing a year | 1.75–2.14 mean · 1.70–1.90 p50 | 1.55–1.86× |
+| **running the century** (150 frames) | **1.00–1.12 mean · 1.5–2.1 p95** | **0.81–0.94×** |
+
+Ranges over five runs, because this is a 1.1 ms measurement in a container that
+is also rasterising in software: quoting one run's third digit here would be
+inventing precision. The ratios hold their shape across all of them.
+
+Idle draws in 3 s: **0 at rest, 0 while a year is held lit, 0 after the reel has
+run.** Running costs *less* per frame than sitting still, because most of the
+reel has fewer films in it.
+
+**The resting claim is exact rather than statistical.** `skyTpFrame()` returns
+null the moment the cursor is parked at the end with nothing grazed, so the
+resting draw is the draw that shipped — and the probe proves it by capturing the
+canvas, switching the transport off in the page, capturing again, and comparing
+**byte for byte**. 495 KB of PNG, identical.
+
+The graze is the one state that costs more than the control, and it is the same
+bill the worlds strip's own preview already pays for the identical gesture
+(2.92 against a 1.91 control, 1.53×, and blessed above). It is paid only while a
+pointer is on the track, one repaint per move.
+
+`driver.mjs film transport` runs the reel under the screencast: **161 presented
+frames over 6,945 ms, peak share 8.8%, half the motion spread over 40 frames,
+centroid at 53.2% of nominal, 0 identical frames, worst single draw 9.1 ms,
+worst paint-to-paint 88 ms, 0 frames after the window.** Forcing the cursor to 1
+reports a snap on four readings; a 340 ms busy-wait mid-run is caught by the gap
+check alone and draws a hole in the profile.
+
+### What it costs the resting picture, stated rather than buried
+
+The track is **opaque standing chrome**, so it is seeded into `skyChrome()` and
+the camera fits above it — "fit means the part you can see" does not stop
+applying because the chrome is new. That is real band:
+
+| | safe band before | after | the track |
+|---|---|---|---|
+| 1440×900 | 501.6 px | **426.6 px** | 75 px |
+| 900×820 | 438.3 px | **346.6 px** | 75 px |
+| 390×780 | 299.2 px | **237.2 px** | 62 px |
+
+Resting ink at 1440×900 goes **13.14% → 9.58%**, measured by `driver.mjs smoke`
+on both builds. (900×820 loses 92 px rather than 75 because the readout rewraps
+at that width; the track itself is the same 75 px.)
+
+75 px on a desktop and 62 px on a phone. It is less than the worlds strip's 147
+px and it is the same kind of bargain: the strip gave the constellation a job,
+this gives it a century. The number is here so the next person can decide it was
+worth it rather than discover it.
+
+**The phone needed two more answers, and one of them was a bug this exposed.**
+
+1. **The readout is capped on a phone.** DESIGN's own rule already said the
+   readout gives up the field before the constellation does; until now it gave
+   up nothing. With a film in hand at 390×780 the box measured 265–304 px of a
+   659 px field, leaving the camera's safe band at 133 px — thirteen under
+   `skySafeBand`'s 140 px floor is a **collapse**, and a collapsed band is one
+   that no longer corrects for chrome at all. 62 px of transport pushed it over.
+   `.sky-readbox:not(.route)` is now capped at `min(30vh, 204px)` and scrolls; a
+   Passage is exempt, because there the claims *are* the content.
+2. **Every camera move onto a single film now centres on the visible band.**
+   `skyFitCam` has always applied that correction for the whole atlas;
+   `skyOrbit`, `skyFocus` and `skyStep` centred on the middle of the **canvas**,
+   which is a different point whenever the chrome is asymmetrical — and it has
+   never been symmetrical. It only became visible when the band collapsed:
+   anchoring a film parked it 45 px inside the readout, and the third tap of the
+   anchor-then-open gesture landed on `#sky-read` instead of on the film.
+   `elementFromPoint`, not a screenshot. One rule, `skyCentreOn`, every caller.
+
+### What it does not solve
+
+- **It stands only while the atlas is whole**, on the same condition the worlds
+  strip uses. A re-formed sky is a different set of films in different places;
+  *"play folk horror"* — ten films over twenty-two years — is a real question
+  with no answer here, and re-forming mid-run is undefined. Retracting says so;
+  composing the two badly would not.
+- **The resting picture is still an even disc.** Open question 2 stays open. The
+  transport reframes it — the playhead is parked at 2026 *because the reel has
+  run*, which is a terminal state a reader can have an attitude about — and it
+  gives the resting atlas weather on demand at zero idle cost. It does not put
+  structure into the pixels.
+- **There is no `#/sky/year:1968` address.** The transport is a state that lasts
+  until the next click, which is exactly the second grammar open question 0 says
+  is missing, and the address machinery carries nine negative controls that a
+  new token class would have to be re-proved against. Not built; worth saying
+  out loud.
+- **The reel is lumpy and that is the corpus.** 1916–1940 is 99 films and the
+  1960s alone are 374, so a linear run spends its first seconds on almost
+  nothing. The census printed under the rail is that rhythm drawn flat rather
+  than smoothed away. Whether the reel should run in *film time* or *wall time*
+  is unresolved and is a design question.
+
 ## The print in the gate — Latent Image, settled 2026-08
 
 ATLAS is one photographic print of the whole of cinema, held in a projector
@@ -1459,6 +1680,425 @@ written down: the gesture opens with 140ms in which nothing changes on purpose,
 and a JPEG screencast subsamples and quantises chroma. The curve itself is
 gated on the app's own clock in `print-probe.mjs`.
 
+## The typed search — a sentence becomes a constellation — settled 2026-08-10
+
+The owner's words are the spec: *"ideally the user can type in things like 'a
+film that has fast pacing, has the mood of the matrix, has a hopeful tone, has
+little dialogue, very spiritual in nature' and atlas should be able to create a
+constellation in which those very films live ... BUT those films can still live
+in the constellation. they might just exist a bit further away then the films
+who are more closely related."*
+
+That last sentence decides the shape. **The typed search does not filter.** All
+2,204 films are scored, all 2,204 are drawn, all 2,204 stay clickable; the only
+thing a sentence changes is how far from the centre each film sits. The
+outermost film on the owner's own query is at radius 0.985 with alpha 1.00 and
+opens its map like any other. A query is therefore a **fourth target kind**
+inside the constellation (`kind: "match"`, beside `whole`, `stratum` and
+`solved`) rather than a fourth view — `live` is all ones, `count === sky.n`, so
+`skyScaleTarget` resolves to 1 and nothing takes the outward exit. It is a
+re-arrangement of the atlas, not a subset of it.
+
+**No model runs at read time.** The page makes no network call and holds no
+credential (AGENTS 6b). A sentence is read by a phrase table over the 59 closed
+attributes of `pipeline/consensus-vocab.json`, scored by `pipeline/match.js`,
+and placed by `app/layout-match.js`. `app/query-runtime.js` is the one new file
+that assembles the four and decides whether a reading is fit to draw.
+
+### What an unanswerable sentence draws — settled 2026-08-10
+
+The three refusals below stand, and **`no-reading` no longer does**, which is a
+correction against the owner's own words rather than a change of mind about the
+argument. *"BUT those films can still live in the constellation. they might just
+exist a bit further away then the films who are more closely related."* A
+sentence nobody could read is the limit of that rule, not an exception to it:
+every film answers it equally badly, every score is 0, and `layout-match.js` has
+always drawn that state deliberately — a shell with a hollow middle that says
+"nothing here answered you" in its shape before a title is read. Putting the
+resting atlas back instead captioned a picture that was about nothing the reader
+typed. `zorbnax plughcromulent frobnitz wibbleflum` now forms the shell, keeps
+its unread words in the slate, and keeps the headline that says the vocabulary
+did not hold them.
+
+The other three still refuse, because each of them would draw something
+convincing and false rather than something empty and true. **These four codes
+are the whole answer to "what does an unanswerable sentence draw" and no fifth
+one may be added without a row in this table.**
+
+| refusal | draws | measured |
+|---|---|---|
+| **nothing read** — "zorbnax frobnitz" | **the shell** — every film at 0, the middle empty | `match.js` throws `match: empty query` on `[]`, so the scores are synthesised as zero rather than asked for; the unread spans and the headline stand above the picture |
+| **record only** — "a good western" | nothing moves; the films are **marked where they are** | genre, era, cinema and director are RECORD (AGENTS rule 8) and folding them into the same 0..1 number would be the interface pretending two kinds of claim are one |
+| **negation only** — "nothing violent" | refuses | 1,346 of 2,204 films tie at **exactly 1.000**; an inner ring holding 61% of the corpus is not a constellation |
+| **no denominator** | refuses | every term in the reading has ceiling 0, so every film would sit at the same distance and the ring would mean nothing |
+
+Two things sit beside the table and are not refusals. **Out of vocabulary** is
+caught in the wrapper — `attributeModel` returns `{known:0, sigmaMax:0,
+prior:0}`, so a typo contributes to neither numerator nor denominator and the
+scorer cannot report it; validation happens against the 59 closed ids in
+`query-runtime.js` or it happens nowhere. **A thin near band** is a notice:
+`setting:space` alone puts 30 of the top 60 on films the corpus has no opinion
+about at all, and the count is printed rather than buried.
+
+### The bands, and why the middle is occupied — settled 2026-08-10
+
+`layout-match.js` gave a tied film a SLACK spring, on the argument that a tie
+costs nothing to spread. The argument is right and the mechanism was not: a
+slack spring is not a fence. Most of the corpus scores near zero, most rest
+lengths are therefore at the rim, the rim is jammed, and the crowd pressure has
+nowhere to go but inward — through the films the score DID order. Measured off
+the composited page on the owner's sentence: **13.31% of 376,155 ordered pairs
+drawn backwards**, the widest tie spread **103px on a 171.8px radius**, and of
+the thirty films drawn NEAREST the centre, **eleven were outside the top thirty
+by score and five outside the top hundred** (worst: score-rank 779).
+
+Every distinct score now owns an **annulus**, laid out in score order, and no
+film leaves its own band on any iteration. A better answer is drawn nearer than
+a worse one *by construction*. Inside its band a tie is as free as it was, and
+the crowd pressure travels around the ring instead of through the answer. Band
+width is the area the group needs at the solver's own `k`, times `bandPack`,
+with the slack spent in proportion to the score gaps.
+
+| | before | after |
+|---|---|---|
+| Spearman(radius, score), owner sentence | −0.876 | **−0.995** |
+| ordered pairs drawn backwards | 13.31% | **0.00%** |
+| top-30 by score ∩ nearest-30 drawn | 19 of 30 | **30 of 30** |
+| worst score-rank inside the nearest 30 | 779 | **30** |
+| widest tie | 396 films over 60% of the radius | 396 films over **12%** |
+| films inside r = 0.25 | 0 | **245** |
+
+**And the radius is normalised against what the query can reach.** The absolute
+map put nothing inside r=0.246 on the owner's sentence — the best score in the
+corpus is 0.381 — so the picture was a dark hole a quarter of the disc wide with
+the *rim* as its brightest feature, under a caption reading "distance from the
+centre is how well each one answers". Normalising is a monotone divide by one
+constant and reorders nothing. The absolute number does not disappear: the slate
+prints **"the closest anything gets is 0.381 of everything you asked for"**,
+which is a sentence rather than a hole. An impossible query has nothing to
+normalise against, so it still draws the shell.
+
+**The intra-tie band is disclosed.** The slate's only tie sentence used to fire
+on `tiedAtTop`, which is 1 for most sentences, so a 60%-of-the-radius spread was
+never mentioned. It now names the widest band and its size every time.
+
+### The conjunctive floor — settled 2026-08-10
+
+The score was a weight-normalised mean, and a mean lets a film rank first by
+ignoring part of the sentence. On the owner's own words the film drawn nearest
+the centre — *The Color of Pomegranates* — scored **exactly zero** on "fast
+pacing" and **exactly zero** on "hopeful", the first and third things he typed.
+Across the top 20, 11 films scored zero on pace and 11 on hopeful. Those films
+score well; they are not a good answer.
+
+`match.js` now multiplies the mean by a term only a conjunction can satisfy:
+`met = (held weight + 1) / (checkable weight + 2)`, `conj = 0.25 + 0.75·met`.
+**Unknown is neither met nor unmet** — counting it as a miss puts a fame
+gradient straight into the score, counting it as a hit rewards being unread —
+and the prior of two clause-weights stops a film the corpus read once from
+claiming a perfect conjunction.
+
+| owner's sentence, top 20 | before | after |
+|---|---|---|
+| nearest the centre | *The Color of Pomegranates* (0 on pace, 0 on hopeful) | ***The Matrix*** |
+| score zero on "fast pacing" | 11 | **6** |
+| score zero on "hopeful" | 11 | **8** |
+| holding both pace and hopeful | 5 | **6** |
+| rho(score, degree) | +0.023 | **−0.036** (gate 0.45) |
+| rho(score, coverage) | −0.119 | **−0.327** |
+
+0 of 2,204 films satisfy all five asks at any level, so no arrangement can put a
+perfect answer at the front — there is not one. The rest is disclosure, and it
+is not optional: the slate now names, per clause, how many of the nearest twelve
+score zero on it, and lists the nearest five films with what each one misses.
+
+**An offer on an axis the reader already spoke on is a correction, not a
+question — settled 2026-08-10.** A namespace IS an axis: `pace` has four values
+and they are four points on one line. The row's heading is *"you did not say —
+want to?"*, and on the owner's own sentence the first offer was **UNHURRIED**
+(`pace:contemplative`) to somebody who had typed "fast pacing". Measured, the
+top offer sat in an already-spoken namespace in **4 of 14** sentences. The pool
+is still not narrowed — restricting offers to unspoken namespaces is the slot
+rule this design rejects on rule-1 grounds, because a sentence written in the
+interior vocabulary leaves `mode` and `setting` silent and those are the two
+most fame-loaded namespaces. What changed is that such an offer is **printed as
+a correction, carrying the reader's own words**, and demoted behind any question
+of comparable value (×0.75 on the pick rank, not an exclusion). The owner's
+sentence now leads with SPECTACLE, and UNHURRIED follows marked *"you said
+relentless or quick and light — the other end of the same axis"*.
+
+**And the coverage guard was a share where it should have been evidence.** A
+one-clause sentence — *"set in space"* — got **no follow-up at all**, because 30
+of its nearest 60 are films nobody read and every one of the 59 attributes
+failed a 75%-of-the-band test. The sentence with the most room left to narrow
+was the one the system declined to ask about. The guard now asks for **20 read
+films**, which is what an estimate of *q* actually needs, and the share is
+reported rather than used as a gate. `OFFER_STANDOUT` was re-measured against
+the new scorer at the same time: 1.8 → **1.5**, because the conjunctive term
+makes the front of the sky more stable and every influx figure fell with it.
+
+### Rule 3 is drawn, not only written
+
+An unknown film is credited the corpus average on every clause it was not read
+for. That is correct — it outranks a film the attributor looked at and said no
+to — and it lands the unknown at a radius indistinguishable from a film that was
+read and agreed with. So **a film with zero coverage on the query is drawn
+hollow**: same position, same radius, the fill withheld, which is the same
+record-versus-reading grammar the edges already use. On `setting:space` that is
+563 of 2,204 discs, and the slate prints the count for the near band.
+
+**The hole has to be punched, not left — settled 2026-08-10.** The draw calls
+were right from the first commit (563 strokes for exactly the 563 films with no
+coverage) and a reader could not see it: measured on the composited canvas over
+isolated discs, filled centre **+152.6 luma** against hollow **+147.4**, AUC
+**0.591** against a 0.90 gate, with **0 of 163** hollow discs even half as dark
+at the centre as a median filled one. The cause is the integration pass, which
+is blitted *beneath* the discs with a ~15px kernel: whatever the ring declined
+to paint, the plate's own halation painted back into a one-pixel hole. Dimming
+the film's own halo moved it 1.5 luma, because most of the light in that pixel
+belongs to its neighbours. The centre is now taken out of the plate with
+`destination-out` before the ring is stroked, so the hole is ground at every
+zoom and at every density, and an unread film's halo contributes at 0.055
+instead of 0.26. Position and size are untouched — AGENTS rule 1 owns both, and
+neither may say "we did not read this one".
+
+### The slate says the four things it used to keep to itself — settled 2026-08-10
+
+Every one of these was already computed and simply not printed.
+
+**The contradiction.** `query-parse.js` states, in the clause pass: *"A
+contradiction (said and un-said) is kept and reported: the interface must show
+it, not silently pick a side."* It was kept and never shown — `grep -c
+conflicts app/template.html` was **0**, and `conflicts` was not among the 17
+keys `__ATLAS_SKY__.query()` exposed, so the field was unreachable from the view
+layer at all. *"a very violent film with nothing violent in it"* drew *Flesh for
+Frankenstein*, *Hannibal* and *Salò* at 0.975 dead centre under two chips saying
+the opposite of each other and no third word. Both spans are now named, and the
+per-film miss list under them says which side each of the nearest films fails.
+
+**One chip per clause, not per repetition.** A 500-word sentence built from 11
+vocabulary words repeated 45 times rendered **500 chips** and a **7,038px**
+scroll inside a 708px box, with the offers 6,300px below the fold. The parser
+had always deduplicated correctly — 11 clauses, weights combined by MAX — and it
+was the chip grouping that described 500 things the query does not contain.
+Now 11 chips, one carrying "said ×45", and its × takes back all forty-five
+spans, because taking back a forty-fifth of a repeated word is not a thing
+anybody asked for. Measured after: **11 chips, 1,239px**.
+
+**The unread echo is the reader's own string.** `readMarks` re-tokenised every
+unread span through `markNorm` and rebuilt the text from the normalised tokens,
+so *"¿un film… «très» spirituel"* was echoed as *"un film tres spirituel"* and
+*"sí"* as *"si"* — against `query-parse.js`'s own rule that the reader's span
+survives "rather than replacing what they said with schema vocabulary they never
+chose". The span is now sliced out of the source. `query-runtime.js` contained a
+literally empty block under the comment *"nothing found: keep the original span
+verbatim"*: the intent was written and never implemented.
+
+**A failed film pointer is not an unknown adjective.** *"the mood of Amélie"*
+came back as "not in the vocabulary" — the words were; the film is not in the
+2,204. Those spans now read **"a film this atlas does not hold"**.
+
+### The offers, and why there is no "no"
+
+After the constellation has settled — never before it — the row asks about at
+most four things the sentence did not say. The currency is **influx**: how many
+of the sixty films at the front of the sky would be films that are not there
+now. Information gain measures set-clearing, which is a wall concept; this sky
+never filters, so clearing is not what a question can buy.
+
+`value(a) = q·new(a) + (1−q)·new(not a)`, computed closed-form off `explain()`:
+`score' = clamp((raw + w·credit)/(denom + w·sigmaMax), 0, 1)`, verified equal to
+a full re-score at **max |diff| 0.000e+0 over 13,224 film-attribute pairs**
+including two complements. 118 branches cost ~210 ms, once, off the critical
+path.
+
+There is no "no" button. The complement of a rare attribute is a common one, so
+a "no" is nearly free and separates nearly nobody. There is a third control,
+**either**, which spends the axis so it is never offered again. Ignoring the row
+entirely is a complete, silent, zero-click answer, and the typed box stays live
+throughout — if any of those three things stops being true this is a quiz and
+should be withdrawn.
+
+**There is no slot rule.** Restricting the question to namespaces the reader was
+silent in sounds honest and is an AGENTS rule 1 defect: a sentence written in
+the interior vocabulary (pace/tone/mood/texture/subject) leaves *mode* and
+*setting* silent, and those are the two most fame-loaded namespaces in the
+vocabulary — mode 8.9× and setting 8.3× the corpus median pageviews, against
+subject 1.7×. What replaces it is a measurement: `find-probe.mjs` scores every
+candidate offer, measures the fame of the films each would bring in, and
+correlates the two. Measured **mean rho +0.129, worst +0.263** against the same
+0.45 gate `match.js` holds the scorer to. The chosen offer typically ranks 11th
+to 16th of 20 candidates by the fame it brings in.
+
+### The address is the sentence, never the picture
+
+`#/find/<encodeURIComponent(sentence)>`, a **top-level route tested before both
+`#/sky` branches** — `#/sky/(.+?)` swallows any suffix and `skyAddrParseToken`
+refuses any head that is not a facet, so a query-shaped `#/sky` address would
+print "not in this edition" about a perfectly good link.
+
+What travels is the sentence, for two reasons. The sentence is what the reader
+owns and the clauses are our reading of it, so a link that re-parses improves the
+day the lexicon does. And the positions genuinely cannot be shared: scores are
+bit-identical across engines (0 of 2,204 differ between node and Chromium) while
+`layoutMatch` is a relaxation in which a one-ULP `Math.cos` difference is
+amplified over 90 passes into a fifth of the disc. **Any determinism claim about
+this picture is scoped to one engine.** A sentence naming words this edition no
+longer reads needs no stale path: those words come back in the slate as unread
+spans, in the reader's own words, which is a better answer than
+`skyStaleAddress` was ever going to give.
+
+### The slate carries both voices
+
+One chip per span the reader typed — their words above, the atlas's label below,
+an × on each. Four attributes from one span ("the mood of the matrix") is one
+chip, not four: four identical chips describe our machinery rather than their
+sentence, and an × on each would take back a quarter of a phrase. Tapping the
+label opens that attribute's `gloss` **and** its `not` clause verbatim, because
+most misreadings are the reader meaning precisely what the `not` clause
+excludes.
+
+Words the parse could not use are kept in the reader's own spelling with a
+reason, and the reasons are three different admissions that must not be
+collapsed: a word this atlas has an attribute for but no phrase yet; a fact
+nothing in this repository records at all ("black and white", runtime, language,
+certificate, adaptation source); and a comparison there is no machinery for
+("less talking than that"). `query-lexicon.json` carries a `guards` list for the
+second and third, so "for the whole family" becomes an admission rather than
+firing `subject:family` — which `consensus-vocab.json` forbids in as many words
+("Not any film with a family in it") and which used to return *Pather Panchali*
+for a children's-film request.
+
+### The record channel marks and never moves
+
+Genre, decade, cinema and director are **record**; the 59 attributes are
+**reading**. AGENTS rule 8 forbids one number carrying both, so a recognised
+record word is never scored and never moves a film — it appears in the slate as
+the other kind of picture, and opening it re-forms the atlas into that stratum
+with its own caption and its own address. "A good western" used to parse to zero
+clauses and throw; it now marks 74 films and says so.
+
+### What it still cannot do, said on screen
+
+Nothing here records runtime, language, monochrome, cast, certification,
+adaptation source, ending shape or character archetype. Craft praise is excluded
+by the vocabulary's own `not` clauses ("Not 'has nice cinematography'"). Five
+attributes can never be answered perfectly — `pace:brisk` has **no** film at
+strength 1.0 and `tone:hopeful` has two — which inflates their ceilings and caps
+any query containing one permanently below 1.000. That is why the owner's own
+sentence tops out at 0.381, and the slate prints it rather than letting a low
+number read as a failure. *The Matrix* ranks fifth on a query naming *The
+Matrix*, correctly, because the same sentence also asks for hopeful and sparse
+dialogue, which it is not.
+
+### Measured
+
+| | |
+|---|---|
+| engine build, once, on idle | **89 ms** in Chromium (`buildTable` + the title index) |
+| parse | **0.5 ms**, live under the box |
+| score, 8 clauses over 2,204 films | **30 ms** |
+| `layoutMatch`, 90 passes | **186–248 ms** in Chromium — the brief's ~50 ms and the module header's ~32 ms do not reproduce |
+| offers, 118 branches | **210 ms**, after settle |
+| Spearman(score, drawn radius) | **−0.995**, with **0.00%** of ordered pairs drawn in the wrong radial order — see *The bands* below. It was −0.870 and 13.4% wrong, and the header's −0.993 was uncited: `measure-match-layout.js` did not exist. It does now, in `pipeline/`, and `--v1` runs the old arrangement as a control (−0.863, 14.59% backwards). Never re-derive strength from a radius — read `r.scores` and `explain()` |
+| payload | attrs **39 KB** raw / 21 KB gz, vocab+lexicon+phrasings 36 KB, five modules 136 KB; artifact 9,676,663 → 9,956,303 bytes, **1,520 → 1,619 KB gzipped (+6.6%)** |
+
+The attribute payload carries a **tier byte per film** so the three consensus
+shards decode as three objects with only the known one declaring a vocabulary.
+That is not compression bookkeeping, it is the epistemics on the wire: merging
+them converts honest unknowns into confident zeros, and `find-probe.mjs`
+measures the collapse at 1,090 films above zero with the boundary intact against
+712 with it merged.
+
+## The shelf: what a film looks like — settled 2026-08-10
+
+The panel carried exactly one picture, the Wikipedia one-sheet, which is
+advertising and which **75 films do not have**. The obvious next move is a
+shelf of stills, and it is the one move this project may not make. The sources
+were surveyed and every one is closed:
+
+- **The measured frames are build-time-only.** `docs/specs/film-grab-evaluation.md`
+  settled it in its own words — *derived numbers only in the repo … Nothing
+  rehosted, no image URL served at runtime.* The stills were fetched once at
+  ~1 req/s, measured, and deleted.
+- **TMDB is barred as a runtime dependency** by AGENTS 6b, so its backdrops
+  cannot be resolved per page load.
+- **IMDb forbids redistribution; BFI forbids bulk copying;** Criterion and
+  rogerebert.com are not scraped.
+- **There is no film still anywhere in this repository.** `git ls-files`
+  returns four raster files and not one of them is a frame; the out-of-repo
+  frame cache is gone.
+
+> **The atlas may not show you what it looked at. So it draws what it saw.**
+
+The shelf is the measurement the frames left behind: seven OKLab statistics per
+film in `pipeline/out/frame-measures.json`, packed by `app/build.js` into a
+sixth `pack()` block and drawn back out as three plates of CSS gradient written
+in `oklab()` — the space the numbers were measured in, so nothing is converted
+between the instrument and the screen. Not one pixel of it is on canvas; every
+caption is DOM type (AGENTS rule 4).
+
+**The three plates.** `mark` — the composed cell, on **every** panel and not
+only on the 75 without a one-sheet, because a thing shown only when something
+else is missing is a fallback whatever the comment above it says (rule 9). The
+poster is what the film was sold as; the mark is what this atlas holds.
+`range` — a seven-step wedge from the film's dark decile to its bright decile
+at its own **measured** lightness, so a murky film is drawn murky. `colour` —
+the warm-or-cool cast, at one **authored** lightness so films can be compared,
+with monochrome drawn flat neutral.
+
+**Chroma is printed, never drawn, and that is the whole rule-8 line here.**
+`warmth` is a projection onto one axis, so it is the only hue the instrument
+holds; `chroma` is a magnitude with no direction at all. A first pass took only
+warmth's *sign* and scaled it by chroma, and drew *The Matrix* — a film whose
+measured warmth is **0.0013** — as a sheet of amber at the chroma cap. A film
+the instrument found no cast in must come out with no cast. So the number goes
+into the caption where it can be said, and stays out of the picture where it
+would be invented. Measured against the extremes the corpus offers, the fixed
+version says the true thing: *Do the Right Thing* (warmth +0.092, the hottest
+in the corpus) draws amber, *The Abyss* (−0.066) draws blue, *8½* draws a grey
+wedge and a flat neutral.
+
+**Coverage is 1,017 of 2,204 — 46.14% — and the gap is shaped like fame.** The
+file's own caveat measures **9.7%** of the quietest pageview quartile against
+**76.1%** of the loudest. That is why the shelf's geometry does not depend on
+it: three equal columns, plate height derived from the container's own width,
+and the two-column *no light* plate exactly as tall as a one-column plate.
+Measured across nine films spanning every state, at three viewports: the plate
+row is **321.0×171.2px for all of them, drift 0.000px**, and 342.0×180.5px on a
+phone. A shelf that grew a plate when a film was well known would be rule 1
+drawn as a layout. What changes is what is inside a slot and what the caption
+admits — never the room it takes.
+
+**The two instruments are two different claims.** 903 films are measured off
+curator-selected frames. 114 are read off up to eight promotional backdrops —
+advertising, systematically brighter, pulled onto the frame scale by an offset
+derived from 110 dual-measured films. Calibrated advertising is a *reading* of
+how a film looks, not a record of it, so those plates are drawn **dashed** and
+the note says *"a reading, not a record"* in the project's existing words.
+
+**Where it sits, and the honest cost.** Below the synopsis. A strip inserted
+between the head and the claims costs the first claim 18 of its 111px at
+900×820 and 31 of 117 on a phone — the same defect the poster cap exists to
+fix, "the panel: reading order is an argument". Below the claims it costs them
+exactly zero pixels at 1440, 900 and 390, and the honest consequence is stated
+rather than hidden: **nobody sees the shelf without scrolling.** The claims are
+still the argument; this is the evidence you look at afterwards.
+
+**One old bug closed on the way.** `art()` has carried an `onerror` fallback to
+the composed cell since it was written, and the panel's own `<img>` never did —
+so a dead or blocked wikimedia URL left a 0×0 gap in the head while every other
+surface fell back correctly. With every image request refused, the head now
+draws a 200×300 composed cell for 9 of 9 sampled films.
+
+**Verified by** `.claude/skills/run-film-atlas/shelf-probe.mjs` — nine films,
+three viewports, every check ending in a number, and every check broken on
+purpose first (the patches and what they printed are in its header). The
+licence line is checked against each film's own `posterLicence`, and both that
+probe and `find-probe.mjs` grep the whole artifact for the frame source's name
+and require **zero**.
+
+
 ## Deliberately avoided
 
 The generic AI-design tells: interchangeable rounded cards, purple-blue
@@ -1483,11 +2123,23 @@ world is made of film and paper, not plastic.
 2. **The field is an even disc because the corpus is.** 84% of edges are
    convergence + hand, so no tradition separates from any other at low zoom.
    That is the material, not the layout; the layout can only choose whether to
-   impose an axis on it. `descent` is 91% forward in time (181 of 199), which
-   is the one honest axis available. **The registers give the disc regions
+   impose an axis on it. `descent` is the one honest axis available, and the
+   figure this entry used to quote — 91% forward of 199 — is two corpora out of
+   date and was counting edges whose direction the corpus does not record. It is
+   **94.0% forward of the 233 descents that carry a recorded `from`**, of 315;
+   see "The transport" above for why the other 82 are not counted. **The registers give the disc regions
    without imposing an axis on it** — grazing the strip shows that folk horror
    is a corner and family drama is weather across the whole plate — but only
    while a frame is being grazed. At rest the disc is still even.
+   **The transport gives the resting disc a REASON rather than a texture —
+   see "The transport" above.** The playhead is parked at 2026 because the reel
+   has run, so the picture is the last frame of something rather than an
+   undifferentiated blob, and grazing the track lights any year where it
+   already is at zero idle cost. The pixels at rest are unchanged, byte for
+   byte. That is a smaller claim than putting structure into them and it is the
+   one that is true; this question stays open, and the honest options for it are
+   still a different layout or a different corpus, not a treatment.
+
 3a. **The strip's ground is your plate, and the frames are still the register's.**
    `skyMiniGroundCanvas` draws the whole atlas underneath every one of the 28
    frames, so developing it develops all 28 for the cost of one pass — silver

@@ -88,15 +88,21 @@
  * for that same 40 KB of information. */
 "use strict";
 
-const { layout } = require("./layout-sky.js");
+const { layout, LAYOUT_ALGORITHM_VERSION, solverFingerprint } = require("./layout-sky.js");
 
-/* v3: the weak rest length became a function of n (layout-sky.js, restWeakExp),
-   which moves EVERY baked position in every stratum and register. The version
-   is what tells a stale artifact's blobs apart from a current one's — see the
-   --artifact cross-check in measure-layout.js, which prints a warning when they
-   disagree. Bump it whenever the solver's output moves, not only when this
-   file's own code changes. */
-const STRATA_LAYOUT_VERSION = "atlas-strata-v3";
+/* v3 was bumped by hand when the weak rest length became a function of n
+   (layout-sky.js, restWeakExp), which moved EVERY baked position in every
+   stratum and register. The version is what tells a stale artifact's blobs
+   apart from a current one's — see the --artifact cross-check in
+   measure-layout.js, which prints a warning when they disagree.
+
+   "Bump it whenever the solver's output moves" was the instruction this
+   comment used to carry, and on 2026-08-09 the same commit that obeyed it here
+   failed to obey it in layout-sky.js. So the instruction is now arithmetic:
+   the version carries a fingerprint of the sky solver's own version — which is
+   itself a fingerprint of its tuned constants — together with every knob this
+   file adds. Retune either file and every baked blob is renamed, with nobody in
+   the loop. The declaration itself sits below those knobs; see it there. */
 
 /* Below this a re-form is a scatter, not a constellation. See the note above:
    a coverage floor, never a popularity one. */
@@ -156,6 +162,18 @@ const CIRCULAR = {
   country: new Set(["countryEra"]),
   era: new Set(["countryEra", "genreEra"]),
 };
+
+/* Declared HERE, below every constant it names, and reading them rather than
+   restating them: a fingerprint over a copy of the inputs is a fingerprint that
+   goes stale the first time somebody edits the original — which is the whole
+   defect this mechanism exists to close, one level down. */
+const STRATA_LAYOUT_VERSION = "atlas-strata-v4-" + solverFingerprint({
+  sky: LAYOUT_ALGORITHM_VERSION,
+  minFilms: MIN_FILMS,
+  bakedFacets: BAKED_FACETS.join(","),
+  circular: Object.keys(CIRCULAR).sort()
+    .map((f) => f + ":" + [...CIRCULAR[f]].sort().join("|")).join(";"),
+});
 
 /* One stratum: solve over its own films and ONLY the edges with both ends
    inside it. An edge to a film that is not on screen must not pull anything —

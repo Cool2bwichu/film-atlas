@@ -1,0 +1,63 @@
+{
+  "note": "The measures the three hybrids are judged on. WRITTEN BEFORE ANY HYBRID WAS RUN, and not edited afterwards. A measure invented after seeing a leaderboard measures the person who invented it. The regexes below were written from the query strings alone.",
+  "universe": "plotted (1541 films). The fact check asks whether a retrieved film's text contains the thing the query named; on a 200-char description tier an absence is a gap in the TEXT, not in the film, so the fact measure runs only where a full plot exists. Every other measure runs on all 2204.",
+
+  "biasDeclaration": {
+    "FACT": "DENSE-FAVOURING, twice. (a) it scores presence in exactly the text the dense index embedded, and (b) the incumbent never saw plot text at all and can only hit these through attribute correlation. A dense win here is close to tautological and is reported as such. An INCUMBENT or HYBRID win here is the informative outcome.",
+    "NEGVIOL": "ATLAS-FAVOURING. It is scored off the same 59-attribute table match.js scores from. It is kept because it is a correctness measure, not a preference: a ranker that puts graphically violent films at the top of 'a revenge film that isn't violent' is wrong in a way no taste argument rescues.",
+    "WATCH": "NEUTRAL, and the only pre-registered relevance labels in the repo. Taken verbatim from bakeoff-battery.json and bakeoff-queries.json, both frozen before this stage existed.",
+    "FAME": "NEUTRAL. AGENTS rule 1. Reported for every method including the pure sides."
+  },
+
+  "fact": {
+    "note": "A film counts as a hit if its plot text matches the regex, case-insensitive. Queries are included ONLY where the query names a thing that literally happens on screen and would leave a lexical trace in a plot summary. Mood, shape and tone queries are deliberately EXCLUDED: a felt quality has no literal term, and a regex there would measure vocabulary overlap rather than relevance, which is the very confusion this bake-off exists to settle.",
+    "q01": "surveill|wiretap|eavesdrop|bugg(ed|ing)|listening device|spy on|spied on|informant|secret police|wire ?tap|hidden (camera|microphone|mic)|under observation",
+    "q14": "winter|snow|blizzard|frozen|ice storm|frost",
+    "q15": "hotel|motel|inn\\b|boarding house|guesthouse|guest house",
+    "q20": "heist|robbery|rob(bing|bed)? (a|the) (bank|casino|vault|safe|jewel)|bank job|burglar|hold-?up|steal.{0,25}(safe|vault|bank|jewel|diamond|gold)",
+    "q21": "trial|courtroom|jury|convict(ed|ion)|acquit|verdict|testif|defen[cs]e attorney|prosecut|wrongly (accused|convicted)|framed for",
+    "q22": "deaf|hearing loss|losing (his|her|their) hearing|going deaf|tinnitus|hard of hearing",
+    "q23": "migrant|immigrant|undocumented|guest ?worker|day labou?rer|exploit|smuggl|sweatshop|braceros?",
+    "q24": "nuclear|radiation|radioactive|reactor|meltdown|atomic|fallout|chernobyl|uranium|plutonium",
+    "excluded": {
+      "q13": "carries a negation ('but not about the fighting') — the literal war terms would reward exactly the films the query excludes",
+      "q12": "'set almost entirely in one room' leaves no reliable lexical trace",
+      "q02,q03,q25,q26": "negation or pure felt quality",
+      "q04-q11,q16-q19,q27-q29": "mood / shape / tone / quiet — no literal term by construction",
+      "q30": "exemplar"
+    }
+  },
+
+  "negation": {
+    "note": "The parser reports which attribute it negated. A top-10 slot VIOLATES if the film carries that attribute in the same consensus table match.js scores from. Lower is better; 0 is clean.",
+    "q03": { "attr": "texture:graphic-violence", "said": "isn't violent" },
+    "q25": { "attr": "texture:graphic-violence", "said": "no gore" },
+    "q26": { "attr": "subject:desire", "said": "not romantic",
+             "caveat": "the parser reads 'love' as subject:desire POSITIVELY and 'not romantic' as the same attribute NEGATED, so the query self-cancels inside the vocabulary. Reported, not scored as a clean negation." }
+  },
+
+  "watch": {
+    "note": "Pre-registered relevance labels, copied verbatim from the frozen query files. Rank of each film under each method.",
+    "q01": ["the conversation", "cache"],
+    "q02": ["old joy", "close", "ex machina", "the banshees of inisherin"],
+    "expect": {
+      "old joy": "SHOULD RANK HIGH on q02 — the friendship that quietly ends. Fingerprint distance buried it at #1291/2197.",
+      "close": "SHOULD RANK HIGH on q02 — a friendship that ruptures.",
+      "ex machina": "SHOULD RANK LOW on q02 — the cold ironic two-hander fingerprint distance wrongly promoted to 2.8 of ~200.",
+      "the banshees of inisherin": "ambiguous — it IS the reference film for the query, so a high rank is neither a win nor a loss.",
+      "the conversation": "SHOULD RANK HIGH on q01 — the surveillance film."
+    }
+  },
+
+  "fame": {
+    "proxy": "imdbVotes from rag-audit-facts.json, log10, Spearman against rank. The dense side's own rating source, so no new fame number is invented here.",
+    "gate": 0.45,
+    "direction": "POSITIVE rho = the method prefers famous films = the thing AGENTS rule 1 forbids. Negative is fine."
+  },
+
+  "other": [
+    "TIE WIDTH at rank 1 — how many films share the top score. match.js breaks ties alphabetically, so a wide band is a band, not an identification.",
+    "REACH — distinct films appearing in any top-10 across all 30 queries, out of a 300 ceiling. A method that returns the same canon every time has low reach.",
+    "SHIPPABILITY — can this run at build time and ship as data in one HTML file with no runtime model."
+  ]
+}

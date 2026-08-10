@@ -1,0 +1,2905 @@
+{
+ "note": "Full ranked candidate list produced by wishlist.js's rule over pipeline/out/readings-pass-all300.json. Survey artefact. NOT a seeds file; nothing was harvested.",
+ "source": "pipeline/out/readings-pass-all300.json",
+ "generated": "2026-08-10T16:14:43.375Z",
+ "candidates": [
+  {
+   "title": "Umberto D.",
+   "nom": 10,
+   "why": 10,
+   "score": 100,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Treasure of the Sierra Madre",
+   "nom": 8,
+   "why": 8,
+   "score": 64,
+   "flag": ""
+  },
+  {
+   "title": "Ordinary People",
+   "nom": 7,
+   "why": 7,
+   "score": 49,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Servant",
+   "nom": 6,
+   "why": 6,
+   "score": 36,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Sophie's Choice",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Breaking the Waves",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "Rosetta",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Make Way for Tomorrow",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "The Awful Truth",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "All About Eve",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "The Return of Martin Guerre",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "Secrets & Lies",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "Le Corbeau",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Kramer vs. Kramer",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "The Rules of the Game",
+   "nom": 5,
+   "why": 5,
+   "score": 25,
+   "flag": ""
+  },
+  {
+   "title": "The Sweet Hereafter",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": ""
+  },
+  {
+   "title": "The Crucible",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Whiplash",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Grapes of Wrath",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": ""
+  },
+  {
+   "title": "Cyrano de Bergerac",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": ""
+  },
+  {
+   "title": "Sweet Smell of Success",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": ""
+  },
+  {
+   "title": "The Apartment",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Mission",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Trial",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Piano Teacher",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": ""
+  },
+  {
+   "title": "Gaslight",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "A Woman Under the Influence",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": ""
+  },
+  {
+   "title": "Dogville",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Frankenstein (1931)",
+   "nom": 4,
+   "why": 4,
+   "score": 16,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Eyes Without a Face",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "Mamma Roma",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Matewan",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "A Place in the Sun",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "The Blue Angel",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "Antigone",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "A Prophet",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Nasty Girl",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "In the Name of the Father",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "The Ox-Bow Incident",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "Being There",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Wuthering Heights",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Best Years of Our Lives",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "The Lives of Others",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "Casablanca",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Silence of the Lambs",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "Take Shelter",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "S21: The Khmer Rouge Killing Machine",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "The Official Story",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "The Wrestler",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Dances with Wolves",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": ""
+  },
+  {
+   "title": "The Vanishing",
+   "nom": 3,
+   "why": 3,
+   "score": 9,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Laura",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Black Book",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "A Man for All Seasons",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Bloody Sunday",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Ossessione",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Manchurian Candidate",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Nightmare Alley",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Prisoner of Zenda",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Deer Hunter",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Two for the Road",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Paper Moon",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Hell in the Pacific",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "A Star Is Born (1954)",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Les Misérables",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Force Majeure",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Doctor Zhivago",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Gun Crazy",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Lady Snowblood",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Ace in the Hole",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Kid with a Bike",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "La Grande Illusion",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Hunt",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "In the Heat of the Night",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Local Hero",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "It Happened One Night",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Prince and the Pauper",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "A Bittersweet Life",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Mr. Klein",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Remains of the Day",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Match Point",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Wind That Shakes the Barley",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Miracle Worker",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Roman Holiday",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "An Education",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Insider",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Blow Out",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Norma Rae",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Last Seduction",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Blue Collar",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Wait Until Dark",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Emigrants",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Fatal Attraction",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Go-Between",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Lord of the Flies",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Magdalene Sisters",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Night and Fog",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Nostalgia for the Light",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Hotel Rwanda",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Falling Down",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Dead Man Walking",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "In Cold Blood",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Amazing Grace",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Mystic River",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Count of Monte Cristo",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Treasure Island",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Mutiny on the Bounty",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "45 Years",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Pan's Labyrinth",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Husbands and Wives",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "Excalibur",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Zodiac",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Into the Wild",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "White God",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Amadeus",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "A Simple Plan",
+   "nom": 2,
+   "why": 2,
+   "score": 4,
+   "flag": ""
+  },
+  {
+   "title": "The Last Duel",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "3 Godfathers",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "13 Assassins",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Stepford Wives",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Bride of Frankenstein",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Phoenix",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Of Mice and Men",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Before Sunrise",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Death of Mr. Lăzărescu",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Romeo + Juliet",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Babette's Feast",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Working Girls",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Winter's Bone",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Design for Living",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Vicky Cristina Barcelona",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Germinal",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Peterloo",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Four Feathers",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Sullivan's Travels",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Great Gatsby",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Black Swan",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Anna Karenina",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Fish Tank",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Boyz n the Hood",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Spring, Summer, Fall, Winter... and Spring",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Snake Pit",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Song of Bernadette",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Medea (1969)",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Oliver Twist (1948)",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Billy Budd",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Journey to Italy",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Miracle in Milan",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Human Condition",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Crying Game",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Two Days, One Night",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Full Monty",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "I Am a Fugitive from a Chain Gang",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Angels with Dirty Faces",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Voyage to Italy",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Gone with the Wind",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Bitter Rice",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "They Live by Night",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Le Quai des brumes",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Mephisto",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Winslow Boy",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Sylvia Scarlett",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Nightcrawler",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Day of Wrath",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "East of Eden",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Stella Dallas",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Marty",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Enemy Below",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Das Boot",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Man Who Never Was",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Letters from Iwo Jima",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Master and Commander: The Far Side of the World",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Captain from Köpenick",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Green Card",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Madame Bovary",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Waterloo Bridge",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Sonata... The Scarlet Letter",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Trading Places",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Giant",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Merry Christmas Mr. Lawrence",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Ice Cold in Alex",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "No Man's Land",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "To Kill a Mockingbird",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Germany Year Zero",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Court-Martial of Billy Mitchell",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Twelve O'Clock High",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Lost Weekend",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Days of Wine and Roses",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Philomena",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Bicycle Thief of Rome's cousin, Big Deal on Madonna Street",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Tokyo Story's neighbour, Good Morning",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Quiet Man",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Dave",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Ballad of Cable Hogue",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Je t'aime, je t'aime",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Hardcore",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Ghost Dog: The Way of the Samurai",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The American",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "What Ever Happened to Baby Jane?",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Beguiled",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Beau Père",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Manhattan",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Marvin's Room",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "August: Osage County",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "My Fair Lady",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Nell",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Zéro de conduite",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Heavenly Creatures",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Vidas Secas",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Antichrist",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Cassandra's Dream",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Kill List",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Wedding Banquet",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Planet of the Apes",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Never Let Me Go",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Chi-Raq",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "District 9",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Bridges of Madison County",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Nora",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Marriage Italian Style",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Le Plaisir",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Night and Fog in Japan",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Salvatore Giuliano",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Camille Claudel",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Secret Beyond the Door",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Body Heat",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "I mostri",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Il Boom",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Two Mules for Sister Sara",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Human Condition: No Greater Love",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Bunny Lake Is Missing",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Double",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Natural Born Killers",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Symbiopsychotaxiplasm: Take One",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Divorce Italian Style",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Man of Marble",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Big Combo",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "When Worlds Collide",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Contagion",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Threads",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Bridge on the River Kwai",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Downfall",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Lunchbox",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Phaedra",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Society of the Snow",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "In the Heart of the Sea",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Life Is Beautiful",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Swept Away",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Night Porter",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Secretary",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Adventures of Robin Hood",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Asphalt Jungle",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Inugami Family",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Murder on the Orient Express",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "We Need to Talk About Kevin",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Bad Seed",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Let the Right One In",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Island of Lost Souls",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Point Blank",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Sorrow and the Pity",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "4 Months, 3 Weeks and 2 Days",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Der Golem",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Blue Kite",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Talented Mr. Ripley",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Purple Rose of Cairo",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Return",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Hôtel Terminus",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Sugar",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Billy Elliot",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Up Series",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Melancholia",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "In Darkness",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Truman Show",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Freaks",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Missing",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Salaam Bombay!",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Johnny Belinda",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Children of a Lesser God",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Rachel Getting Married",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Idiots",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Hunger",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Elvira Madigan",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "All That Jazz",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "El verdugo",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Before Sunset",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Summer of Soul",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "An Unmarried Woman",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Princess Bride",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Defiant Ones",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Under the Sand",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Silenced",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Spotlight",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Truly, Madly, Deeply",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Knives Out",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Tree of Wooden Clogs",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Country",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Straight Time",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Friends of Eddie Coyle",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Blood Wedding",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Force of Evil",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Chimes at Midnight",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Man Who Would Be King",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Heiress",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Testament",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Philadelphia",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Descendants",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Primal Fear",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Blue Steel",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Q & A",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Crouching Tiger, Hidden Dragon",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Ride Lonesome",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Wag the Dog",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Lion King",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Devils on the Doorstep",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Death Wish",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Erin Brockovich",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Muriel's Wedding",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Philadelphia Story",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Welcome to the Sticks",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Cars",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Faust",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "A Girl Walks Home Alone at Night",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Merchant of Venice",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Le Confessioni / Il Divo",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Nayakan",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Death in Venice",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Cherry Orchard",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Volver",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "How to Make an American Quilt",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Il Sorpasso",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Ford v Ferrari",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Million Dollar Baby",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Sita Sings the Blues",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Stand by Me",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Mamma Mia!",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Elmer Gantry",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Police, Adjective",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Cat People",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "La Belle et la Bête",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Missing Picture",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Dear Zachary",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Handmaid's Tale",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Lassie Come Home",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Ben-Hur",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Dekalog: One",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Opening Night",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Manchester by the Sea",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Ratcatcher",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Camille",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "House of Pleasures",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "American Graffiti",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Donnie Brasco",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Sleeping Dogs / The Wages of Fear",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Groundhog Day",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Mustang",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Brooklyn",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Wadjda",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Au revoir les enfants",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Sting",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Grifters",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "House of Games",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Edward Scissorhands",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Unbreakable",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Tootsie",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Silent Running",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Her",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Assistant",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Frances Ha",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Wanda",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Lady Eve",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "His Girl Friday",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Trouble in Paradise",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Palm Beach Story",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Le Havre",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "In This World",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Cast Away",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Cinema Paradiso",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Le Trou",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Capote",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Children's Hour",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Big Chill",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Another Year",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Shallow Grave",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Shall We Dance? (1996)",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Changeling",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "An Affair to Remember",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Cameraperson",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Biggest Little Farm",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Coriolanus",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Beasts of No Nation",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Richard III",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Whale Rider",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Three Identical Strangers",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Desperate Hours",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Don't Breathe",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Dead Calm",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Apocalypto",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Judgment at Nuremberg",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Misery",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Collector",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Twenty-Four Eyes",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Letters from a Dead Man",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "The Killing Fields",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Under Fire",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "Salvador",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Year of Living Dangerously",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Coraline",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Squid and the Whale",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "A Monster Calls",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Talk to Her",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Almost Famous",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Farewell",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  },
+  {
+   "title": "The Shop Around the Corner",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": ""
+  },
+  {
+   "title": "Love Letter",
+   "nom": 1,
+   "why": 1,
+   "score": 1,
+   "flag": "needs (year)"
+  }
+ ]
+}

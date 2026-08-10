@@ -1,0 +1,39 @@
+{
+  "config": "article",
+  "model": "sentence-transformers/all-MiniLM-L6-v2 (onnx fp32)",
+  "dim": 384,
+  "chunkTokens": 512,
+  "overlapTokens": 30,
+  "maxSeqLength": 256,
+  "nFilms": 2204,
+  "nChunks": 4307,
+  "chunksPerFilm": 1.95,
+  "maxChunksOnAFilm": 11,
+  "wordpieceCoverage": {
+    "chunkWordpieces": 1396710,
+    "wordpiecesEncoded": 941886,
+    "fractionEncoded": 0.6744,
+    "chunksOverCeiling": 3011,
+    "fractionOfChunksTruncated": 0.6991
+  },
+  "timings": {
+    "chunkSeconds": 12.8,
+    "tokenMeasureSeconds": 2.5,
+    "embedSeconds": 91.2,
+    "buildSeconds": 106.8,
+    "chunksPerSecond": 47.2
+  },
+  "corpus": {
+    "films": 2204,
+    "tierPlot": 1541,
+    "tierDescription": 657,
+    "tierNone": 6,
+    "withRating": 2195,
+    "withGenres": 2186,
+    "ratingPriorC": 7.0794,
+    "votePriorM": 25000
+  },
+  "exactSearch": "numpy dense matmul, exact cosine (unit rows) \u2014 not FAISS-approximate",
+  "indexBytes": 13232468,
+  "indexPath": "/home/user/film-atlas/atlas/pipeline/out/rag-index.npz"
+}

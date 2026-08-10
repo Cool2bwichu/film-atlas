@@ -1,0 +1,17 @@
+{
+  "note": "The queries both sides of the RAG bake-off run, written down so the two harnesses provably use identical strings. Owned jointly; atlas-side.js imports SANITY from its own copy and the two must stay equal.",
+  "universe": {
+    "corpus": "all 2204 films — what match.js scores",
+    "plotted": "the 1541 films with plot text — the only films the dense side can index. Compare on this one.",
+    "blindSpot": "663 films (30.1%) have no plot text and can never be returned by dense retrieval over plots"
+  },
+  "sanity": [
+    { "q": "a paranoid film about surveillance and control",
+      "probes": "a query whose core noun ('surveillance', 'control') is OUTSIDE the 59-attribute vocabulary. Atlas reads 26% of it. Dense retrieval over plot text should win here if it ever wins." },
+    { "q": "a slow quiet film about a friendship that quietly ends",
+      "probes": "THE DISCRIMINATING TEST. Fingerprint-distance ranking put Ex Machina 2.8 from Banshees of Inisherin and buried Old Joy at #1291/2197. Does a MiniLM plot embedding repeat that failure? Reference points: old joy, the banshees of inisherin, ex machina." },
+    { "q": "a revenge film that isn't violent",
+      "probes": "negation. A closed vocabulary can represent it; a cosine over one blended vector structurally cannot. Watch for Salo / Straw Dogs / Saving Private Ryan surfacing on the dense side." }
+  ],
+  "referenceFilms": { "oldJoy": "old joy", "banshees": "the banshees of inisherin", "exMachina": "ex machina" }
+}

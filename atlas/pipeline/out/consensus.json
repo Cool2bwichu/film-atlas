@@ -3,7 +3,7 @@
  "vocabVersion": "consensus-vocab-1",
  "model": "claude-opus-5",
  "promptVersion": "consensus-prompt-1",
- "generated": "2026-08-10T06:40:59.942Z",
+ "generated": "2026-08-10T08:14:31.835Z",
  "note": "Consensus attributes: what most viewers would agree on, recorded from recall against title/year/director only. NOT measurements, NOT record, NOT reading. See the header of pipeline/consensus.js.",
  "corpus": 2204,
  "vocabulary": [

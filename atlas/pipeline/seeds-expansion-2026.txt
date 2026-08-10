@@ -1,0 +1,1002 @@
+# Expansion batch — influential films, admitted by editorial decision
+# rather than by connection density. See the commit message.
+
+Marathon Man (1976)
+The Outlaw Josey Wales (1976)
+Saturday Night Fever (1977)
+The Deer Hunter (1978)
+Dawn of the Dead (1978)
+Kramer vs. Kramer (1979)
+Manhattan (1979)
+The Warriors (1979)
+Being There (1979)
+The Empire Strikes Back (1980)
+Ordinary People (1980)
+Airplane! (1980)
+Blow Out (1981)
+An American Werewolf in London (1981)
+Reds (1981)
+Tootsie (1982)
+Scarface (1983)
+The Right Stuff (1983)
+Terms of Endearment (1983)
+This Is Spinal Tap (1984)
+Amadeus (1984)
+Stranger Than Paradise (1984)
+A Nightmare on Elm Street (1984)
+Ghostbusters (1984)
+Back to the Future (1985)
+The Purple Rose of Cairo (1985)
+Platoon (1986)
+Hannah and Her Sisters (1986)
+Stand by Me (1986)
+The Princess Bride (1987)
+Broadcast News (1987)
+Die Hard (1988)
+Cinema Paradiso (1988)
+Sex, Lies, and Videotape (1989)
+Edward Scissorhands (1990)
+The Silence of the Lambs (1991)
+Boyz n the Hood (1991)
+Slacker (1991)
+Reservoir Dogs (1992)
+The Player (1992)
+Bad Lieutenant (1992)
+Glengarry Glen Ross (1992)
+Groundhog Day (1993)
+Dazed and Confused (1993)
+Pulp Fiction (1994)
+Ed Wood (1994)
+Clerks (1994)
+Se7en (1995)
+Twelve Monkeys (1995)
+Safe (1995)
+Breaking the Waves (1996)
+Lone Star (1996)
+LA Confidential (1997)
+Jackie Brown (1997)
+The Sweet Hereafter (1997)
+Funny Games (1997)
+Rushmore (1998)
+The Truman Show (1998)
+Fight Club (1999)
+The Blair Witch Project (1999)
+American Beauty (1999)
+Three Kings (1999)
+The Sixth Sense (1999)
+All About My Mother (1999)
+Crouching Tiger, Hidden Dragon (2000)
+Requiem for a Dream (2000)
+Almost Famous (2000)
+Battle Royale (2000)
+Amelie (2001)
+The Royal Tenenbaums (2001)
+Donnie Darko (2001)
+The Lord of the Rings: The Fellowship of the Ring (2001)
+Monsters, Inc. (2001)
+The Piano Teacher (2001)
+Talk to Her (2002)
+Far from Heaven (2002)
+Russian Ark (2002)
+Irreversible (2002)
+Kill Bill: Volume 1 (2003)
+Elephant (2003)
+American Splendor (2003)
+Dogville (2003)
+Finding Nemo (2003)
+The Return (2003)
+Eternal Sunshine of the Spotless Mind (2004)
+Before Sunset (2004)
+Downfall (2004)
+Sideways (2004)
+A Very Long Engagement (2004)
+The Death of Mr. Lazarescu (2005)
+Pan's Labyrinth (2006)
+The Lives of Others (2006)
+Volver (2006)
+Borat (2006)
+Zodiac (2007)
+4 Months, 3 Weeks and 2 Days (2007)
+The Diving Bell and the Butterfly (2007)
+Once (2007)
+Let the Right One In (2008)
+Synecdoche, New York (2008)
+Hunger (2008)
+The Class (2008)
+Inglourious Basterds (2009)
+Up (2009)
+Fish Tank (2009)
+The Hurt Locker (2009)
+A Prophet (2009)
+Antichrist (2009)
+The Social Network (2010)
+Black Swan (2010)
+Toy Story 3 (2010)
+Winter's Bone (2010)
+Drive (2011)
+Melancholia (2011)
+The Skin I Live In (2011)
+Once Upon a Time in Anatolia (2011)
+Le Havre (2011)
+Holy Motors (2012)
+Beasts of the Southern Wild (2012)
+Tabu (2012)
+Zero Dark Thirty (2012)
+12 Years a Slave (2013)
+Her (2013)
+Blue Is the Warmest Colour (2013)
+Stray Dogs (2013)
+Boyhood (2014)
+Whiplash (2014)
+Birdman (2014)
+Winter Sleep (2014)
+Force Majeure (2014)
+The Grand Budapest Hotel (2014)
+Cemetery of Splendour (2015)
+Anomalisa (2015)
+Elle (2016)
+Paterson (2016)
+American Honey (2016)
+Lady Bird (2017)
+Marriage Story (2019)
+Pain and Glory (2019)
+Atlantics (2019)
+Transit (2018)
+Never Rarely Sometimes Always (2020)
+Soul (2020)
+Another Round (2020)
+The Power of the Dog (2021)
+Titane (2021)
+Memoria (2021)
+Return to Seoul (2022)
+Top Gun: Maverick (2022)
+Fallen Leaves (2023)
+Barbie (2023)
+Godzilla Minus One (2023)
+Spider-Man: Across the Spider-Verse (2023)
+All We Imagine as Light (2024)
+Evil Does Not Exist (2023)
+Drunken Master II (1994)
+Suzhou River (2000)
+Devils on the Doorstep (2000)
+Ringu (1998)
+Neon Genesis Evangelion: The End of Evangelion (1997)
+Millennium Actual (2001)
+A Silent Voice (2016)
+Shall We Dance? (1996)
+Spring, Summer, Fall, Winter... and Spring (2003)
+3-Iron (2004)
+The Chaser (2008)
+Hill of Freedom (2014)
+Berlin Alexanderplatz (1980)
+Das Boot (1981)
+Man of Marble (1977)
+The Hourglass Sanatorium (1973)
+Time of the Gypsies (1988)
+Kolya (1996)
+The Firemen's Ball (1967)
+Mephisto (1981)
+My Twentieth Century (1989)
+Where Is the Friend's House? (1987)
+And Life Goes On (1992)
+The Circle (2000)
+Offside (2006)
+Taxi (2015)
+Kandahar (2001)
+Turtles Can Fly (2004)
+No Man's Land (2001)
+Grbavica (2006)
+The Wave (2008)
+Head-On (2004)
+The Edge of Heaven (2007)
+Good Bye, Lenin! (2003)
+Run Lola Run (1998)
+The Vanishing (1988)
+Antonia's Line (1995)
+Character (1997)
+Festen (1998)
+The Idiots (1998)
+Dancer in the Dark (2000)
+Italian for Beginners (2000)
+Open Hearts (2002)
+Reprise (2006)
+Oslo, August 31st (2011)
+Songs from the Second Floor (2000)
+You, the Living (2007)
+A Pigeon Sat on a Branch Reflecting on Existence (2014)
+Show Me Love (1998)
+Together (2000)
+Lilya 4-ever (2002)
+The Celebration (1998)
+Nightwatch (1994)
+Insomnia (1997)
+The Hunt (2012)
+A Royal Affair (2012)
+Land of Mine (2015)
+Phoenix (2014)
+Barbara (2012)
+The Counterfeiters (2007)
+Revanche (2008)
+Import/Export (2007)
+Paradise: Love (2012)
+Code Unknown (2000)
+Time of the Wolf (2003)
+Le Fils (2002)
+Rosetta (1999)
+L'Enfant (2005)
+The Kid with a Bike (2011)
+Two Days, One Night (2014)
+Man Bites Dog (1992)
+Toto the Hero (1991)
+Delicatessen (1991)
+The City of Lost Children (1995)
+La Haine (1995)
+35 Shots of Rum (2008)
+White Material (2009)
+Trouble Every Day (2001)
+Le Bonheur (1965)
+Va Savoir (2001)
+The Beautiful Troublemaker (1991)
+Loulou (1980)
+A Nos Amours (1983)
+Under the Sun of Satan (1987)
+Van Gogh (1991)
+Police (1985)
+Full Moon in Paris (1984)
+Pauline at the Beach (1983)
+A Tale of Springtime (1990)
+Autumn Tale (1998)
+La Ceremonie (1995)
+The Story of Women (1988)
+Merci pour le chocolat (2000)
+Un Coeur en Hiver (1992)
+Nelly and Monsieur Arnaud (1995)
+A Christmas Tale (2008)
+Kings and Queen (2004)
+My Sex Life... or How I Got Into an Argument (1996)
+The Son's Room (2001)
+Youth (2015)
+Gomorra (2008)
+Nuovomondo (2006)
+Respiro (2002)
+The Consequences of Love (2004)
+Caterina in the Big City (2003)
+I'm Not Scared (2003)
+The Best of Youth (2003)
+Padre Padrone (1977)
+The Night of the Shooting Stars (1982)
+Kaos (1984)
+Good Morning, Night (2003)
+Deewaar (1975)
+Mughal-e-Azam (1960)
+Ardh Satya (1983)
+Nayakan (1987)
+Salaam Bombay! (1988)
+Parinda (1989)
+Dilwale Dulhania Le Jayenge (1995)
+Satya (1998)
+Dil Se (1998)
+Lagaan (2001)
+Devdas (2002)
+Black Friday (2004)
+Rang De Basanti (2006)
+Gangs of Wasseypur (2012)
+The Lunchbox (2013)
+Court (2014)
+Masaan (2015)
+Newton (2017)
+Tumbbad (2018)
+Jallikattu (2019)
+The Disciple (2020)
+Piravi (1988)
+Uski Roti (1969)
+Bhuvan Shome (1969)
+Ankur (1974)
+Manthan (1976)
+Aakrosh (1980)
+Chakra (1981)
+Mirch Masala (1987)
+The Cloud-Capped Star (1960)
+The Terrorist (1998)
+Kandukondain Kandukondain (2000)
+Roja (1992)
+Anbe Sivam (2003)
+Iruvar (1997)
+Kaaka Muttai (2014)
+Visaranai (2015)
+Marlina the Murderer in Four Acts (2017)
+Ilo Ilo (2013)
+A Land Imagined (2018)
+Kinatay (2009)
+Norte, the End of History (2013)
+Insiang (1976)
+Manila in the Claws of Light (1975)
+The Missing Picture (2013)
+Syndromes and a Century (2006)
+Blissfully Yours (2002)
+Gallipoli (1981)
+Once Were Warriors (1994)
+Heavenly Creatures (1994)
+Lantana (2001)
+Ten Canoes (2006)
+Samson and Delilah (2009)
+Snowtown (2011)
+Sweet Country (2017)
+Hunt for the Wilderpeople (2016)
+Bus 174 (2002)
+Elite Squad (2007)
+Aquarius (2016)
+The Second Mother (2015)
+Madame Sata (2002)
+Antonio das Mortes (1969)
+Limite (1931)
+The Official Story (1985)
+Man Facing Southeast (1986)
+Machuca (2004)
+No (2012)
+The Club (2015)
+Post Mortem (2010)
+Nostalgia for the Light (2010)
+The Battle of Chile (1975)
+Strawberry and Chocolate (1993)
+Lucia (1968)
+Battle in Heaven (2005)
+Sin Nombre (2009)
+Heli (2013)
+Gueros (2014)
+Ixcanul (2015)
+Birds of Passage (2018)
+Monos (2019)
+The Wind Journeys (2009)
+Rojo (2018)
+Ceddo (1977)
+Camp de Thiaroye (1988)
+Guelwaar (1993)
+Faat Kine (2000)
+Hyenas (1992)
+Finye (1982)
+Tilai (1990)
+Yaaba (1989)
+Buud Yam (1997)
+Zan Boko (1988)
+Chronicle of the Years of Fire (1975)
+Omar Gatlato (1976)
+Halfaouine (1990)
+The Silences of the Palace (1994)
+Bab El-Oued City (1994)
+Rachida (2002)
+Days of Glory (2006)
+Tey (2012)
+Night of the Kings (2020)
+Lingui (2021)
+A Screaming Man (2010)
+Daratt (2006)
+Abouna (2002)
+Bamako (2006)
+Life on Earth (1998)
+Waiting for Happiness (2002)
+Cairo Station (1958)
+The Land (1969)
+Alexandria... Why? (1979)
+The Yacoubian Building (2006)
+The Night of Counting the Years (1969)
+West Beirut (1998)
+Caramel (2007)
+Capernaum (2018)
+Wadjda (2012)
+Theeb (2014)
+Paradise Now (2005)
+Omar (2013)
+Divine Intervention (2002)
+The Time That Remains (2009)
+It Must Be Heaven (2019)
+Foxtrot (2017)
+Synonyms (2019)
+To Sleep with Anger (1990)
+Just Another Girl on the IRT (1992)
+Menace II Society (1993)
+Friday (1995)
+Eve's Bayou (1997)
+Love & Basketball (2000)
+Medicine for Melancholy (2008)
+Pariah (2011)
+Fruitvale Station (2013)
+Selma (2014)
+If Beale Street Could Talk (2018)
+Judas and the Black Messiah (2021)
+The Last Black Man in San Francisco (2019)
+Gummo (1997)
+Julien Donkey-Boy (1999)
+George Washington (2000)
+Ballast (2008)
+Beasts of No Nation (2015)
+Buffalo '66 (1998)
+The Believer (2001)
+In the Bedroom (2001)
+You Can Count on Me (2000)
+Manchester by the Sea (2016)
+Margaret (2011)
+The Squid and the Whale (2005)
+Greenberg (2010)
+Frances Ha (2012)
+Mistress America (2015)
+The Puffy Chair (2005)
+Tiny Furniture (2010)
+Obvious Child (2014)
+The Diary of a Teenage Girl (2015)
+Blue Valentine (2010)
+The Place Beyond the Pines (2012)
+Songs My Brothers Taught Me (2015)
+The Farewell (2019)
+After Yang (2021)
+Krisha (2015)
+It Comes at Night (2017)
+Blue Ruin (2013)
+A Quiet Place (2018)
+The Invitation (2015)
+Coherence (2013)
+Primer (2004)
+Upstream Color (2013)
+Moon (2009)
+District 9 (2009)
+Looper (2012)
+Edge of Tomorrow (2014)
+Nightcrawler (2014)
+Gone Girl (2014)
+Wind River (2017)
+Hell or High Water (2016)
+The Big Short (2015)
+Spotlight (2015)
+Margin Call (2011)
+Michael Clayton (2007)
+Syriana (2005)
+Traffic (2000)
+Erin Brockovich (2000)
+Out of Sight (1998)
+The Limey (1999)
+Bringing Up Baby (1938)
+Roger & Me (1989)
+Crumb (1994)
+Fast, Cheap & Out of Control (1997)
+The Fog of War (2003)
+Capturing the Friedmans (2003)
+Exit Through the Gift Shop (2010)
+The Interrupters (2011)
+Citizenfour (2014)
+Amy (2015)
+O.J.: Made in America (2016)
+Cameraperson (2016)
+Minding the Gap (2018)
+Collective (2019)
+Flee (2021)
+Summer of Soul (2021)
+All the Beauty and the Bloodshed (2022)
+20 Days in Mariupol (2023)
+Paris Is Burning (1990)
+When We Were Kings (1996)
+The Times of Harvey Milk (1984)
+Waking Life (2001)
+A Scanner Darkly (2006)
+Fantastic Mr. Fox (2009)
+Isle of Dogs (2018)
+Coraline (2009)
+ParaNorman (2012)
+Kubo and the Two Strings (2016)
+The Triplets of Belleville (2003)
+The Illusionist (2010)
+Ernest & Celestine (2012)
+Song of the Sea (2014)
+The Secret of Kells (2009)
+Wolfwalkers (2020)
+I Lost My Body (2019)
+Klaus (2019)
+Inside Out (2015)
+Coco (2017)
+Zootopia (2016)
+Frozen (2013)
+The Lion King (1994)
+Beauty and the Beast (1991)
+Aladdin (1992)
+The Little Mermaid (1989)
+Shrek (2001)
+The Iron Curtain (1948)
+Umberto D.
+The Treasure of the Sierra Madre
+The Servant
+Sophie's Choice
+Make Way for Tomorrow
+The Awful Truth
+All About Eve
+The Return of Martin Guerre
+Secrets & Lies
+Le Corbeau
+The Rules of the Game
+The Crucible
+The Grapes of Wrath
+Cyrano de Bergerac
+Sweet Smell of Success
+The Apartment
+The Mission
+The Trial
+Gaslight
+A Woman Under the Influence
+Frankenstein (1931)
+Eyes Without a Face
+Mamma Roma
+Matewan
+A Place in the Sun
+The Blue Angel
+Antigone
+The Nasty Girl
+In the Name of the Father
+The Ox-Bow Incident
+Wuthering Heights
+The Best Years of Our Lives
+Casablanca
+Take Shelter
+S21: The Khmer Rouge Killing Machine
+The Wrestler
+Dances with Wolves
+Laura
+Black Book
+A Man for All Seasons
+Bloody Sunday
+Ossessione
+The Manchurian Candidate
+Nightmare Alley
+The Prisoner of Zenda
+Two for the Road
+Paper Moon
+Hell in the Pacific
+A Star Is Born (1954)
+Les Misérables
+Doctor Zhivago
+Gun Crazy
+Lady Snowblood
+Ace in the Hole
+La Grande Illusion
+In the Heat of the Night
+Local Hero
+It Happened One Night
+The Prince and the Pauper
+A Bittersweet Life
+Mr. Klein
+The Remains of the Day
+Match Point
+The Wind That Shakes the Barley
+The Miracle Worker
+Roman Holiday
+An Education
+The Insider
+Norma Rae
+The Last Seduction
+Blue Collar
+Wait Until Dark
+The Emigrants
+Fatal Attraction
+The Go-Between
+Lord of the Flies
+The Magdalene Sisters
+Night and Fog
+Hotel Rwanda
+Falling Down
+Dead Man Walking
+In Cold Blood
+Amazing Grace
+Mystic River
+The Count of Monte Cristo
+Treasure Island
+Mutiny on the Bounty
+45 Years
+Husbands and Wives
+Excalibur
+Into the Wild
+White God
+A Simple Plan
+The Last Duel
+3 Godfathers
+13 Assassins
+The Stepford Wives
+Bride of Frankenstein
+Of Mice and Men
+Before Sunrise
+Romeo + Juliet
+Babette's Feast
+Working Girls
+Design for Living
+Vicky Cristina Barcelona
+Germinal
+Peterloo
+The Four Feathers
+Sullivan's Travels
+The Great Gatsby
+Anna Karenina
+The Snake Pit
+The Song of Bernadette
+Medea (1969)
+Oliver Twist (1948)
+Billy Budd
+Journey to Italy
+Miracle in Milan
+The Human Condition
+The Crying Game
+The Full Monty
+I Am a Fugitive from a Chain Gang
+Angels with Dirty Faces
+Voyage to Italy
+Gone with the Wind
+Bitter Rice
+They Live by Night
+Le Quai des brumes
+The Winslow Boy
+Sylvia Scarlett
+Day of Wrath
+East of Eden
+Stella Dallas
+Marty
+The Enemy Below
+The Man Who Never Was
+Letters from Iwo Jima
+Master and Commander: The Far Side of the World
+The Captain from Köpenick
+Green Card
+Madame Bovary
+Waterloo Bridge
+Sonata... The Scarlet Letter
+Trading Places
+Giant
+Merry Christmas Mr. Lawrence
+Ice Cold in Alex
+To Kill a Mockingbird
+Germany Year Zero
+The Court-Martial of Billy Mitchell
+Twelve O'Clock High
+The Lost Weekend
+Days of Wine and Roses
+Philomena
+The Bicycle Thief of Rome's cousin, Big Deal on Madonna Street
+Tokyo Story's neighbour, Good Morning
+The Quiet Man
+Dave
+The Ballad of Cable Hogue
+Je t'aime, je t'aime
+Hardcore
+Ghost Dog: The Way of the Samurai
+The American
+What Ever Happened to Baby Jane?
+The Beguiled
+Beau Père
+Marvin's Room
+August: Osage County
+My Fair Lady
+Nell
+Zéro de conduite
+Vidas Secas
+Cassandra's Dream
+Kill List
+The Wedding Banquet
+Planet of the Apes
+Never Let Me Go
+Chi-Raq
+The Bridges of Madison County
+Nora
+Marriage Italian Style
+Le Plaisir
+Night and Fog in Japan
+Salvatore Giuliano
+Camille Claudel
+Secret Beyond the Door
+Body Heat
+I mostri
+Il Boom
+Two Mules for Sister Sara
+The Human Condition: No Greater Love
+Bunny Lake Is Missing
+The Double
+Natural Born Killers
+Symbiopsychotaxiplasm: Take One
+Divorce Italian Style
+The Big Combo
+When Worlds Collide
+Contagion
+Threads
+The Bridge on the River Kwai
+Phaedra
+Society of the Snow
+In the Heart of the Sea
+Life Is Beautiful
+Swept Away
+The Night Porter
+Secretary
+The Adventures of Robin Hood
+The Asphalt Jungle
+The Inugami Family
+Murder on the Orient Express
+We Need to Talk About Kevin
+The Bad Seed
+Island of Lost Souls
+Point Blank
+The Sorrow and the Pity
+Der Golem
+The Blue Kite
+The Talented Mr. Ripley
+Hôtel Terminus
+Sugar
+Billy Elliot
+The Up Series
+In Darkness
+Freaks
+Missing
+Johnny Belinda
+Children of a Lesser God
+Rachel Getting Married
+Elvira Madigan
+All That Jazz
+El verdugo
+An Unmarried Woman
+The Defiant Ones
+Under the Sand
+Silenced
+Truly, Madly, Deeply
+Knives Out
+The Tree of Wooden Clogs
+Country
+Straight Time
+The Friends of Eddie Coyle
+Blood Wedding
+Force of Evil
+Chimes at Midnight
+The Man Who Would Be King
+The Heiress
+Testament
+Philadelphia
+The Descendants
+Primal Fear
+Blue Steel
+Q & A
+Ride Lonesome
+Wag the Dog
+Death Wish
+Muriel's Wedding
+The Philadelphia Story
+Welcome to the Sticks
+Cars
+Faust
+A Girl Walks Home Alone at Night
+The Merchant of Venice
+Le Confessioni / Il Divo
+Death in Venice
+The Cherry Orchard
+How to Make an American Quilt
+Il Sorpasso
+Ford v Ferrari
+Million Dollar Baby
+Sita Sings the Blues
+Mamma Mia!
+Elmer Gantry
+Police, Adjective
+Cat People
+La Belle et la Bête
+Dear Zachary
+The Handmaid's Tale
+Lassie Come Home
+Ben-Hur
+Dekalog: One
+Opening Night
+Ratcatcher
+Camille
+House of Pleasures
+American Graffiti
+Donnie Brasco
+Sleeping Dogs / The Wages of Fear
+Mustang
+Brooklyn
+Au revoir les enfants
+The Sting
+The Grifters
+House of Games
+Unbreakable
+Silent Running
+The Assistant
+Wanda
+The Lady Eve
+His Girl Friday
+Trouble in Paradise
+The Palm Beach Story
+In This World
+Cast Away
+Le Trou
+Capote
+The Children's Hour
+The Big Chill
+Another Year
+Shallow Grave
+Shall We Dance? (1996)
+Changeling
+An Affair to Remember
+The Biggest Little Farm
+Coriolanus
+Richard III
+Whale Rider
+Three Identical Strangers
+The Desperate Hours
+Don't Breathe
+Dead Calm
+Apocalypto
+Judgment at Nuremberg
+Misery
+The Collector
+Twenty-Four Eyes
+Letters from a Dead Man
+The Killing Fields
+Under Fire
+Salvador
+The Year of Living Dangerously
+A Monster Calls
+The Shop Around the Corner
+Love Letter
+Rocky (1976)
+Star Wars (1977)
+Annie Hall (1977)
+Coming Home (1978)
+Grease (1978)
+Life of Brian (1979)
+The Jerk (1979)
+Escape from Alcatraz (1979)
+The Blues Brothers (1980)
+Caddyshack (1980)
+Friday the 13th (1980)
+Chariots of Fire (1981)
+The Evil Dead (1981)
+Time Bandits (1981)
+Gandhi (1982)
+First Blood (1982)
+Diner (1982)
+The Natural (1984)
+Repo Man (1984)
+Beverly Hills Cop (1984)
+The Karate Kid (1984)
+Gremlins (1984)
+Out of Africa (1985)
+The Breakfast Club (1985)
+Re-Animator (1985)
+Ferris Bueller's Day Off (1986)
+Top Gun (1986)
+Manhunter (1986)
+Highlander (1986)
+Something Wild (1986)
+Wall Street (1987)
+Rain Man (1988)
+Beetlejuice (1988)
+Bull Durham (1988)
+When Harry Met Sally... (1989)
+Field of Dreams (1989)
+Say Anything... (1989)
+Glory (1989)
+Pretty Woman (1990)
+Awakenings (1990)
+The Fisher King (1991)
+Point Break (1991)
+My Own Private Idaho (1991)
+A Few Good Men (1992)
+Malcolm X (1992)
+The Last of the Mohicans (1992)
+True Romance (1993)
+Carlito's Way (1993)
+The Fugitive (1993)
+Forrest Gump (1994)
+Speed (1994)
+Quiz Show (1994)
+The Usual Suspects (1995)
+Apollo 13 (1995)
+Braveheart (1995)
+Clueless (1995)
+Leaving Las Vegas (1995)
+Sense and Sensibility (1995)
+Independence Day (1996)
+The English Patient (1996)
+Sling Blade (1996)
+Scream (1996)
+Good Will Hunting (1997)
+Gattaca (1997)
+The Ice Storm (1997)
+Contact (1997)
+The Game (1997)
+American History X (1998)
+Pi (1998)
+The Opposite of Sex (1998)
+Elizabeth (1998)
+Office Space (1999)
+Election (1999)
+Boys Don't Cry (1999)
+Snatch (2000)
+High Fidelity (2000)
+Wonder Boys (2000)
+Best in Show (2000)
+The Others (2001)
+Ocean's Eleven (2001)
+Training Day (2001)
+Ghost World (2001)
+The Bourne Identity (2002)
+Chicago (2002)
+Bowling for Columbine (2002)
+25th Hour (2002)
+Lost in La Mancha (2002)
+School of Rock (2003)
+Master and Commander (2003)
+Big Fish (2003)
+Shattered Glass (2003)
+The Bourne Supremacy (2004)
+Collateral (2004)
+Kung Fu Hustle (2004)
+Shaun of the Dead (2004)
+Napoleon Dynamite (2004)
+Good Night, and Good Luck (2005)
+The Constant Gardener (2005)
+Casino Royale (2006)
+Little Miss Sunshine (2006)
+Half Nelson (2006)
+Stranger than Fiction (2006)
+Juno (2007)
+The Assassination of Jesse James (2007)
+Gone Baby Gone (2007)
+Slumdog Millionaire (2008)
+Frost/Nixon (2008)
+Up in the Air (2009)
+Star Trek (2009)
+The Road (2009)
+Black Dynamite (2009)
+The King's Speech (2010)
+127 Hours (2010)
+Scott Pilgrim vs. the World (2010)
+Kick-Ass (2010)
+Bridesmaids (2011)
+Moneyball (2011)
+Tinker Tailor Soldier Spy (2011)
+Warrior (2011)
+Django Unchained (2012)
+Silver Linings Playbook (2012)
+Cloud Atlas (2012)
+The Cabin in the Woods (2012)
+Before Midnight (2013)
+Blue Jasmine (2013)
+Only Lovers Left Alive (2013)
+Nebraska (2013)
+Frank (2014)
+Foxcatcher (2014)
+The Revenant (2015)
+Room (2015)
+Creed (2015)
+Jackie (2016)
+The Shape of Water (2017)
+Logan (2017)
+BlacKkKlansman (2018)
+Eighth Grade (2018)
+Leave No Trace (2018)
+First Man (2018)
+Mandy (2018)
+Little Women (2019)
+Jojo Rabbit (2019)
+Promising Young Woman (2020)
+Da 5 Bloods (2020)
+Ma Rainey's Black Bottom (2020)
+The Father (2020)
+Palm Springs (2020)
+Pig (2021)
+The Green Knight (2021)
+CODA (2021)
+Spencer (2021)
+Belfast (2021)
+The Batman (2022)
+Nope (2022)
+Women Talking (2022)
+Triangle of Sadness (2022)
+Saltburn (2023)
+May December (2023)
+American Fiction (2023)
+The Holdovers (2023)
+Conclave (2024)
+A Real Pain (2024)
+Sing Sing (2023)
+Hard Truths (2024)
+I Saw the TV Glow (2024)

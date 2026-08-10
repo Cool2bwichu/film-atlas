@@ -1,0 +1,972 @@
+{
+ "version": 1,
+ "promptVersion": "propB-role-1-stability",
+ "model": "claude-opus-5",
+ "note": "Independent re-tag of a random sample against the same frozen vocabulary, in different company and different group size. Compare with propB-tags.json.",
+ "generated": "2026-08-10T14:07:06.076Z",
+ "sample": 240,
+ "batch": 30,
+ "tagged": 240,
+ "tags": [
+  {
+   "id": "s2b10-goopy_bagha_phire_elo-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b12-foundry_town-3",
+   "predicate": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s3b9-like_father_like_son-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b11-postcard-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b3-crowd-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-au_hasard_balthazar-3",
+   "predicate": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s2b2-city_of_sadness-1",
+   "predicate": "person-used-as-means"
+  },
+  {
+   "id": "s0b9-burning_soil-3",
+   "predicate": "harm-answered-with-harm"
+  },
+  {
+   "id": "s3b9-like_father_like_son-5",
+   "predicate": "confession-to-the-powerless"
+  },
+  {
+   "id": "s2b0-close_up-0",
+   "predicate": "identity-passed-off"
+  },
+  {
+   "id": "s1bundefined-sympathy_for_devil-1",
+   "predicate": "past-laid-on-the-young"
+  },
+  {
+   "id": "s0b4-page_of_madness-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-seemabaddha-2",
+   "predicate": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s0b4-late_chrysanthemums-2",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s2b11-goonies-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b9-era_lui_si_si-2",
+   "predicate": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b8-beyond_forest-3",
+   "predicate": "the-wanted-child-denied"
+  },
+  {
+   "id": "s1bundefined-klute-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b0-metropolis-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b1-harakiri-0",
+   "predicate": "appeal-turned-away"
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-1",
+   "predicate": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b3-day_he_arrives-0",
+   "predicate": "return-after-long-absence"
+  },
+  {
+   "id": "s1bundefined-exorcist_ii_heretic-1",
+   "predicate": "pressed-for-an-account"
+  },
+  {
+   "id": "s3b8-dust_of_time-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b8-girls_of_night-3",
+   "predicate": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s2b6-memories-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-graduate-1",
+   "predicate": "third-holds-two-apart"
+  },
+  {
+   "id": "s1bundefined-love_in_afternoon-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b8-prisoners-4",
+   "predicate": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s1bundefined-blowup-2",
+   "predicate": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-2",
+   "predicate": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s3b4-waltz_with_bashir-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b7-dolls-1",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b2-gladiator-2",
+   "predicate": "identity-passed-off"
+  },
+  {
+   "id": "s1bundefined-la_jetee-0",
+   "predicate": "return-after-long-absence"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-4",
+   "predicate": "identity-passed-off"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-un_flic-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b10-great_war-1",
+   "predicate": "another-given-to-danger"
+  },
+  {
+   "id": "s2b0-shining-0",
+   "predicate": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b7-another_woman-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b8-law_is_law-4",
+   "predicate": "distant-stranger-harmed"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b0-cleo_from_5_to_7-1",
+   "predicate": "kept-under-watch"
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-1",
+   "predicate": "knower-silenced"
+  },
+  {
+   "id": "s2b8-good_news-0",
+   "predicate": "true-account-not-credited"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-3",
+   "predicate": "protector-is-the-harm"
+  },
+  {
+   "id": "s0b11-mara_maru-4",
+   "predicate": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-3",
+   "predicate": "one-absorbs-another-identity"
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-2",
+   "predicate": "unchosen-debt-created"
+  },
+  {
+   "id": "s2b4-decalogue_iii-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b7-eyes_of_laura_mars-0",
+   "predicate": "protector-is-the-harm"
+  },
+  {
+   "id": "s1bundefined-onibaba-2",
+   "predicate": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b3-persepolis-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b11-taxi_driver-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-1",
+   "predicate": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b12-tokyo_family-2",
+   "predicate": "incomer-denied-a-place"
+  },
+  {
+   "id": "s2b8-plot_of_fuma_clan-3",
+   "predicate": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b7-waterland-3",
+   "predicate": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s1bundefined-serpico-3",
+   "predicate": "aid-withheld-at-need"
+  },
+  {
+   "id": "s1bundefined-lolita-2",
+   "predicate": "taking-another-into-keeping"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-2",
+   "predicate": "deed-done-through-another"
+  },
+  {
+   "id": "s0b1-street_of_shame-3",
+   "predicate": "bond-held-by-need"
+  },
+  {
+   "id": "s0b12-foundry_town-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-hellbenders-4",
+   "predicate": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s3b12-tokyo_family-4",
+   "predicate": "dependent-handed-over"
+  },
+  {
+   "id": "s2b3-decalogue_v-3",
+   "predicate": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s2b6-big_deal_after_20_years-4",
+   "predicate": "unchosen-debt-created"
+  },
+  {
+   "id": "s1bundefined-joy_of_learning-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b1-eo-1",
+   "predicate": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b4-iron_giant-3",
+   "predicate": "cast-out-by-group"
+  },
+  {
+   "id": "s2b3-decalogue_v-1",
+   "predicate": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b1-street_of_shame-4",
+   "predicate": "person-used-as-means"
+  },
+  {
+   "id": "s3b4-waltz_with_bashir-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b5-certain_women-2",
+   "predicate": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b5-certain_women-3",
+   "predicate": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-0",
+   "predicate": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b11-bad_company-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-wild_child-3",
+   "predicate": "taking-another-into-keeping"
+  },
+  {
+   "id": "s2b0-shining-3",
+   "predicate": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s0b4-idiot-3",
+   "predicate": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s1bundefined-tidal_wave-0",
+   "predicate": "true-account-not-credited"
+  },
+  {
+   "id": "s3b7-song_to_song-3",
+   "predicate": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s0b3-general-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-rocky_road_to_dublin-0",
+   "predicate": "life-dictated-by-another"
+  },
+  {
+   "id": "s0b1-battleship_potemkin-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b9-like_father_like_son-4",
+   "predicate": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s0b7-difficult_years-2",
+   "predicate": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b6-eastern_promises-0",
+   "predicate": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b7-dinner_with_friends-2",
+   "predicate": "verdict-before-proof"
+  },
+  {
+   "id": "s1bundefined-la_jetee-1",
+   "predicate": "person-used-as-means"
+  },
+  {
+   "id": "s2b7-pirates-4",
+   "predicate": "aid-withheld-at-need"
+  },
+  {
+   "id": "s1bundefined-persona-0",
+   "predicate": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s3b8-all_money_in_world-4",
+   "predicate": "held-in-place-by-force"
+  },
+  {
+   "id": "s1bundefined-little_night_music-1",
+   "predicate": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b3-general-0",
+   "predicate": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s2b12-death_of_salesman-5",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b3-platform-0",
+   "predicate": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s0b7-jolanda_daughter_of_black_co-1",
+   "predicate": "taking-another-into-keeping"
+  },
+  {
+   "id": "s3b3-persepolis-4",
+   "predicate": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b0-memories_of_murder-1",
+   "predicate": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s1bundefined-working_class_goes_to_heaven-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-wild_child-1",
+   "predicate": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s1bundefined-quiet_place_in_country-5",
+   "predicate": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s0b7-difficult_years-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-hellbenders-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b3-sweetie-2",
+   "predicate": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b1-mad_max_fury_road-0",
+   "predicate": "person-passed-between-holders"
+  },
+  {
+   "id": "s1bundefined-rocky_road_to_dublin-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b7-another_woman-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-au_hasard_balthazar-0",
+   "predicate": "person-passed-between-holders"
+  },
+  {
+   "id": "s0b0-la_strada-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b3-safety_last-2",
+   "predicate": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b6-without_pity-4",
+   "predicate": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s3b4-nine_queens-3",
+   "predicate": "unchosen-debt-created"
+  },
+  {
+   "id": "s2b2-pixote-3",
+   "predicate": "set-aside-for-another"
+  },
+  {
+   "id": "s2b1-shoah-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b11-come_fill_cup-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b7-downhill-2",
+   "predicate": "intimacy-for-support"
+  },
+  {
+   "id": "s0b9-women_of_night-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b9-era_lui_si_si-0",
+   "predicate": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s1bundefined-blowup-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b2-sunrise_song_of_two_humans-2",
+   "predicate": "withholds-the-blow"
+  },
+  {
+   "id": "s1bundefined-casanova_70-4",
+   "predicate": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-1",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-le_samourai-1",
+   "predicate": "kept-under-watch"
+  },
+  {
+   "id": "s0b10-stalag_17-1",
+   "predicate": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-1",
+   "predicate": "claim-of-the-dead"
+  },
+  {
+   "id": "s0b5-tokyo_chorus-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-1",
+   "predicate": "aid-withheld-at-need"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b0-memories_of_murder-3",
+   "predicate": "hunter-and-quarry"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b8-okja-2",
+   "predicate": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s0b6-rich_and_strange-1",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b1-grizzly_man-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b0-seven_samurai-3",
+   "predicate": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b11-krull-4",
+   "predicate": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-tidal_wave-2",
+   "predicate": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b7-best_intentions-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-rosemary_s_baby-2",
+   "predicate": "true-account-not-credited"
+  },
+  {
+   "id": "s0b10-great_war-2",
+   "predicate": "standing-lowered-before-others"
+  },
+  {
+   "id": "s0b11-task_force-3",
+   "predicate": "bond-held-across-separation"
+  },
+  {
+   "id": "s3b7-dolls-5",
+   "predicate": "return-after-long-absence"
+  },
+  {
+   "id": "s3b6-terminal-2",
+   "predicate": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s0b9-burning_soil-2",
+   "predicate": "set-aside-for-another"
+  },
+  {
+   "id": "s1bundefined-liza-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-eraserhead-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b7-best_intentions-0",
+   "predicate": "appeal-turned-away"
+  },
+  {
+   "id": "s2b1-hoop_dreams-4",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b11-task_force-0",
+   "predicate": "deference-withheld-from-power"
+  },
+  {
+   "id": "s0b6-variety_lights-2",
+   "predicate": "wanting-without-limit"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-0",
+   "predicate": "person-used-as-means"
+  },
+  {
+   "id": "s2b2-total_recall-2",
+   "predicate": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b4-wall_e-2",
+   "predicate": "hunter-and-quarry"
+  },
+  {
+   "id": "s3b11-postcard-3",
+   "predicate": "return-after-long-absence"
+  },
+  {
+   "id": "s3b3-day_he_arrives-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b5-sleepers-1",
+   "predicate": "pressed-for-an-account"
+  },
+  {
+   "id": "s0b2-sunrise_song_of_two_humans-1",
+   "predicate": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b10-city_hall-0",
+   "predicate": "distant-stranger-harmed"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-1",
+   "predicate": "verdict-before-proof"
+  },
+  {
+   "id": "s2b2-pixote-2",
+   "predicate": "person-passed-between-holders"
+  },
+  {
+   "id": "s3b5-tar-2",
+   "predicate": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s1bundefined-sympathy_for_devil-3",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-autumn_sonata-5",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b7-another_woman-3",
+   "predicate": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s1bundefined-once_upon_time_in_west-1",
+   "predicate": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s2b9-thunderheart-3",
+   "predicate": "taken-up-then-discarded"
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-0",
+   "predicate": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s0b9-burning_soil-1",
+   "predicate": "false-impression-planted"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-3",
+   "predicate": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s0b8-mother_should_be_loved-3",
+   "predicate": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b8-girls_of_night-2",
+   "predicate": "third-holds-two-apart"
+  },
+  {
+   "id": "s2b5-green_room-4",
+   "predicate": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-1",
+   "predicate": "one-removed-from-the-way"
+  },
+  {
+   "id": "s3b9-to_catch_killer-4",
+   "predicate": "own-death-brought-about"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-5",
+   "predicate": "false-impression-planted"
+  },
+  {
+   "id": "s0b5-awaara-4",
+   "predicate": "kin-subordinated-to-rule"
+  },
+  {
+   "id": "s3b8-pina-0",
+   "predicate": "another-given-to-danger"
+  },
+  {
+   "id": "s0b9-best_of_enemies-0",
+   "predicate": "shut-in-together"
+  },
+  {
+   "id": "s0b11-mara_maru-2",
+   "predicate": "set-aside-for-another"
+  },
+  {
+   "id": "s3b4-incredibles-2",
+   "predicate": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s1bundefined-persona-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b7-little_dieter_needs_to_fly-0",
+   "predicate": "pressed-for-an-account"
+  },
+  {
+   "id": "s1bundefined-i_maniaci-1",
+   "predicate": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-5",
+   "predicate": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b3-modern_times-2",
+   "predicate": "kinship-made-from-lack"
+  },
+  {
+   "id": "s0b3-red_shoes-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b0-seven_samurai-0",
+   "predicate": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-3",
+   "predicate": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-muriel-3",
+   "predicate": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-love_in_afternoon-0",
+   "predicate": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-0",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-2",
+   "predicate": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s1bundefined-zatoichi_and_chest_of_gold-4",
+   "predicate": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b11-confucian_confusion-5",
+   "predicate": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b9-it_happened_in_park-0",
+   "predicate": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s2b12-tasmania_story-2",
+   "predicate": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b11-i_know_where_i_m_going-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-5",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b3-decalogue_v-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b8-passing_fancy-0",
+   "predicate": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s2b3-decalogue_v-0",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-damien_omen_ii-2",
+   "predicate": "knower-silenced"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-4",
+   "predicate": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s2b9-love_in_germany-2",
+   "predicate": "kept-under-watch"
+  },
+  {
+   "id": "s1bundefined-last_tango_in_paris-3",
+   "predicate": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s0b6-rich_and_strange-3",
+   "predicate": "none"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-4",
+   "predicate": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-viva_maria-1",
+   "predicate": "claim-of-the-dead"
+  },
+  {
+   "id": "s0b10-slice_of_life-4",
+   "predicate": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s0b4-rebel_without_cause-1",
+   "predicate": "none"
+  },
+  {
+   "id": "s3b2-midsommar-0",
+   "predicate": "aid-withheld-at-need"
+  },
+  {
+   "id": "s2b11-days_of_thunder-3",
+   "predicate": "standing-in-anothers-place"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-5",
+   "predicate": "true-account-not-credited"
+  },
+  {
+   "id": "s0b9-women_of_night-1",
+   "predicate": "false-impression-planted"
+  },
+  {
+   "id": "s3b8-okja-3",
+   "predicate": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-serpico-0",
+   "predicate": "cast-out-by-group"
+  },
+  {
+   "id": "s2b11-confucian_confusion-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b2-elephant_man-3",
+   "predicate": "another-kept-dependent"
+  },
+  {
+   "id": "s1bundefined-mirror-1",
+   "predicate": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-1",
+   "predicate": "sheltered-from-consequence"
+  },
+  {
+   "id": "s2b7-eyes_of_laura_mars-2",
+   "predicate": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s2b9-it_takes_two-4",
+   "predicate": "confession-to-the-powerless"
+  },
+  {
+   "id": "s1bundefined-mirror-0",
+   "predicate": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-un_flic-2",
+   "predicate": "none"
+  },
+  {
+   "id": "s2b11-confucian_confusion-4",
+   "predicate": "falsehood-planted-between-two"
+  },
+  {
+   "id": "s1bundefined-lucky_luciano-0",
+   "predicate": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b0-white_ribbon-1",
+   "predicate": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s1bundefined-conformist-4",
+   "predicate": "sheltered-from-consequence"
+  },
+  {
+   "id": "s0b12-pardon_my_past-1",
+   "predicate": "one-absorbs-another-identity"
+  },
+  {
+   "id": "s0b1-hiroshima_mon_amour-4",
+   "predicate": "none"
+  },
+  {
+   "id": "s0b9-it_happened_in_park-2",
+   "predicate": "withholds-the-blow"
+  },
+  {
+   "id": "s3b3-no_bears-5",
+   "predicate": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s0b0-la_strada-5",
+   "predicate": "the-nearest-goes-unseen"
+  },
+  {
+   "id": "s0b1-street_of_shame-5",
+   "predicate": "standing-in-anothers-place"
+  },
+  {
+   "id": "s2b5-no_end-3",
+   "predicate": "claim-of-the-dead"
+  }
+ ]
+}

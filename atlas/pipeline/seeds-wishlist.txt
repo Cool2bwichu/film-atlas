@@ -1,0 +1,22 @@
+# Wishlist — films named by the reading pass that the corpus does not have.
+# Ranked by DISTINCT nominators x DISTINCT reasons, never raw frequency.
+#
+# These are CANDIDATES. Harvest, run readings.js on them, and keep only the
+# ones whose own reading co-occurs with something already present. A
+# nomination that does not survive that check was the model reaching for a
+# famous title.
+#
+# generated 2026-08-10T10:50:15.939Z from pipeline/out/readings-demo.json
+
+Paper Moon   # needs a (year) — resolver will refuse rather than guess
+Mikey and Nicky
+Frances Ha   # needs a (year) — resolver will refuse rather than guess
+The Talented Mr. Ripley
+Six Degrees of Separation
+Calvary   # needs a (year) — resolver will refuse rather than guess
+Amadeus   # needs a (year) — resolver will refuse rather than guess
+Two Friends   # needs a (year) — resolver will refuse rather than guess
+Can You Ever Forgive Me?
+The Imposter   # needs a (year) — resolver will refuse rather than guess
+Gattaca   # needs a (year) — resolver will refuse rather than guess
+Zodiac   # needs a (year) — resolver will refuse rather than guess

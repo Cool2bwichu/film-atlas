@@ -1,0 +1,283 @@
+# HELD-OUT control for the proposal-A clustering.
+# The 51 films below were read TWICE under readings-prompt-2: once in the earlier 60-film
+# run (static/readings-pass.json) and once in the 300-film cohort, in different batch
+# company, in separate processes. NONE of the phrases in this file were used to build the
+# vocabulary in predicate-clusters-propA.tsv. They were assigned to it afterwards, from a
+# shuffled list with the titles withheld while judging, so the question "does the same film
+# read twice land on the same predicate" can be answered on data the clustering never saw.
+# Limitation, stated plainly: the same reader built the vocabulary and assigned these, so
+# this measures whether the vocabulary CAN absorb an independent reading, not whether a
+# different reader would assign them the same way.
+# title	situation	predicate
+A City of Sadness	those left behind must ask after the missing	child-searches-for-a-lost-parent
+A City of Sadness	the blameless are punished without any cause	the-innocent-answer-for-one-mans-act
+A City of Sadness	a hidden guest is hunted by the state	shelter-given-at-mortal-risk
+A City of Sadness	the speechless are explained by those around them	one-person-acts-through-another
+A City of Sadness	a household is dismantled by events outside it	a-house-emptied-around-the-one-left
+A Serious Man	the blameless are punished without any cause	the-innocent-answer-for-one-mans-act
+A Serious Man	one is made responsible for a failing relative	the-old-are-put-away
+A Serious Man	a gift is a trap for its receiver	help-that-creates-ownership
+A Serious Man	answers are demanded from those with none	a-confession-extracted-by-force
+A Serious Man	the displaced man honours the one replacing him	the-newcomer-takes-the-place-already-held
+A Taxi Driver	a paid errand becomes a binding obligation	help-that-creates-ownership
+A Taxi Driver	an outsider is needed to witness what happened	NONE
+A Taxi Driver	kin is weighed against strangers in danger	a-choice-with-no-innocent-option
+A Taxi Driver	strangers give their lives for a passing stranger	one-dies-in-another-mans-place
+A Taxi Driver	a deserter returns to the one he left	old-love-reopened-too-late
+A Taxi Driver	a rescuer refuses to be thanked	saving-a-life-creates-a-lasting-bond
+Aftersun	a child reconstructs a parent from what remains	the-child-discovers-who-the-parent-really-is
+Aftersun	a farewell is not known to be final	the-dying-arrange-what-comes-after
+Aftersun	a child takes care of the parent	the-child-carries-the-household
+Aftersun	one person hides their despair from another	a-secret-kept-from-the-one-loved
+Autumn Sonata	an apology arrives too late to be received	the-parent-asks-to-be-forgiven
+Autumn Sonata	a child confronts a parent about the past	the-grown-child-holds-the-parent-to-account
+Autumn Sonata	a parent outlives a young child	NONE
+Autumn Sonata	a marriage endures without love	marriage-emptied-from-inside
+Autumn Sonata	the one most in need is least wanted	kin-absent-at-the-moment-of-need
+Autumn Sonata	a parent cannot bear the child surpassing them	a-parent-moves-against-the-child
+Black Rain	people wait for an illness already inside them	NONE
+Black Rain	a person is shunned for what befell them	a-woman-is-shamed-for-her-own-violation
+Black Rain	a child chooses the family that raised them	raised-by-someone-not-their-own
+Black Rain	permission to marry is withheld then granted	union-forbidden-by-elders
+Black Rain	two damaged people find each other	the-unattached-improvise-a-bond
+Blowup	someone takes another's likeness without permission	the-substitute-lives-the-other-life
+Blowup	someone agrees to play along with a pretence	one-must-pretend-to-be-someone-else
+Blowup	a witness cannot make anyone believe them	the-one-who-saw-is-not-believed
+Blowup	someone removes the proof of what was done	the-killing-is-restaged-as-another-story
+Devi	a father cannot be argued out of belief	a-parent-moves-against-the-child
+Devi	a person becomes something strangers come to see	the-survivor-is-made-to-relive-it
+Devi	an offered escape is refused by the captive	the-way-out-is-refused
+Devi	a sick child is entrusted to faith alone	a-parent-moves-against-the-child
+Devi	one comes to believe what others call her	a-person-is-remade-into-what-others-need
+Eureka	survivors of one harm cannot resume ordinary life	mourners-cannot-grieve-together
+Eureka	a household is dismantled by events outside it	a-house-emptied-around-the-one-left
+Eureka	an outsider becomes the parent of orphaned children	raised-by-someone-not-their-own
+Eureka	the helper is suspected of the harm	the-wrong-person-is-blamed
+Eureka	the speechless are explained by those around them	one-person-acts-through-another
+Eureka	a guardian must deliver his charge to punishment	the-protector-hands-the-protected-over
+Flesh for Frankenstein	a person is used purely for another's appetite	intimacy-is-the-price-of-survival
+Flesh for Frankenstein	a lover is handed over for a reward	the-protector-hands-the-protected-over
+Flesh for Frankenstein	a maker is destroyed by his own making	what-was-made-turns-on-its-maker
+Flesh for Frankenstein	a friend returns without knowing anyone	the-place-returned-to-is-gone
+Flesh for Frankenstein	the young inherit their elders' cruelty	child-repeats-the-parent
+Gladiator	the promised help never arrives	kin-absent-at-the-moment-of-need
+Gladiator	a duel is decided by a hidden hand	one-person-acts-through-another
+Gladiator	a father prefers a stranger to his son	love-unevenly-divided-among-children
+Gladiator	a child is used to control a parent	hostage-taken-to-force-another
+Gladiator	a crowd's favour is the only protection left	the-crowd-decides-a-mans-fate
+Gladiator	one lives on to avenge a murdered family	revenge-carried-across-years
+Hangmen Also Die!	a whole community lies with one voice	the-obvious-is-collectively-denied
+Hangmen Also Die!	kin is weighed against strangers in danger	a-choice-with-no-innocent-option
+Hangmen Also Die!	a promised release is never granted	the-wage-is-withheld
+Hangmen Also Die!	many are held to force one to surrender	hostage-taken-to-force-another
+Hangmen Also Die!	the trusted insider is the informer	betrayed-by-the-closest
+Hangmen Also Die!	closeness is faked to mislead a watcher	love-is-feigned-to-get-something-else
+Honey Don't!	a lover turns out to be the danger	the-danger-is-already-inside-the-house
+Honey Don't!	an absent parent asks to be let back	the-parent-asks-to-be-forgiven
+Honey Don't!	a secret is kept from a parent	the-house-hides-its-shame
+Honey Don't!	a plea for help is not taken seriously	kin-absent-at-the-moment-of-need
+Honey Don't!	intimacy is taken from those under one's power	intimacy-is-the-price-of-survival
+Honey Don't!	two adversaries are drawn to each other	enemies-recognise-each-other
+Intolerable Cruelty	the keeper of secrets becomes the accuser	the-secret-becomes-a-hold
+Intolerable Cruelty	two adversaries are drawn to each other	enemies-recognise-each-other
+Intolerable Cruelty	marriage is entered for what it pays	marriage-made-for-gain
+Intolerable Cruelty	a safeguard is destroyed to prove devotion	NONE
+Intolerable Cruelty	a spouse is found out with someone else	desire-outside-an-intact-bond
+Intolerable Cruelty	the wronged one strikes back in kind	an-injury-is-repaid-in-kind-years-later
+Jules and Jim	a refusal is answered with death for both	one-kills-what-one-loves
+Jules and Jim	a bond outlasts being put on opposing sides	friends-divided-by-a-larger-force
+Jules and Jim	one keeps proving no one owns them	punished-for-refusing-to-recant
+Jules and Jim	a man steps aside for his rival	love-renounced-to-spare-the-other
+Jules and Jim	two friends want the same person	rivals-for-the-same-person
+Jules and Jim	a couple cannot make a child together	a-child-cannot-be-had
+Killers of the Flower Moon	a guest dishonours the one sheltering him	the-welcomed-guest-ruins-the-house
+Killers of the Flower Moon	the owners are declared unfit to own	the-powerful-take-what-is-not-theirs
+Killers of the Flower Moon	a man harms the person he loves	cruelty-received-as-love
+Killers of the Flower Moon	an elder directs a younger man to kill	one-is-made-to-kill
+Killers of the Flower Moon	a witness dies before he can speak	the-only-witness-is-removed
+Killers of the Flower Moon	the protector is the one doing the harm	the-one-set-to-protect-does-the-harm
+La Chinoise	one of them takes their own life	contempt-drives-a-person-to-end-their-life
+La Chinoise	one lives off what one claims to oppose	one-persons-ruin-is-anothers-livelihood
+La Chinoise	the household work falls to one of them	the-child-carries-the-household
+La Chinoise	a killing falls on the wrong person	one-dies-in-another-mans-place
+La Chinoise	a doubter is expelled by his own group	a-group-turns-on-one-of-its-own
+La Chinoise	someone will not be talked out of it	a-person-walks-knowingly-toward-death
+La Jetée	a person is discarded once no longer useful	used-then-discarded
+La Jetée	a man is present at his own death	NONE
+La Jetée	a man returns to the woman he remembers	old-love-reopened-too-late
+La Jetée	a man refuses rescue to return to someone	the-way-out-is-refused
+La Strada	a person is discarded once no longer useful	used-then-discarded
+La Strada	someone loves the person who mistreats them	cruelty-received-as-love
+La Strada	a weaker man taunts a stronger one	the-strong-hound-the-weakest
+La Strada	someone abandoned is taken in by strangers	shelter-given-at-mortal-risk
+La Strada	someone matters only once they are gone	the-living-will-not-let-the-dead-go
+La Strada	a family sells a daughter to a stranger	marriage-arranged-over-the-woman
+Last Tango in Paris	the hunted turns and strikes the hunter	hunter-bound-to-the-hunted
+Last Tango in Paris	a lover leaves without a word	bond-severed-without-reason
+Last Tango in Paris	someone forces their way into another's home	the-danger-is-already-inside-the-house
+Last Tango in Paris	one is left by a death without explanation	a-death-goes-unexplained
+Last Tango in Paris	a lover forces himself on the other	a-woman-is-shamed-for-her-own-violation
+Last Tango in Paris	intimacy is allowed only without names	closeness-held-short-of-consummation
+Le Samouraï	a person is watched constantly by unseen others	the-watcher-is-changed-by-watching
+Le Samouraï	someone is pressed to betray their own side	pressed-to-inform-on-your-own
+Le Samouraï	the ones paying now want them gone	used-then-discarded
+Le Samouraï	someone walks knowingly into their own death	a-person-walks-knowingly-toward-death
+Le Samouraï	a stranger shields someone for reasons unknown	care-given-without-obligation
+Like Father, Like Son	a child chooses the family that raised them	raised-by-someone-not-their-own
+Like Father, Like Son	the wronged one confronts the person responsible	an-injury-is-repaid-in-kind-years-later
+Like Father, Like Son	a parent must choose between two children	a-parent-must-judge-their-own-child
+Like Father, Like Son	harm was done deliberately by an unsuspected hand	the-danger-is-already-inside-the-house
+Like Father, Like Son	a parent learns too late he was loved	the-parent-asks-to-be-forgiven
+Like Father, Like Son	a child is given to another family	child-handed-over-to-be-raised
+Lucky Luciano	a criminal is freed in exchange for service	a-bargain-with-a-price-not-named
+Lucky Luciano	a woman carries word between two men	a-message-goes-astray
+Lucky Luciano	a pursuer is called off from above	NONE
+Lucky Luciano	a man is killed for what he knows	the-only-witness-is-removed
+Lucky Luciano	a man rises by removing those above him	those-led-turn-on-the-one-leading
+Memories	a spurned lover kills the one refusing her	one-kills-what-one-loves
+Memories	someone stands in for one long gone	the-substitute-lives-the-other-life
+Memories	many are harmed to serve one man's aim	many-are-spent-to-hold-a-position
+Memories	a man destroys everything without knowing he does	NONE
+Memories	a child is told he will understand later	the-child-sees-what-the-adults-will-not-say
+Memories	the ones ordering stay clear of the danger	sent-into-danger-by-someone-who-stays-safe
+Memories of Murder	the protector is the one doing the harm	the-one-set-to-protect-does-the-harm
+Memories of Murder	a wrong is never traced to anyone	the-guilty-are-never-called
+Memories of Murder	two men trust opposite ways of knowing	yoked-to-someone-unbearable
+Memories of Murder	a witness dies before he can speak	the-only-witness-is-removed
+Memories of Murder	a confession is beaten out of the powerless	a-confession-extracted-by-force
+Mother Joan of the Angels	a person must choose love or a calling	the-calling-is-chosen-over-the-person
+Mother Joan of the Angels	one gives up shelter for a love	NONE
+Mother Joan of the Angels	love arrives where it is forbidden	love-across-a-forbidden-line
+Mother Joan of the Angels	one commits atrocity believing it saves another	NONE
+Mother Joan of the Angels	one takes another's affliction into himself	one-accepts-ruin-to-save-another
+Mother Joan of the Angels	one is sent to succeed where others failed	sent-into-danger-by-someone-who-stays-safe
+No End	the dead will not let go	the-living-will-not-let-the-dead-go
+No End	a stranger is used to fill an absence	the-substitute-lives-the-other-life
+No End	one of them takes their own life	contempt-drives-a-person-to-end-their-life
+No End	a man refuses the release offered to him	the-way-out-is-refused
+No End	a child is left behind by a parent	parent-walks-out
+Once Upon a Time in the West	the rescued outlive the ones who saved them	survivor-guilt
+Once Upon a Time in the West	a widow inherits what several men want	rivals-for-the-same-person
+Once Upon a Time in the West	a man spends his life hunting one man	hunter-bound-to-the-hunted
+Once Upon a Time in the West	a man hired to frighten kills instead	one-is-made-to-kill
+Once Upon a Time in the West	a child is made part of a killing	child-repeats-the-parent
+Once Upon a Time in the West	a family is killed to clear a path	a-house-emptied-around-the-one-left
+One Hundred and One Nights	a man mistakes those before him for others	taken-for-someone-he-is-not
+One Hundred and One Nights	the young scheme to inherit from the old	sibling-rivalry
+One Hundred and One Nights	someone stands in for one long gone	the-substitute-lives-the-other-life
+One Hundred and One Nights	schemers are outdone by a better schemer	the-trap-closes-on-the-one-who-set-it
+One Hundred and One Nights	an impostor comes to love the one deceived	the-deceiver-comes-to-care-for-the-deceived
+Panic Room	one draws the danger onto herself for another	one-dies-in-another-mans-place
+Panic Room	one of the attackers protects the ones attacked	help-comes-from-the-enemy
+Panic Room	someone forces their way into another's home	the-danger-is-already-inside-the-house
+Panic Room	the hunted turns and strikes the hunter	hunter-bound-to-the-hunted
+Panic Room	accomplices turn on each other over the spoils	accomplices-turn-on-each-other
+Panic Room	rescuers are turned away by the endangered	help-is-refused-as-humiliation
+Persona	a parent cannot love the child they bore	a-parent-cannot-love-the-child
+Persona	a confidence is collected rather than received	planted-among-them-to-report
+Persona	one person talks into another's silence	the-plea-cannot-be-made-audible
+Persona	two people are no longer told apart	the-substitute-lives-the-other-life
+Persona	someone agrees to play along with a pretence	one-must-pretend-to-be-someone-else
+Rashomon	a witness hides what he saw	the-witness-will-not-speak
+Rashomon	everyone tells the version that saves their face	each-teller-shapes-the-past
+Rashomon	someone abandoned is taken in by strangers	shelter-given-at-mortal-risk
+Rashomon	one man's decency restores another's faith in people	care-given-without-obligation
+Rashomon	the injured party is blamed for the injury	a-woman-is-shamed-for-her-own-violation
+Safety Last!	a promise made at parting must be earned	promise-of-marriage-broken
+Safety Last!	someone is taken for what they are not	taken-for-someone-he-is-not
+Safety Last!	a person pretends to a success they lack	one-must-pretend-to-be-someone-else
+Safety Last!	the promised help never arrives	kin-absent-at-the-moment-of-need
+Seemabaddha	a disturbance is staged to excuse a failure	the-killing-is-restaged-as-another-story
+Seemabaddha	an admirer sees what the admired man does	the-admirer-and-the-admired
+Seemabaddha	many are harmed to serve one man's aim	many-are-spent-to-hold-a-position
+Seemabaddha	a guest envies the life she is shown	envy-of-another-life
+Seven Samurai	someone taken away refuses to be reclaimed	NONE
+Seven Samurai	birth forbids two people to each other	love-across-a-forbidden-line
+Seven Samurai	the victims turn out to be predators too	NONE
+Seven Samurai	a man hides the people he came from	a-buried-past-is-dug-up
+Seven Samurai	the weak hire the strong to protect them	outsiders-strip-both-sides
+Seven Samurai	the rescued outlive the ones who saved them	survivor-guilt
+Something to Talk About	the wronged one strikes back in kind	an-injury-is-repaid-in-kind-years-later
+Something to Talk About	a plea for help is not taken seriously	kin-absent-at-the-moment-of-need
+Something to Talk About	a child learns the parent did the same	the-child-discovers-who-the-parent-really-is
+Something to Talk About	a life was set aside for the family	the-calling-is-chosen-over-the-person
+Something to Talk About	a spouse is found out with someone else	desire-outside-an-intact-bond
+Stalag 17	the one trusted most has been betraying them	betrayed-by-the-closest
+Stalag 17	the one they wronged does what they cannot	the-wronged-one-spares-the-other
+Stalag 17	a group turns on one of its own	a-group-turns-on-one-of-its-own
+Stalag 17	one profits from the misery of the rest	one-persons-ruin-is-anothers-livelihood
+Stalag 17	harm was done deliberately by an unsuspected hand	the-danger-is-already-inside-the-house
+Street of Shame	everyone's living depends on one household's favour	a-debt-holds-a-person-in-place
+Street of Shame	a deceiver is nearly killed by the deceived	a-deception-is-uncovered-by-the-one-deceived
+Street of Shame	a promise of love conceals a transaction	love-is-feigned-to-get-something-else
+Street of Shame	a child turns away from a shamed parent	the-son-breaks-with-the-fathers-cause
+Street of Shame	one person carries a whole family's debts	a-debt-holds-a-person-in-place
+Street of Shame	one person escapes what the others cannot	survivor-guilt
+Tár	a parent is kept from their child	a-child-claimed-by-two-parties
+Tár	a place is given for reasons besides merit	judged-by-birth-not-by-act
+Tár	a plea for help is not taken seriously	kin-absent-at-the-moment-of-need
+Tár	intimacy is taken from those under one's power	intimacy-is-the-price-of-survival
+Tár	a made self is stripped to its origin	a-person-is-remade-into-what-others-need
+Tár	the keeper of secrets becomes the accuser	the-secret-becomes-a-hold
+Taxi Driver	a man cannot make anyone hear his distress	the-plea-cannot-be-made-audible
+Taxi Driver	a suitor ruins his chance in one evening	devotion-not-returned
+Taxi Driver	a stranger decides to rescue a child	care-given-without-obligation
+Taxi Driver	private rage looks for a public target	grief-discharged-as-violence-on-the-uninvolved
+Taxi Driver	a killer is received as a hero	the-guilty-are-never-called
+The Battle of Algiers	a movement kills its own to keep order	the-one-in-power-punishes-his-own-instrument
+The Battle of Algiers	a people is ruled by outsiders it rejects	outsiders-strip-both-sides
+The Battle of Algiers	a criminal is turned into a believer	NONE
+The Battle of Algiers	each side answers the other's cruelty with worse	a-killing-answered-with-a-killing
+The Battle of Algiers	someone is pressed to betray their own side	pressed-to-inform-on-your-own
+The Battle of Algiers	a crowd acts as one against its rulers	those-led-turn-on-the-one-leading
+The Cat o' Nine Tails	a loved one is taken to stop pursuit	hostage-taken-to-force-another
+The Cat o' Nine Tails	a man kills to keep a secret buried	the-only-witness-is-removed
+The Cat o' Nine Tails	a blind man depends on another's eyes	one-person-acts-through-another
+The Cat o' Nine Tails	a lie about a death provokes a killing	the-killing-is-restaged-as-another-story
+The Cat o' Nine Tails	a man is killed for what he knows	the-only-witness-is-removed
+The Elephant Man	a stranger's presence is taken for a threat	the-newcomer-must-earn-admission
+The Elephant Man	the speechless are explained by those around them	one-person-acts-through-another
+The Elephant Man	a life is owned by the one profiting	a-living-being-is-owned-and-handed-on
+The Elephant Man	a person becomes something strangers come to see	the-survivor-is-made-to-relive-it
+The Elephant Man	the rescuer repeats what he rescued from	the-one-set-to-protect-does-the-harm
+The Iron Giant	the helper is suspected of the harm	the-wrong-person-is-blamed
+The Iron Giant	a stranger's presence is taken for a threat	the-newcomer-must-earn-admission
+The Iron Giant	the feared one dies for those fearing him	one-accepts-ruin-to-save-another
+The Iron Giant	a hidden guest is hunted by the state	shelter-given-at-mortal-risk
+The Iron Giant	one made for harm refuses to do harm	the-order-is-refused
+The Man Who Shot Liberty Valance	two friends want the same person	rivals-for-the-same-person
+The Man Who Shot Liberty Valance	a deed is credited to the wrong person	another-takes-the-credit
+The Man Who Shot Liberty Valance	a truth is suppressed to protect a life	a-lie-told-to-protect-another
+The Man Who Shot Liberty Valance	a man steps aside for his rival	love-renounced-to-spare-the-other
+The Man Who Shot Liberty Valance	a duel is decided by a hidden hand	one-person-acts-through-another
+The Red Shoes	one gives up shelter for a love	NONE
+The Red Shoes	a calling consumes the one it chose	the-work-consumes-the-life
+The Red Shoes	love arrives where it is forbidden	love-across-a-forbidden-line
+The Red Shoes	one demands another give up all other loves	love-offered-only-on-a-condition
+The Red Shoes	a person must choose love or a calling	the-calling-is-chosen-over-the-person
+The Salt of the Earth	a son comes home to his father's failure	the-son-takes-up-the-fathers-work
+The Salt of the Earth	an exile makes a life far from home	the-newcomer-must-earn-admission
+The Salt of the Earth	a partner turns a life onto another course	another-hand-runs-your-life
+The Salt of the Earth	a witness is unmade by what he sees	the-survivor-is-made-to-relive-it
+The White Ribbon	no one is ever named for the harm	the-guilty-are-never-called
+The White Ribbon	someone removes the proof of what was done	the-killing-is-restaged-as-another-story
+The White Ribbon	a witness cannot make anyone believe them	the-one-who-saw-is-not-believed
+The White Ribbon	an adult uses a child in their care	the-one-set-to-protect-does-the-harm
+The White Ribbon	children are punished into silence by their elders	the-witness-will-not-speak
+The White Ribbon	everyone's living depends on one household's favour	a-debt-holds-a-person-in-place
+Trois places pour le 26	lovers discover they are parent and child	lovers-found-to-be-kin
+Trois places pour le 26	an outsider steps into a place suddenly vacant	the-newcomer-takes-the-place-already-held
+Trois places pour le 26	a first love is found again decades later	old-love-reopened-too-late
+Trois places pour le 26	a child grows up not knowing her father	hidden-parentage-revealed
+Women of the Night	a child dies for want of care	the-one-set-to-protect-does-the-harm
+Women of the Night	a man takes the sister of his lover	desire-outside-an-intact-bond
+Women of the Night	one wronged sets out to harm all others	grief-discharged-as-violence-on-the-uninvolved
+Women of the Night	the wronged one confronts the person responsible	an-injury-is-repaid-in-kind-years-later
+Women of the Night	a group turns on one of its own	a-group-turns-on-one-of-its-own
+Women of the Night	the comfortable lecture the desperate about virtue	the-comfortable-look-away
+Women of the Night	one draws the danger onto herself for another	one-dies-in-another-mans-place
+Yeelen	one man hoards what should belong to all	what-one-holds-the-others-need
+Yeelen	a father wants his child dead	a-parent-moves-against-the-child
+Yeelen	a child reconstructs a parent from what remains	the-child-discovers-who-the-parent-really-is
+Yeelen	a guest dishonours the one sheltering him	the-welcomed-guest-ruins-the-house
+Yeelen	a parent cannot bear the child surpassing them	a-parent-moves-against-the-child

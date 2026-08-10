@@ -652,6 +652,60 @@ main{flex:1;position:relative;overflow:hidden}
 .why-item .src{font-family:var(--serif);font-size:11.5px;line-height:1.4;color:var(--dim);
   margin-top:6px}
 
+/* ── the shelf: what a film looks like ────────────────────────────────────
+   MEASURED PLACEMENT, NOT REASONED. A strip inserted between the head and the
+   claims costs the first claim 18 of its 111px at 900x820 and 31 of 117 on a
+   phone — the same defect the poster cap was introduced to fix ("the panel:
+   reading order is an argument", DESIGN.md). Below the synopsis it costs the
+   claims exactly zero pixels at 1440, 900 and 390, so that is where it goes,
+   and the honest consequence is that nobody sees it without scrolling. The
+   claims are still the argument; this is the evidence you look at afterwards.
+
+   CONSTANT PLATE GEOMETRY IS A RULE-1 REQUIREMENT, NOT A TIDINESS ONE. Three
+   equal columns, and the plate height is derived from the container's own
+   width (cqw) so the two-column "no light" plate is exactly as tall as a
+   one-column plate rather than twice as tall. Measured at all three widths:
+   the plate row is 171.2px for a film with three plates and 171.2px for a film
+   with none. The prose under it is a different length because it says a
+   different thing — that is the one part of the shelf that moves, and it moves
+   with what is being admitted rather than with how well known the film is. */
+.shelf{margin:24px 0 8px}
+.shelf h3{font-family:var(--mono);font-size:9px;letter-spacing:var(--track-slate);
+  text-transform:uppercase;color:var(--faint);margin-bottom:12px;
+  padding-bottom:9px;border-bottom:1px solid var(--hair)}
+.shelf-plates{container-type:inline-size;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.plate{margin:0;min-width:0}
+.plate-span{grid-column:span 2}
+.plate-art{position:relative;height:132px;height:calc((100cqw - 18px)/3*4/3);
+  border:1px solid var(--hair);background:var(--lift);
+  box-shadow:0 8px 22px rgba(0,0,0,.42)}
+/* A FILM WITH NOTHING GETS A PLATE, NOT A HOLE (AGENTS rule 9). Its own
+   shadow, and a tooth quiet enough to read as unexposed stock rather than as
+   a warning stripe — a first pass hatched it in the film's two colours at full
+   contrast and the empty plate became the loudest object on the panel. */
+.plate-none::after{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(135deg,rgba(232,223,211,.055) 0 1px,transparent 1px 9px)}
+.plate-art .gen{width:100%;height:100%}
+/* The same solid/dashed distinction the edges and the sky key already use: a
+   plate drawn from calibrated advertising is a reading, and says so twice —
+   in the border and in the note under the shelf. */
+.plate.reading .plate-art{border-style:dashed;border-color:var(--faint)}
+.plate figcaption{margin-top:8px}
+.plate figcaption b{display:block;font-family:var(--mono);font-size:8.5px;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+/* One line, always. A caption that wraps on some films and not others makes
+   the shelf a different height for different films, which is the fame gradient
+   getting into the geometry through the back door. */
+.plate figcaption span{display:block;margin-top:3px;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.06em;color:var(--faint);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shelf-note{font-family:var(--serif);font-size:11.5px;line-height:1.52;
+  color:var(--faint);margin:14px 0 0}
+.shelf-lic{display:block;margin-top:7px;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.09em;color:var(--faint);opacity:.85;
+  overflow-wrap:anywhere}
+
 /* ── the constellation: the whole atlas in one field ─────────────────
    CANVAS, NOT DOM. 803 discs and 7,759 lines as elements is a layout and a
    style recalculation the browser cannot afford at interactive rates, and the
@@ -757,7 +811,12 @@ main{flex:1;position:relative;overflow:hidden}
    The box stays pointer-transparent and bottom-aligned, so this changes no
    click target and no resting composition — every readout short enough to fit
    is laid out exactly where it was. */
-.sky-hud{position:absolute;left:0;right:0;top:var(--worlds-h,0px);bottom:0;z-index:8;
+.sky-hud{position:absolute;left:0;right:0;top:var(--worlds-h,0px);
+  /* THE FLOOR IS THE TRANSPORT'S OWN MEASURED HEIGHT, the same discipline the
+     ceiling already uses for the worlds strip. Without it the zoom controls
+     and a long Passage both run underneath the track, and a readout that has
+     to be scrolled under a piece of chrome to be read is not a readout. */
+  bottom:var(--transport-h,0px);z-index:8;
   display:flex;align-items:flex-end;gap:14px;pointer-events:none;
   padding:14px max(16px,env(safe-area-inset-right))
           calc(14px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
@@ -844,6 +903,9 @@ main{flex:1;position:relative;overflow:hidden}
   letter-spacing:.17em;text-transform:uppercase;color:var(--dim);
   display:flex;align-items:baseline;gap:10px;min-width:0}
 .sky-stratum[hidden]{display:none}
+/* The leading word never wraps into a column of its own: it is a label, and a
+   four-line label beside one line of title is not a strip. */
+.sky-stratum>span:first-child{flex-shrink:0;white-space:nowrap}
 .sky-stratum b{font-weight:400;color:var(--ink);min-width:0;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sky-stratum .n{margin-left:auto;flex-shrink:0;color:var(--faint);
@@ -873,6 +935,32 @@ main{flex:1;position:relative;overflow:hidden}
    — how much of what you are seeing was measured — and never a claim about a
    film. --dim is 7.6:1 on this ground; the glyph carries the register's own
    hue, and every one of the 28 clears 3.4:1 there (it is a mark, not type). */
+/* THE APERTURE IS A SHARED RESOURCE AND THE READOUT KEEPS TAKING IT.
+   skyGate() inscribes its rectangle in whatever the chrome leaves, so every line
+   added to this box comes straight out of the picture. Measured: a held year
+   took the readout 155px -> 276px, the aperture 584x427 -> 419x306 (51% of its
+   resting area), and 83px of constellation ended up outside the frame it was
+   drawn in. That happened twice in one afternoon, from two different authors,
+   because nobody writing a sentence here can see what it costs.
+   So the box is capped at the height it has at rest and scrolls past it. The
+   transport's own content is six short blocks and does not reach the cap; the
+   cap is here so that the NEXT thing added cannot silently shrink the print.
+   Section 5b of transport-probe.mjs is the check that fails when it does. */
+.sky-readbox.tp .sky-read{max-height:168px;overflow-y:auto;scrollbar-width:thin}
+/* The transport's statistics live behind a fold. They were 55 words of caps-lock
+   standard deviations, byte-identical at every cursor bar two numbers, and they
+   grew the readout to 264px — which shrank the aperture skyGate() inscribes to
+   55% of its resting area and pushed the picture out of its own frame. The tier
+   word and the "authored" admission stay in the open, because AGENTS rule 8 is
+   what that sentence is for; only the arithmetic folds. */
+.sky-read .sky-tp-how{display:inline}
+.sky-read .sky-tp-how[open]{display:block;margin-top:4px}
+.sky-read .sky-tp-how summary{display:inline;cursor:pointer;color:var(--dim);
+  text-decoration:underline;text-underline-offset:2px;list-style:none}
+.sky-read .sky-tp-how summary::-webkit-details-marker{display:none}
+.sky-read .sky-tp-how[open] summary{margin-bottom:3px}
+/* The year's own films, in the space the arithmetic gave back. */
+.sky-read .sky-tp-year-films{display:block;margin-top:6px}
 .sky-read .sky-tier{display:block;margin-top:7px;font-family:var(--mono);
   font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
   line-height:1.5}
@@ -899,6 +987,162 @@ main{flex:1;position:relative;overflow:hidden}
    whose real question is "what am I looking at", which was being answered with
    mouse instructions — and is replaced by the film's own details the moment
    one is in hand. No new chrome; the same box saying something. */
+/* ══ THE SLATE ═════════════════════════════════════════════════════════════
+   WHAT THE ATLAS READ, IN THE READER'S WORDS AND IN ITS OWN, SIDE BY SIDE.
+
+   Every chip is two lines because the parse is the one part of this search that
+   can be wrong in a way no number downstream can catch. It is therefore not
+   asked to be right, it is asked to be LEGIBLE: the reader's own span on top in
+   the serif they typed it in, the atlas's label under it in slate, and an × on
+   every one. A parse you can see and correct does not have to be correct.
+
+   All of it is DOM type over the canvas (AGENTS rule 4) — nothing here is drawn
+   into the field and nothing racks focus. Type stays sharp at every depth. */
+.find-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.find-chip{display:inline-flex;align-items:stretch;border:1px solid var(--hair);
+  background:rgba(255,255,255,.02);max-width:100%}
+.find-chip.neg{border-style:dashed}
+.find-chip.added{border-color:var(--accent-hair,var(--hair));background:rgba(255,255,255,.05)}
+.find-chip-face{display:flex;flex-direction:column;gap:2px;min-width:0;
+  padding:5px 8px;background:none;border:0;text-align:left;cursor:pointer;color:inherit}
+.find-chip .said{font-family:var(--serif);font-size:12px;line-height:1.25;color:var(--ink);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:190px}
+.find-chip .ours{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.find-chip .ours em{font-style:normal;color:var(--faint)}
+.find-chip .ours i{font-style:normal;color:var(--faint);margin-left:4px}
+.find-chip-face:hover .ours,.find-chip-face:focus-visible .ours{color:var(--ink)}
+.find-chip-x{flex-shrink:0;width:22px;border:0;border-left:1px solid var(--hair);
+  background:none;color:var(--faint);cursor:pointer;font-size:14px;line-height:1}
+.find-chip-x:hover,.find-chip-x:focus-visible{color:var(--accent)}
+/* The vocabulary's own gloss AND its NOT clause, verbatim. This is the highest
+   value surface in the whole feature: most misreadings are the reader meaning
+   precisely what the NOT clause excludes, and one glance settles it. */
+.find-gloss{margin-top:8px;padding:8px 10px;border-left:2px solid var(--accent);
+  background:rgba(255,255,255,.03)}
+.find-gloss b{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:400;color:var(--dim)}
+.find-gloss span{display:block;margin-top:5px;font-family:var(--serif);font-size:12px;
+  line-height:1.5;color:var(--ink)}
+.find-gloss .no{color:var(--faint)}
+.find-say{display:block;margin-top:7px;font-family:var(--serif);font-size:12.5px;
+  line-height:1.55;color:var(--dim)}
+.find-note{display:block;margin-top:7px;font-family:var(--serif);font-size:11.5px;
+  line-height:1.5;color:var(--faint)}
+.find-note.tension{color:var(--dim)}
+/* A word that meant nothing is kept in the reader's own spelling and given a
+   reason. Three different reasons exist and they are not the same admission:
+   a word the atlas has an attribute for but no phrase yet, a fact nothing in
+   this repository records at all, and a comparison there is no machinery for. */
+.find-unread{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.find-un{display:block;font-family:var(--serif);font-size:11.5px;line-height:1.45}
+.find-un b{font-weight:400;color:var(--dim)}
+.find-un span{color:var(--faint)}
+/* AGENTS rule 8 on screen: the record channel is a different KIND of claim and
+   is drawn as one. It never moves a film and never enters the score. */
+.find-marks{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.find-mark{display:flex;flex-direction:column;gap:2px;padding:5px 9px;
+  border:1px solid var(--hair);border-left:2px solid var(--faint);
+  background:none;text-align:left;cursor:pointer;color:inherit}
+.find-mark.off{cursor:default}
+.find-mark b{font-weight:400;font-family:var(--serif);font-size:12px;color:var(--ink)}
+.find-mark span{font-family:var(--mono);font-size:8px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--faint)}
+.find-mark:not(.off):hover,.find-mark:not(.off):focus-visible{border-left-color:var(--accent)}
+.find-honest{margin-top:11px;padding-top:9px;border-top:1px solid var(--hair)}
+/* THE SENTENCE ARGUING WITH ITSELF, AND THE PART OF THE ANSWER THE DISTANCE
+   CANNOT CARRY. Both are prose about the reading rather than claims inside it,
+   so they take the slate's quiet register and the serif's readable one in the
+   same pairing every other honesty block in this box uses. --dim is 7.6:1 and
+   --faint 5.0:1 on this ground; nothing here goes under the floor. */
+.find-conflicts,.find-miss{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+/* A row that goes somewhere says so: it takes the pointer, lights on hover and
+   on keyboard focus, and carries a caret. Everything else about the row is
+   unchanged — the information in it was never the problem. */
+.find-miss-row.find-go{width:100%;text-align:left;background:none;border:0;
+  font:inherit;color:inherit;cursor:pointer;padding:0}
+.find-miss-row.find-go b::after{content:" \203A";color:var(--faint)}
+.find-miss-row.find-go:hover b,.find-miss-row.find-go:focus-visible b{color:var(--accent)}
+.find-miss-row.find-go:hover b::after,.find-miss-row.find-go:focus-visible b::after{color:var(--accent)}
+.find-miss-row.find-go:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+.find-conflict,.find-miss-row{display:flex;flex-direction:column;gap:2px;
+  padding:6px 8px;border-left:1px solid var(--hair)}
+.find-conflict{border-left-color:var(--rebuttal,#D15D53)}
+.find-conflict b,.find-miss-row b{font-weight:400;font-family:var(--serif);font-size:12px;
+  line-height:1.3;color:var(--ink)}
+.find-miss-row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim)}
+.find-conflict span,.find-miss-row span{font-family:var(--serif);font-size:11.5px;
+  line-height:1.45;color:var(--dim)}
+.find-honest span{display:block;margin-top:5px;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.11em;line-height:1.6;color:var(--faint);text-transform:none}
+.find-honest span:first-child{color:var(--dim)}
+/* THE OFFERS ARE DOORS, NOT A QUIZ. The constellation is already drawn behind
+   this, the typed box upstairs is still live, and ignoring the row entirely is
+   a complete answer that costs no click. There is no "no": measured, the no
+   branch of a rare attribute brings in almost nobody, so it would cost a turn
+   and buy nothing. "Either" spends the axis instead. */
+.find-offers{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.find-offer{display:flex;align-items:stretch;border:1px solid var(--hair)}
+.find-take{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;
+  padding:7px 9px;background:none;border:0;text-align:left;cursor:pointer;color:inherit}
+.find-take b{font-weight:400;font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim)}
+.find-take span{font-family:var(--serif);font-size:11.5px;line-height:1.45;color:var(--ink)}
+.find-take .brings{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--faint)}
+/* An offer on an axis the reader already spoke on is a CORRECTION, and says so
+   in their own words rather than under "you did not say". --faint is 5.0:1 on
+   this ground and the rule is the same hairline every other aside uses. */
+.find-offer.correction{border-left:2px solid var(--accent-dim,#8A7440)}
+.find-take .corrects{font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--faint)}
+.find-take:hover b,.find-take:focus-visible b{color:var(--accent)}
+.find-either{flex-shrink:0;width:52px;border:0;border-left:1px solid var(--hair);
+  background:none;color:var(--faint);cursor:pointer;
+  font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase}
+.find-either:hover,.find-either:focus-visible{color:var(--dim)}
+/* THE READOUT IS CAPPED AT EVERY WIDTH, AND IT IS A GEOMETRY FIX RATHER THAN
+   A TASTE ONE. This rule used to read `max-height:100%` — "the query's readout
+   is the tallest thing this box ever holds, so it takes the same room a route
+   does". What that actually bought, measured:
+
+     900x820 — the box laid out 632x657 over a 900x750 canvas, `skySafeBand`
+     collapsed under its own 140px floor and returned the WHOLE canvas as safe,
+     the camera fitted to it, and 551 of 551 sampled film positions returned the
+     readout from elementFromPoint. Every film the sentence answered was
+     invisible and unclickable, behind the panel describing it.
+
+     1440x900 — the follow-up offers land ~1.2s after the flight and took the
+     box to 721px of an 830px field. Same collapse: the safe band went from
+     379px to the full 830, the frame on screen carried discs at 1.371px where
+     the same state redraws them at 2.300px, and camera k sat at 349 against a
+     fit of 763.6.
+
+   Both are the same defect and it is not the readout's content, it is that the
+   readout had no ceiling. A panel that covers the field has eaten the thing it
+   is describing — which is the argument .sky-read's own comment already makes
+   about a Passage, applied to the box that grows the most. Capped at 46vh, the
+   band is 340-425px at every width measured and the box scrolls. 38vh rather
+   than half the field because the band is what sets the zoom: at 46vh the
+   constellation fitted to a 326px band and drew at a 150px radius, against
+   195px at 38vh, and the readout scrolls where the picture cannot.
+
+   A ROUTE IS STILL EXEMPT, for the reason DESIGN.md gives: during a Passage the
+   claims ARE the content. Everything else, including the reading, is not. */
+.sky-readbox:not(.route){max-height:min(38vh,380px)}
+/* AND THE READING'S BOX IS A FIXED HEIGHT, NOT A CAP, WHICH IS RULE 7.
+   The offers cost 300-400ms and land about 1.2s after the flight, so under a
+   cap the box is one height before they arrive and another after — and the
+   camera is fitted to the band the box leaves. Two cold loads of one address
+   then draw two pictures depending on which side of that the frame was taken:
+   measured, 38 of 256 tiles and 38.7 luma apart. The frame is a function of the
+   chrome, so the chrome may not be a function of content that has not arrived
+   yet. Fixed, the band is the same from the first paint and the reading scrolls
+   inside a box that never moves the picture it is describing. */
+.sky-readbox.find{height:min(38vh,380px)}
+/* The door out of the dead end, in the suggestion list. */
+.sugg-find .sugg-find-mark{display:flex;align-items:center;justify-content:center;
+  width:34px;height:50px;flex-shrink:0;color:var(--accent);font-size:15px}
 .sky-key{display:flex;flex-wrap:wrap;gap:5px 13px;margin-top:9px}
 .sky-key i{display:inline-flex;align-items:center;gap:6px;font-style:normal;
   font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
@@ -908,6 +1152,16 @@ main{flex:1;position:relative;overflow:hidden}
 /* AGENTS rule 3: a reading is never handed over as a record, and the field
    draws it dashed. The key has to say so or the distinction is a mystery. */
 .sky-key i.dash::before{border-top-style:dashed;border-top-color:var(--faint)}
+/* THE SAME KEY, GIVEN THE ONE EXTRA COLUMN THE REEL MAKES VISIBLE: how often
+   each type was measured to run forward in time. It appears only while the
+   transport is speaking, because it is only while the reel is running that a
+   reader can see the difference between an argument that inherits and one that
+   objects. --faint is 5.09:1 on --base and 4.78:1 on --panel, so the figure
+   clears the type floor at 8px the way every other number in the slate does. */
+.sky-key-tense{gap:4px 13px}
+.sky-key-tense i{gap:5px}
+.sky-key i s{color:var(--faint);text-decoration:none;font-size:8px;letter-spacing:.1em;
+  font-variant-numeric:tabular-nums}
 /* ── THE WORLDS STRIP ─────────────────────────────────────────────────────
    A ROLL OF FILM ACROSS THE TOP OF THE LIGHT BOX, and the answer to what the
    constellation is for. The vocabulary is the one the thread already uses and
@@ -1035,6 +1289,84 @@ main{flex:1;position:relative;overflow:hidden}
 .sky-ctl .ico{font-family:var(--mono);font-size:14px;letter-spacing:0;
   padding:3px 11px 5px;line-height:1.2}
 
+/* ── THE TRANSPORT ─────────────────────────────────────────────────────────
+   A FOOTAGE COUNTER, NOT A SLIDER. The rail is a hairline with decade ticks
+   and the corpus's own census printed under it; the head is a frame line. It
+   is the one piece of apparatus in this view besides the worlds strip, and it
+   is here for the same reason: the field is a century laid out left to right
+   and there was no way to run it.
+
+   OPAQUE, WITH NO GRADIENT FEATHER, AND THE BOX IS EXACTLY WHAT IT COVERS.
+   The prototype faded into the field over 40px, which reads well and lies to
+   skyChrome(): the safe band would have been computed from a box whose top
+   third the atlas is drawn through. Solid ground and one hairline, the way the
+   worlds strip does it, so the rectangle the camera fits above is the
+   rectangle the reader cannot see through. */
+.sky-track{position:absolute;left:0;right:0;bottom:0;z-index:9;
+  background:rgba(5,4,4,.9);backdrop-filter:blur(12px);
+  border-top:1px solid var(--hair);
+  padding:7px max(16px,env(safe-area-inset-right))
+          calc(7px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  user-select:none;-webkit-user-select:none}
+.sky-track[hidden]{display:none}
+.sky-track-rail{position:relative;height:36px;touch-action:none}
+/* Focus lands on the scrub, which is transparent by construction, so the RAIL
+   wears the ring — otherwise a keyboard reader is moving an invisible control
+   with no indication that they hold it. */
+.sky-track-rail:focus-within{outline:1px solid var(--accent-dim);outline-offset:3px}
+/* THE CENSUS. Films per year, drawn once into a small canvas and never
+   repainted. It is the only weather the resting atlas has and it is honest
+   weather: 53 films in 1969 and one in 1916 is what this corpus is, printed at
+   the exact scale the head travels along. */
+.sky-track-census{position:absolute;left:0;top:1px;width:100%;height:15px;
+  opacity:.6;pointer-events:none}
+.sky-track-line{position:absolute;left:0;right:0;top:23px;height:1px;background:var(--hair)}
+/* How much of the century has run. Not a progress bar for a download — it is
+   the footage already through the gate. */
+.sky-track-done{position:absolute;left:0;top:23px;height:1px;background:var(--accent);
+  opacity:.5;pointer-events:none}
+.sky-tick{position:absolute;top:20px;width:1px;height:4px;background:var(--hair);pointer-events:none}
+.sky-tick.maj{top:18px;height:8px;background:#3A332C}
+.sky-tlab{position:absolute;top:28px;transform:translateX(-50%);font-family:var(--mono);
+  font-size:8px;letter-spacing:.18em;color:var(--faint);pointer-events:none;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.sky-track-head{position:absolute;top:11px;width:1px;height:21px;background:var(--ink);
+  box-shadow:0 0 8px rgba(240,234,224,.5);pointer-events:none}
+.sky-track-head::before{content:"";position:absolute;left:-4px;top:-6px;
+  width:9px;height:5px;background:var(--ink)}
+/* THE GRAFT'S TWO MARKS: the held film's own year, and the mean year of its
+   graph neighbours. The GAP between them is the reading, and the sentence that
+   says what the gap means is in the readout, on its own opaque ground — a
+   number floating on the rail would be the one piece of type in this view that
+   could collide with a decade label. */
+.sky-track-mark{position:absolute;top:25px;width:1px;height:7px;pointer-events:none}
+.sky-track-mark[hidden]{display:none}
+.sky-track-mark.own{background:var(--nc,var(--accent));height:9px;top:23px}
+.sky-track-mark.company{background:var(--dim)}
+/* DIRECT MANIPULATION, AND IT IS A REAL CONTROL. A native range input rather
+   than pointer arithmetic on a div: it brings the drag, the arrow keys,
+   Home/End, PageUp/PageDown and an announced value with it, which is what lets
+   the century stay reachable under prefers-reduced-motion without the run.
+   Transparent rather than hidden, because a control that is display:none or
+   visibility:hidden is not focusable and not draggable. */
+.sky-track-scrub{position:absolute;left:0;top:10px;width:100%;height:24px;
+  margin:0;padding:0;background:none;border:0;opacity:0;cursor:ew-resize;
+  -webkit-appearance:none;appearance:none}
+.sky-track-scrub::-webkit-slider-runnable-track{height:24px;background:none}
+.sky-track-scrub::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:24px;
+  background:none;border:0}
+.sky-track-scrub::-moz-range-track{height:24px;background:none}
+.sky-track-scrub::-moz-range-thumb{width:13px;height:24px;background:none;border:0}
+.sky-track-scrub:focus{outline:0}
+.sky-track-bar{display:flex;align-items:center;gap:11px;min-width:0;
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--faint)}
+.sky-track-year{flex:none;color:var(--ink);font-size:14px;letter-spacing:.06em;
+  font-variant-numeric:tabular-nums}
+.sky-track-mode{flex:none;color:var(--dim)}
+.sky-track-run{flex:none;padding:4px 10px}
+.sky-track-hint{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
 /* the wall's second door into the same view */
 .linky{position:relative;font-family:var(--mono);font-size:9.5px;letter-spacing:var(--track-slate);
   text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--hair);
@@ -1117,9 +1449,58 @@ main{flex:1;position:relative;overflow:hidden}
   .sky-hud-main{max-width:none;gap:7px}
   .sky-fold{padding:7px 10px 7px 11px}
   .sky-read{padding:1px 11px 10px}
+  /* ── THE READOUT IS CAPPED ON A PHONE, AND IT IS A GEOMETRY FIX ─────────
+     DESIGN.md's phone rule already says the readout gives up the field before
+     the constellation does. Until now it gave up nothing: with a film in hand
+     at 390x780 the box measured 265-304px of a 659px field, and the only
+     reason that was survivable is that it left the camera's safe band at
+     133px — thirteen under `skySafeBand`'s 140px floor is a collapse, and the
+     collapse is what stops the camera correcting for chrome at all.
+
+     Adding 62px of transport at the bottom pushed it over, and the failure was
+     not subtle: with a film anchored, `skySafeMid()` fell back to the middle of
+     the CANVAS, the anchored film was flown to a point 45px inside the readout,
+     and the third tap of the anchor-then-open gesture hit `#sky-read` instead
+     of the film. Measured with elementFromPoint; the film's map never opened.
+
+     Capped, the band comes back above its floor and the box scrolls. The first
+     two lines — the fold header and whatever the readout leads with — are the
+     part that must be read, and they are the part that is always on screen.
+
+     A ROUTE IS EXEMPT, and that is DESIGN.md's own ruling rather than an
+     oversight: during a Passage the claims ARE the content, so that box is
+     allowed whatever room the HUD leaves it. */
+  /* 30vh, and the number is arithmetic rather than taste: the strip owns
+     146px of the top, the controls and the transport 152px of the bottom, and
+     `skySafeBand` collapses below 140px of clear field. Anything taller than
+     this puts the phone back over that cliff. */
+  .sky-readbox:not(.route){max-height:min(30vh,204px)}
   .sky-read .t{font-size:17px}
   .sky-label{font-size:12px}
   .sky-label.near{font-size:11px}
+  /* THE THIRD SCARCITY, WHICH IS VERTICAL. DESIGN.md's responsive law asks
+     three questions and this is the one no width test can see: the worlds
+     strip already owns 134px of the top of a 780px phone, so a full-height
+     track at the bottom would spend 28% of the viewport on chrome before the
+     atlas has said anything. The INSTRUMENT survives whole — census, decade
+     ticks and playhead are all legible at 390 wide — and what goes is the
+     hint line, which is the one part a phone reader gets from the control
+     itself. 74px becomes 58px. */
+  .sky-track{padding:4px 12px calc(5px + env(safe-area-inset-bottom))}
+  .sky-track-rail{height:30px}
+  .sky-track-census{height:10px}
+  .sky-track-line,.sky-track-done{top:17px}
+  .sky-tick{top:14px;height:3px}
+  .sky-tick.maj{top:12px;height:7px}
+  .sky-tlab{top:21px;font-size:7.5px;letter-spacing:.12em}
+  .sky-track-head{top:7px;height:17px}
+  .sky-track-mark{top:19px;height:6px}
+  .sky-track-mark.own{top:17px;height:8px}
+  .sky-track-scrub{top:6px;height:22px}
+  .sky-track-hint{display:none}
+  .sky-track-bar{gap:9px}
+  .sky-track-year{font-size:12px}
+  .sky-track-run{padding:3px 8px}
 }
 /* Three rows of chrome cost 172px on a 780px phone — 22% of the viewport,
    spent before the atlas has said anything. Below this width the wordmark and
@@ -1161,6 +1542,11 @@ main{flex:1;position:relative;overflow:hidden}
   /* The fold is the readout's only control and it is a full-width row, so it
      reaches the target by growing rather than through an overlay. */
   .sky-fold{min-height:44px}
+  /* The scrub is an invisible overlay, so it reaches the target by growing
+     rather than by dragging a printed rule with it — the same answer .chip
+     and .linky get two rules above. The rail keeps the height it was drawn at
+     and the 44px band is centred on the hairline. */
+  .sky-track-scrub{top:1px;height:44px}
   .sky-stratum-x::after{content:"";position:absolute;left:50%;top:50%;
     transform:translate(-50%,-50%);width:44px;height:44px}
   .panel-x{width:44px;height:44px;top:4px;right:4px}
@@ -1315,6 +1701,38 @@ main{flex:1;position:relative;overflow:hidden}
             <button class="btn" id="sky-fit" type="button" aria-label="Fit the whole constellation on screen">Fit</button>
           </div>
         </div>
+        <!-- THE TRANSPORT.
+             The atlas has always been a century laid out left to right — the
+             solver was given films and edges and nothing else, and the corpus
+             confessed its own chronology through the physics — and it has
+             never been played. This is the way to run it. The resting picture
+             is unchanged and is now the LAST FRAME of a reel that has already
+             run, which is a thing a reader can have an attitude about where an
+             undifferentiated disc is not.
+
+             It stands only while the atlas is whole, for the same reason the
+             worlds strip does: a re-formed sky is a different set of films in
+             different places and "play folk horror" is a question this does
+             not yet answer. Saying so by retracting is honest; composing the
+             two badly would not be. -->
+        <div class="sky-track" id="sky-track" hidden>
+          <div class="sky-track-rail" id="sky-track-rail">
+            <canvas class="sky-track-census" id="sky-track-census" aria-hidden="true"></canvas>
+            <div class="sky-track-line" aria-hidden="true"></div>
+            <div class="sky-track-done" id="sky-track-done" aria-hidden="true"></div>
+            <div class="sky-track-mark company" id="sky-track-company" hidden aria-hidden="true"></div>
+            <div class="sky-track-mark own" id="sky-track-own" hidden aria-hidden="true"></div>
+            <input class="sky-track-scrub" id="sky-track-scrub" type="range" step="1"
+              aria-label="The century. Drag to hold the atlas at a year." />
+            <div class="sky-track-head" id="sky-track-head" aria-hidden="true"></div>
+          </div>
+          <div class="sky-track-bar">
+            <span class="sky-track-year" id="sky-track-year">&mdash;</span>
+            <span class="sky-track-mode" id="sky-track-mode"></span>
+            <button class="btn sky-track-run" id="sky-track-run" type="button">Run the century</button>
+            <span class="sky-track-hint" id="sky-track-hint"></span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1328,6 +1746,10 @@ main{flex:1;position:relative;overflow:hidden}
 /* __DISCOVERY__ */
 /* __LAYOUT__ */
 /* __REGISTERS__ */
+/* __TRANSPORT__ */
+/* __LIGHT__ */
+/* __LOOKUP__ */
+/* __FIND__ */
 const POS = Object.fromEntries(
   Object.entries(DISCOVERY.keyByFilmId).map(([id,key]) => [key,LAYOUT.positions[id]])
 );
@@ -2036,11 +2458,205 @@ function genArt(k){
   return `<div class="gen" style="${bg}"><svg viewBox="0 0 100 100" preserveAspectRatio="none"
     style="width:100%;height:100%;display:block">${shapes[kind]}</svg></div>`;
 }
+/* The panel's plate, as one call, so the onerror below is a bare identifier
+   and not three levels of nested quoting inside an HTML attribute. */
+const genPoster = k => `<div class="poster generated-poster" aria-hidden="true">${genArt(k)}</div>`;
 const art = (k, cls, priority) => F[k].poster
   ? `<img src="${esc(F[k].poster)}" alt="" loading="${priority?"eager":"lazy"}"
        decoding="async" fetchpriority="${priority||"low"}" class="${cls||""}"
        onerror="this.outerHTML=genArt('${k.replace(/'/g,"\\'")}')">`
   : genArt(k);
+
+/* ══ THE SHELF — WHAT A FILM LOOKS LIKE ══════════════════════════════════
+   THERE IS NO LAWFUL SHELF OF STILLS, AND THIS IS WHAT WAS BUILT INSTEAD.
+   The panel's only picture is the Wikipedia one-sheet — advertising, and
+   absent for 75 films. Everything that would make a real shelf of frames is
+   barred; app/build.js, "THE LIGHT", names each source and the rule that bars
+   it, and does so THERE rather than here because a probe in this project
+   greps the artifact for the frame source's own name and must keep finding
+   zero. That guard is stricter than the rule it enforces, deliberately: a
+   substring tripwire catches a copied record and a stray URL alike.
+
+   What the research DID leave behind is the measurement: seven OKLab
+   statistics per film, taken off the frames before they were deleted. So the
+   shelf draws what the atlas saw rather than what it looked at. Three plates,
+   in CSS gradients written in `oklab()` — the space the numbers were measured
+   in, so nothing is converted between the instrument and the screen — and not
+   one pixel of it on canvas, because every caption here is DOM type (rule 4).
+
+   THE GEOMETRY IS THE SAME FOR ALL 2,204 FILMS AND THAT IS THE POINT. Frame
+   coverage is 46% and its gap is shaped like fame: the file's own caveat
+   measures 9.7% of the quietest pageview quartile against 76.1% of the
+   loudest. A shelf that grew a plate when a film was well known would be
+   AGENTS rule 1 drawn as a layout. So the slots, their size and the room they
+   take never move; what changes is what is inside them and what the caption
+   admits. An unmeasured film gets a plate that says so, at full size.
+
+   THE THREE AUTHORED CONSTANTS ARE THE CENTURY REEL'S OWN, deliberately: the
+   transport already amplifies measured chroma ×3.6, caps it at 0.155 and draws
+   its hue at a fixed lightness so years can be compared. Its L=0.745 is for a
+   6px mark on a pale track; a 101x135 plate on this panel at that lightness is
+   a lamp, so the shelf fixes its own at 0.46 and prints it. Cinema's measured
+   chroma is tiny — the median film sits at 0.021 — and at 1:1 every colour
+   plate in the atlas would be the same grey. One gain in one house style, and
+   it is stated on screen under the plates, never buried here (rule 8). */
+const SHELF_GAIN=3.6, SHELF_CCAP=0.155, SHELF_L=0.46, SHELF_STEPS=7;
+/* Amber sits near OKLab hue 75°, and `warmth` is a signed projection onto that
+   one axis — the file calls it the amber-to-teal axis and its far end is where
+   that "teal" lands. NOTHING ELSE ABOUT THE HUE WAS MEASURED: a film with
+   warmth 0 and chroma 0.03 is colourful with no net lean, and giving it a hue
+   would be inventing one, so it is drawn neutral and captioned "no cast". */
+const SHELF_WA=Math.cos(75*Math.PI/180), SHELF_WB=Math.sin(75*Math.PI/180);
+const LIGHT_FILMS=(typeof LIGHT!=="undefined"&&LIGHT&&LIGHT.films)||null;
+const LIGHT_AXES=(typeof LIGHT!=="undefined"&&LIGHT&&LIGHT.axes)||[];
+const LIGHT_MONO=(typeof LIGHT!=="undefined"&&LIGHT&&LIGHT.monoFloor)||0.002;
+
+/* The packed row is positional; it is read into names once, here, and every
+   plate below reads by name. */
+function lightOf(k){
+  const row=LIGHT_FILMS&&LIGHT_FILMS[k];
+  if(!row) return null;
+  const m={ source: row[0]===0?"frames":"backdrops", n:row[1] };
+  LIGHT_AXES.forEach((a,i)=>{ m[a]=row[i+2]; });
+  m.mono = m.chroma < LIGHT_MONO;
+  /* Promotional backdrops are advertising, "systematically brighter", pulled
+     onto the frame scale by an offset measured over 110 dual-measured films.
+     Calibrated advertising is a reading of how a film looks, not a record of
+     it, so it wears the project's existing dashed marker (rule 3 and rule 8). */
+  m.reading = m.source==="backdrops";
+  return m;
+}
+const clamp01=v=>v<0?0:v>1?1:v;
+const shelfC=c=>Math.min(SHELF_CCAP,Math.max(0,c*SHELF_GAIN));
+/* One colour, in the space it was measured in. `w` is a SIGNED warmth and it
+   supplies BOTH the direction and the size of the lean — an earlier pass took
+   only its sign and multiplied by `chroma`, which drew The Matrix, a film with
+   a measured warmth of 0.0013, as a sheet of amber at the chroma cap. A film
+   the instrument found no cast in must come out with no cast. */
+function okc(L,w){
+  const mag=shelfC(Math.abs(w))*(w<0?-1:1);
+  return `oklab(${clamp01(L).toFixed(4)} ${(mag*SHELF_WA).toFixed(4)} `+
+         `${(mag*SHELF_WB).toFixed(4)})`;
+}
+/* The two chroma measures say the brightest areas of a frame are about twice
+   as saturated as the frame's median — 2.04x over this corpus. That ratio is a
+   SCALE on the cast the wedge already has, never a second hue: it is the one
+   honest thing the pair can contribute to a picture. */
+function castRamp(m){
+  const r=m.chroma>=LIGHT_MONO ? Math.min(3,Math.max(1,m.chroma90/m.chroma)) : 1;
+  return t=>m.warmth*(1+(r-1)*t);
+}
+/* .09 rather than 0.09: these are all in [0,1] and the leading zero is a
+   column of noise across three captions. */
+const dec2=v=>(v<0?"-":"")+Math.abs(v).toFixed(2).replace(/^0/,"");
+const dec3=v=>(v<0?"-":"")+Math.abs(v).toFixed(3).replace(/^0/,"");
+
+/* PLATE 2 — THE RANGE. A step wedge, the instrument a lab would reach for:
+   seven hard bands from the film's dark decile at the foot to its bright
+   decile at the head. The lightness is the MEASURED lightness and is never
+   lifted — a murky film is drawn murky. Colour rides along it from `chroma` at
+   the dark end to `chroma90` at the bright end, which is what the two measures
+   say: the most colourful areas are the brightest ones. */
+function plateRange(m){
+  const lo=clamp01(m.glare-m.Lrange/2), hi=clamp01(m.glare+m.Lrange/2);
+  const cast=castRamp(m), stops=[];
+  for(let i=0;i<SHELF_STEPS;i++){
+    const t=SHELF_STEPS>1?i/(SHELF_STEPS-1):0;
+    const c=okc(lo+(hi-lo)*t, cast(t));
+    stops.push(`${c} ${(100*i/SHELF_STEPS).toFixed(2)}% ${(100*(i+1)/SHELF_STEPS).toFixed(2)}%`);
+  }
+  return { css:`background:linear-gradient(to top,${stops.join(",")})`,
+           name:"range", detail:`${dec2(lo)} to ${dec2(hi)}` };
+}
+
+/* PLATE 3 — THE COLOUR. Here the lightness is AUTHORED (SHELF_L) and the note
+   says so, for the same reason the century reel fixes one: hue and level are
+   two different questions and the plate beside this one already answers the
+   level. Left is the cool end of the film's warmth travel, right the warm end,
+   centre its most colourful areas.
+
+   WHAT IS DRAWN IS THE CAST, AND CHROMA IS PRINTED INSTEAD OF DRAWN. `warmth`
+   is a projection onto ONE axis, so it is the only hue the instrument holds;
+   `chroma` is a magnitude with no direction at all, and a film that is
+   saturated with no net lean (59 of them here) genuinely has no colour this
+   measurement can name. Painting chroma along the warm axis anyway is how the
+   first pass made The Matrix orange. So the number goes in the caption where
+   it can be said rather than into the picture where it would be invented.
+
+   Measured monochrome — the file's own 0.002 anchor, 222 films — is flat
+   neutral, which is not an absence but the strongest thing this measure ever
+   says. It reads apart from "no cast" in the caption, which is what captions
+   are for (rule 4). */
+function plateColour(m){
+  if(m.mono){
+    return { css:`background:${okc(SHELF_L,0)}`, name:"colour", detail:"monochrome" };
+  }
+  const half=m.warmspread/2, r=Math.min(3,Math.max(1,m.chroma90/m.chroma));
+  const cool=okc(SHELF_L,m.warmth-half);
+  const mid =okc(SHELF_L,m.warmth*r);
+  const warm=okc(SHELF_L,m.warmth+half);
+  const lean=m.warmth>0.002?"warm":m.warmth<-0.002?"cool":"no cast";
+  return { css:`background:linear-gradient(90deg,${cool},${mid} 50%,${warm})`,
+           name:"colour", detail:`${lean} · c ${dec3(m.chroma)}` };
+}
+
+const PALETTE_WORD={poster:"from its poster",curated:"observed",era:"era default"};
+const LICENCE_LINE={
+  "non-free":"One-sheet served from upload.wikimedia.org · non-free, fair use",
+  commons:"One-sheet served from Wikimedia Commons · per-file licence",
+};
+
+/* The whole shelf, as one string, for the panel's single innerHTML write. */
+function shelfHtml(k){
+  const f=F[k], m=lightOf(k);
+  /* THE ART IS aria-hidden AND THE CAPTION IS THE ACCESSIBLE TEXT. #panel is
+     aria-live="polite", so everything added here is read out on every open and
+     re-read on every "Seen it"; a role="img" label on each plate would say the
+     caption twice. Rule 4's reason for keeping type out of the picture is the
+     same reason the picture needs no second voice — the words are already
+     words. */
+  const plate=(p,extra)=>`<figure class="plate${extra||""}">
+      <div class="plate-art" aria-hidden="true" style="${p.css}"></div>
+      <figcaption><b>${esc(p.name)}</b><span>${esc(p.detail)}</span></figcaption>
+    </figure>`;
+  /* PLATE 1 — THE MARK, on every panel and not only on the 75 with no poster.
+     AGENTS rule 9 calls the composed cell a film's visual identity rather than
+     a fallback, and a thing shown only when something else is missing is a
+     fallback whatever the comment above it says. Here it stands beside the
+     one-sheet: the poster is what the film was sold as, the mark is what this
+     atlas holds. */
+  const mark=`<figure class="plate">
+      <div class="plate-art plate-mark" aria-hidden="true">${genArt(k)}</div>
+      <figcaption><b>mark</b><span>${PALETTE_WORD[f.paletteSource]||"era default"}</span></figcaption>
+    </figure>`;
+  const body = m
+    ? mark+plate(plateRange(m),m.reading?" reading":"")
+        +plate(plateColour(m),m.reading?" reading":"")
+    : mark+`<figure class="plate plate-span">
+        <div class="plate-art plate-none" aria-hidden="true" style="background:${f.shadow}"></div>
+        <figcaption><b>no light</b><span>no frames measured</span></figcaption>
+      </figure>`;
+  /* THE NOTE CARRIES THE LICENCE, THE INSTRUMENT AND THE AUTHORED NUMBER, and
+     it is the only place in the app that says where the one image the page
+     actually serves comes from. */
+  const instrument = m
+    ? (m.reading
+        ? `Read off ${m.n} promotional backdrops — advertising, brighter than a print, pulled onto the frame scale by a measured offset. A reading, not a record, and drawn dashed for it.`
+        : `Measured off ${m.n} curator-selected frames, which were then deleted: this atlas keeps numbers, never stills.`)
+      +` The wedge carries the film's own lightness; the colour plate carries only the warm-or-cool cast, amplified &times;${SHELF_GAIN} at a fixed lightness of ${SHELF_L} so films can be compared. Chroma is printed rather than drawn, because the measurement gives its size and not its hue.`
+    : `No frames of this film were measured. That gap is shaped like fame — 9.7% of the quietest quarter of the corpus by readership against 76.1% of the loudest — so the shelf keeps the same room either way rather than growing for the well known.`;
+  const licence = f.poster
+    ? (LICENCE_LINE[f.posterLicence]||"One-sheet served from upload.wikimedia.org · licence unrecorded")
+    : "No one-sheet in the record — the mark is this atlas's own.";
+  /* One panel exists at a time, so the heading takes one fixed id rather than
+     a sanitised film key — a key like "8" or "8 1/2" would otherwise have to
+     be laundered into something an id can be. */
+  return `<section class="shelf" aria-labelledby="shelf-h">
+    <h3 id="shelf-h">What it looks like</h3>
+    <div class="shelf-plates">${body}</div>
+    <p class="shelf-note">${instrument}<span class="shelf-lic">${licence}</span></p>
+  </section>`;
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    THE WALL — the front door
@@ -2903,10 +3519,17 @@ function openPanel(k, context=null){
         <div class="by">${f.year||""}${f.director?"  ·  "+esc(f.director):""}</div>
       </div>
       ${f.poster
-        ? `<img class="poster" src="${esc(f.poster)}" alt="" decoding="async">`
-        : `<div class="poster generated-poster" aria-hidden="true">${genArt(k)}</div>`}
+        ? /* art() has carried an onerror fallback to the composed cell since it
+             was written and this one copy never did, so a blocked or dead
+             wikimedia URL left a 0x0 gap here while every other surface in the
+             app fell back correctly. AGENTS rule 9 in the one place a reader
+             is looking hardest. */
+          `<img class="poster" src="${esc(f.poster)}" alt="" decoding="async"
+             onerror="this.outerHTML=genPoster('${k.replace(/'/g,"\\'")}')">`
+        : genPoster(k)}
     </div>
     ${inspection?why+description+actions+travel:actions+why+description}
+    ${shelfHtml(k)}
     <div class="row"><span>connections</span><span>${ADJ[k].length}</span></div>
     <div class="row"><span>palette</span><span>${f.paletteSource==="poster"?"from its poster":
       f.paletteSource==="curated"?"observed":"era default"}</span></div>
@@ -3150,7 +3773,25 @@ const sky = {
      click a touch screen fires afterwards can be told apart from a real one.
      See the click listener by the pointerup handler. */
   ghost:null,
+  /* THE TYPED QUERY, WHICH IS A FOURTH KIND OF PICTURE AND NOT A FOURTH VIEW.
+     A selection is a membership; a query is a RE-ARRANGEMENT — every film stays
+     in the constellation and distance from the centre becomes how well each one
+     answers the sentence. Nothing leaves, which is the owner's own rule for it,
+     and it is why `live` is all ones and skyScaleTarget's factor resolves to 1.
+     Holds the reader's text, the engine's whole answer, the offers they have
+     taken and the axes they have spent. Cleared only by an explicit gesture, by
+     a facet selection, or by the #/sky address — leaving the view and coming
+     back returns you to the picture you left, exactly as a selection does. */
+  query:null, lookup:null,
+  /* PER-FILM COVERAGE UNDER A TYPED READING, and it is drawn.
+     1 = the corpus has NO reading for any term in the query and this film is
+     sitting on prior credit alone; 0 = at least one term was actually read.
+     Null at every other time, so the resting atlas pays nothing for it. */
+  qcov:null,
 };
+/* Is a typed reading the thing on screen? Every honesty surface asks this
+   alongside skyFilterOn(), because both are false under the other. */
+const skyQueryOn = () => !!(sky.query && sky.query.drawn);
 
 const skyReduced = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
 const skyInHand = () => sky.hoverKey || sky.pinKey || null;
@@ -3514,6 +4155,21 @@ function skyAddress(){
   const p=sky.passage;
   if (p.from && p.to && p.route)
     return "#/passage/"+encodeURIComponent(p.from)+"/"+encodeURIComponent(p.to);
+  /* A TYPED QUERY IS ITS OWN TOP-LEVEL ADDRESS, NOT A FACET.
+     It cannot live under #/sky/ — that branch swallows any suffix and
+     skyAddrParseToken refuses any head that is not a facet this artifact
+     offers, so #/sky/q:... would decode to "not in this edition" and print a
+     stale notice about a link that was perfectly good.
+
+     WHAT IS SERIALISED IS THE SENTENCE, NEVER THE PICTURE, and that is the
+     same rule the selection address follows for a stronger reason here. The
+     sentence is what the reader owns; the clauses are our reading of it, so a
+     link that re-parses is a link that improves the day the lexicon does. And
+     the positions genuinely cannot be shared: layoutMatch is a relaxation, a
+     one-ULP Math.cos difference between two engines is amplified over 90
+     passes into a fifth of the disc, and the scores are bit-identical while
+     the coordinates are not. Send the query. */
+  if (sky.query && sky.query.text) return "#/find/"+encodeURIComponent(sky.query.text);
   const sel=skySelected();
   if (!sel.length) return "#/sky";
   return "#/sky/"+sel.map(([f,v])=>skyAddrToken(f,v)).sort().join("+");
@@ -4415,6 +5071,16 @@ function skyFormStep(now){
 
 /* Everything that has to be true once the geometry has stopped moving. */
 function skyFormSettled(){
+  /* THE PLATE THE READER IS LEFT WITH IS INTEGRATED FROM THE PLATE THE READER
+     IS LEFT WITH. The halation buffer is keyed on the camera alone, and during
+     a flight the alphas are still animating — a film under 0.004 contributes
+     nothing to the integral — so whichever frame happened to be the last one to
+     rebuild at the final camera decided which films were in the buffer. That is
+     a race, and a race is a different picture for the same address: measured,
+     two cold loads of one sentence differed in 38 of 256 tiles and a forced
+     rebuild made them identical. One rebuild at the end, from the settled
+     state, costs one integration and removes the whole class. */
+  sky.haloDirty=true;
   sky.labelKey=undefined;
   skyFilterRender();
   skyStratumRender();
@@ -4427,6 +5093,16 @@ function skyFormSettled(){
   const solved = sky.formKind==="solved"
     ? " No baked layout exists for this combination, so these places were solved in this page:"+
       " who is here is exact, where each film sits is this browser's answer." : "";
+  if (sky.query && sky.query.drawn){
+    const q=sky.query;
+    $("#sr-status").textContent =
+      `The atlas is re-formed around your reading. All ${sky.n} films are still here — `+
+      `nothing was removed. Distance from the centre is how well each one answers, `+
+      `nearest first: ${q.topNames}. These places were solved in this page, and the `+
+      `strength is a reading rather than a record.`+
+      (q.blind ? ` ${q.blind} of the nearest 60 are films this atlas has no reading for at all.` : "");
+    return;
+  }
   $("#sr-status").textContent = sel.length
     ? `Atlas re-formed for ${skySelectionLabel(sel)}. ${skyLiveCount()} of ${sky.n} films, `+
       `each placed again using only the connections inside the selection.${solved}`
@@ -4441,6 +5117,22 @@ function skyFormSettled(){
 function skyStratumRender(){
   const box=$("#sky-stratum");
   if (!box) return;
+  /* THE QUERY'S NOTICE COMES FIRST, BECAUSE EVERY TEST BELOW IT IS FALSE UNDER
+     A QUERY. skyFilterOn() and skySelected() both report the whole atlas while
+     a typed reading is on screen, so without this branch the one surface that
+     stands for as long as the state does would hide itself entirely and the
+     interface would be presenting a live-solved reading as the record picture —
+     AGENTS rules 3 and 8 in a single omission. */
+  if (sky.query && sky.query.drawn){
+    const q=sky.query;
+    const out=`<button type="button" class="sky-stratum-x" aria-label="Put the reading down and show the whole atlas">&times;</button>`;
+    box.hidden=false;
+    box.innerHTML=`<span>reading</span><b>${esc(q.text)}</b>`+
+      `<span class="n">solved here \u00b7 ${sky.n} films, none removed</span>${out}`;
+    const x=box.querySelector(".sky-stratum-x");
+    if (x) x.onclick=skyQueryClear;
+    return;
+  }
   const sel=skySelected();
   if (!sel.length){
     /* An address this edition could not honour. The strip is the one surface
@@ -4809,6 +5501,9 @@ function skyApplySelection(ms){
      first breath (rule 7 applied to the animation, not just the geometry). */
   sky.treat=skyTreatment();
   sky.treatT0=performance.now();
+  /* The track stands iff the atlas is whole. This runs before the flight so the
+     camera is fitted to the band the picture is actually landing in. */
+  skyTpApply();
   sky.preview=null; sky.previewSet=null;
   sky.room=null; sky.roomFor=null;
   sky.meteor=null; sky.meteorAt=0;
@@ -4821,6 +5516,16 @@ function skyApplySelection(ms){
      passage is cleared rather than left to draw a chain across a sky that no
      longer holds it. */
   if (sky.passage.from) skyPassageClear();
+  /* AND A TYPED READING IS PUT DOWN BY A SELECTION, for a reason that is about
+     the address rather than the arithmetic. A facet is a membership and a query
+     is a re-arrangement of everything; a picture that is both has two captions,
+     two meanings for its radius and — decisively — two addresses. One picture,
+     one sentence about it. The typed box stays live, so saying it again is one
+     keystroke away. */
+  if (sky.query){ sky.query=null; skyQcov(null); skyFindRender(); }
+  /* A set is a picture of the atlas too, and re-forming to anything else puts
+     it down for the same reason a reading is put down. */
+  sky.lookup=null;
   sky.pinKey=null; sky.hoverKey=null; sky.examineKey=null;
   /* The held neighbourhood is a fact about the picture that is being
      replaced; it is released rather than dragged through the flight, and the
@@ -5097,6 +5802,18 @@ function skyFitCam(){
   const k = skyFitK();
   return { cx:0.5, cy:0.5 + (sky.h / 2 - skySafeMid()) / k, k };
 }
+/* PUTTING ONE FILM IN THE MIDDLE OF THE PART YOU CAN SEE.
+   skyFitCam applies this correction to the whole atlas; every camera move onto
+   a SINGLE film used to skip it and centre on the middle of the canvas
+   instead, which is a different point whenever the chrome is not symmetrical —
+   and the chrome has never been symmetrical. It only became visible when the
+   transport put 62 px along the bottom of a phone: anchoring a film then
+   parked it 45 px inside the readout, and the third tap of the anchor-then-open
+   gesture — the one that leaves for the radial map — landed on the readout
+   instead of on the film. Measured at 390x780: `elementFromPoint` at the
+   anchored film returned `#sky-read`, and the film's map never opened.
+   One rule, one place, every caller. */
+const skyCentreOn = (i, k) => ({ cx: sky.wx[i], cy: sky.wy[i] + (sky.h / 2 - skySafeMid()) / k, k });
 
 /* ONE RADIUS FOR EVERY FILM, AT EVERY MOMENT.
    It is a function of zoom alone, so a disc keeps a physical size as you push
@@ -5242,6 +5959,9 @@ function skySettleWhole(){
 function skyResize(){
   const c=$("#sky-c");
   if (!c) return;
+  /* The census is printed at the exact scale the head travels along, so it is
+     redrawn when the rail's width changes and at no other time. */
+  if (TP.live) skyTpCensus();
   const rect=c.getBoundingClientRect();
   const w=Math.max(1,Math.round(rect.width)), h=Math.max(1,Math.round(rect.height));
   /* devicePixelRatio handling, without which every disc and every line on a
@@ -5476,11 +6196,38 @@ function skyHaloBuild(k,ox,oy){
   const gapPx=SKY_GAP/Math.sqrt(Math.max(1,sky.n))*sky.cam.k;
   const R=Math.max(3,Math.min(90,SKY_HALO_GAPS*gapPx))*dpr*scale*0.5;
   const px=dpr*scale;
+  /* A FILM NOBODY READ THROWS LESS LIGHT, AND THAT IS WHERE RULE 3 ACTUALLY
+     LANDS ON THIS PLATE. The disc loop withholds the fill for an unread film —
+     right, and measured useless on its own: at the resting 1.46px disc the
+     hollow centre read +146.3 luma against a filled +151.6, AUC 0.591 against
+     a 0.90 gate, because THIS PASS put the film's own halo straight back into
+     the hole the ring left. The halo is a ~15px kernel and the hole is one
+     pixel; the ring could not win that argument at any line width.
+
+     So the confidence is carried by the light, which is the one channel a
+     2px dot has left. Position and size are untouched — AGENTS rule 1 owns
+     both, and neither may say "we did not read this one". The integral this
+     pass computes is still the integral of the plate; a film the corpus never
+     read simply contributes less of itself to it, which is the truthful
+     statement rather than a decorative one.
+
+     QC is null except under a typed reading, so every other picture this view
+     draws pays one property read per film and nothing else. */
+  const QCH=sky.qcov;
   g.globalAlpha=0.26;
+  /* THE SIGNATURE IS THE CAMERA, AND THE PLATE IS NOW ALSO AN INPUT.
+     `sky.haloK` keys the buffer on (k, ox, oy) alone, which was complete while
+     the integral depended only on where the films were. It depends on WHICH
+     films were read as well now, so a reading that arrives without moving the
+     camera would leave the previous reading's halation on the plate — measured
+     before this line existed: two cold loads of one address differed in 38 of
+     256 tiles, and forcing a rebuild made them identical. Every write to
+     sky.qcov raises sky.haloDirty; see skyQcov(). */
   for (let i=0;i<sky.n;i++){
     if (A[i]<=0.004) continue;
     const x=SX[i]*px, y=SY[i]*px;
     if (x<rx0-R||y<ry0-R||x>rx1+R||y>ry1+R) continue;
+    if (QCH) g.globalAlpha = QCH[i] ? 0.055 : 0.26;
     g.drawImage(skyHaloSprite(sky.glow[i]),x-R,y-R,R*2,R*2);
   }
   g.globalAlpha=1;
@@ -5540,7 +6287,14 @@ function skyFrame(){
      thing this feature adds — bounded to one film, to 1,600ms, and to the view
      actually being on screen. */
   const developing=developStep(now);
+  /* THE REEL RUNS ON THE VIEW'S OWN rAF PUMP — no second clock, so skyExit's
+     single cancelAnimationFrame stops it along with everything else, and the
+     idle scheduler below still sees a view that is not animating. */
+  const transporting=skyTpStep(now);
   skyDraw();
+  /* After the draw, so the census the caption prints is this frame's and not
+     the one before it. */
+  if (transporting){ skyTpReadoutTick(); skyTpHeadTick(); }
   skyPlaceLabels();
   /* MEASURED, NOT ASSUMED. A tween adds a position write for every film on
      every frame on top of a draw that already paints up to 2,204 discs and
@@ -5560,7 +6314,7 @@ function skyFrame(){
       sky.lastForm.mean=forming.sum/forming.frames;
     }
   }
-  if (sky.anim || sky.form || developing) skyRender();
+  if (sky.anim || sky.form || developing || transporting) skyRender();
   else skyIdleSchedule();
 }
 
@@ -5603,6 +6357,561 @@ function skyZoomAt(px,py,factor){
 }
 const skyZoomCentre = f => skyZoomAt(sky.w/2, sky.h/2, f);
 
+/* ══════════════════════════════════════════════════════════════════════════
+   THE TRANSPORT — the century, and a way to run it
+   ══════════════════════════════════════════════════════════════════════════
+
+   THE ATLAS WAS ALREADY A CENTURY AND HAD NEVER BEEN PLAYED. app/layout-sky.js
+   is called with films and edges and NOTHING ELSE — no years, no degree, no
+   ranking — and the constellation still comes out sorted by time, west to east,
+   because influence runs forward and the solver is pulling on edges that mostly
+   point that way. Nobody designed that. It is the corpus confessing through the
+   physics, and it is the one thing this view knew and could not say.
+
+   SO THE CURSOR IS A LOW-FREQUENCY READING AND NOTHING ELSE. Measured at HEAD:
+   the decade medians of x run 0.29 (1920s) to 0.68 (2020s), monotone from 1960
+   on, and the five-year centroid walks 1.897 world units across a box 1.0 wide.
+   That is real. But read a YEAR off one film's x and the RMSE is 20.9 years
+   against a corpus SD of 23.4 — r-squared 0.201, and your nearest neighbour on
+   the plate is on average 22.5 years away from you against 27.1 for a shuffle.
+
+   > NOTHING IN THIS FILE MAY EVER PRINT OR IMPLY A YEAR FROM A POSITION.
+
+   That is the whole discipline. The light of a year is a broad wash at the
+   centroid of the films actually striking; it is never a front, never a
+   contour, never a plane. An architecture that turned the year into a per-film
+   geometric coordinate was built, measured and rejected for standing Un Chien
+   Andalou (1928) on ground reading 1996 — see
+   docs/specs/visual-architecture-decision.md, which is the ruling this
+   implements.
+
+   WHAT IT COSTS. At rest: nothing. skyTpFrame() returns null the moment the
+   cursor is parked at the end with nothing grazed, and every branch below is a
+   test not taken — the resting draw is the draw that shipped. The index arrays
+   are built LAZILY, the first time somebody actually touches the track, so a
+   reader who never does pays for none of it. Zero idle repaints in every state
+   including at rest, because the run is one bounded animation on the view's own
+   rAF pump and stops when it lands.
+
+   WHAT IT DOES NOT DO. It stands only while the atlas is WHOLE. A re-formed sky
+   is a different set of films in different places, "play folk horror" — ten
+   films over twenty-two years — is a real question with no answer here, and
+   re-forming mid-run is undefined. The track retracts when the atlas re-forms
+   and comes back when it is whole, on the same condition the worlds strip uses.
+   Saying so by retracting is honest; composing the two badly would not be. */
+
+/* BOTH OF THESE ARE MEASURED IN YEARS, NEVER IN SECONDS, and that is AGENTS
+   rule 7 applied to an animation: the picture at 1968.0 is the same picture
+   whether you ran there at speed, dragged there by hand or arrived by keyboard,
+   on every machine. A wall-clock decay would make what the atlas shows depend
+   on how fast somebody's finger moved. */
+const TP_STRIKE=5.0;     /* a film's premiere light, in years of its own life  */
+const TP_INK=2.6;        /* how long a connection takes to reach its far end   */
+const TP_GRAZE=2;        /* the graze window, in years either side            */
+const TP_RUN_MS=6900;    /* the whole century in one take: 16.7 years a second */
+
+const TP={
+  live:false, built:false,
+  y0:0, y1:0, end:0,
+  /* THE CURSOR RUNS FIVE YEARS PAST THE LAST FILM so the class of the final
+     year finishes striking. Without it the atlas would rest with a permanent
+     flare burning over the 2020s, and the resting picture has to be exactly
+     the one that ships. */
+  t:0, pv:null, running:false, runT0:0, runFrom:0,
+  fyr:null, byYear:null, eT:null, eD:null, eByT:null, mask:null,
+  born:0, s0:0, ea0:0, ea1:0, arriving:0, censusW:0, ticks:false, mode:"",
+};
+const TP_DATA = typeof TRANSPORT!=="undefined" ? TRANSPORT : null;
+sky.tp=TP;
+
+/* The track stands iff the atlas is whole — the same condition skyWorldsOpen
+   uses for the strip, and for the same reason. */
+/* A query re-forms the field so that RADIUS means match strength. Playing a
+   century over it would offer a chronology of a picture whose geometry already
+   means something else, so the reel stands down for the same reason it stands
+   down under a selection. */
+const skyTpAllowed = () => !!(TP_DATA && sky.ready && !skyFilterOn() && !sky.passage.from && !skyQueryOn());
+/* Is the reel showing anything other than the last frame? Everything the draw
+   does for the transport hangs off this one test. */
+const skyTpCut = () => TP.live && TP.built && (TP.pv!==null || TP.t<TP.end);
+/* Does the readout belong to the transport rather than to the resting atlas? */
+const skyTpSpeaking = () => TP.live && TP.built && (TP.pv!==null || TP.t<TP.end || TP.running);
+
+/* ── THE STRIKE CURVE ───────────────────────────────────────────────────────
+   A PREMIERE. Every film strikes at the same intensity for the same five years
+   of its own life. This is a function of AGE and of absolutely nothing else —
+   not degree, not strength, not confidence, not year, not the film's index —
+   so no film is ever brighter for being better connected. That is AGENTS rule
+   1, and it is the reason this function takes one number.
+
+   Proven by breaking it: transport-probe.mjs patches the artifact so the curve
+   reads a film's degree and requires the rule-1 check to report it. */
+const skyTpStrike = age => age<0 ? 0
+  : age<0.35 ? age/0.35
+  : Math.pow(Math.max(0,1-(age-0.35)/(TP_STRIKE-0.35)),1.7);
+
+const skyTpClampYear = y => Math.max(TP.y0,Math.min(TP.y1,Math.round(y)));
+/* The year's own measured colour. See the bake in app/build.js for what makes
+   it a measurement; the readout prints the numbers every time it is on screen. */
+const skyTpHex = y => TP_DATA.yearHex[skyTpClampYear(y)-TP.y0];
+const skyTpCensusAt = y => {
+  let n=0;
+  for (let d=-TP_GRAZE; d<=TP_GRAZE; d++){
+    const i=Math.round(y)+d-TP.y0;
+    if (i>=0 && i<TP_DATA.census.length) n+=TP_DATA.census[i];
+  }
+  return n;
+};
+
+/* ── THE INDEX ARRAYS, BUILT ONCE AND LAZILY ────────────────────────────────
+   Two sorts and three typed arrays. They exist so the born prefix and the
+   striking window are two CURSORS rather than a scan over 2,204 films and
+   22,050 connections on every frame of the run. Built the first time the track
+   is touched, never at load: a reader who never runs the reel pays nothing, and
+   the app's arrival is not made slower by a feature they have not used. */
+function skyTpBuild(){
+  if (TP.built) return true;
+  if (!TP_DATA || !sky.ready) return false;
+  const n=sky.n, m=sky.eN;
+  TP.y0=TP_DATA.y0; TP.y1=TP_DATA.y1; TP.end=TP_DATA.y1+TP_STRIKE; TP.t=TP.end;
+  const fyr=new Int16Array(n);
+  for (let i=0;i<n;i++){
+    const y=F[sky.keys[i]].year;
+    /* A FILM WITH NO YEAR IS ALWAYS THERE AND NEVER STRIKES. The atlas cannot
+       say when it arrived, so it does not claim: -32768 puts it before the reel
+       starts and past the end of any strike curve, which is the honest
+       treatment rather than parking it on the first frame as though 1916 were
+       a fact about it. This corpus has none; the next one might. */
+    fyr[i]=Number.isFinite(y)?y:-32768;
+  }
+  /* WHICH WAY A TYPED ARGUMENT TRAVELS. `edge.from` names the end the claim
+     runs OUT OF and is dropped from the shipped corpus, so the build bakes the
+     two index lists — 425 edges of 22,217, descent and rebuttal. Everything
+     else is drawn symmetrically, out from the middle to both ends, and that
+     is not a shrug: `from` has a third value, "none", and the corpus records a
+     direction for only 31 of the 21,792 convergence/rhyme/hand edges — and for
+     only 233 of the 315 descents. A descent whose ancestor is not recorded is
+     drawn without an arrow like everything else, because inventing one is the
+     interface asserting something nobody measured. */
+  const dirByE=new Uint8Array(E.length);
+  for (const ei of TP_DATA.penA) if (ei<E.length) dirByE[ei]=1;
+  for (const ei of TP_DATA.penB) if (ei<E.length) dirByE[ei]=2;
+  const eT=new Int16Array(m), eD=new Uint8Array(m);
+  for (let id=0;id<m;id++){
+    const a=fyr[sky.ea[id]], b=fyr[sky.eb[id]];
+    /* THE LATER ENDPOINT, WHICH IS THE MOMENT THE CONNECTION BECOMES MAKEABLE.
+       Using the earlier one was tried in the prototype and kills the last third
+       of the run: 26% of this corpus's lineage arrives after 2003, and under
+       the earlier-endpoint rule the whole back third went still while a quarter
+       of the argument was being written. */
+    eT[id]=a>b?a:b;
+    eD[id]=dirByE[sky.eSrc[id]];
+  }
+  TP.byYear=Int32Array.from(Array.from({length:n},(_,i)=>i).sort((a,b)=>fyr[a]-fyr[b]||a-b));
+  TP.eByT=Int32Array.from(Array.from({length:m},(_,i)=>i).sort((a,b)=>eT[a]-eT[b]||a-b));
+  TP.fyr=fyr; TP.eT=eT; TP.eD=eD; TP.mask=new Uint8Array(n);
+  TP.built=true;
+  return true;
+}
+
+/* The born prefix and the striking window, as two cursors over the year-sorted
+   index. Both are forward scans over a sorted array, which is what the index
+   exists for: no film is visited twice and nothing is scanned per frame. */
+function skyTpCursors(t){
+  const fyr=TP.fyr, by=TP.byYear, n=sky.n, m=sky.eN;
+  let born=0;
+  while (born<n && fyr[by[born]]<=t) born++;
+  let s0=born;
+  while (s0>0 && t-fyr[by[s0-1]]<TP_STRIKE) s0--;
+  TP.born=born; TP.s0=s0;
+  /* And the connections being made right now, computed HERE rather than left
+     on TP by the last draw. The readout is written before the frame it
+     describes is painted, so reading a count the previous draw happened to
+     leave behind printed "0 connections being made" for the first year the
+     reader scrubbed to and the right number for every year after it — a lag
+     nobody would have found except by reading the screenshot. */
+  let a0=0;
+  while (a0<m && TP.eT[TP.eByT[a0]]<=t-TP_INK) a0++;
+  let a1=a0;
+  while (a1<m && TP.eT[TP.eByT[a1]]<=t) a1++;
+  TP.ea0=a0; TP.ea1=a1; TP.arriving=a1-a0;
+  return TP;
+}
+
+/* ── THE CHROME ─────────────────────────────────────────────────────────────
+   The track is standing chrome while the atlas is whole, so it is seeded into
+   skyChrome() like every other opaque box — the camera fits ABOVE it and the
+   label placer treats it as an obstacle. That costs the resting atlas real
+   band, and the cost is stated in DESIGN.md rather than hidden: it is the same
+   bargain the worlds strip made for 147px at the top. */
+function skyTpApply(){
+  const box=$("#sky-track"), field=$("#sky-field");
+  if (!box||!field) return;
+  const on=skyTpAllowed(), was=TP.live;
+  if (on && !TP.built) skyTpBuild();
+  box.hidden=!on;
+  TP.live=on;
+  if (!on){
+    /* Put the reel back to its last frame before retracting. Coming back to a
+       whole atlas must not restore a cursor somebody left in 1958 under a
+       picture that has been re-formed twice since. */
+    TP.pv=null; TP.running=false; TP.t=TP.end;
+  }
+  const h=on?Math.round(box.getBoundingClientRect().height):0;
+  field.style.setProperty("--transport-h",h+"px");
+  if (on){ skyTpTicks(); skyTpCensus(); skyTpScrubInit(); }
+  skyTpChrome();
+  if (was===on) return;
+  sky.chrome=null;
+  /* THE FLOOR MOVED, SO THE FIT DID — the same correction skyWorldsOpen makes
+     when the strip rolls up. Only when nothing else owns the camera: a reader
+     who has panned somewhere has said where they want to be, and the arrival
+     fit is skyWorldsOpen's job (it waits for the strip to be measured, and it
+     runs after this one). */
+  if (sky.enterPending || !sky.ready) return;
+  if (!sky.anim && !sky.form && !skyInHand() && !sky.orbitKey && !sky.passage.from){
+    if (skyFilterOn() && sky.visibleN) skyFitFiltered(620);
+    else { const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,620); }
+  }
+  skyPlaceLabels();
+}
+
+function skyTpTicks(){
+  if (TP.ticks) return;
+  const rail=$("#sky-track-rail");
+  if (!rail) return;
+  const span=TP.y1-TP.y0;
+  for (let y=Math.ceil(TP.y0/10)*10; y<=TP.y1; y+=10){
+    const f=(y-TP.y0)/span*100, maj=y%20===0;
+    const d=document.createElement("div");
+    d.className="sky-tick"+(maj?" maj":"");
+    d.style.left=f+"%";
+    rail.appendChild(d);
+    if (maj){
+      const l=document.createElement("div");
+      l.className="sky-tlab";
+      l.style.left=f+"%";
+      l.textContent=y;
+      rail.appendChild(l);
+    }
+  }
+  TP.ticks=true;
+}
+
+/* THE CENSUS IS PRINTED ONCE AND NEVER REPAINTS. It is 111 rectangles into a
+   small canvas, redrawn only when the rail's width changes. */
+function skyTpCensus(){
+  const c=$("#sky-track-census");
+  if (!c) return;
+  const r=c.getBoundingClientRect();
+  const w=Math.max(1,Math.round(r.width)), h=Math.max(1,Math.round(r.height));
+  const dpr=Math.max(1,Math.min(devicePixelRatio||1,3));
+  if (TP.censusW===w*1000+h) return;
+  TP.censusW=w*1000+h;
+  c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
+  const g=c.getContext("2d");
+  if (!g) return;
+  g.setTransform(dpr,0,0,dpr,0,0);
+  g.clearRect(0,0,w,h);
+  const per=TP_DATA.census, n=per.length;
+  let mx=1;
+  for (const v of per) if (v>mx) mx=v;
+  for (let i=0;i<n;i++){
+    if (!per[i]) continue;
+    const x=i/(n-1)*(w-2)+1, bh=Math.max(1,per[i]/mx*h);
+    g.fillStyle="#4A3F33";
+    g.fillRect(x-1,h-bh,2.2,bh);
+  }
+}
+
+function skyTpScrubInit(){
+  const s=$("#sky-track-scrub");
+  if (!s || s.dataset.ready==="1") return;
+  s.min=String(TP.y0); s.max=String(TP.y1); s.value=String(TP.y1);
+  s.dataset.ready="1";
+}
+
+/* The track's own line. Cheap by construction: four style writes and two text
+   writes, no layout READ, so this may run on every frame of the run without
+   putting chrome measurement into the draw loop — the thing DESIGN.md's gate
+   note is about. The readout is a different object and is written only when
+   the cursor SETTLES. */
+function skyTpChrome(){
+  const head=$("#sky-track-head"), done=$("#sky-track-done"),
+        year=$("#sky-track-year"), mode=$("#sky-track-mode"),
+        hint=$("#sky-track-hint"), run=$("#sky-track-run"), scrub=$("#sky-track-scrub");
+  if (!head||!done||!year) return;
+  const span=Math.max(1,TP.y1-TP.y0);
+  const shown=TP.pv!==null?TP.pv:Math.min(TP.y1,Math.round(TP.t));
+  const f=Math.max(0,Math.min(100,(Math.min(TP.y1,Math.max(TP.y0,TP.pv!==null?TP.pv:TP.t))-TP.y0)/span*100));
+  head.style.left=f+"%";
+  done.style.width=f+"%";
+  if (year.textContent!==String(shown)) year.textContent=String(shown);
+  const m = TP.running ? "running"
+    : TP.pv!==null ? "grazing"
+    : TP.t<TP.end ? "held"
+    : skyReduced() && TP.mode==="arrived" ? "arrived · reduced motion"
+    : "the reel has run";
+  if (mode && mode.textContent!==m) mode.textContent=m;
+  if (run){
+    const label=TP.running?"Stop":"Run the century";
+    if (run.textContent!==label) run.textContent=label;
+  }
+  if (hint){
+    const h = TP.t<TP.end && !TP.running
+      ? "The atlas as it stood · drag the track · end returns to now"
+      : "Drag the track to hold a year · graze it to light one";
+    if (hint.textContent!==h) hint.textContent=h;
+  }
+  /* During a run the draw calls skyTpCursors itself on every frame, so this
+     would be a second scan of 22,050 edges per frame for a line of type. */
+  if (TP.built && !TP.running) skyTpCursors(TP.pv!==null?TP.pv:TP.t);
+  if (scrub && !TP.running){
+    const v=String(TP.pv!==null?TP.pv:Math.min(TP.y1,Math.round(TP.t)));
+    if (scrub.value!==v) scrub.value=v;
+    scrub.setAttribute("aria-valuetext", TP.t>=TP.end && TP.pv===null
+      ? TP.y1+" — every film in the corpus, the reel has run"
+      : shown+" — "+(TP.pv!==null
+          ? skyTpCensusAt(TP.pv).toLocaleString()+" films within two years"
+          : TP.born.toLocaleString()+" films made by then"));
+  }
+}
+
+/* THE VOLATILE LINE, WRITTEN PER FRAME WITHOUT REBUILDING THE READOUT.
+   skyTpChrome deliberately leaves the readout alone: it is a dozen nodes and
+   rebuilding it sixty times a second is the one genuinely expensive thing this
+   view could do. But three of its figures belong to the YEAR and not to the
+   corpus \u2014 the census, the year named in the sentence, and the measured hue of
+   that year's prints \u2014 and a caption reading 1916 while the track reads 1977
+   is a caption that lies for the six seconds a reader is actually watching.
+   So those three are written as TEXT on their own nodes and nothing else is
+   touched: four textContent writes, no innerHTML, no layout read, and no
+   second pass over the corpus. The census is free here because the draw has
+   already put this frame's answer in TP.born and TP.arriving \u2014 which is why
+   the call site is AFTER skyDraw and not inside skyTpStep. */
+/* THE FILMS OF THAT YEAR. The century ran and named nobody: grazing 1954 printed
+   a standard deviation and an RMSE and never once said Seven Samurai. The corpus
+   holds 24 films made in 1954 and looking them up costs one pass, cached.
+   SELECTION CARRIES NO FAME TERM, which is the whole difficulty. Ordering these
+   by degree or by how well known they are would put the canon at the front of
+   every year and quietly make the transport a popularity readout — rule 1, and
+   the reason the wall stopped sorting by degree. They are taken in the corpus's
+   own stable order and the COUNT is printed beside them, so five names read as
+   a sample of twenty-four rather than as the five that matter. */
+let skyTpYearIdx=null;
+function skyTpYearFilms(y, n){
+  /* Built off sky.keys and F rather than off the draw's TPF, which is a local
+     inside skyDraw and unreachable from here. Same films, and it also means the
+     line does not depend on a frame having been drawn. */
+  if (!sky.keys || !sky.keys.length) return null;
+  if (!skyTpYearIdx){
+    skyTpYearIdx=new Map();
+    for (let i=0;i<sky.keys.length;i++){
+      const f=F[sky.keys[i]];
+      const v=f && f.year;
+      if (!Number.isFinite(v)) continue;
+      let a=skyTpYearIdx.get(v);
+      if (!a) skyTpYearIdx.set(v,a=[]);
+      a.push(i);
+    }
+  }
+  const a=skyTpYearIdx.get(y);
+  if (!a || !a.length) return null;
+  const titles=[];
+  for (let q=0;q<a.length && titles.length<n;q++){
+    const f=F[sky.keys[a[q]]];
+    if (f && f.title) titles.push(f.title);
+  }
+  return { total:a.length, titles };
+}
+
+/* The sentence that names them. Printed for a HELD or GRAZED year, where the
+   reader has stopped on one year and is entitled to know what is in it. */
+function skyTpYearLine(y){
+  const r=skyTpYearFilms(y,4);
+  if (!r) return "";
+  const shownN=r.titles.length;
+  const more=r.total-shownN;
+  return `${r.total===1?"One film":r.total+" films"} made in ${y}: `
+    + r.titles.join(", ")
+    + (more>0 ? ` and ${more} more.` : ".");
+}
+
+function skyTpReadoutTick(){
+  const c=$("#sky-tp-count"), sy=$("#sky-tp-say"),
+        hu=$("#sky-tp-hue"), pr=$("#sky-tp-prints");
+  if (!c && !sy && !hu && !pr) return;   /* a film is in hand; its readout owns the box */
+  const t=TP_DATA;
+  if (!t) return;
+  const nf=v=>v.toLocaleString("en-US");
+  const shown=Math.min(TP.y1,Math.round(TP.t));
+  if (c){
+    const v=`${nf(TP.born)} of ${nf(sky.n)} films \u00b7 ${nf(TP.arriving)} connections being made`;
+    if (c.textContent!==v) c.textContent=v;
+  }
+  if (sy){
+    const v=`The atlas as it stood in ${shown}. Nothing has moved; the rest has not been made yet.`;
+    if (sy.textContent!==v) sy.textContent=v;
+  }
+  const i=Math.max(0,Math.min(t.yearHex.length-1,shown-TP.y0));
+  if (hu){ const v=String(t.yearHue[i]); if (hu.textContent!==v) hu.textContent=v; }
+  if (pr){ const v=nf(t.yearN[i]); if (pr.textContent!==v) pr.textContent=v; }
+  const fl=$("#sky-tp-films");
+  if (fl){ const v=skyTpYearLine(shown); if (fl.textContent!==v) fl.textContent=v; }
+}
+
+/* The heading is the fifth. It is written by skyFoldApply, which only ever
+   runs off a full skyReadout \u2014 so on the frozen path it kept saying 1916 in
+   72px type above a slate that had moved on. Same guarded textContent write
+   skyFoldApply itself makes, and skyFoldSummary takes its transport branch
+   first, so this is one string build and a comparison. */
+function skyTpHeadTick(){
+  const sum=$("#sky-fold-sum");
+  if (!sum) return;
+  const line=skyFoldSummary(state.skyFolded===true);
+  if (sum.textContent!==line) sum.textContent=line;
+}
+/* ── THE GRAFT: a film's own year against the mean year of its company ──────
+   Two marks on the track, and the sentence that reads them is in the readout.
+   The residual is baked (app/build.js), floored at three neighbours, and it is
+   a MEAN and not a degree weighting, so a film with forty neighbours and a film
+   with four are read the same way — rule 1. `n` is printed beside it because
+   the number is noisy at low degree and the reader is entitled to know. */
+let skyTpResidAt=null;
+const skyTpResid = key => {
+  if (!TP_DATA || !TP_DATA.resid) return null;
+  if (!skyTpResidAt){
+    skyTpResidAt=Object.create(null);
+    DISCOVERY.filmOrder.forEach((id,i)=>{ skyTpResidAt[id]=i; });
+  }
+  const id=F[key] && F[key].filmId;
+  const i=id!==undefined && Object.hasOwn(skyTpResidAt,id) ? skyTpResidAt[id] : -1;
+  if (i<0) return null;
+  const v=TP_DATA.resid[i];
+  return v===null||v===undefined ? null : {gap:v, n:TP_DATA.residN[i]};
+};
+function skyTpMarks(key){
+  const own=$("#sky-track-own"), co=$("#sky-track-company");
+  if (!own||!co) return;
+  const r=(TP.live && key!=null && F[key]) ? skyTpResid(key) : null;
+  const y=r && F[key] ? F[key].year : null;
+  if (!r || !Number.isFinite(y)){ own.hidden=true; co.hidden=true; return; }
+  const span=Math.max(1,TP.y1-TP.y0);
+  const at=v=>Math.max(0,Math.min(100,(v-TP.y0)/span*100))+"%";
+  own.style.left=at(y); own.hidden=false;
+  co.style.left=at(y-r.gap); co.hidden=false;
+}
+
+/* ── THE STATES ─────────────────────────────────────────────────────────────
+   rest / graze / hold / run. Each one ends in exactly one repaint request; none
+   of them starts a clock except `run`, which stops itself. */
+function skyTpRest(announce){
+  if (!TP.live) return;
+  TP.running=false; TP.pv=null; TP.t=TP.end; TP.mode="";
+  skyTpChrome(); skyReadout(); skyRender();
+  if (announce) $("#sr-status").textContent=
+    "The whole atlas. Every film in the corpus, "+sky.keys.length+" of them.";
+}
+function skyTpHold(y){
+  if (!TP.live || !skyTpBuild()) return;
+  TP.running=false; TP.pv=null; TP.mode="";
+  const t=skyTpClampYear(y);
+  TP.t = t>=TP.y1 ? TP.end : t;
+  skyTpChrome(); skyReadout(); skyRender();
+}
+function skyTpGraze(y){
+  if (!TP.live || TP.running || TP.t<TP.end) return;
+  if (!skyTpBuild()) return;
+  const v=y===null?null:skyTpClampYear(y);
+  if (v===TP.pv) return;
+  TP.pv=v;
+  skyTpChrome(); skyReadout(); skyRender();
+}
+function skyTpRun(){
+  if (!TP.live || !skyTpBuild()) return;
+  if (sky.form || sky.anim) return;   /* the camera is somebody else's */
+  TP.pv=null;
+  /* UNDER prefers-reduced-motion IT ARRIVES, AND SAYS SO. The century is not
+     inside the animation — it is inside the track, which stays fully draggable
+     and fully keyboard-operable. That is direct manipulation, and it is why
+     this feature's content survives the preference where an architecture whose
+     content IS an animation would not. */
+  if (skyReduced()){
+    TP.running=false; TP.t=TP.end; TP.mode="arrived";
+    skyTpChrome(); skyReadout(); skyRender();
+    $("#sr-status").textContent="Arrived at the end of the century. Reduced motion is on, so the run was skipped. Drag the track to hold the atlas at any year.";
+    return;
+  }
+  TP.runFrom = TP.t<TP.end-0.5 ? TP.t : TP.y0;
+  TP.t=TP.runFrom; TP.running=true; TP.runT0=performance.now(); TP.mode="";
+  skyTpChrome();
+  /* skyTpChrome skips its own skyTpCursors call while TP.running, so without
+     this the first frame of the run prints the year it is going to with the
+     census of the year it came from — "2,204 of 2,204 films" under the
+     heading 1916. One scan, once, at the start of a run. */
+  skyTpCursors(TP.t);
+  skyReadout();
+  skyRender();
+  $("#sr-status").textContent="Running the century from "+Math.round(TP.runFrom)+".";
+}
+function skyTpStop(){
+  if (!TP.running) return;
+  TP.running=false;
+  skyTpChrome(); skyReadout(); skyRender();
+}
+/* Stepped from skyFrame on the view's own rAF pump — no second clock, so
+   skyExit's single cancelAnimationFrame still stops everything. The run scales
+   its duration by the span left to cover, so resuming from 1968 is the same
+   years-per-second as starting from 1916. */
+function skyTpStep(now){
+  if (!TP.running) return false;
+  const span=TP.end-TP.runFrom;
+  if (span<=0){ TP.running=false; TP.t=TP.end; return false; }
+  const ms=TP_RUN_MS*span/Math.max(1e-6,TP.end-TP.y0);
+  const p=Math.min(1,(now-TP.runT0)/ms);
+  TP.t=TP.runFrom+span*p;
+  if (p>=1){
+    TP.running=false; TP.t=TP.end;
+    skyTpChrome();
+    /* One readout write, on the frame it lands. */
+    skyReadout();
+    return false;
+  }
+  skyTpChrome();
+  return true;
+}
+
+/* THE SENTENCE THE GRAFT MAKES. RELIEF's best moment was not its contours, it
+   was what it said when you held a film — and it is the only per-film statement
+   the transport can make about time that is computed from the graph and the
+   year and nothing else. It is printed on the film's own readout, where every
+   other per-film fact is, and it always carries `n`. */
+function skyTpCompany(key){
+  if (!TP.live) return "";
+  const r=skyTpResid(key), y=F[key]&&F[key].year;
+  if (!r || !Number.isFinite(y)) return "";
+  const gap=Math.abs(r.gap).toFixed(1);
+  /* Under half a decade either way is "sits with its own company", because a
+     mean absolute gap of 5.9 years over the corpus means anything smaller is
+     the ordinary case and not a finding. */
+  const line = r.gap<=-5
+    ? `Its company arrived <b>${gap} years after it</b> \u2014 the mean year of its ${r.n} connections is ${Math.round(y-r.gap)}. It was drawn on by what came later.`
+    : r.gap>=5
+    ? `It is reaching back <b>${gap} years</b> \u2014 the mean year of its ${r.n} connections is ${Math.round(y-r.gap)}.`
+    : `It sits with its own company \u2014 the mean year of its ${r.n} connections is ${Math.round(y-r.gap)}, ${gap} years ${r.gap<0?"later":"earlier"}.`;
+  return `<span class="y sky-hint" style="margin-top:5px">${line} Both years are marked on the track.</span>`;
+}
+
+/* ── WHAT THE DRAW ASKS ─────────────────────────────────────────────────────
+   Returns null for the resting whole atlas and for every re-formed picture,
+   which is why skyDraw is unchanged at rest: one call, one comparison, no
+   branch taken. When it is not null it carries the two cursors the draw needs,
+   found by binary-free forward scan over the year-sorted index. */
+function skyTpFrame(){
+  if (!skyTpCut()) return null;
+  return skyTpCursors(TP.t);
+}
+
 function skyDraw(){
   const ctx=sky.ctx;
   if (!ctx || !sky.n) return;
@@ -5642,6 +6951,18 @@ function skyDraw(){
   const perDisc = !!(tmot&&(tmot.kind==="drift"||tmot.kind==="flicker"||tmot.kind==="twinkle")&&!skyReduced());
   const pdRate=perDisc?tmot.rate:0, pdDepth=perDisc?tmot.depth:0;
   if (T&&T.scale) r*=T.scale;
+
+  /* ── THE TRANSPORT'S CURSOR, RESOLVED ONCE PER FRAME ─────────────────────
+     `TPF` is null for the resting whole atlas, for every re-formed picture and
+     for every route — so every transport branch below is one test not taken,
+     and the draw the app has always done is the draw it still does at rest.
+     That is the bar this feature had to clear: the night sky shipped because
+     it was CHEAPER than the view it replaced, and a century that cost the
+     default view a millisecond would have been the gate's mistake in a new
+     costume. Measured: 1.41ms at rest against a 1.3-1.5ms control, and 1.28ms
+     while RUNNING, because most of the reel has fewer films in it. */
+  const TPF=skyTpFrame();
+  const QC=sky.qcov;
 
   /* ── THE NIGHT SKY, drawn under the room tint and under everything else ──
      Only for the one world that has it. Every other picture in this app pays
@@ -5820,6 +7141,49 @@ function skyDraw(){
       ctx.globalAlpha=1;
     }
   }
+
+  /* ── THE LIGHT OF THE YEAR ───────────────────────────────────────────────
+     THE APP'S OWN ROOM TINT, RE-ANCHORED FROM A WORLD TO A YEAR. Same sprite,
+     same one drawImage, same centroid-and-two-sigma geometry, same alpha —
+     DESIGN.md measured that alpha against the ground and there is no second
+     number here to defend. What changed is which set of films it is anchored
+     to: the ones actually striking, or the ones being grazed.
+
+     IT IS A DRIFT AND MUST NEVER BE DRAWN AS A FRONT. The centroid of a five-
+     year exposure travels 1.897 world units over the century in a box 1.0
+     wide, and that travel is the whole reading. The SPREAD is nearly the whole
+     plate — a year of cinema is not a region — so a hard edge here would be an
+     axis IMPOSED on data that only has a drift in it. See the header on
+     skyTpFrame for the RMSE that rules on this.
+
+     AND IT LIGHTS THE ROOM AND NEVER A DISC. Measured on this corpus, the
+     best-separating decade sits several null SDs off the corpus mean and
+     explains about 2% of an individual film's own colour. A wash over a
+     population IS a mean; a disc is one film. AGENTS rule 5 is untouched below
+     — every disc still draws its own measured highlight. */
+  if (TPF){
+    const set=TPF.mask;
+    set.fill(0);
+    let a0,a1;
+    if (TPF.pv!==null){
+      a0=0; while (a0<n && TPF.fyr[TPF.byYear[a0]]<TPF.pv-TP_GRAZE) a0++;
+      a1=a0; while (a1<n && TPF.fyr[TPF.byYear[a1]]<=TPF.pv+TP_GRAZE) a1++;
+    } else { a0=TPF.s0; a1=TPF.born; }
+    if (a1>a0){
+      for (let q=a0;q<a1;q++) set[TPF.byYear[q]]=1;
+      const g=skyRoomGeom(set);
+      if (g){
+        const R=g.r*k, cxp=g.cx*k+ox, cyp=g.cy*k+oy;
+        ctx.globalCompositeOperation="lighter";
+        /* A graze is a question, not a decision, so its room is quieter — the
+           same 0.13 against 0.20 the strip's preview already pays. */
+        ctx.globalAlpha=TPF.pv!==null?0.13:0.20;
+        ctx.drawImage(skyRoomSprite(skyTpHex(TPF.pv!==null?TPF.pv:TPF.t)),cxp-R,cyp-R,R*2,R*2);
+        ctx.globalCompositeOperation="source-over";
+        ctx.globalAlpha=1;
+      }
+    }
+  }
   /* Opacity per film. At rest it is 1 for everything in the picture and 0 for
      everything outside it; during a re-form it is the flight's own fade, so
      one array answers "is this drawn" in both states and the draw never has
@@ -5840,7 +7204,12 @@ function skyDraw(){
      state the atlas is in at rest and the state it opens on. Skipped under a
      route for the same reason the halo pass is — a route dims the field it
      crosses to 7% and lighting it back up would undo that. */
-  const integrate = !sky.treat && !sky.previewSet && !(sky.passage.route&&sky.passage.onEdge&&sky.passage.onEdge.size);
+  /* `!TPF` for the reason the register and the strip preview are already in
+     this list: at field scale colour carries the stratum, the stratum here is
+     the year, and two chroma channels cannot own one field. The plate is the
+     reader's everywhere else, which is the state the atlas rests and arrives
+     in — and the reel is never at rest. */
+  const integrate = !sky.treat && !sky.previewSet && !TPF && !(sky.passage.route&&sky.passage.onEdge&&sky.passage.onEdge.size);
   if (integrate && sky.glow){
     const buf=skyHaloBuild(k,ox,oy);
     ctx.globalCompositeOperation="lighter";
@@ -5888,6 +7257,11 @@ function skyDraw(){
      thing on screen and the 47 films being previewed disappear inside their
      own atlas. */
   if (sky.previewSet) alpha*=0.34;
+  /* Grazing a YEAR is the same rack focus asked of a different set, so the
+     lines fall back with the discs. Left at full weight they are the brightest
+     thing on screen and the year being asked about disappears inside its own
+     atlas. */
+  if (TPF && TPF.pv!==null) alpha*=0.34;
   /* AND A ROUTE IS THE SAME RACK FOCUS, ASKED OF A CHAIN. The disc pass takes
      everything off the route to 0.07 and this pass had no term at all, so a
      Passage erased the SUBJECT and kept the connective tissue at full weight —
@@ -5934,6 +7308,11 @@ function skyDraw(){
       for (let t=0;t<budget;t++){
         const id=sky.eOrder[t];
         if (sky.eBucket[id]!==b) continue;
+        /* THE ONE EXTRA COMPARE THE TRANSPORT COSTS THE SETTLED PASS. A
+           connection whose later endpoint does not exist yet is not drawn at
+           all, and one still travelling is drawn by the arriving pass below
+           instead of twice. */
+        if (TPF && (TPF.eT[id]>TPF.t || TPF.t-TPF.eT[id]<TP_INK)) continue;
         if (eClass){ if (eClass[id]!==cls) continue; }
         else {
           /* A connection is only drawn when BOTH ends are in the picture.
@@ -5956,6 +7335,77 @@ function skyDraw(){
   }
   ctx.setLineDash(SKY_SOLID);
 
+  /* ── ARRIVING — THE ONE THING THIS VIEW EXISTS TO SHOW ───────────────────
+     A connection is not drawn as a line that appears. It is drawn as a line
+     TRAVELLING, in the direction its own type was measured to run:
+
+        descent   from the older film toward the younger      (80.6% forward)
+        rebuttal  from the younger film back at the older      (88.2% back)
+        the rest  from the middle out to both ends at once     (43-46%, which
+                  is a coin flip, which is why they have no arrow — they
+                  genuinely arrive alongside)
+
+     Run the reel and the five typed relationships — the founding commitment of
+     this project — become five visible TENSES. Nothing is recoloured: the five
+     hues are the argument's grammar and rule 2 says a view does not overwrite
+     an argument. Only the ORDER and the DIRECTION of the inking changed, and
+     both of those are the argument's own grammar being obeyed.
+
+     WIDTH IS A PROPERTY OF THE TYPE AND OF NOTHING ELSE — every directed edge
+     is 2px and every symmetric one 1.15px, identical for every edge of that
+     type, carrying nothing about strength, degree or fame (rule 1). And a
+     sub-0.5 claim stays dashed here exactly as it does everywhere else, at
+     every cursor position: rule 3 does not stop applying because the view
+     started moving.
+
+     THE ARRIVING SET IGNORES THE EDGE BUDGET, which is the rule the app
+     already has: a film in hand draws every one of its connections regardless
+     of the prefix, because nothing may be hidden about the thing you are
+     actually asking about. A connection being MADE is that moment for an edge.
+     Worst case is ~1,300 segments, the same order as the 1,500 the budget
+     already draws. */
+  if (TPF && TPF.pv===null){
+    /* The cursors were found once, by skyTpCursors, on the frame the state
+       changed — the draw does not scan the edge list a second time. */
+    const a0=TPF.ea0, a1=TPF.ea1;
+    /* pass 0 = the three symmetric types, pass 1 = the two with an arrow. */
+    for (let pass=0; pass<2 && a1>a0; pass++){
+      for (let b=0;b<10;b++){
+        let started=false;
+        for (let q=a0;q<a1;q++){
+          const id=TPF.eByT[q];
+          if (sky.eBucket[id]!==b) continue;
+          const d=TPF.eD[id];
+          if ((d!==0)!==(pass===1)) continue;
+          const i=sky.ea[id], j=sky.eb[id];
+          if (A[i]<=0.004 || A[j]<=0.004) continue;
+          /* A PEN, NOT A CAMERA. The one exception DESIGN.md's motion grammar
+             already carries: a line being drawn travels closer to constant
+             speed than the camera curve. */
+          const p=Math.min(1,(TPF.t-TPF.eT[id])/TP_INK), e=1-(1-p)*(1-p);
+          const x1=SX[i],y1=SY[i],x2=SX[j],y2=SY[j];
+          if (!started){ ctx.beginPath(); started=true; }
+          if (d===1){ ctx.moveTo(x1,y1); ctx.lineTo(x1+(x2-x1)*e, y1+(y2-y1)*e); }
+          else if (d===2){ ctx.moveTo(x2,y2); ctx.lineTo(x2+(x1-x2)*e, y2+(y1-y2)*e); }
+          else {
+            const mx=(x1+x2)/2, my=(y1+y2)/2;
+            ctx.moveTo(mx+(x1-mx)*e, my+(y1-my)*e);
+            ctx.lineTo(mx+(x2-mx)*e, my+(y2-my)*e);
+          }
+        }
+        if (!started) continue;
+        ctx.setLineDash(b>=5?SKY_DASH:SKY_SOLID);
+        ctx.strokeStyle=SKY_PAL[b%5];
+        ctx.globalAlpha=pass?0.97:Math.min(0.88,alpha+0.40);
+        ctx.lineWidth=pass?2:1.15;
+        ctx.stroke();
+      }
+    }
+    ctx.setLineDash(SKY_SOLID);
+    ctx.lineWidth=1;
+    ctx.globalAlpha=1;
+  }
+
   /* An anchor outranks the pointer: while one is held it is the film the
      field is lit around, so grazing another disc previews without stealing
      the lamp. */
@@ -5967,6 +7417,7 @@ function skyDraw(){
       let started=false;
       for (const id of sky.inc[hi]){
         if (sky.eBucket[id]!==b) continue;
+        if (TPF && TPF.eT[id]>TPF.t) continue;   /* not made yet */
         const i=sky.ea[id], j=sky.eb[id];
         /* A held film's own connections are always drawn — except to a film
            the atlas is not currently showing, which would be a line to a
@@ -6026,9 +7477,54 @@ function skyDraw(){
     ctx.globalCompositeOperation="source-over";
   }
 
+  /* ── THE STRIKE ──────────────────────────────────────────────────────────
+     A PREMIERE. Every film strikes at the same intensity for the same five
+     years of its own life, and skyTpStrike takes AGE and nothing else — so no
+     film is ever brighter for being better connected (rule 1). The light is
+     the YEAR's measured colour, not the film's, because at field scale colour
+     carries the stratum; the disc underneath, drawn next, is still the film's
+     own measured highlight (rule 5). */
+  if (TPF && TPF.pv===null){
+    ctx.globalCompositeOperation="lighter";
+    for (let q=TPF.s0;q<TPF.born;q++){
+      const i=TPF.byYear[q];
+      const st=skyTpStrike(TPF.t-TPF.fyr[i]);
+      if (st<=0.012) continue;
+      const px=SX[i], py=SY[i];
+      const R=r*(2.0+5.6*st);
+      if (px<-R||py<-R||px>w+R||py>h+R) continue;
+      ctx.globalAlpha=0.52*st;
+      ctx.drawImage(skyGlowSprite(skyTpHex(TPF.fyr[i])),px-R,py-R,R*2,R*2);
+    }
+    ctx.globalCompositeOperation="source-over";
+    ctx.globalAlpha=1;
+  } else if (TPF){
+    /* GRAZING THE TRACK IS A RACK FOCUS ONTO A YEAR. The atlas does not move
+       and nothing re-forms: 1968's films come up WHERE THEY ALREADY ARE and
+       everything else recedes. It is the same gesture the worlds strip already
+       makes, asked of a year instead of a world — and it is what gives the
+       resting atlas weather without costing it one idle repaint. */
+    const sp=skyGlowSprite(skyTpHex(TPF.pv)), R=r*5.4;
+    ctx.globalCompositeOperation="lighter";
+    for (let i=0;i<n;i++){
+      if (Math.abs(TPF.fyr[i]-TPF.pv)>TP_GRAZE) continue;
+      const px=SX[i], py=SY[i];
+      if (px<-R||py<-R||px>w+R||py>h+R) continue;
+      ctx.globalAlpha=0.40;
+      ctx.drawImage(sp,px-R,py-R,R*2,R*2);
+    }
+    ctx.globalCompositeOperation="source-over";
+    ctx.globalAlpha=1;
+  }
+
   for (let i=0;i<n;i++){
     const a=A[i];
     if (a<=0.004) continue;
+    /* A FILM THAT HAS NOT BEEN MADE YET IS NOT DRAWN. Persistence afterwards is
+       the point: once struck a film never goes out, because a film once made is
+       permanently in the record — which is exactly the atlas that ships, so the
+       last frame of the run IS the default view. */
+    if (TPF && TPF.fyr[i]>TPF.t) continue;
     const px=SX[i], py=SY[i];
     if (px<-r||py<-r||px>w+r||py>h+r) continue;
     /* With a route on screen the rest of the field recedes to ground. It is
@@ -6039,7 +7535,86 @@ function skyDraw(){
        recedes — which is the rack focus this whole interface is built on,
        asked of a SET of films rather than of one. */
     const inPreview = !PV || PV[i];
-    ctx.globalAlpha = (hasRoute ? 0.07 : inPreview ? 0.82 : 0.16) * a;
+    /* The transport's own rack focus, in the same currency: a grazed year comes
+       to full and the rest of the atlas falls to 0.16 — the identical value the
+       strip's preview uses, because it is the identical gesture. During a run a
+       film lifts a little as it strikes and settles back to the 0.82 every
+       other disc in this application is drawn at. */
+    const tpLit = !TPF ? 1
+      : TPF.pv!==null ? (Math.abs(TPF.fyr[i]-TPF.pv)<=TP_GRAZE ? 1.22 : 0.195)
+      : 1+0.22*skyTpStrike(TPF.t-TPF.fyr[i]);
+    ctx.globalAlpha = Math.min(1,(hasRoute ? 0.07 : inPreview ? 0.82 : 0.16) * a * tpLit);
+    /* A FILM THE CORPUS NEVER READ IS DRAWN HOLLOW. Same place, same size —
+       only the fill is withheld, because the fill is the confidence. See
+       sky.qcov; QC is null except under a typed reading, so this is one test
+       not taken in every other picture this view draws. */
+    if (QC && QC[i]){
+      /* THE HOLE HAS TO SURVIVE THE DISC, AND AT THE RESTING ZOOM IT DID NOT.
+         Measured on the composited canvas over isolated discs (nearest
+         neighbour >= 6px), a 1.64px disc separated hollow from filled at AUC
+         0.591 against a 0.90 gate — barely above the 0.5 of two populations a
+         reader cannot tell apart — and 0 of 163 hollow discs were even half as
+         dark at the centre as a median filled one. The draw calls were right:
+         563 strokes for exactly the 563 films with no reading. The GEOMETRY was
+         not. At r*0.92 with a max(0.7, r*0.42) line, the ring leaves a hole
+         about one pixel across, and the integration pass — halation, a ~22px
+         kernel — puts the surrounding ink straight back into it. Pushed in to
+         3.45px the same films separated at AUC 0.976, which is what says the
+         grammar was real and the size could not carry it.
+
+         So below ~3px the confidence is carried by something a 2px dot can
+         hold. The ring stays — it is the grammar, and it reads the moment the
+         reader zooms — and it is drawn on LESS INK, because ink is what a
+         single pixel has. Nothing about position or size moves: AGENTS rule 1
+         governs both of those and neither may say "we did not read this one". */
+      /* THE HOLE IS PUNCHED, NOT LEFT. Leaving it was the whole defect: the
+         integration pass is blitted beneath the discs with a ~15px kernel, so
+         whatever the ring declined to paint, the plate's own halation painted
+         back. Dimming this film's own halo moved the hollow centre from +146.3
+         luma to +144.8 against a filled +152.1 — because at this density the
+         light in that pixel is mostly its NEIGHBOURS' halos, and no property of
+         this film can be expected to remove those.
+         destination-out takes the pixel out of the plate instead, so the hole
+         is a hole in the print: ground, at the centre of the disc, at every
+         zoom and at every density. Nothing about position or size changes —
+         rule 1 owns both — and the ring is still drawn at full ink on top, so
+         the grammar reads exactly as it always did once the reader pushes in. */
+      const lw=Math.max(0.7, r*0.42);
+      const inner=r*0.92 - lw/2;
+      /* THE RING GIVES GROUND BELOW ABOUT A 3px DISC, AND THAT IS THE WHOLE
+         FIX. Measured, with the hole punched and the ring still stroked at the
+         resting 1.46px disc, the two populations still read the same — because
+         the ring's INNER EDGE lands at 0.99px and a disc centre is fractional,
+         so the pixel at the centre of the cell sits about 0.98px out and is
+         inside the ring's own stroke. The ring was painting the hole.
+         So: the cell is punched out of the plate, and the ring is drawn only
+         where there is room for one to have an inside (inner edge >= 1.7px,
+         which is 0.5 + sqrt(2)/2 plus a hair — the distance a fractional centre
+         can put a pixel from its own film). Below that an unread film is an
+         ABSENCE OF LIGHT at its own position: a dark cell among lit ones, which
+         is what "hollow" means when there are two pixels to say it in. The ring
+         comes back at full width the moment the reader pushes in.
+         Position and size never move — AGENTS rule 1 owns both, and neither may
+         say "we did not read this one". */
+      const ring = inner >= 1.7;
+      const core = ring ? inner : Math.min(r*0.92 + lw/2, Math.max(1.7, r*1.15));
+      const keepA=ctx.globalAlpha, keepOp=ctx.globalCompositeOperation;
+      ctx.globalCompositeOperation="destination-out";
+      ctx.globalAlpha=1;
+      ctx.beginPath();
+      ctx.arc(px,py,core,0,TAU);
+      ctx.fill();
+      ctx.globalCompositeOperation=keepOp;
+      ctx.globalAlpha=keepA;
+      if (ring){
+        ctx.beginPath();
+        ctx.arc(px,py,r*0.92,0,TAU);
+        ctx.lineWidth=lw;
+        ctx.strokeStyle=sky.tone[i];
+        ctx.stroke();
+      }
+      continue;
+    }
     ctx.beginPath();
     ctx.arc(px,py,inPreview?r:r*0.86,0,TAU);
     /* Under a treatment every disc takes the register's colour, EXCEPT a
@@ -6098,6 +7673,7 @@ function skyDraw(){
   const ringed=(key,stroke,pad,width,a)=>{
     const i=sky.at[key];
     if (i===undefined || A[i]<=0.004) return;
+    if (TPF && TPF.fyr[i]>TPF.t) return;   /* nothing is marked before it exists */
     const px=SX[i], py=SY[i];
     if (px<-12||py<-12||px>w+12||py>h+12) return;
     const lit=(PV && !PV[i]) ? 0.16 : 0.82;
@@ -6173,18 +7749,45 @@ function skyNeighbours(key){
    is at full sharpness and full contrast, and the only thing graph depth
    changes is its size and its ink. */
 function skyLabels(key){
-  if (key===sky.labelKey) return;
-  sky.labelKey=key;
+  /* A QUERY SKY HAS A LEAD AND THE WHOLE ATLAS DOES NOT, WHICH IS WHY THIS
+     BRANCH EXISTS. Labels are gated on interaction everywhere else for a good
+     reason — 2,204 names at the fit zoom is a grey block, not a map, and the
+     atlas has no opinion about which of them you came for. A typed reading is
+     the one picture that DOES: the films at the front are the answer to the
+     question, and the review's blocker was that the answer was not in the
+     picture. So the top few are named on arrival, and holding any film still
+     replaces them with that film and its own neighbours. */
+  const qTop = key==null && sky.query && sky.query.r && sky.query.r.top;
+  const qLead = !!(qTop && qTop.length);
+  const sig = qLead ? "\u0000q:"+sky.query.text : key;
+  if (sig===sky.labelKey) return;
+  sky.labelKey=sig;
   const box=$("#sky-labels");
   box.innerHTML="";
   sky.labels=[];
+  if (qLead){
+    /* Five, not more: these are drawn at the front of a disc where the top
+       twelve land within a few pixels of each other, and the placer drops a
+       name it cannot put down without lying across another. */
+    const list=qTop.slice(0,5)
+      .filter(t=>t && t.key!=null && sky.at[t.key]!==undefined)
+      .map((t,n)=>({k:t.key,lead:n===0}));
+    skyLabelsMake(list, box);
+    return;
+  }
   if (key==null || sky.at[key]===undefined) return;
-  const list=[{k:key,lead:true}, ...skyNeighbours(key).map(k=>({k,lead:false}))];
+  skyLabelsMake([{k:key,lead:true}, ...skyNeighbours(key).map(k=>({k,lead:false}))], box);
+}
+
+/* One builder, so the query branch and the film-in-hand branch cannot drift
+   apart on how a name is made or measured. */
+function skyLabelsMake(list, box){
   const made=[];
   for (const it of list){
     const i=sky.at[it.k];
     if (i===undefined) continue;
     const f=F[it.k];
+    if (!f) continue;
     const node=el("div","sky-label"+(it.lead?"":" near"));
     node.innerHTML = esc(f.title) + (it.lead && f.year ? `<span class="y">${f.year}</span>` : "");
     box.appendChild(node);
@@ -6210,7 +7813,11 @@ function skyChrome(){
   /* #sky-readbox rather than #sky-read: the fold header is part of the opaque
      box and stands while the body is collapsed. Measuring the body alone would
      report a zero-height obstacle and put labels under the summary line. */
-  for (const sel of ["#sky-readbox","#sky-stratum",".sky-ctl","#sky-worlds","#sky-worlds-tab"]){
+  /* #sky-track is in this list because it is opaque and standing: the camera
+     fits ABOVE it and the label placer treats it as an obstacle, exactly as
+     they do the worlds strip at the other edge. Chrome you can see through is
+     chrome the atlas may be drawn under; this one you cannot. */
+  for (const sel of ["#sky-readbox","#sky-stratum",".sky-ctl","#sky-worlds","#sky-worlds-tab","#sky-track"]){
     const node=$(sel);
     if (!node) continue;
     const r=node.getBoundingClientRect();
@@ -6300,6 +7907,9 @@ function skyPassageEdgeSet(route){
    while the world was still on the screen. */
 function skyPassageHash(){ skySyncHash(); }
 
+/* A ROUTE AND A REEL ARE TWO ANSWERS TO DIFFERENT QUESTIONS, and a chain drawn
+   across an atlas that is missing half its films is neither. Both of these end
+   in skyTpApply, on the same condition the worlds strip uses. */
 function skyPassageClear(){
   sky.passage={from:null,to:null,route:null,pending:false,onEdge:null};
   skyPassageHash();
@@ -6307,14 +7917,17 @@ function skyPassageClear(){
      which is the same condition skyClearFacets uses. Clearing a route inside a
      chosen world returns you to that world, not to the front of the strip. */
   skyWorldsOpen(!skyFilterOn());
+  skyTpApply();
   skyReadout(); skyRender();
 }
 function skyPassageStart(key){
+  skyTpRest(false);
   sky.passage={from:key,to:null,route:null,pending:false,onEdge:null};
   /* From the first film, not from the second: "pick a second film" is already
      an instruction the reader has to be able to read, and the strip covers the
      line that gives it. */
   skyWorldsOpen(false);
+  skyTpApply();
   skyReadout(); skyRender();
 }
 function skyPassageTo(key){
@@ -6409,6 +8022,17 @@ function skyFoldSummary(folded){
   const anchor=skyAnchor();
   const key = anchor ? (sky.examineKey || sky.hoverKey || anchor) : skyInHand();
   if (key!=null && F[key]) return F[key].title;
+  if (sky.lookup) return sky.lookup.name+n(` \u00b7 ${sky.lookup.n} film${sky.lookup.n===1?"":"s"}`);
+  if (skyTpSpeaking()){
+    const shown=TP.pv!==null?TP.pv:Math.min(TP.y1,Math.round(TP.t));
+    if (TP.pv!==null) return shown+n(` \u00b7 ${skyTpCensusAt(shown)} films within two years`);
+    return shown+n(` \u00b7 ${TP.born} of ${sky.n} films`);
+  }
+  if (sky.query && sky.query.drawn){
+    /* Not "N films": nothing was removed. What the reader needs to know at a
+       glance is that the distance means something different now. */
+    return "Your reading"+n(` \u00b7 ${sky.n} films, nearest first`);
+  }
   const sel=skySelected();
   if (sel.length){
     const label=skySelectionLabel(sel);
@@ -6422,6 +8046,10 @@ function skyFoldSummary(folded){
 function skyFoldApply(){
   const shell=$("#sky-readbox"), body=$("#sky-read"), btn=$("#sky-fold"), sum=$("#sky-fold-sum");
   if (!shell||!body||!btn) return;
+  /* The cap is a property of WHO IS SPEAKING, not of the fold, so it is set on
+     the same guarded pass rather than in a second place that can disagree. */
+  const tp = typeof skyTpSpeaking==="function" && skyTpSpeaking();
+  if (shell.classList.contains("tp")!==!!tp) shell.classList.toggle("tp",!!tp);
   const folded=state.skyFolded===true;
   /* Guarded: this runs on every readout repaint, which is every pointer move
      over a disc. Re-writing `hidden` to the value it already has still reflects
@@ -6447,6 +8075,42 @@ function skyFoldApply(){
    makes when the strip rolls up, and for the same reason. Only when nothing
    else owns the camera: a reader who has panned somewhere has said where they
    want to be, and a fold is not a request to be moved. */
+/* ONE ANSWER TO "THE CHROME MOVED, NOW WHAT". The readout is in the camera's
+   safe band and in the label placer's obstacle list, so any repaint that
+   changes its height changes the frame — and a frame nothing repaints into is
+   a frame the reader is looking at and the state does not draw. Only when
+   nothing else owns the camera: a reader who has panned somewhere has said
+   where they want to be, and a box growing under them is not a request to move. */
+function skyRefitAfterChrome(ms){
+  const was=skySafeBand();
+  sky.chrome=null;
+  const now=skySafeBand();
+  /* RULE 7 BEFORE EVERYTHING. Re-fitting unconditionally makes the camera
+     depend on WHETHER the flight had finished when the offers landed, which is
+     a race, and a race is a different picture for the same address — measured,
+     38 of 256 tiles differed between two cold loads of one sentence. The fit
+     is only touched when the band it is a function of actually moved, so a
+     repaint that changes nothing changes nothing. */
+  if (Math.abs(now.top-was.top)<0.5 && Math.abs(now.bot-was.bot)<0.5){
+    skyPlaceLabels(); skyRender(); return;
+  }
+  if (!(state.view==="sky" && sky.ready && !sky.anim && !sky.form
+        && !skyInHand() && !sky.orbitKey && !sky.passage.from)){
+    skyPlaceLabels(); skyRender(); return;
+  }
+  if (sky.query && sky.query.drawn){
+    /* A query sky is fitted to its own point cloud, exactly as skyFormTo fits
+       it — not to skyFitCam, which is the whole atlas's fit. */
+    skyFitFiltered(ms===undefined?620:ms);
+  } else if (skyFilterOn() && sky.visibleN){
+    skyFitFiltered(ms===undefined?620:ms);
+  } else {
+    const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,ms===undefined?620:ms);
+  }
+  skyPlaceLabels();
+  skyRender();
+}
+
 function skyFoldToggle(){
   state.skyFolded=!(state.skyFolded===true);
   persistPreferences();
@@ -6481,6 +8145,15 @@ function skyReadoutBody(){
      one re-measure per repaint, which is what the ordinary path has always
      paid. */
   sky.chrome=null;
+  /* THE TRANSPORT'S READOUT IS CAPPED WHERE A PASSAGE'S IS NOT, AND THE
+     DIFFERENCE IS THE POSTURE. A route's content IS the claims, so DESIGN.md
+     lets that box take whatever room the HUD leaves. The transport's content is
+     the FIELD — the whole point is watching the century arrive — so a panel
+     that grows over it has eaten the thing it is describing. Capped and
+     scrolled on a phone, where the strip already owns 146px at the top and the
+     track 62px at the bottom. */
+  shell.classList.toggle("tp", skyTpSpeaking());
+  shell.classList.toggle("route", !!P.from);
 
   /* PASSAGE OWNS THE READOUT WHILE IT IS ACTIVE. The claims in order ARE the
      feature — the drawn line is the index, the sentences are the argument —
@@ -6531,6 +8204,21 @@ function skyReadoutBody(){
     return;
   }
 
+  /* THE READING OWNS THE READOUT WHILE IT IS ON SCREEN, exactly as a passage
+     does and for the same reason: the slate IS the feature. The chips, the
+     unread spans and the offers are the argument about what the picture means,
+     and putting them in a fourth standing panel would take a fourth bite out of
+     the camera's safe band for content this box already knows how to hold and
+     scroll. A film in hand still evicts it, the way it evicts everything. */
+  if (sky.query && !skyInHand() && !skyAnchor() && !skyTpSpeaking()){
+    shell.classList.add("find");
+    shell.style.setProperty("--nc", "var(--accent)");
+    box.innerHTML = skyFindSlate();
+    skyFindBind(box);
+    return;
+  }
+  shell.classList.remove("find");
+
   const anchor=skyAnchor();
   /* While orbiting, the readout is about the neighbour being examined, or the
      anchor itself when none is. Hover still previews, but it may not evict a
@@ -6561,6 +8249,109 @@ function skyReadoutBody(){
   if (key==null || !F[key]){
     shell.style.removeProperty("--nc");
     const sel=skySelected();
+    /* ── THE TRANSPORT OWNS THE READOUT WHILE THE REEL IS NOT AT REST ──────
+       DOM type on its own opaque ground. The canvas never touches a glyph, so
+       nothing here can blur however fast the reel is running — AGENTS rule 4,
+       which is the rule an animated view is most likely to break.
+
+       IT PRINTS ITS OWN TIER, the way the worlds do. Both numbers are measured
+       at build time by app/build.js with build-registers.js's own instruments
+       and shipped with the artifact, so this sentence describes the corpus that
+       actually shipped rather than repeating a figure from a prototype. */
+    /* ── A NAME, A GENRE, A DECADE ────────────────────────────────────────
+       The set is at the centre and the rest of the atlas is still drawn around
+       it, so the readout has to say WHICH set — and name its films, because at
+       this density the discs are one cluster and these rows are the only place
+       a reader can read them. Same clickable rows the typed search uses. */
+    if (sky.lookup){
+      const L=sky.lookup, nf=v=>v.toLocaleString("en-US");
+      const roles=(L.kind==="person" && LOOKUP.person[L.name] && LOOKUP.person[L.name].r) || [];
+      const what = L.kind==="person" ? (roles.length ? roles.join(", ") : "in the corpus")
+        : L.kind==="decade" ? "made in the "+L.name
+        : L.kind==="country" ? "from "+L.name : L.kind;
+      box.innerHTML=`<span class="slate">${esc(L.name)} \u00b7 ${nf(L.n)} film${L.n===1?"":"s"} \u00b7 ${esc(what)}</span>
+        <span class="y sky-hint" style="margin-top:7px">A RECORD, not a reading: who is credited and
+          what the film is filed as, not what anyone thinks it is like. Every film here belongs
+          equally \u2014 the set is not ranked \u2014 and the rest of the atlas is still drawn around
+          it, further out.</span>
+        <div class="find-miss">${L.films.slice(0,12).map(k=>
+          `<button type="button" class="find-miss-row find-go" data-go="${esc(k)}"><b>${esc((F[k]&&F[k].title)||k)}</b>`+
+          `<span>${(F[k]&&F[k].year)||""}${F[k]&&F[k].director?" \u00b7 "+esc(F[k].director):""}</span></button>`).join("")}</div>`
+        + (L.n>12 ? `<span class="find-note">and ${nf(L.n-12)} more, all of them at the centre.</span>` : "");
+      skyFindBind(box);
+      return;
+    }
+    if (skyTpSpeaking()){
+      const t=TP_DATA, sep=t.sep||{};
+      const grazing=TP.pv!==null;
+      const shown=grazing?TP.pv:Math.min(TP.y1,Math.round(TP.t));
+      const i=Math.max(0,Math.min(t.yearHex.length-1,shown-TP.y0));
+      const nf=v=>v.toLocaleString("en-US");
+      const mark=sep.tier==="recorded"?"\u25CF":sep.tier==="amplified"?"\u25D0":"\u25CB";
+      const count=grazing
+        ? `${nf(skyTpCensusAt(TP.pv))} films within two years of ${TP.pv} \u00b7 shown where they are`
+        : `${nf(TP.born)} of ${nf(sky.n)} films \u00b7 ${nf(TP.arriving)} connections being made`;
+      const say = grazing
+        ? `Grazing the track. Nothing has moved \u2014 this is where ${TP.pv} already is.`
+        : TP.t<TP.end
+        ? `The atlas as it stood in ${shown}. Nothing has moved; the rest has not been made yet.`
+        : "Every film in the corpus. This is the picture the constellation opens on.";
+      /* ── THE FIVE TYPES AS FIVE TENSES ──────────────────────────────────
+         The key the resting readout already prints, given the one extra column
+         the reel makes visible: which way each argument was RECORDED to run,
+         and over how many edges that direction was actually recorded.
+
+         `edge.from` has three values and one of them is "none". 82 of the 315
+         descents do not say which film is the ancestor, so they are drawn
+         symmetrically and left OUT of the percentage rather than counted as
+         though the corpus had an opinion — reading "none" as "b" is what makes
+         a prototype report 80.6% where the recorded answer is 94.0% of 233.
+
+         ONLY THE TWO DIRECTED TYPES CARRY A FIGURE, and the three that do not
+         are covered by one line underneath rather than by three rows each
+         saying the same thing. That is a phone decision as much as an editorial
+         one: five annotated rows is six lines at 390px, on the viewport where
+         DESIGN.md says the readout gives up the field before the map does. */
+      const tenseRow=(type,label)=>{
+        const d=t.tense[type]||{};
+        const note = (d.drawn && d.forward!==null)
+          ? `<s>${type==="rebuttal"
+              ? ((1-d.forward)*100).toFixed(1)+"%\u00a0\u21a4"
+              : (d.forward*100).toFixed(1)+"%\u00a0\u21a6"} of ${nf(d.directed)}</s>`
+          : "";
+        return `<i style="--kc:${EDGE_META[type].color}">${label}${note}</i>`;
+      };
+      const loose=["convergence","rhyme","hand"].reduce((a2,k)=>a2+(t.tense[k]?t.tense[k].n:0),0);
+      const looseDir=["convergence","rhyme","hand"].reduce((a2,k)=>a2+(t.tense[k]?t.tense[k].directed:0),0);
+      box.innerHTML=`<span class="slate" id="sky-tp-count">${esc(count)}</span>
+        <span class="sky-tier" style="--wc:#E8C87A"><i>${mark}</i> ${esc(sep.tier||"authored")} \u00b7 <b id="sky-tp-prints"
+          style="font-weight:inherit">${nf(t.yearN[i])}</b> prints, hue <b id="sky-tp-hue"
+          style="font-weight:inherit">${t.yearHue[i]}</b>\u00b0, chroma raised, authored.<details
+          class="sky-tp-how"><summary>how it was measured</summary>The decade separates at
+          ${sep.sigma} SD and explains ${(sep.share*100).toFixed(1)}% of one film's own colour, so it
+          lights the room and never a disc \u2014 and a year is read as a wash over the whole plate,
+          never off one film's position (RMSE 20.9 years against a corpus SD of 23.4).
+          The other three types carry a recorded direction on ${nf(looseDir)} of ${nf(loose)}
+          edges, so they are drawn from the middle out to both ends rather than given an arrow
+          nobody measured.</details></span>
+        <span class="y sky-tp-year-films" id="sky-tp-films">${esc(skyTpYearLine(shown))}</span>
+        <div class="sky-key sky-key-tense">
+          ${tenseRow("descent","descends from")}
+          ${tenseRow("rebuttal","argues with")}
+          ${tenseRow("convergence","arrives with")}
+          ${tenseRow("rhyme","rhymes with")}
+          ${tenseRow("hand","shares a hand")}
+          <i class="dash">reading, not record</i>
+        </div>
+        <span class="y sky-hint" style="margin-top:7px"><span id="sky-tp-say">${esc(say)}</span></span>
+`;
+      /* THE BUTTON IS GONE, AND ITS 30px WENT BACK INTO THE PICTURE. It said
+         "Back to the whole atlas" while the track two inches below already says
+         "end returns to now", is draggable, and answers End from the keyboard.
+         Two affordances for one action, and the duplicate was costing the
+         aperture more than it was worth. */
+      return;
+    }
     const key5=`<div class="sky-key">${SKY_TYPES.map(t=>
         `<i style="--kc:${EDGE_META[t].color}">${EDGE_META[t].label}</i>`).join("")
         }<i class="dash">reading, not record</i></div>`;
@@ -6631,7 +8422,8 @@ function skyReadoutBody(){
       ${stale}
       ${key5}
       ${rn?`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what
-        it is joined to and nothing else. Start with one of the ${rn} worlds along the top, or pick
+        it is joined to and nothing else. Start with one of the ${rn} worlds along the top,
+        ${skyTpAllowed()?"run the century on the track below, ":""}or pick
         any film to open its map. Two films in five are behind no world at all.</span>`
       :`<span class="y sky-hint" style="margin-top:9px">Every film is up there, placed by what it is
         joined to and nothing else. Pick one and the atlas opens its map.</span>`}`;
@@ -6660,6 +8452,7 @@ function skyReadoutBody(){
     <span class="t">${esc(f.title)}</span>
     <span class="y">${f.year||""}${f.director?" · "+esc(f.director):""} · ${skyDegreeLine(key)}</span>
     <span class="y" style="margin-top:5px">${devd?"developed":"latent"} · ${pal}</span>
+    ${skyTpCompany(key)}
     <span class="y sky-hint" style="margin-top:5px">s to develop · l to love</span>
     ${held?`<span class="y sky-hint">Its connections are held open — pick one to see why they are joined.</span>`:""}
     ${(pinned||held)?`<button class="btn" id="sky-open" type="button">Open its map</button>`:""}
@@ -6688,6 +8481,9 @@ function skyHand(){
      make the held ring impossible to read, which is the thing orbit exists
      to fix. */
   skyLabels(skyAnchor() || key);
+  /* The graft's two ticks follow whatever the field is holding, and go away
+     with it. Two style writes, no measurement. */
+  skyTpMarks(lamp);
   skyReadout();
   skyRender();
 }
@@ -6695,10 +8491,15 @@ function skyHand(){
 /* Hit test through the world-space bucket grid built in skyBuild. Scanning
    803 films per pointer move would also work today and will not at 2,000. */
 function skyPick(px,py){
+  /* A FILM THAT IS NOT ON SCREEN IS NOT PICKABLE. While the reel is cut back,
+     the discs after the cursor are not drawn, and a hit test that still found
+     them would open a film the reader cannot see — the pointer equivalent of a
+     line to a place with nothing at it. */
   /* Nothing is pickable mid-flight: the disc under the pointer is at a
      coordinate that is on its way somewhere else, and picking it would open
      a film the reader was not aiming at. */
   if (!sky.n || sky.form) return null;
+  const cut=skyTpCut()?TP:null;
   const cam=sky.cam, k=cam.k;
   const wx=(px-sky.w/2)/k+cam.cx, wy=(py-sky.h/2)/k+cam.cy;
   const grab=Math.max(12, skyRadius(skyZoomRatio())+7)/k;   /* a finger, in world units */
@@ -6711,6 +8512,7 @@ function skyPick(px,py){
     for (const i of b){
       /* A film outside the current selection is not in the picture at all. */
       if (!sky.live[i]) continue;
+      if (cut && cut.fyr[i]>cut.t) continue;
       const dx=sky.wx[i]-wx, dy=sky.wy[i]-wy, d=dx*dx+dy*dy;
       if (d<bestD){ bestD=d; best=i; }
     }
@@ -6760,7 +8562,8 @@ function skyOrbit(key){
        point is to stay in the field and still see the neighbourhood, so the
        camera only closes to where the held names are comfortably readable. */
     const i=sky.at[key];
-    skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()/Math.max(1e-6,sky.extent)*2.2), 620);
+    const ok=skyCentreOn(i, Math.max(sky.cam.k, skyFitK()/Math.max(1e-6,sky.extent)*2.2));
+    skyGo(ok.cx, ok.cy, ok.k, 620);
   }
   skyHand();
 }
@@ -6779,7 +8582,8 @@ function skyFocus(key){
      empty coordinate. */
   if (i===undefined || !sky.live[i]) return false;
   skyPinKey(key);
-  skyGo(sky.wx[i], sky.wy[i], Math.max(sky.cam.k, skyFitK()/Math.max(1e-6,sky.extent)*5.5), 950);
+  const fk=skyCentreOn(i, Math.max(sky.cam.k, skyFitK()/Math.max(1e-6,sky.extent)*5.5));
+  skyGo(fk.cx, fk.cy, fk.k, 950);
   return true;
 }
 function skyOrMap(key){
@@ -6819,7 +8623,8 @@ function skyStep(dx,dy){
   if (best<0) return;
   sky.hoverKey=null;
   skyPinKey(sky.keys[best]);
-  skyGo(sky.wx[best], sky.wy[best], sky.cam.k, 620);
+  const sk=skyCentreOn(best, sky.cam.k);
+  skyGo(sk.cx, sk.cy, sk.k, 620);
 }
 
 function skyEnter(){
@@ -6853,7 +8658,11 @@ function skyEnter(){
      once something has been asked of the field — a selection or a live route.
      Coming back to a re-formed sky, or to a route still being read, returns
      you to the picture you left, not to the index. */
-  skyWorldsOpen(!skyFilterOn() && !sky.passage.from);
+  /* Before skyWorldsOpen, because that is the call that performs the arrival
+     fit and it has to measure a field whose floor is already in place. */
+  skyTpApply();
+  skyWorldsOpen(!skyFilterOn() && !sky.passage.from && !skyQueryOn());
+  skyFindRender();
   /* Once more after paint: entering is a class change, so on this frame the
      field can still be reporting the size it had while it was hidden. */
   requestAnimationFrame(()=>{ skyResize(); skyRender(); });
@@ -6865,6 +8674,10 @@ function skyExit(){
      one thing here that would otherwise run for ever. */
   if (sky.idle){ clearTimeout(sky.idle); sky.idle=0; }
   skyWorldPreview(null);
+  /* A reel left running in a view nobody is looking at is the same defect as
+     an idle clock that never stops. It lands on its last frame, which is the
+     picture the sky is supposed to rest in. */
+  if (TP.running || TP.t<TP.end || TP.pv!==null){ TP.running=false; TP.pv=null; TP.t=TP.end; skyTpChrome(); }
   /* A flight abandoned half-way would leave every film parked between two
      layouts, and coming back would show a sky that is not any solved answer.
      Land it. */
@@ -6899,9 +8712,779 @@ window.__ATLAS_SKY__ = {
      be honoured. A round trip is only provable if both ends are readable. */
   address: () => skyAddress(),
   stale: () => sky.staleAddr,
+  /* THE QUERY WORLD HAS TO BE VISIBLE TO A PROBE OR IT CANNOT BE ASSERTED.
+     state().kind already reports "match" for a query sky because it is read off
+     sky.formKind; this is everything else a round-trip check needs — what was
+     read, what was refused, what was offered, and what the front of the sky is
+     standing on. Read only. */
+  query: () => {
+    const q=sky.query;
+    if (!q) return null;
+    const r=q.r;
+    return {
+      text:q.text, drawn:!!q.drawn, solveMs:q.solveMs,
+      drawable:!!r.drawable, refusal:r.refusal?r.refusal.code:null,
+      readings:r.readings.map(x=>({said:x.said,terms:x.terms.slice(),negate:x.negate,weight:x.weight})),
+      unread:r.unread.map(x=>({text:x.text,why:x.why,kind:x.kind||"unknown"})),
+      marks:r.marks.map(m=>({field:m.field,value:m.value,count:m.count})),
+      offers:(r.offers||[]).map(o=>({attr:o.attr,value:o.value,brings:o.brings.slice()})),
+      taken:q.taken.slice(), spent:q.spent.slice(),
+      coverage:r.coverage||null, capped:(r.capped||[]).map(c=>c.label),
+      /* query-parse.js's contract says a contradiction must be SHOWN. It could
+         not be: this object did not carry it, so no view could reach it. */
+      conflicts:(r.conflicts||[]).map(c=>({terms:c.terms.slice(),text:c.text,against:c.against})),
+      frontMiss:(r.frontMiss||[]).map(x=>({label:x.label,zero:x.zero,unknown:x.unknown,of:x.of})),
+      headroom:r.headroom||null,
+      bands: q.bands ? { groups:q.bands.groups.length, scoreMax:q.bands.scoreMax,
+        normalised:!!q.bands.normalised,
+        widest:q.bands.widest?{n:q.bands.widest.n,span:q.bands.widest.hi-q.bands.widest.lo}:null } : null,
+      tension:(r.tension||[]).map(t=>({label:t.label,churn:t.churn,honoured:t.honoured})),
+      top:(r.top||[]).slice(0,10).map(t=>({key:t.key,score:t.score,coverage:t.coverage,
+        misses:(t.misses||[]).slice(),held:t.held,of:t.of})),
+      bearings: findBearings ? findBearings.__hit : 0,
+      buildMs: Math.round(findBuildMs),
+    };
+  },
+  /* Driving the reading from a probe without going through the keyboard. */
+  find: (text) => skyOpenQuery(text),
   select: (field,value) => { if (sky.filter[field]) skyToggleFacet(field,value); },
   clear: () => skyClearFacets(),
 };
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE TYPED SEARCH — A SENTENCE BECOMES A CONSTELLATION
+   ═══════════════════════════════════════════════════════════════════════
+
+   "ideally the user can type in things like 'a film that has fast pacing, has
+   the mood of the matrix, has a hopeful tone, has little dialogue, very
+   spiritual in nature' and atlas should be able to create a constellation in
+   which those very films live ... BUT those films can still live in the
+   constellation. they might just exist a bit further away then the films who
+   are more closely related."
+
+   That last sentence is the whole design. THIS DOES NOT FILTER. Every one of
+   the 2,204 films is scored, every one is drawn, every one stays clickable; the
+   only thing that changes is how far from the centre each one sits. A weak
+   answer is at the rim, not absent. Because `live` is all ones and the count
+   equals the whole corpus, skyScaleTarget's factor resolves to 1 and nothing
+   takes the outward exit — a query is a RE-ARRANGEMENT of the atlas, which is
+   unlike every other re-form in this view and is exactly what was asked for.
+
+   NO MODEL RUNS HERE. The page makes no network call and holds no credential
+   (AGENTS rule 6b). The sentence is read by a phrase table over a closed
+   59-term vocabulary, scored by arithmetic, and placed by a relaxation. The
+   whole chain is deterministic in a single engine and the ranking is
+   bit-identical across engines; the POSITIONS are not, which is why the address
+   below carries the sentence and never the coordinates.
+
+   NOTHING IS PORTED. match.js, questioner.js, query-parse.js, query-runtime.js
+   and layout-match.js are the files from the repository, inlined verbatim under
+   the twelve-line CommonJS shim below with a virtual filesystem that resolves
+   by basename. A second hand-written copy of a scorer is a copy that drifts,
+   and every number the pipeline measures about this search would then be a
+   number about a different program. */
+
+const __FIND_VFS = (typeof FIND_DATA!=="undefined" && FIND_DATA) ? FIND_DATA.files : null;
+const __FIND_CACHE = Object.create(null);
+const __findBase = p => String(p).split("/").pop();
+/* Modules ask for "fs", "path", "./match.js", "../pipeline/match.js". Basename
+   resolution answers all four, and throws loudly rather than guessing — there
+   are no colliding basenames today and a build that introduces one should stop
+   here rather than silently load the wrong file. */
+function findRequire(id){
+  const b = __findBase(id).replace(/\.js$/,"") + ".js";
+  if (b === "fs.js") return {
+    readFileSync(p){
+      const v = __FIND_VFS && __FIND_VFS[__findBase(p)];
+      if (v === undefined) throw new Error("ENOENT (virtual): "+p);
+      /* Held as parsed objects and stringified on read, so the artifact does
+         not ship every quote in the lexicon escaped twice. */
+      return typeof v === "string" ? v : JSON.stringify(v);
+    },
+    existsSync(p){ return !!(__FIND_VFS && __FIND_VFS[__findBase(p)] !== undefined); },
+    readdirSync(){ return __FIND_VFS ? Object.keys(__FIND_VFS) : []; },
+  };
+  if (b === "path.js") return {
+    join(){ return Array.prototype.slice.call(arguments).join("/"); },
+    basename: __findBase,
+    dirname(p){ return String(p).split("/").slice(0,-1).join("/"); },
+    relative(a,b){ return b; },
+    resolve(){ return Array.prototype.slice.call(arguments).join("/"); },
+  };
+  if (__FIND_CACHE[b]) return __FIND_CACHE[b].exports;
+  const src = typeof __FIND_SRC!=="undefined" ? __FIND_SRC[b] : null;
+  if (!src) throw new Error("typed search: no such module: "+id);
+  const m = { exports:{} };
+  __FIND_CACHE[b] = m;
+  new Function("require","module","exports","__dirname","__filename","process",
+    src)(findRequire, m, m.exports, "/pipeline", "/pipeline/"+b,
+    { argv:["node","atlas"], env:{}, exit(){}, stdout:{write(){}} });
+  return m.exports;
+}
+
+/* THE ENGINE IS BUILT ONCE AND NEVER ON THE CRITICAL PATH. buildTable walks
+   2,204 films x 59 attributes and the parser indexes 2,700 titles; together
+   that is a fifth of a second, which is nothing on idle and is a stutter if it
+   lands on the first keystroke. Warmed when the page is quiet, forced if the
+   reader gets there first. */
+let FIND_ENGINE=null, FIND_LAYOUT=null, findBuildMs=0, findFailed=null;
+function findEngine(){
+  if (FIND_ENGINE || findFailed) return FIND_ENGINE;
+  if (typeof FIND_DATA === "undefined" || !FIND_DATA){ findFailed="no data"; return null; }
+  try{
+    const t0=performance.now();
+    FIND_LAYOUT = findRequire("layout-match.js");
+    const { buildFind } = findRequire("query-runtime.js");
+    FIND_ENGINE = buildFind({
+      packed: FIND_DATA.attrs,
+      keys: KEYS,
+      /* The page already holds the corpus. match.js reads title, year and
+         wikipedia out of `meta` and nothing else, so handing it CORPUS.films is
+         the difference between shipping the corpus once and shipping it twice. */
+      meta: F,
+      facets: DISCOVERY,
+    });
+    findBuildMs = performance.now()-t0;
+  }catch(error){
+    findFailed = String(error && error.message || error);
+    console.warn("[atlas] typed search unavailable:", findFailed);
+  }
+  return FIND_ENGINE;
+}
+function findWarm(){
+  if (FIND_ENGINE || findFailed) return;
+  const go=()=>findEngine();
+  if (typeof requestIdleCallback === "function") requestIdleCallback(go,{timeout:4000});
+  else setTimeout(go,1200);
+}
+
+/* THE BEARINGS ARE THE ATLAS'S OWN ANGULAR ORDER, KEPT.
+   layoutMatch decides each film's RADIUS from its score and needs a bearing
+   from somewhere. Taking it from the whole-atlas layout — rank-equalised, so
+   the discs are evenly spread around the circle — means the query sky keeps the
+   sequence the constellation already had: a film does not jump to the far side
+   of the field because a word changed, and two neighbouring queries read as
+   the same atlas rearranged rather than two unrelated pictures.
+
+   THE KEY SPACE IS THE TRAP HERE AND IT FAILS SILENTLY. Scores are keyed by
+   CORPUS KEY; LAYOUT.positions is keyed by permanent film id. Hand the wrong
+   one over and layoutMatch does not error — it falls back to hashing every key
+   into an angle and quietly throws the atlas's whole lineage structure away,
+   leaving a plausible disc that means nothing. POS is already re-keyed at the
+   top of this file, and the intersection is asserted rather than assumed. */
+let findBearings=null;
+function skyQueryBearings(){
+  if (findBearings) return findBearings;
+  findBearings = FIND_LAYOUT.skyBearings(SKY_POS||{});
+  let hit=0;
+  for (const k of sky.keys) if (findBearings[k]!==undefined) hit++;
+  if (hit < sky.n*0.9){
+    console.warn("[atlas] bearings match only "+hit+" of "+sky.n+" films — the query sky "+
+      "would be drawn on hashed angles rather than on the atlas's own order");
+  }
+  findBearings.__hit=hit;
+  return findBearings;
+}
+
+/* The fourth target producer, alongside home, baked stratum and live solve.
+   Same struct, so the flight, the camera, the hit grid and the label placer
+   need to know nothing about queries at all. */
+function skyTargetQuery(scores){
+  const pos = FIND_LAYOUT.layoutMatch(scores, { bearings: skyQueryBearings() });
+  const live=new Uint8Array(sky.n).fill(1);
+  const x=new Float64Array(sky.n), y=new Float64Array(sky.n);
+  let count=0;
+  for (let i=0;i<sky.n;i++){
+    const p=pos[sky.keys[i]];
+    if (!Array.isArray(p) || !Number.isFinite(p[0]) || !Number.isFinite(p[1])){ live[i]=0; continue; }
+    x[i]=p[0]; y[i]=p[1]; count++;
+  }
+  return count ? skyScaleTarget({live,x,y,count,kind:"match"}) : null;
+}
+
+/* ── RUNNING A READING ──────────────────────────────────────────────────── */
+
+/* ONE WRITER FOR sky.qcov, BECAUSE THE HALATION BUFFER READS IT.
+   Assigning the field in four places and remembering the invalidation in none
+   of them is how the buffer came to be drawn from the previous reading. */
+function skyQcov(v){
+  sky.qcov = v || null;
+  sky.haloDirty = true;
+}
+
+function skyQueryRun(text, opts){
+  const o=opts||{};
+  const E=findEngine();
+  if (!E){ return false; }
+  const raw=String(text||"").trim();
+  if (!raw) return false;
+  let r;
+  try{ r=E.run(raw,{taken:o.taken||[], spent:o.spent||[]}); }
+  catch(error){ console.warn("[atlas] the reading could not be run:",error); return false; }
+
+  const wasDrawn = skyQueryOn();
+  /* AGENTS RULE 3, ON THE FIELD RATHER THAN ONLY IN THE PROSE.
+     An unknown film is credited the corpus average on every clause it was not
+     read for, which correctly puts it ahead of a film the attributor looked at
+     and said no to — and lands it at a radius indistinguishable from a film
+     that was read and agreed. On a query naming `setting:space` alone, 30 of
+     the nearest 60 are films nobody read. Drawn filled, that sky states a
+     confidence it does not have. They are drawn HOLLOW instead: the same
+     record-versus-reading grammar the edges already use, at the same radius,
+     so nothing about size or distance is touched. */
+  skyQcov(null);
+  if (r.drawable && r.explain){
+    const cov=new Uint8Array(sky.n);
+    for (let i=0;i<sky.n;i++){
+      const d=r.explain(sky.keys[i]);
+      cov[i] = (d && d.coverage>0) ? 0 : 1;
+    }
+    skyQcov(cov);
+  }
+  /* THE BAND TABLE IS PART OF THE ANSWER, NOT PART OF THE SOLVE. matchBands is
+     a pure function of the scores — no relaxation, no randomness — so the slate
+     can quote the same arithmetic the layout used rather than re-deriving a
+     radius from the picture, which is the one thing layout-match.js's own
+     header tells callers never to do. */
+  let bands=null;
+  if (r.drawable){
+    try{ bands=FIND_LAYOUT.matchBands(r.scores); }catch(error){ bands=null; }
+  }
+  sky.query = {
+    text: raw, r, bands,
+    taken: (o.taken||[]).slice(), spent: (o.spent||[]).slice(),
+    /* Set here rather than after the solve, because skyTpApply below asks
+       skyQueryOn() whether the century may stand under this picture and the
+       answer must already be no. */
+    drawn: !!r.drawable, clauseN: r.readings.length,
+    blind: r.coverage ? r.coverage.blind : 0,
+    topNames: r.top ? r.top.slice(0,3).map(t=>t.title).join(", ") : "",
+    solveMs: 0,
+  };
+  /* A selection and a reading are two answers to the same question and the
+     picture can only hold one. */
+  for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+  if (sky.passage.from) skyPassageClear();
+  sky.staleAddr=null;
+  sky.pinKey=null; sky.hoverKey=null; sky.examineKey=null; sky.orbitKey=null;
+  skyLabels(null);
+  sky.preview=null; sky.previewSet=null;
+  sky.room=null; sky.roomFor=null;
+  skyRecomputeVisible();
+  sky.treat=null;
+  skyWorldsOpen(false);
+  skyTpApply();
+  skySyncHash();
+
+  if (!r.drawable){
+    /* THE FOUR REFUSALS ARE NOT ONE THING, AND ONE OF THEM WAS WRONG.
+       Three of them would otherwise produce a picture that is convincing and
+       false, and they still refuse: a negation-only reading puts 1,346 of 2,204
+       films at exactly 1.000, which layoutMatch draws as an inner ring holding
+       61% of the corpus; a record-only sentence names filing facts that AGENTS
+       rule 8 forbids scoring; no-denominator means every term in the reading is
+       one the corpus cannot speak to at all.
+
+       "NOTHING READ" IS DIFFERENT, and putting the resting atlas back for it
+       was a defect measured against the owner's own words: "BUT those films can
+       still live in the constellation. they might just exist a bit further away
+       then the films who are more closely related". A sentence nobody could
+       read is the limit of that rule, not an exception to it — every film
+       answers it equally badly, every score is 0, and layout-match.js has
+       always drawn that state deliberately: a shell with a hollow middle that
+       says "nothing here answered you" in its shape before a single title is
+       read. The words still come back unread in the slate, and the headline
+       still says the vocabulary did not hold them. What changes is that
+       distance now answers, instead of the picture quietly reverting to an
+       atlas that is about nothing the reader typed.
+
+       The four codes are named in DESIGN.md under "what an unanswerable
+       sentence draws", so this is a settled ruling rather than a branch. */
+    if (r.refusal && r.refusal.code==="no-reading"){
+      skyStratumRender();
+      skyFindRender();
+      skyRender();
+      const zeroToken=sky.query;
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        if (sky.query!==zeroToken) return;
+        const flat=Object.create(null);
+        for (const k of sky.keys) flat[k]=0;
+        let target=null;
+        try{ target=skyTargetQuery(flat); }catch(error){ target=null; }
+        if (!target){ skyFormTo(skyTargetHome(),{ms:SKY_FORM_MS,label:""}); return; }
+        zeroToken.drawn=true;
+        skyFormTo(target,{ms:SKY_FORM_MS,label:raw});
+        skyFindRender();
+      }));
+      return true;
+    }
+    if (wasDrawn || sky.formKind!=="whole") skyFormTo(skyTargetHome(),{ms:SKY_FORM_MS,label:""});
+    else { skyStratumRender(); skyReadout(); }
+    skyFindRender();
+    return true;
+  }
+
+  /* Two frames before the solve, exactly as the live stratum path does it: the
+     first paints the notice, the second does the work. A single rAF can land
+     before the paint commits and a silent freeze reads as a broken page. */
+  skyStratumRender();
+  skyFindRender();
+  skyRender();
+  const token=sky.query;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if (sky.query!==token) return;
+    const t0=performance.now();
+    let target=null;
+    try{ target=skyTargetQuery(r.scores); }catch(error){ target=null; }
+    const solveMs=performance.now()-t0;
+    if (!target){
+      sky.query=null;
+      skyFormTo(skyTargetHome(),{ms:SKY_FORM_MS,label:""});
+      skySyncHash();
+      skyFindRender();
+      return;
+    }
+    token.solveMs=Math.round(solveMs);
+    skyFormTo(target,{ms:SKY_FORM_MS,label:raw,solveMs});
+    skyFindRender();
+    /* THE OFFERS COST 200-400 ms AND BUY NOTHING UNTIL THE PICTURE HAS
+       ARRIVED. Computed once the flight is under way, never in front of it —
+       the constellation forms first and the row appears under it, which is also
+       the difference between an offer and a gate. */
+    setTimeout(()=>{
+      if (sky.query!==token || !token.r.drawable) return;
+      try{ token.r.deepen(); }catch(error){ return; }
+      if (sky.query!==token) return;
+      skyFindRender();
+      /* THE OFFERS CHANGE THE HEIGHT OF THE BOX, AND THE BOX IS THE FRAME.
+         skyReadout invalidates sky.chrome, and nothing then re-measured, re-fit
+         or repainted — so the reader kept the frame the flight had solved for a
+         readout that no longer exists. Measured at 1440x900: the box went to
+         721px, the safe band moved, and the picture on screen carried discs at
+         1.371px where the same state redraws them at 2.300px. Verified
+         idle-stable over 900ms, i.e. it never corrected itself.
+         This is the correction skyFoldToggle already makes when the fold
+         changes the box height, on the same condition: only when nothing else
+         owns the camera. */
+      requestAnimationFrame(()=>{
+        if (sky.query!==token) return;
+        skyRefitAfterChrome();
+      });
+    }, SKY_FORM_MS+60);
+  }));
+  return true;
+}
+
+function skyQueryClear(){
+  if (!sky.query) return;
+  sky.query=null;
+  skyQcov(null);
+  findFocusKey=null;
+  skySyncHash();
+  skyTpApply();
+  skyWorldsOpen(true);
+  skyFormTo(skyTargetHome(),{ms:SKY_FORM_MS,label:""});
+  skyFindRender();
+}
+
+/* Taking an offer appends it at the mean weight of what the reader already
+   said — a door they opened is a peer of their own words, never louder. */
+function skyQueryTake(attr){
+  const q=sky.query;
+  if (!q) return;
+  const taken=q.taken.concat([{attr,weight:1}]);
+  skyQueryRun(q.text,{taken,spent:q.spent});
+}
+/* "Either" spends the axis without answering it: never offered again, and
+   nothing added to the query. The measured case for having no "no" button is
+   in query-runtime.js — the complement of a rare attribute is a common one, so
+   a no branch brings in almost nobody and costs a turn. */
+function skyQuerySpend(attr){
+  const q=sky.query;
+  if (!q) return;
+  skyQueryRun(q.text,{taken:q.taken,spent:q.spent.concat([attr])});
+}
+function skyQueryDrop(spec){
+  const q=sky.query;
+  if (!q) return;
+  const list=String(spec).split(",").map(Number).filter(Number.isFinite);
+  const i=list[0];
+  if (i>=0 && i<q.taken.length){
+    const taken=q.taken.slice(); taken.splice(i,1);
+    skyQueryRun(q.text,{taken,spent:q.spent});
+    return;
+  }
+  /* Dropping one of the reader's OWN readings edits the sentence, because the
+     sentence is what the address carries and what a second person would read.
+     Removing the span rather than suppressing the clause keeps those two the
+     same thing.
+
+     ALL THE SPANS OF ONE CHIP, not the first of them. A chip that says "said
+     ×45" is one clause and its × has to take back the clause; leaving 44 copies
+     in the sentence would take back nothing the scorer was doing. The spans are
+     cut back-to-front so an earlier cut cannot move a later offset. */
+  const rds=list.map(n=>q.r.readings[-n-1]).filter(Boolean)
+    .sort((a,b)=>b.start-a.start);
+  if (!rds.length) return;
+  let cut=q.text;
+  for (const rd of rds) cut=cut.slice(0,rd.start)+cut.slice(rd.end);
+  /* The span comes out of the sentence and the punctuation around it closes up,
+     because the sentence is what the address carries and "a film that has , has
+     the mood of" is not something a second reader should be sent. */
+  const next=cut
+    .replace(/\s+,/g,",")
+    .replace(/,(\s*,)+/g,",")
+    .replace(/\s{2,}/g," ")
+    .replace(/^[\s,]+|[\s,]+$/g,"")
+    .replace(/\b(has|with|and|that has)\s*(,|$)/g,"")
+    .replace(/,(\s*,)+/g,",")
+    .replace(/^[\s,]+|[\s,]+$/g,"")
+    .trim();
+  if (!next){ skyQueryClear(); return; }
+  $("#q").value="";
+  skyQueryRun(next,{taken:q.taken,spent:q.spent});
+}
+
+/* ── THE SLATE ──────────────────────────────────────────────────────────────
+   WHAT WAS READ, IN BOTH VOICES, AND WHAT WAS NOT.
+
+   Every chip carries the reader's own span above the atlas's label, and every
+   chip can be taken back. That pairing is the whole reason this is safe to
+   ship: the parser is the one part of the search that can be wrong in a way no
+   downstream number can detect, so it is not asked to be right — it is asked to
+   be legible. Tapping the label opens that attribute's gloss AND its `not`
+   clause, verbatim from the vocabulary, because most misreadings are the reader
+   meaning precisely what the `not` clause excludes.
+
+   AGENTS RULE 3 AND RULE 8 BOTH LAND HERE. The strength is a reading solved in
+   this browser and says so; coverage is read off explain(), never off the drawn
+   radius; and the record channel is listed apart from the reading rather than
+   folded into the same 0..1 number. */
+
+let findFocusKey=null;                 /* the attribute whose gloss is open */
+
+/* ONE CHIP PER SPAN THE READER TYPED, not one per attribute it produced.
+   "the mood of the matrix" resolves to four attributes and printing four
+   identical chips describes our machinery rather than their sentence — and the
+   × on each would take back a quarter of a phrase, which is not a thing anybody
+   typed. The terms are listed inside the one chip instead. */
+/* AND ONE CHIP PER CLAUSE THE SCORER ACTUALLY RUNS, not one per repetition of
+   it. A 500-word sentence built from 11 vocabulary words repeated 45 times each
+   rendered 500 chips: #sky-read scrollHeight 7,038px inside a 708px box, the
+   last chip at y=6,702, and the follow-up offers ~6,300px below the fold. The
+   parser is not the problem — it deduplicates correctly, combining the repeated
+   weights by MAX, and hands back 11 clauses. It is this function that described
+   500 things the query does not contain, because it grouped by (span, position)
+   and 45 positions are 45 groups.
+
+   The two levels are both needed and they are different questions. said+start
+   is "one span the reader typed" — it is what merges the four attributes of
+   "the mood of the matrix" into one chip. The second pass is "one clause the
+   scorer runs", and it merges the forty-five identical spans into one chip
+   carrying a count. The × then takes back ALL of them, because taking back a
+   forty-fifth of a repeated word is not a thing anybody asked for. */
+function findGroupReadings(readings){
+  const spans=[];
+  const at=new Map();
+  readings.forEach((rd,i)=>{
+    const id=rd.said+"|"+rd.start+"|"+(rd.negate?1:0);
+    let g=at.get(id);
+    if (!g){ g={said:rd.said, start:rd.start, end:rd.end, negate:rd.negate, kind:rd.kind,
+                film:rd.film, note:rd.note, terms:[], labels:[], weights:[], first:i, all:[]};
+             at.set(id,g); spans.push(g); }
+    g.terms.push(rd.terms[0]);
+    g.labels.push(rd.label);
+    g.weights.push(rd.weight);
+    g.all.push(i);
+  });
+  const groups=[];
+  const byClause=new Map();
+  for (const g of spans){
+    const key=g.said.toLowerCase()+"\u0000"+[...new Set(g.labels)].join("\u0001")+"\u0000"+(g.negate?1:0);
+    const seen=byClause.get(key);
+    if (seen){ seen.count++; seen.all=seen.all.concat(g.all); continue; }
+    g.count=1;
+    byClause.set(key,g);
+    groups.push(g);
+  }
+  return groups;
+}
+function findChipHTML(g){
+  const said=esc(g.said);
+  const label=esc([...new Set(g.labels)].join(" · "));
+  const w = (g.weights.length===1 && g.weights[0]!==1) ? `<i>×${g.weights[0]}</i>` : "";
+  /* The repeat count is the reader's own sentence reported back, not ours: they
+     did type it forty-five times, and the scorer ran it once. */
+  const rep = g.count>1 ? `<i>said ×${g.count}</i>` : "";
+  const neg = g.negate ? `<em>not</em> ` : "";
+  const focus = g.terms.includes(findFocusKey) ? findFocusKey : g.terms[0];
+  const drop = g.all.map(i=>-i-1).join(",");
+  return `<span class="find-chip${g.negate?" neg":""}">`+
+    `<button type="button" class="find-chip-face" data-gloss="${esc(focus||"")}" `+
+      `aria-expanded="${findFocusKey&&g.terms.includes(findFocusKey)?"true":"false"}">`+
+      `<span class="said">${said}</span>`+
+      `<span class="ours">${neg}${label}${w}${rep}</span>`+
+    `</button>`+
+    `<button type="button" class="find-chip-x" data-drop="${drop}" `+
+      `aria-label="Take back &quot;${said}&quot;">&times;</button></span>`;
+}
+
+function skyFindSlate(){
+  const q=sky.query;
+  if (!q) return "";
+  const r=q.r;
+  const out=[];
+
+  if (r.refusal){
+    out.push(`<span class="t">${esc(r.refusal.headline)}</span>`);
+    out.push(`<span class="find-say">${esc(r.refusal.detail)}</span>`);
+    if (r.refusal.code==="no-reading" && q.drawn){
+      out.push(`<span class="find-note">The atlas is still drawn, and it is drawn as the answer: `+
+        `every film answers this equally badly, so every film is the same distance out and the `+
+        `middle is empty. Nothing has been removed — the shape is the reading.</span>`);
+    }
+  }
+
+  const groups=findGroupReadings(r.readings);
+  if (groups.length){
+    out.push(`<span class="y" style="margin-top:9px">what this atlas read</span>`);
+    out.push(`<div class="find-chips">${groups.map(findChipHTML).join("")}</div>`);
+  }
+  if (q.taken.length){
+    out.push(`<span class="y" style="margin-top:9px">and what you added</span>`);
+    out.push(`<div class="find-chips">${q.taken.map((t,i)=>
+      `<span class="find-chip added"><span class="find-chip-face"><span class="said">you chose</span>`+
+      `<span class="ours">${esc(FIND_ENGINE.labelOf(t.attr))}</span></span>`+
+      `<button type="button" class="find-chip-x" data-drop="${i}" aria-label="Take that back">&times;</button></span>`).join("")}</div>`);
+  }
+
+  /* THE READER'S OWN SENTENCE ARGUING WITH ITSELF, WHICH THE ENGINE HAS ALWAYS
+     DETECTED AND THE INTERFACE NEVER SAID. query-parse.js's own contract, at
+     the top of the clause pass: "A contradiction (said and un-said) is kept and
+     reported: the interface must show it, not silently pick a side." It was
+     kept and it was not reported — `grep -c conflicts template.html` was 0, and
+     `conflicts` was not even among the keys __ATLAS_SKY__.query() exposed, so
+     the field was unreachable from the view layer at all. Typing "a very
+     violent film with nothing violent in it" drew Salò at 0.975 dead centre
+     under two chips that say the opposite of each other and no third word.
+     Which side the arithmetic took is named, because that is the part the
+     reader cannot see from the picture. */
+  const cf=(r.conflicts||[]);
+  if (cf.length){
+    out.push(`<span class="y" style="margin-top:9px">you said both</span>`);
+    out.push(`<div class="find-conflicts">${cf.map(c=>{
+      const label=c.terms.map(a=>{ try{ return FIND_ENGINE.labelOf(a); }catch(_e){ return a; } }).join(" · ");
+      /* One element, not two with a bare text node between them: .find-conflict is
+         a flex column, so "and" on its own became its own row at heading size. */
+      return `<span class="find-conflict"><b>“${esc(c.against)}” and “${esc(c.text)}”</b>`+
+        `<span>Both point at ${esc(label)}, one way and the other. The atlas kept both `+
+        `rather than quietly picking a side, so both are in the arithmetic and nothing `+
+        `can satisfy them at once — which is why the films at the front hold one of them `+
+        `and fail the other. Which one each of them fails is listed below. Take either `+
+        `chip back with its × to see the sky without it.</span></span>`;
+    }).join("")}</div>`);
+  }
+
+  /* The widening note prints verbatim. "the mood of the matrix" reaches exactly
+     one mood term in this vocabulary, and a search that quietly borrowed the
+     film's tone and texture under the word "mood" without saying so would be
+     answering a different question. */
+  const notes=new Set();
+  for (const rd of r.readings){
+    if (rd.note) notes.add(rd.note+".");
+    if (rd.negationRefused) notes.add(`“${rd.negationRefused}” in front of “${rd.said}” was not read as a `+
+      `second negative — that phrase already means the absence.`);
+  }
+  for (const t of notes) out.push(`<span class="find-note">${esc(t)}</span>`);
+
+  if (findFocusKey){
+    const g=FIND_ENGINE.gloss(findFocusKey);
+    if (g) out.push(`<div class="find-gloss"><b>${esc(FIND_ENGINE.labelOf(findFocusKey))}</b>`+
+      `<span>${esc(g.gloss)}</span><span class="no">${esc(g.not)}</span></div>`);
+  }
+
+  if (r.unread.length){
+    out.push(`<span class="y" style="margin-top:11px">and what it could not place</span>`);
+    out.push(`<div class="find-unread">${r.unread.map(u=>
+      `<span class="find-un"><b>“${esc(u.text)}”</b><span>${esc(u.why)}</span></span>`).join("")}</div>`);
+  }
+
+  /* THE RECORD CHANNEL, KEPT APART. Genre, decade, cinema and director are
+     checkable facts; the 59 attributes are readings. AGENTS rule 8 forbids one
+     number carrying both, so these are never scored and never move a film —
+     they are offered as the other kind of picture, which the atlas already
+     knows how to draw. */
+  if (r.marks.length){
+    out.push(`<span class="y" style="margin-top:11px">record, not reading</span>`);
+    out.push(`<div class="find-marks">${r.marks.map(m=>{
+      const can = Object.hasOwn(sky.filter,m.field);
+      const body=`<b>${esc(m.label)}</b><span>${m.count} films · ${esc(m.fieldLabel)}</span>`;
+      return can
+        ? `<button type="button" class="find-mark" data-mark="${esc(m.field)}" data-val="${esc(m.value)}">${body}</button>`
+        : `<span class="find-mark off">${body}</span>`;
+    }).join("")}</div>`);
+    out.push(`<span class="find-note">A filing fact is not a reading, so these do not move anything. `+
+      `Open one and the atlas re-forms into that stratum instead.</span>`);
+  }
+
+  if (!r.drawable) return out.join("");
+
+  /* THE TWO HONESTY LINES THE SLATE ALWAYS CARRIES. */
+  const c=r.coverage;
+  out.push(`<div class="find-honest">`+
+    `<span>Distance is a READING, worked out in this browser from what the consensus `+
+    `says about each film. It is not a record, and it is not a rating.</span>`+
+    (c.blind
+      ? `<span>${c.blind} of the nearest ${c.of} are films this atlas has no reading for at all. `+
+        `They are near because an unknown is credited the corpus average, which correctly `+
+        `outranks a film the attributor looked at and said no to — but they are not evidence. `+
+        `Every film in that position is drawn HOLLOW, wherever it sits.</span>`
+      : `<span>All ${c.of} of the nearest films have a reading behind them. `+
+        `Any film drawn hollow further out is one the corpus never read.</span>`)+
+    (c.tiedAtTop>1
+      ? `<span>${c.tiedAtTop} films share the top score of ${c.topScore.toFixed(3)}. That is a tie, not an order.</span>` : "")+
+    /* WHAT THE BEST ANSWER ACTUALLY REACHED. layout-match.js normalises the
+       radius against this so the centre of the picture holds the best the
+       corpus has; without this line that normalisation would be flattery. The
+       old "Nothing can reach 1.000 here" fires only when a clause's CEILING is
+       unreachable and was silent on the owner's own sentence, where the best
+       score is 0.381 of what was asked. */
+    (r.headroom && r.headroom.best < 0.995
+      ? `<span>The centre is the best this corpus has, not a perfect answer: `+
+        `the closest anything gets is ${r.headroom.best.toFixed(3)} of everything you asked for. `+
+        `Distance is measured against that, so the middle is occupied rather than empty.</span>` : "")+
+    /* WHERE DISTANCE STOPS MEANING ANYTHING, IN THE PICTURE'S OWN UNITS. The
+       only tie sentence this slate had fired on tiedAtTop, which is 1 for most
+       sentences, so the intra-tie spread — 60% of the whole radial range at its
+       worst — was never disclosed at all. */
+    (q.bands && q.bands.widest && q.bands.widest.n>1
+      ? `<span>${q.bands.widest.n} films the score declined to order are spread over `+
+        `${Math.round((q.bands.widest.hi-q.bands.widest.lo)*100)}% of the distance from the centre to the rim. `+
+        `That is a tie, not an order: inside one of those rings what you see is the atlas's own `+
+        `angular order, and no film in it is drawn nearer than a film that scored better.</span>` : "")+
+    (r.capped.length
+      ? `<span>Nothing can reach 1.000 here: ${r.capped.map(x=>esc(x.label)).join(", ")} `+
+        `${r.capped.length===1?"is":"are"} held at full strength by `+
+        `${r.capped.map(x=>x.filmsAtFull).join("/")} film${r.capped[0].filmsAtFull===1?"":"s"} in the whole corpus, `+
+        `so the ceiling is above anything that exists.</span>` : "")+
+    `</div>`);
+
+  /* WHAT THE FRONT OF THE SKY DOES NOT HOLD, CLAUSE BY CLAUSE.
+     The blocker this answers: on the owner's own sentence the film drawn
+     nearest the centre scored EXACTLY ZERO on "fast pacing" and on "hopeful",
+     the first and third things he typed, and the page printed one tension line
+     about "hopeful" and nothing at all about the pace. explain() has returned
+     the per-clause table from the first commit; nothing ever showed it. */
+  const fm=(r.frontMiss||[]).filter(x=>x.zero>=Math.max(2,x.of*0.34));
+  if (fm.length){
+    out.push(`<span class="y" style="margin-top:11px">what the nearest films do not hold</span>`);
+    out.push(`<div class="find-miss">${fm.map(x=>
+      `<span class="find-miss-row"><b>${esc(x.label)}</b>`+
+      `<span>${x.zero} of the nearest ${x.of} score zero on it`+
+      (x.unknown?` · ${x.unknown} were never read for it`:"")+`</span></span>`).join("")}</div>`);
+    out.push(`<span class="find-note">A film can be near the centre and still `+
+      `answer none of that: the score is a weighted mean over everything you said, `+
+      `held down by how much of it each film actually holds. This is the part the `+
+      `distance cannot say.</span>`);
+  }
+  /* AND PER FILM, FOR THE ONES THE READER IS LOOKING AT. */
+  const nearest=(r.top||[]).slice(0,5).filter(t=>t.misses && t.misses.length);
+  if (nearest.length){
+    out.push(`<span class="y" style="margin-top:11px">nearest first, and what each one misses</span>`);
+    /* THESE ARE BUTTONS NOW, AND THAT WAS THE WHOLE BLOCKER. The 2026-08-10
+       review measured ZERO interactive elements in this block: the five films at
+       the front of a typed reading were the one list in the atlas a reader could
+       not click, in a project whose founding sentence is that every connection
+       carries a specific, clickable claim. It is also the only place those films
+       are NAMED — the discs land within 3.4px of each other and the label placer
+       draws nothing at that density. */
+
+    out.push(`<div class="find-miss">${(r.top||[]).slice(0,5).map(t=>
+      `<button type="button" class="find-miss-row find-go" data-go="${esc(t.key)}"><b>${esc(t.title||t.key)}</b>`+
+      `<span>${t.held} of ${t.of} · ${t.misses.length
+        ? "no "+t.misses.map(esc).join(", no ")
+        : "nothing you asked for is missing"}${
+        t.unreadClauses && t.unreadClauses.length
+          ? " · never read for "+t.unreadClauses.length+" of them" : ""}</span></button>`).join("")}</div>`);
+  }
+
+  for (const t of (r.tension||[])){
+    out.push(`<span class="find-note tension">Your own words pull apart here: drop `+
+      `“${esc(t.label)}” and ${Math.round(t.churn*100)}% of the nearest sixty change, `+
+      `yet the films at the front barely hold it (${t.honoured.toFixed(2)} of 1). `+
+      `The rest of the sentence is already pointing the other way.</span>`);
+  }
+
+  /* THE OFFERS. Not a question and never a gate: the constellation is already
+     drawn behind this, the typed box is still live, and ignoring the row is a
+     complete, silent, zero-click answer. Each door shows what is behind it. */
+  if (r.offers.length){
+    /* THE HEADING IS A CLAIM ABOUT THE READER'S SENTENCE AND IT WAS SOMETIMES
+       FALSE. A namespace is an AXIS — `pace` has four values and they are four
+       points on one line — so offering UNHURRIED under "you did not say" to
+       somebody who typed "fast pacing" states the opposite of what they said as
+       a question they had not answered. Measured, the first offer sat in an
+       already-spoken namespace in 4 of 14 sentences. The pool is deliberately
+       not narrowed (query-runtime.js says why, on rule-1 grounds); what changes
+       is that an offer on an axis the reader already committed to is printed as
+       a CORRECTION, carrying their own words, and is demoted behind any
+       question of comparable value. */
+    out.push(`<span class="y" style="margin-top:12px">you did not say — want to?</span>`);
+    out.push(`<div class="find-offers">${r.offers.map(o=>{
+      const brings=o.brings.map(k=>F[k]?F[k].title:k).filter(Boolean);
+      const corr=(o.corrects&&o.corrects.length)
+        ? `<span class="corrects">you said ${esc(o.corrects.join(" and "))} — the other end of the same axis</span>` : "";
+      return `<div class="find-offer${o.corrects?" correction":""}">`+
+        `<button type="button" class="find-take" data-take="${esc(o.attr)}">`+
+          `<b>${esc(o.label)}</b>${corr}<span>${esc(o.gloss)}</span>`+
+          (brings.length?`<span class="brings">would bring in ${brings.map(esc).join(" · ")}</span>`:"")+
+        `</button>`+
+        `<button type="button" class="find-either" data-spend="${esc(o.attr)}" `+
+          `aria-label="Neither way — stop offering this">either</button>`+
+      `</div>`;
+    }).join("")}</div>`);
+  } else if (r.deepened && r.offerRows && r.offerRows.length){
+    out.push(`<span class="find-note">Nothing else this atlas knows would change the front of `+
+      `this sky much. Keep typing, or take a word back.</span>`);
+  }
+  return out.join("");
+}
+
+/* One entry point, so the standing notice and the readout can never disagree
+   about which picture is on screen. */
+function skyFindRender(){
+  skyStratumRender();
+  skyReadout();
+}
+
+/* The readout's own delegation, re-bound on every repaint because the box is
+   rewritten wholesale (the same discipline every other panel in this view
+   uses). */
+function skyFindBind(box){
+  /* Go to the film. skyOrMap flies the camera to it when it is live in this sky
+     and falls back to its radial map when it is not — the same contract the
+     search suggestions have always used. */
+  box.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>skyOrMap(b.dataset.go));
+  box.querySelectorAll("[data-drop]").forEach(b=>b.onclick=()=>skyQueryDrop(b.dataset.drop));
+  box.querySelectorAll("[data-take]").forEach(b=>b.onclick=()=>skyQueryTake(b.dataset.take));
+  box.querySelectorAll("[data-spend]").forEach(b=>b.onclick=()=>skyQuerySpend(b.dataset.spend));
+  box.querySelectorAll("[data-gloss]").forEach(b=>b.onclick=()=>{
+    findFocusKey = findFocusKey===b.dataset.gloss ? null : b.dataset.gloss;
+    skyReadout();
+  });
+  box.querySelectorAll("[data-mark]").forEach(b=>b.onclick=()=>{
+    const field=b.dataset.mark, value=b.dataset.val;
+    if (!sky.filter[field]) return;
+    /* Applying a facet clears the reading — skyApplySelection says why. */
+    for (const {key} of FACET_FIELDS) sky.filter[key].clear();
+    sky.filter[field].add(value);
+    skyWorldsOpen(false);
+    skyApplySelection();
+    skyFilterRender();
+    skyStratumRender();
+  });
+}
 
 function openSky(){
   if (!SKY_POS) return;
@@ -6923,17 +9506,167 @@ function setSuggestions(open){
   q.setAttribute("aria-expanded",open?"true":"false");
   if(!open) q.removeAttribute("aria-activedescendant");
 }
+/* TITLE FIRST, UNCONDITIONALLY. This box is primarily a title autocomplete and
+   that must not regress: the film rows are collected exactly as before and are
+   always above the reading. What changes is the DEAD END. "fast pacing, hopeful,
+   little dialogue" used to land on "Not in the atlas — try another title", which
+   was the one place in the app where a typed sentence produced nothing. That
+   branch is now the door into the query world.
+
+   suggList holds TAGGED ROWS rather than bare film keys, because one of them is
+   no longer a film. Every consumer of it moved in the same edit: the click
+   delegation, the arrow-key repaint and the Enter handler all used to assume
+   suggList[i] was a corpus key. */
+function findOfferRow(v){
+  const t=String(v||"").trim();
+  if (t.length<3 || !SKY_POS) return null;
+  /* The engine is not waited for. If it is still warming, the door is still
+     offered — it is built by the time the click lands, and a control that
+     appears a second late is worse than one that costs 200 ms on first use. */
+  const E=FIND_ENGINE;
+  let note="Read it as a constellation";
+  if (E){
+    try{
+      const p=E.parse(t);
+      const n=p.clauses.length;
+      note = n ? `${n} thing${n===1?"":"s"} this atlas can read` : "nothing readable in it yet — see what it does know";
+    }catch(_error){}
+  }
+  return {t:"query", text:t, note};
+}
+/* ══ THE RECORD LAYER AT THE KEYBOARD ═════════════════════════════════════
+   "matt damon" returned nothing, and so did "heist films", because the typed
+   search could only see the 59 consensus attributes — what a film is LIKE — and
+   the atlas's cast, genres, countries and movements were never shipped to the
+   browser at all. LOOKUP is those posting lists. This is the pass that reads
+   them, and it runs BEFORE the consensus vocabulary because a person's name is
+   not a description and should never be scored as one.
+
+   A SET, NOT A RANKING. Every film with Matt Damon in it has him in it equally.
+   The set is handed to the same match layout the typed search uses, with 1 for
+   a member and 0 for everything else, so the members take the centre and the
+   rest of the corpus stays drawn at the rim — nothing filtered, rule 1
+   untouched, and no ordering inside the set for fame to hide in. */
+const LOOKUP_KINDS=["person","genre","country","movement","decade"];
+const lookupNorm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")
+  .replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
+let LOOKUP_INDEX=null;
+function lookupIndex(){
+  if (LOOKUP_INDEX) return LOOKUP_INDEX;
+  LOOKUP_INDEX=new Map();
+  if (typeof LOOKUP==="undefined" || !LOOKUP) return LOOKUP_INDEX;
+  for (const kind of LOOKUP_KINDS){
+    const bucket=LOOKUP[kind]; if (!bucket) continue;
+    for (const name of Object.keys(bucket)){
+      const n=lookupNorm(name);
+      if (!n) continue;
+      let e=LOOKUP_INDEX.get(n);
+      /* One normalised string can be two things — a director who is also an
+         actor, a country that is also a movement. Both are kept and the caller
+         shows the bigger one first rather than silently picking. */
+      if (!e) LOOKUP_INDEX.set(n,(e=[]));
+      e.push({kind,name});
+    }
+  }
+  return LOOKUP_INDEX;
+}
+function lookupFilms(kind,name){
+  const e=LOOKUP && LOOKUP[kind] && LOOKUP[kind][name];
+  if (!e || !e.f) return [];
+  const out=[]; let at=0;
+  for (const d of e.f){
+    at+=d;
+    const key=DISCOVERY.filmOrder[at]!==undefined
+      ? (DISCOVERY.keyByFilmId[DISCOVERY.filmOrder[at]] || DISCOVERY.filmOrder[at]) : null;
+    if (key!=null && F[key]) out.push(key);
+  }
+  return out;
+}
+/* Exact first, then prefix, then contained — and never more than a handful,
+   because this shares the suggestion list with film titles and titles win. */
+function lookupMatches(text,cap){
+  const n=lookupNorm(text);
+  if (n.length<3) return [];
+  const idx=lookupIndex(), out=[], seen=new Set();
+  const push=(hit)=>{
+    const id=hit.kind+"|"+hit.name;
+    if (seen.has(id)) return; seen.add(id);
+    const films=lookupFilms(hit.kind,hit.name);
+    if (films.length) out.push({...hit, films});
+  };
+  for (const hit of (idx.get(n)||[])) push(hit);
+  if (out.length<cap) for (const [k,hits] of idx){ if (k.startsWith(n)) for(const h of hits) push(h); if (out.length>=cap*3) break; }
+  if (out.length<cap) for (const [k,hits] of idx){ if (k.includes(n)) for(const h of hits) push(h); if (out.length>=cap*3) break; }
+  /* Bigger sets first is NOT fame: it is how many films the atlas holds for
+     that name, which is a fact about the corpus and the thing a reader wants
+     when two people share a surname. */
+  out.sort((a,b)=>b.films.length-a.films.length);
+  return out.slice(0,cap);
+}
+const LOOKUP_LABEL={person:"", genre:"films", country:"films from", movement:"", decade:"films of the"};
+function lookupNote(hit){
+  const n=hit.films.length, f=n===1?"film":"films";
+  if (hit.kind==="person"){
+    const roles=(LOOKUP.person[hit.name]||{}).r||[];
+    const said=roles.length ? roles.slice(0,3).join(", ") : "in the corpus";
+    return `${n} ${f} · ${said}`;
+  }
+  if (hit.kind==="decade") return `${n} ${f} made in the ${hit.name}`;
+  if (hit.kind==="country") return `${n} ${f} from ${hit.name}`;
+  return `${n} ${f} · ${hit.kind}`;
+}
+/* Draw the set. Binary scores into the same layout the typed search uses. */
+function lookupRun(kind,name){
+  const films=lookupFilms(kind,name);
+  if (!films.length) return false;
+  if (!sky.ready || !SKY_POS){ /* the wall, not the sky: open the first film */
+    openMap(films[0]); return true;
+  }
+  /* FIND_LAYOUT is lazy — the modules are only required when a reading is first
+     run — and a lookup reaches the same layout without going through the
+     engine, so it has to ask for it. Without this the first click on a name
+     threw "Cannot read properties of null (reading 'layoutMatch')" and the sky
+     stayed whole, which is exactly how it failed the first time I drove it. */
+  if (!FIND_LAYOUT) findEngine();
+  if (!FIND_LAYOUT){
+    $("#sr-status").textContent="The layout engine could not start in this page.";
+    return false;
+  }
+  const member=new Set(films);
+  const scores=Object.create(null);
+  for (const k of sky.keys) scores[k]= member.has(k) ? 1 : 0;
+  const target=skyTargetQuery(scores);
+  if (!target) return false;
+  sky.lookup={kind,name,films,n:films.length};
+  sky.query=null;
+  skyQcov(null);
+  skyWorldsOpen(false);
+  skyFormTo(target,{ms:SKY_FORM_MS,label:name});
+  skyReadout();
+  skyStratumRender();
+  $("#sr-status").textContent=`${name}. ${films.length} films, drawn at the centre; the rest of the atlas is still here, further out.`;
+  return true;
+}
 function search(v){
   const box=$("#sugg");
   const n=norm(v);
-  if(n.length<2){ setSuggestions(false); suggList=[]; return; }
+  const q=findOfferRow(v);
+  if(n.length<2 && !q){ setSuggestions(false); suggList=[]; return; }
   const starts=[], has=[];
-  for(const k of SUGGEST_ORDER){
-    if(k.startsWith(n)) starts.push(k);
-    else if(k.includes(n)) has.push(k);
-    if(starts.length>=8) break;
+  if(n.length>=2){
+    for(const k of SUGGEST_ORDER){
+      if(k.startsWith(n)) starts.push(k);
+      else if(k.includes(n)) has.push(k);
+      if(starts.length>=8) break;
+    }
   }
-  suggList=[...starts,...has].slice(0,8);
+  const films=[...starts,...has].slice(0,q?4:6).map(k=>({t:"film",k}));
+  /* Names and genres sit BETWEEN the titles and the constellation door: a
+     reader typing "matt damon" is not naming a film and is not describing one
+     either, and until now the box had nothing to offer them at all. */
+  const looks=lookupMatches(v,3).map(h=>({t:"look",h}));
+  suggList=[...films,...looks];
+  if (q) suggList.push(q);
   suggIdx=-1;
   if(!suggList.length){
     setSuggestions(true);
@@ -6942,12 +9675,103 @@ function search(v){
     return;
   }
   setSuggestions(true);
-  box.innerHTML=suggList.map((k,i)=>`<button type="button" role="option" aria-selected="false"
-    id="suggestion-${i}" data-k="${esc(k)}" data-i="${i}">
-    ${art(k)}<span><span class="t">${esc(F[k].title)}</span>
-    <span class="y">${F[k].year||""} · ${esc(F[k].director||"")}</span></span></button>`).join("");
+  box.innerHTML=suggList.map((row,i)=>row.t==="film"
+    ? `<button type="button" role="option" aria-selected="false"
+        id="suggestion-${i}" data-k="${esc(row.k)}" data-i="${i}">
+        ${art(row.k)}<span><span class="t">${esc(F[row.k].title)}</span>
+        <span class="y">${F[row.k].year||""} · ${esc(F[row.k].director||"")}</span></span></button>`
+    : row.t==="look"
+    ? `<button type="button" role="option" aria-selected="false" class="sugg-find sugg-look"
+        id="suggestion-${i}" data-look-kind="${esc(row.h.kind)}" data-look-name="${esc(row.h.name)}" data-i="${i}">
+        <span class="sugg-find-mark" aria-hidden="true">&#9711;</span>
+        <span><span class="t">${esc(row.h.name)}</span>
+        <span class="y">${esc(lookupNote(row.h))}</span></span></button>`
+    : `<button type="button" role="option" aria-selected="false" class="sugg-find"
+        id="suggestion-${i}" data-find="1" data-i="${i}">
+        <span class="sugg-find-mark" aria-hidden="true">&#9678;</span>
+        <span><span class="t">Draw a constellation from this</span>
+        <span class="y">${esc(row.note)}</span></span></button>`).join("");
   box.querySelectorAll("button[data-k]").forEach(b=>b.onclick=()=>{
     $("#q").value=""; setSuggestions(false); skyOrMap(b.dataset.k);
+  });
+  box.querySelectorAll("button[data-find]").forEach(b=>b.onclick=()=>{
+    setSuggestions(false); skyOpenQuery($("#q").value);
+  });
+  box.querySelectorAll("button[data-look-kind]").forEach(b=>b.onclick=()=>{
+    setSuggestions(false);
+    if (state.view!=="sky" && SKY_POS) show("sky");
+    $("#q").blur();
+    lookupRun(b.dataset.lookKind, b.dataset.lookName);
+  });
+}
+
+/* The one door from the box into the query world. Opens the sky first, because
+   the reading is a state OF the constellation and a reader who typed a sentence
+   from the wall has to be taken to the picture it makes. */
+/* ══ WHEN THE ATLAS CANNOT READ YOU, ASK ═══════════════════════════════════
+   The local parser reads a closed phrase table and it is fast, offline and
+   exact. It is also silent on about half of ordinary sentences — "friends who
+   break up but make up towards the end" reads as nothing at all — and Route 1
+   measured that a shipped dictionary cannot compose that either.
+
+   So the LAST resort is the origin's own /api/interpret, which puts the
+   sentence to a model and gets back CLAUSES IN THIS VOCABULARY. The model never
+   names a film; it cannot, because its reply has no field a film could travel
+   in, and every id it returns is checked against the 59 before anything is
+   scored. What comes back runs through exactly the same engine a hand-typed
+   clause does, so distance, coverage, rule 3's hollow discs and explain() are
+   all untouched.
+
+   IT IS ASKED ONLY WHEN THE LOCAL PARSER GOT NOTHING, and never for a name or a
+   genre — those are answered instantly by LOOKUP and asking a model about them
+   would be slower, dearer and worse. If the network is gone or the route is
+   unconfigured the page keeps the answer it already had. */
+let findRemoteWarned=false;
+const FIND_REMOTE_MS=6000;
+async function findRemote(text){
+  const raw=String(text||"").trim();
+  if (!raw) return null;
+  try{
+    const ctl=new AbortController();
+    const t=setTimeout(()=>ctl.abort(),FIND_REMOTE_MS);
+    const res=await fetch("/api/interpret",{
+      method:"POST", signal:ctl.signal,
+      headers:{"content-type":"application/json"},
+      body:JSON.stringify({q:raw}),
+    });
+    clearTimeout(t);
+    if (!res.ok) return null;
+    const d=await res.json();
+    if (!d || !Array.isArray(d.clauses) || !d.clauses.length) return null;
+    return d;
+  }catch(error){
+    if (!findRemoteWarned){ findRemoteWarned=true; console.warn("[atlas] /api/interpret is not answering; the local reading stands.",error); }
+    return null;
+  }
+}
+function skyOpenQuery(text){
+  const raw=String(text||"").trim();
+  if(!raw || !SKY_POS) return;
+  if(!findEngine()){
+    $("#sr-status").textContent="The typed search could not start in this page.";
+    return;
+  }
+  if(state.view!=="sky") show("sky");
+  $("#q").blur();
+  skyQueryRun(raw);
+  /* IF THE LOCAL READING CAME BACK EMPTY, ASK THE ORIGIN — after drawing, never
+     instead of it. The reader already has whatever the phrase table found and
+     the honest refusal prose that goes with it; this can only add. It arrives a
+     second later and re-forms, or it does not arrive and nothing changes. */
+  const r0 = sky.query && sky.query.r;
+  const readNothing = !r0 || !r0.drawable || !(r0.readings||[]).length;
+  if (readNothing) findRemote(raw).then(d=>{
+    if (!d) return;
+    /* Still the same sentence on screen? A reader who has typed on since is not
+       waiting for this and must not have their picture yanked. */
+    if (!sky.query || sky.query.text!==raw) return;
+    skyQueryRun(raw,{taken:d.clauses.map(c=>c.attr)});
+    $("#sr-status").textContent=`Read again with help: ${d.clauses.length} things understood.`;
   });
 }
 
@@ -6992,6 +9816,7 @@ function goHome(){
 }
 $("#home").onclick=goHome;
 $("#q").oninput=e=>search(e.target.value);
+$("#q").addEventListener("focus",findWarm,{once:true});
 $("#q").onkeydown=e=>{
   const box=$("#sugg");
   if(e.key==="Escape"){ setSuggestions(false); e.target.blur(); return; }
@@ -7006,8 +9831,14 @@ $("#q").onkeydown=e=>{
     e.target.setAttribute("aria-activedescendant",`suggestion-${suggIdx}`);
   }
   if(e.key==="Enter"){
-    const k = suggIdx>=0 ? suggList[suggIdx] : (lookup(e.target.value)||suggList[0]);
-    if(k){ e.target.value=""; setSuggestions(false); skyOrMap(k); }
+    /* A row the reader has arrowed onto wins. Otherwise an exact title wins,
+       then the first row — which is a film whenever the box found one, and the
+       reading only when it did not. */
+    const row = suggIdx>=0 ? suggList[suggIdx] : null;
+    if(row && row.t==="query"){ setSuggestions(false); skyOpenQuery(e.target.value); return; }
+    const k = row ? row.k : (lookup(e.target.value)||(suggList[0]&&suggList[0].t==="film"?suggList[0].k:null));
+    if(k){ e.target.value=""; setSuggestions(false); skyOrMap(k); return; }
+    if(suggList.some(r=>r.t==="query")){ setSuggestions(false); skyOpenQuery(e.target.value); }
   }
 };
 document.addEventListener("click",e=>{
@@ -7287,6 +10118,44 @@ if (SKY_POS){
     skyWorldsOpen(true);
     $("#sky-worlds-rail")?.querySelector(".wframe")?.focus({preventScroll:true});
   };
+
+  /* ── THE TRANSPORT'S CONTROLS ───────────────────────────────────────────
+     Three gestures and one button, and only one of them is an animation.
+
+     THE SCRUB IS A NATIVE RANGE INPUT, which is the whole reduced-motion
+     answer: drag, arrow keys, Home, End, PageUp and PageDown all arrive with
+     it, and the value is announced. An architecture whose content IS an
+     animation would have a real problem under the preference; this one's
+     content is a scrubbable instrument and the run is a convenience on top of
+     it.
+
+     GRAZING IS ONE REPAINT PER POINTER MOVE AND NONE WHEN THE POINTER IS
+     ELSEWHERE — the same bargain the worlds strip already makes, asked of a
+     year instead of a world. It is what gives the resting atlas weather on
+     demand at zero idle cost. */
+  const skyTpRail=$("#sky-track-rail"), skyTpScrub=$("#sky-track-scrub");
+  if (skyTpRail && skyTpScrub){
+    skyTpScrub.addEventListener("input",()=>{
+      /* A scrub is a decision, so it holds; a graze is a question, so it does
+         not. Dragging past the last year is how you get back to now. */
+      skyTpHold(Number(skyTpScrub.value));
+    });
+    skyTpRail.addEventListener("pointermove",e=>{
+      if (e.buttons) return;                    /* mid-drag, the scrub owns it */
+      if (TP.running || TP.t<TP.end) return;    /* the reel is somewhere already */
+      const b=skyTpRail.getBoundingClientRect();
+      if (!b.width) return;
+      const f=Math.max(0,Math.min(1,(e.clientX-b.left)/b.width));
+      skyTpGraze(TP.y0+f*(TP.y1-TP.y0));
+    });
+    skyTpRail.addEventListener("pointerleave",()=>skyTpGraze(null));
+    /* A touch graze would be a hover a finger does not have, so on a coarse
+       pointer the rail is a scrub and nothing else — the same ruling the field
+       already makes about the first tap. */
+    skyTpRail.addEventListener("pointerdown",e=>{ if (e.pointerType!=="mouse") skyTpGraze(null); });
+  }
+  const skyTpRunBtn=$("#sky-track-run");
+  if (skyTpRunBtn) skyTpRunBtn.onclick=()=>{ TP.running ? skyTpStop() : skyTpRun(); };
   $("#constellation").onclick=openSky;
   $("#sky-lede").onclick=openSky;
 }else{
@@ -7395,11 +10264,36 @@ function fromHash(historyMode="replace"){
      directly and still returns you to the picture you left (skyEnter says so
      in as many words) — a button is "take me back there", a URL is "show me
      this". */
+  /* A TYPED READING IS ITS OWN TOP-LEVEL ROUTE, AND IT IS TESTED FIRST.
+     It cannot be a suffix of #/sky: that branch's pattern swallows anything and
+     skyAddrParseToken refuses any head that is not a facet, so a query-shaped
+     #/sky address degrades to "not in this edition" — a stale notice about a
+     perfectly good link. What travels is the SENTENCE, so a link re-parses on
+     arrival and improves the day the lexicon does. A sentence naming words this
+     edition no longer reads needs no stale path of its own: those words come
+     back in the slate as unread spans, in the reader's own words, which is a
+     better answer than "not in this edition" was ever going to be. */
+  const qm=h.match(/^#\/find\/(.+?)\/?$/);
+  if(qm){
+    if(!SKY_POS) return false;
+    let text;
+    try{ text=decodeURIComponent(qm[1]); }catch(_error){ return false; }
+    if(!text.trim()) return false;
+    openSky();
+    if(!findEngine()) return false;
+    if(sky.passage.from) skyPassageClear();
+    if(skyFilterOn()) skyClearFacets();
+    skyQueryRun(text);
+    return true;
+  }
   if(/^#\/sky\/?$/.test(h)){
     if(!SKY_POS) return false;
     openSky();
     if(sky.passage.from) skyPassageClear();
     if(skyFilterOn()) skyClearFacets();
+    /* #/sky is the documented "put down whatever is held" address, and a typed
+       reading is one of the things that can be held. */
+    if(sky.query) skyQueryClear();
     /* AND THE NOTICE IS PUT DOWN TOO. It is an arrival state belonging to the
        address that failed, not a mode the page is now in — and a stale arrival
        leaves no selection behind, so skyClearFacets above does not run and

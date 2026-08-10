@@ -1,0 +1,7702 @@
+{
+ "version": 1,
+ "promptVersion": "propB-role-1",
+ "model": "claude-opus-5",
+ "stage": "assign",
+ "generated": "2026-08-10T13:55:45.273Z",
+ "attempted": 1538,
+ "tagged": 1538,
+ "failedBatches": 0,
+ "tags": [
+  {
+   "id": "s0b0-rashomon-0",
+   "predicate": "account-that-spares-teller",
+   "raw": "account-that-spares-teller"
+  },
+  {
+   "id": "s0b0-rashomon-1",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b0-rashomon-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-rashomon-3",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s0b0-seven_samurai-0",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s0b0-seven_samurai-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-seven_samurai-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-seven_samurai-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-seven_samurai-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-seven_samurai-5",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b0-metropolis-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-metropolis-1",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s0b0-metropolis-2",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s0b0-metropolis-3",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s0b0-metropolis-4",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b0-metropolis-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-vertigo-0",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s0b0-vertigo-1",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s0b0-vertigo-2",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b0-vertigo-3",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s0b0-vertigo-4",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b0-la_strada-0",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s0b0-la_strada-1",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s0b0-la_strada-2",
+   "predicate": "living-under-the-harmer",
+   "raw": "living-under-the-harmer"
+  },
+  {
+   "id": "s0b0-la_strada-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-la_strada-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-la_strada-5",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b0-cleo_from_5_to_7-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s0b0-cleo_from_5_to_7-1",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s0b0-cleo_from_5_to_7-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b0-cleo_from_5_to_7-3",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s0b1-hiroshima_mon_amour-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-hiroshima_mon_amour-1",
+   "predicate": "bond-across-forbidden-line",
+   "raw": "bond-across-forbidden-line"
+  },
+  {
+   "id": "s0b1-hiroshima_mon_amour-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-hiroshima_mon_amour-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-hiroshima_mon_amour-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-0",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-1",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-3",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-passion_of_joan_of_arc-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-ordet-0",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b1-ordet-1",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s0b1-ordet-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-ordet-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-ordet-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-battleship_potemkin-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b6-variety_lights-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b6-variety_lights-1",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s0b6-variety_lights-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b6-variety_lights-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b6-sword_of_penitence-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s0b6-sword_of_penitence-1",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b6-sword_of_penitence-2",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s0b6-sword_of_penitence-3",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s0b6-sword_of_penitence-4",
+   "predicate": "unchosen-debt-created",
+   "raw": "unchosen-debt-created"
+  },
+  {
+   "id": "s0b6-rich_and_strange-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b6-rich_and_strange-1",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b6-rich_and_strange-2",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s0b6-rich_and_strange-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b6-rich_and_strange-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b6-rich_and_strange-5",
+   "predicate": "antagonism-without-settleable-cause",
+   "raw": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s0b6-war_and_peace-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b6-war_and_peace-1",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s0b6-war_and_peace-2",
+   "predicate": "bond-across-forbidden-line",
+   "raw": "bond-across-forbidden-line"
+  },
+  {
+   "id": "s0b6-war_and_peace-3",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b6-war_and_peace-4",
+   "predicate": "absolution-sought-from-wronged",
+   "raw": "absolution-sought-from-wronged"
+  },
+  {
+   "id": "s0b6-war_and_peace-5",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s0b6-without_pity-0",
+   "predicate": "unchosen-debt-created",
+   "raw": "unchosen-debt-created"
+  },
+  {
+   "id": "s0b6-without_pity-1",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b6-without_pity-2",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s0b6-without_pity-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b6-without_pity-4",
+   "predicate": "search-consumes-the-searcher",
+   "raw": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s0b6-without_pity-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b7-difficult_years-0",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s0b7-difficult_years-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b7-difficult_years-2",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b7-difficult_years-3",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s0b7-downhill-0",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b7-downhill-1",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s0b7-downhill-2",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s0b7-downhill-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b7-downhill-4",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s0b7-manxman-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b7-manxman-1",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s0b7-manxman-2",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b7-manxman-3",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s0b7-manxman-4",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s0b7-manxman-5",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s0b7-jolanda_daughter_of_black_co-0",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b7-jolanda_daughter_of_black_co-1",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s0b7-jolanda_daughter_of_black_co-2",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s0b7-jolanda_daughter_of_black_co-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b7-jolanda_daughter_of_black_co-4",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s0b7-two_men_in_manhattan-0",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s0b1-battleship_potemkin-1",
+   "predicate": "grievance-read-as-insubordination",
+   "raw": "grievance-read-as-insubordination"
+  },
+  {
+   "id": "s0b1-battleship_potemkin-2",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s0b1-battleship_potemkin-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s0b1-battleship_potemkin-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-battleship_potemkin-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b1-street_of_shame-0",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s0b1-street_of_shame-1",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s0b1-street_of_shame-2",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s0b1-street_of_shame-3",
+   "predicate": "bond-held-by-need",
+   "raw": "bond-held-by-need"
+  },
+  {
+   "id": "s0b1-street_of_shame-4",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s0b1-street_of_shame-5",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b1-harakiri-0",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s0b1-harakiri-1",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s0b1-harakiri-2",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b1-harakiri-3",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s0b1-harakiri-4",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b1-harakiri-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-diary_of_country_priest-0",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b2-diary_of_country_priest-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-diary_of_country_priest-2",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s0b2-diary_of_country_priest-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-diary_of_country_priest-4",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b2-diary_of_country_priest-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-jules_and_jim-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-jules_and_jim-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b2-jules_and_jim-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-jules_and_jim-3",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s0b2-jules_and_jim-4",
+   "predicate": "the-wanted-child-denied",
+   "raw": "the-wanted-child-denied"
+  },
+  {
+   "id": "s0b2-jules_and_jim-5",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-1",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-2",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-3",
+   "predicate": "standing-lowered-before-others",
+   "raw": "standing-lowered-before-others"
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-4",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b2-strike-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s0b2-strike-1",
+   "predicate": "grievance-read-as-insubordination",
+   "raw": "grievance-read-as-insubordination"
+  },
+  {
+   "id": "s0b2-strike-2",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s0b2-strike-3",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s0b2-strike-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-sunrise_song_of_two_humans-0",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s0b2-sunrise_song_of_two_humans-1",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s0b2-sunrise_song_of_two_humans-2",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s0b2-sunrise_song_of_two_humans-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-sunrise_song_of_two_humans-4",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-1",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-2",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-3",
+   "predicate": "standing-lowered-before-others",
+   "raw": "standing-lowered-before-others"
+  },
+  {
+   "id": "s0b4-burmese_harp-0",
+   "predicate": "intervener-struck-down",
+   "raw": "intervener-struck-down"
+  },
+  {
+   "id": "s0b4-burmese_harp-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b4-burmese_harp-2",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s0b4-burmese_harp-3",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b4-burmese_harp-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b4-page_of_madness-0",
+   "predicate": "secret-amends-to-wronged",
+   "raw": "secret-amends-to-wronged"
+  },
+  {
+   "id": "s0b4-page_of_madness-1",
+   "predicate": "the-nearest-goes-unseen",
+   "raw": "the-nearest-goes-unseen"
+  },
+  {
+   "id": "s0b4-page_of_madness-2",
+   "predicate": "absolution-sought-from-wronged",
+   "raw": "absolution-sought-from-wronged"
+  },
+  {
+   "id": "s0b4-page_of_madness-3",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s0b4-page_of_madness-4",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b4-devi-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s0b4-devi-1",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s0b4-devi-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b4-devi-3",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b4-devi-4",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s0b5-mother_india-0",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s0b5-mother_india-1",
+   "predicate": "kin-subordinated-to-rule",
+   "raw": "kin-subordinated-to-rule"
+  },
+  {
+   "id": "s0b5-mother_india-2",
+   "predicate": "kin-subordinated-to-rule",
+   "raw": "kin-subordinated-to-rule"
+  },
+  {
+   "id": "s0b5-mother_india-3",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b5-mother_india-4",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s0b5-mother_india-5",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b5-awaara-0",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b5-awaara-1",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s0b5-awaara-2",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s0b5-awaara-3",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s0b5-awaara-4",
+   "predicate": "kin-subordinated-to-rule",
+   "raw": "kin-subordinated-to-rule"
+  },
+  {
+   "id": "s0b5-awaara-5",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b5-secrets_of_women-0",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s0b5-secrets_of_women-1",
+   "predicate": "confession-to-the-powerless",
+   "raw": "confession-to-the-powerless"
+  },
+  {
+   "id": "s0b5-secrets_of_women-2",
+   "predicate": "failing-life-in-keeping",
+   "raw": "failing-life-in-keeping"
+  },
+  {
+   "id": "s0b5-secrets_of_women-3",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s0b5-secrets_of_women-4",
+   "predicate": "shut-in-together",
+   "raw": "shut-in-together"
+  },
+  {
+   "id": "s0b5-secrets_of_women-5",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s0b5-piece_of_sky-0",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s0b5-piece_of_sky-1",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s0b5-piece_of_sky-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b5-piece_of_sky-3",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s0b5-piece_of_sky-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b5-fear_and_desire-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b5-fear_and_desire-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b5-fear_and_desire-2",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s0b5-fear_and_desire-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b5-fear_and_desire-4",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b5-tokyo_chorus-0",
+   "predicate": "intervener-struck-down",
+   "raw": "intervener-struck-down"
+  },
+  {
+   "id": "s0b5-tokyo_chorus-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b5-tokyo_chorus-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b5-tokyo_chorus-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b5-tokyo_chorus-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-5",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b3-pandora_s_box-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-pandora_s_box-1",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s0b3-pandora_s_box-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b3-pandora_s_box-3",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s0b3-pandora_s_box-4",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s0b3-pandora_s_box-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-general-0",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s0b3-general-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-general-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-general-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-modern_times-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-modern_times-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-modern_times-2",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s0b3-modern_times-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-modern_times-4",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s0b3-safety_last-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-safety_last-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-safety_last-2",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b3-safety_last-3",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b3-crowd-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-crowd-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-crowd-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-crowd-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b3-crowd-4",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b3-crowd-5",
+   "predicate": "bond-held-by-need",
+   "raw": "bond-held-by-need"
+  },
+  {
+   "id": "s0b3-red_shoes-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s0b3-red_shoes-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b3-red_shoes-2",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b3-red_shoes-3",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s0b3-red_shoes-4",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s0b4-rebel_without_cause-0",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b4-rebel_without_cause-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b4-rebel_without_cause-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b4-rebel_without_cause-3",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s0b4-rebel_without_cause-4",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b4-rebel_without_cause-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b4-idiot-0",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s0b4-idiot-1",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s0b4-idiot-2",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s0b4-idiot-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b4-idiot-4",
+   "predicate": "wanting-without-limit",
+   "raw": "wanting-without-limit"
+  },
+  {
+   "id": "s0b4-idiot-5",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s0b4-late_chrysanthemums-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b4-late_chrysanthemums-1",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s0b4-late_chrysanthemums-2",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b4-late_chrysanthemums-3",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b7-two_men_in_manhattan-1",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s0b7-two_men_in_manhattan-2",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s0b7-two_men_in_manhattan-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b7-two_men_in_manhattan-4",
+   "predicate": "search-consumes-the-searcher",
+   "raw": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s0b7-last_days_of_pompeii-0",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b7-last_days_of_pompeii-1",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b7-last_days_of_pompeii-2",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b7-last_days_of_pompeii-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b7-last_days_of_pompeii-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-mother_should_be_loved-0",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s0b8-mother_should_be_loved-1",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s0b8-mother_should_be_loved-2",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s0b8-mother_should_be_loved-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b8-mother_should_be_loved-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-passing_fancy-0",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s0b8-passing_fancy-1",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b8-passing_fancy-2",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b8-passing_fancy-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-battle_of_river_plate-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-battle_of_river_plate-1",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s0b8-battle_of_river_plate-2",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s0b8-battle_of_river_plate-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-law_is_law-0",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s0b8-law_is_law-1",
+   "predicate": "personhood-held-by-another",
+   "raw": "personhood-held-by-another"
+  },
+  {
+   "id": "s0b8-law_is_law-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-law_is_law-3",
+   "predicate": "witness-misreads-the-scene",
+   "raw": "witness-misreads-the-scene"
+  },
+  {
+   "id": "s0b8-law_is_law-4",
+   "predicate": "distant-stranger-harmed",
+   "raw": "distant-stranger-harmed"
+  },
+  {
+   "id": "s0b8-beyond_forest-0",
+   "predicate": "bond-held-by-need",
+   "raw": "bond-held-by-need"
+  },
+  {
+   "id": "s0b8-beyond_forest-1",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b8-beyond_forest-2",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s0b8-beyond_forest-3",
+   "predicate": "the-wanted-child-denied",
+   "raw": "the-wanted-child-denied"
+  },
+  {
+   "id": "s0b8-beyond_forest-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-girls_of_night-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b8-girls_of_night-1",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s0b8-girls_of_night-2",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b8-girls_of_night-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b9-women_of_night-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b9-women_of_night-1",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s0b9-women_of_night-2",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s0b9-women_of_night-3",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b9-women_of_night-4",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b9-women_of_night-5",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s0b9-human_condition_ii_road_to_e-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b9-human_condition_ii_road_to_e-1",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s0b9-human_condition_ii_road_to_e-2",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b9-human_condition_ii_road_to_e-3",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s0b9-human_condition_ii_road_to_e-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b9-era_lui_si_si-0",
+   "predicate": "witness-misreads-the-scene",
+   "raw": "witness-misreads-the-scene"
+  },
+  {
+   "id": "s0b9-era_lui_si_si-1",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s0b9-era_lui_si_si-2",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b9-era_lui_si_si-3",
+   "predicate": "absolution-sought-from-wronged",
+   "raw": "absolution-sought-from-wronged"
+  },
+  {
+   "id": "s0b9-burning_soil-0",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s0b9-burning_soil-1",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s0b9-burning_soil-2",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s0b9-burning_soil-3",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s0b9-burning_soil-4",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s0b9-best_of_enemies-0",
+   "predicate": "shut-in-together",
+   "raw": "shut-in-together"
+  },
+  {
+   "id": "s0b9-best_of_enemies-1",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s0b9-best_of_enemies-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s0b9-best_of_enemies-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b9-best_of_enemies-4",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s0b9-it_happened_in_park-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b9-it_happened_in_park-1",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s0b9-it_happened_in_park-2",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s0b10-adua_and_her_friends-0",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s0b10-adua_and_her_friends-1",
+   "predicate": "personhood-held-by-another",
+   "raw": "personhood-held-by-another"
+  },
+  {
+   "id": "s0b10-adua_and_her_friends-2",
+   "predicate": "unchosen-debt-created",
+   "raw": "unchosen-debt-created"
+  },
+  {
+   "id": "s0b10-adua_and_her_friends-3",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s0b10-adua_and_her_friends-4",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b10-young_one-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s0b10-young_one-1",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s0b10-young_one-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b10-young_one-3",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s0b10-young_one-4",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b10-children_of_hiroshima-0",
+   "predicate": "reckoning-with-those-left",
+   "raw": "reckoning-with-those-left"
+  },
+  {
+   "id": "s0b10-children_of_hiroshima-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b10-children_of_hiroshima-2",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b10-children_of_hiroshima-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b10-children_of_hiroshima-4",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b10-great_war-0",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s0b10-great_war-1",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s0b10-great_war-2",
+   "predicate": "standing-lowered-before-others",
+   "raw": "standing-lowered-before-others"
+  },
+  {
+   "id": "s0b10-great_war-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b10-stalag_17-0",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s0b10-stalag_17-1",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s0b10-stalag_17-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b10-stalag_17-3",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s0b10-slice_of_life-0",
+   "predicate": "argued-off-a-course",
+   "raw": "argued-off-a-course"
+  },
+  {
+   "id": "s0b10-slice_of_life-1",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s0b10-slice_of_life-2",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s0b10-slice_of_life-3",
+   "predicate": "argued-off-a-course",
+   "raw": "argued-off-a-course"
+  },
+  {
+   "id": "s0b10-slice_of_life-4",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s0b11-task_force-0",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s0b11-task_force-1",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b11-task_force-2",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b11-task_force-3",
+   "predicate": "bond-held-across-separation",
+   "raw": "bond-held-across-separation"
+  },
+  {
+   "id": "s0b11-task_force-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-come_fill_cup-0",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s0b11-come_fill_cup-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-come_fill_cup-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b11-come_fill_cup-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-come_fill_cup-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b11-close_to_my_heart-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-close_to_my_heart-1",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s0b11-close_to_my_heart-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-close_to_my_heart-3",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s0b11-close_to_my_heart-4",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s0b11-mara_maru-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-mara_maru-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b11-mara_maru-2",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s0b11-mara_maru-3",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b11-mara_maru-4",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s0b11-mara_maru-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-cops_and_robbers-0",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s0b11-cops_and_robbers-1",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s0b11-cops_and_robbers-2",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s0b11-cops_and_robbers-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s0b11-cops_and_robbers-4",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b11-i_know_where_i_m_going-0",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b11-i_know_where_i_m_going-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-i_know_where_i_m_going-2",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s0b11-i_know_where_i_m_going-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b11-i_know_where_i_m_going-4",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s0b12-foundry_town-0",
+   "predicate": "failing-life-in-keeping",
+   "raw": "failing-life-in-keeping"
+  },
+  {
+   "id": "s0b12-foundry_town-1",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s0b12-foundry_town-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s0b12-foundry_town-3",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s0b12-foundry_town-4",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s0b12-pardon_my_past-0",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s0b12-pardon_my_past-1",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s0b12-pardon_my_past-2",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b12-pardon_my_past-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s0b12-pardon_my_past-4",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s0b12-pardon_my_past-5",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s0b12-hangmen_also_die-0",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s0b12-hangmen_also_die-1",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s0b12-hangmen_also_die-2",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s0b12-hangmen_also_die-3",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s0b12-hangmen_also_die-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s0b12-hangmen_also_die-5",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-high_and_low-0",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s1bundefined-high_and_low-1",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-high_and_low-2",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s1bundefined-high_and_low-3",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s1bundefined-conformist-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-investigation_of_citizen_abo-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-investigation_of_citizen_abo-1",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-investigation_of_citizen_abo-2",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s1bundefined-investigation_of_citizen_abo-3",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-0",
+   "predicate": "antagonism-without-settleable-cause",
+   "raw": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-1",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-3",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-le_samourai-0",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-le_samourai-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-le_samourai-2",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s1bundefined-le_samourai-3",
+   "predicate": "one-removed-from-the-way",
+   "raw": "one-removed-from-the-way"
+  },
+  {
+   "id": "s1bundefined-le_samourai-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-onibaba-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-onibaba-1",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s1bundefined-onibaba-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-onibaba-3",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-onibaba-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-lolita-0",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-lolita-1",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s1bundefined-lolita-2",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s1bundefined-lolita-3",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s1bundefined-lolita-4",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s1bundefined-autumn_sonata-0",
+   "predicate": "accounting-demanded-by-wronged",
+   "raw": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s1bundefined-autumn_sonata-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-autumn_sonata-2",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s1bundefined-autumn_sonata-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-autumn_sonata-4",
+   "predicate": "one-removed-from-the-way",
+   "raw": "one-removed-from-the-way"
+  },
+  {
+   "id": "s1bundefined-autumn_sonata-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-mouchette-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-mouchette-1",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-mouchette-2",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s1bundefined-mouchette-3",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s1bundefined-mouchette-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-wild_child-0",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s1bundefined-wild_child-1",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s1bundefined-wild_child-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-wild_child-3",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s1bundefined-wild_child-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-muriel-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-muriel-1",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s1bundefined-muriel-2",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-muriel-3",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-rosemary_s_baby-0",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-rosemary_s_baby-1",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s1bundefined-rosemary_s_baby-2",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-high_and_low-4",
+   "predicate": "accounting-demanded-by-wronged",
+   "raw": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s1bundefined-once_upon_time_in_west-0",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s1bundefined-once_upon_time_in_west-1",
+   "predicate": "accounting-demanded-by-wronged",
+   "raw": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s1bundefined-once_upon_time_in_west-2",
+   "predicate": "one-removed-from-the-way",
+   "raw": "one-removed-from-the-way"
+  },
+  {
+   "id": "s1bundefined-once_upon_time_in_west-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-once_upon_time_in_west-4",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-mirror-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-mirror-1",
+   "predicate": "antagonism-without-settleable-cause",
+   "raw": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s1bundefined-mirror-2",
+   "predicate": "past-laid-on-the-young",
+   "raw": "past-laid-on-the-young"
+  },
+  {
+   "id": "s1bundefined-mirror-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s1bundefined-mirror-4",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s1bundefined-mirror-5",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-la_jetee-0",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s1bundefined-la_jetee-1",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-la_jetee-2",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s1bundefined-la_jetee-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-la_jetee-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-taxi_driver-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-taxi_driver-1",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-taxi_driver-2",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-taxi_driver-3",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s1bundefined-taxi_driver-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-taxi_driver-5",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s1bundefined-eraserhead-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s1bundefined-eraserhead-1",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-eraserhead-2",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s1bundefined-eraserhead-3",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-eraserhead-4",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s1bundefined-blowup-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-blowup-1",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-blowup-2",
+   "predicate": "accounting-demanded-by-wronged",
+   "raw": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s1bundefined-blowup-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-blowup-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-persona-0",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-persona-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-persona-2",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-persona-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-persona-4",
+   "predicate": "one-absorbs-another-identity",
+   "raw": "one-absorbs-another-identity"
+  },
+  {
+   "id": "s1bundefined-au_hasard_balthazar-0",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s1bundefined-au_hasard_balthazar-1",
+   "predicate": "living-under-the-harmer",
+   "raw": "living-under-the-harmer"
+  },
+  {
+   "id": "s1bundefined-au_hasard_balthazar-2",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s1bundefined-au_hasard_balthazar-3",
+   "predicate": "antagonism-without-settleable-cause",
+   "raw": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s1bundefined-au_hasard_balthazar-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-conformist-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s1bundefined-conformist-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-conformist-2",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s1bundefined-conformist-3",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s1bundefined-conformist-4",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s1bundefined-rosemary_s_baby-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-rosemary_s_baby-4",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-rosemary_s_baby-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-daisies-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-daisies-1",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s1bundefined-daisies-2",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-daisies-3",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s1bundefined-daisies-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-shadows_of_forgotten_ancesto-0",
+   "predicate": "bond-across-forbidden-line",
+   "raw": "bond-across-forbidden-line"
+  },
+  {
+   "id": "s1bundefined-shadows_of_forgotten_ancesto-1",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-shadows_of_forgotten_ancesto-2",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s1bundefined-shadows_of_forgotten_ancesto-3",
+   "predicate": "withdrawal-inside-the-bond",
+   "raw": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s1bundefined-shadows_of_forgotten_ancesto-4",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-i_am_cuba-0",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s1bundefined-i_am_cuba-1",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s1bundefined-i_am_cuba-2",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-i_am_cuba-3",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s1bundefined-i_am_cuba-4",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s1bundefined-don_t_look_now-0",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-don_t_look_now-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-don_t_look_now-2",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-don_t_look_now-3",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-don_t_look_now-4",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-wicker_man-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-wicker_man-1",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s1bundefined-wicker_man-2",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-wicker_man-3",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-wicker_man-4",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-0",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-1",
+   "predicate": "witness-misreads-the-scene",
+   "raw": "witness-misreads-the-scene"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-2",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-5",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s1bundefined-graduate-0",
+   "predicate": "bond-across-forbidden-line",
+   "raw": "bond-across-forbidden-line"
+  },
+  {
+   "id": "s1bundefined-graduate-1",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s1bundefined-graduate-2",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s1bundefined-graduate-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-graduate-4",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s1bundefined-serpico-0",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s1bundefined-serpico-1",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s1bundefined-serpico-2",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-serpico-3",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s1bundefined-serpico-4",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-klute-0",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-klute-1",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-klute-2",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s1bundefined-klute-3",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-quiet_place_in_country-5",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-martha-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s1bundefined-martha-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-martha-2",
+   "predicate": "one-removed-from-the-way",
+   "raw": "one-removed-from-the-way"
+  },
+  {
+   "id": "s1bundefined-martha-3",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-martha-4",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s1bundefined-martha-5",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s1bundefined-such_gorgeous_kid_like_me-0",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s1bundefined-such_gorgeous_kid_like_me-1",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-such_gorgeous_kid_like_me-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-such_gorgeous_kid_like_me-3",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-such_gorgeous_kid_like_me-4",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-i_maniaci-0",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s1bundefined-i_maniaci-1",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-i_maniaci-2",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-i_maniaci-3",
+   "predicate": "antagonism-without-settleable-cause",
+   "raw": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s1bundefined-i_maniaci-4",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s1bundefined-i_maniaci-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-viva_maria-0",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s1bundefined-viva_maria-1",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-viva_maria-2",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s1bundefined-viva_maria-3",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s1bundefined-viva_maria-4",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s1bundefined-viva_maria-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-sympathy_for_devil-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-sympathy_for_devil-1",
+   "predicate": "past-laid-on-the-young",
+   "raw": "past-laid-on-the-young"
+  },
+  {
+   "id": "s1bundefined-sympathy_for_devil-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-sympathy_for_devil-3",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-seemabaddha-0",
+   "predicate": "distant-stranger-harmed",
+   "raw": "distant-stranger-harmed"
+  },
+  {
+   "id": "s1bundefined-seemabaddha-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-seemabaddha-2",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s1bundefined-cat_o_nine_tails-0",
+   "predicate": "distant-stranger-harmed",
+   "raw": "distant-stranger-harmed"
+  },
+  {
+   "id": "s1bundefined-cat_o_nine_tails-1",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-cat_o_nine_tails-2",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s1bundefined-cat_o_nine_tails-3",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s1bundefined-cat_o_nine_tails-4",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-cat_o_nine_tails-5",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s1bundefined-phantom_of_liberty-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-phantom_of_liberty-1",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s1bundefined-phantom_of_liberty-2",
+   "predicate": "bond-across-forbidden-line",
+   "raw": "bond-across-forbidden-line"
+  },
+  {
+   "id": "s1bundefined-phantom_of_liberty-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-phantom_of_liberty-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-phantom_of_liberty-5",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-joy_of_learning-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-joy_of_learning-1",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s1bundefined-joy_of_learning-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-casanova_70-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-casanova_70-1",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-bird_with_crystal_plumage-0",
+   "predicate": "witness-misreads-the-scene",
+   "raw": "witness-misreads-the-scene"
+  },
+  {
+   "id": "s1bundefined-bird_with_crystal_plumage-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-bird_with_crystal_plumage-2",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s1bundefined-bird_with_crystal_plumage-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-blood_and_black_lace-0",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-blood_and_black_lace-1",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-blood_and_black_lace-2",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-blood_and_black_lace-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-blood_and_black_lace-4",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-dont_look_back-0",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s1bundefined-dont_look_back-1",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s1bundefined-dont_look_back-2",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-harlan_county_usa-0",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-harlan_county_usa-1",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-harlan_county_usa-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-harlan_county_usa-3",
+   "predicate": "standing-lowered-before-others",
+   "raw": "standing-lowered-before-others"
+  },
+  {
+   "id": "s1bundefined-harlan_county_usa-4",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s1bundefined-fantastic_planet-0",
+   "predicate": "another-kept-dependent",
+   "raw": "another-kept-dependent"
+  },
+  {
+   "id": "s1bundefined-fantastic_planet-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-fantastic_planet-2",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s1bundefined-fantastic_planet-3",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-touch-0",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-touch-1",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s1bundefined-touch-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-touch-3",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s1bundefined-touch-4",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-oldest_profession-0",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s1bundefined-oldest_profession-1",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s1bundefined-oldest_profession-2",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-oldest_profession-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-oldest_profession-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-1",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-4",
+   "predicate": "distant-stranger-harmed",
+   "raw": "distant-stranger-harmed"
+  },
+  {
+   "id": "s1bundefined-la_chinoise-5",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-mother_kusters_trip_to_heave-0",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-mother_kusters_trip_to_heave-1",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s1bundefined-mother_kusters_trip_to_heave-2",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-mother_kusters_trip_to_heave-3",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s1bundefined-mother_kusters_trip_to_heave-4",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-mother_kusters_trip_to_heave-5",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-quiet_place_in_country-0",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-quiet_place_in_country-1",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-quiet_place_in_country-2",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s1bundefined-quiet_place_in_country-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-quiet_place_in_country-4",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s1bundefined-last_tango_in_paris-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-is_paris_burning-0",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s1bundefined-is_paris_burning-1",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s1bundefined-is_paris_burning-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-is_paris_burning-3",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s1bundefined-is_paris_burning-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-love_in_afternoon-0",
+   "predicate": "withdrawal-inside-the-bond",
+   "raw": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s1bundefined-love_in_afternoon-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-love_in_afternoon-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-love_in_afternoon-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-love_in_afternoon-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-loving_couples-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-loving_couples-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-loving_couples-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-loving_couples-3",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s1bundefined-loving_couples-4",
+   "predicate": "withdrawal-inside-the-bond",
+   "raw": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s1bundefined-loving_couples-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-little_night_music-0",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-little_night_music-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-little_night_music-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-little_night_music-3",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-little_night_music-4",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-cowboys-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-cowboys-1",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-cowboys-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-cowboys-3",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s1bundefined-cowboys-4",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-ningen-0",
+   "predicate": "scarcity-divided-among-dependents",
+   "raw": "scarcity-divided-among-dependents"
+  },
+  {
+   "id": "s1bundefined-ningen-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-ningen-2",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s1bundefined-ningen-3",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s1bundefined-ningen-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-exorcist_ii_heretic-0",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s1bundefined-exorcist_ii_heretic-1",
+   "predicate": "pressed-for-an-account",
+   "raw": "pressed-for-an-account"
+  },
+  {
+   "id": "s1bundefined-exorcist_ii_heretic-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-exorcist_ii_heretic-3",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s1bundefined-exorcist_ii_heretic-4",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s1bundefined-liza-0",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-liza-1",
+   "predicate": "one-removed-from-the-way",
+   "raw": "one-removed-from-the-way"
+  },
+  {
+   "id": "s1bundefined-liza-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-liza-3",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-liza-4",
+   "predicate": "shut-in-together",
+   "raw": "shut-in-together"
+  },
+  {
+   "id": "s1bundefined-zatoichi_and_chest_of_gold-0",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s1bundefined-zatoichi_and_chest_of_gold-1",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-zatoichi_and_chest_of_gold-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-zatoichi_and_chest_of_gold-3",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s1bundefined-zatoichi_and_chest_of_gold-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-il_gatto-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-casanova_70-2",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s1bundefined-casanova_70-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-casanova_70-4",
+   "predicate": "accounting-demanded-by-wronged",
+   "raw": "accounting-demanded-by-wronged"
+  },
+  {
+   "id": "s1bundefined-casanova_70-5",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s1bundefined-working_class_goes_to_heaven-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-working_class_goes_to_heaven-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-working_class_goes_to_heaven-2",
+   "predicate": "incomer-denied-a-place",
+   "raw": "incomer-denied-a-place"
+  },
+  {
+   "id": "s1bundefined-working_class_goes_to_heaven-3",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-working_class_goes_to_heaven-4",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s1bundefined-working_class_goes_to_heaven-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-lucky_luciano-0",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s1bundefined-lucky_luciano-1",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s1bundefined-lucky_luciano-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-lucky_luciano-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-lucky_luciano-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-1",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-2",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-3",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-4",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-5",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s1bundefined-hellbenders-0",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s1bundefined-hellbenders-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-hellbenders-2",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s1bundefined-hellbenders-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-hellbenders-4",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s1bundefined-hellbenders-5",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s1bundefined-un_flic-0",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s1bundefined-un_flic-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-un_flic-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-un_flic-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-un_flic-4",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-un_flic-5",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s1bundefined-tidal_wave-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s1bundefined-tidal_wave-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-tidal_wave-2",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s1bundefined-tidal_wave-3",
+   "predicate": "bond-held-across-separation",
+   "raw": "bond-held-across-separation"
+  },
+  {
+   "id": "s1bundefined-tidal_wave-4",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-1",
+   "predicate": "withdrawal-inside-the-bond",
+   "raw": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-2",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-3",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-5",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s1bundefined-last_tango_in_paris-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-last_tango_in_paris-1",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s1bundefined-last_tango_in_paris-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-last_tango_in_paris-3",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s1bundefined-il_gatto-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-il_gatto-2",
+   "predicate": "antagonism-without-settleable-cause",
+   "raw": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s1bundefined-il_gatto-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-il_gatto-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-il_gatto-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-grand_slam-0",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s1bundefined-grand_slam-1",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-grand_slam-2",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s1bundefined-grand_slam-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-grand_slam-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-0",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-1",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-4",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s1bundefined-damien_omen_ii-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-damien_omen_ii-1",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s1bundefined-damien_omen_ii-2",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s1bundefined-damien_omen_ii-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s1bundefined-damien_omen_ii-4",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-0",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-1",
+   "predicate": "withdrawal-inside-the-bond",
+   "raw": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-3",
+   "predicate": "one-absorbs-another-identity",
+   "raw": "one-absorbs-another-identity"
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-4",
+   "predicate": "made-thing-confronts-maker",
+   "raw": "made-thing-confronts-maker"
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-5",
+   "predicate": "past-laid-on-the-young",
+   "raw": "past-laid-on-the-young"
+  },
+  {
+   "id": "s1bundefined-les_creatures-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-les_creatures-1",
+   "predicate": "incomer-denied-a-place",
+   "raw": "incomer-denied-a-place"
+  },
+  {
+   "id": "s1bundefined-les_creatures-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-les_creatures-3",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s1bundefined-les_creatures-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-les_creatures-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-0",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-3",
+   "predicate": "falsehood-planted-between-two",
+   "raw": "falsehood-planted-between-two"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-4",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-5",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s1bundefined-machine_gun_mccain-6",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-rocky_road_to_dublin-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s1bundefined-rocky_road_to_dublin-1",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s1bundefined-rocky_road_to_dublin-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-rocky_road_to_dublin-3",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s1bundefined-rocky_road_to_dublin-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-love_under_crucifix-0",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s1bundefined-love_under_crucifix-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s1bundefined-love_under_crucifix-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s1bundefined-love_under_crucifix-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s1bundefined-love_under_crucifix-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s1bundefined-love_under_crucifix-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b0-shining-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b0-shining-1",
+   "predicate": "shut-in-together",
+   "raw": "shut-in-together"
+  },
+  {
+   "id": "s2b0-shining-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b0-shining-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s2b0-shining-4",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s2b0-blade_runner-0",
+   "predicate": "made-thing-confronts-maker",
+   "raw": "made-thing-confronts-maker"
+  },
+  {
+   "id": "s2b0-blade_runner-1",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s2b0-blade_runner-2",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s2b0-blade_runner-3",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b0-blade_runner-4",
+   "predicate": "witness-misreads-the-scene",
+   "raw": "witness-misreads-the-scene"
+  },
+  {
+   "id": "s2b0-blade_runner-5",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s2b0-akira-0",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b0-akira-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b0-akira-2",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s2b0-akira-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b0-akira-4",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-0",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-2",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-3",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-4",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-5",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s2b0-close_up-0",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s2b0-close_up-1",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b0-close_up-2",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s2b0-close_up-3",
+   "predicate": "one-absorbs-another-identity",
+   "raw": "one-absorbs-another-identity"
+  },
+  {
+   "id": "s2b0-yeelen-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b0-yeelen-1",
+   "predicate": "made-thing-confronts-maker",
+   "raw": "made-thing-confronts-maker"
+  },
+  {
+   "id": "s2b0-yeelen-2",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s2b0-yeelen-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b0-yeelen-4",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b0-yeelen-5",
+   "predicate": "withholds-the-blow",
+   "raw": "withholds-the-blow"
+  },
+  {
+   "id": "s2b1-shoah-0",
+   "predicate": "pressed-for-an-account",
+   "raw": "pressed-for-an-account"
+  },
+  {
+   "id": "s2b1-shoah-1",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s2b1-shoah-2",
+   "predicate": "account-that-spares-teller",
+   "raw": "account-that-spares-teller"
+  },
+  {
+   "id": "s2b1-shoah-3",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s2b1-shoah-4",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s2b1-hoop_dreams-0",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s2b1-hoop_dreams-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-hoop_dreams-2",
+   "predicate": "past-laid-on-the-young",
+   "raw": "past-laid-on-the-young"
+  },
+  {
+   "id": "s2b1-hoop_dreams-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-hoop_dreams-4",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s2b1-lessons_of_darkness-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-lessons_of_darkness-1",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s2b1-sacrifice-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-sacrifice-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-sacrifice-2",
+   "predicate": "loved-one-carried-off",
+   "raw": "loved-one-carried-off"
+  },
+  {
+   "id": "s2b1-sacrifice-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-sacrifice-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-schindler_s_list-0",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b1-schindler_s_list-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b1-schindler_s_list-2",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s2b1-schindler_s_list-3",
+   "predicate": "scarcity-divided-among-dependents",
+   "raw": "scarcity-divided-among-dependents"
+  },
+  {
+   "id": "s2b1-schindler_s_list-4",
+   "predicate": "reckoning-with-those-left",
+   "raw": "reckoning-with-those-left"
+  },
+  {
+   "id": "s2b2-total_recall-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b2-total_recall-1",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b2-total_recall-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b2-total_recall-3",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s2b2-total_recall-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b2-total_recall-5",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b2-elephant_man-0",
+   "predicate": "standing-lowered-before-others",
+   "raw": "standing-lowered-before-others"
+  },
+  {
+   "id": "s2b2-elephant_man-1",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s2b2-elephant_man-2",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s2b2-elephant_man-3",
+   "predicate": "another-kept-dependent",
+   "raw": "another-kept-dependent"
+  },
+  {
+   "id": "s2b2-elephant_man-4",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s2b2-elephant_man-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b2-city_of_sadness-0",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b2-city_of_sadness-1",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s2b2-city_of_sadness-2",
+   "predicate": "loved-one-carried-off",
+   "raw": "loved-one-carried-off"
+  },
+  {
+   "id": "s2b2-city_of_sadness-3",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s2b2-city_of_sadness-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b2-terrorizers-0",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s2b2-terrorizers-1",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b2-terrorizers-2",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s2b2-terrorizers-3",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s2b2-terrorizers-4",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s2b2-pixote-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b2-pixote-1",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b2-pixote-2",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s2b2-pixote-3",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s2b2-pixote-4",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s2b2-pixote-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b2-piano-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b2-piano-1",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s2b2-piano-2",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s2b2-piano-3",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s2b2-piano-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b2-piano-5",
+   "predicate": "another-kept-dependent",
+   "raw": "another-kept-dependent"
+  },
+  {
+   "id": "s2b3-sweetie-0",
+   "predicate": "another-kept-dependent",
+   "raw": "another-kept-dependent"
+  },
+  {
+   "id": "s2b3-sweetie-1",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s2b3-sweetie-2",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b3-sweetie-3",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s2b3-sweetie-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-germany_in_autumn-0",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s2b3-germany_in_autumn-1",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s2b3-germany_in_autumn-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-germany_in_autumn-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-germany_in_autumn-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-germany_in_autumn-5",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s2b3-aria-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-aria-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b3-aria-2",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s2b3-aria-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-decalogue_v-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-decalogue_v-1",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s2b3-decalogue_v-2",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s2b3-decalogue_v-3",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s2b3-decalogue_v-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b3-hard_eight-0",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s2b3-hard_eight-1",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s2b3-hard_eight-2",
+   "predicate": "secret-amends-to-wronged",
+   "raw": "secret-amends-to-wronged"
+  },
+  {
+   "id": "s2b3-hard_eight-3",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s2b3-hard_eight-4",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s2b4-time_to_live_and_time_to_die-0",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s2b4-time_to_live_and_time_to_die-1",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s2b4-time_to_live_and_time_to_die-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-time_to_live_and_time_to_die-3",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s2b4-time_to_live_and_time_to_die-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-decalogue_iii-0",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s2b4-decalogue_iii-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-decalogue_iii-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-decalogue_iii-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-decalogue_iii-4",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s2b4-decalogue_iii-5",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s2b4-intervista-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-intervista-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-intervista-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-intervista-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-intervista-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-last_waltz-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-last_waltz-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-last_waltz-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-last_waltz-3",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s2b4-something_to_talk_about-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-something_to_talk_about-1",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b4-something_to_talk_about-2",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s2b4-something_to_talk_about-3",
+   "predicate": "withdrawal-inside-the-bond",
+   "raw": "withdrawal-inside-the-bond"
+  },
+  {
+   "id": "s2b4-something_to_talk_about-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-1",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-2",
+   "predicate": "unchosen-debt-created",
+   "raw": "unchosen-debt-created"
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-3",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-4",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-5",
+   "predicate": "arbiter-bent-by-power",
+   "raw": "arbiter-bent-by-power"
+  },
+  {
+   "id": "s2b5-no_end-0",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s2b5-no_end-1",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s2b5-no_end-2",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s2b5-no_end-3",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s2b5-no_end-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b5-no_end-5",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s2b5-sleepers-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b5-sleepers-1",
+   "predicate": "pressed-for-an-account",
+   "raw": "pressed-for-an-account"
+  },
+  {
+   "id": "s2b5-sleepers-2",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s2b5-sleepers-3",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s2b5-sleepers-4",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s2b5-sleepers-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b5-green_room-0",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s2b5-green_room-1",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s2b5-green_room-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b5-green_room-3",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b5-green_room-4",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s2b5-joi_baba_felunath-0",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s2b5-joi_baba_felunath-1",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s2b5-joi_baba_felunath-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b5-joi_baba_felunath-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b5-joi_baba_felunath-4",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s2b5-king_lear-0",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s2b5-king_lear-1",
+   "predicate": "pressed-for-an-account",
+   "raw": "pressed-for-an-account"
+  },
+  {
+   "id": "s2b5-king_lear-2",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s2b5-king_lear-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b5-dream_lover-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b5-dream_lover-1",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s2b5-dream_lover-2",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s2b5-dream_lover-3",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s2b5-dream_lover-4",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b6-memories-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b6-memories-1",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s2b6-memories-2",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s2b6-memories-3",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s2b6-memories-4",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s2b6-river-0",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s2b6-river-1",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b6-river-2",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s2b6-river-3",
+   "predicate": "argued-off-a-course",
+   "raw": "argued-off-a-course"
+  },
+  {
+   "id": "s2b6-one_hundred_and_one_nights-0",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s2b6-one_hundred_and_one_nights-1",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s2b6-one_hundred_and_one_nights-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b6-one_hundred_and_one_nights-3",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s2b6-one_hundred_and_one_nights-4",
+   "predicate": "identity-assigned-from-outside",
+   "raw": "identity-assigned-from-outside"
+  },
+  {
+   "id": "s2b6-big_deal_after_20_years-0",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s2b6-big_deal_after_20_years-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b6-big_deal_after_20_years-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b6-big_deal_after_20_years-3",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s2b6-big_deal_after_20_years-4",
+   "predicate": "unchosen-debt-created",
+   "raw": "unchosen-debt-created"
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-1",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-2",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-3",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-4",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-5",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s2b6-crimes_and_misdemeanors-0",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s2b6-crimes_and_misdemeanors-1",
+   "predicate": "confession-to-the-powerless",
+   "raw": "confession-to-the-powerless"
+  },
+  {
+   "id": "s2b6-crimes_and_misdemeanors-2",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s2b6-crimes_and_misdemeanors-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s2b6-crimes_and_misdemeanors-4",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s2b6-crimes_and_misdemeanors-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-waterland-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-waterland-1",
+   "predicate": "the-wanted-child-denied",
+   "raw": "the-wanted-child-denied"
+  },
+  {
+   "id": "s2b7-waterland-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b7-waterland-3",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b7-waterland-4",
+   "predicate": "past-laid-on-the-young",
+   "raw": "past-laid-on-the-young"
+  },
+  {
+   "id": "s2b7-eyes_of_laura_mars-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b7-eyes_of_laura_mars-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-eyes_of_laura_mars-2",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s2b7-eyes_of_laura_mars-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-eyes_of_laura_mars-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b7-pirates-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s2b7-pirates-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b7-pirates-2",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s2b7-pirates-3",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s2b7-pirates-4",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s2b7-best_intentions-0",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s2b7-best_intentions-1",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s2b7-best_intentions-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-best_intentions-3",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s2b7-best_intentions-4",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s2b7-another_woman-0",
+   "predicate": "confession-to-the-powerless",
+   "raw": "confession-to-the-powerless"
+  },
+  {
+   "id": "s2b7-another_woman-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-another_woman-2",
+   "predicate": "the-nearest-goes-unseen",
+   "raw": "the-nearest-goes-unseen"
+  },
+  {
+   "id": "s2b7-another_woman-3",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s2b7-another_woman-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-black_rain-0",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s2b7-black_rain-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b7-black_rain-2",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b7-black_rain-3",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s2b7-black_rain-4",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s2b8-table_for_five-0",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s2b8-table_for_five-1",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s2b8-table_for_five-2",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s2b8-table_for_five-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b8-table_for_five-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b8-good_news-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b8-good_news-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b8-good_news-2",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b8-good_news-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b8-last_note-0",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s2b8-last_note-1",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b8-last_note-2",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b8-last_note-3",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-1",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-3",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-4",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s2b8-guilty_as_sin-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b8-plot_of_fuma_clan-0",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s2b8-plot_of_fuma_clan-1",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s2b8-plot_of_fuma_clan-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b8-plot_of_fuma_clan-3",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s2b8-plot_of_fuma_clan-4",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s2b8-plot_of_fuma_clan-5",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-0",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-1",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-2",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-3",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-4",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-5",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b9-lupin_iii_dead_or_alive-0",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s2b9-lupin_iii_dead_or_alive-1",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b9-lupin_iii_dead_or_alive-2",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s2b9-lupin_iii_dead_or_alive-3",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s2b9-love_in_germany-0",
+   "predicate": "bond-across-forbidden-line",
+   "raw": "bond-across-forbidden-line"
+  },
+  {
+   "id": "s2b9-love_in_germany-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-love_in_germany-2",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s2b9-love_in_germany-3",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s2b9-love_in_germany-4",
+   "predicate": "pressed-for-an-account",
+   "raw": "pressed-for-an-account"
+  },
+  {
+   "id": "s2b9-dangerous_toy-0",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b9-dangerous_toy-1",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s2b9-dangerous_toy-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-dangerous_toy-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-dangerous_toy-4",
+   "predicate": "argued-off-a-course",
+   "raw": "argued-off-a-course"
+  },
+  {
+   "id": "s2b9-thunderheart-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-thunderheart-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-thunderheart-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b9-thunderheart-3",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s2b9-thunderheart-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-thunderheart-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-it_takes_two-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s2b9-it_takes_two-1",
+   "predicate": "the-nearest-goes-unseen",
+   "raw": "the-nearest-goes-unseen"
+  },
+  {
+   "id": "s2b9-it_takes_two-2",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b9-it_takes_two-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-it_takes_two-4",
+   "predicate": "confession-to-the-powerless",
+   "raw": "confession-to-the-powerless"
+  },
+  {
+   "id": "s2b9-doc_hollywood-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b9-doc_hollywood-1",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b9-doc_hollywood-2",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s2b9-doc_hollywood-3",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s2b9-doc_hollywood-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-goopy_bagha_phire_elo-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-goopy_bagha_phire_elo-1",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b10-goopy_bagha_phire_elo-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-goopy_bagha_phire_elo-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-goopy_bagha_phire_elo-4",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s2b10-someone_s_watching_me-0",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s2b10-someone_s_watching_me-1",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s2b10-someone_s_watching_me-2",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b10-someone_s_watching_me-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-someone_s_watching_me-4",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-1",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-2",
+   "predicate": "arbiter-bent-by-power",
+   "raw": "arbiter-bent-by-power"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-3",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-5",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s2b10-city_hall-0",
+   "predicate": "distant-stranger-harmed",
+   "raw": "distant-stranger-harmed"
+  },
+  {
+   "id": "s2b10-city_hall-1",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b10-city_hall-2",
+   "predicate": "arbiter-bent-by-power",
+   "raw": "arbiter-bent-by-power"
+  },
+  {
+   "id": "s2b10-city_hall-3",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s2b10-city_hall-4",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s2b10-where_are_you_going_on_holid-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-where_are_you_going_on_holid-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-where_are_you_going_on_holid-2",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s2b10-where_are_you_going_on_holid-3",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b10-where_are_you_going_on_holid-4",
+   "predicate": "confession-to-the-powerless",
+   "raw": "confession-to-the-powerless"
+  },
+  {
+   "id": "s2b10-where_are_you_going_on_holid-5",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s2b10-where_are_you_going_on_holid-6",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-0",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-1",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-3",
+   "predicate": "failing-life-in-keeping",
+   "raw": "failing-life-in-keeping"
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-4",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-5",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s2b11-confucian_confusion-0",
+   "predicate": "unchosen-debt-created",
+   "raw": "unchosen-debt-created"
+  },
+  {
+   "id": "s2b11-confucian_confusion-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b11-confucian_confusion-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b0-portrait_of_lady_on_fire-2",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b0-portrait_of_lady_on_fire-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-portrait_of_lady_on_fire-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-portrait_of_lady_on_fire-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-tree_of_life-0",
+   "predicate": "living-under-the-harmer",
+   "raw": "living-under-the-harmer"
+  },
+  {
+   "id": "s3b0-tree_of_life-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-tree_of_life-2",
+   "predicate": "past-laid-on-the-young",
+   "raw": "past-laid-on-the-young"
+  },
+  {
+   "id": "s3b0-tree_of_life-3",
+   "predicate": "absolution-sought-from-wronged",
+   "raw": "absolution-sought-from-wronged"
+  },
+  {
+   "id": "s3b0-tree_of_life-4",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s3b0-tree_of_life-5",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-0",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-1",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-3",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-4",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s3b0-there_will_be_blood-5",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s3b0-white_ribbon-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-white_ribbon-1",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s3b0-white_ribbon-2",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s3b0-white_ribbon-3",
+   "predicate": "living-under-the-harmer",
+   "raw": "living-under-the-harmer"
+  },
+  {
+   "id": "s3b0-white_ribbon-4",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s3b0-white_ribbon-5",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b0-memories_of_murder-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-memories_of_murder-1",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s3b0-memories_of_murder-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-memories_of_murder-3",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s3b0-memories_of_murder-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-tropical_malady-0",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s3b0-tropical_malady-1",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s3b0-tropical_malady-2",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b0-tropical_malady-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-act_of_killing-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-act_of_killing-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-act_of_killing-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-act_of_killing-3",
+   "predicate": "living-under-the-harmer",
+   "raw": "living-under-the-harmer"
+  },
+  {
+   "id": "s3b1-act_of_killing-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-grizzly_man-0",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b1-grizzly_man-1",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b1-grizzly_man-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-grizzly_man-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-grizzly_man-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-mad_max_fury_road-0",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s3b1-mad_max_fury_road-1",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s3b1-mad_max_fury_road-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-mad_max_fury_road-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-mad_max_fury_road-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-1",
+   "predicate": "one-removed-from-the-way",
+   "raw": "one-removed-from-the-way"
+  },
+  {
+   "id": "s2b11-confucian_confusion-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-confucian_confusion-4",
+   "predicate": "falsehood-planted-between-two",
+   "raw": "falsehood-planted-between-two"
+  },
+  {
+   "id": "s2b11-confucian_confusion-5",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s2b11-days_of_thunder-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-days_of_thunder-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-days_of_thunder-2",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s2b11-days_of_thunder-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b11-days_of_thunder-4",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s2b11-bad_company-0",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s2b11-bad_company-1",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s2b11-bad_company-2",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s2b11-bad_company-3",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b11-bad_company-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-krull-0",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s2b11-krull-1",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s2b11-krull-2",
+   "predicate": "falsehood-planted-between-two",
+   "raw": "falsehood-planted-between-two"
+  },
+  {
+   "id": "s2b11-krull-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-krull-4",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s2b11-krull-5",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s2b11-goonies-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-goonies-1",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s2b11-goonies-2",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s2b11-goonies-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-goonies-4",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s2b11-1492_conquest_of_paradise-0",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b11-1492_conquest_of_paradise-1",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s2b11-1492_conquest_of_paradise-2",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s2b11-1492_conquest_of_paradise-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b11-1492_conquest_of_paradise-4",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s2b11-1492_conquest_of_paradise-5",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s2b12-tasmania_story-0",
+   "predicate": "search-consumes-the-searcher",
+   "raw": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s2b12-tasmania_story-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b12-tasmania_story-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b12-tasmania_story-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b12-tasmania_story-4",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s2b12-trois_places_pour_le_26-0",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s2b12-trois_places_pour_le_26-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b12-trois_places_pour_le_26-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s2b12-trois_places_pour_le_26-3",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s2b12-trois_places_pour_le_26-4",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s2b12-death_of_salesman-0",
+   "predicate": "another-shaped-to-order",
+   "raw": "another-shaped-to-order"
+  },
+  {
+   "id": "s2b12-death_of_salesman-1",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s2b12-death_of_salesman-2",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s2b12-death_of_salesman-3",
+   "predicate": "witness-misreads-the-scene",
+   "raw": "witness-misreads-the-scene"
+  },
+  {
+   "id": "s2b12-death_of_salesman-4",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s2b12-death_of_salesman-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b0-portrait_of_lady_on_fire-0",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s3b0-portrait_of_lady_on_fire-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-2",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-3",
+   "predicate": "living-under-the-harmer",
+   "raw": "living-under-the-harmer"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-5",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s3b1-aftersun-0",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b1-aftersun-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-aftersun-2",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b1-aftersun-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-aftersun-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b1-eo-0",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s3b1-eo-1",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b1-eo-2",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b1-eo-3",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s3b1-eo-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b2-midsommar-0",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s3b2-midsommar-1",
+   "predicate": "bond-held-by-need",
+   "raw": "bond-held-by-need"
+  },
+  {
+   "id": "s3b2-midsommar-2",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s3b2-midsommar-3",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s3b2-midsommar-4",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s3b2-gladiator-0",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s3b2-gladiator-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b2-gladiator-2",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s3b2-gladiator-3",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b2-gladiator-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b2-serious_man-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b2-serious_man-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b2-serious_man-2",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s3b2-serious_man-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b2-serious_man-4",
+   "predicate": "failing-life-in-keeping",
+   "raw": "failing-life-in-keeping"
+  },
+  {
+   "id": "s3b2-inland_empire-0",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b2-inland_empire-1",
+   "predicate": "argued-off-a-course",
+   "raw": "argued-off-a-course"
+  },
+  {
+   "id": "s3b2-inland_empire-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b2-inland_empire-3",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s3b2-inland_empire-4",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s3b2-inland_empire-5",
+   "predicate": "living-under-the-harmer",
+   "raw": "living-under-the-harmer"
+  },
+  {
+   "id": "s3b2-eureka-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b2-eureka-1",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s3b2-eureka-2",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s3b2-eureka-3",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b2-eureka-4",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s3b2-princess_mononoke-0",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s3b2-princess_mononoke-1",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s3b2-princess_mononoke-2",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s3b2-princess_mononoke-3",
+   "predicate": "distant-stranger-harmed",
+   "raw": "distant-stranger-harmed"
+  },
+  {
+   "id": "s3b2-princess_mononoke-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b2-princess_mononoke-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b3-flowers_of_shanghai-0",
+   "predicate": "set-aside-for-another",
+   "raw": "set-aside-for-another"
+  },
+  {
+   "id": "s3b3-flowers_of_shanghai-1",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s3b3-flowers_of_shanghai-2",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s3b3-flowers_of_shanghai-3",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b3-flowers_of_shanghai-4",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b3-flowers_of_shanghai-5",
+   "predicate": "restraint-dropped-before-another",
+   "raw": "restraint-dropped-before-another"
+  },
+  {
+   "id": "s3b3-platform-0",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b3-platform-1",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b3-platform-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b3-platform-3",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s3b3-platform-4",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b3-platform-5",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s3b3-infernal_affairs-0",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s3b3-infernal_affairs-1",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s3b3-infernal_affairs-2",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s3b3-infernal_affairs-3",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b3-infernal_affairs-4",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s3b3-infernal_affairs-5",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s3b3-day_he_arrives-0",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s3b3-day_he_arrives-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b3-day_he_arrives-2",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b3-day_he_arrives-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b3-day_he_arrives-4",
+   "predicate": "restraint-dropped-before-another",
+   "raw": "restraint-dropped-before-another"
+  },
+  {
+   "id": "s3b3-no_bears-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s3b3-no_bears-1",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s3b3-no_bears-2",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b3-no_bears-3",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b3-no_bears-4",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s3b3-no_bears-5",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s3b3-persepolis-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b3-persepolis-1",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b3-persepolis-2",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b3-persepolis-3",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s3b3-persepolis-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b3-persepolis-5",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s3b4-nine_queens-0",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s3b4-nine_queens-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-nine_queens-2",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s3b4-nine_queens-3",
+   "predicate": "unchosen-debt-created",
+   "raw": "unchosen-debt-created"
+  },
+  {
+   "id": "s3b4-nine_queens-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-honeyland-0",
+   "predicate": "distant-stranger-harmed",
+   "raw": "distant-stranger-harmed"
+  },
+  {
+   "id": "s3b4-honeyland-1",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s3b4-honeyland-2",
+   "predicate": "failing-life-in-keeping",
+   "raw": "failing-life-in-keeping"
+  },
+  {
+   "id": "s3b4-honeyland-3",
+   "predicate": "scarcity-divided-among-dependents",
+   "raw": "scarcity-divided-among-dependents"
+  },
+  {
+   "id": "s3b4-honeyland-4",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b4-iron_giant-0",
+   "predicate": "made-thing-confronts-maker",
+   "raw": "made-thing-confronts-maker"
+  },
+  {
+   "id": "s3b4-iron_giant-1",
+   "predicate": "hunter-and-quarry",
+   "raw": "hunter-and-quarry"
+  },
+  {
+   "id": "s3b4-iron_giant-2",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s3b4-iron_giant-3",
+   "predicate": "cast-out-by-group",
+   "raw": "cast-out-by-group"
+  },
+  {
+   "id": "s3b4-iron_giant-4",
+   "predicate": "kept-under-watch",
+   "raw": "kept-under-watch"
+  },
+  {
+   "id": "s3b4-iron_giant-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-incredibles-0",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s3b4-incredibles-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-incredibles-2",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b4-incredibles-3",
+   "predicate": "incomer-denied-a-place",
+   "raw": "incomer-denied-a-place"
+  },
+  {
+   "id": "s3b4-incredibles-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-wall_e-0",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s3b4-wall_e-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-wall_e-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-wall_e-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-wall_e-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-wall_e-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-waltz_with_bashir-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-waltz_with_bashir-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-waltz_with_bashir-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-waltz_with_bashir-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b4-waltz_with_bashir-4",
+   "predicate": "confession-to-the-powerless",
+   "raw": "confession-to-the-powerless"
+  },
+  {
+   "id": "s3b5-tar-0",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s3b5-tar-1",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b5-tar-2",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s3b5-tar-3",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s3b5-tar-4",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s3b5-certain_women-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-certain_women-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-certain_women-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b5-certain_women-3",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b5-certain_women-4",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s3b5-certain_women-5",
+   "predicate": "standing-lowered-before-others",
+   "raw": "standing-lowered-before-others"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-2",
+   "predicate": "hidden-life-exposed",
+   "raw": "hidden-life-exposed"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-4",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s3b5-intolerable_cruelty-5",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-1",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-2",
+   "predicate": "deed-done-through-another",
+   "raw": "deed-done-through-another"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-3",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-4",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b5-tragedy_of_macbeth-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-lincoln-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-lincoln-1",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b5-lincoln-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-lincoln-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b5-lincoln-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b6-terminal-0",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s3b6-terminal-1",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b6-terminal-2",
+   "predicate": "will-pressed-into-yielding",
+   "raw": "will-pressed-into-yielding"
+  },
+  {
+   "id": "s3b12-daisy-3",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b12-daisy-4",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s3b7-dolls-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b7-dolls-3",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s3b7-dolls-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b7-dolls-5",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s3b7-dinner_with_friends-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b7-dinner_with_friends-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b7-dinner_with_friends-2",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s3b7-dinner_with_friends-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b7-dinner_with_friends-4",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b7-dinner_with_friends-5",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s3b8-man_from_london-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b8-man_from_london-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b8-man_from_london-2",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b8-man_from_london-3",
+   "predicate": "sheltered-from-consequence",
+   "raw": "sheltered-from-consequence"
+  },
+  {
+   "id": "s3b8-man_from_london-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b8-okja-0",
+   "predicate": "loved-one-carried-off",
+   "raw": "loved-one-carried-off"
+  },
+  {
+   "id": "s3b8-okja-1",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b8-okja-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b8-okja-3",
+   "predicate": "person-used-as-means",
+   "raw": "person-used-as-means"
+  },
+  {
+   "id": "s3b8-okja-4",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b8-pina-0",
+   "predicate": "another-given-to-danger",
+   "raw": "another-given-to-danger"
+  },
+  {
+   "id": "s3b8-pina-1",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b8-pina-2",
+   "predicate": "faculty-supplied-for-another",
+   "raw": "faculty-supplied-for-another"
+  },
+  {
+   "id": "s3b8-pina-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b8-all_money_in_world-0",
+   "predicate": "loved-one-carried-off",
+   "raw": "loved-one-carried-off"
+  },
+  {
+   "id": "s3b8-all_money_in_world-1",
+   "predicate": "appeal-turned-away",
+   "raw": "appeal-turned-away"
+  },
+  {
+   "id": "s3b8-all_money_in_world-2",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b8-all_money_in_world-3",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b8-all_money_in_world-4",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s3b8-prisoners-0",
+   "predicate": "loved-one-carried-off",
+   "raw": "loved-one-carried-off"
+  },
+  {
+   "id": "s3b8-prisoners-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b8-prisoners-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b8-prisoners-3",
+   "predicate": "injury-discharged-on-outsiders",
+   "raw": "injury-discharged-on-outsiders"
+  },
+  {
+   "id": "s3b8-prisoners-4",
+   "predicate": "search-consumes-the-searcher",
+   "raw": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s3b8-dust_of_time-0",
+   "predicate": "bond-held-across-separation",
+   "raw": "bond-held-across-separation"
+  },
+  {
+   "id": "s3b8-dust_of_time-1",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b8-dust_of_time-2",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s3b8-dust_of_time-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b8-dust_of_time-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-faithless-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b9-faithless-1",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s3b9-faithless-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b9-faithless-3",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s3b9-faithless-4",
+   "predicate": "pressed-for-an-account",
+   "raw": "pressed-for-an-account"
+  },
+  {
+   "id": "s3b9-salt_of_earth-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-salt_of_earth-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-salt_of_earth-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-salt_of_earth-3",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s3b6-terminal-3",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b6-terminal-4",
+   "predicate": "deference-withheld-from-power",
+   "raw": "deference-withheld-from-power"
+  },
+  {
+   "id": "s3b6-honey_don_t-0",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b6-honey_don_t-1",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b6-honey_don_t-2",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b6-honey_don_t-3",
+   "predicate": "search-consumes-the-searcher",
+   "raw": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s3b6-honey_don_t-4",
+   "predicate": "absolution-sought-from-wronged",
+   "raw": "absolution-sought-from-wronged"
+  },
+  {
+   "id": "s3b6-honey_don_t-5",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b6-eastern_promises-0",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b6-eastern_promises-1",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b6-eastern_promises-2",
+   "predicate": "one-absorbs-another-identity",
+   "raw": "one-absorbs-another-identity"
+  },
+  {
+   "id": "s3b6-eastern_promises-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s3b6-eastern_promises-4",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b6-eastern_promises-5",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s3b6-from_up_on_poppy_hill-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b6-from_up_on_poppy_hill-1",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b6-from_up_on_poppy_hill-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b6-from_up_on_poppy_hill-3",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b6-from_up_on_poppy_hill-4",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b6-my_best_fiend-0",
+   "predicate": "antagonism-without-settleable-cause",
+   "raw": "antagonism-without-settleable-cause"
+  },
+  {
+   "id": "s3b6-my_best_fiend-1",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s3b6-my_best_fiend-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b6-my_best_fiend-3",
+   "predicate": "reckoning-with-those-left",
+   "raw": "reckoning-with-those-left"
+  },
+  {
+   "id": "s3b6-encounters_at_end_of_world-0",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s3b6-encounters_at_end_of_world-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b6-encounters_at_end_of_world-2",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s3b7-little_dieter_needs_to_fly-0",
+   "predicate": "pressed-for-an-account",
+   "raw": "pressed-for-an-account"
+  },
+  {
+   "id": "s3b7-little_dieter_needs_to_fly-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b7-little_dieter_needs_to_fly-2",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s3b7-little_dieter_needs_to_fly-3",
+   "predicate": "kinship-made-from-lack",
+   "raw": "kinship-made-from-lack"
+  },
+  {
+   "id": "s3b7-into_abyss-0",
+   "predicate": "harm-answered-with-harm",
+   "raw": "harm-answered-with-harm"
+  },
+  {
+   "id": "s3b7-into_abyss-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b7-into_abyss-2",
+   "predicate": "account-that-spares-teller",
+   "raw": "account-that-spares-teller"
+  },
+  {
+   "id": "s3b7-into_abyss-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b7-into_abyss-4",
+   "predicate": "bond-held-across-separation",
+   "raw": "bond-held-across-separation"
+  },
+  {
+   "id": "s3b7-into_abyss-5",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s3b7-doubt-0",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s3b7-doubt-1",
+   "predicate": "account-that-spares-teller",
+   "raw": "account-that-spares-teller"
+  },
+  {
+   "id": "s3b7-doubt-2",
+   "predicate": "life-dictated-by-another",
+   "raw": "life-dictated-by-another"
+  },
+  {
+   "id": "s3b7-doubt-3",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s3b7-doubt-4",
+   "predicate": "subordinate-turns-on-superior",
+   "raw": "subordinate-turns-on-superior"
+  },
+  {
+   "id": "s3b7-song_to_song-0",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b7-song_to_song-1",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s3b7-song_to_song-2",
+   "predicate": "concealed-thing-surfaces",
+   "raw": "concealed-thing-surfaces"
+  },
+  {
+   "id": "s3b7-song_to_song-3",
+   "predicate": "cost-borne-gain-taken",
+   "raw": "cost-borne-gain-taken"
+  },
+  {
+   "id": "s3b7-song_to_song-4",
+   "predicate": "taking-up-the-written-off",
+   "raw": "taking-up-the-written-off"
+  },
+  {
+   "id": "s3b7-dolls-0",
+   "predicate": "intimacy-for-support",
+   "raw": "intimacy-for-support"
+  },
+  {
+   "id": "s3b7-dolls-1",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b9-salt_of_earth-4",
+   "predicate": "failing-life-in-keeping",
+   "raw": "failing-life-in-keeping"
+  },
+  {
+   "id": "s3b9-megalopolis-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-megalopolis-1",
+   "predicate": "verdict-before-proof",
+   "raw": "verdict-before-proof"
+  },
+  {
+   "id": "s3b9-megalopolis-2",
+   "predicate": "third-holds-two-apart",
+   "raw": "third-holds-two-apart"
+  },
+  {
+   "id": "s3b9-megalopolis-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s3b9-megalopolis-4",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-megalopolis-5",
+   "predicate": "false-impression-planted",
+   "raw": "false-impression-planted"
+  },
+  {
+   "id": "s3b9-star_wars_episode_i_phantom_-0",
+   "predicate": "protector-is-the-harm",
+   "raw": "protector-is-the-harm"
+  },
+  {
+   "id": "s3b9-star_wars_episode_i_phantom_-1",
+   "predicate": "taking-up-the-written-off",
+   "raw": "taking-up-the-written-off"
+  },
+  {
+   "id": "s3b9-star_wars_episode_i_phantom_-2",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b9-star_wars_episode_i_phantom_-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-star_wars_episode_i_phantom_-4",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b9-star_wars_episode_i_phantom_-5",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s3b9-to_catch_killer-0",
+   "predicate": "taking-up-the-written-off",
+   "raw": "taking-up-the-written-off"
+  },
+  {
+   "id": "s3b9-to_catch_killer-1",
+   "predicate": "taken-up-then-discarded",
+   "raw": "taken-up-then-discarded"
+  },
+  {
+   "id": "s3b9-to_catch_killer-2",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b9-to_catch_killer-3",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s3b9-to_catch_killer-4",
+   "predicate": "own-death-brought-about",
+   "raw": "own-death-brought-about"
+  },
+  {
+   "id": "s3b9-to_catch_killer-5",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-like_father_like_son-0",
+   "predicate": "one-leaves-the-bond",
+   "raw": "one-leaves-the-bond"
+  },
+  {
+   "id": "s3b9-like_father_like_son-1",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b9-like_father_like_son-2",
+   "predicate": "the-nearest-goes-unseen",
+   "raw": "the-nearest-goes-unseen"
+  },
+  {
+   "id": "s3b9-like_father_like_son-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b9-like_father_like_son-4",
+   "predicate": "corroded-by-anothers-life",
+   "raw": "corroded-by-anothers-life"
+  },
+  {
+   "id": "s3b9-like_father_like_son-5",
+   "predicate": "confession-to-the-powerless",
+   "raw": "confession-to-the-powerless"
+  },
+  {
+   "id": "s3b10-unknown_pleasures-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b10-unknown_pleasures-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b10-unknown_pleasures-2",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b10-unknown_pleasures-3",
+   "predicate": "truth-withheld-from-intimate",
+   "raw": "truth-withheld-from-intimate"
+  },
+  {
+   "id": "s3b10-panic_room-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b10-panic_room-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b10-panic_room-2",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b10-panic_room-3",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s3b10-panic_room-4",
+   "predicate": "aid-thrown-back",
+   "raw": "aid-thrown-back"
+  },
+  {
+   "id": "s3b10-panic_room-5",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s3b10-ghost_writer-0",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s3b10-ghost_writer-1",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s3b10-ghost_writer-2",
+   "predicate": "trusted-turns-on-truster",
+   "raw": "trusted-turns-on-truster"
+  },
+  {
+   "id": "s3b10-ghost_writer-3",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b10-ghost_writer-4",
+   "predicate": "claim-of-the-dead",
+   "raw": "claim-of-the-dead"
+  },
+  {
+   "id": "s3b10-triangle-0",
+   "predicate": "bound-parties-turn-hostile",
+   "raw": "bound-parties-turn-hostile"
+  },
+  {
+   "id": "s3b10-triangle-1",
+   "predicate": "intervener-struck-down",
+   "raw": "intervener-struck-down"
+  },
+  {
+   "id": "s3b10-triangle-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b10-triangle-3",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s3b10-adaptation-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b10-adaptation-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b10-adaptation-2",
+   "predicate": "bond-across-forbidden-line",
+   "raw": "bond-across-forbidden-line"
+  },
+  {
+   "id": "s3b10-adaptation-3",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s3b10-adaptation-4",
+   "predicate": "act-demanded-against-conscience",
+   "raw": "act-demanded-against-conscience"
+  },
+  {
+   "id": "s3b10-avatar_way_of_water-0",
+   "predicate": "taking-another-into-keeping",
+   "raw": "taking-another-into-keeping"
+  },
+  {
+   "id": "s3b10-avatar_way_of_water-1",
+   "predicate": "incomer-denied-a-place",
+   "raw": "incomer-denied-a-place"
+  },
+  {
+   "id": "s3b10-avatar_way_of_water-2",
+   "predicate": "leverage-held-for-payment",
+   "raw": "leverage-held-for-payment"
+  },
+  {
+   "id": "s3b10-avatar_way_of_water-3",
+   "predicate": "rival-claims-on-one",
+   "raw": "rival-claims-on-one"
+  },
+  {
+   "id": "s3b10-avatar_way_of_water-4",
+   "predicate": "standing-in-anothers-place",
+   "raw": "standing-in-anothers-place"
+  },
+  {
+   "id": "s3b10-avatar_way_of_water-5",
+   "predicate": "cost-taken-onto-oneself",
+   "raw": "cost-taken-onto-oneself"
+  },
+  {
+   "id": "s3b11-attorney-0",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s3b11-attorney-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b11-attorney-2",
+   "predicate": "knower-silenced",
+   "raw": "knower-silenced"
+  },
+  {
+   "id": "s3b11-attorney-3",
+   "predicate": "search-consumes-the-searcher",
+   "raw": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s3b11-bugonia-0",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s3b11-bugonia-1",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s3b11-bugonia-2",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b11-bugonia-3",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s3b11-bugonia-4",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s3b11-postcard-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b11-postcard-1",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s3b11-postcard-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b11-postcard-3",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s3b11-taxi_driver-0",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s3b11-taxi_driver-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b11-taxi_driver-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b11-taxi_driver-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b11-taxi_driver-4",
+   "predicate": "search-consumes-the-searcher",
+   "raw": "search-consumes-the-searcher"
+  },
+  {
+   "id": "s3b11-spiderwick_chronicles-0",
+   "predicate": "true-account-not-credited",
+   "raw": "true-account-not-credited"
+  },
+  {
+   "id": "s3b11-spiderwick_chronicles-1",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b11-spiderwick_chronicles-2",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b11-spiderwick_chronicles-3",
+   "predicate": "held-in-place-by-force",
+   "raw": "held-in-place-by-force"
+  },
+  {
+   "id": "s3b11-spiderwick_chronicles-4",
+   "predicate": "identity-passed-off",
+   "raw": "identity-passed-off"
+  },
+  {
+   "id": "s3b11-past-0",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b11-past-1",
+   "predicate": "drawn-into-anothers-quarrel",
+   "raw": "drawn-into-anothers-quarrel"
+  },
+  {
+   "id": "s3b11-past-2",
+   "predicate": "answering-for-anothers-deed",
+   "raw": "answering-for-anothers-deed"
+  },
+  {
+   "id": "s3b11-past-3",
+   "predicate": "return-after-long-absence",
+   "raw": "return-after-long-absence"
+  },
+  {
+   "id": "s3b11-past-4",
+   "predicate": "vigil-beside-the-unanswering",
+   "raw": "vigil-beside-the-unanswering"
+  },
+  {
+   "id": "s3b12-rolling_thunder_revue_bob_dy-0",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b12-rolling_thunder_revue_bob_dy-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b12-rolling_thunder_revue_bob_dy-2",
+   "predicate": "incomer-denied-a-place",
+   "raw": "incomer-denied-a-place"
+  },
+  {
+   "id": "s3b12-rolling_thunder_revue_bob_dy-3",
+   "predicate": "devotion-goes-unreturned",
+   "raw": "devotion-goes-unreturned"
+  },
+  {
+   "id": "s3b12-rolling_thunder_revue_bob_dy-4",
+   "predicate": "taking-up-the-written-off",
+   "raw": "taking-up-the-written-off"
+  },
+  {
+   "id": "s3b12-tokyo_family-0",
+   "predicate": "person-passed-between-holders",
+   "raw": "person-passed-between-holders"
+  },
+  {
+   "id": "s3b12-tokyo_family-1",
+   "predicate": "aid-withheld-at-need",
+   "raw": "aid-withheld-at-need"
+  },
+  {
+   "id": "s3b12-tokyo_family-2",
+   "predicate": "incomer-denied-a-place",
+   "raw": "incomer-denied-a-place"
+  },
+  {
+   "id": "s3b12-tokyo_family-3",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b12-tokyo_family-4",
+   "predicate": "dependent-handed-over",
+   "raw": "dependent-handed-over"
+  },
+  {
+   "id": "s3b12-daisy-0",
+   "predicate": "witness-misreads-the-scene",
+   "raw": "witness-misreads-the-scene"
+  },
+  {
+   "id": "s3b12-daisy-1",
+   "predicate": "none",
+   "raw": "none"
+  },
+  {
+   "id": "s3b12-daisy-2",
+   "predicate": "none",
+   "raw": "none"
+  }
+ ]
+}

@@ -42,22 +42,22 @@
   "worst": {
    "baseline_reproduced": 0.24209560361755342,
    "tmdb_raw": 0.24861527029022626,
-   "fg": 0.3505524963261835,
-   "mixed_raw": 0.35228750532438224,
-   "mixed_cal": 0.35228750532438224
+   "fg": 0.3718380160232477,
+   "mixed_raw": 0.37175835503309823,
+   "mixed_cal": 0.37175835503309823
   },
   "n": {
    "baseline": 220,
    "tmdb": 224,
-   "fg": 830,
-   "mixed": 944
+   "fg": 895,
+   "mixed": 1009
   },
   "worst_axis_note": "worst |rho| across the seven measures vs 60-day en.wikipedia pageviews"
  },
  "bwAnchor": {
   "film-grab": {
-   "n": 235,
-   "at_zero": 187,
+   "n": 237,
+   "at_zero": 188,
    "max_chroma": 0.052
   },
   "tmdb": {
@@ -65,16 +65,16 @@
    "at_zero": 31,
    "max_chroma": 0.0344
   },
-  "colour_films_median_chroma": 0.0237,
+  "colour_films_median_chroma": 0.0238,
   "note": "chroma < 0.002 counted as monochrome; residual outliers are tinted/toned prints and part-colour films Wikidata tags black-and-white, not measurement error"
  },
  "coverage": {
   "corpus": 2204,
   "filmgrab_matched": 904,
-  "filmgrab_attempted": 841,
-  "filmgrab_measured": 840,
+  "filmgrab_attempted": 904,
+  "filmgrab_measured": 903,
   "tmdb_only": 114,
-  "total": 954,
+  "total": 1017,
   "filmgrab_no_usable_frames": [
    {
     "key": "howl s moving castle",
@@ -210,6 +210,20 @@
    "warmth": 0.007047,
    "warmspread": 0.014407
   },
+  "terminator 2 judgment day": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2018/04/25/terminator-2-judgement-day/",
+   "calibrated": false,
+   "glare": 0.376292,
+   "Lrange": 0.354538,
+   "hardness": 0.16514,
+   "chroma": 0.047934,
+   "chroma90": 0.088792,
+   "warmth": 0.018453,
+   "warmspread": 0.11944
+  },
   "the parallax view": {
    "source": "film-grab",
    "n": 30,
@@ -308,6 +322,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "indiana jones and the dial of destiny": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2026/06/05/indiana-jones-and-the-dial-of-destiny/",
+   "calibrated": false,
+   "glare": 0.250839,
+   "Lrange": 0.37559,
+   "hardness": 0.195753,
+   "chroma": 0.023946,
+   "chroma90": 0.054426,
+   "warmth": 0.040123,
+   "warmspread": 0.030551
+  },
   "hollow man": {
    "source": "film-grab",
    "n": 32,
@@ -364,6 +392,20 @@
    "warmth": 0.03682,
    "warmspread": 0.02759
   },
+  "batman begins": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2015/03/23/batman-begins/",
+   "calibrated": false,
+   "glare": 0.206059,
+   "Lrange": 0.277427,
+   "hardness": 0.068703,
+   "chroma": 0.017414,
+   "chroma90": 0.038083,
+   "warmth": 0.009136,
+   "warmspread": 0.033359
+  },
   "one hundred and one nights": {
    "source": "film-grab",
    "n": 31,
@@ -391,6 +433,20 @@
    "chroma90": 0.0,
    "warmth": 0.000736,
    "warmspread": 0.000211
+  },
+  "brokeback mountain": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2013/05/22/brokeback-mountain/",
+   "calibrated": false,
+   "glare": 0.318719,
+   "Lrange": 0.316415,
+   "hardness": 0.221827,
+   "chroma": 0.01961,
+   "chroma90": 0.036993,
+   "warmth": -0.011241,
+   "warmspread": 0.027485
   },
   "barry lyndon": {
    "source": "film-grab",
@@ -560,6 +616,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "the witch": {
+   "source": "film-grab",
+   "n": 28,
+   "galleryFrames": 63,
+   "provenance": "https://film-grab.com/2016/10/07/the-witch/",
+   "calibrated": false,
+   "glare": 0.192823,
+   "Lrange": 0.254481,
+   "hardness": 0.181385,
+   "chroma": 0.011892,
+   "chroma90": 0.019371,
+   "warmth": -0.003921,
+   "warmspread": 0.03106
+  },
   "it follows": {
    "source": "film-grab",
    "n": 32,
@@ -727,6 +797,20 @@
    "chroma90": 0.044835,
    "warmth": 0.008236,
    "warmspread": 0.026884
+  },
+  "goodfellas": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 64,
+   "provenance": "https://film-grab.com/2010/08/06/goodfellas-2/",
+   "calibrated": false,
+   "glare": 0.230287,
+   "Lrange": 0.304014,
+   "hardness": 0.138806,
+   "chroma": 0.0193,
+   "chroma90": 0.041389,
+   "warmth": 0.020987,
+   "warmspread": 0.016141
   },
   "sound of metal": {
    "source": "film-grab",
@@ -910,6 +994,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "the dark knight": {
+   "source": "film-grab",
+   "n": 30,
+   "galleryFrames": 63,
+   "provenance": "https://film-grab.com/2010/10/02/the-dark-knight/",
+   "calibrated": false,
+   "glare": 0.197761,
+   "Lrange": 0.341348,
+   "hardness": 0.14066,
+   "chroma": 0.019502,
+   "chroma90": 0.046926,
+   "warmth": 0.000307,
+   "warmspread": 0.033933
+  },
   "midnight cowboy": {
    "source": "film-grab",
    "n": 32,
@@ -1064,6 +1162,20 @@
    "warmth": 0.0253,
    "warmspread": 0.041656
   },
+  "heat": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2013/03/27/heat/",
+   "calibrated": false,
+   "glare": 0.226188,
+   "Lrange": 0.234584,
+   "hardness": 0.156392,
+   "chroma": 0.013307,
+   "chroma90": 0.03032,
+   "warmth": 0.001676,
+   "warmspread": 0.035953
+  },
   "oldboy": {
    "source": "film-grab",
    "n": 31,
@@ -1176,6 +1288,20 @@
    "warmth": 0.013417,
    "warmspread": 0.045477
   },
+  "no country for old men": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 64,
+   "provenance": "https://film-grab.com/2012/09/29/no-country-for-old-men/",
+   "calibrated": false,
+   "glare": 0.254638,
+   "Lrange": 0.506001,
+   "hardness": 0.264034,
+   "chroma": 0.030341,
+   "chroma90": 0.058789,
+   "warmth": 0.030429,
+   "warmspread": 0.019773
+  },
   "odd obsession": {
    "source": "film-grab",
    "n": 32,
@@ -1260,6 +1386,20 @@
    "warmth": 0.021739,
    "warmspread": 0.039206
   },
+  "oppenheimer": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2023/12/06/oppenheimer/",
+   "calibrated": false,
+   "glare": 0.35563,
+   "Lrange": 0.423289,
+   "hardness": 0.209378,
+   "chroma": 0.028984,
+   "chroma90": 0.052686,
+   "warmth": 0.010327,
+   "warmspread": 0.023976
+  },
   "wild at heart": {
    "source": "film-grab",
    "n": 32,
@@ -1315,6 +1455,20 @@
    "chroma90": 0.033916,
    "warmth": 0.01236,
    "warmspread": 0.023273
+  },
+  "the departed": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2015/02/05/the-departed/",
+   "calibrated": false,
+   "glare": 0.290677,
+   "Lrange": 0.403729,
+   "hardness": 0.205549,
+   "chroma": 0.015722,
+   "chroma90": 0.045264,
+   "warmth": 0.003851,
+   "warmspread": 0.021439
   },
   "pandora s box": {
    "source": "film-grab",
@@ -1568,6 +1722,20 @@
    "warmth": 0.021294,
    "warmspread": 0.021362
   },
+  "a i artificial intelligence": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2017/01/04/a-i-artificial-intelligence/",
+   "calibrated": false,
+   "glare": 0.253798,
+   "Lrange": 0.465929,
+   "hardness": 0.179563,
+   "chroma": 0.018942,
+   "chroma90": 0.062978,
+   "warmth": -0.022762,
+   "warmspread": 0.057048
+  },
   "the enigma of kaspar hauser": {
    "source": "film-grab",
    "n": 32,
@@ -1679,6 +1847,34 @@
    "chroma90": 0.007732,
    "warmth": 0.0009,
    "warmspread": 0.000428
+  },
+  "the godfather": {
+   "source": "film-grab",
+   "n": 29,
+   "galleryFrames": 60,
+   "provenance": "https://film-grab.com/2010/07/27/the-godfather/",
+   "calibrated": false,
+   "glare": 0.278631,
+   "Lrange": 0.40304,
+   "hardness": 0.18203,
+   "chroma": 0.028944,
+   "chroma90": 0.053071,
+   "warmth": 0.037185,
+   "warmspread": 0.014624
+  },
+  "jaws": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2012/11/17/jaws/",
+   "calibrated": false,
+   "glare": 0.417472,
+   "Lrange": 0.394212,
+   "hardness": 0.224386,
+   "chroma": 0.022882,
+   "chroma90": 0.048324,
+   "warmth": 0.00669,
+   "warmspread": 0.024664
   },
   "howl": {
    "source": "film-grab",
@@ -2030,6 +2226,20 @@
    "warmth": -0.03312,
    "warmspread": 0.071267
   },
+  "salo or the 120 days of sodom": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2020/10/20/salo-or-the-120-days-of-sodom/",
+   "calibrated": false,
+   "glare": 0.360915,
+   "Lrange": 0.377383,
+   "hardness": 0.131269,
+   "chroma": 0.022485,
+   "chroma90": 0.044121,
+   "warmth": 0.02148,
+   "warmspread": 0.02263
+  },
   "the scarlet letter": {
    "source": "film-grab",
    "n": 32,
@@ -2043,6 +2253,20 @@
    "chroma90": 0.045738,
    "warmth": 0.0107,
    "warmspread": 0.046604
+  },
+  "eyes wide shut": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 60,
+   "provenance": "https://film-grab.com/2010/07/11/eyes-wide-shut/",
+   "calibrated": false,
+   "glare": 0.326129,
+   "Lrange": 0.347455,
+   "hardness": 0.152689,
+   "chroma": 0.043408,
+   "chroma90": 0.085348,
+   "warmth": 0.029769,
+   "warmspread": 0.064949
   },
   "mr arkadin": {
    "source": "film-grab",
@@ -2170,6 +2394,20 @@
    "warmth": 0.030292,
    "warmspread": 0.034893
   },
+  "possession": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2013/08/08/possession/",
+   "calibrated": false,
+   "glare": 0.373118,
+   "Lrange": 0.395659,
+   "hardness": 0.207625,
+   "chroma": 0.025926,
+   "chroma90": 0.054577,
+   "warmth": -0.031386,
+   "warmspread": 0.038529
+  },
   "cries and whispers": {
    "source": "film-grab",
    "n": 32,
@@ -2267,6 +2505,20 @@
    "chroma90": 0.031583,
    "warmth": 0.007457,
    "warmspread": 0.01731
+  },
+  "catch me if you can": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2016/01/14/catch-me-if-you-can/",
+   "calibrated": false,
+   "glare": 0.273692,
+   "Lrange": 0.409102,
+   "hardness": 0.166724,
+   "chroma": 0.017364,
+   "chroma90": 0.046802,
+   "warmth": 0.01578,
+   "warmspread": 0.035184
   },
   "johnny guitar": {
    "source": "film-grab",
@@ -2492,6 +2744,20 @@
    "warmth": 0.027845,
    "warmspread": 0.02641
   },
+  "everything everywhere all at once": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2022/11/11/everything-everywhere-all-at-once/",
+   "calibrated": false,
+   "glare": 0.313101,
+   "Lrange": 0.379673,
+   "hardness": 0.249427,
+   "chroma": 0.027992,
+   "chroma90": 0.060523,
+   "warmth": 0.02674,
+   "warmspread": 0.040418
+  },
   "man with a movie camera": {
    "source": "film-grab",
    "n": 32,
@@ -2687,6 +2953,20 @@
    "chroma90": 0.042664,
    "warmth": 0.013745,
    "warmspread": 0.032623
+  },
+  "lawrence of arabia": {
+   "source": "film-grab",
+   "n": 29,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2013/02/10/lawrence-of-arabia/",
+   "calibrated": false,
+   "glare": 0.463984,
+   "Lrange": 0.342576,
+   "hardness": 0.208715,
+   "chroma": 0.025646,
+   "chroma90": 0.051312,
+   "warmth": 0.017501,
+   "warmspread": 0.048004
   },
   "hamlet": {
    "source": "film-grab",
@@ -3108,6 +3388,20 @@
    "warmth": 0.006595,
    "warmspread": 0.035861
   },
+  "the prestige": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 60,
+   "provenance": "https://film-grab.com/2010/06/25/the-prestige/",
+   "calibrated": false,
+   "glare": 0.203906,
+   "Lrange": 0.358014,
+   "hardness": 0.097144,
+   "chroma": 0.017206,
+   "chroma90": 0.03796,
+   "warmth": 0.019132,
+   "warmspread": 0.034161
+  },
   "kwaidan": {
    "source": "film-grab",
    "n": 32,
@@ -3205,6 +3499,20 @@
    "chroma90": 0.081204,
    "warmth": 0.031737,
    "warmspread": 0.035449
+  },
+  "one battle after another": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2026/02/09/one-battle-after-another/",
+   "calibrated": false,
+   "glare": 0.415343,
+   "Lrange": 0.528052,
+   "hardness": 0.270067,
+   "chroma": 0.034973,
+   "chroma90": 0.068863,
+   "warmth": 0.039362,
+   "warmspread": 0.028745
   },
   "ashes of time": {
    "source": "film-grab",
@@ -3695,6 +4003,20 @@
    "chroma90": 0.060424,
    "warmth": 0.028455,
    "warmspread": 0.031792
+  },
+  "arrival": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2019/06/28/arrival/",
+   "calibrated": false,
+   "glare": 0.234061,
+   "Lrange": 0.242681,
+   "hardness": 0.176037,
+   "chroma": 0.020698,
+   "chroma90": 0.03061,
+   "warmth": -0.013063,
+   "warmspread": 0.016965
   },
   "touki bouki": {
    "source": "film-grab",
@@ -5236,6 +5558,20 @@
    "warmth": -0.010592,
    "warmspread": 0.060882
   },
+  "close encounters of the third kind": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2012/11/20/close-encounters-of-the-third-kind/",
+   "calibrated": false,
+   "glare": 0.328481,
+   "Lrange": 0.370583,
+   "hardness": 0.230702,
+   "chroma": 0.027921,
+   "chroma90": 0.054377,
+   "warmth": 0.015486,
+   "warmspread": 0.056112
+  },
   "timbuktu": {
    "source": "film-grab",
    "n": 32,
@@ -5264,6 +5600,20 @@
    "warmth": 0.023799,
    "warmspread": 0.016498
   },
+  "the terminator": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2015/05/15/the-terminator/",
+   "calibrated": false,
+   "glare": 0.275973,
+   "Lrange": 0.33881,
+   "hardness": 0.189584,
+   "chroma": 0.024777,
+   "chroma90": 0.050628,
+   "warmth": -0.019081,
+   "warmspread": 0.045138
+  },
   "mean streets": {
    "source": "film-grab",
    "n": 32,
@@ -5277,6 +5627,20 @@
    "chroma90": 0.043377,
    "warmth": 0.016766,
    "warmspread": 0.041177
+  },
+  "interstellar": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 60,
+   "provenance": "https://film-grab.com/2015/04/17/interstellar/",
+   "calibrated": false,
+   "glare": 0.284818,
+   "Lrange": 0.408733,
+   "hardness": 0.300186,
+   "chroma": 0.016876,
+   "chroma90": 0.034402,
+   "warmth": 0.00893,
+   "warmspread": 0.017166
   },
   "the life and death of colonel blimp": {
    "source": "film-grab",
@@ -5474,6 +5838,20 @@
    "warmth": 0.009729,
    "warmspread": 0.023399
   },
+  "the irishman": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2020/08/14/the-irishman/",
+   "calibrated": false,
+   "glare": 0.283172,
+   "Lrange": 0.372228,
+   "hardness": 0.16771,
+   "chroma": 0.016518,
+   "chroma90": 0.0387,
+   "warmth": 0.021143,
+   "warmspread": 0.031845
+  },
   "naked": {
    "source": "film-grab",
    "n": 32,
@@ -5501,6 +5879,20 @@
    "chroma90": 0.075492,
    "warmth": 0.013276,
    "warmspread": 0.078089
+  },
+  "lost highway": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2014/06/24/lost-highway/",
+   "calibrated": false,
+   "glare": 0.282047,
+   "Lrange": 0.294678,
+   "hardness": 0.144729,
+   "chroma": 0.022247,
+   "chroma90": 0.038705,
+   "warmth": 0.002513,
+   "warmspread": 0.030851
   },
   "the white sheik": {
    "source": "film-grab",
@@ -5642,6 +6034,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "hereditary": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2019/03/20/hereditary/",
+   "calibrated": false,
+   "glare": 0.294427,
+   "Lrange": 0.265335,
+   "hardness": 0.236007,
+   "chroma": 0.01944,
+   "chroma90": 0.04662,
+   "warmth": 0.01252,
+   "warmspread": 0.033832
+  },
   "jules and jim": {
    "source": "film-grab",
    "n": 32,
@@ -5683,6 +6089,20 @@
    "chroma90": 0.059925,
    "warmth": 0.012854,
    "warmspread": 0.029381
+  },
+  "mulholland drive": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2014/09/23/mulholland-drive/",
+   "calibrated": false,
+   "glare": 0.206904,
+   "Lrange": 0.2844,
+   "hardness": 0.117194,
+   "chroma": 0.024924,
+   "chroma90": 0.047836,
+   "warmth": 0.02162,
+   "warmspread": 0.020766
   },
   "mountains of the moon": {
    "source": "film-grab",
@@ -5963,6 +6383,20 @@
    "chroma90": 0.066451,
    "warmth": 0.017464,
    "warmspread": 0.04379
+  },
+  "blade runner 2049": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2019/05/24/blade-runner-2049/",
+   "calibrated": false,
+   "glare": 0.264087,
+   "Lrange": 0.301409,
+   "hardness": 0.12636,
+   "chroma": 0.027558,
+   "chroma90": 0.062283,
+   "warmth": 0.002423,
+   "warmspread": 0.066347
   },
   "the last temptation of christ": {
    "source": "film-grab",
@@ -6846,6 +7280,34 @@
    "warmth": 0.013139,
    "warmspread": 0.046485
   },
+  "saving private ryan": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2018/01/08/saving-private-ryan/",
+   "calibrated": false,
+   "glare": 0.391432,
+   "Lrange": 0.525026,
+   "hardness": 0.235545,
+   "chroma": 0.017508,
+   "chroma90": 0.038378,
+   "warmth": 0.006192,
+   "warmspread": 0.029326
+  },
+  "parasite": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2024/02/05/parasite/",
+   "calibrated": false,
+   "glare": 0.270088,
+   "Lrange": 0.367201,
+   "hardness": 0.162392,
+   "chroma": 0.026111,
+   "chroma90": 0.0514,
+   "warmth": 0.021027,
+   "warmspread": 0.030161
+  },
   "the thin blue line": {
    "source": "film-grab",
    "n": 32,
@@ -6901,6 +7363,20 @@
    "chroma90": 0.0,
    "warmth": 0.0,
    "warmspread": 0.0
+  },
+  "gladiator": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2017/09/13/gladiator/",
+   "calibrated": false,
+   "glare": 0.297581,
+   "Lrange": 0.414571,
+   "hardness": 0.160568,
+   "chroma": 0.025567,
+   "chroma90": 0.059954,
+   "warmth": 0.013567,
+   "warmspread": 0.071472
   },
   "burning": {
    "source": "film-grab",
@@ -7153,6 +7629,20 @@
    "chroma90": 0.063313,
    "warmth": 0.0,
    "warmspread": 0.043973
+  },
+  "star wars episode vii the force awakens": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2016/05/13/star-wars-the-force-awakens/",
+   "calibrated": false,
+   "glare": 0.243338,
+   "Lrange": 0.323663,
+   "hardness": 0.229051,
+   "chroma": 0.034075,
+   "chroma90": 0.079068,
+   "warmth": 0.011318,
+   "warmspread": 0.064734
   },
   "carol": {
    "source": "film-grab",
@@ -7433,6 +7923,20 @@
    "chroma90": 0.046781,
    "warmth": 0.019743,
    "warmspread": 0.021587
+  },
+  "the wolf of wall street": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2014/06/20/the-wolf-of-wall-street/",
+   "calibrated": false,
+   "glare": 0.310355,
+   "Lrange": 0.397864,
+   "hardness": 0.253907,
+   "chroma": 0.023558,
+   "chroma90": 0.052834,
+   "warmth": 0.028339,
+   "warmspread": 0.030791
   },
   "once upon a time in america": {
    "source": "film-grab",
@@ -7812,6 +8316,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "spider man into the spider verse": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2019/11/12/spider-man-into-the-spider-verse/",
+   "calibrated": false,
+   "glare": 0.345149,
+   "Lrange": 0.390815,
+   "hardness": 0.342124,
+   "chroma": 0.051995,
+   "chroma90": 0.104546,
+   "warmth": -0.00022,
+   "warmspread": 0.044
+  },
   "fiddler on the roof": {
    "source": "film-grab",
    "n": 32,
@@ -8008,6 +8526,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "shutter island": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2012/07/07/shutter-island/",
+   "calibrated": false,
+   "glare": 0.315161,
+   "Lrange": 0.385595,
+   "hardness": 0.184632,
+   "chroma": 0.02907,
+   "chroma90": 0.045209,
+   "warmth": 0.019959,
+   "warmspread": 0.02665
+  },
   "fantastic planet": {
    "source": "film-grab",
    "n": 32,
@@ -8120,6 +8652,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "the northman": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2022/07/15/the-northman/",
+   "calibrated": false,
+   "glare": 0.242305,
+   "Lrange": 0.319615,
+   "hardness": 0.1995,
+   "chroma": 0.023213,
+   "chroma90": 0.039159,
+   "warmth": -0.012962,
+   "warmspread": 0.022053
+  },
   "first reformed": {
    "source": "film-grab",
    "n": 32,
@@ -8133,6 +8679,20 @@
    "chroma90": 0.02905,
    "warmth": -0.000641,
    "warmspread": 0.026854
+  },
+  "tenet": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2021/04/02/tenet/",
+   "calibrated": false,
+   "glare": 0.360222,
+   "Lrange": 0.462297,
+   "hardness": 0.322328,
+   "chroma": 0.034117,
+   "chroma90": 0.056908,
+   "warmth": 0.014572,
+   "warmspread": 0.026686
   },
   "ivan s childhood": {
    "source": "film-grab",
@@ -8442,6 +9002,20 @@
    "warmth": 0.008633,
    "warmspread": 0.0283
   },
+  "the shawshank redemption": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2013/08/06/the-shawshank-redemption/",
+   "calibrated": false,
+   "glare": 0.272144,
+   "Lrange": 0.385261,
+   "hardness": 0.152734,
+   "chroma": 0.016834,
+   "chroma90": 0.040766,
+   "warmth": 0.006785,
+   "warmspread": 0.027873
+  },
   "all of us strangers": {
    "source": "film-grab",
    "n": 31,
@@ -8455,6 +9029,20 @@
    "chroma90": 0.059232,
    "warmth": 0.01245,
    "warmspread": 0.052044
+  },
+  "inception": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2012/11/23/inception/",
+   "calibrated": false,
+   "glare": 0.288194,
+   "Lrange": 0.401841,
+   "hardness": 0.179619,
+   "chroma": 0.018742,
+   "chroma90": 0.040839,
+   "warmth": 0.023453,
+   "warmspread": 0.034495
   },
   "gods of the plague": {
    "source": "film-grab",
@@ -8567,6 +9155,20 @@
    "chroma90": 0.050382,
    "warmth": 0.021102,
    "warmspread": 0.02957
+  },
+  "raiders of the lost ark": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2014/04/07/raiders-of-the-lost-ark/",
+   "calibrated": false,
+   "glare": 0.323505,
+   "Lrange": 0.422316,
+   "hardness": 0.368007,
+   "chroma": 0.021803,
+   "chroma90": 0.058791,
+   "warmth": 0.037684,
+   "warmspread": 0.027165
   },
   "lolita": {
    "source": "film-grab",
@@ -8960,6 +9562,20 @@
    "warmth": -0.005822,
    "warmspread": 0.045805
   },
+  "the shining": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 63,
+   "provenance": "https://film-grab.com/2010/07/09/the-shining/",
+   "calibrated": false,
+   "glare": 0.385553,
+   "Lrange": 0.429751,
+   "hardness": 0.116521,
+   "chroma": 0.031877,
+   "chroma90": 0.059682,
+   "warmth": 0.022528,
+   "warmspread": 0.04012
+  },
   "letter from an unknown woman": {
    "source": "film-grab",
    "n": 32,
@@ -9072,6 +9688,20 @@
    "warmth": 0.023838,
    "warmspread": 0.027661
   },
+  "o brother where art thou": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 62,
+   "provenance": "https://film-grab.com/2010/09/05/o-brother-where-art-thou/",
+   "calibrated": false,
+   "glare": 0.375252,
+   "Lrange": 0.435979,
+   "hardness": 0.263429,
+   "chroma": 0.042081,
+   "chroma90": 0.072601,
+   "warmth": 0.052258,
+   "warmspread": 0.036101
+  },
   "vampyr": {
    "source": "film-grab",
    "n": 32,
@@ -9099,6 +9729,20 @@
    "chroma90": 0.039454,
    "warmth": 0.018732,
    "warmspread": 0.013152
+  },
+  "sicario": {
+   "source": "film-grab",
+   "n": 30,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2016/04/22/sicario/",
+   "calibrated": false,
+   "glare": 0.279557,
+   "Lrange": 0.327707,
+   "hardness": 0.198824,
+   "chroma": 0.025015,
+   "chroma90": 0.05172,
+   "warmth": 0.022867,
+   "warmspread": 0.048009
   },
   "sweet charity": {
    "source": "film-grab",
@@ -9184,6 +9828,20 @@
    "warmth": 0.027565,
    "warmspread": 0.020203
   },
+  "nosferatu 2024": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2024/09/30/the-killer-2024/",
+   "calibrated": false,
+   "glare": 0.339597,
+   "Lrange": 0.452854,
+   "hardness": 0.125919,
+   "chroma": 0.035284,
+   "chroma90": 0.065874,
+   "warmth": 0.020004,
+   "warmspread": 0.020528
+  },
   "3 women": {
    "source": "film-grab",
    "n": 32,
@@ -9211,6 +9869,20 @@
    "chroma90": 0.051481,
    "warmth": 0.023029,
    "warmspread": 0.027989
+  },
+  "the dark knight rises": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2014/09/08/the-dark-knight-rises/",
+   "calibrated": false,
+   "glare": 0.212865,
+   "Lrange": 0.384464,
+   "hardness": 0.115148,
+   "chroma": 0.013898,
+   "chroma90": 0.034136,
+   "warmth": 0.013396,
+   "warmspread": 0.022855
   },
   "night of the living dead": {
    "source": "film-grab",
@@ -9324,6 +9996,20 @@
    "warmth": 0.041989,
    "warmspread": 0.027344
   },
+  "titanic": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2026/03/04/titanic/",
+   "calibrated": false,
+   "glare": 0.352776,
+   "Lrange": 0.406883,
+   "hardness": 0.250003,
+   "chroma": 0.031395,
+   "chroma90": 0.05708,
+   "warmth": 0.013456,
+   "warmspread": 0.069285
+  },
   "the mirror": {
    "source": "film-grab",
    "n": 32,
@@ -9337,6 +10023,20 @@
    "chroma90": 0.039433,
    "warmth": 0.018627,
    "warmspread": 0.020625
+  },
+  "memento": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 64,
+   "provenance": "https://film-grab.com/2011/03/29/memento/",
+   "calibrated": false,
+   "glare": 0.305191,
+   "Lrange": 0.398233,
+   "hardness": 0.187885,
+   "chroma": 0.024866,
+   "chroma90": 0.052449,
+   "warmth": 0.0,
+   "warmspread": 0.019393
   },
   "tampopo": {
    "source": "film-grab",
@@ -9814,6 +10514,20 @@
    "warmth": 0.006323,
    "warmspread": 0.02535
   },
+  "schindler s list": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2014/05/15/schindlers-list/",
+   "calibrated": false,
+   "glare": 0.252641,
+   "Lrange": 0.485651,
+   "hardness": 0.172878,
+   "chroma": 0.0,
+   "chroma90": 0.0,
+   "warmth": 0.0,
+   "warmspread": 0.0
+  },
   "peeping tom": {
    "source": "film-grab",
    "n": 31,
@@ -9911,6 +10625,20 @@
    "chroma90": 0.0,
    "warmth": 0.0,
    "warmspread": 0.0
+  },
+  "jurassic park": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2015/05/11/jurassic-park/",
+   "calibrated": false,
+   "glare": 0.271547,
+   "Lrange": 0.278128,
+   "hardness": 0.153638,
+   "chroma": 0.020285,
+   "chroma90": 0.050218,
+   "warmth": 0.02711,
+   "warmspread": 0.03099
   },
   "the umbrellas of cherbourg": {
    "source": "film-grab",
@@ -10024,6 +10752,20 @@
    "warmth": 0.010428,
    "warmspread": 0.02644
   },
+  "the big lebowski": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2013/11/13/the-big-lebowski/",
+   "calibrated": false,
+   "glare": 0.311321,
+   "Lrange": 0.362457,
+   "hardness": 0.204922,
+   "chroma": 0.028396,
+   "chroma90": 0.054378,
+   "warmth": 0.03063,
+   "warmspread": 0.022979
+  },
   "a ghost story": {
    "source": "film-grab",
    "n": 30,
@@ -10108,6 +10850,20 @@
    "warmth": 0.01793,
    "warmspread": 0.024579
   },
+  "dunkirk": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 51,
+   "provenance": "https://film-grab.com/2019/05/22/dunkirk/",
+   "calibrated": false,
+   "glare": 0.476155,
+   "Lrange": 0.504759,
+   "hardness": 0.290967,
+   "chroma": 0.036058,
+   "chroma90": 0.056758,
+   "warmth": 0.006489,
+   "warmspread": 0.032865
+  },
   "mon oncle": {
    "source": "film-grab",
    "n": 32,
@@ -10178,6 +10934,20 @@
    "warmth": 0.011693,
    "warmspread": 0.04369
   },
+  "2001 a space odyssey": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 63,
+   "provenance": "https://film-grab.com/2010/07/06/2001-a-space-odyssey/",
+   "calibrated": false,
+   "glare": 0.345718,
+   "Lrange": 0.486442,
+   "hardness": 0.260292,
+   "chroma": 0.026479,
+   "chroma90": 0.060711,
+   "warmth": 0.015275,
+   "warmspread": 0.052299
+  },
   "the host": {
    "source": "film-grab",
    "n": 32,
@@ -10220,6 +10990,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "the matrix": {
+   "source": "film-grab",
+   "n": 30,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2017/02/13/the-matrix/",
+   "calibrated": false,
+   "glare": 0.265794,
+   "Lrange": 0.372251,
+   "hardness": 0.202971,
+   "chroma": 0.031254,
+   "chroma90": 0.0522,
+   "warmth": 0.001266,
+   "warmspread": 0.010962
+  },
   "black hawk down": {
    "source": "film-grab",
    "n": 32,
@@ -10247,6 +11031,20 @@
    "chroma90": 0.06979,
    "warmth": 0.036501,
    "warmspread": 0.052462
+  },
+  "avatar the way of water": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2025/12/22/avatar-the-way-of-water/",
+   "calibrated": false,
+   "glare": 0.392278,
+   "Lrange": 0.426153,
+   "hardness": 0.275716,
+   "chroma": 0.039585,
+   "chroma90": 0.074241,
+   "warmth": -0.028366,
+   "warmspread": 0.063095
   },
   "japon": {
    "source": "film-grab",
@@ -11032,6 +11830,20 @@
    "warmth": 0.0,
    "warmspread": 0.0
   },
+  "avatar": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2020/02/21/avatar/",
+   "calibrated": false,
+   "glare": 0.265866,
+   "Lrange": 0.36305,
+   "hardness": 0.140737,
+   "chroma": 0.038398,
+   "chroma90": 0.080262,
+   "warmth": -0.036086,
+   "warmspread": 0.065832
+  },
   "the zone of interest": {
    "source": "film-grab",
    "n": 32,
@@ -11045,6 +11857,20 @@
    "chroma90": 0.035839,
    "warmth": 0.003102,
    "warmspread": 0.027775
+  },
+  "apocalypse now": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 64,
+   "provenance": "https://film-grab.com/2012/11/10/apocalypse-now/",
+   "calibrated": false,
+   "glare": 0.261133,
+   "Lrange": 0.399178,
+   "hardness": 0.177501,
+   "chroma": 0.028389,
+   "chroma90": 0.067458,
+   "warmth": 0.041167,
+   "warmspread": 0.036416
   },
   "blood and black lace": {
    "source": "film-grab",
@@ -11115,6 +11941,20 @@
    "chroma90": 0.03959,
    "warmth": 0.020198,
    "warmspread": 0.025553
+  },
+  "the substance": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2024/11/08/the-substance/",
+   "calibrated": false,
+   "glare": 0.473168,
+   "Lrange": 0.376011,
+   "hardness": 0.326371,
+   "chroma": 0.038053,
+   "chroma90": 0.071831,
+   "warmth": 0.028581,
+   "warmspread": 0.043602
   },
   "face to face": {
    "source": "film-grab",
@@ -11592,6 +12432,20 @@
    "warmth": -6.8e-05,
    "warmspread": 8.2e-05
   },
+  "call me by your name": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2019/03/04/call-me-by-your-name/",
+   "calibrated": false,
+   "glare": 0.374022,
+   "Lrange": 0.407931,
+   "hardness": 0.318096,
+   "chroma": 0.032822,
+   "chroma90": 0.052912,
+   "warmth": 0.012857,
+   "warmspread": 0.027788
+  },
   "as tears go by": {
    "source": "film-grab",
    "n": 32,
@@ -11661,6 +12515,20 @@
    "chroma90": 0.0,
    "warmth": 0.0,
    "warmspread": 0.0
+  },
+  "cape fear": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2014/09/01/cape-fear-2/",
+   "calibrated": false,
+   "glare": 0.256024,
+   "Lrange": 0.283433,
+   "hardness": 0.131223,
+   "chroma": 0.013462,
+   "chroma90": 0.03312,
+   "warmth": 0.014578,
+   "warmspread": 0.015644
   },
   "memoirs of a geisha": {
    "source": "film-grab",
@@ -11843,6 +12711,20 @@
    "chroma90": 0.045982,
    "warmth": 0.009773,
    "warmspread": 0.020078
+  },
+  "spirited away": {
+   "source": "film-grab",
+   "n": 30,
+   "galleryFrames": 65,
+   "provenance": "https://film-grab.com/2020/04/27/spirited-away/",
+   "calibrated": false,
+   "glare": 0.5141,
+   "Lrange": 0.336733,
+   "hardness": 0.305664,
+   "chroma": 0.043115,
+   "chroma90": 0.090575,
+   "warmth": 0.034643,
+   "warmspread": 0.081776
   },
   "the killers": {
    "source": "tmdb",

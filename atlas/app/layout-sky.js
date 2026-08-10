@@ -86,7 +86,50 @@
  */
 "use strict";
 
-const LAYOUT_ALGORITHM_VERSION = "sky-fr-bh-v1";
+/* ── THE VERSION IS COMPUTED FROM THE CONSTANTS, NEVER WRITTEN BESIDE THEM ───
+ *
+ * This used to be the literal `sky-fr-bh-v1`, maintained by hand. On the
+ * evening of 2026-08-09, commit e49de94 took restWeak from 48 to 120 and added
+ * restWeakExp — which moved ALL 2,204 shipped positions, 2,204 of 2,204
+ * different — and left that string exactly where it was. discovery.json's
+ * layoutVersion is a hash that included it, so `layout-1f25a90c58b53266` named
+ * two completely different pictures on two consecutive days, and AGENTS rule 7
+ * ("the same corpus draws the same sky twice", and an address returns the
+ * picture it promised) had nothing enforcing it.
+ *
+ * Note that the discipline was not the problem: layout-strata.js's own version
+ * WAS bumped in that same commit, by the same author, in the same hour. What
+ * failed is the idea that a human remembers to bump a constant that lives
+ * fifty lines away from the one they came here to change. So the version now
+ * carries a fingerprint of DEFAULTS itself. Change any tuned constant — or add
+ * one, or remove one — and the version changes in the same keystroke, by
+ * construction, with nobody in the loop.
+ *
+ * What it deliberately does NOT cover: a change to the CODE around the
+ * constants (a different cooling schedule, a fixed sign error). That still
+ * needs the base string moved by hand, which is why it is a base string and
+ * not just the hash — and it is the far more visible kind of edit. The
+ * silent, invisible, one-character kind is the kind now covered automatically.
+ *
+ * The hash is a pure-JS FNV-1a pair rather than node:crypto because THIS FILE
+ * SHIPS TO THE BROWSER: app/build.js embeds it verbatim at the template's sky
+ * solver marker, so a live intersection is solved by the same code that baked
+ * the strata. A `require` here would be a blank page.
+ */
+function solverFingerprint(params){
+  /* Sorted keys, so the fingerprint is a property of the VALUES and not of the
+     order somebody happened to type them in; String(v) rather than JSON so an
+     integer and a float that are the same number hash the same way. */
+  const canon = Object.keys(params).sort().map((k) => k + "=" + String(params[k])).join(";");
+  let h1 = 0x811c9dc5, h2 = 0xcbf29ce4;
+  for (let i = 0; i < canon.length; i++) {
+    const c = canon.charCodeAt(i);
+    h1 = Math.imul(h1 ^ c, 0x01000193) >>> 0;
+    h2 = Math.imul(h2 ^ c, 0x85ebca6b) >>> 0;
+    h2 = ((h2 << 13) | (h2 >>> 19)) >>> 0;
+  }
+  return h1.toString(16).padStart(8, "0") + h2.toString(16).padStart(8, "0");
+}
 
 /* Seeded, because "deterministic" has to survive someone adding a film: the
    same corpus must give the same sky twice, and a bare Math.random() would
@@ -140,6 +183,15 @@ const DEFAULTS = {
   margin: 0.004,       /* inset from the [0,1] edges of the render square      */
   round: 5,            /* decimal places kept in the shipped coordinates       */
 };
+
+/* v2 rather than v1 because the picture this solver makes is not the one v1
+   named: restWeak 48 -> 120 with restWeakExp 0.75 moved every position in the
+   atlas under the old string. The suffix is DEFAULTS' own fingerprint — see
+   the block above "use strict" for why a hand-maintained version was never
+   going to hold. app/build.js derives the shipped layoutVersion from this, so
+   a solver retune is now visible in the artifact, in the layout gate, and in
+   the promise an address makes. */
+const LAYOUT_ALGORITHM_VERSION = "sky-fr-bh-v2-" + solverFingerprint(DEFAULTS);
 
 /* ── WHY restWeak IS 48 AND NOT 180, WHICH SCORES BETTER ─────────────────────
  *
@@ -731,4 +783,4 @@ function layout(films, edges, opts) {
   return out;
 }
 
-module.exports = { LAYOUT_ALGORITHM_VERSION, layout };
+module.exports = { LAYOUT_ALGORITHM_VERSION, solverFingerprint, layout };

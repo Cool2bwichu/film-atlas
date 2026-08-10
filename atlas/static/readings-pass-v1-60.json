@@ -1,0 +1,4293 @@
+{
+ "version": 1,
+ "promptVersion": "readings-prompt-1",
+ "model": "claude-opus-5",
+ "source": "reading",
+ "note": "Per-film readings. Predicaments are free text on purpose — the vocabulary is mined from them afterwards, not imposed before. `relatives` is NOT an edge list: see the header of readings.js.",
+ "generated": "2026-08-10T11:41:17.752Z",
+ "films": [
+  {
+   "n": 1,
+   "title": "Rashomon",
+   "engine": "A samurai is dead in a grove, and every person who was there tells the court a version in which they are the one who acted with some kind of honour — the bandit, the wife, the dead man through a medium, and finally the woodcutter who claims to have watched it all. The film is about what happens to the men listening: two of them cannot get the accounts to line up, and the one insisting hardest on the truth turns out to have been hiding a theft of his own.",
+   "predicaments": [
+    {
+     "situation": "several people give incompatible accounts of one event, each account arranged so its teller is not the shameful one",
+     "basis": "Tajōmaru, the wife, the dead samurai and the woodcutter each narrate the killing differently, and each version assigns its narrator the least degrading role.",
+     "centrality": 1,
+     "outcome": "ambiguous",
+     "roles": {
+      "telling": "Tajōmaru, the wife, the samurai (via medium), the woodcutter",
+      "weighing": "the monk, the commoner"
+     }
+    },
+    {
+     "situation": "a witness suppresses what he saw because telling it would expose a small crime of his own",
+     "basis": "The woodcutter claims he only found the body, then admits he watched the killing, and is finally accused of having lied to hide that he stole the wife's dagger.",
+     "centrality": 0.7,
+     "outcome": "transfigured",
+     "roles": {
+      "concealing": "the woodcutter",
+      "exposing": "the commoner"
+     }
+    },
+    {
+     "situation": "a person is violated and then treated by their own people as the one who has been spoiled",
+     "basis": "After the rape the wife is met with her husband's contempt and loathing, and in the woodcutter's account he refuses to fight for a woman he now considers ruined.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "discarded": "the wife",
+      "withdrawing": "the samurai, Tajōmaru"
+     }
+    },
+    {
+     "situation": "two men are pushed into a fight neither wants by a third party who insists they settle her worth",
+     "basis": "In the woodcutter's telling the wife taunts both men until they duel clumsily and unwillingly, ending in the samurai begging for his life.",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "roles": {
+      "goading": "the wife",
+      "fighting": "Tajōmaru, the samurai"
+     }
+    },
+    {
+     "situation": "someone loses their belief in other people and has it returned by one unremarkable act",
+     "basis": "The monk, sickened by the trial and by the commoner stripping the abandoned baby, recoils from the woodcutter until he learns the man means to raise the child.",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "roles": {
+      "despairing": "the monk",
+      "acting": "the woodcutter"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Last Duel",
+     "shares": "one assault narrated three times, each version shaped by what its teller needs to have been true"
+    },
+    {
+     "title": "Anatomy of a Fall",
+     "shares": "a death that no surviving account can settle, leaving listeners to choose which version to live with"
+    },
+    {
+     "title": "A Separation",
+     "shares": "ordinary people lying in small self-protective ways until the truth of an event becomes unrecoverable"
+    },
+    {
+     "title": "The Thin Blue Line",
+     "shares": "incompatible eyewitness testimony about a killing, with each witness's stake in their own version visible"
+    },
+    {
+     "title": "Hero",
+     "shares": "competing reconstructions of the same encounter, each told to persuade a listener rather than to report"
+    }
+   ],
+   "year": 1950,
+   "source": "reading",
+   "plotChars": 4012
+  },
+  {
+   "n": 2,
+   "title": "Seven Samurai",
+   "engine": "A village that expects to be robbed after harvest hires masterless warriors who will work for food, and the arrangement forces each side to face what it has done to the other — farmers who murdered wounded samurai for their armour, samurai whose wars made the farmers into scavengers. The defence works, at a cost that falls mostly on the hired men, and when it is over the people who were saved go back to planting while the survivors stand at the graves with no share in the life they preserved.",
+   "predicaments": [
+    {
+     "situation": "a community with nothing to pay with hires protectors it also fears and has previously wronged",
+     "basis": "The farmers offer only rice, greet the samurai coldly, and are exposed when Kikuchiyo produces armour looted from dying samurai.",
+     "centrality": 1,
+     "outcome": "restored",
+     "roles": {
+      "hiring": "the villagers",
+      "hired": "Kambei and the six"
+     }
+    },
+    {
+     "situation": "a man who belongs fully to neither of two groups appoints himself the translator between them and is destroyed in the gap",
+     "basis": "Kikuchiyo, a farmer's son passing as a samurai, shames the samurai on the farmers' behalf and then abandons his post for glory before dying to kill the bandit chief.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "between": "Kikuchiyo",
+      "sides": "the samurai and the farmers"
+     }
+    },
+    {
+     "situation": "two people cross a line their society draws and the crossing cannot survive the end of the emergency",
+     "basis": "Katsushirō and Shino know their classes forbid them; her father beats her when he finds out, and after the battle she walks past him to rejoin the planting.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "leaving": "Shino",
+      "left": "Katsushirō"
+     }
+    },
+    {
+     "situation": "someone taken by force is found again by the person who lost them and refuses to be reclaimed",
+     "basis": "Rikichi sees his wife in the burning bandit camp and she runs back into the fire rather than return to him.",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "roles": {
+      "reclaiming": "Rikichi",
+      "refusing": "his wife"
+     }
+    },
+    {
+     "situation": "individuals are told to abandon their own homes for the sake of the whole and one will not",
+     "basis": "Kambei orders the outlying houses evacuated over the owners' objections, and Gisaku refuses to leave his mill, killing his family with him.",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "roles": {
+      "commanding": "Kambei",
+      "refusing": "Gisaku and the outlying householders"
+     }
+    },
+    {
+     "situation": "the people who won a fight get nothing from the victory they secured for someone else",
+     "basis": "Kambei stands before four burial mounds and tells Shichirōji the farmers are the real victors.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "winning": "the villagers",
+      "spent": "the surviving samurai"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Shane",
+     "shares": "a fighting man defends settled people and cannot remain among them once the fighting is done"
+    },
+    {
+     "title": "High Noon",
+     "shares": "the question of whether a community will stand and fight for itself or hire the danger away"
+    },
+    {
+     "title": "The Wild Bunch",
+     "shares": "men whose trade is violence discovering the world they fight in has no further use for them"
+    },
+    {
+     "title": "The Searchers",
+     "shares": "the protector left outside the door of the household his violence made safe"
+    },
+    {
+     "title": "Assault on Precinct 13",
+     "shares": "a mismatched, mutually distrustful set of defenders holding a fixed position against repeated assaults"
+    }
+   ],
+   "year": 1954,
+   "source": "reading",
+   "plotChars": 4277
+  },
+  {
+   "n": 3,
+   "title": "Once Upon a Time in the West",
+   "engine": "A family is slaughtered on a patch of desert because it has the only water on the route of a coming railroad, and the widow who arrives a day too late inherits both the land and everyone who wants it. Circling this is a man who will not give his name, keeping the killer alive against other killers so that he can be the one to do it, and so that the killer can be told, at the last possible moment, what he is dying for.",
+   "predicaments": [
+    {
+     "situation": "a person organises their whole life around making one specific man understand, at the point of death, why he is being killed",
+     "basis": "Harmonica shadows Frank, saves him from Morton's bribed men because of unfinished business, and pushes the harmonica into his mouth as he dies so the reason lands.",
+     "centrality": 1,
+     "outcome": "fatal",
+     "roles": {
+      "avenging": "Harmonica",
+      "owing": "Frank"
+     }
+    },
+    {
+     "situation": "a child is made the physical instrument of a family member's execution",
+     "basis": "The flashback shows Frank standing the boy under his hanging brother, harmonica in his mouth, until the boy's legs give out.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "forcing": "Frank",
+      "forced": "the boy who becomes Harmonica"
+     }
+    },
+    {
+     "situation": "an outsider marries into a household and inherits it through the murder of the family she has just joined",
+     "basis": "Jill arrives at Sweetwater from New Orleans a month after the wedding to find McBain and his children dead, and becomes the owner of the land they were killed for.",
+     "centrality": 0.9,
+     "outcome": "transfigured",
+     "roles": {
+      "inheriting": "Jill",
+      "dispossessed": "the McBains"
+     }
+    },
+    {
+     "situation": "a hired enforcer exceeds his instructions and turns on the man who bought him",
+     "basis": "Morton hired Frank only to frighten McBain off; Frank murders the family and moves to take the land himself, and the two try to have each other killed.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "buying": "Morton",
+      "bought": "Frank"
+     }
+    },
+    {
+     "situation": "a man is framed for a crime by someone who needs the blame to land elsewhere",
+     "basis": "Frank plants evidence at Sweetwater implicating Cheyenne, who spends the film a hunted fugitive denying acts that were not his.",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "roles": {
+      "framing": "Frank",
+      "framed": "Cheyenne"
+     }
+    },
+    {
+     "situation": "the men who cleared the ground for someone's future have no place in it",
+     "basis": "With Frank dead, Harmonica rides away carrying Cheyenne's body while Jill carries water to the railroad crew.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "remaining": "Jill",
+      "departing": "Harmonica, Cheyenne"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Oldboy",
+     "shares": "a revenge whose entire point is that the target must be made to understand the reason before he is finished"
+    },
+    {
+     "title": "Lady Snowblood",
+     "shares": "a life shaped from childhood into a single instrument aimed at named men"
+    },
+    {
+     "title": "There Will Be Blood",
+     "shares": "a family destroyed so that the ground beneath them can pass to whoever is building the future across it"
+    },
+    {
+     "title": "McCabe & Mrs. Miller",
+     "shares": "a company with capital moving in on a small holding, and a woman out of the brothels who understands the business better than the men do"
+    },
+    {
+     "title": "The Wild Bunch",
+     "shares": "outlaws finishing their business in a country that the railroad and the money have already taken over"
+    }
+   ],
+   "year": 1968,
+   "source": "reading",
+   "plotChars": 3108
+  },
+  {
+   "n": 4,
+   "title": "La Jetée",
+   "engine": "After a war has driven the survivors underground, a prisoner is chosen for time-travel experiments because one childhood image — a woman's face on an airport pier, and a man dying in front of her — is fixed strongly enough in him to survive the passage. He uses the trips to keep returning to her, and when the future offers him permanent refuge he asks instead to go back to that pier, where he discovers the death he has remembered his whole life was his own.",
+   "predicaments": [
+    {
+     "situation": "captors put a prisoner to use as experimental material because of something private inside him",
+     "basis": "The scientists select him from among the camp's prisoners specifically for the strength of his pre-war memory, and intend to execute him once the mission has succeeded.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "using": "the scientists and jailers",
+      "used": "the prisoner"
+     }
+    },
+    {
+     "situation": "a person offered survival elsewhere chooses instead to return to someone they can only reach in a place they cannot stay",
+     "basis": "The people of the future offer to take him permanently into their time; he asks to be sent back to the pre-war pier to find the woman.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "offering": "the people of the future",
+      "refusing": "the man"
+     }
+    },
+    {
+     "situation": "an image someone has carried since childhood turns out to be their own end, witnessed before it happened",
+     "basis": "The startling death he saw on the jetty as a boy is revealed, as he is shot running toward the woman, to have been himself.",
+     "centrality": 1,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "a bond forms in which only one party knows where the other has come from and how it must end",
+     "basis": "He courts the woman from his memory across repeated visits she experiences as an ordinary romance, while he knows the world it precedes.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "knowing": "the man",
+      "unknowing": "the woman"
+     }
+    },
+    {
+     "situation": "a ruined society sends a messenger to beg another time for the means to keep living",
+     "basis": "The experiments exist to call past and future to the rescue of the present, and he returns from the future with a power unit sufficient to regenerate his society.",
+     "centrality": 0.5,
+     "outcome": "restored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Arrival",
+     "shares": "a memory that turns out to be foreknowledge of a loss the person walks into anyway"
+    },
+    {
+     "title": "Oedipus Rex",
+     "shares": "a haunting early scene whose meaning, once understood, is the person's own doom already in motion"
+    },
+    {
+     "title": "Vertigo",
+     "shares": "a man organising his life around a woman held as an image, ending back at the place of the first death"
+    },
+    {
+     "title": "Solaris",
+     "shares": "a man given the choice between returning to the living world and staying with a beloved who exists only in a recovered form"
+    },
+    {
+     "title": "Je t'aime, je t'aime",
+     "shares": "an expendable subject sent through his own memory and drawn repeatedly to one woman and one moment"
+    }
+   ],
+   "year": 1962,
+   "source": "reading",
+   "plotChars": 1929
+  },
+  {
+   "n": 5,
+   "title": "Taxi Driver",
+   "engine": "An insomniac veteran drives New York nights, keeps a diary about the filth he sees, and makes two attempts to attach himself to a woman: a campaign worker he takes on a date to a porn theatre, and a twelve-year-old prostitute he decides to send home whether or not she wants to go. Refused by the first, dismissed by the only man he tries to confess his violent thoughts to, he arms himself and goes looking for someone to kill — first a presidential candidate, then, when that fails, the men around the girl — and the city calls the result heroism.",
+   "predicaments": [
+    {
+     "situation": "a person tries to tell someone how bad it has got inside them and is told they will be fine",
+     "basis": "Travis confides his violent thoughts to Wizard, who brushes them off with reassurance, leaving him unable to articulate the rest.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "confiding": "Travis",
+      "dismissing": "Wizard"
+     }
+    },
+    {
+     "situation": "a courtship collapses when one party reveals what he sincerely thinks an evening together should be",
+     "basis": "Travis takes Betsy to an adult movie theatre on their second date; she walks out, refuses reconciliation, and he later storms her workplace to berate her.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "pursuing": "Travis",
+      "withdrawing": "Betsy"
+     }
+    },
+    {
+     "situation": "someone appoints himself the rescuer of a person who has not asked to be rescued",
+     "basis": "Travis buys time with Iris under false pretences in order to argue her out of prostitution, then kills Sport and the others at the brothel; her parents write to thank him.",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "roles": {
+      "rescuing": "Travis",
+      "rescued": "Iris"
+     }
+    },
+    {
+     "situation": "a private rage searches for a public target and settles on whichever one remains reachable",
+     "basis": "Travis trains, buys four handguns, stalks Palantine's rallies, and after the Secret Service chase him off he drives instead to the brothel.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "aiming": "Travis",
+      "substituted": "Palantine, then Sport"
+     }
+    },
+    {
+     "situation": "an act of slaughter is read by everyone else as heroism and its author is handed back his ordinary life",
+     "basis": "Travis wakes from a coma to newspaper clippings calling him a vigilante hero, faces no prosecution, and returns to driving, with Betsy now a fare who has followed his story.",
+     "centrality": 0.8,
+     "outcome": "ambiguous",
+     "roles": {
+      "acclaimed": "Travis",
+      "acclaiming": "the press, Iris's parents, Betsy"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Searchers",
+     "shares": "a solitary man's obsessive project to retrieve a girl from a life he finds unbearable, driven as much by his own disorder as by her"
+    },
+    {
+     "title": "Le Samouraï",
+     "shares": "a man whose entire social existence is a job done alone at night, with ritual and equipment standing in for company"
+    },
+    {
+     "title": "The King of Comedy",
+     "shares": "a lonely fantasist whose refusal by the person he fixates on converts directly into a plan against a public figure, and who is celebrated afterward"
+    },
+    {
+     "title": "Falling Down",
+     "shares": "an armed, unemployed man walking through a city he has decided is filthy, dispensing correction"
+    },
+    {
+     "title": "Pickpocket",
+     "shares": "a drifting solitary narrating his own descent in a diary voice while a small crime becomes a vocation"
+    }
+   ],
+   "year": 1976,
+   "source": "reading",
+   "plotChars": 4200
+  },
+  {
+   "n": 6,
+   "title": "La Strada",
+   "engine": "A woman sells her daughter for ten thousand lire to the travelling strongman who took her older daughter away and came back alone. On the road the girl gives him a devotion he uses, punishes and cannot name; another performer tells her that even she has a purpose, and the strongman kills him for mocking him, which empties her out. Only years after abandoning her does he learn she is dead, and it reaches him on a beach with nothing to do about it.",
+   "predicaments": [
+    {
+     "situation": "a family hands a child over to a stranger's keeping because it cannot feed her",
+     "basis": "Gelsomina's mother takes 10,000 lire from Zampanò to replace Rosa, who died on the road with him, and the girl leaves the same day in tears.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "selling": "the mother",
+      "sold": "Gelsomina"
+     }
+    },
+    {
+     "situation": "one person gives sustained devotion to someone who cannot admit he wants it until she is past reach",
+     "basis": "Gelsomina serves Zampanò, offers him marriage and is brushed off; his tears come only after a stranger's song tells him she died alone.",
+     "centrality": 1,
+     "outcome": "fatal",
+     "roles": {
+      "devoted": "Gelsomina",
+      "withholding": "Zampanò"
+     }
+    },
+    {
+     "situation": "a man who has no answer to being mocked answers with his hands and kills",
+     "basis": "Il Matto needles Zampanò without being able to say why, and a few punches over a flat tire leave him dead in a field.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "taunting": "Il Matto",
+      "striking": "Zampanò"
+     }
+    },
+    {
+     "situation": "a person in servitude is shown that other lives are available and cannot take one",
+     "basis": "Il Matto argues that she need not stay and that even a pebble has a purpose, a nun offers her another model of a life, and she stays and eventually offers Zampanò marriage.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "offering": "Il Matto, the nun",
+      "staying": "Gelsomina"
+     }
+    },
+    {
+     "situation": "a keeper abandons a dependent who has stopped being useful and later has to hold what that was",
+     "basis": "Zampanò leaves the broken Gelsomina asleep by the road with some clothes, money and his trumpet, and years later collapses on the beach when he learns how she ended.",
+     "centrality": 0.9,
+     "outcome": "transfigured",
+     "roles": {
+      "abandoning": "Zampanò",
+      "abandoned": "Gelsomina"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Sansho the Bailiff",
+     "shares": "children passed into the hands of a brutal keeper, and a life of servitude entered because a family could not hold together"
+    },
+    {
+     "title": "Ugetsu",
+     "shares": "a man who leaves a woman behind for his trade and returns only to learn what her waiting cost her"
+    },
+    {
+     "title": "The Remains of the Day",
+     "shares": "devotion offered plainly and refused by someone constitutionally unable to name what he feels, until it is far too late"
+    },
+    {
+     "title": "Vagabond",
+     "shares": "a young woman drifting through casual road-side cruelty toward an anonymous death, reconstructed afterward by those who met her"
+    },
+    {
+     "title": "Of Mice and Men",
+     "shares": "an itinerant pair bound by dependence rather than choice, where the stronger one's hands end the arrangement"
+    }
+   ],
+   "year": 1954,
+   "source": "reading",
+   "plotChars": 3520
+  },
+  {
+   "n": 1,
+   "title": "Blowup",
+   "engine": "A fashion photographer who uses people as material — models he abandons mid-shoot, strangers he shoots without asking — accidentally photographs a killing and, for the first time, needs someone else to confirm what he has seen. Everyone he turns to is too stoned, too bored or too busy to look, the body and the negatives are quietly removed, and the certainty he briefly held evaporates until he can only join a game of catch with a ball that isn't there.",
+   "predicaments": [
+    {
+     "situation": "one person is certain of something they witnessed and cannot get another person to look at it",
+     "basis": "Thomas begs his agent Ron to come to the park as a witness and Ron, drugged at a party, will not go; by morning the body is gone.",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "roles": {
+      "witness": "Thomas",
+      "refusing to look": "Ron"
+     }
+    },
+    {
+     "situation": "someone takes another person's image without consent and refuses to hand it back",
+     "basis": "Thomas photographs Jane and her older lover in the park, keeps shooting as she chases him, and later fobs her off with the wrong roll of film.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "taker": "Thomas",
+      "taken": "Jane"
+     }
+    },
+    {
+     "situation": "one party trades intimacy for a thing the other holds, and both sides cheat the exchange",
+     "basis": "Jane comes to the studio, flirts and undresses to get the negatives; he gives her a substitute roll and she gives him a false phone number.",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "roles": {
+      "seeking": "Jane",
+      "withholding": "Thomas"
+     }
+    },
+    {
+     "situation": "a person treats everyone around them as material and finds no one available when they need to be believed",
+     "basis": "He walks out on models mid-session, brushes off the two aspiring girls, dismisses them again after sleeping with them — and then has no one to call on when it matters.",
+     "centrality": 0.6,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "someone joins a shared pretence rather than stand outside it alone",
+     "basis": "Thomas throws back the mimes' imaginary tennis ball, and the sound of the ball becomes audible.",
+     "centrality": 0.55,
+     "outcome": "transfigured"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Conversation",
+     "shares": "a technician replays his own recording obsessively and cannot make it yield the crime he believes is in it"
+    },
+    {
+     "title": "Caché",
+     "shares": "evidence of a watched crime keeps arriving and no perpetrator is ever produced"
+    },
+    {
+     "title": "L'Avventura",
+     "shares": "a disappearance stops mattering to everyone around the one person who noticed"
+    },
+    {
+     "title": "Memories of Murder",
+     "shares": "the proof keeps being taken away and the investigator is left staring at nothing"
+    },
+    {
+     "title": "Zodiac",
+     "shares": "one man's certainty about a killing outlives everyone else's willingness to hear it"
+    }
+   ],
+   "year": 1966,
+   "source": "reading",
+   "plotChars": 3413
+  },
+  {
+   "n": 2,
+   "title": "Persona",
+   "engine": "A young nurse is put in charge of an actress who has decided to stop speaking, and takes the silence as the first real listening of her life — telling her about the beach orgy, the pregnancy, the abortion. Then she reads a letter in which the actress is writing her up as a case study, and the care relationship inverts: the one who talked has been emptied out, the one who said nothing has taken what she heard, and by the end the nurse is telling the actress her own life back to her while insisting she is not her.",
+   "predicaments": [
+    {
+     "situation": "one party goes silent and the other fills the silence until they have given away more than they meant to",
+     "basis": "Elisabet says nothing for weeks while Alma confesses her fiancé, her affair, the orgy on the beach and the abortion.",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "roles": {
+      "withholding": "Elisabet",
+      "pouring out": "Alma"
+     }
+    },
+    {
+     "situation": "a confidence given in trust turns out to have been collected as material",
+     "basis": "Alma opens the unsealed letter and finds Elisabet reporting that she is 'studying' her, orgy and abortion included.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "studied": "Alma",
+      "studying": "Elisabet"
+     }
+    },
+    {
+     "situation": "the carer becomes more exposed and more damaged than the person in their care",
+     "basis": "Alma breaks down, threatens Elisabet with boiling water, then chases her to beg forgiveness, while the patient remains composed.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "carer": "Alma",
+      "cared for": "Elisabet"
+     }
+    },
+    {
+     "situation": "a person is mistaken for someone else and does not fully refuse the mistake",
+     "basis": "Elisabet's husband arrives calling Alma by his wife's name; she tells him he is wrong and then sleeps with him anyway.",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "roles": {
+      "mistaken for": "Alma",
+      "mistaking": "Elisabet's husband"
+     }
+    },
+    {
+     "situation": "a parent cannot love the child they chose to have, and the child keeps asking anyway",
+     "basis": "Alma narrates Elisabet's motherhood — the wanted pregnancy, the attempted self-abortion, the son she despises who craves her — and Elisabet tears up his photograph.",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "roles": {
+      "withholding love": "Elisabet",
+      "seeking it": "her son"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "3 Women",
+     "shares": "two women alone together and one steadily absorbing the other's life and name"
+    },
+    {
+     "title": "Talk to Her",
+     "shares": "a carer talks endlessly to a silent patient and builds the whole relationship out of that one-sidedness"
+    },
+    {
+     "title": "The Servant",
+     "shares": "the one who serves and the one who is served quietly exchange positions inside a closed house"
+    },
+    {
+     "title": "Vertigo",
+     "shares": "one woman is pressed into being another and the identity will not hold"
+    },
+    {
+     "title": "Mulholland Drive",
+     "shares": "a confided life story is taken over by the listener until the two figures cannot be separated"
+    }
+   ],
+   "year": 1966,
+   "source": "reading",
+   "plotChars": 2803
+  },
+  {
+   "n": 3,
+   "title": "The Battle of Algiers",
+   "engine": "An underground network builds itself cell by cell inside the Casbah and starts killing Europeans in cafés; the army sent to break it works down the chain by torturing each man for the name above him. The film keeps both sides' arithmetic in view — the criminal radicalised in prison and given a role, the colonel doing precisely what his assignment requires — and ends by noting that the side that destroyed the network still lost the country.",
+   "predicaments": [
+    {
+     "situation": "an occupying force dismantles a clandestine network by extracting from each member the name of the next",
+     "basis": "Ali la Pointe is found because a tortured compatriot gives up his hideout, and the paratroopers work through the FLN leadership the same way.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "extracting": "Mathieu and the paratroopers",
+      "giving up names": "the captured FLN cadres"
+     }
+    },
+    {
+     "situation": "both sides in an armed struggle decide that the other's civilians are legitimate targets",
+     "basis": "The FLN bombs the Milk Bar and other European spots; the security forces answer with indiscriminate killing, torture and intimidation in the Casbah.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "one side": "the FLN",
+      "other side": "the French Army and pieds-noirs"
+     }
+    },
+    {
+     "situation": "a man with no politics is radicalised in confinement and handed a place in an organisation",
+     "basis": "Ali la Pointe, a petty criminal, is politicised in prison and recruited by El-Hadi Jafar.",
+     "centrality": 0.65,
+     "outcome": "fatal",
+     "roles": {
+      "recruited": "Ali la Pointe",
+      "recruiting": "El-Hadi Jafar"
+     }
+    },
+    {
+     "situation": "an insurgent authority polices its own population before it fights the enemy",
+     "basis": "The FLN takes control of the Casbah by summarily executing Algerian criminals and suspected collaborators.",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "roles": {
+      "imposing": "the FLN",
+      "subject to it": "the Casbah's residents"
+     }
+    },
+    {
+     "situation": "one side wins the engagement and loses the thing the engagement was for",
+     "basis": "The leadership is wiped out, and the coda shows mass demonstrations years later that France cannot answer.",
+     "centrality": 0.7,
+     "outcome": "transfigured",
+     "roles": {
+      "victorious then defeated": "France",
+      "defeated then victorious": "the Algerians"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Army of Shadows",
+     "shares": "a cell structure eaten from the inside as each arrest yields the next name"
+    },
+    {
+     "title": "Rome, Open City",
+     "shares": "an occupier torturing for a network's names while the neighbourhood becomes the resistance's cover"
+    },
+    {
+     "title": "The Wind That Shakes the Barley",
+     "shares": "an occupation answered by insurgency where both sides' reprisals fall on people who are not fighting"
+    },
+    {
+     "title": "Zero Dark Thirty",
+     "shares": "an interrogation regime treated as an intelligence method with the chain of names as its product"
+    },
+    {
+     "title": "Bloody Sunday",
+     "shares": "a colonial-style security operation on a city's own streets that wins the day and loses the population"
+    }
+   ],
+   "year": 1966,
+   "source": "reading",
+   "plotChars": 2655
+  },
+  {
+   "n": 4,
+   "title": "Le Samouraï",
+   "engine": "A hitman whose entire life is arranged so that no one can place him is seen clearly by a nightclub pianist who then refuses to identify him — and he cannot work out why. His employers decide that being suspected makes him disposable and try to kill him; he tracks them down, kills the man who ordered it, and then walks into the club in his working gloves and points an empty gun at the one person who protected him, in front of the police.",
+   "predicaments": [
+    {
+     "situation": "an employer decides a hired man has become a liability and tries to erase him",
+     "basis": "Instead of paying for the Martey job, Jef's contact shoots him in the arm; later the same man offers him money and a fresh contract as a second attempt to manage him.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "disposing": "Olivier Rey and his contact",
+      "disposed of": "Jef"
+     }
+    },
+    {
+     "situation": "a witness who could name the offender chooses silence, and the reason is never settled between them",
+     "basis": "Valérie sees Jef leaving Martey's office and does not pick him out of the line-up; he assumes his employer instructed her, and she never confirms it.",
+     "centrality": 0.9,
+     "outcome": "ambiguous",
+     "roles": {
+      "identified": "Jef",
+      "withholding identification": "Valérie"
+     }
+    },
+    {
+     "situation": "someone arranges their own death so that another hand carries it out",
+     "basis": "Jef makes himself conspicuous at the club, puts on his gloves in full view, and levels a gun the police later find to be unloaded.",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "roles": {
+      "seeking it": "Jef",
+      "delivering it": "the police"
+     }
+    },
+    {
+     "situation": "a person is offered immunity in exchange for withdrawing their cover for someone else, and refuses",
+     "basis": "The police search Jane's flat and promise to leave her alone if she retracts Jef's alibi; she rejects the offer flatly.",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "roles": {
+      "pressuring": "the commissaire",
+      "holding firm": "Jane"
+     }
+    },
+    {
+     "situation": "a man reads the state of his private room to learn that others have been in his life",
+     "basis": "Jef notices loose feathers around the birdcage and finds the police bug they left while planting it.",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "roles": {
+      "intruding": "the police",
+      "reading the traces": "Jef"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Branded to Kill",
+     "shares": "a contract killer becomes his own organisation's next target and spends the film being hunted by his employers"
+    },
+    {
+     "title": "Point Blank",
+     "shares": "a man double-crossed by the outfit that used him walks methodically back up the chain to the person who ordered it"
+    },
+    {
+     "title": "The Killer",
+     "shares": "a hitman and the performer who witnessed his work bound together by her refusal to give him up"
+    },
+    {
+     "title": "Ghost Dog: The Way of the Samurai",
+     "shares": "a killer living by a private code walks into his own death rather than break it"
+    },
+    {
+     "title": "Le Doulos",
+     "shares": "a professional whose survival rests on an alibi held by someone else under police pressure"
+    }
+   ],
+   "year": 1967,
+   "source": "reading",
+   "plotChars": 2769
+  },
+  {
+   "n": 5,
+   "title": "The White Ribbon",
+   "engine": "In a village run by a pastor, a doctor and a baron, discipline flows one way: children are shamed, tied to their beds and made to wear white ribbons, a housekeeper is humiliated, a daughter is abused by her father. Then accidents and cruelties start happening to the powerful and their dependents, always to someone weaker than the last, and when the schoolteacher finally says out loud that the children did it, the pastor threatens him with jail — so the village keeps its explanation and the question stays shut.",
+   "predicaments": [
+    {
+     "situation": "children raised under a regime of purity and punishment reproduce it on those weaker than themselves",
+     "basis": "The pastor's ribbons, confessions and bed-tyings run alongside the caning of the baron's son and the near-blinding of the midwife's handicapped boy, with a scripture verse left behind.",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "roles": {
+      "disciplining": "the pastor and the fathers",
+      "disciplined then acting": "the village children"
+     }
+    },
+    {
+     "situation": "a man abuses the dependents of his own household while keeping his standing outside it",
+     "basis": "The doctor is kind to the village children, humiliates the midwife he sleeps with, and sexually abuses his teenage daughter.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "abusing": "the doctor",
+      "abused": "his daughter and the midwife"
+     }
+    },
+    {
+     "situation": "someone names the culprits and is silenced by the authority of the person they accuse",
+     "basis": "The schoolteacher confronts the pastor in his rectory; the pastor threatens to have him jailed if he repeats it.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "accusing": "the schoolteacher",
+      "suppressing": "the pastor"
+     }
+    },
+    {
+     "situation": "a community settles on an explanation that spares itself and lets those who left carry the blame",
+     "basis": "The midwife and her son vanish after she says the boy named his attacker, the doctor's family disappears overnight, and rumours settle on them as the cause.",
+     "centrality": 0.7,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a marriage is held hostage to a father's terms",
+     "basis": "Eva's taciturn father grants the schoolteacher permission only after a year's imposed test period.",
+     "centrality": 0.35,
+     "outcome": "ambiguous",
+     "roles": {
+      "asking": "the schoolteacher",
+      "granting on conditions": "Eva's father"
+     }
+    },
+    {
+     "situation": "people at the bottom of a household hierarchy strike at its property because the person is out of reach",
+     "basis": "The dead farmworker's son destroys the baron's cabbage field, a barn burns, and a wire brings the doctor down from his horse.",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "roles": {
+      "struck at": "the baron and the doctor",
+      "striking": "the farmer's son and the unnamed others"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Dogtooth",
+     "shares": "children formed entirely by a household's disciplinary system and the violence that grows inside it"
+    },
+    {
+     "title": "The Hunt",
+     "shares": "a village settles on the explanation that costs it least and turns on the person who disturbs it"
+    },
+    {
+     "title": "Lord of the Flies",
+     "shares": "children administering punishment among themselves in the exact grammar the adults taught them"
+    },
+    {
+     "title": "Fanny and Alexander",
+     "shares": "a clergyman's household run on confession, shame and physical punishment of children"
+    },
+    {
+     "title": "Doubt",
+     "shares": "an accusation that cannot be proved, made against a man whose office is itself the defence"
+    }
+   ],
+   "year": 2009,
+   "source": "reading",
+   "plotChars": 3702
+  },
+  {
+   "n": 6,
+   "title": "Street of Shame",
+   "engine": "Five women working at a licensed Tokyo brothel each try to get out through somebody else — a client's savings, a father, a husband, a son, a marriage — and every exit turns out to be held by a person who wants something from them in return. The law that would close the trade fails to pass, the one woman who stops depending on anyone buys the shop next door and sells back to the house, and a young maid steps into the doorway to start.",
+   "predicaments": [
+    {
+     "situation": "one party pays another's debts believing it has purchased a shared future",
+     "basis": "Mr Aoki embezzles to clear Yasumi's debts on the understanding that she will elope with him; when he learns she never intended to, he nearly kills her.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "paying": "Mr Aoki",
+      "taking payment": "Yasumi"
+     }
+    },
+    {
+     "situation": "a grown child confronts a parent over how the family was kept, and refuses the parent's claim",
+     "basis": "Mickey throws out the father who comes to bring her home, telling him he indulged himself while her mother was alive.",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "roles": {
+      "claiming": "Mickey's father",
+      "refusing": "Mickey"
+     }
+    },
+    {
+     "situation": "a child disowns a parent for the work that fed them",
+     "basis": "Yumeko finally meets the son she has been avoiding out of shame; he denounces her profession and cuts her off, and she loses her mind.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "disowning": "Yumeko's son",
+      "disowned": "Yumeko"
+     }
+    },
+    {
+     "situation": "someone escapes an exploitative arrangement into another one wearing a kinder name",
+     "basis": "Yorie's debts are voided and she leaves to marry, then comes back to Dreamland having found the man only wanted unpaid labour.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "escaping": "Yorie",
+      "exploiting": "her husband"
+     }
+    },
+    {
+     "situation": "a person carrying a household alone is sunk by the dependents they are carrying",
+     "basis": "Hanae works to keep a suicidal husband and an infant and the family is evicted anyway.",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "roles": {
+      "carrying": "Hanae",
+      "carried": "her husband and child"
+     }
+    },
+    {
+     "situation": "one person converts the trade that held them into a business that others must now pay",
+     "basis": "Yasumi recovers, buys the futon and fabric shop next door, and the brothel becomes her customer while a new girl is put in the doorway.",
+     "centrality": 0.65,
+     "outcome": "transfigured",
+     "roles": {
+      "formerly held": "Yasumi",
+      "now dependent": "the Tayas' house"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Nights of Cabiria",
+     "shares": "a woman's savings and her way out of the trade taken by the man who promised marriage"
+    },
+    {
+     "title": "Vivre sa vie",
+     "shares": "a woman's dealings with clients, minders and debts treated as an ordinary economic arrangement"
+    },
+    {
+     "title": "Tokyo Story",
+     "shares": "adult children who have no room left for the parent whose work paid for them"
+    },
+    {
+     "title": "Working Girls",
+     "shares": "a brothel run as a workplace where each woman is saving toward a different exit"
+    },
+    {
+     "title": "Rosetta",
+     "shares": "someone fighting for a foothold in work while every route out is controlled by somebody else"
+    }
+   ],
+   "year": 1956,
+   "source": "reading",
+   "plotChars": 1993
+  },
+  {
+   "n": 1,
+   "title": "Memories of Murder",
+   "engine": "Two policemen with incompatible ways of knowing a person are set against a killer who leaves nothing either of them can read: one trusts his eyes and his partner's fists, the other trusts paper, timing and the lab. Over three years the case wears them into each other's positions — the instinct man ends up with nothing to trust, the evidence man ends up wanting to shoot on a hunch — while the people nearest the case, a handicapped boy who saw something, a woman who survived, are used up and lost.",
+   "predicaments": [
+    {
+     "situation": "a search for a culprit exhausts itself and the searchers have to go on living without the answer",
+     "basis": "The DNA comparison comes back neither confirming nor excluding the suspect, he is let go, and seventeen years later the detective is a businessman standing at the first crime scene learning the man looks like anybody.",
+     "centrality": 1,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "two people forced to work the same problem believe truth is reached in opposite ways",
+     "basis": "Park claims he can identify a suspect by eye contact while Seo builds patterns from crime reports, rainy nights and red clothing; by the end each has adopted the other's method.",
+     "centrality": 0.9,
+     "outcome": "transfigured",
+     "roles": {
+      "instinct": "Park Doo-man",
+      "method": "Seo Tae-yoon"
+     }
+    },
+    {
+     "situation": "investigators extract a confession from someone who cannot defend himself against them",
+     "basis": "Cho beats a scarred, mentally handicapped boy into confessing to the murders on the strength of a rumour that he followed one of the victims.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "coercing": "Park and Cho",
+      "coerced": "Baek Kwang-ho"
+     }
+    },
+    {
+     "situation": "the one person who could say what happened is destroyed before he can be heard",
+     "basis": "Once they realise Baek actually witnessed a murder, they chase him and he stumbles into a train.",
+     "centrality": 0.6,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "a watcher fails at the moment of watching and someone dies in the gap",
+     "basis": "Seo falls asleep during his surveillance of Hyeon-gyu and the schoolgirl he had befriended is murdered that night.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "watching": "Seo Tae-yoon",
+      "unguarded": "the schoolgirl"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Zodiac",
+     "shares": "a hunt that outlasts the hunters and closes on certainty without proof"
+    },
+    {
+     "title": "Cure",
+     "shares": "a killer whose ordinariness defeats the very idea of recognising him"
+    },
+    {
+     "title": "In the Heat of the Night",
+     "shares": "two investigators with opposed methods and mutual contempt yoked to one killing"
+    },
+    {
+     "title": "L'Avventura",
+     "shares": "a search that quietly stops mattering and leaves the searchers changed instead of answered"
+    },
+    {
+     "title": "Blow-Up",
+     "shares": "evidence examined past the point where it can yield the truth it seemed to hold"
+    }
+   ],
+   "year": 2003,
+   "source": "reading",
+   "plotChars": 4406
+  },
+  {
+   "n": 2,
+   "title": "Yeelen",
+   "engine": "A father who has learned to use sacred knowledge for himself gets a vision that his son will end him, and decides to hunt the boy down rather than let anything pass to the next generation. The son, armed by his mother with stolen fetishes and by a blind uncle who long ago spent his sight using the same power for other people, walks the length of the country toward the meeting he cannot avoid. What the two of them are actually fighting over is whether the old man hands anything on or takes it into the ground with him.",
+   "predicaments": [
+    {
+     "situation": "a father sets out to destroy his son rather than be succeeded by him",
+     "basis": "Soma receives a vision that Nianankoro will cause his death and pursues him across the country with an enchanted tracking pylon.",
+     "centrality": 1,
+     "outcome": "fatal",
+     "roles": {
+      "pursuing": "Soma",
+      "pursued": "Nianankoro"
+     }
+    },
+    {
+     "situation": "a holder of power must choose between hoarding it and letting it be spread among everyone",
+     "basis": "Soma warns the Komo that his son means to disperse their magic for all people, while the uncle Djigui was blinded because he chose to use Kore's Wing on his community's behalf.",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "roles": {
+      "hoarding": "Soma",
+      "dispersing": "Nianankoro and Djigui"
+     }
+    },
+    {
+     "situation": "a mother arms her child against his own father",
+     "basis": "Nianankoro's mother helps him steal Soma's sacred fetishes and get out of the village.",
+     "centrality": 0.6,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "a stranger buys his life with his usefulness and then commits the one offence his host cannot overlook",
+     "basis": "King Rouma spares Nianankoro for the magic that routs his enemies, then must judge him for sleeping with the queen he was asked to cure, and marries them off and sends them away.",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "roles": {
+      "judging": "Rouma Boli",
+      "judged": "Nianankoro and Attou"
+     }
+    },
+    {
+     "situation": "what a parent meant to pass on reaches the child only after the parent is dead",
+     "basis": "Nianankoro leaves his cloak with the pregnant Attou for his son, and the boy collects it, an egg and Kore's Wing at the scorched site where his father and grandfather killed each other.",
+     "centrality": 0.7,
+     "outcome": "transfigured"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Return",
+     "shares": "a father and son whose reunion can only be settled by one of them dying"
+    },
+    {
+     "title": "Padre Padrone",
+     "shares": "a father who keeps knowledge from his son to keep him beneath him"
+    },
+    {
+     "title": "Sansho the Bailiff",
+     "shares": "a father's teaching carried across a country by a child who must decide whether to live by it"
+    },
+    {
+     "title": "The Ballad of Narayama",
+     "shares": "the older generation's obligation to clear out so the next one can hold what it held"
+    },
+    {
+     "title": "Excalibur",
+     "shares": "an elder's refusal to relinquish power and an heir who must take it by force"
+    }
+   ],
+   "year": 1987,
+   "source": "reading",
+   "plotChars": 2672
+  },
+  {
+   "n": 3,
+   "title": "Koyaanisqatsi",
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "year": 1982,
+   "source": "reading",
+   "plotChars": 3031
+  },
+  {
+   "n": 4,
+   "title": "Killers of the Flower Moon",
+   "engine": "An uncle who has spent years being the reservation's friendly white benefactor places his nephew inside an Osage family as a husband, having explained in advance exactly what each death in that family will be worth in oil rights. The nephew does it — courts her, marries her, raises three children with her, arranges the killings of her sisters and eventually measures out the poison into her insulin himself. The film is about a woman watching her whole family die around her while the person doing it sleeps beside her, and about an entire county agreeing not to notice.",
+   "predicaments": [
+    {
+     "situation": "someone marries into a family in order to inherit what killing that family will release",
+     "basis": "Hale steers Ernest toward Mollie and explains that every death among her relatives moves headrights toward them.",
+     "centrality": 1,
+     "outcome": "fatal",
+     "roles": {
+      "architect": "William Hale",
+      "instrument": "Ernest Burkhart",
+      "target": "Mollie and her family"
+     }
+    },
+    {
+     "situation": "the community's declared protector is the one destroying it",
+     "basis": "Hale poses as benefactor, reserve deputy and friend to the Osage while contracting the murders of its wealthiest members.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "benefactor": "William Hale",
+      "protected": "the Osage"
+     }
+    },
+    {
+     "situation": "a people is ruled incompetent to hold what is legally theirs and put under appointed guardians",
+     "basis": "Federal law requires court-appointed white guardians to manage the money of full and half-blood Osage.",
+     "centrality": 0.7,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "victims bring their case to authorities already owned by the person harming them",
+     "basis": "The sheriff and judges are in Hale's pocket, the private detective Mollie hires is beaten by Ernest and Byron, and the Osage envoy sent to Washington is killed there.",
+     "centrality": 0.7,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a person is slowly poisoned by the one who administers their medicine",
+     "basis": "Ernest doses Mollie's insulin at Hale's instruction to \"slow her down\", and she is found near death before agents get her to a hospital.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "dosing": "Ernest",
+      "dosed": "Mollie"
+     }
+    },
+    {
+     "situation": "someone is asked to testify against the family member who formed him",
+     "basis": "White persuades Ernest to turn state's evidence against Hale; he does so after his daughter dies, but will not admit the poisoning and Mollie leaves him.",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "roles": {
+      "testifying": "Ernest",
+      "betrayed": "William Hale"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Gaslight",
+     "shares": "a husband methodically destroying his wife's health for what she owns"
+    },
+    {
+     "title": "Shadow of a Doubt",
+     "shares": "the beloved relative who is the killer, sheltered by the family's affection for him"
+    },
+    {
+     "title": "Chinatown",
+     "shares": "a patriarch who owns the officials, the water and the family, so no complaint can reach anyone"
+    },
+    {
+     "title": "Rosemary's Baby",
+     "shares": "a husband who trades his wife to an older man's design in exchange for advancement"
+    },
+    {
+     "title": "The Chess Players",
+     "shares": "a people relieved of what is theirs through legal paperwork rather than open force"
+    }
+   ],
+   "year": 2023,
+   "source": "reading",
+   "plotChars": 3568
+  },
+  {
+   "n": 5,
+   "title": "Aftersun",
+   "engine": "A separated father takes his eleven-year-old daughter on a cheap Turkish package holiday and spends the week hiding how badly he is doing from the one person watching him closely enough to notice — old enough to sense the wrongness, too young to name it or do anything about it. Twenty years later, herself the age he was that week, she plays back the camcorder tapes trying to find what was standing in front of her the whole time.",
+   "predicaments": [
+    {
+     "situation": "an adult hides their despair from a child who half-perceives it anyway",
+     "basis": "Calum keeps up a contented front, hiding his smoking, reading self-help books alone and telling the diving instructor he is surprised he reached thirty, while Sophie keeps catching the edges of it.",
+     "centrality": 1,
+     "outcome": "unrestored",
+     "roles": {
+      "concealing": "Calum",
+      "perceiving": "Sophie"
+     }
+    },
+    {
+     "situation": "a child ends up doing the comforting for the parent meant to be looking after them",
+     "basis": "Sophie sees through his shrug about the expensive lost scuba mask and consoles him, and later covers his sleeping body with a sheet.",
+     "centrality": 0.7,
+     "outcome": "ambiguous",
+     "roles": {
+      "comforting": "Sophie",
+      "comforted": "Calum"
+     }
+    },
+    {
+     "situation": "one person refuses a small public gesture of togetherness and wounds the one who set it up",
+     "basis": "Sophie signs them both up for karaoke and Calum will not sing; she performs alone, then refuses to come back to the room.",
+     "centrality": 0.6,
+     "outcome": "restored"
+    },
+    {
+     "situation": "someone leaves an object and a message intended to stand in for them later on",
+     "basis": "Calum goes back alone to buy the rug he could not justify, and writes Sophie a postcard telling her never to forget he loves her; the worn rug lies on her bedroom floor in New York.",
+     "centrality": 0.6,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "a person plays back a recording to find what they failed to see while it was happening",
+     "basis": "The adult Sophie, with a wife and child of her own, watches the MiniDV footage she shot at eleven.",
+     "centrality": 0.8,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "someone reaches for a person across a distance that will not close",
+     "basis": "In the strobing rave sequences the adult Sophie works toward Calum, holds him briefly, and he slips out of her hands.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "reaching": "adult Sophie",
+      "receding": "Calum"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Bicycle Thieves",
+     "shares": "a child at their father's side watching a collapse he is trying to keep from them"
+    },
+    {
+     "title": "Mirror",
+     "shares": "an adult assembling a parent out of fragments of memory and film that will not resolve"
+    },
+    {
+     "title": "Ikiru",
+     "shares": "a man carrying a private verdict on himself and performing normality for the people closest to him"
+    },
+    {
+     "title": "Sans Soleil",
+     "shares": "footage treated as the only remaining route back into a moment already gone"
+    }
+   ],
+   "year": 2022,
+   "source": "reading",
+   "plotChars": 3040
+  },
+  {
+   "n": 6,
+   "title": "Autumn Sonata",
+   "engine": "A daughter invites her mother, a touring concert pianist, for a first visit in seven years, and over one night hands her the account she has been keeping: that the career and the lovers came first, that she was talked into an abortion by the man she loved, that the disabled sister now in her house was left to get worse. The mother defends herself, then breaks and asks forgiveness, then boards a train the next morning and wonders aloud why the sister couldn't have died. The invitation was a summons, and what it opens can be neither withdrawn nor repaired.",
+   "predicaments": [
+    {
+     "situation": "a grown child summons a parent in order to present the bill for their childhood",
+     "basis": "Eva's hospitable letter after seven years turns into an all-night accusation of emotional abandonment and coercion.",
+     "centrality": 1,
+     "outcome": "unrestored",
+     "roles": {
+      "accusing": "Eva",
+      "accused": "Charlotte"
+     }
+    },
+    {
+     "situation": "someone who cannot be understood by anyone but one person calls out for the one who will not come",
+     "basis": "Helena, whose fragmented speech only Eva can read, drags herself from bed toward the stairs crying \"Mama, come!\" while Charlotte stays away.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "calling": "Helena",
+      "withholding": "Charlotte"
+     }
+    },
+    {
+     "situation": "the more gifted party corrects the lesser one's effort and presents the correction as help",
+     "basis": "After Eva plays the Chopin prelude, Charlotte sits down and immediately performs it better.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "correcting": "Charlotte",
+      "corrected": "Eva"
+     }
+    },
+    {
+     "situation": "a parent offers possessions in place of the presence that was never given",
+     "basis": "Charlotte hands Helena a wristwatch on arrival and muses aloud about giving Eva her car and simply buying another.",
+     "centrality": 0.5,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a witness to a confrontation decides to stay out of it",
+     "basis": "Viktor listens to the whole reckoning from the next room and does not come in; at the end he reads Eva's letter aloud and seals it.",
+     "centrality": 0.4,
+     "outcome": "ambiguous"
+    },
+    {
+     "situation": "an attempt at repair is made only after the other person has already gone",
+     "basis": "Eva, returning from her drowned son's grave, writes an apology letter to her departed mother whose delivery the film leaves undecided.",
+     "centrality": 0.7,
+     "outcome": "ambiguous"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Festen",
+     "shares": "a family gathering converted by one child into the delivery of a long-prepared indictment"
+    },
+    {
+     "title": "Long Day's Journey into Night",
+     "shares": "a single night in which a family says out loud everything it has been avoiding, and nothing improves"
+    },
+    {
+     "title": "The Piano Teacher",
+     "shares": "a mother and daughter bound together by music and by mutual, unpayable damage"
+    },
+    {
+     "title": "Tokyo Story",
+     "shares": "a visit between parent and grown child in which the duty is performed and the affection cannot be"
+    },
+    {
+     "title": "Rachel Getting Married",
+     "shares": "a homecoming that reopens a child's death and the question of who is held responsible for it"
+    }
+   ],
+   "year": 1978,
+   "source": "reading",
+   "plotChars": 2883
+  },
+  {
+   "n": 1,
+   "title": "Jules and Jim",
+   "engine": "Two friends who love the same woman decide the friendship is worth more than the exclusive claim, and so they pass her between them by agreement — one marries her, then invites the other to marry her rather than lose her entirely. She takes every freedom she is offered and finds that no arrangement, marriage or blessing holds her, and when the second man finally refuses her she kills them both.",
+   "predicaments": [
+    {
+     "situation": "two people who love each other as friends love the same third person and try to keep the friendship above the rivalry",
+     "basis": "Jules and Jim meet Catherine together, remain inseparable as a trio, and neither ever treats the other as an enemy over her.",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "roles": {
+      "friend who marries her first": "Jules",
+      "friend who is given her later": "Jim",
+      "the one loved by both": "Catherine"
+     }
+    },
+    {
+     "situation": "one partner hands the other over to a rival rather than lose their presence altogether",
+     "basis": "Fearing Catherine will leave him for good, Jules gives Jim his blessing to marry her so that he can go on living near her and their daughter.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "yielding": "Jules",
+      "receiving": "Jim",
+      "yielded": "Catherine"
+     }
+    },
+    {
+     "situation": "a bond survives on the promise of a child that never arrives",
+     "basis": "Jim and Catherine's happy life in the chalet breaks apart over their failure to conceive, and their planned reunion is cancelled by her miscarriage.",
+     "centrality": 0.7,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "someone refused a final time destroys themselves and the refuser together",
+     "basis": "After Jim rebuffs her and says he will marry Gilberte, Catherine asks him into her car and drives it off a broken bridge into the river.",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "roles": {
+      "refusing": "Jim",
+      "refused": "Catherine"
+     }
+    },
+    {
+     "situation": "friends are conscripted onto opposite sides of a war and each dreads having killed the other",
+     "basis": "Jules serves Austria and Jim France, and each spends the war fearing he will meet or has already killed his friend.",
+     "centrality": 0.35,
+     "outcome": "restored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Design for Living",
+     "shares": "two friends formalise sharing the woman they both love rather than break with each other"
+    },
+    {
+     "title": "Sangam",
+     "shares": "one friend steps aside so the other can marry the woman, and the arrangement curdles into catastrophe"
+    },
+    {
+     "title": "Y tu mamá también",
+     "shares": "a woman moves between two inseparable male friends and exposes what the friendship could not survive"
+    },
+    {
+     "title": "Vicky Cristina Barcelona",
+     "shares": "a love arrangement rebuilt by mutual consent that still cannot hold the person at its centre"
+    },
+    {
+     "title": "The Story of Adele H.",
+     "shares": "a person who will destroy themselves rather than accept a refusal"
+    }
+   ],
+   "year": 1962,
+   "source": "reading",
+   "plotChars": 2925
+  },
+  {
+   "n": 2,
+   "title": "Mother Joan of the Angels",
+   "engine": "A priest is sent to exorcise an abbess whose predecessors have failed and whose last confessor was burned for tempting the nuns; what he finds in her, and in himself, is desire that neither of them can name except as possession. Rather than cure her, he asks for her demons, takes them into himself, and murders two innocent men so that her damnation will be his — then sends word to her that it was done out of love.",
+   "predicaments": [
+    {
+     "situation": "the person sent to cure an affliction takes it into themselves instead",
+     "basis": "Father Suryn re-enters the convent and receives Mother Joan's demons through his love for her, leaving her unburdened and himself possessed.",
+     "centrality": 0.95,
+     "outcome": "transfigured",
+     "roles": {
+      "healer": "Father Suryn",
+      "afflicted": "Mother Joan"
+     }
+    },
+    {
+     "situation": "two people bound by vows can only express desire for each other as sickness or holiness",
+     "basis": "Mother Joan tries to seduce Suryn while begging him to make her a saint, and neither can approach the other except through possession and exorcism.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "priest": "Father Suryn",
+      "abbess": "Mother Joan"
+     }
+    },
+    {
+     "situation": "someone commits an atrocity as a gift to another and asks that it be reported to them as love",
+     "basis": "Suryn kills the stablemen Kaziuk and Juraj with an axe and instructs Margareth to tell Mother Joan of the sacrifice he made for her salvation.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "giver": "Father Suryn",
+      "intended recipient": "Mother Joan",
+      "messenger": "Margareth"
+     }
+    },
+    {
+     "situation": "one member of a closed community leaves it for a lover and is abandoned outside",
+     "basis": "Sister Małgorzata leaves the convent for the squire Chrząszczewski, becomes Margareth, and is discarded by him the next morning.",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "roles": {
+      "leaving": "Małgorzata/Margareth",
+      "abandoning": "Chrząszczewski"
+     }
+    },
+    {
+     "situation": "outsiders make an entertainment out of an enclosed institution's disgrace",
+     "basis": "The villagers at the inn track the convent's scandal, with Kaziuk pressing Sister Małgorzata for stories on her nightly visits.",
+     "centrality": 0.3,
+     "outcome": "ambiguous"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Devils",
+     "shares": "possession inside a convent that is inseparable from forbidden desire and the men sent to judge it"
+    },
+    {
+     "title": "Black Narcissus",
+     "shares": "enclosed religious women undone by longing that has no permitted form"
+    },
+    {
+     "title": "Diary of a Country Priest",
+     "shares": "a priest who takes the sickness of the souls he tends into his own body"
+    },
+    {
+     "title": "Breaking the Waves",
+     "shares": "someone who damns themselves deliberately, offering the damnation as an act of love"
+    },
+    {
+     "title": "Silence",
+     "shares": "a priest who concludes that saving another requires committing the sin he was sent to fight"
+    }
+   ],
+   "year": 1961,
+   "source": "reading",
+   "plotChars": 1978
+  },
+  {
+   "n": 3,
+   "title": "Safety Last!",
+   "engine": "A young man leaves town promising to send for his girlfriend once he has made good, fails, and covers it with gifts he cannot afford. When she believes the gifts and simply arrives, he has to keep an invented promotion standing in front of her in real time — and the twelve-storey climb he sells to the store is the price of holding the lie up until it becomes true.",
+   "predicaments": [
+    {
+     "situation": "someone sends home evidence of a success they have not actually had",
+     "basis": "Harold, a struggling salesclerk, mails Mildred expensive presents he cannot afford so she will think he has made good in the city.",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "roles": {
+      "pretending": "Harold",
+      "believing": "Mildred"
+     }
+    },
+    {
+     "situation": "the person deceived arrives in person and the deceiver must sustain the false identity face to face",
+     "basis": "Mildred takes a train to join him, and Harold has to impersonate the store's general manager in front of her, and to Stubbs.",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "roles": {
+      "impostor": "Harold",
+      "audience": "Mildred"
+     }
+    },
+    {
+     "situation": "one person contracts a dangerous job out to a friend and ends up having to do it themselves",
+     "basis": "Harold sells the store on a human-fly stunt to be performed by Bill, but the pursuing policeman keeps Bill from taking over, so Harold climbs every floor himself.",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "roles": {
+      "principal": "Harold",
+      "substitute": "Bill"
+     }
+    },
+    {
+     "situation": "a prank on the wrong person turns a friend into a fugitive from an authority who cannot tell one man from another",
+     "basis": "Bill knocks over a policeman Harold mistook for his hometown friend, and the officer's vow to arrest him on sight wrecks the stunt.",
+     "centrality": 0.45,
+     "outcome": "ambiguous",
+     "roles": {
+      "pursuing": "the policeman",
+      "pursued": "Bill"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Catch Me If You Can",
+     "shares": "a status lie that has to be performed live and keeps escalating to stay upright"
+    },
+    {
+     "title": "Shree 420",
+     "shares": "a young man arriving in the big city and manufacturing the success he promised"
+    },
+    {
+     "title": "The Cameraman",
+     "shares": "an incompetent bluffing his way into a job to keep the woman who believes in him"
+    },
+    {
+     "title": "The Apartment",
+     "shares": "advancement bought with a pretense that nearly costs the man the person he loves"
+    },
+    {
+     "title": "Sons of the Desert",
+     "shares": "a fabrication maintained face to face with the very person it was told to"
+    }
+   ],
+   "year": 1923,
+   "source": "reading",
+   "plotChars": 3302
+  },
+  {
+   "n": 4,
+   "title": "The Red Shoes",
+   "engine": "An impresario with no private life of his own makes it a condition of employment that his dancers have none either, and a young dancer who tells him dancing is the most important thing in her life is taken literally. When she marries the composer, her husband and her impresario each make their claim exclusive, and forced to choose between the man who loves her and the man who gives her the work, she goes to the stage and then off it in front of a train.",
+   "predicaments": [
+    {
+     "situation": "a mentor demands total devotion and treats any love outside the work as betrayal",
+     "basis": "Boris dismisses his prima ballerina for marrying and, though not in love with Vicky himself, gives Julian the ultimatum to leave her or leave the company.",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "roles": {
+      "possessor": "Boris",
+      "possessed": "Vicky"
+     }
+    },
+    {
+     "situation": "two people each make their claim on a third exclusive, forcing a choice that cannot be survived",
+     "basis": "Julian insists Vicky cancel her comeback and leave with him while Boris insists she dance, and after their argument she chooses the company and kills herself minutes later.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "husband": "Julian",
+      "impresario": "Boris",
+      "chosen between": "Vicky"
+     }
+    },
+    {
+     "situation": "in a marriage of two working artists one career advances while the other stalls, and the sacrifice falls on one side",
+     "basis": "Julian's opera opens at Covent Garden while Vicky's dancing goes nowhere, and Boris wins her back by pointing out that she is the one giving things up.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "ascending": "Julian",
+      "sacrificing": "Vicky"
+     }
+    },
+    {
+     "situation": "a fiction staged for an audience comes true for the person performing it",
+     "basis": "Vicky dies exactly as her character in The Ballet of the Red Shoes does, and asks Julian to take the shoes off; the company then dances the ballet around the empty space where she should be.",
+     "centrality": 0.65,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "a junior exposes a superior's theft of their work and is rewarded rather than punished",
+     "basis": "Julian writes to Boris denouncing his professor's plagiarism, tries to retract it, and is hired instead.",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "roles": {
+      "exposing": "Julian",
+      "judging": "Boris"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Black Swan",
+     "shares": "a director's total claim on a dancer collapsing the distance between the role and her life"
+    },
+    {
+     "title": "The Story of the Last Chrysanthemum",
+     "shares": "one partner's art sustained entirely by the other's unacknowledged sacrifice"
+    },
+    {
+     "title": "Whiplash",
+     "shares": "a mentor who insists excellence requires the destruction of everything else the pupil has"
+    },
+    {
+     "title": "Phantom Thread",
+     "shares": "an artist who demands that a partner be subordinated to the work's discipline"
+    },
+    {
+     "title": "A Star Is Born",
+     "shares": "a marriage in which two careers move in opposite directions and the difference becomes fatal"
+    }
+   ],
+   "year": 1948,
+   "source": "reading",
+   "plotChars": 4116
+  },
+  {
+   "n": 5,
+   "title": "The Man Who Shot Liberty Valance",
+   "engine": "A lawyer who believes in law over guns is credited with a killing he did not do, and builds a career from governor to near vice-president on it. The rancher who actually fired the shot keeps quiet, watches the woman he intended to marry attach herself to the man he made, burns down the house he had extended for her, and dies poor — and when the truth is finally offered to a newspaper, the editor burns his reporter's notes.",
+   "predicaments": [
+    {
+     "situation": "one person is credited for another's decisive act, and the one who did it insists the truth stay buried",
+     "basis": "Tom Doniphon shot Valance from the shadows at the same instant Ranse fired, tells only Ranse, and urges him to take the nomination anyway.",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "roles": {
+      "credited": "Ranse",
+      "actual": "Tom"
+     }
+    },
+    {
+     "situation": "someone withdraws from the person they meant to marry after seeing where her affection has gone, and never contests it",
+     "basis": "Tom, who had built rooms onto his ranch for Hallie, sees her tending Ranse's wound, gets drunk and sets fire to the house intending to die in it.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "relinquishing": "Tom",
+      "chosen": "Ranse",
+      "beloved": "Hallie"
+     }
+    },
+    {
+     "situation": "a person committed to law and argument must live in a place that answers only to force",
+     "basis": "Ranse opens a school and files a practice while Valance beats him twice and finally calls him out, and only a bullet ends the matter.",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "roles": {
+      "law": "Ranse",
+      "force": "Liberty Valance"
+     }
+    },
+    {
+     "situation": "a keeper of the public record chooses the useful story over the true one",
+     "basis": "The Shinbone Star's editor listens to Ranse's confession, burns the reporter's notes, and says he prints the legend.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "confessing": "Ranse",
+      "suppressing": "the editor"
+     }
+    },
+    {
+     "situation": "a marriage is lived alongside an unspoken grief for someone else",
+     "basis": "Hallie admits to Ranse that she laid a cactus rose on Tom's coffin, and the two ride back to Washington in silence.",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "roles": {
+      "husband": "Ranse",
+      "mourning": "Hallie"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Cyrano de Bergerac",
+     "shares": "a man's decisive act credited to another while he silently gives up the woman they both love"
+    },
+    {
+     "title": "Casablanca",
+     "shares": "a man who steps back so the woman goes with the one whose public life needs her"
+    },
+    {
+     "title": "Hero",
+     "shares": "an account of a killing deliberately falsified because the truth would be worse for everyone"
+    },
+    {
+     "title": "The Assassination of Jesse James by the Coward Robert Ford",
+     "shares": "a reputation built on one shot, and the gap between the legend and what actually happened"
+    },
+    {
+     "title": "Sholay",
+     "shares": "a friend who quietly withdraws his claim on a woman and dies unrewarded for what he did"
+    }
+   ],
+   "year": 1962,
+   "source": "reading",
+   "plotChars": 4346
+  },
+  {
+   "n": 6,
+   "title": "Gladiator",
+   "engine": "An emperor tells his general he will pass over his own son and make him regent; the son hears it, kills the father, and has the general's wife and child murdered. Sold as a slave, the general works his way back to Rome inside the arena, where he takes from the son the one thing he actually wants — the crowd — and finally kills him in front of it.",
+   "predicaments": [
+    {
+     "situation": "a parent names an outsider as heir over their own child, and the child kills them for it",
+     "basis": "Marcus Aurelius tells Maximus that Commodus is unfit to rule and asks him to serve as regent; Commodus, having heard it, smothers his father and takes the throne.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "passed over": "Commodus",
+      "chosen": "Maximus",
+      "choosing": "Marcus Aurelius"
+     }
+    },
+    {
+     "situation": "a person stripped of family, rank and name spends everything afterwards getting back to the one who ordered it",
+     "basis": "Maximus finds his wife and son murdered, is sold to a gladiator school, and fights his way to the Colosseum specifically to reach Commodus.",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "roles": {
+      "dispossessed": "Maximus",
+      "author of the loss": "Commodus"
+     }
+    },
+    {
+     "situation": "a ruler needs the affection of a crowd that has already given it to the man he most wants dead",
+     "basis": "Commodus stages 150 days of games to win the public, only to watch them chant for Maximus and force him to spare his enemy's life.",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "roles": {
+      "seeking approval": "Commodus",
+      "given it": "Maximus",
+      "withholding": "the Roman crowd"
+     }
+    },
+    {
+     "situation": "a sibling must manage the affection of a dangerous relative to keep their own child alive",
+     "basis": "Lucilla conspires with Maximus and Gracchus while Commodus demands she give him an heir and threatens both her and Lucius.",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "roles": {
+      "threatening": "Commodus",
+      "protecting": "Lucilla",
+      "protected": "Lucius"
+     }
+    },
+    {
+     "situation": "subordinates decide at the decisive moment whether the man in power is still owed obedience",
+     "basis": "Quintus, who once arrested Maximus on Commodus' orders, refuses to hand the emperor a sword in the arena and later helps carry Maximus out.",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "roles": {
+      "commanding": "Commodus",
+      "refusing": "Quintus and the Praetorians"
+     }
+    },
+    {
+     "situation": "men held in bondage together honour each other's dead when the fight is over",
+     "basis": "Proximo and his gladiators die covering Maximus' escape, and Juba buries the figurines of Maximus' wife and son in the arena floor.",
+     "centrality": 0.4,
+     "outcome": "transfigured"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Ben-Hur",
+     "shares": "a man stripped of family and freedom who returns through the arena to face the one responsible"
+    },
+    {
+     "title": "Ran",
+     "shares": "a father's decision about succession that his sons answer with murder"
+    },
+    {
+     "title": "The Lion King",
+     "shares": "an uncle who kills for the throne and an exiled heir who returns to take it back"
+    },
+    {
+     "title": "The Count of Monte Cristo",
+     "shares": "total dispossession converted patiently into an instrument aimed at the man who caused it"
+    },
+    {
+     "title": "Spartacus",
+     "shares": "slaves in the arena turning the spectacle staged for their masters into a political weapon"
+    }
+   ],
+   "year": 2000,
+   "source": "reading",
+   "plotChars": 4296
+  },
+  {
+   "n": 1,
+   "title": "Tár",
+   "engine": "A conductor who insists that the work is separable from the person who made it has spent years using her position to pick out, elevate and then discard young women, and the film is the season in which everyone who has been covering for her — her assistant, her wife, her institution — stops. She is not caught by an argument but by an archive: emails, a video, a page anyone can edit. What is left when the name she built is taken away is the one she was born with.",
+   "predicaments": [
+    {
+     "situation": "someone with power over another's career converts that power into intimacy, and dresses the transaction as artistic judgment",
+     "basis": "Lydia alters her scorecard in a blind audition and programs a concerto specifically to install Olga as soloist, while pursuing her.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "patron": "Lydia Tár",
+      "dependent": "Olga Metkina; earlier, Krista Taylor"
+     }
+    },
+    {
+     "situation": "a subordinate who has been made keeper of the secrets is passed over, and turns the record against the person who kept them",
+     "basis": "Francesca, denied the assistant conductorship after having been told to delete Krista's emails, resigns and supplies those emails to the plaintiffs.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "withholder": "Lydia Tár",
+      "keeper": "Francesca"
+     }
+    },
+    {
+     "situation": "a person cast out by their mentor dies, and the mentor's response is to manage the paperwork rather than answer for it",
+     "basis": "Krista, blacklisted after a dispute with Lydia, kills herself; Lydia's immediate instructions are deletion and a lawyer.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "discarding": "Lydia Tár",
+      "discarded": "Krista Taylor"
+     }
+    },
+    {
+     "situation": "a reputation is rewritten in public by unseen hands faster than its owner can answer",
+     "basis": "An edited video of the Juilliard class goes viral, a newspaper piece appears, and her Wikipedia entry is amended by someone she cannot identify.",
+     "centrality": 0.7,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a partner responds to a betrayal by withdrawing access to the child",
+     "basis": "Sharon, enraged by the allegations and by Lydia's concealment, bars her from Petra.",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "roles": {
+      "barring": "Sharon",
+      "barred": "Lydia Tár"
+     }
+    },
+    {
+     "situation": "a person built on an invented name is returned to the origin they erased, and a family member names it aloud",
+     "basis": "Lydia goes back to the Staten Island house, finds certificates made out to Linda Tarr, and is told by her brother that she has forgotten where she came from.",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "roles": {
+      "reminding": "Tony",
+      "reminded": "Lydia Tár"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "All About Eve",
+     "shares": "the assistant who has absorbed her superior's private life and then uses it"
+    },
+    {
+     "title": "Whiplash",
+     "shares": "a teacher who treats the demands of the art as licence for what is done to a student"
+    },
+    {
+     "title": "A Hero",
+     "shares": "a life dismantled by circulating video and comment faster than its subject can respond"
+    },
+    {
+     "title": "The Hunt",
+     "shares": "an institution withdrawing its protection once an accusation exists in public"
+    },
+    {
+     "title": "The Red Shoes",
+     "shares": "an impresario who decides which young performer is given a career and on what terms"
+    }
+   ],
+   "year": 2022,
+   "source": "reading",
+   "plotChars": 4474
+  },
+  {
+   "n": 2,
+   "title": "Intolerable Cruelty",
+   "engine": "A divorce lawyer who has made marriage safe by inventing an unbreakable prenuptial contract meets a woman who marries rich men in order to divorce them; each keeps trying to win by the rules of the game they both live off. Because they can only trust each other by giving up the protection those rules provide, the film's love scenes are contract-destruction scenes — the paper has to be torn before anything can be said.",
+   "predicaments": [
+    {
+     "situation": "two adversaries in a contest fall for each other and can never be sure whether the feeling is a move",
+     "basis": "Miles beats Marylin in court, then courts her; she marries him with an actor-husband already in her pocket, and he cannot tell which parts were sincere.",
+     "centrality": 0.95,
+     "outcome": "restored",
+     "roles": {
+      "one_side": "Miles Massey",
+      "other_side": "Marylin Rexroth"
+     }
+    },
+    {
+     "situation": "a person can only prove love by destroying the document that protects them",
+     "basis": "The Massey prenup is torn or eaten at every turning point — by Howard at the wedding, by Marylin twice, and finally signed retroactively by Miles.",
+     "centrality": 0.9,
+     "outcome": "restored"
+    },
+    {
+     "situation": "someone enters a marriage as an investment and is exposed by the person who arranged it",
+     "basis": "Puffy, the concierge who found her a rich, foolish philanderer, testifies that Marylin commissioned the match, and she leaves the divorce with nothing.",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "roles": {
+      "exposing": "Puffy von Espy / Miles",
+      "exposed": "Marylin"
+     }
+    },
+    {
+     "situation": "a party ruined by a victor is recruited by the victor's next opponent",
+     "basis": "Marylin finds the destitute Donaly on the street and enlists him to supply the fake millionaire who will trap Miles.",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "roles": {
+      "recruiting": "Marylin",
+      "recruited": "Donovan Donaly"
+     }
+    },
+    {
+     "situation": "a spouse arranges to have the other killed and the arrangement turns back on itself",
+     "basis": "Miles's firm hires Wheezy Joe for Marylin; she outbids him for Miles; Joe shoots himself mistaking his gun for his inhaler.",
+     "centrality": 0.55,
+     "outcome": "restored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Adam's Rib",
+     "shares": "a couple who conduct their marriage as opposing counsel"
+    },
+    {
+     "title": "Trouble in Paradise",
+     "shares": "two professional deceivers who cannot court each other except through the con"
+    },
+    {
+     "title": "The Awful Truth",
+     "shares": "divorce proceedings used as the only available means of courtship"
+    },
+    {
+     "title": "Gone Girl",
+     "shares": "a marriage run as an adversarial operation with the spouse as the mark"
+    },
+    {
+     "title": "Dial M for Murder",
+     "shares": "a contract killing of a spouse that recoils on the one who commissioned it"
+    }
+   ],
+   "year": 2003,
+   "source": "reading",
+   "plotChars": 3894
+  },
+  {
+   "n": 3,
+   "title": "Honey Don't!",
+   "engine": "A private detective takes a frightened woman's call and arrives a day too late to a body, and the trail runs into a church that uses the young women who come to it for salvation. While she works the case her teenage niece drifts toward the same edge, and the policewoman she has taken to bed turns out to be the one killing the girls — the danger is not out at the temple but in the house she has already been let into.",
+   "predicaments": [
+    {
+     "situation": "someone asks for help, dies before the meeting, and the helper is left carrying an obligation to a stranger",
+     "basis": "Mia phones Honey afraid and unable to go to the police; by their appointed meeting she is stabbed and staged in a wrecked car.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "asking": "Mia Novotny",
+      "asked": "Honey O'Donahue"
+     }
+    },
+    {
+     "situation": "an institution that offers people a way to be saved uses them instead",
+     "basis": "The Four-Way Temple preaches submission while Reverend Drew beds young congregants and runs narcotics; a member's ring is stripped from a corpse before police arrive.",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "roles": {
+      "consuming": "Reverend Drew Devlin / Chère",
+      "consumed": "Mia and the congregants"
+     }
+    },
+    {
+     "situation": "the person one has taken into bed turns out to be the killer one is hunting",
+     "basis": "Honey spots her niece's lipstick on a teacup in MG's home and finds Corinne captive in the basement.",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "roles": {
+      "hunting": "Honey",
+      "hunted": "MG"
+     }
+    },
+    {
+     "situation": "a young relative drifts toward exactly the fate the investigator is investigating",
+     "basis": "Corinne is assaulted by her boyfriend, then vanishes from a bus stop, and Honey searches the town fearing she is going Mia's way.",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "roles": {
+      "protecting": "Honey",
+      "endangered": "Corinne"
+     }
+    },
+    {
+     "situation": "an estranged parent reappears wanting to reconnect and is first read as a threat",
+     "basis": "The old man Corinne flees at the bus stop turns out to be Honey and Heidi's father, and his sighting of her is the one useful thing he offers.",
+     "centrality": 0.35,
+     "outcome": "ambiguous",
+     "roles": {
+      "returning": "the father",
+      "refusing": "Honey"
+     }
+    },
+    {
+     "situation": "a person states plainly who they are and is repeatedly not believed by someone pursuing them",
+     "basis": "Marty asks Honey out at the crash site and again at the end, treating \"I like girls\" as a joke both times.",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "roles": {
+      "pursuing": "Marty",
+      "declining": "Honey"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Chinatown",
+     "shares": "an investigator whose case turns out to run through the family and bed rather than out in the world"
+    },
+    {
+     "title": "The Night of the Hunter",
+     "shares": "a preacher who uses the pulpit as cover for killing the women who trust him"
+    },
+    {
+     "title": "Klute",
+     "shares": "a detective's intimacy with someone inside the case becoming the case's real danger"
+    },
+    {
+     "title": "Martha Marcy May Marlene",
+     "shares": "a congregation that takes young women in on the promise of belonging and consumes them"
+    },
+    {
+     "title": "Basic Instinct",
+     "shares": "sleeping with the person the investigation is closing on"
+    }
+   ],
+   "year": 2025,
+   "source": "reading",
+   "plotChars": 2863
+  },
+  {
+   "n": 4,
+   "title": "La Chinoise",
+   "engine": "Five students form a Maoist cell in a luxury apartment lent by one member's rich parents and spend a summer converting reading into doctrine — and the doctrine turns first on them: the one who disagrees is denounced and expelled, the peasant girl does the housework and is kept outside the discussions, and the fragile painter kills himself. The single deed the group produces is an assassination that starts by killing the wrong man in the wrong room.",
+   "predicaments": [
+    {
+     "situation": "a group founded on a shared belief keeps itself pure by expelling the member who dissents",
+     "basis": "Henri argues the pro-Soviet line against the cell's taste for violence, is labelled a revisionist and thrown out.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "expelling": "Véronique and the cell",
+      "expelled": "Henri"
+     }
+    },
+    {
+     "situation": "people who denounce a privileged order conduct the denunciation from inside its comforts, on the labour of the least of them",
+     "basis": "The cell reads Marx in a borrowed rich apartment while Yvonne does the chores, sells sex for money and sits outside the lectures.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "served": "Véronique, Guillaume, Kirilov",
+      "serving": "Yvonne"
+     }
+    },
+    {
+     "situation": "a member falls apart in plain sight of the group and is only registered once they are dead",
+     "basis": "Kirilov paints rainbows over the slogans on the walls and shoots himself.",
+     "centrality": 0.55,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "someone already committed to violence is given the best available argument against it and is not moved",
+     "basis": "Jeanson patiently reasons with Véronique on the train about shutting the universities by force; she goes on to the hotel.",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "roles": {
+      "dissuading": "Francis Jeanson",
+      "committed": "Véronique"
+     }
+    },
+    {
+     "situation": "an act of political violence falls on the wrong person and is then carried out again on the intended one",
+     "basis": "Véronique reverses the digits of the room number, kills a stranger, and returns to complete the assassination.",
+     "centrality": 0.6,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "when the believers disperse, the space is handed back to its owners as if nothing had occurred there",
+     "basis": "The parents return and strip the posters and books from the walls; Guillaume ends up at a fairground stall taking vegetables in the face.",
+     "centrality": 0.5,
+     "outcome": "unrestored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "United Red Army",
+     "shares": "a revolutionary cell whose discipline turns inward and destroys its own members"
+    },
+    {
+     "title": "The Baader Meinhof Complex",
+     "shares": "students who convert study into armed action and find the action arrives badly aimed"
+    },
+    {
+     "title": "Zabriskie Point",
+     "shares": "young people whose rejection of the order is staged inside its property"
+    },
+    {
+     "title": "The Wave",
+     "shares": "a group whose cohesion depends on identifying and casting out the doubter"
+    },
+    {
+     "title": "Sátántangó",
+     "shares": "a community organised by a persuasive doctrine into acts that serve the doctrine and not them"
+    }
+   ],
+   "year": 1967,
+   "source": "reading",
+   "plotChars": 2783
+  },
+  {
+   "n": 5,
+   "title": "Something to Talk About",
+   "engine": "A woman sees her husband kiss another woman outside a bank and finds that nobody around her wants the matter raised: he denies what she saw, and her father, whose stable she works in, answers her appeal for support by talking about the competition. Pulling on the marriage pulls up her parents' marriage as well, and behind both is the fact that her own life — the barn, the town, the abandoned degree — was decided for her by a pregnancy she never chose around.",
+   "predicaments": [
+    {
+     "situation": "a spouse's infidelity is witnessed directly and then denied to the witness's face",
+     "basis": "Grace sees Eddie kiss a blonde outside the bank and catches him at the restaurant; he denies the kiss outright.",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "roles": {
+      "denying": "Eddie",
+      "witness": "Grace"
+     }
+    },
+    {
+     "situation": "someone brings a crisis to a parent and is answered with the parent's own preoccupations",
+     "basis": "Grace asks Wyly to stand with her over the marriage; his attention stays entirely on the show jumping and which horse will run.",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "roles": {
+      "appealing": "Grace",
+      "withholding": "Wyly"
+     }
+    },
+    {
+     "situation": "exposing one betrayal detonates the older, buried one in the previous generation",
+     "basis": "Grace's digging turns up her father's many affairs; Georgia throws Wyly out of the house.",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "roles": {
+      "exposing": "Grace",
+      "exposed": "Wyly",
+      "injured": "Georgia"
+     }
+    },
+    {
+     "situation": "a person realises the life they are living was settled by an interruption rather than chosen",
+     "basis": "Grace explains she withdrew from the marriage because she had become depressed at having dropped out of veterinary school when she fell pregnant and gone to work for her father instead.",
+     "centrality": 0.8,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "the injured party retaliates with something that would be a crime if anyone treated it seriously",
+     "basis": "Grace lightly poisons Eddie with her grandmother's recipe; his response is to quietly see a divorce lawyer.",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "roles": {
+      "retaliating": "Grace",
+      "target": "Eddie"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "An Unmarried Woman",
+     "shares": "a wife discovering the affair and having to work out what her own life was going to be"
+    },
+    {
+     "title": "Scenes from a Marriage",
+     "shares": "a couple forced to state aloud the withdrawals that preceded the betrayal"
+    },
+    {
+     "title": "Diary of a Mad Housewife",
+     "shares": "a woman recognising that the life she runs was decided for her"
+    },
+    {
+     "title": "All That Heaven Allows",
+     "shares": "a community and family with a stake in a woman not disturbing the arrangement"
+    },
+    {
+     "title": "Tokyo Sonata",
+     "shares": "a household in which each member's private collapse is kept from the others until it forces itself out"
+    }
+   ],
+   "year": 1995,
+   "source": "reading",
+   "plotChars": 2863
+  },
+  {
+   "n": 6,
+   "title": "No End",
+   "engine": "A month after her husband dies of a heart attack at the wheel, a widow tries every means on offer to be relieved of him — hypnosis, a psychiatrist, a stranger who pays her, his files — and none of them lifts him. Meanwhile the political case he left unfinished passes to an old lawyer who wins it by trading away the client's one uncompromised thing, his hunger strike, for a suspended sentence. Both endings are settlements: the prisoner is released into a compromise, and she leaves to go where her husband is.",
+   "predicaments": [
+    {
+     "situation": "a bereaved person tries every available method to be relieved of the dead and none of them takes",
+     "basis": "Ula goes to a hypnotist to be made to forget Antek and sees his ghost during the session, sees a psychiatrist, takes $50 from a stranger for sex, and keeps a vigil at the grave.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "grieving": "Ula",
+      "gone": "Antek"
+     }
+    },
+    {
+     "situation": "a survivor is asked to hand over the dead person's unfinished work to those who still depend on it",
+     "basis": "Joanna phones for the case papers of her imprisoned husband, and Ula, unwilling at first, lets her go through Antek's files.",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "roles": {
+      "asking": "Joanna",
+      "holding": "Ula"
+     }
+    },
+    {
+     "situation": "a prisoner's refusal to compromise is negotiated away by the advocate acting on his behalf",
+     "basis": "Darek insists on staying inside on hunger strike; Labrador builds a defence around the union vouching for him and sends his apprentice to talk Darek out of the strike, and the sentence is suspended.",
+     "centrality": 0.75,
+     "outcome": "ambiguous",
+     "roles": {
+      "negotiating": "Labrador",
+      "refusing": "Darek"
+     }
+    },
+    {
+     "situation": "someone finds physical evidence of how the dead person regarded them",
+     "basis": "Going through Antek's files Ula finds nude photographs of herself with the face cut out, and has to ask a friend of his to explain them.",
+     "centrality": 0.5,
+     "outcome": "ambiguous"
+    },
+    {
+     "situation": "a parent goes on caring for a child while already in the process of leaving",
+     "basis": "Ula comforts Jacek after his nightmare about his parents, then delivers him to his grandmother before turning on the gas.",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "roles": {
+      "leaving": "Ula",
+      "left": "Jacek"
+     }
+    },
+    {
+     "situation": "an old practitioner closes their working life on a case whose victory they do not believe in",
+     "basis": "Labrador announces his retirement the moment the court adjourns on the suspended sentence.",
+     "centrality": 0.4,
+     "outcome": "unrestored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Three Colours: Blue",
+     "shares": "a widow methodically trying to cut herself free of a husband and family who will not stay cut"
+    },
+    {
+     "title": "Ugetsu",
+     "shares": "the dead spouse present in the house and finally walked beside"
+    },
+    {
+     "title": "Hunger",
+     "shares": "a prisoner whose starvation is the one thing not available for negotiation"
+    },
+    {
+     "title": "Don't Look Now",
+     "shares": "grief that keeps producing the dead person in the room until it takes the griever"
+    },
+    {
+     "title": "Truly, Madly, Deeply",
+     "shares": "a bereaved partner seeking treatment for the loss while the husband keeps arriving"
+    }
+   ],
+   "year": 1985,
+   "source": "reading",
+   "plotChars": 2844
+  },
+  {
+   "n": 1,
+   "title": "A Serious Man",
+   "engine": "A physics professor's wife announces she loves a family friend and wants a religious divorce, and within weeks every structure he assumed was holding him up — marriage, house, job, brother, money — is being pulled out from under him at once. He spends the film going from authority to authority asking what he did and what it means, and each one hands him a story instead of an answer. He is the only person in his life who thinks an explanation is owed.",
+   "predicaments": [
+    {
+     "situation": "one spouse ends the marriage and requires the person being left to fund and legitimize the departure",
+     "basis": "Judith demands a get so she can marry Sy Ableman, has Larry moved out to a motel, empties the joint accounts, and has him pay for Sy's funeral.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "leaving": "Judith",
+      "left": "Larry"
+     }
+    },
+    {
+     "situation": "a person asks the sanctioned authorities of their community why this is happening to them and receives parable and deferral instead of an answer",
+     "basis": "Larry consults Rabbi Scott, Rabbi Nachtner's story about the goy's teeth, and cannot get an appointment with Marshak at all.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "asking": "Larry",
+      "withholding": "the three rabbis"
+     }
+    },
+    {
+     "situation": "someone is caught between two ruinous readings of the same act and cannot choose an innocent one",
+     "basis": "Clive's father threatens to sue Larry for defamation if he reports the envelope of cash and for bribery if he keeps it without raising the grade.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "squeezing": "Clive's father",
+      "squeezed": "Larry"
+     }
+    },
+    {
+     "situation": "a dependent relative's troubles are absorbed by someone with no remaining capacity to carry them",
+     "basis": "Arthur sleeps on the couch, drains his brother's nights and money, and arrives with criminal charges and a $3,000 legal bill.",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "roles": {
+      "carried": "Arthur",
+      "carrying": "Larry"
+     }
+    },
+    {
+     "situation": "a man is publicly credited with a solidity his private life does not have, and the praise arrives exactly when he has stopped deserving it",
+     "basis": "Sy is eulogized as \"a serious man\" and secretly wrote to the tenure committee for Larry, while Larry is complimented on his son's bar mitzvah and hinted toward tenure on the day he takes the bribe.",
+     "centrality": 0.5,
+     "outcome": "ambiguous"
+    },
+    {
+     "situation": "two members of a household disagree about what a guest is, and one acts irreversibly on her own reading",
+     "basis": "The prologue: the husband has invited Reb Groshkover in for soup; his wife declares him a dybbuk and puts an ice pick in his chest.",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "roles": {
+      "welcoming": "the husband",
+      "striking": "the wife"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Trial (1962)",
+     "shares": "a man harried by an apparatus that will explain neither the charge nor the sentence"
+    },
+    {
+     "title": "Ikiru",
+     "shares": "an ordinary functionary's life is reframed by a phone call about a medical result"
+    },
+    {
+     "title": "Winter Light",
+     "shares": "a person turns to a clergyman for consolation and finds the office empty behind it"
+    },
+    {
+     "title": "Scenes from a Marriage",
+     "shares": "one spouse announces a love elsewhere and dismantles the household while the other is still asking why"
+    },
+    {
+     "title": "Force Majeure",
+     "shares": "a man is honoured as the family's steady centre exactly while proving he is not"
+    }
+   ],
+   "year": 2009,
+   "source": "reading",
+   "plotChars": 3832
+  },
+  {
+   "n": 2,
+   "title": "The Elephant Man",
+   "engine": "A surgeon buys viewing time with a disfigured man kept in a freak show, discovers he can read and speak, and installs him in a hospital — where he is looked at by duchesses and actresses instead of by dockworkers, and, at night, by anyone the porter will sell a ticket to. The film turns on the gap between rescue and a better class of exhibition, and on the man himself, who wants only to be counted a person by whoever is currently looking.",
+   "predicaments": [
+    {
+     "situation": "a rescuer comes to suspect that his rescue is a more respectable version of the exploitation he took the person out of",
+     "basis": "Mrs. Mothershead points out Merrick is still being shown off, now to high society, and Treves begins to question the morality of what he has done.",
+     "centrality": 0.9,
+     "outcome": "ambiguous",
+     "roles": {
+      "rescuing": "Treves",
+      "rescued": "Merrick"
+     }
+    },
+    {
+     "situation": "someone assumed to have no inner life must perform proof of it before being granted a place to live",
+     "basis": "Treves drills Merrick in a few sentences and part of the 23rd Psalm for Carr Gomm's inspection; Carr Gomm sees the trick, and Merrick saves himself by reciting the whole psalm unprompted.",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "roles": {
+      "judging": "Carr Gomm",
+      "proving": "Merrick"
+     }
+    },
+    {
+     "situation": "a person is held as property by a keeper who beats him, loses him, and comes back to reclaim him",
+     "basis": "Bytes hires Merrick out to Treves, beats him, later kidnaps him from the hospital and works him on the road until he collapses.",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "roles": {
+      "owning": "Bytes",
+      "owned": "Merrick"
+     }
+    },
+    {
+     "situation": "a crowd corners a person and demands, in effect, that he account for his own body",
+     "basis": "Boys chase Merrick through Liverpool Street station, he is unmasked and surrounded, and he shouts that he is not an animal but a man.",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "roles": {
+      "pursuing": "the mob",
+      "cornered": "Merrick"
+     }
+    },
+    {
+     "situation": "someone who has only ever been looked at as a spectacle is finally applauded as himself",
+     "basis": "Madge Kendal dedicates the pantomime to Merrick and the theatre gives him a standing ovation.",
+     "centrality": 0.55,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "a person believes he was a disappointment to a parent and orders his life around earning her retrospective approval",
+     "basis": "Merrick shows the Treveses his mother's photograph and hopes she would be proud to see him among friends; he finishes his cathedral and lies down to sleep like the child in the picture, and his mother's voice closes the film.",
+     "centrality": 0.5,
+     "outcome": "transfigured"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Enigma of Kaspar Hauser",
+     "shares": "a man is taken out of a showman's booth into educated society, which studies him and keeps exhibiting him more politely"
+    },
+    {
+     "title": "L'Enfant sauvage",
+     "shares": "a doctor trains a person in speech partly to demonstrate to his colleagues that the person is one"
+    },
+    {
+     "title": "Freaks",
+     "shares": "sideshow performers are the only ones who treat one of their own as a person rather than an attraction"
+    },
+    {
+     "title": "Frankenstein (1931)",
+     "shares": "a being judged monstrous on sight is cornered by a mob that never asks what he is"
+    },
+    {
+     "title": "Awakenings",
+     "shares": "a physician's care for patients slides into displaying them, and he has to notice it himself"
+    }
+   ],
+   "year": 1980,
+   "source": "reading",
+   "plotChars": 3992
+  },
+  {
+   "n": 3,
+   "title": "Eureka",
+   "engine": "Three people survive a bus hijacking and none of them can go back to the life they had: the driver leaves the road, the teenage brother and sister stop speaking and are left alone in the house after their mother walks out and their father dies. The driver moves in with the children and starts a household out of the only people who know what happened, and then has to face that the boy has begun killing. The film is about who you can live with after that, and what it takes to be able to face an ordinary day again.",
+   "predicaments": [
+    {
+     "situation": "people who came through the same violence can only bear each other's company and build a household on that basis alone",
+     "basis": "Makoto abandons his own family and marriage to move in with Naoki and Kozue, cooking and keeping house for the two other survivors.",
+     "centrality": 0.9,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "a child's family dissolves after a catastrophe and an unrelated adult moves into the vacant parental place",
+     "basis": "After the mother abandons the family and the father dies in a possible suicide, Makoto — and later the cousin Akihiko — take over the running of the children's home.",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "roles": {
+      "orphaned": "Naoki and Kozue",
+      "standing in": "Makoto"
+     }
+    },
+    {
+     "situation": "a caretaker discovers the person he has been sheltering is the one doing the harm, and must talk him into surrendering rather than hand him over",
+     "basis": "On the bus tour it becomes clear Naoki is the murderer; Makoto confronts him and persuades him to give himself up.",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "roles": {
+      "guilty": "Naoki",
+      "confronting": "Makoto"
+     }
+    },
+    {
+     "situation": "someone is treated as the suspect by an investigator with nothing to go on and must live under the accusation",
+     "basis": "The detective from the hijacking repeatedly harasses and finally arrests Makoto over the neighbourhood murders before releasing him.",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "roles": {
+      "accusing": "the detective",
+      "accused": "Makoto"
+     }
+    },
+    {
+     "situation": "a person cannot return to the work that defined them because the work is where the injury happened",
+     "basis": "Makoto can no longer drive a bus and takes day-labouring work, until he buys an old bus and converts it to drive the others around Kyushu.",
+     "centrality": 0.6,
+     "outcome": "restored"
+    },
+    {
+     "situation": "someone who did not go through it treats the others' state as material for cynicism and is expelled from the group",
+     "basis": "Makoto finally loses his temper with Akihiko's shallow, cynical outlook and throws him off the bus.",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "roles": {
+      "inside": "Makoto, Kozue",
+      "outside": "Akihiko"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Sweet Hereafter",
+     "shares": "a bus catastrophe leaves survivors and bereaved unable to resume ordinary life, and an outsider organizes them around it"
+    },
+    {
+     "title": "Nobody Knows",
+     "shares": "children abandoned by a parent keep living alone in the family flat, holding a household together in silence"
+    },
+    {
+     "title": "Ordinary People",
+     "shares": "survivors of the same event go mute inside a family that dissolves rather than speak about it"
+    },
+    {
+     "title": "Manchester by the Sea",
+     "shares": "a man who cannot live where the harm happened is pulled into caring for a bereaved teenager"
+    },
+    {
+     "title": "Three Colours: Blue",
+     "shares": "a survivor leaves every prior tie and travels until she can face an ordinary life again"
+    }
+   ],
+   "year": 2000,
+   "source": "reading",
+   "plotChars": 2856
+  },
+  {
+   "n": 4,
+   "title": "A City of Sadness",
+   "engine": "From the day Japan surrenders Taiwan, one Keelung family's four brothers each try to make a life under the new mainland administration — nightclub, smuggling, army trauma, quiet photography — and each is destroyed by it in a different way: denounced as collaborators, tortured into brain damage, killed in a gambling-house fight, arrested and disappeared. The film watches this from inside the household, mostly through the deaf youngest son and the woman who marries him, who is finally left writing letters asking anyone whether her husband is alive.",
+   "predicaments": [
+    {
+     "situation": "a change of regime turns yesterday's ordinary life into a punishable identity",
+     "basis": "The Lin brothers' Japanese-era existence becomes grounds for denunciation as collaborators once Nationalist rule arrives, and protest is answered with martial law and massacre.",
+     "centrality": 0.9,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "private rivals settle a business score by handing their enemies to the state",
+     "basis": "The Shanghai gang use their mainland connections to denounce the Lin brothers; Wen-liang is arrested and tortured into permanent brain damage.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "denouncing": "the Shanghai gangsters",
+      "denounced": "Wen-liang and Wen-hsiung"
+     }
+    },
+    {
+     "situation": "someone is taken by the authorities and those who love them are left with no account of where they went",
+     "basis": "Wen-ching is arrested and disappeared for funding the guerillas; Hinomi searches Taipei for news and writes that she can find none.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "taken": "Wen-ching",
+      "searching": "Hinomi"
+     }
+    },
+    {
+     "situation": "a couple funds from relative safety a resistance that consumes the people they love, until it reaches them too",
+     "basis": "Wen-ching and Hinomi keep covertly financing Hinoe's mountain group; the guerillas are wiped out, Hinoe executed, and Wen-ching taken for the connection.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "fighting": "Hinoe",
+      "supporting": "Wen-ching and Hinomi"
+     }
+    },
+    {
+     "situation": "a soldier returns from a war fought for the losing power and cannot be reabsorbed into family life",
+     "basis": "Wen-liang comes back shellshocked from the Japanese army and drifts into smuggling and counterfeiting with Red Monkey and the mainland mob.",
+     "centrality": 0.6,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "the only surviving record of what happened to a family is the correspondence of the women left behind",
+     "basis": "Hinomi learns of Wen-ching's first arrest through letters with Ah-shue, and closes the film writing to her that he cannot be found.",
+     "centrality": 0.5,
+     "outcome": "unrestored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Missing",
+     "shares": "a family works the offices of a new military order trying to learn where a vanished relative was taken"
+    },
+    {
+     "title": "The Official Story",
+     "shares": "the state disappears people and the ones left behind are refused any account of it"
+    },
+    {
+     "title": "Ashes and Diamonds",
+     "shares": "the day a war ends is the day a new order begins killing the people who survived the old one"
+    },
+    {
+     "title": "Katyń",
+     "shares": "survivors keep writing and asking after men the state has erased and will not admit erasing"
+    },
+    {
+     "title": "The Godfather Part II",
+     "shares": "brothers take different accommodations with a violent order and each is destroyed according to the one he chose"
+    }
+   ],
+   "year": 1989,
+   "source": "reading",
+   "plotChars": 4185
+  },
+  {
+   "n": 5,
+   "title": "Devi",
+   "engine": "An old landowner dreams that his son's young wife is an incarnation of Kali, and by morning the household has her sitting as an idol with pilgrims at her feet. She cannot contradict a father-in-law, a family and then a crowd who have all decided what she is, and she starts to half-believe it herself; when a sick child is brought to her instead of to a doctor and dies in her arms, there is no version of her left to return to. Her husband keeps arriving from Calcutta a day too late to get her out.",
+   "predicaments": [
+    {
+     "situation": "a person is declared to be more than human by those with authority over them and is given no standing to refuse",
+     "basis": "Kalikinkar's dream makes Doyamoyee a goddess overnight; she is moved to a private wing, seated as an idol, and worshipped daily by her own family.",
+     "centrality": 1,
+     "outcome": "fatal",
+     "roles": {
+      "declaring": "Kalikinkar",
+      "declared": "Doyamoyee"
+     }
+    },
+    {
+     "situation": "someone offered a way out hesitates at the threshold and returns, because they have begun to believe the story told about them",
+     "basis": "Umaprasad gets Doyamoyee to a boat waiting at the riverbank, and she becomes frightened, wonders whether she really is a goddess, and asks to be taken back.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "offering escape": "Umaprasad",
+      "refusing": "Doyamoyee"
+     }
+    },
+    {
+     "situation": "a family member who has been away in the wider world cannot argue a relative out of the belief that has closed around them",
+     "basis": "Umaprasad, studying English in Calcutta, confronts his father and tries twice to remove his wife, and reaches her last time only as she runs off into the mist.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "outside": "Umaprasad",
+      "inside": "Kalikinkar's household"
+     }
+    },
+    {
+     "situation": "a household withholds medicine from a sick child in deference to a faith, and the child dies",
+     "basis": "Harasundari's doctor is intercepted, Kalikinkar brings the feverish Khoka to Doyamoyee for charanamrito and a night in her arms, and the boy is dead by morning.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "insisting": "Kalikinkar",
+      "complying": "Harasundari, Doyamoyee, Taraprasad"
+     }
+    },
+    {
+     "situation": "an ordinary intimacy is destroyed by one party being elevated above the other",
+     "basis": "Doyamoyee's near-maternal closeness with Khoka ends once she is worshipped — he begins to avoid her — and her isolation deepens as the crowds grow.",
+     "centrality": 0.65,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a claim is treated as proven by a coincidence, and the doubt that had opened closes for good",
+     "basis": "Kalikinkar briefly wavers under his son's argument, then the beggar's grandson opens his eyes after the charanamrito and he is certain again.",
+     "centrality": 0.6,
+     "outcome": "fatal"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Breaking the Waves",
+     "shares": "a young wife's community reads her as a divine instrument and she goes along with the reading until it kills her"
+    },
+    {
+     "title": "The Passion of Joan of Arc",
+     "shares": "a young woman is turned into a sign by the men around her and has no standing from which to say what she is"
+    },
+    {
+     "title": "Ordet",
+     "shares": "a household is reorganized around one member's certainty that a miracle is at hand, and a body is the test of it"
+    },
+    {
+     "title": "The Rapture",
+     "shares": "a believer's certainty leads to a child's death, and there is no way back to ordinary life afterward"
+    },
+    {
+     "title": "Viridiana",
+     "shares": "a woman's piety is defined and consumed by the people who claim to venerate it"
+    }
+   ],
+   "year": 1960,
+   "source": "reading",
+   "plotChars": 3262
+  },
+  {
+   "n": 6,
+   "title": "The Iron Giant",
+   "engine": "A boy in a 1957 coastal town finds a fifty-foot machine that eats metal and knows nothing about itself, hides it, and teaches it that it can choose what to be rather than what it was built for. A government man convinced the thing is an enemy weapon pushes until he provokes exactly the response he predicted — and then the machine has to prove the boy's lesson by flying into a nuclear missile aimed at the town that was hunting it.",
+   "predicaments": [
+    {
+     "situation": "someone made for one purpose is asked whether they are permitted to choose a different one",
+     "basis": "Hogarth explains heroes and weapons with his comic books; the Giant flees in shame after his defensive system fires, and is brought back by Hogarth telling him he can choose who he is.",
+     "centrality": 0.95,
+     "outcome": "transfigured",
+     "roles": {
+      "teaching": "Hogarth",
+      "choosing": "the Giant"
+     }
+    },
+    {
+     "situation": "a child hides a being from the adult world because being found means its destruction",
+     "basis": "Hogarth conceals the Giant at his house and then at Dean's scrapyard, and lies to Mansley until a photograph gives him away.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "hiding": "Hogarth and Dean",
+      "hunting": "Mansley"
+     }
+    },
+    {
+     "situation": "an official's certainty that a stranger is a threat produces the very danger he predicted",
+     "basis": "Mansley escalates from surveillance to the Army to a nuclear launch, and the missile he orders is aimed at the town he claimed to be protecting.",
+     "centrality": 0.85,
+     "outcome": "ambiguous",
+     "roles": {
+      "escalating": "Mansley",
+      "restraining": "Rogard, Dean"
+     }
+    },
+    {
+     "situation": "one party wrongly believes the other has been killed and answers with everything they have",
+     "basis": "Knocked unconscious in the confrontation, Hogarth appears dead to the Giant, who switches into full battle mode against the soldiers until Hogarth wakes and reaches him.",
+     "centrality": 0.7,
+     "outcome": "restored"
+    },
+    {
+     "situation": "someone gives their life for a community that had been hunting them",
+     "basis": "The Giant secures Mansley, says goodbye to Hogarth, and flies up to meet the missile so Rockwell survives.",
+     "centrality": 0.8,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "a being learns what death is and later has to decide to accept it",
+     "basis": "Hogarth explains death to the unsettled Giant after they see hunters kill a deer, and the Giant names Hogarth's word for himself as he goes up to the missile.",
+     "centrality": 0.6,
+     "outcome": "transfigured"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Frankenstein (1931)",
+     "shares": "a made being with no idea what it is is judged a monster and hunted into becoming dangerous"
+    },
+    {
+     "title": "Castle in the Sky",
+     "shares": "a robot built as a weapon acts only to protect, and children see what the soldiers pursuing it cannot"
+    },
+    {
+     "title": "E.T. the Extra-Terrestrial",
+     "shares": "a boy hides a stranded non-human from a government that wants it, and has to let it go"
+    },
+    {
+     "title": "The Day the Earth Stood Still (1951)",
+     "shares": "an arrival from elsewhere is met with mobilized force, and the escalation nearly causes the catastrophe it was meant to prevent"
+    },
+    {
+     "title": "Shane",
+     "shares": "someone shaped for violence tries to be something else, and can only protect the people he loves by using what he is and leaving"
+    }
+   ],
+   "year": 1999,
+   "source": "reading",
+   "plotChars": 3644
+  },
+  {
+   "n": 1,
+   "title": "Seemabaddha",
+   "engine": "A rising sales manager, admired by his wife's younger sister as a man of principle, discovers a shipment is defective and manufactures a fake riot at his own factory — a watchman is badly hurt — so the delay can be blamed on unrest. The plan works, he is promoted for handling the crisis well, and the film is about what it costs him to be watched, by her and by himself, while he does it.",
+   "predicaments": [
+    {
+     "situation": "someone does the thing that will advance them while a person who admires them is close enough to see it",
+     "basis": "Tutul, who came to stay and who idolised Shyamal for his idealism, is present through the whole affair of the staged strike and afterwards can no longer regard him as she did.",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "roles": {
+      "admired": "Shyamal",
+      "admirer": "Tutul"
+     }
+    },
+    {
+     "situation": "a person protects their own standing by arranging harm to someone far below them who will never know why",
+     "basis": "To trigger the contract's civil-disturbance clause, Shyamal has a strike and riot provoked; a factory watchman is badly injured and the flawed fans get quietly repaired.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "arranging": "Shyamal and the labour officer",
+      "harmed": "the watchman and the workforce"
+     }
+    },
+    {
+     "situation": "someone reaches the position they organised their life around and finds nothing waiting there",
+     "basis": "Shyamal gets the promotion and the congratulations he had been expecting, and is left desolate at the top.",
+     "centrality": 0.8,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "a visitor is given the tour of a life and the showing of it turns into a test of it",
+     "basis": "Tutul is walked through the restaurants, clubs, parlours and race courses of Shyamal and Dolan's company-flat existence, and her presence is what makes that existence answerable.",
+     "centrality": 0.55,
+     "outcome": "ambiguous",
+     "roles": {
+      "showing": "Shyamal and Dolan",
+      "shown": "Tutul"
+     }
+    },
+    {
+     "situation": "one sibling silently wants the life the other one married into",
+     "basis": "Tutul is secretly envious of her sister's marriage to Shyamal.",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "roles": {
+      "envying": "Tutul",
+      "envied": "Dolan"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Third Man",
+     "shares": "a devoted admirer learns that the man they revere buys his position with injury done to people he never meets"
+    },
+    {
+     "title": "Sweet Smell of Success",
+     "shares": "advancement bought by arranging harm to a third party, watched by someone whose regard was the point"
+    },
+    {
+     "title": "The Apartment",
+     "shares": "a promotion earned by complicity, which becomes worthless once the person one wanted to be seen by sees how it was earned"
+    },
+    {
+     "title": "Room at the Top",
+     "shares": "a climb completed exactly as planned, with the climber hollowed out by the terms of it"
+    },
+    {
+     "title": "Nightcrawler",
+     "shares": "an employee manufactures the crisis he will then be praised for handling"
+    }
+   ],
+   "year": 1971,
+   "source": "reading",
+   "plotChars": 1517
+  },
+  {
+   "n": 2,
+   "title": "The Cat o' Nine Tails",
+   "engine": "A break-in at a research institute is followed by a chain of killings, each one silencing someone who was about to look at a piece of paper or a photograph. The killer turns out to be a scientist erasing the record that showed he carries the chromosome his own institute calls a mark of criminal tendency — so the murders are committed to disprove the thing they prove. Alongside him, a blind former reporter runs the investigation entirely through what other people describe to him.",
+   "predicaments": [
+    {
+     "situation": "a person kills to destroy the record of what they are, and the killing becomes the proof of it",
+     "basis": "Casoni broke into the Institute to swap the file showing he tested XYY-positive, and murders everyone who gets near the evidence, having earlier argued publicly that XYY testing could be used to prevent crime.",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "roles": {
+      "concealing": "Casoni",
+      "exposing": "Carlo, Franco, Calabresi, Bianca"
+     }
+    },
+    {
+     "situation": "someone who has lost the faculty their old work required goes on doing that work through other people's eyes",
+     "basis": "Franco, once an ace reporter, is blind, and cracks the case from Lori's remark that Bianca kept fiddling with her locket and from a hunch about a cropped photograph he cannot see.",
+     "centrality": 0.75,
+     "outcome": "transfigured",
+     "roles": {
+      "seeing": "Lori and Carlo",
+      "reading": "Franco"
+     }
+    },
+    {
+     "situation": "a person who knows another's secret offers to sell it back to them and is killed instead of paid",
+     "basis": "Calabresi tells his fiancée he knows who broke in and why, tries to blackmail the intruder, and is pushed under a train.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "extorting": "Calabresi",
+      "extorted": "Casoni"
+     }
+    },
+    {
+     "situation": "someone takes a hostage to buy silence and the other side judges the bargain worthless and refuses it",
+     "basis": "Casoni abducts Lori and demands the investigation stop; Franco and Carlo, certain he will kill her regardless, call the police.",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "roles": {
+      "holding": "Casoni",
+      "refusing": "Franco and Carlo"
+     }
+    },
+    {
+     "situation": "a cornered person tells a lie about a death and is killed for the lie rather than for what they actually did",
+     "basis": "Casoni tells the blind Franco he has killed Lori; Franco throws him down the elevator shaft as Lori, alive and free, calls out to him.",
+     "centrality": 0.5,
+     "outcome": "fatal"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Blow-Up",
+     "shares": "the whole case rests on a photograph that must be uncropped or enlarged before anyone can see what it caught"
+    },
+    {
+     "title": "Gattaca",
+     "shares": "a person's life depends on suppressing the biological record that a system reads as destiny"
+    },
+    {
+     "title": "Minority Report",
+     "shares": "a man who advocated identifying criminals before they act turns out to be the one the method would catch"
+    },
+    {
+     "title": "Wait Until Dark",
+     "shares": "a blind person is hunted by a killer and wins by turning the conditions of their blindness into an advantage"
+    },
+    {
+     "title": "Rear Window",
+     "shares": "an investigator physically unable to go and look must direct others to look for them"
+    }
+   ],
+   "year": 1971,
+   "source": "reading",
+   "plotChars": 4003
+  },
+  {
+   "n": 3,
+   "title": "Memories",
+   "engine": "Three unconnected stories about people being consumed by something they cannot perceive. Two salvagers board a derelict station where a dead diva's recorded self offers each of them their lost beloved back and asks only that they stay; a lab technician walks unknowingly across Japan killing every living thing he passes while headquarters both directs and tries to destroy him; and a boy in a walled city of artillery asks his father why they are firing, and is told he will understand when he is older.",
+   "predicaments": [
+    {
+     "situation": "someone is offered a perfect restored version of a person they lost, on the condition that they never leave",
+     "basis": "Eva's station gives Heintz his dead daughter Emily back and gives Miguel the identity of the fiancé she murdered; Heintz shoots the machine and Miguel stays, becoming Carlo.",
+     "centrality": 0.85,
+     "outcome": "ambiguous",
+     "roles": {
+      "offering": "Eva's recorded self",
+      "offered": "Heintz and Miguel"
+     }
+    },
+    {
+     "situation": "a person kills everyone around them and never once learns they are the cause",
+     "basis": "Nobuo emits a gas that wipes out his laboratory, then Kōfu's 200,000 residents, then the room in Tokyo he finally reports to, still believing he is delivering the drug.",
+     "centrality": 0.8,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "an authority keeps issuing orders to someone it has already decided to destroy",
+     "basis": "Headquarters tells Nobuo to carry the drug to Tokyo and then, having worked out what he is, orders the army to kill him — while he keeps obeying the first instruction.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "ordering": "the research company and the military",
+      "obeying": "Nobuo"
+     }
+    },
+    {
+     "situation": "a woman kills the man who refused to marry her and afterwards makes other people play his part",
+     "basis": "Eva reveals she murdered Carlo for refusing her, and has since forced everyone who arrives to relive his likeness.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "refusing": "Carlo",
+      "killing": "Eva"
+     }
+    },
+    {
+     "situation": "a child asks why the work that consumes the whole family is done and is given a deferral instead of an answer",
+     "basis": "The boy asks his father why they are fighting; the father says he will understand when he is older, and the boy falls asleep imagining himself as the officer who fires the great gun.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "asking": "the boy",
+      "deferring": "the father"
+     }
+    },
+    {
+     "situation": "an entire community's livelihood and daily order depends on an enemy no one has ever seen",
+     "basis": "The walled city's buildings are cannons, the parents load shells and make munitions, the radio reports devastation inflicted — and nothing outside the walls is ever shown but craters and smoke.",
+     "centrality": 0.65,
+     "outcome": "unrestored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Solaris",
+     "shares": "a derelict station manifests the dead as living presences and asks the visitors to stay inside the offer"
+    },
+    {
+     "title": "Vertigo",
+     "shares": "someone compels another person to take on the likeness of a lost beloved and inhabit it"
+    },
+    {
+     "title": "Il deserto dei Tartari",
+     "shares": "a whole institution's life is organised around an enemy that may not exist"
+    },
+    {
+     "title": "Dr. Strangelove",
+     "shares": "a delivery man carries annihilation to its target while the authorities that dispatched him try and fail to recall or destroy him"
+    },
+    {
+     "title": "Come and See",
+     "shares": "a child inside a war machine absorbs its logic before he is old enough to be told what it is for"
+    }
+   ],
+   "year": 1995,
+   "source": "reading",
+   "plotChars": 6474
+  },
+  {
+   "n": 4,
+   "title": "One Hundred and One Nights",
+   "engine": "A film student takes a paid job visiting a hundred-year-old former filmmaker every night to talk about cinema, and finds his memory has dissolved into the movies he made — he mistakes the people in front of him for stars and dead relatives. She and her boyfriend turn the intimacy into a scheme, planting a stranger as the great-grandson who vanished ten years ago, to get the fortune and fund a short film. The fake heir grows genuinely fond of the old man, and the money goes to a woman who is better at being mistaken for a star than they are at pretending.",
+   "predicaments": [
+    {
+     "situation": "someone is paid to keep company with a person whose mind is failing and converts that access into a plan to take what they have",
+     "basis": "Camille is hired to visit Simon Cinéma for 101 nights and, on learning about the absent heir Vincent, plots with Mica to harvest the inheritance for his film.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "trusting": "Simon Cinéma",
+      "exploiting": "Camille and Mica"
+     }
+    },
+    {
+     "situation": "a stranger is installed in a family as the missing relative and ends up feeling the part they were hired to play",
+     "basis": "Mica's friend's brother, also named Vincent, is coached with childhood details and presented as Cinéma's great-grandson; by the time the scheme collapses he is pleased for the old man rather than for the money.",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "roles": {
+      "impersonating": "Vincent",
+      "receiving": "Simon Cinéma"
+     }
+    },
+    {
+     "situation": "everyone around a person humours their misrecognitions instead of correcting them, and the humouring becomes the household's whole way of life",
+     "basis": "Cinéma takes a vagabond for a princess and an entertainer for Elizabeth Taylor, and the staff and visitors simply play along with a head that is full of stars.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "mistaking": "Simon Cinéma",
+      "indulging": "Firmin, Camille, the visitors"
+     }
+    },
+    {
+     "situation": "schemers after an inheritance are beaten by someone who plays the same delusion better",
+     "basis": "Marina, taken by Cinéma to be Elizabeth Taylor, gets him to sign the entire fortune over to her at the garden party Camille was made to host.",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "roles": {
+      "outplayed": "Camille, Mica and Vincent",
+      "outplaying": "Marina"
+     }
+    },
+    {
+     "situation": "one partner's ambition is financed by the other partner doing something they would not otherwise do",
+     "basis": "Camille runs the whole deception, and later persuades Cinéma to appear in the film, so that Mica's short can be made.",
+     "centrality": 0.55,
+     "outcome": "ambiguous",
+     "roles": {
+      "benefiting": "Mica",
+      "acting": "Camille"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Sunset Boulevard",
+     "shares": "a young opportunist is taken into the house of an old screen figure who lives inside their own past pictures, and starts calculating what can be had"
+    },
+    {
+     "title": "Kagemusha",
+     "shares": "a stand-in is installed to fill the place of a vanished figure and grows into the role he was hired to fake"
+    },
+    {
+     "title": "The Return of Martin Guerre",
+     "shares": "a household accepts a returned relative on the strength of remembered childhood details supplied to him"
+    },
+    {
+     "title": "Six Degrees of Separation",
+     "shares": "a stranger arrives claiming a connection to a wealthy family and is welcomed on a story he was coached in"
+    },
+    {
+     "title": "Goodbye, Lenin!",
+     "shares": "an entire household sustains an ailing person's false picture of the world rather than correct it"
+    }
+   ],
+   "year": 1995,
+   "source": "reading",
+   "plotChars": 4076
+  },
+  {
+   "n": 5,
+   "title": "Lucky Luciano",
+   "engine": "A mob boss sells his usefulness to the American state during the war, gets his sentence commuted and is deported to Italy, where he runs the drug trade through proxies from a race track. The narcotics agent sent after him turns Luciano's own associate informant, uses him hard, and gets him killed; and when the agent starts pulling at how the commutation was obtained, his own superiors shut the investigation down. The film is about a man the law cannot reach because the law once needed him.",
+   "predicaments": [
+    {
+     "situation": "a state buys a criminal's services and afterwards cannot or will not prosecute the man it bought them from",
+     "basis": "Luciano trades wartime intelligence work for a commutation from Governor Dewey and deportation, and Siragusa is later told his superiors would rather not know whether Dewey was bribed.",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "roles": {
+      "buying": "the US authorities",
+      "sold": "Luciano"
+     }
+    },
+    {
+     "situation": "an investigator is called off by his own side and concludes they are protecting one of their own",
+     "basis": "Siragusa is ordered to halt his investigation and accuses his superiors to their faces of covering for Dewey; they deny it and the order stands.",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "roles": {
+      "pursuing": "Siragusa",
+      "obstructing": "his superiors"
+     }
+    },
+    {
+     "situation": "a man is turned against the friend he works for, is found out through his own correspondence, and is killed before he can speak",
+     "basis": "Giannini informs for Siragusa and writes to him through his mistress, who has taken up with Luciano; Luciano reads the letters and has Giannini assassinated before he can testify in the United States.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "informing": "Giannini",
+      "betrayed": "Luciano",
+      "handling": "Siragusa"
+     }
+    },
+    {
+     "situation": "a handler leaves his own asset to serve a prison term as pressure to produce results",
+     "basis": "When Giannini fails to draw Luciano out at Marseille, Siragusa lets him sit a year in an Italian jail on the counterfeit-currency charge.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "using": "Siragusa",
+      "used": "Giannini"
+     }
+    },
+    {
+     "situation": "a man dies of ordinary causes at the exact moment the law finally has him",
+     "basis": "After the Italian authorities detain him and reveal they have uncovered the smuggling scheme, Luciano falls ill, seems to recover, and drops dead of a heart attack at the airport on his way to meet a screenwriter about his life story.",
+     "centrality": 0.6,
+     "outcome": "ambiguous"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Chinatown",
+     "shares": "an investigator discovers the arrangement at the top and is made to stop rather than allowed to finish"
+    },
+    {
+     "title": "Z",
+     "shares": "an official inquiry into a crime runs straight into the state's interest in it not being answered"
+    },
+    {
+     "title": "Donnie Brasco",
+     "shares": "an informant's usefulness to his handlers is spent until the exposure kills him"
+    },
+    {
+     "title": "Il Divo",
+     "shares": "a durable accommodation between political power and organised crime that no prosecution can quite name"
+    },
+    {
+     "title": "On the Waterfront",
+     "shares": "a man is turned against his own people to testify, and what that costs him is the film's real subject"
+    }
+   ],
+   "year": 1973,
+   "source": "reading",
+   "plotChars": 1903
+  },
+  {
+   "n": 6,
+   "title": "The Salt of the Earth",
+   "engine": "An economist exiled from Brazil picks up his wife's camera and turns into a photographer who spends decades going to where people are starving, working and fleeing — the Sahel, the Ethiopian camps, the Yugoslav wars, Rwanda. Returning to Rwanda a year on, what he finds ends his belief in people and in the point of the work. He goes back to his father's exhausted land in Minas Gerais, and his wife's idea to replant it is what gives him something to photograph again.",
+   "predicaments": [
+    {
+     "situation": "a person builds a life out of witnessing other people's suffering and is finally undone by what they have witnessed",
+     "basis": "After the camps, the wars and a return visit to the Rwandan refugees a year later, Salgado loses hope for humanity and questions whether his work has any point.",
+     "centrality": 0.9,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "someone barred from going home puts the whole world between themselves and the place they want to be",
+     "basis": "Unable to return to Brazil after leaving for political reasons, and homesick, Salgado spends his first long project travelling and photographing the rest of the Americas.",
+     "centrality": 0.7,
+     "outcome": "restored"
+    },
+    {
+     "situation": "a partner's suggestion redirects the whole course of the other's working life, twice",
+     "basis": "Lélia buys the camera that turns an economist into a photographer, and years later it is her idea to reforest the family land that pulls him out of despair.",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "roles": {
+      "proposing": "Lélia",
+      "redirected": "Sebastião"
+     }
+    },
+    {
+     "situation": "a person insists that a catastrophe read as fate is actually the result of how people arranged things",
+     "basis": "He describes the Ethiopian famine as a problem of distribution rather than simply a natural disaster, and his pictures draw attention to those underlying causes.",
+     "centrality": 0.5,
+     "outcome": "ambiguous"
+    },
+    {
+     "situation": "a grown child comes back to take over an ailing parent's ruined land and does something with it the parent never would have",
+     "basis": "Sebastião and Lélia leave Paris for Minas Gerais to run his father's failing ranch, and found the Instituto Terra to replant it.",
+     "centrality": 0.6,
+     "outcome": "restored"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Bang Bang Club",
+     "shares": "photographers whose living is made at atrocities are broken by the accumulation of what they photographed"
+    },
+    {
+     "title": "Nostalghia",
+     "shares": "an exile's homesickness organising a whole working life lived somewhere else"
+    },
+    {
+     "title": "Nostalgia for the Light",
+     "shares": "turning the camera from human horror toward the non-human world as the only way to keep looking at anything"
+    },
+    {
+     "title": "The Biggest Little Farm",
+     "shares": "a couple takes on exhausted land and spends years restoring it as a shared project"
+    },
+    {
+     "title": "Dersu Uzala",
+     "shares": "a man worn down by his own civilisation finds his footing again through a landscape and the people still living inside it"
+    }
+   ],
+   "year": 2014,
+   "source": "reading",
+   "plotChars": 2248
+  },
+  {
+   "n": 1,
+   "title": "Flesh for Frankenstein",
+   "engine": "A man who wants a race that will obey him treats every body around him — corpses, servants, passers-by, his own wife — as raw material, and gets his sexual satisfaction from the surgical openings he makes in the things he assembles. Everyone in the household copies him: the wife uses the made man for her own appetite, the assistant copies his master's private act on the made woman, and both are destroyed by the thing they used. The one force he cannot design out is the scrap of friendship left inside a head he stole, which turns on him and then kills itself.",
+   "predicaments": [
+    {
+     "situation": "a maker builds a creature to obey absolutely and is destroyed by the one remnant of who it was before",
+     "basis": "the male creature, assembled around the stolen head of Nicholas's friend, refuses the Baron's order to kill Nicholas and kills the Baron instead.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "maker": "Baron von Frankenstein",
+      "made": "the male creature"
+     }
+    },
+    {
+     "situation": "a person recognises a friend's face on a body that gives no sign of knowing them",
+     "basis": "Nicholas sees his friend's head serving dinner on the creature's body and conceals the recognition while he investigates.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "recogniser": "Nicholas",
+      "unrecognising": "the male creature"
+     }
+    },
+    {
+     "situation": "a spouse neglected for the other's private project takes a servant or stranger as a substitute",
+     "basis": "Katrin, ignored while the Baron works on his creatures, summons Nicholas to the castle on an explicit arrangement to satisfy her.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "neglecting": "Baron von Frankenstein",
+      "neglected": "Katrin"
+     }
+    },
+    {
+     "situation": "a lover hands their partner over to the household's authority and is paid in the coin they wanted",
+     "basis": "after falling out with Nicholas, Katrin betrays him to the Baron and is rewarded with the use of the male creature, which kills her.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "betrayer": "Katrin",
+      "betrayed": "Nicholas"
+     }
+    },
+    {
+     "situation": "a subordinate imitates the master's secret transgression and is annihilated for it",
+     "basis": "Otto repeats the Baron's use of the female creature, disembowels her, and is killed by the returning Baron.",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "roles": {
+      "master": "Baron von Frankenstein",
+      "imitator": "Otto"
+     }
+    },
+    {
+     "situation": "children take up the parent's instruments and turn them on the surviving adult",
+     "basis": "Erik and Monica work the crane to hoist the trapped Nicholas up while holding scalpels.",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "roles": {
+      "inheritors": "Erik and Monica",
+      "object": "Nicholas"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Eyes Without a Face",
+     "shares": "a surgeon harvests living people as material for a private project of restored perfection"
+    },
+    {
+     "title": "Blade Runner",
+     "shares": "a manufactured being confronts the man who specified it and kills him"
+    },
+    {
+     "title": "The Skin I Live In",
+     "shares": "a captive body is remade to a designer's specification, and the person inside it survives to answer"
+    },
+    {
+     "title": "Frankenstein (1931)",
+     "shares": "the made thing concludes it is better off destroyed than continuing as what it was made into"
+    },
+    {
+     "title": "Who Can Kill a Child?",
+     "shares": "children pick up adult instruments of harm and use them without hesitation"
+    }
+   ],
+   "year": 1973,
+   "source": "reading",
+   "plotChars": 2836
+  },
+  {
+   "n": 2,
+   "title": "A Taxi Driver",
+   "engine": "A driver takes a foreigner's fare for the money, drives into a city where the army is shooting its own citizens, and spends the film deciding whether he is a man with a daughter waiting at home or the only vehicle a witness has out. Strangers keep paying for his passage — with food, with a tow, with their lives at a roadblock — and the footage gets out. Afterwards he gives a false name and a wrong number, so the gratitude between the two men can never be settled.",
+   "predicaments": [
+    {
+     "situation": "a paid errand turns into something the hired party cannot walk away from",
+     "basis": "Man-seob takes the Gwangju fare purely to clear his debts, turns back once, and returns of his own accord after hearing the official version on the radio.",
+     "centrality": 0.9,
+     "outcome": "transfigured",
+     "roles": {
+      "hired": "Man-seob",
+      "client": "Peter"
+     }
+    },
+    {
+     "situation": "an outsider must carry proof of a massacre out past the people erasing it",
+     "basis": "Peter films the crackdown and the shooting of civilians and has to be driven through roadblocks under orders to stop foreigners.",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "roles": {
+      "witness": "Peter",
+      "suppressor": "the DSC and the army"
+     }
+    },
+    {
+     "situation": "the official account names the victims as the enemy",
+     "basis": "broadcasts outside Gwangju claim North Korean infiltrators caused the chaos, which is what sends Man-seob back.",
+     "centrality": 0.6,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "people who owe a stranger nothing spend their lives to let him through",
+     "basis": "the Gwangju taxi drivers block the pursuing officers so Man-seob and Peter can reach Seoul, and are killed for it.",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "roles": {
+      "sacrificing": "the Gwangju taxi drivers",
+      "spared": "Man-seob and Peter"
+     }
+    },
+    {
+     "situation": "a man is pulled between a dependent waiting at home and the duty of the place he is standing in",
+     "basis": "Man-seob cannot reach his young daughter in Seoul and leaves Gwangju for her, then turns around.",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "roles": {
+      "obligated": "Man-seob",
+      "waiting": "his daughter"
+     }
+    },
+    {
+     "situation": "a debt of gratitude is made unpayable because one party withholds his name",
+     "basis": "Man-seob writes \"Kim Sa-bok\" and a cigarette company's number in Peter's notebook, and neither man ever finds the other again.",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "roles": {
+      "concealing": "Man-seob",
+      "searching": "Peter"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Killing Fields",
+     "shares": "a foreign journalist and a local companion get the story out together, then are separated for good by what it cost"
+    },
+    {
+     "title": "Under Fire",
+     "shares": "an outsider's camera becomes the only evidence against a state's version of its own killings"
+    },
+    {
+     "title": "The Year of Living Dangerously",
+     "shares": "a reporter depends entirely on a local guide to move through a city turning violent"
+    },
+    {
+     "title": "Z",
+     "shares": "an official narrative is manufactured over state killings, and the truth surfaces only through what someone recorded"
+    },
+    {
+     "title": "Hotel Rwanda",
+     "shares": "an ordinary man with a vehicle and a daughter at home keeps choosing to go back in"
+    }
+   ],
+   "year": 2017,
+   "source": "reading",
+   "plotChars": 3934
+  },
+  {
+   "n": 3,
+   "title": "Trois places pour le 26",
+   "engine": "A performer comes home to stage his own life as a musical and, while doing so, goes looking for the first love the show is partly about. A young admirer talks her way into the production, replaces the leading lady, and sleeps with him; over breakfast she works out from his stories that her mother is that first love and he is her father. The film's whole weight is that nobody treats this as a catastrophe — the three of them leave together as a family.",
+   "predicaments": [
+    {
+     "situation": "two people become lovers and then discover they are parent and child",
+     "basis": "the morning after she and Yves sleep together, Marion recognises his account of his lost love as her own mother's story.",
+     "centrality": 0.9,
+     "outcome": "transfigured",
+     "roles": {
+      "unknowing_parent": "Yves",
+      "unknowing_child": "Marion"
+     }
+    },
+    {
+     "situation": "a man stages his own past as a public performance and the living past walks back into it",
+     "basis": "the musical retells Yves's youth and lost first love, and Mylène herself resurfaces in Marseille while it is being rehearsed.",
+     "centrality": 0.7,
+     "outcome": "restored"
+    },
+    {
+     "situation": "a first love is sought after decades and found living under another name and station",
+     "basis": "the mysterious Baroness de Lambert who leaves a card at his hotel turns out, from her voice on the phone, to be Mylène, the prostitute he loved.",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "roles": {
+      "seeker": "Yves",
+      "found": "Mylène"
+     }
+    },
+    {
+     "situation": "a woman bears and raises a child alone without telling the father",
+     "basis": "Mylène had her daughter after she and Yves parted and has kept her existence from him.",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "roles": {
+      "withholding": "Mylène",
+      "unaware": "Yves"
+     }
+    },
+    {
+     "situation": "an admirer asks a famous person for a small favour and ends up inside their life",
+     "basis": "Marion comes to the dressing room only for three tickets, and by opening night she has the lead role and has spent the night with him.",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "roles": {
+      "admirer": "Marion",
+      "admired": "Yves"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Oldboy",
+     "shares": "two people are brought together as lovers and then learn they are parent and child"
+    },
+    {
+     "title": "Vertigo",
+     "shares": "a man restages a lost love with a living woman who turns out to be bound to the original"
+    },
+    {
+     "title": "Chinatown",
+     "shares": "a family's structure turns out to be one relation folded inside another, revealed by a daughter's origin"
+    },
+    {
+     "title": "A Star Is Born",
+     "shares": "an unknown talks her way into a star's production, takes the lead role, and becomes his intimate"
+    },
+    {
+     "title": "The Umbrellas of Cherbourg",
+     "shares": "a first love reappears years later, with a child born after the parting standing between them"
+    }
+   ],
+   "year": 1988,
+   "source": "reading",
+   "plotChars": 1787
+  },
+  {
+   "n": 4,
+   "title": "Hangmen Also Die!",
+   "engine": "A man kills the occupying governor, and the occupier answers by taking four hundred citizens hostage and telling the population to produce the killer. The film is about what a city does with that demand: a woman who hid the assassin has to weigh her own father's life against him, the resistance manufactures a culprit out of the collaborator in its own ranks, and hundreds of ordinary people swear to a shared lie to make it stick. The lie works and the hostages are shot anyway.",
+   "predicaments": [
+    {
+     "situation": "an occupying power makes an entire population answerable for one person's act",
+     "basis": "the Nazis seize four hundred Czech men and execute them forty at a time until the assassin is surrendered or betrayed.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "punishing": "the Gestapo",
+      "punished": "the citizens of Prague"
+     }
+    },
+    {
+     "situation": "someone must choose between the life of their own parent and the safety of a stranger they sheltered",
+     "basis": "Mascha, whose father is among the hostages, demands Svoboda give himself up and goes to the Gestapo to denounce him.",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "roles": {
+      "torn": "Mascha",
+      "hidden": "Svoboda",
+      "hostage": "Professor Novotny"
+     }
+    },
+    {
+     "situation": "a whole community swears to the same lie to protect one of its own",
+     "basis": "Mascha names Czaka as the man she saw fleeing, and crowds of witnesses corroborate a story they all know to be false.",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "roles": {
+      "lying": "the Czech population",
+      "deceived": "the Gestapo"
+     }
+    },
+    {
+     "situation": "the trusted insider at the centre of a clandestine group is the enemy's man",
+     "basis": "Czaka, a wealthy brewer who attends resistance meetings and knows its leaders, is a German fifth-columnist, and his information gets most of the cell killed or arrested.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "informer": "Czaka",
+      "betrayed": "the resistance"
+     }
+    },
+    {
+     "situation": "a couple stages intimacy as cover and is judged by outsiders as unfaithful",
+     "basis": "the Gestapo, listening in, concludes Mascha is cheating on her fiancé Jan with Svoboda — exactly the reading the resistance planted.",
+     "centrality": 0.5,
+     "outcome": "transfigured",
+     "roles": {
+      "performing": "Mascha and Svoboda",
+      "misreading": "Gruber and the Gestapo",
+      "injured_party": "Jan"
+     }
+    },
+    {
+     "situation": "a bargain is made with power that power never intended to honour",
+     "basis": "Mascha is told the remaining hostages will go free, and the Gestapo liquidates all of them, her father included.",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "roles": {
+      "bargaining": "Mascha",
+      "reneging": "the Gestapo"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Army of Shadows",
+     "shares": "a clandestine cell must identify and destroy the informer inside itself while weighing whose life to spend"
+    },
+    {
+     "title": "Rome, Open City",
+     "shares": "an occupied city hides a wanted resistance man and pays for it in the people the occupier can reach"
+    },
+    {
+     "title": "The Battle of Algiers",
+     "shares": "an occupier answers one killing with collective punishment and runs the population through informers"
+    },
+    {
+     "title": "The Wind That Shakes the Barley",
+     "shares": "a resistance group turns on one of its own after his information gets comrades killed"
+    },
+    {
+     "title": "Le Corbeau",
+     "shares": "a town closes ranks around a shared account of events that everyone privately knows is false"
+    }
+   ],
+   "year": 1943,
+   "source": "reading",
+   "plotChars": 2821
+  },
+  {
+   "n": 1,
+   "title": "Like Father, Like Son",
+   "engine": "A hospital admits it handed two couples the wrong newborns six years ago, and the two families must decide whether a son is the boy you bore or the boy you have been feeding every day. For the father at the centre — a man who has been at the office rather than at home — the decision keeps turning back on him, because the more he tries to acquire the right son the more he learns what kind of father the son he had was actually living with.",
+   "predicaments": [
+    {
+     "situation": "an institution's error forces two households to choose between the child they raised and the child they bore",
+     "basis": "The hospital reveals that Keita and Ryūsei were swapped at birth, and both couples spend the film deciding whether to trade the boys back.",
+     "centrality": 1,
+     "outcome": "ambiguous",
+     "roles": {
+      "raised": "Keita with the Nonomiyas, Ryūsei with the Saikis",
+      "born to": "Ryūsei to the Nonomiyas, Keita to the Saikis"
+     }
+    },
+    {
+     "situation": "a man tries to settle a human claim by offering money for it, and insults the people he is bargaining with",
+     "basis": "Ryōta proposes that he and Midori take both boys permanently, since he has the money and the Saikis do not, which offends Yūdai and Yukari.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "offering": "Ryōta",
+      "refusing": "Yūdai and Yukari"
+     }
+    },
+    {
+     "situation": "a parent who has been measuring a child against what he wanted discovers, too late, what the child was giving him",
+     "basis": "Ryōta finds the photographs Keita secretly took of him asleep on his camera and breaks down.",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "roles": {
+      "withholding": "Ryōta",
+      "giving": "Keita"
+     }
+    },
+    {
+     "situation": "children are moved between households by adult decision and answer by shutting down or running",
+     "basis": "After the permanent exchange both boys go silent, and Ryūsei runs away from the Nonomiyas back to the Saikis.",
+     "centrality": 0.7,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "the person who deliberately caused the harm is confronted and turns out to be shielded by a child of her own",
+     "basis": "Ryōta goes to return the nurse's apology money and berate her, and her stepson steps in to defend her.",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "roles": {
+      "accusing": "Ryōta",
+      "accused": "the nurse"
+     }
+    },
+    {
+     "situation": "a father asks a child he failed to forgive him, and has to chase him to do it",
+     "basis": "Keita runs from Ryōta at the Saikis' house, and Ryōta follows him to apologise for his failures as a father.",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "roles": {
+      "apologising": "Ryōta",
+      "withdrawn": "Keita"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Secrets & Lies",
+     "shares": "a life built on who raised whom is reopened when the blood connection is put on the table"
+    },
+    {
+     "title": "The Kid",
+     "shares": "an authority decides a child belongs elsewhere than with the man who actually raised him"
+    },
+    {
+     "title": "The Return",
+     "shares": "a father tries to make sons into the thing he believes a son should be and cannot reach them"
+    },
+    {
+     "title": "Rabbit-Proof Fence",
+     "shares": "children are transferred between households by adult decision and go back to the home they know on foot"
+    },
+    {
+     "title": "Ordinary People",
+     "shares": "a father's inability to show what he feels for a son is the actual subject under a family crisis"
+    }
+   ],
+   "year": 2013,
+   "source": "reading",
+   "plotChars": 2628
+  },
+  {
+   "n": 2,
+   "title": "Last Tango in Paris",
+   "engine": "A man whose wife has killed herself without explaining why sets up an affair in an empty apartment on one rule: no names, no histories, nothing known. When he finally breaks his own rule and offers the woman his name, his grief and his life story, she wants nothing more to do with him — and when he will not accept that, she tells him her name and shoots him, then starts rehearsing the story that he was a stranger.",
+   "predicaments": [
+    {
+     "situation": "two people agree to an intimacy on condition that neither knows anything about the other",
+     "basis": "Paul insists that he and Jeanne exchange no personal information, not even given names, in the rented apartment.",
+     "centrality": 1,
+     "outcome": "fatal",
+     "roles": {
+      "imposing the rule": "Paul",
+      "chafing at it": "Jeanne"
+     }
+    },
+    {
+     "situation": "one party dictates the terms of physical intimacy and the other submits against their own wish",
+     "basis": "Paul anally rapes Jeanne in the apartment, and she says she tries to leave him but cannot bring herself to.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "imposing": "Paul",
+      "submitting": "Jeanne"
+     }
+    },
+    {
+     "situation": "a survivor of someone's suicide is left with no reason for it and pours the account into a stranger",
+     "basis": "After his wife Rosa's viewing, Paul finds Jeanne and tells her the tragedy and his whole life story.",
+     "centrality": 0.6,
+     "outcome": "unrestored"
+    },
+    {
+     "situation": "the moment one party becomes a known person the other loses all appetite for the bond",
+     "basis": "Paul's confession in the tango bar disillusions Jeanne, who tells him she does not want to see him again.",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "roles": {
+      "disclosing": "Paul",
+      "withdrawing": "Jeanne"
+     }
+    },
+    {
+     "situation": "one party ends it and the other will not accept the refusal, following them home",
+     "basis": "Paul chases Jeanne through the streets despite her shouting at him to go away and forces his way into her apartment.",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "roles": {
+      "pursuing": "Paul",
+      "refusing": "Jeanne"
+     }
+    },
+    {
+     "situation": "a killing is immediately reworked into an account that makes the dead man a stranger",
+     "basis": "Jeanne mutters to herself that he was just a stranger who tried to rape her and she did not know who he was, as if rehearsing for the police.",
+     "centrality": 0.6,
+     "outcome": "fatal"
+    }
+   ],
+   "relatives": [
+    {
+     "title": "In the Realm of the Senses",
+     "shares": "a couple seals itself in a room away from all other identity and the man ends up dead at the woman's hand"
+    },
+    {
+     "title": "Belle de Jour",
+     "shares": "an arrangement that only works while it is anonymous collapses when a man insists on being known"
+    },
+    {
+     "title": "Vertigo",
+     "shares": "a man forces a woman to be a nameless figure of his own devising and the naming destroys them"
+    },
+    {
+     "title": "The Piano Teacher",
+     "shares": "intimacy conducted on one party's dictated terms turns into assault and a demand the other cannot meet"
+    },
+    {
+     "title": "Play Misty for Me",
+     "shares": "one party treats the affair as ended and is pursued home by someone who will not hear it"
+    }
+   ],
+   "year": 1972,
+   "source": "reading",
+   "plotChars": 1901
+  },
+  {
+   "n": 3,
+   "title": "Black Rain",
+   "engine": "A man, his wife and the niece who was caught in the fallout live on in a town outside Hiroshima, and the film is about what the town does with them: every family approached about marrying the niece withdraws the moment they hear she was in the city that day. The household spends five years being quietly refused while watching friends die of the same thing they are waiting to develop in themselves.",
+   "predicaments": [
+    {
+     "situation": "survivors are refused by everyone around them out of fear of what their bodies now carry",
+     "basis": "Every marriage prospect's family withdraws on hearing Yasuko was in Hiroshima, fearing illness or unhealthy children.",
+     "centrality": 1,
+     "outcome": "unrestored",
+     "roles": {
+      "refused": "Yasuko",
+      "refusing": "the prospective families"
+     }
+    },
+    {
+     "situation": "a guardian tries to arrange a future for a young woman in his care and cannot deliver it",
+     "basis": "Shigematsu and Shigeko work to find Yasuko a husband and every attempt falls through.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "arranging": "Shigematsu and Shigeko",
+      "arranged for": "Yasuko"
+     }
+    },
+    {
+     "situation": "people go on with daily life while waiting for a slow illness they have watched kill their neighbours first",
+     "basis": "Shigematsu's fellow hibakusha die one after another as his, his wife's and Yasuko's health deteriorates.",
+     "centrality": 0.9,
+     "outcome": "fatal"
+    },
+    {
+     "situation": "a young person chooses the household that raised them over the parent who left and started again",
+     "basis": "Yasuko decides to stay with her uncle's family rather than accept her remarried father's offer of a home.",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "roles": {
+      "staying with": "Shigematsu and Shigeko",
+      "declined": "her father"
+     }
+    },
+    {
+     "situation": "a family objects to a match because the suitor is damaged, then relents",
+     "basis": "Shigematsu is indignant at Yuichi's war trauma when Yuichi's mother proposes the marriage, but later agrees.",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "roles": {
+      "judging": "Shigematsu",
+      "judged": "Yuichi"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Late Spring",
+     "shares": "an older man's project of marrying off the young woman in his household against her own attachment to staying"
+    },
+    {
+     "title": "Never Let Me Go",
+     "shares": "people conduct ordinary courtships knowing their bodies are already marked for early failure"
+    },
+    {
+     "title": "Philadelphia",
+     "shares": "a person is excluded from ordinary social standing because others fear what their illness might mean for them"
+    },
+    {
+     "title": "Grave of the Fireflies",
+     "shares": "a household displaced by the bombing is sheltered and then quietly found burdensome"
+    },
+    {
+     "title": "The Elephant Man",
+     "shares": "a person is denied an ordinary place among others solely on account of what their body is"
+    }
+   ],
+   "year": 1989,
+   "source": "reading",
+   "plotChars": 1816
+  },
+  {
+   "n": 4,
+   "title": "Women of the Night",
+   "engine": "In the ruins of post-war Osaka three women with no income of their own — a war widow, her sister, and her teenage sister-in-law — each end up selling sex, and the film is largely about what the shortage does between them rather than to them: one sister takes the man keeping the other, the older women turn the youngest away when she runs, and the ruined ones are the only people who try to pull each other back out.",
+   "predicaments": [
+    {
+     "situation": "a woman with no means is offered support by a man whose actual terms are sexual",
+     "basis": "Kuriyama hires the newly widowed Fusako as a secretary in order to seduce her, and she reluctantly becomes his mistress.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "providing": "Kuriyama",
+      "provided for": "Fusako"
+     }
+    },
+    {
+     "situation": "a sister takes up with the man who was keeping her sister",
+     "basis": "Kuriyama transfers his interest to Natsuko at the dance hall and begins sleeping with her, after which Fusako turns to prostitution.",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "roles": {
+      "betrayed": "Fusako",
+      "betraying": "Natsuko"
+     }
+    },
+    {
+     "situation": "a person turns their own ruin into a weapon aimed at a whole category of people",
+     "basis": "Fusako declares she will revenge herself on the men of Japan by infecting them with syphilis, and cannot say whether it has worked when asked.",
+     "centrality": 0.7,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "a relative refuses to shelter a runaway to protect their own position, and the runaway falls further",
+     "basis": "Natsuko turns Kumiko away for fear of being blamed for corrupting her, and Kumiko is then raped and robbed by a gangster.",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "roles": {
+      "refusing": "Natsuko",
+      "turned away": "Kumiko"
+     }
+    },
+    {
+     "situation": "people who offer moral rescue cannot answer how the rescued are supposed to eat",
+     "basis": "The purity association representative's condescension provokes the detained prostitutes to ask how society proposes to feed them otherwise.",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "roles": {
+      "exhorting": "the purity association and clinic staff",
+      "answering back": "the prostitutes"
+     }
+    },
+    {
+     "situation": "someone who has been through it tries to drag another out and is beaten for saying so aloud",
+     "basis": "Fusako convinces Kumiko to quit in the ruined church and is savagely beaten by the rival prostitutes' leader for it.",
+     "centrality": 0.7,
+     "outcome": "ambiguous",
+     "roles": {
+      "pulling out": "Fusako",
+      "pulled out": "Kumiko"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Nights of Cabiria",
+     "shares": "a woman selling sex stakes her escape on a man's promise of support and is robbed of it"
+    },
+    {
+     "title": "Vivre sa vie",
+     "shares": "a woman with no income arrives at prostitution by a sequence of ordinary shortfalls rather than a decision"
+    },
+    {
+     "title": "Rosetta",
+     "shares": "subsistence desperation poisons the only loyalty available between two people"
+    },
+    {
+     "title": "Germany Year Zero",
+     "shares": "a bombed-out city where survival trades are the only economy left to the household"
+    },
+    {
+     "title": "Sisters of the Gion",
+     "shares": "two sisters split over whether to work men for what they can get or submit to being kept"
+    }
+   ],
+   "year": 1948,
+   "source": "reading",
+   "plotChars": 4656
+  },
+  {
+   "n": 5,
+   "title": "Panic Room",
+   "engine": "A newly divorced woman and her diabetic daughter spend their first night in an oversized house they have just moved into, and three men break in for something locked in the one room the two of them are hiding in. What decides it is that the crew is not of one mind: the man who built the room will not let a child come to harm, and the man brought along for muscle will kill anyone.",
+   "predicaments": [
+    {
+     "situation": "people shut themselves in a refuge and find that what they need is outside it and what the attackers want is inside it",
+     "basis": "Meg and Sarah are safe in the panic room, but Sarah's glucagon is in her bedroom and the bearer bonds are in the room's floor safe.",
+     "centrality": 1,
+     "outcome": "restored",
+     "roles": {
+      "sealed in": "Meg and Sarah",
+      "locked out": "Burnham, Raoul and Junior"
+     }
+    },
+    {
+     "situation": "a parent must leave safety to get the thing a child will die without",
+     "basis": "Meg leaves the panic room for Sarah's syringes after Sarah's seizure, and the men get in behind her.",
+     "centrality": 0.8,
+     "outcome": "ambiguous",
+     "roles": {
+      "exposing herself": "Meg",
+      "dependent": "Sarah"
+     }
+    },
+    {
+     "situation": "an accomplice discovers his partners intend more than he signed up for and turns on them",
+     "basis": "Burnham objects to Raoul's presence and violence, gives Sarah her medication, and finally shoots Raoul to save Meg.",
+     "centrality": 0.7,
+     "outcome": "ambiguous",
+     "roles": {
+      "defecting": "Burnham",
+      "escalating": "Raoul"
+     }
+    },
+    {
+     "situation": "the person attacking a defence is the person who designed it",
+     "basis": "Burnham built the panic room for the previous owner and knows its vents, its door and its limits.",
+     "centrality": 0.6,
+     "outcome": "restored"
+    },
+    {
+     "situation": "a victim must send away the help that arrives, because being rescued would get someone killed",
+     "basis": "Meg persuades the two responding officers that everything is fine while Sarah is still held inside.",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "roles": {
+      "lying": "Meg",
+      "turned away": "the police"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "Wait Until Dark",
+     "shares": "a woman alone in her own home turns its layout and terms against three men who came for something hidden there"
+    },
+    {
+     "title": "The Desperate Hours",
+     "shares": "a family is held inside its own house by intruders who fall out among themselves"
+    },
+    {
+     "title": "Aliens",
+     "shares": "an adult's whole conduct under siege is organised around keeping one child alive in a sealed space"
+    },
+    {
+     "title": "Dog Day Afternoon",
+     "shares": "a robbery hardens into a standoff in which one participant's conscience splits the crew"
+    },
+    {
+     "title": "The Night of the Hunter",
+     "shares": "children are hunted through a house by a man who wants what is hidden with them"
+    }
+   ],
+   "year": 2002,
+   "source": "reading",
+   "plotChars": 3013
+  },
+  {
+   "n": 6,
+   "title": "Stalag 17",
+   "engine": "Two men are shot dead going over the wire and the barracks concludes there is an informer among them; they settle on the trader who deals openly with the guards and profits off everyone's boredom, and beat him for it. He is the only one who then bothers to work out how the messages are actually passed — and the man passing them is the barracks' own security officer, the one appointed to protect them from exactly this.",
+   "predicaments": [
+    {
+     "situation": "a confined group under threat decides the least likeable of them is the traitor",
+     "basis": "Suspicion falls on Sefton because he barters with the guards and lives better than the rest, and the men beat him after the radio is confiscated.",
+     "centrality": 1,
+     "outcome": "restored",
+     "roles": {
+      "accused": "Sefton",
+      "accusing": "the men of Barracks 4"
+     }
+    },
+    {
+     "situation": "the person appointed to guard the group against betrayal is the one betraying it",
+     "basis": "Frank Price, the barracks security officer, is the German plant, exchanging messages with Schulz through the hollow chess queen.",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "roles": {
+      "trusted": "Price",
+      "trusting": "Hoffy and the barracks"
+     }
+    },
+    {
+     "situation": "a man who profits off the misery of the people he is confined with is despised, and it costs him the benefit of the doubt",
+     "basis": "Sefton's rat races, still and telescope make him money and make him the obvious suspect when men die.",
+     "centrality": 0.7,
+     "outcome": "transfigured"
+    },
+    {
+     "situation": "an accused man can only clear himself by producing the real culprit",
+     "basis": "Sefton spots the light-cord signal, watches Price speak German to Schulz, and then exposes the messaging system in front of everyone.",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "roles": {
+      "clearing himself": "Sefton",
+      "exposed": "Price"
+     }
+    },
+    {
+     "situation": "a group must decide whether to risk all of them to save one man singled out by the enemy",
+     "basis": "After von Scherbach threatens to raze the camp over Dunbar, the men of Barracks 4 stage a riot, hide him, and agree one of them must get him out.",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "roles": {
+      "at risk": "the barracks",
+      "being saved": "Dunbar"
+     }
+    },
+    {
+     "situation": "a group puts one of its own to death by handing him to the enemy rather than doing it itself",
+     "basis": "The prisoners tie cans to Price's leg and throw him out into the compound, where the searchlights and guards kill him.",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "roles": {
+      "delivering": "the barracks",
+      "delivered": "Price"
+     }
+    }
+   ],
+   "relatives": [
+    {
+     "title": "The Thing",
+     "shares": "a sealed group hunts the one among them who is not with them and turns first on the loner"
+    },
+    {
+     "title": "Le Corbeau",
+     "shares": "a closed community tears itself apart trying to identify a hidden informer and accuses the wrong people"
+    },
+    {
+     "title": "The Ox-Bow Incident",
+     "shares": "a group convinces itself of a culprit on appearances and acts before anyone establishes it"
+    },
+    {
+     "title": "Army of Shadows",
+     "shares": "a group judges one of its own an informer and carries out the execution among themselves"
+    },
+    {
+     "title": "Twelve Angry Men",
+     "shares": "one man against a unanimous room forces it to examine the mechanics of what it already believes"
+    }
+   ],
+   "year": 1953,
+   "source": "reading",
+   "plotChars": 4200
+  },
+  {
+   "title": "Kings of the Road",
+   "year": 1976,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  },
+  {
+   "title": "Handicapped Future",
+   "year": 1971,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  },
+  {
+   "title": "The Last Run",
+   "year": 1971,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  },
+  {
+   "title": "Anzukko",
+   "year": 1958,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  },
+  {
+   "title": "Woman Without a Face",
+   "year": 1947,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  },
+  {
+   "title": "Vergine moderna",
+   "year": 1954,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  },
+  {
+   "title": "The Beaches of Agnès",
+   "year": 2008,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  },
+  {
+   "title": "Based on a True Story",
+   "year": 2017,
+   "engine": null,
+   "predicaments": [],
+   "relatives": [],
+   "source": "reading",
+   "plotChars": 0,
+   "belowFloor": true
+  }
+ ]
+}

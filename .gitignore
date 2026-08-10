@@ -107,3 +107,21 @@ __pycache__/
 /.atlas-films-snap/
 /atlas/pipeline/out/fingerprints.shard-*.json
 /atlas/pipeline/.cache-soc/
+/scratchpad/
+/atlas/pipeline/.cache-readings/
+
+# RAG bake-off trial (atlas/pipeline/rag). The MiniLM ONNX weights are 90 MB of
+# downloadable third-party binary and the corpus vectors are derived output —
+# both are reproducible with atlas/pipeline/rag/build-index.py, neither belongs
+# in git.
+/atlas/pipeline/.cache-rag/
+/atlas/pipeline/out/rag-*.npy
+/atlas/pipeline/.cache-rag/
+/atlas/pipeline/out/rag-index.npz
+/atlas/pipeline/rag/__pycache__/
+/atlas/pipeline/out/rag-*.npz
+/atlas/pipeline/out/rag-audit-dense.json
+/atlas/pipeline/.cache-propB/
+/atlas/pipeline/.cache-propC/
+/atlas/pipeline/.cache-tags-passc/
+/atlas/pipeline/rag/interpret-cache/

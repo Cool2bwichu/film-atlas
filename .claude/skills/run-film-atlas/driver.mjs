@@ -400,6 +400,68 @@ function scene(name, arg) {
         return { mark: t, nominal: DEVELOP_MS, note: `${F[k].title} (${F[k].year || "?"})` };
       }),
     },
+    /* ── THE CENTURY, RUN ────────────────────────────────────────────────
+       6.9 s of the reel: 2,204 films arriving as they were made and 22,050
+       connections inking in the direction their own type argues. This is the
+       scene `film` exists for. A still frame of the transport is worthless —
+       every frame of it is a legitimate picture — and the two ways it can be
+       broken are exactly the two this harness names: a run that SNAPS puts
+       all its motion in one frame, and a run that STALLS goes hundreds of
+       milliseconds without a paint while the cursor keeps moving, so the
+       reader sees the century jump.
+
+       Judged as a tween with a long window. The motion here does not
+       decelerate into a landing the way a camera move does — the cursor is
+       linear in years and the film census is not, so the profile is genuinely
+       lumpy: 1916-1940 is 99 films and the 1960s alone are 374. That
+       lumpiness is the corpus and it is the reason the census is printed
+       under the rail rather than smoothed away. */
+    transport: {
+      label: "the century, run end to end", judge: "tween", tail: 900,
+      setup: async (page) => {
+        await skyReady(page);
+        await page.evaluate(() => { skyTpApply(); skyTpBuild(); skyTpRest(false); });
+        await page.waitForTimeout(500);
+      },
+      act: (page) => page.evaluate(() => {
+        const t = performance.now();
+        skyTpRun();
+        return { mark: t, nominal: TP_RUN_MS, note: `${sky.tp.y0}-${sky.tp.y1}, ${sky.n} films` };
+      }),
+    },
+    /* ── GRAZING THE TRACK ───────────────────────────────────────────────
+       A rack focus onto one year with NOTHING MOVING: 1968's films come up
+       where they already are and the rest of the atlas recedes.
+
+       JUDGED AS A LOOP AND NOT AS A TWEEN, and the distinction is the whole
+       point of the gesture. A tween is asked to spread its motion over many
+       frames; a graze is a sequence of DISCRETE repaints, one per pointer
+       move and none in between, and "half the motion is in 2 frames" is that
+       working rather than failing. Judged as a tween it fails on exactly that
+       line, which is the harness reporting the wrong thing correctly. What
+       this scene is for is the other reading: that the steps are separated by
+       nothing at all — the `after` line and the flat stretches in the profile
+       are the zero idle draws, filmed. */
+    graze: {
+      label: "grazing the track, one year lit where it already is", judge: "loop", tail: 700,
+      setup: async (page) => {
+        await skyReady(page);
+        await page.evaluate(() => { skyTpApply(); skyTpBuild(); skyTpRest(false); });
+        await page.waitForTimeout(500);
+      },
+      act: (page) => page.evaluate(async () => {
+        const t = performance.now();
+        /* Walked across a decade one year at a time on the pointer's own
+           rate, because that is the gesture: one repaint per move, and none
+           when the pointer is elsewhere. */
+        for (let y = 1962; y <= 1974; y++) {
+          skyTpGraze(y);
+          await new Promise((r) => setTimeout(r, 90));
+        }
+        skyTpRest(false);
+        return { mark: t, nominal: 13 * 90, note: "1962 to 1974, one repaint a year" };
+      }),
+    },
     /* One meteor, from just off one edge to just off another. Forced rather
        than waited for — the real generator still draws the path, only the
        clock is moved, so what is filmed is a sample from the shipping
@@ -718,7 +780,7 @@ async function recordPass(sc, slug) {
 async function cmdFilm(name, arg, label) {
   const sc = scene(name, arg);
   if (!sc) {
-    console.error(`unknown scene "${name}". try: reform | return | develop | meteor | worlds | still | pulse | drift | flicker | all`);
+    console.error(`unknown scene "${name}". try: reform | return | transport | graze | develop | meteor | worlds | still | pulse | drift | flicker | all`);
     process.exit(2);
   }
   const slug = label || (arg && name !== "reform" && name !== "return" ? `${name}-${arg}` : name);
@@ -971,10 +1033,11 @@ else if (cmd === "eval") await cmdEval(args.join(" "));
 else if (cmd === "repl") await cmdRepl();
 else if (cmd === "film") {
   if (args[0] === "all") {
-    /* The three the project cannot afford to get wrong: the flight in, the
-       flight back, and the one thing on screen that moves on its own. */
+    /* The four the project cannot afford to get wrong: the flight in, the
+       flight back, the one thing on screen that moves on its own, and the
+       century — which is the only one of them whose content IS the motion. */
     let all = true;
-    for (const s of ["reform", "return", "meteor"]) all = (await cmdFilm(s, args[1])) && all;
+    for (const s of ["reform", "return", "transport", "meteor"]) all = (await cmdFilm(s, args[1])) && all;
     log(all ? "ALL FILMS PASS" : "ALL FILMS: at least one FAIL");
   } else await cmdFilm(args[0], args[1], args[2]);
 } else {

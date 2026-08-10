@@ -457,6 +457,75 @@ function attributeModel(table, attr) {
    demands, which is what "I care about this half as much" has to mean if the
    score is to stay in [0, 1].                                                */
 
+/* ─────────────────────────── THE CONJUNCTIVE FLOOR, WHICH IS NOT A MEAN
+
+   The score above this line is a weight-normalised MEAN of per-clause
+   surprisal, and a mean has one failure the reader can see from across the
+   room: a film can rank first by ignoring part of the sentence. Measured, on
+   the owner's own words —
+
+     "a film that has fast pacing, has the mood of the matrix, has a hopeful
+      tone, has little dialogue, very spiritual in nature"
+
+   — the film drawn nearest the centre was The Color of Pomegranates, which
+   explain() reports as state "absent", value 0 on BOTH "fast pacing" and
+   "hopeful": the first and third things the reader named. It satisfied 3 of 8
+   clauses and still won, because the other five paid enough surprisal to carry
+   it. Across the top 20, 11 films scored exactly 0 on pace and 11 on hopeful.
+   Those films score well. They are not a good answer, and no amount of prose
+   under the picture repairs a number that says they are.
+
+   So the mean is multiplied by a term that only a CONJUNCTION can satisfy:
+
+     met  = (weight of clauses this film is KNOWN to hold + MET_PRIOR/2)
+            ---------------------------------------------------------------
+            (weight of clauses this film is KNOWN either way + MET_PRIOR)
+     conj = MET_FLOOR + (1 - MET_FLOOR) * met^MET_EXP
+
+   Three properties, each of which is the reason for a specific choice:
+
+   1. UNKNOWN IS NEITHER MET NOR UNMET. A clause the corpus never read for this
+      film leaves both sides of the fraction alone. Counting unknown as a miss
+      would put a fame gradient straight into the score — coverage is the most
+      fame-loaded variable this file has, which is exactly why the numerator
+      already imputes the prior instead of multiplying by coverage (see the
+      fame check below). Counting it as a hit would reward being unread. It
+      does neither, and rule 3 carries the rest: an unread film is drawn hollow.
+
+      BUT SILENCE IS NOT A CONJUNCTION EITHER, and dropping unknowns outright
+      hands a perfect `met` to any film the corpus read once and agreed with
+      once. Measured on the owner's sentence, that alone moved
+      rho(score, coverage) from -0.119 to -0.566: an inverted fame gradient,
+      which is not better than a fame gradient, it is the same defect facing the
+      other way. So the ratio carries MET_PRIOR clause-weights of a neutral
+      half. A film checked on one clause cannot demonstrate a conjunction and
+      is not credited with one; a film checked on all of them barely feels the
+      prior at all. At MET_PRIOR = 2 the same measurement reads -0.327 with
+      rho(score, degree) = -0.036, against the project's own 0.45 gate.
+
+   2. THE FLOOR IS NOT ZERO. A film that holds none of what it was checked on
+      would otherwise score exactly 0 and join the rim tie, and the whole
+      argument of this file is that a query re-ranks and never filters. At
+      MET_FLOOR it still carries whatever surprisal it earned, at a quarter of
+      the weight — further out, not deleted.
+
+   3. IT IS MONOTONE IN EVERY CLAUSE. Holding one more thing the reader asked
+      for can never lower a film's score, so distance still encodes strength of
+      the match and nothing else. It is not popularity and not degree: `met` is
+      a property of this film against this sentence.
+
+   Both constants are product judgements and are stated as such. --conj on the
+   CLI prints the ranking with and without the term so the effect is visible
+   rather than argued.                                                        */
+const MET_FLOOR = 0.25;
+const MET_EXP = 1;
+const MET_PRIOR = 2;
+
+function conjunctive(holdW, knownW) {
+  const met = (holdW + MET_PRIOR / 2) / (knownW + MET_PRIOR);
+  return MET_FLOOR + (1 - MET_FLOOR) * Math.pow(met, MET_EXP);
+}
+
 function normaliseQuery(q) {
   const out = [];
   for (const raw of q) {
@@ -524,7 +593,7 @@ function buildMatcher(opts) {
     const details = Object.create(null);
 
     for (const k of keys) {
-      let num = 0, obs = 0, unknownWeight = 0, knownWeight = 0;
+      let num = 0, obs = 0, unknownWeight = 0, knownWeight = 0, holdWeight = 0;
       const per = [];
       for (const p of prepared) {
         let best = null;
@@ -542,15 +611,29 @@ function buildMatcher(opts) {
           num += p.clause.weight * best.sigma;
           obs += p.clause.weight * best.value;
           knownWeight += p.clause.weight;
+          if (best.value > 0) holdWeight += p.clause.weight;
           per.push({
             clause: p.clause.label, state: best.value > 0 ? "present" : "absent",
             attr: best.attr, value: best.value, credit: best.sigma, ceiling: p.ceiling,
           });
         }
       }
-      scores[k] = denom > 0 ? Math.max(0, Math.min(1, num / denom)) : 0;
+      const conj = conjunctive(holdWeight, knownWeight);
+      const mean = denom > 0 ? Math.max(0, Math.min(1, num / denom)) : 0;
+      scores[k] = mean * conj;
       joint[k] = poissonTail(lambda, obs);
-      details[k] = { per, raw: num, denom, coverage: knownWeight / (knownWeight + unknownWeight || 1) };
+      details[k] = {
+        per, raw: num, denom, mean, conj,
+        /* the two halves of `conj`, carried so a caller can re-derive it after
+           adding one clause without re-scoring the corpus (query-runtime's
+           closed form depends on exactly this) */
+        holdWeight, knownWeight,
+        /* the clauses this film scores EXACTLY ZERO on, by label — the answer
+           to "it scores well, is it a good answer" */
+        misses: per.filter((x) => x.state === "absent").map((x) => x.clause),
+        unread: per.filter((x) => x.state === "unknown").map((x) => x.clause),
+        coverage: knownWeight / (knownWeight + unknownWeight || 1),
+      };
     }
 
     return {
@@ -560,6 +643,7 @@ function buildMatcher(opts) {
         known: p.models.map((m) => ({ attr: m.attr, known: m.known, prevalence: round(m.prevalence) })),
       })),
       lambda: round(lambda),
+      conjunctive, metFloor: MET_FLOOR, metExp: MET_EXP, metPrior: MET_PRIOR,
       explain: (k) => details[k],
       ranked: () => keys.slice().sort((a, b) => scores[b] - scores[a] || a.localeCompare(b)),
     };
@@ -609,7 +693,26 @@ function famePageviews(meta, keys) {
   let ps;
   try { ps = require("./plot-source.js"); }
   catch (e) { return null; }
-  const win = ps.viewsWindow();
+  /* THE WINDOW IS PINNED TO WHAT THE CACHE ACTUALLY HOLDS.
+     viewsWindow() is derived from Date.now(), so the day after the cache was
+     written it asks for a key one day forward and NOTHING matches — and this
+     check then reports "cannot run. This is not a pass." on every day but one,
+     which is a permanent false failure for anything that gates on it. The cache
+     is never fetched from here, so the honest thing is to read the window off
+     the files that are there and SAY which one was used. */
+  let win = ps.viewsWindow();
+  try {
+    const probe = meta[keys.find((k) => meta[k] && meta[k].wikipedia)];
+    if (probe && !fs.existsSync(ps.cachePath(ps.CACHE_VIEWS, "pv_" + win.start + "_" + probe.wikipedia))) {
+      const seen = new Set();
+      for (const f of fs.readdirSync(ps.CACHE_VIEWS)) {
+        const m = f.match(/^pv_(\d{8})_/);
+        if (m) seen.add(m[1]);
+      }
+      const newest = [...seen].sort().pop();
+      if (newest) win = { start: newest, end: win.end, pinned: true };
+    }
+  } catch (e) { /* no cache directory: the caller reports hit 0 */ }
   const views = Object.create(null);
   let hit = 0;
   for (const k of keys) {
@@ -636,7 +739,8 @@ function fameCheck(m, query, controls) {
     return false;
   }
   const { ps, win, views } = fv;
-  console.log("\nRULE 1 — match score vs 60-day Wikipedia pageviews, window " + win.start + ".." + win.end);
+  console.log("\nRULE 1 — match score vs 60-day Wikipedia pageviews, window " + win.start + ".." + win.end +
+    (win.pinned ? "  (pinned to the cache, which is older than today)" : ""));
   console.log("           cache-only, never fetched. gate |rho| <= " + SCORE_FAME_MAX_RHO);
 
   const r = m.score(query);
@@ -791,7 +895,7 @@ function main() {
   if (a.fame) process.exitCode = fameCheck(m, parseQuery(a.q), a.controls) ? 0 : 1;
 }
 
-module.exports = {
+module.exports = { conjunctive, MET_FLOOR, MET_EXP, MET_PRIOR,
   buildMatcher, buildTable, attributeModel, poissonTail, regLowerGamma,
   normaliseQuery, parseQuery, readShards, readCorpusKeys, selfTest, discreteTail,
   fameCheck, famePageviews, SCORE_FAME_MAX_RHO,
