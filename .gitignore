@@ -105,3 +105,24 @@ __pycache__/
 /.atlas-films-snap/
 /atlas/pipeline/out/fingerprints.shard-*.json
 /atlas/pipeline/.cache-soc/
+
+# Reference material consulted while authoring, kept to hand but never
+# redistributed. Third-party books, scans and PDFs are other people's
+# copyrighted work; this repo is a place to record what we concluded from
+# them, not a place to republish them. Two reasons the rule is broad:
+#
+#   - `git add -A` is routine here (every pipeline stage rewrites generated
+#     artifacts), so anything sitting in the tree is one careless stage away
+#     from being committed;
+#   - git keeps it afterwards. Removing a file in a later commit does not
+#     remove it from history, so the fix is a force-push and a rewrite of a
+#     branch other people may already have pulled.
+#
+# Facts, categories and motifs derived from a reference are ours to use and
+# belong in the repo; the pages are not and do not. A claim that rests on a
+# published source belongs in the `attested` tier with a real citation
+# (AGENTS rule 8), which is the honest way to carry a book's authority
+# without carrying the book.
+/reference/
+*.pdf
+*.epub
