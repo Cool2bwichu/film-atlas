@@ -5,9 +5,20 @@
  *   const P = buildParser();
  *   const r = P.parse("a film with fast pacing, the mood of the matrix, a hopeful tone, " +
  *                     "little dialogue, very spiritual");
- *   r.clauses    // -> match.js query clauses, ready for buildMatcher().score()
  *   r.readings   // -> one per span of the reader's text, with what it became and why
  *   r.unread     // -> spans that meant nothing here, kept and shown, never dropped
+ *   r.query()    // -> match.js clauses, negation rendered as `not:<attr>`.
+ *                //    REQUIRES a complement-aware table:
+ *                //      withComplements(buildTable(shards, keys))   (questioner.js)
+ *   r.positive() // -> match.js clauses with the negated ones DROPPED. Safe for a
+ *                //    plain matcher, and the honest thing to hand one.
+ *
+ *   r.clauses IS NOT A MATCH.JS QUERY. It is the internal form and it carries a
+ *   `negate` flag that match.js's normaliseQuery has never heard of and silently
+ *   reads as a positive want. This header used to say the opposite, and the cost
+ *   of believing it is measurable: "nothing violent" through a plain matcher
+ *   returns Salo, Straw Dogs and Saving Private Ryan at 1.000 — the exact inverse
+ *   of what was typed, with no error anywhere. Use query() or positive().
  *
  * CLI:
  *   node pipeline/query-parse.js "fast, hopeful, little dialogue, very spiritual"
@@ -214,6 +225,29 @@ function buildLexicon(lex) {
   for (const c of lex.filmRef.wholeCues) cues.push({ toks: tokens(c), group: null, kind: "whole" });
   cues.sort((a, b) => b.toks.length - a.toks.length);
 
+  /* GUARDS. A phrase the reader plainly means, that this atlas plainly cannot
+     answer — and that would otherwise be answered WRONGLY by a shorter phrase
+     inside it. "for the whole family" is audience, not subject, and
+     consensus-vocab.json says of subject:family "Not any film with a family in
+     it"; left alone the word `family` inside it fires that attribute and a
+     children's-film request comes back with Pather Panchali. A guard is not a
+     deletion — "family drama" still reads — it is a longer phrase that wins the
+     longest-first match and turns into an admission instead of a claim.
+
+     They are also where the honest reasons live. "not in the vocabulary" is one
+     sentence for three different situations, and the reader deserves to know
+     which: a word this atlas has an attribute for but no phrase yet, a fact
+     nothing in this repo records at all, and a comparison there is no machinery
+     for. A guard carries its own `why`. */
+  const guards = new Map();
+  let guardMax = 1;
+  for (const g of (lex.guards || [])) {
+    const n = norm(typeof g === "string" ? g : g.phrase);
+    if (!n) continue;
+    guardMax = Math.max(guardMax, n.split(" ").length);
+    guards.set(n, { why: (g && g.why) || "nothing in this atlas records that", kind: (g && g.kind) || "record" });
+  }
+
   const neg = new Set(lex.negation.map(norm));
   const negMax = Math.max(...[...neg].map((n) => n.split(" ").length));
   const up = new Set(lex.degree.up.map(norm));
@@ -221,7 +255,7 @@ function buildLexicon(lex) {
   const downMax = Math.max(...[...down].map((n) => n.split(" ").length));
   const stop = new Set(lex.stopWords.map(norm));
 
-  return { byPhrase, maxLen, cues, neg, negMax, up, down, downMax, stop };
+  return { byPhrase, maxLen, cues, neg, negMax, up, down, downMax, stop, guards, guardMax };
 }
 
 /* ──────────────────────────────────────────────────────────────── film titles
@@ -445,6 +479,25 @@ function buildParser(opts) {
         continue;
       }
 
+      /* ── a guarded phrase? BEFORE the phrase table, longest first, so the
+            longer admission beats the shorter claim inside it ── */
+      let guarded = null;
+      for (let len = Math.min(L.guardMax, toks.length - i); len >= 1; len--) {
+        const phrase = toks.slice(i, i + len).map((x) => x.t).join(" ");
+        const g = L.guards.get(phrase);
+        if (g) { guarded = { g, len }; break; }
+      }
+      if (guarded) {
+        const j = i + guarded.len;
+        for (let d = i; d < j; d++) used[d] = true;
+        unread.push({
+          text: say(i, j), ...tokenSpan(i, j),
+          why: guarded.g.why, kind: guarded.g.kind, guarded: true,
+        });
+        i = j;
+        continue;
+      }
+
       /* ── a lexicon phrase? longest first ── */
       let matched = null;
       for (let len = Math.min(L.maxLen, toks.length - i); len >= 1; len--) {
@@ -487,7 +540,8 @@ function buildParser(opts) {
       const t = say(runStart, end).trim();
       const meaningful = toks.slice(runStart, end).some((x) => !L.stop.has(x.t));
       if (t && meaningful) {
-        unread.push({ text: t, start: toks[runStart].start, end: toks[end - 1].end, why: "not in the vocabulary" });
+        unread.push({ text: t, start: toks[runStart].start, end: toks[end - 1].end,
+          why: "not in the vocabulary", kind: "unknown" });
       }
       runStart = -1;
     };

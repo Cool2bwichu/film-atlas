@@ -7,7 +7,8 @@
     "Ambiguity is expressed, not resolved. 'fast' is genuinely relentless-or-brisk, so it maps to BOTH and becomes one anyOf clause. It does not silently pick one.",
     "`polarity: \"inherent\"` marks a phrase that already contains its own absence — 'little dialogue', 'no dialogue', 'barely speak'. A preceding 'not' must not invert it a second time, and the parser refuses to.",
     "A phrase must not be a plot word. 'someone dies' is not subject:grief and 'a priest' is not subject:spiritual; the NOT clauses say so explicitly and the lexicon obeys them.",
-    "Multi-word phrases are matched longest-first, so 'little dialogue' beats 'dialogue' and 'coming of age' beats 'coming'."
+    "Multi-word phrases are matched longest-first, so 'little dialogue' beats 'dialogue' and 'coming of age' beats 'coming'.",
+    "A GUARD is a phrase this atlas cannot answer that would otherwise be answered wrongly by a shorter phrase inside it. It wins the longest-first match and becomes an admission with its own reason, never a claim. “for the whole family” is audience and consensus-vocab.json forbids reading it as subject:family; “family drama” is unaffected."
   ],
   "degree": {
     "up": [
@@ -236,7 +237,14 @@
       "slow",
       "slowly",
       "quiet and slow",
-      "no rush"
+      "no rush",
+      "quiet",
+      "quietly",
+      "stillness",
+      "nothing much happens",
+      "nothing happens",
+      "not much happens",
+      "where nothing much happens"
     ],
     "tone:hopeful": [
       "hopeful",
@@ -264,7 +272,13 @@
       "nihilistic",
       "hopeless",
       "offers no consolation",
-      "brutal outlook"
+      "brutal outlook",
+      "sad",
+      "saddest",
+      "sad film",
+      "sad films",
+      "depressing",
+      "joyless"
     ],
     "tone:melancholy": [
       "melancholy",
@@ -276,7 +290,17 @@
       "aching",
       "rueful",
       "sorrowful",
-      "quietly sad"
+      "quietly sad",
+      "sad",
+      "saddest",
+      "sad film",
+      "sad films",
+      "depressing",
+      "heartbreaking",
+      "heart breaking",
+      "makes you cry",
+      "tearjerker",
+      "tear jerker"
     ],
     "tone:comic": [
       "funny",
@@ -347,7 +371,11 @@
       "trancelike",
       "trance like",
       "hallucinatory",
-      "surreal logic"
+      "surreal logic",
+      "weird",
+      "strange",
+      "trippy",
+      "woozy"
     ],
     "mood:menacing": [
       "menacing",
@@ -361,7 +389,11 @@
       "creepy",
       "unsettling",
       "eerie",
-      "uneasy"
+      "uneasy",
+      "scary",
+      "frightening",
+      "spooky",
+      "chilling"
     ],
     "mood:paranoid": [
       "paranoid",
@@ -428,7 +460,14 @@
       "nonsensical world",
       "kafkaesque",
       "deadpan strangeness",
-      "makes no sense on purpose"
+      "makes no sense on purpose",
+      "weird",
+      "bizarre",
+      "strange",
+      "offbeat",
+      "off beat",
+      "odd",
+      "oddball"
     ],
     "subject:spiritual": [
       "spiritual",
@@ -662,7 +701,9 @@
       },
       "dialogue free",
       "carried by images",
-      "told in images"
+      "told in images",
+      "quiet",
+      "quietly"
     ],
     "texture:talky": [
       "talky",
@@ -700,7 +741,11 @@
       "shaky camera",
       "in the room",
       "raw and immediate",
-      "rough and immediate"
+      "rough and immediate",
+      "gritty",
+      "rough around the edges",
+      "street level",
+      "street-level"
     ],
     "texture:stylised": [
       "stylised",
@@ -746,7 +791,9 @@
       "seedy",
       "decaying",
       "you can smell it",
-      "filthy"
+      "filthy",
+      "gritty",
+      "sleazy"
     ],
     "structure:nonlinear": [
       "nonlinear",
@@ -874,7 +921,12 @@
       "nail biting",
       "on the edge of your seat",
       "thriller",
-      "anxious about what happens next"
+      "anxious about what happens next",
+      "scary",
+      "frightening",
+      "nail-biting",
+      "edge of your seat",
+      "keeps you guessing"
     ],
     "mode:spectacle": [
       "spectacle",
@@ -952,5 +1004,142 @@
     "quality",
     "overall",
     "really"
+  ],
+  "guards": [
+    {
+      "phrase": "for the whole family",
+      "kind": "audience",
+      "why": "this atlas records no audience rating. “Family” here means the family as a film’s subject, and the vocabulary says so: “Not any film with a family in it.”"
+    },
+    {
+      "phrase": "family friendly",
+      "kind": "audience",
+      "why": "this atlas records no audience rating. “Family” here means the family as a film’s subject, not who it is for."
+    },
+    {
+      "phrase": "the whole family",
+      "kind": "audience",
+      "why": "this atlas records no audience rating."
+    },
+    {
+      "phrase": "for kids",
+      "kind": "audience",
+      "why": "this atlas records no audience rating or certificate."
+    },
+    {
+      "phrase": "for children",
+      "kind": "audience",
+      "why": "this atlas records no audience rating or certificate."
+    },
+    {
+      "phrase": "kid friendly",
+      "kind": "audience",
+      "why": "this atlas records no audience rating or certificate."
+    },
+    {
+      "phrase": "happy ending",
+      "kind": "record",
+      "why": "endings are not recorded. “Hopeful” is the nearest thing here and it is deliberately not the same claim: “A bleak film can end well; a hopeful film can end badly.”"
+    },
+    {
+      "phrase": "sad ending",
+      "kind": "record",
+      "why": "endings are not recorded here."
+    },
+    {
+      "phrase": "black and white",
+      "kind": "record",
+      "why": "nothing in this atlas records whether a film is in colour."
+    },
+    {
+      "phrase": "in colour",
+      "kind": "record",
+      "why": "nothing in this atlas records whether a film is in colour."
+    },
+    {
+      "phrase": "in color",
+      "kind": "record",
+      "why": "nothing in this atlas records whether a film is in colour."
+    },
+    {
+      "phrase": "based on a true story",
+      "kind": "record",
+      "why": "nothing in this atlas records what a film was adapted from."
+    },
+    {
+      "phrase": "true story",
+      "kind": "record",
+      "why": "nothing in this atlas records what a film was adapted from."
+    },
+    {
+      "phrase": "based on a book",
+      "kind": "record",
+      "why": "nothing in this atlas records what a film was adapted from."
+    },
+    {
+      "phrase": "based on a novel",
+      "kind": "record",
+      "why": "nothing in this atlas records what a film was adapted from."
+    },
+    {
+      "phrase": "under two hours",
+      "kind": "record",
+      "why": "runtime is not a field in this corpus."
+    },
+    {
+      "phrase": "not too long",
+      "kind": "record",
+      "why": "runtime is not a field in this corpus."
+    },
+    {
+      "phrase": "under 90 minutes",
+      "kind": "record",
+      "why": "runtime is not a field in this corpus."
+    },
+    {
+      "phrase": "in english",
+      "kind": "record",
+      "why": "language is not a field in this corpus — country is, and it is not the same claim."
+    },
+    {
+      "phrase": "great cinematography",
+      "kind": "craft",
+      "why": "craft praise is excluded on purpose. The nearest attribute, “painterly”, says of itself: “Not ‘has nice cinematography’. This must be a defining quality.”"
+    },
+    {
+      "phrase": "beautifully shot",
+      "kind": "craft",
+      "why": "craft praise is excluded on purpose; “painterly” is a claim about design, not about quality."
+    },
+    {
+      "phrase": "well acted",
+      "kind": "craft",
+      "why": "performance is not one of the 59 things this atlas has an opinion about."
+    },
+    {
+      "phrase": "strong female lead",
+      "kind": "craft",
+      "why": "this atlas records no cast and no character archetypes."
+    },
+    {
+      "phrase": "great villain",
+      "kind": "craft",
+      "why": "this atlas records no cast and no character archetypes."
+    },
+    {
+      "phrase": "unreliable narrator",
+      "kind": "craft",
+      "why": "“narrated” here only means a voice tells it; whether that voice can be trusted is not modelled."
+    },
+    {
+      "phrase": "less talking",
+      "kind": "comparative",
+      "why": "there is no machinery for a comparison against the film you just named. “little dialogue” on its own does read."
+    },
+    {
+      "phrase": "more of a plot",
+      "kind": "comparative",
+      "why": "narrative density is not one of the 59 attributes."
+    }
   ]
 }
