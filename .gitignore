@@ -108,3 +108,4 @@ __pycache__/
 /atlas/pipeline/out/fingerprints.shard-*.json
 /atlas/pipeline/.cache-soc/
 /scratchpad/
+/atlas/pipeline/.cache-readings/

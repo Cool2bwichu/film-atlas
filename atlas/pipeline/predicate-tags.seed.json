@@ -1,0 +1,444 @@
+{
+  "version": 1,
+  "vocabVersion": "predicates-1",
+  "source": "reading",
+  "note": "Hand-authored seed cohort. Written by hand so the mechanism can be judged before any model pass is paid for. The production path is pipeline/predicates.js over pipeline/out/plots.json, same input the fingerprint pass used.",
+  "films": {
+    "The Banshees of Inisherin": [
+      {
+        "predicate": "bond-severed-unilaterally",
+        "role": "severed",
+        "centrality": 1.0,
+        "outcome": "unrestored",
+        "basis": "Colm simply informs Padraic that he no longer likes him, and never produces a reason Padraic can hold on to."
+      },
+      {
+        "predicate": "escalation-by-self-harm",
+        "role": "enforcer",
+        "centrality": 0.9,
+        "outcome": "fatal",
+        "basis": "Colm promises to cut off one of his own fiddle fingers for every further word, and then does it."
+      },
+      {
+        "predicate": "innocent-pays",
+        "role": "bystander",
+        "centrality": 0.7,
+        "outcome": "fatal",
+        "basis": "The people with least stake in the quarrel — Dominic, Siobhan, a miniature donkey — absorb its whole cost."
+      },
+      {
+        "predicate": "macro-violence-indifferent",
+        "centrality": 0.6,
+        "outcome": "unrestored",
+        "basis": "The Irish Civil War thumps away on the mainland, close enough to hear and too far to matter."
+      },
+      {
+        "predicate": "chorus-that-watches",
+        "centrality": 0.7,
+        "outcome": "unrestored",
+        "basis": "The pub, the shopkeeper and the priest track every development and none of them stop it."
+      },
+      {
+        "predicate": "animal-as-hostage",
+        "centrality": 0.6,
+        "outcome": "fatal",
+        "basis": "A donkey's death is the point at which the quarrel stops being survivable."
+      },
+      {
+        "predicate": "work-over-love",
+        "role": "renouncer",
+        "centrality": 0.8,
+        "outcome": "ambiguous",
+        "basis": "Colm wants to leave music behind him and has decided that friendliness is the thing costing him the hours."
+      },
+      {
+        "predicate": "comedy-that-stops-being-funny",
+        "centrality": 0.8,
+        "outcome": "fatal",
+        "basis": "The finger business is a running joke until it is a hand that can no longer play."
+      }
+    ],
+    "Old Joy": [
+      {
+        "predicate": "bond-severed-unilaterally",
+        "role": "severed",
+        "centrality": 0.9,
+        "outcome": "unrestored",
+        "basis": "Nothing is announced; Mark has quietly stopped needing Kurt, and only Kurt is still trying."
+      },
+      {
+        "predicate": "friendship-outgrown",
+        "role": "remaining",
+        "centrality": 1.0,
+        "outcome": "unrestored",
+        "basis": "One of them has a pregnant wife and a mortgage; the other is still performing the person they both were at twenty-five."
+      },
+      {
+        "predicate": "unequal-knowledge-of-the-end",
+        "role": "unknowing",
+        "centrality": 0.8,
+        "outcome": "unrestored",
+        "basis": "Kurt says the sadness has worn a hole in the joy, and does not appear to hear that he is describing them."
+      },
+      {
+        "predicate": "final-scene-of-politeness",
+        "centrality": 0.9,
+        "outcome": "unrestored",
+        "basis": "They part at a kerb with a handshake and an offer nobody intends to take up."
+      },
+      {
+        "predicate": "macro-violence-indifferent",
+        "centrality": 0.4,
+        "outcome": "unrestored",
+        "basis": "Talk radio argues American politics through the whole drive and never once touches the two men in the car."
+      }
+    ],
+    "Y tu mamá también": [
+      {
+        "predicate": "bond-severed-unilaterally",
+        "role": "severed",
+        "centrality": 0.8,
+        "outcome": "unrestored",
+        "basis": "The friendship does not blow up; it is quietly withdrawn from, and neither boy names it."
+      },
+      {
+        "predicate": "final-scene-of-politeness",
+        "centrality": 1.0,
+        "outcome": "unrestored",
+        "basis": "Two lifelong friends make small talk in a cafe, split the bill, and never see each other again."
+      },
+      {
+        "predicate": "macro-violence-indifferent",
+        "centrality": 0.8,
+        "outcome": "unrestored",
+        "basis": "A narrator keeps cutting away to the roadblocks, poverty and deaths happening just outside a frame the boys never look at."
+      },
+      {
+        "predicate": "unequal-knowledge-of-the-end",
+        "role": "unknowing",
+        "centrality": 0.7,
+        "outcome": "fatal",
+        "basis": "Luisa knows she is dying and lets the trip be an ending; the boys think it is a holiday."
+      },
+      {
+        "predicate": "mortality-clock",
+        "centrality": 0.7,
+        "outcome": "fatal",
+        "basis": "The whole journey is being paid for by a diagnosis none of the travellers discuss."
+      }
+    ],
+    "The Lighthouse": [
+      {
+        "predicate": "confinement-forces-escalation",
+        "centrality": 1.0,
+        "outcome": "fatal",
+        "basis": "Two keepers on a rock with no boat coming, so every disagreement has to go upward."
+      },
+      {
+        "predicate": "animal-as-hostage",
+        "centrality": 0.6,
+        "outcome": "fatal",
+        "basis": "Killing the gull is the transgression the weather itself appears to answer."
+      },
+      {
+        "predicate": "drink-as-the-third-party",
+        "centrality": 0.8,
+        "outcome": "fatal",
+        "basis": "They drink through camaraderie, then through kerosene, and the drinking is never the argument."
+      },
+      {
+        "predicate": "bond-severed-unilaterally",
+        "role": "severed",
+        "centrality": 0.5,
+        "outcome": "fatal",
+        "basis": "Wake withdraws approval as a tool, granting and revoking it to keep the younger man off balance."
+      }
+    ],
+    "The Duellists": [
+      {
+        "predicate": "grievance-outlives-its-cause",
+        "role": "pursued",
+        "centrality": 1.0,
+        "outcome": "unrestored",
+        "basis": "Two officers duel for sixteen years over an insult neither can any longer state."
+      },
+      {
+        "predicate": "macro-violence-indifferent",
+        "centrality": 0.8,
+        "outcome": "unrestored",
+        "basis": "The Napoleonic wars roll over Europe while the two of them conduct a private war at the same scale of seriousness."
+      },
+      {
+        "predicate": "bond-severed-unilaterally",
+        "role": "severed",
+        "centrality": 0.6,
+        "outcome": "unrestored",
+        "basis": "Feraud fixes on d'Hubert without explanation and will not release him for a decade and a half."
+      }
+    ],
+    "Withnail and I": [
+      {
+        "predicate": "friendship-outgrown",
+        "role": "departing",
+        "centrality": 0.8,
+        "outcome": "unrestored",
+        "basis": "One of them gets a job and a haircut; the other is left performing Hamlet to the wolves in the rain."
+      },
+      {
+        "predicate": "final-scene-of-politeness",
+        "centrality": 0.7,
+        "outcome": "unrestored",
+        "basis": "The goodbye at the park gates is brisk, ordinary, and the last one."
+      },
+      {
+        "predicate": "drink-as-the-third-party",
+        "centrality": 0.9,
+        "outcome": "unrestored",
+        "basis": "Every scene is conducted at a level of intoxication the film treats as weather rather than as subject."
+      },
+      {
+        "predicate": "comedy-that-stops-being-funny",
+        "centrality": 0.7,
+        "outcome": "unrestored",
+        "basis": "A farce about two unemployable actors resolves into one man's untreated despair."
+      }
+    ],
+    "The Assassination of Jesse James by the Coward Robert Ford": [
+      {
+        "predicate": "admiration-refused",
+        "role": "acolyte",
+        "centrality": 1.0,
+        "outcome": "fatal",
+        "basis": "Ford wants to be loved by the man he has read about since childhood, and is found tiresome instead."
+      },
+      {
+        "predicate": "bond-severed-unilaterally",
+        "role": "severed",
+        "centrality": 0.8,
+        "outcome": "fatal",
+        "basis": "James withdraws warmth without explanation and lets Ford stand in the cold of it."
+      },
+      {
+        "predicate": "mortality-clock",
+        "centrality": 0.7,
+        "outcome": "fatal",
+        "basis": "James behaves for months like a man who has already decided how this ends."
+      }
+    ],
+    "Amadeus": [
+      {
+        "predicate": "work-over-love",
+        "role": "renouncer",
+        "centrality": 0.9,
+        "outcome": "fatal",
+        "basis": "Salieri offers God his chastity and his industry in exchange for lasting, and is answered with someone else's talent."
+      },
+      {
+        "predicate": "admiration-refused",
+        "role": "idol",
+        "centrality": 0.9,
+        "outcome": "fatal",
+        "basis": "Salieri is the only man alive who fully hears Mozart, and the only one Mozart never troubles to notice."
+      },
+      {
+        "predicate": "mortality-clock",
+        "centrality": 0.6,
+        "outcome": "fatal",
+        "basis": "The Requiem is written against a deadline that turns out to be its author's own."
+      }
+    ],
+    "Ex Machina": [
+      {
+        "predicate": "confinement-forces-escalation",
+        "centrality": 0.8,
+        "outcome": "fatal",
+        "basis": "A sealed facility with no way out until someone decides there is."
+      },
+      {
+        "predicate": "drink-as-the-third-party",
+        "centrality": 0.4,
+        "outcome": "fatal",
+        "basis": "Nathan drinks himself through every honest conversation in the building."
+      }
+    ],
+    "Catch Me If You Can": [
+      {
+        "predicate": "family-that-cannot-be-reassembled",
+        "role": "child",
+        "centrality": 1.0,
+        "outcome": "unrestored",
+        "basis": "Frank runs the night he is asked which parent he wants to live with, and every forged life afterwards is an attempt to put that evening back."
+      },
+      {
+        "predicate": "identity-as-performance",
+        "role": "impostor",
+        "centrality": 1.0,
+        "outcome": "transfigured",
+        "basis": "Pilot, doctor, lawyer — each self is worn well enough to pass because he has studied how men who own those lives carry themselves."
+      },
+      {
+        "predicate": "pursuer-is-the-only-intimacy",
+        "role": "hunted",
+        "centrality": 0.9,
+        "outcome": "transfigured",
+        "basis": "Hanratty is the only person alive who knows what Frank actually is, which is why Frank telephones him every Christmas."
+      },
+      {
+        "predicate": "child-watches-a-parent-diminish",
+        "role": "child",
+        "centrality": 0.85,
+        "outcome": "fatal",
+        "basis": "He keeps returning to a father the tax office is wearing down, and the man is smaller at every visit."
+      },
+      {
+        "predicate": "performing-for-a-parent-who-cannot-see-it",
+        "role": "performer",
+        "centrality": 0.8,
+        "outcome": "fatal",
+        "basis": "Every score is a report filed to a father who will be dead before he can be impressed by it."
+      },
+      {
+        "predicate": "absorbed-by-what-hunted-him",
+        "centrality": 0.7,
+        "outcome": "transfigured",
+        "basis": "The bureau closes the film by employing the man it spent the film chasing."
+      },
+      {
+        "predicate": "unequal-knowledge-of-the-end",
+        "role": "unknowing",
+        "centrality": 0.6,
+        "outcome": "unrestored",
+        "basis": "The boy is the last person in the house to be told the marriage is finished."
+      }
+    ],
+    "Heat": [
+      {
+        "predicate": "pursuer-is-the-only-intimacy",
+        "role": "hunter",
+        "centrality": 0.9,
+        "outcome": "fatal",
+        "basis": "Hanna and McCauley sit down to coffee and discover the only man who understands either of them is the one who will have to kill him."
+      }
+    ],
+    "The 400 Blows": [
+      {
+        "predicate": "family-that-cannot-be-reassembled",
+        "role": "child",
+        "centrality": 1.0,
+        "outcome": "unrestored",
+        "basis": "Antoine's mother would plainly prefer him elsewhere, and the film never once lets the household be repaired."
+      },
+      {
+        "predicate": "flight-from-the-broken-home",
+        "centrality": 1.0,
+        "outcome": "ambiguous",
+        "basis": "He runs until there is only sea in front of him, and the film stops on his face."
+      },
+      {
+        "predicate": "absorbed-by-what-hunted-him",
+        "centrality": 0.8,
+        "outcome": "unrestored",
+        "basis": "He is delivered into an observation centre, and the state's custody is not a job offer."
+      }
+    ],
+    "The King of Comedy": [
+      {
+        "predicate": "performing-for-a-parent-who-cannot-see-it",
+        "role": "performer",
+        "centrality": 0.9,
+        "outcome": "transfigured",
+        "basis": "Pupkin's entire act is addressed to a father-substitute who finds him unbearable, and he takes the spot anyway."
+      },
+      {
+        "predicate": "identity-as-performance",
+        "role": "impostor",
+        "centrality": 0.9,
+        "outcome": "transfigured",
+        "basis": "He rehearses celebrity in a basement with cardboard guests until the rehearsal is indistinguishable from a career."
+      }
+    ],
+    "F for Fake": [
+      {
+        "predicate": "identity-as-performance",
+        "role": "impostor",
+        "centrality": 0.8,
+        "outcome": "ambiguous",
+        "basis": "Elmyr paints as Modigliani well enough that the experts sign for it, and Welles films him enjoying it."
+      },
+      {
+        "predicate": "the-forgery-outlives-the-original",
+        "centrality": 1.0,
+        "outcome": "transfigured",
+        "basis": "The fakes hang in museums, and the film argues that the certainty of the men who authenticated them is the larger forgery."
+      }
+    ],
+    "Barry Lyndon": [
+      {
+        "predicate": "identity-as-performance",
+        "role": "impostor",
+        "centrality": 0.9,
+        "outcome": "fatal",
+        "basis": "Redmond Barry assembles a gentleman out of borrowed names and a purchased marriage, and the seams are visible in every frame."
+      },
+      {
+        "predicate": "the-forgery-outlives-the-original",
+        "centrality": 0.5,
+        "outcome": "fatal",
+        "basis": "The manufactured aristocrat is better at aristocracy than the men born to it, and it saves him from nothing."
+      },
+      {
+        "predicate": "child-watches-a-parent-diminish",
+        "role": "parent",
+        "centrality": 0.5,
+        "outcome": "fatal",
+        "basis": "Bryan sees his father at his most extravagant and least solid, and does not live long enough to see the collapse."
+      }
+    ],
+    "Shoplifters": [
+      {
+        "predicate": "fabricated-family",
+        "centrality": 1.0,
+        "outcome": "fatal",
+        "basis": "A household assembled from people who chose one another is read by the state as a crime scene."
+      },
+      {
+        "predicate": "family-that-cannot-be-reassembled",
+        "role": "child",
+        "centrality": 0.7,
+        "outcome": "unrestored",
+        "basis": "The child's real parents are available the whole time, and are the worse option."
+      }
+    ],
+    "Boogie Nights": [
+      {
+        "predicate": "fabricated-family",
+        "centrality": 0.9,
+        "outcome": "ambiguous",
+        "basis": "A film crew becomes the parents, and holds for as long as the money does."
+      },
+      {
+        "predicate": "performing-for-a-parent-who-cannot-see-it",
+        "role": "performer",
+        "centrality": 0.6,
+        "outcome": "ambiguous",
+        "basis": "Dirk is thrown out by his mother, and everything after is an audition for a family that will keep him."
+      }
+    ],
+    "Bicycle Thieves": [
+      {
+        "predicate": "child-watches-a-parent-diminish",
+        "role": "child",
+        "centrality": 1.0,
+        "outcome": "unrestored",
+        "basis": "Bruno is standing right there at the moment his father becomes a thief in front of a crowd."
+      },
+      {
+        "predicate": "family-that-cannot-be-reassembled",
+        "role": "child",
+        "centrality": 0.5,
+        "outcome": "unrestored",
+        "basis": "The household is not broken by anyone's choice, only by not having the thing that keeps it fed."
+      }
+    ]
+  }
+}

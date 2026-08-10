@@ -1,0 +1,148 @@
+{
+ "version": 1,
+ "promptVersion": "HAND-DEMO-not-model-output",
+ "source": "reading",
+ "note": "Hand-built demo input for wishlist.js. NOT produced by readings.js. Exists so the tool can be exercised before a model pass is paid for.",
+ "films": [
+  {
+   "title": "The Banshees of Inisherin",
+   "relatives": [
+    {
+     "title": "Calvary",
+     "shares": "a coastal Irish village that watches and does not intervene"
+    },
+    {
+     "title": "Old Joy",
+     "shares": "a friendship ended without a rupture scene"
+    },
+    {
+     "title": "The Duellists",
+     "shares": "a grievance that outlives its cause"
+    },
+    {
+     "title": "Mikey and Nicky",
+     "shares": "one night of a friendship curdling"
+    },
+    {
+     "title": "Amadeus",
+     "shares": "trading love for the chance of lasting"
+    }
+   ]
+  },
+  {
+   "title": "Old Joy",
+   "relatives": [
+    {
+     "title": "Mikey and Nicky",
+     "shares": "the abandoned friend still trying"
+    },
+    {
+     "title": "Frances Ha",
+     "shares": "one friend growing up on schedule"
+    },
+    {
+     "title": "Two Friends",
+     "shares": "a friendship's dissolution"
+    },
+    {
+     "title": "Y tu mamá también",
+     "shares": "parting in ordinary politeness"
+    }
+   ]
+  },
+  {
+   "title": "Y tu mamá también",
+   "relatives": [
+    {
+     "title": "Old Joy",
+     "shares": "a friendship quietly withdrawn from"
+    },
+    {
+     "title": "Frances Ha",
+     "shares": "the gap that ends a friendship"
+    }
+   ]
+  },
+  {
+   "title": "Catch Me If You Can",
+   "relatives": [
+    {
+     "title": "Paper Moon",
+     "shares": "a fabricated father and a child running cons"
+    },
+    {
+     "title": "The Talented Mr. Ripley",
+     "shares": "a borrowed self that fits better than the real one"
+    },
+    {
+     "title": "Can You Ever Forgive Me?",
+     "shares": "forgery as the only place the forger is good"
+    },
+    {
+     "title": "Six Degrees of Separation",
+     "shares": "an impostor whose object is to be let into a family"
+    },
+    {
+     "title": "The Imposter",
+     "shares": "impersonation as a bid for a family"
+    }
+   ]
+  },
+  {
+   "title": "The King of Comedy",
+   "relatives": [
+    {
+     "title": "Paper Moon",
+     "shares": "performance standing in for a parent"
+    },
+    {
+     "title": "Six Degrees of Separation",
+     "shares": "an invented self admitted to a household"
+    }
+   ]
+  },
+  {
+   "title": "Barry Lyndon",
+   "relatives": [
+    {
+     "title": "The Talented Mr. Ripley",
+     "shares": "a manufactured gentleman"
+    },
+    {
+     "title": "Paper Moon",
+     "shares": "a con held together as a family"
+    }
+   ]
+  },
+  {
+   "title": "Ghost in the Shell",
+   "relatives": [
+    {
+     "title": "Gattaca",
+     "shares": "a borrowed identity outperforming the real one"
+    },
+    {
+     "title": "eXistenZ",
+     "shares": "a self that cannot verify its own ground"
+    }
+   ]
+  },
+  {
+   "title": "Heat",
+   "relatives": [
+    {
+     "title": "Zodiac",
+     "shares": "a pursuit that consumes the pursuer"
+    },
+    {
+     "title": "The Sting",
+     "shares": "professional craft as the only intimacy"
+    }
+   ]
+  },
+  {
+   "title": "Rashomon",
+   "relatives": []
+  }
+ ]
+}
