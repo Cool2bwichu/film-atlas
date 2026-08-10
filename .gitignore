@@ -117,3 +117,5 @@ __pycache__/
 /atlas/pipeline/.cache-rag/
 /atlas/pipeline/out/rag-*.npy
 /atlas/pipeline/.cache-rag/
+/atlas/pipeline/out/rag-index.npz
+/atlas/pipeline/rag/__pycache__/
