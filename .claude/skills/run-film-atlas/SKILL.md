@@ -193,6 +193,49 @@ before it was made, the resting draw changed, the track dropped from
 and requires each to be reported by the check it was aimed at. **8 of 8.** ~6
 min with controls, ~2 without.
 
+### Does the film panel's shelf say what it is allowed to say
+
+```bash
+node .claude/skills/run-film-atlas/shelf-probe.mjs
+```
+
+The panel carries a shelf of three plates drawn from measured light (DESIGN.md,
+"The shelf: what a film looks like"). It is the one surface whose source the
+project may not display and whose measurement **54% of the corpus does not
+have**, so both halves fail quietly: a licence line is prose nobody diffs, and a
+shelf that grows a plate for a well-known film looks like better design rather
+than like AGENTS rule 1 being broken.
+
+Nine films — one per state the shelf can be in, chosen by what the data says —
+at three viewports, every check ending in a number:
+
+1. **Licensing** — the whole artifact grepped for the frame source's name: it
+   must read **zero mentions and zero URLs**, and the only image host anywhere
+   must be `upload.wikimedia.org`. Then the on-screen licence line is checked
+   against each film's own `posterLicence`.
+2. **Coverage, counted rather than claimed** — 1,017 of 2,204, 903 off frames,
+   114 off backdrops, 222 monochrome, 1,187 with no light, 61 with neither
+   light nor a one-sheet.
+3. **Rule 1** — the plate row must be the SAME BOX for a measured film and an
+   unmeasured one. Coverage is the fame proxy here (rho +0.61 against
+   pageviews), so identical geometry across it *is* the rule-1 check.
+   **321.0×171.2px for all nine, drift 0.000px.**
+4. **Rule 4** — zero canvas in the shelf, and every caption a laid-out,
+   hit-testable DOM box reached by `elementFromPoint`.
+5. **Rule 3** — a plate read off promotional backdrops is drawn dashed and says
+   "a reading, not a record"; one measured off frames is not.
+6. **Rule 9** — with every image request refused, the head AND the shelf's own
+   mark still draw a composed cell with real ink in it.
+7. **Reading order** — the shelf sits below the synopsis and costs the first
+   claim zero pixels on arrival, at all three widths.
+8. **Rule 7** — the same film draws the same shelf byte for byte, twice and
+   across a "Seen it" re-render.
+9. **Containment** — the panel never scrolls sideways.
+
+**Proven by breaking it** — eight patches in the file's own header, each with
+the line it printed, from a frame URL put back in to the shelf deleted outright
+(**16 checks fire, nothing crashes**). ~3 min.
+
 ## Film — motion capture, and how to judge it
 
 Everything above ends in a **still**. This app does not: a selection flies

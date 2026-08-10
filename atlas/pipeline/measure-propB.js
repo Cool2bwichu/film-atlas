@@ -69,10 +69,41 @@ const preds = [], filmRows = [];
 
 // region comes from plots.json, the same source the reading pass read
 const region = {};
+const plotsOrder = [];
 {
   const p = JSON.parse(fs.readFileSync(path.join(OUT, "plots.json"), "utf8"));
   const want = new Set(filmRows.map((f) => f.title));
-  for (const f of Object.values(p.films)) if (f && want.has(f.title)) region[f.title] = f.region || "?";
+  for (const f of Object.values(p.films)) {
+    if (!f || !f.title) continue;
+    if (want.has(f.title)) region[f.title] = f.region || "?";
+    plotsOrder.push({ title: f.title, hasPlot: !!(f.admitted ? f.plot : null) });
+  }
+}
+
+/* THE PASS A BATCH, RECONSTRUCTED.
+ * The batch a film was read in is the unit Pass A's collisions lived inside, so
+ * it is the confound this layer has to escape. Shard 1's file does not carry a
+ * `batch` field, so every shard's batch is recomputed here from readings.js's
+ * own rule — cohort-filter plots.json, keep the films with a plot, slice into
+ * sixes in plots.json order — and the reconstruction is then checked against the
+ * three shards that DID stamp it. If it disagrees anywhere, the check is void
+ * and says so rather than reporting a number built on a guess. */
+const trueBatch = new Map();
+let batchRecon = { checked: 0, agreed: 0, ok: false };
+{
+  for (const s of [0, 1, 2, 3]) {
+    const cohortPath = path.join(__dirname, `predicate-cohort-300.shard${s}.txt`);
+    if (!fs.existsSync(cohortPath)) continue;
+    const want = new Set(fs.readFileSync(cohortPath, "utf8").split("\n").map((x) => x.trim()).filter(Boolean));
+    const seq = plotsOrder.filter((f) => want.has(f.title) && f.hasPlot);
+    seq.forEach((f, i) => trueBatch.set(f.title, `${s}:${Math.floor(i / 6)}`));
+  }
+  for (const f of filmRows) {
+    if (f.batch === undefined || !trueBatch.has(f.title)) continue;
+    batchRecon.checked++;
+    if (trueBatch.get(f.title) === `${f.shard}:${f.batch}`) batchRecon.agreed++;
+  }
+  batchRecon.ok = batchRecon.checked > 0 && batchRecon.checked === batchRecon.agreed;
 }
 
 const vocabFile = JSON.parse(fs.readFileSync(path.join(OUT, "propB-vocab.json"), "utf8"));
@@ -199,6 +230,42 @@ function pairStats(groups) {
 const stringStats = pairStats([...byString.values()]);
 const predStats = pairStats([...byPred.values()]);
 
+// The proposal's own band cut, applied as a consequence rather than a tuning:
+// drop predicates over 8% of the cohort (genres, by its definition) and
+// singletons (no co-occurrence to give). Everything else is untouched.
+const bandOK = new Set(rows.filter((r) => r.prevalence.band === "in").map((r) => r.id));
+const bandStats = pairStats([...byPred.entries()].filter(([k]) => bandOK.has(k)).map(([, v]) => v));
+const top10 = new Set(rows.slice(0, 10).map((r) => r.id));
+const top10Stats = pairStats([...byPred.entries()].filter(([k]) => top10.has(k)).map(([, v]) => v));
+
+// THE BATCH-ARTEFACT CHECK. Pass A's collisions were 100% inside a batch of six.
+// If this layer inherited that artefact its pairs would be concentrated in the
+// same 725 within-batch film pairs. Chance is the reference.
+const sameBatch = (a, b) => trueBatch.has(a) && trueBatch.has(b) && trueBatch.get(a) === trueBatch.get(b);
+function batchShare(pairSet) {
+  let within = 0;
+  for (const key of pairSet) { const [a, b] = key.split("|"); if (sameBatch(a, b)) within++; }
+  return within;
+}
+let allWithinBatch = 0, allPairs = 0;
+for (let i = 0; i < filmsScoring.length; i++) for (let j = i + 1; j < filmsScoring.length; j++) {
+  allPairs++;
+  if (sameBatch(filmsScoring[i].title, filmsScoring[j].title)) allWithinBatch++;
+}
+const batchCheck = {
+  reconstruction: batchRecon.ok
+    ? `verified: reconstructed batch matches the stamped batch on all ${batchRecon.checked} films that carry one (shards 0, 2, 3); shard 1 carries none and is reconstructed the same way`
+    : `UNVERIFIED — reconstruction disagreed with the stamped batch on ${batchRecon.checked - batchRecon.agreed} of ${batchRecon.checked} films. Treat the shares below as void.`,
+  reconstructionOk: batchRecon.ok,
+  cohortPairs: allPairs, cohortWithinBatchPairs: allWithinBatch,
+  chanceShare: r2(pct(allWithinBatch, allPairs)),
+  stringWithinBatchShare: r2(pct(batchShare(stringStats.pairSet), stringStats.pairs)),
+  stringConcentration: r1(pct(batchShare(stringStats.pairSet), stringStats.pairs) / pct(allWithinBatch, allPairs)),
+  propBWithinBatchShare: r2(pct(batchShare(predStats.pairSet), predStats.pairs)),
+  propBConcentration: r1(pct(batchShare(predStats.pairSet), predStats.pairs) / pct(allWithinBatch, allPairs)),
+  note: "Pass A's phrase collisions were 100% inside a batch of six. If this layer inherited that artefact its pairs would sit in the same within-batch pairs. Concentration is observed share / chance share: 1.0 means the layer does not know what a batch is.",
+};
+
 // per-film family size under the vocabulary
 const neighbours = new Map();
 for (const key of predStats.pairSet) {
@@ -209,6 +276,19 @@ for (const key of predStats.pairSet) {
 }
 const degs = filmsScoring.map((f) => (neighbours.get(f.title) || new Set()).size).sort((a, b) => a - b);
 const med = (a) => a.length ? a[Math.floor(a.length / 2)] : 0;
+
+const bandNeighbours = new Map();
+for (const key of bandStats.pairSet) {
+  const [a, b] = key.split("|");
+  if (!bandNeighbours.has(a)) bandNeighbours.set(a, new Set());
+  if (!bandNeighbours.has(b)) bandNeighbours.set(b, new Set());
+  bandNeighbours.get(a).add(b); bandNeighbours.get(b).add(a);
+}
+const bandDegs = filmsScoring.map((f) => (bandNeighbours.get(f.title) || new Set()).size).sort((a, b) => a - b);
+
+// tags per film, and how much of a film's reading the layer actually captures
+const perFilmTags = filmsScoring.map((f) => assigned.filter((p) => p.film === f.title).length).sort((a, b) => a - b);
+const perFilmDistinct = filmsScoring.map((f) => new Set(assigned.filter((p) => p.film === f.title).map((p) => p.predicate)).size).sort((a, b) => a - b);
 
 /* ------------------------------------------------------------------ stability */
 
@@ -232,6 +312,20 @@ if (fs.existsSync(stabPath)) {
   };
 }
 
+let precision = { note: "propB-audit.json not present — run pipeline/propB-audit.js" };
+const auditPath = path.join(OUT, "propB-audit.json");
+if (fs.existsSync(auditPath)) {
+  const a = JSON.parse(fs.readFileSync(auditPath, "utf8"));
+  precision = {
+    ...a.summary,
+    method: "A fresh call, blind to which pairing is real, judges situation-against-predicate. One item in three is a decoy: the same situation shown with a randomly drawn predicate.",
+    whyTheDecoysAreThere: "Without them an acceptance rate measures agreeableness, not precision. The gap between real and decoy acceptance is the only part of this that is evidence.",
+    effectOnCoverage: a.summary.realAccepted
+      ? `73.7% of predicaments were assigned; at ${a.summary.realAccepted}% precision that is roughly ${Math.round(73.7 * a.summary.realAccepted) / 100}% of predicaments carrying a tag that holds.`
+      : null,
+  };
+}
+
 /* ------------------------------------------------------------------ deliverable */
 
 const inBand = rows.filter((r) => r.prevalence.band === "in");
@@ -240,6 +334,52 @@ const belowBand = rows.filter((r) => r.prevalence.band === "below");
 const dead = rows.filter((r) => r.prevalence.films === 0);
 
 const axisCounts = rows.reduce((a, r) => { a[r.axis || "?"] = (a[r.axis || "?"] || 0) + 1; return a; }, {});
+
+// worked rebuttal examples: same predicate, opposed outcome, both basis sentences
+// present so the claim could actually be composed rather than asserted.
+const rebuttalWorked = [];
+for (const r of rows) {
+  if (rebuttalWorked.length >= 6 || r.prevalence.band !== "in") continue;
+  const m = byPred.get(r.id) || [];
+  const pos = m.filter((p) => POS.has(p.outcome)), neg = m.filter((p) => NEG.has(p.outcome));
+  if (!pos.length || !neg.length) continue;
+  const a = pos.sort((x, y) => (y.centrality || 0) - (x.centrality || 0))[0];
+  const b = neg.sort((x, y) => (y.centrality || 0) - (x.centrality || 0))[0];
+  if (a.film === b.film) continue;
+  rebuttalWorked.push({
+    predicate: r.id, label: r.label,
+    a: { film: a.film, year: a.year, outcome: a.outcome, situation: a.situation, basis: a.basis },
+    b: { film: b.film, year: b.year, outcome: b.outcome, situation: b.situation, basis: b.basis },
+  });
+}
+
+const induceFile = JSON.parse(fs.readFileSync(path.join(OUT, "propB-induce.json"), "utf8"));
+const candIdCounts = induceFile.families.reduce((a, f) => { a[f.id] = (a[f.id] || 0) + 1; return a; }, {});
+const distinctCandIds = Object.keys(candIdCounts).length;
+const repeatedCandIds = Object.values(candIdCounts).filter((c) => c > 1).length;
+
+const honestProblems = [
+  {
+    problem: "The families are too big to be a top-six selector on their own.",
+    numbers: `${predStats.pairs} co-occurring film pairs out of ${allPairs} possible (${r1(pct(predStats.pairs, allPairs))}% of the whole cohort graph); median film has ${med(degs)} predicate neighbours. The ten largest predicates alone produce ${top10Stats.pairs} pairs (${r1(pct(top10Stats.pairs, predStats.pairs))}% of the total).`,
+    consequence: "A family of 43 films cannot be shown; something has to order and cut it. The proposal's answer is the fingerprint as SORTER, which is a sort key and must never enter strength. That leaves the cut unsolved: a top-six needs a strength score, and this measurement does not provide one.",
+  },
+  {
+    problem: `${aboveBand.length} of ${rows.length} predicates are above the proposal's 8% ceiling on this cohort — they are genres by the proposal's own definition.`,
+    numbers: aboveBand.map((r) => `${r.id} ${r.prevalence.shareOfScoringCohort}%`).join(", "),
+    consequence: `Cutting them, as the proposal says to, drops the graph from ${predStats.pairs} to ${bandStats.pairs} pairs and the median film from ${med(degs)} to ${med(bandDegs)} neighbours. That is the honest size of the layer under its own rule.`,
+  },
+  {
+    problem: "The vocabulary came out at 95, below the proposal's 120-250 target.",
+    numbers: `317 candidates -> 133 after the merge call -> 95 after the audit folded ${vocabFile.auditFolded.length}.`,
+    consequence: "Either the 300-film cohort does not carry 120 distinct relations at this grain, or the audit over-merged. The audit's stated reasons are recorded in propB-vocab.json (mergedIn[].why) and are checkable one by one; several explicitly reason 'which office / what is counterfeited is subject matter, not relation', which is the proposal's principle applied correctly. A 95-entry vocabulary over 2,204 films would put average prevalence well above the band, which is the argument for splitting rather than for accepting it.",
+  },
+  {
+    problem: "Prevalence is measured on a 100%-readable cohort, and 29.8% of the corpus can never be read.",
+    numbers: "657 of 2,204 films are below plot-source.js's 1,500-char evidence floor.",
+    consequence: "Every share here is a share of the readable population. projectedCorpusShare multiplies by 1547/2204 = 0.702 on the assumption that below-floor films hold zero predicates, which is what the pass's own sourcing rule forces.",
+  },
+];
 const noneCounts = {};
 for (const p of none) noneCounts[p.n2] = (noneCounts[p.n2] || 0) + 1;
 
@@ -308,19 +448,40 @@ const doc = {
     note: "The four shards are era slices and were read by four separate agents whose phrase vocabularies were measured as disjoint (0-0.3% cross-shard string reuse). Spanning shards is therefore the test of whether this layer joins what strings could not.",
   },
   cooccurrence: {
+    possibleFilmPairs: allPairs,
     stringBaseline: { pairs: stringStats.pairs, crossShardPairs: stringStats.crossShard, crossRegionPairs: stringStats.crossRegion, rebuttalPairs: stringStats.rebuttal },
-    roleStructured: { pairs: predStats.pairs, crossShardPairs: predStats.crossShard, crossRegionPairs: predStats.crossRegion, rebuttalPairs: predStats.rebuttal },
+    roleStructured: { pairs: predStats.pairs, crossShardPairs: predStats.crossShard, crossRegionPairs: predStats.crossRegion, rebuttalPairs: predStats.rebuttal, shareOfAllPossiblePairs: r1(pct(predStats.pairs, allPairs)) },
+    afterProposalsOwnBandCut: { keptPredicates: bandOK.size, pairs: bandStats.pairs, crossShardPairs: bandStats.crossShard, crossRegionPairs: bandStats.crossRegion, rebuttalPairs: bandStats.rebuttal, shareOfAllPossiblePairs: r1(pct(bandStats.pairs, allPairs)) },
+    tenLargestPredicatesAlone: { pairs: top10Stats.pairs, shareOfPropBPairs: r1(pct(top10Stats.pairs, predStats.pairs)) },
     perFilmNeighbours: { min: degs[0] || 0, p25: degs[Math.floor(degs.length * 0.25)] || 0, median: med(degs), p75: degs[Math.floor(degs.length * 0.75)] || 0, max: degs[degs.length - 1] || 0, withZero: degs.filter((d) => d === 0).length, withSixOrMore: degs.filter((d) => d >= 6).length },
-    note: "Pairs are co-occurrence candidates, not edges. Nothing is ranked here: the predicate SELECTS the family and the fingerprint ORDERS it, and tonal distance is not read by this file at all. Family sizes are measured on 13.6% of the corpus and will grow with full tagging.",
+    perFilmNeighboursAfterBandCut: { median: med(bandDegs), p25: bandDegs[Math.floor(bandDegs.length * 0.25)] || 0, p75: bandDegs[Math.floor(bandDegs.length * 0.75)] || 0, max: bandDegs[bandDegs.length - 1] || 0, withZero: bandDegs.filter((d) => d === 0).length, withSixOrMore: bandDegs.filter((d) => d >= 6).length },
+    perFilmTags: { median: med(perFilmTags), min: perFilmTags[0], max: perFilmTags[perFilmTags.length - 1] },
+    perFilmDistinctPredicates: { median: med(perFilmDistinct), min: perFilmDistinct[0], max: perFilmDistinct[perFilmDistinct.length - 1] },
+    batchArtefactCheck: batchCheck,
+    note: "Pairs are co-occurrence candidates, not edges. Nothing is ranked here: the predicate SELECTS the family and the fingerprint ORDERS it, and tonal distance is not read by this file at all. Family sizes are measured on 13.6% of the corpus and will grow with full tagging. The density is the honest problem: see honestProblems.",
   },
   rebuttal: {
     definition: "Same predicate, opposed outcome. Positive = restored | transfigured. Negative = unrestored | fatal. 'ambiguous' is excluded from opposition.",
     candidatePairs: predStats.rebuttal,
+    candidatePairsAfterBandCut: bandStats.rebuttal,
+    stringBaselinePairs: stringStats.rebuttal,
     predicatesYieldingAtLeastOne: rows.filter((r) => r.rebuttalPairs > 0).length,
     corpusToday: { rebuttalEdges: 110, ofTotalEdges: 22217, share: "0.5%, hand-authored pair by pair" },
-    note: "Candidate pairs, not edges. Each still needs the two basis sentences to compose a claim, and 300 films is 13.6% of the corpus.",
+    worked: rebuttalWorked,
+    note: "Candidate pairs, not edges. Each still needs the two basis sentences to compose a claim, and 300 films is 13.6% of the corpus. The count is large because the families are large — read it beside honestProblems, not on its own.",
   },
-  assignmentStability: stability || { note: "propB-stability.json not present — run pipeline/propB-stability.js" },
+  honestProblems: honestProblems,
+  induction: {
+    groups: 11, sampleSize: seen.length,
+    candidateFamilies: vocabFile.candidates,
+    distinctCandidateIds: distinctCandIds,
+    idsProposedByMoreThanOneGroup: repeatedCandIds,
+    note: "Eleven independent induction groups, each seeing films from all four shards, proposed 317 families and agreed on a family NAME twice. Pass A found the same thing about situation phrases. Convergence has to be produced by the merge stage; it does not happen on its own, at any level of abstraction.",
+  },
+  assignmentStability: stability
+    ? { ...stability, passAComparison: "Pass A measured GENERATION reproducibility on the same films read in different company: 1.2%, 3.2%, 3.8% and 4.2% across four shards. This is the same experiment on CLASSIFICATION against a frozen list.", meaning: "Reliability, not validity — it says the answer is a property of the item rather than of its neighbours. Whether the answer is RIGHT is assignmentPrecision." }
+    : { note: "propB-stability.json not present — run pipeline/propB-stability.js" },
+  assignmentPrecision: precision,
   predicates: rows,
 };
 
@@ -341,8 +502,10 @@ if (aboveBand.length) L(`              above band: ${aboveBand.map((r) => `${r.i
 L(`  REACH       ${obsShardSpan}/${multi.length} multi-film predicates span 2+ era shards (chance would give ${r1(expShardSpan)})`);
 L(`              ${obsRegionSpan}/${multi.length} span 2+ regions (chance ${r1(expRegionSpan)}), ${multi.filter((r) => r.reach.shards === 4).length} span all four shards`);
 L(`  CO-OCCUR    strings: ${stringStats.pairs} film pairs, ${stringStats.crossShard} cross-shard, ${stringStats.rebuttal} opposed-outcome`);
-L(`              propB:   ${predStats.pairs} film pairs, ${predStats.crossShard} cross-shard, ${predStats.rebuttal} opposed-outcome`);
-L(`              per film: median ${med(degs)} neighbours, ${degs.filter((d) => d === 0).length} with none, ${degs.filter((d) => d >= 6).length} with 6+`);
+L(`              propB:   ${predStats.pairs} film pairs (${r1(pct(predStats.pairs, allPairs))}% of all ${allPairs} possible), ${predStats.crossShard} cross-shard, ${predStats.rebuttal} opposed-outcome`);
+L(`              after the proposal's own 0.4-8% cut: ${bandStats.pairs} pairs, ${bandStats.crossShard} cross-shard, ${bandStats.rebuttal} opposed-outcome`);
+L(`              per film: median ${med(degs)} neighbours (${med(bandDegs)} after the cut), ${degs.filter((d) => d === 0).length} with none`);
+L(`              batch artefact: within-batch pairs are ${batchCheck.chanceShare}% of the cohort graph; propB pairs are ${batchCheck.propBWithinBatchShare}% within-batch, strings ${batchCheck.stringWithinBatchShare}%`);
 if (stability) L(`  STABILITY   ${stability.exactAgreement}% exact agreement on re-tag (n=${stability.compared}), ${stability.agreementWhenBothNamed}% when both named a predicate, none-flip ${stability.noneFlipRate}%`);
 else L(`  STABILITY   not measured yet`);
 L(`\n  -> pipeline/out/predicates-propB.json\n`);

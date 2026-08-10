@@ -14,6 +14,7 @@
     "test:atlas-engine": "node atlas/pipeline/validate-corpus.js atlas/static/corpus.json && node atlas/pipeline/measure-maps.js && node atlas/pipeline/measure-claims.js",
     "test:atlas-layout": "node atlas/pipeline/measure-layout.js --selftest && node atlas/pipeline/measure-layout.js --strata",
     "test:atlas-find": "node atlas/pipeline/query-parse.js --selftest && node atlas/pipeline/query-parse.js --measure && node atlas/app/query-runtime.js --selftest && node .claude/skills/run-film-atlas/find-probe.mjs --controls",
+    "test:atlas-shelf": "node .claude/skills/run-film-atlas/shelf-probe.mjs",
     "test:atlas-recommender": "node atlas/pipeline/measure-recommender.js --selftest && node atlas/pipeline/measure-recommender.js",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"

@@ -1,0 +1,6167 @@
+{
+ "version": 1,
+ "promptVersion": "propC-reach-1",
+ "model": "claude-opus-5",
+ "stage": "assign",
+ "generated": "2026-08-10T14:18:19.094Z",
+ "phrases": 1538,
+ "batches": 28,
+ "assigned": 1060,
+ "none": 478,
+ "missing": 0,
+ "inventedIdsDropped": 0,
+ "tags": [
+  {
+   "i": 1063,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 1530,
+   "p": "kept-outside-the-circle"
+  },
+  {
+   "i": 1428,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1155,
+   "p": null
+  },
+  {
+   "i": 593,
+   "p": null
+  },
+  {
+   "i": 1248,
+   "p": null
+  },
+  {
+   "i": 1529,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 1429,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 1154,
+   "p": null
+  },
+  {
+   "i": 1057,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 893,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 1133,
+   "p": null
+  },
+  {
+   "i": 1251,
+   "p": null
+  },
+  {
+   "i": 127,
+   "p": null
+  },
+  {
+   "i": 1528,
+   "p": null
+  },
+  {
+   "i": 1430,
+   "p": null
+  },
+  {
+   "i": 1058,
+   "p": "present-but-no-longer-heard"
+  },
+  {
+   "i": 892,
+   "p": null
+  },
+  {
+   "i": 1132,
+   "p": "standing-held-at-anothers-pleasure"
+  },
+  {
+   "i": 1250,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 126,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 1331,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 1059,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 891,
+   "p": null
+  },
+  {
+   "i": 125,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1330,
+   "p": null
+  },
+  {
+   "i": 983,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1060,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 890,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 124,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 1333,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1274,
+   "p": null
+  },
+  {
+   "i": 984,
+   "p": null
+  },
+  {
+   "i": 158,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1061,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 889,
+   "p": null
+  },
+  {
+   "i": 1129,
+   "p": null
+  },
+  {
+   "i": 63,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 123,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 1332,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1532,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 1273,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 936,
+   "p": "affection-made-to-be-earned"
+  },
+  {
+   "i": 981,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 157,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 888,
+   "p": null
+  },
+  {
+   "i": 1128,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 587,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 389,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 64,
+   "p": null
+  },
+  {
+   "i": 772,
+   "p": null
+  },
+  {
+   "i": 937,
+   "p": "refusing-what-all-have-settled"
+  },
+  {
+   "i": 982,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 156,
+   "p": "the-one-everyone-lives-off"
+  },
+  {
+   "i": 1131,
+   "p": null
+  },
+  {
+   "i": 388,
+   "p": null
+  },
+  {
+   "i": 773,
+   "p": null
+  },
+  {
+   "i": 938,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 155,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1415,
+   "p": null
+  },
+  {
+   "i": 1130,
+   "p": null
+  },
+  {
+   "i": 387,
+   "p": null
+  },
+  {
+   "i": 770,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1270,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 939,
+   "p": null
+  },
+  {
+   "i": 154,
+   "p": null
+  },
+  {
+   "i": 1414,
+   "p": null
+  },
+  {
+   "i": 584,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 386,
+   "p": null
+  },
+  {
+   "i": 59,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 771,
+   "p": null
+  },
+  {
+   "i": 1269,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 985,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 1413,
+   "p": null
+  },
+  {
+   "i": 583,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 385,
+   "p": null
+  },
+  {
+   "i": 60,
+   "p": null
+  },
+  {
+   "i": 1272,
+   "p": null
+  },
+  {
+   "i": 1486,
+   "p": "a-bond-required-unlived"
+  },
+  {
+   "i": 1412,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 586,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 61,
+   "p": null
+  },
+  {
+   "i": 274,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1271,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 1487,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 585,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 62,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 275,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 774,
+   "p": null
+  },
+  {
+   "i": 1484,
+   "p": "envy-of-the-one-favoured"
+  },
+  {
+   "i": 371,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 272,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 1485,
+   "p": null
+  },
+  {
+   "i": 370,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 1301,
+   "p": null
+  },
+  {
+   "i": 273,
+   "p": "a-bond-that-cannot-end"
+  },
+  {
+   "i": 369,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 0,
+   "p": "accounts-that-cannot-be-vouched"
+  },
+  {
+   "i": 368,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 1299,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1,
+   "p": "read-as-the-opposite"
+  },
+  {
+   "i": 1488,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1300,
+   "p": null
+  },
+  {
+   "i": 2,
+   "p": null
+  },
+  {
+   "i": 491,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 1297,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 3,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 1029,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 490,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 373,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 1298,
+   "p": null
+  },
+  {
+   "i": 1097,
+   "p": null
+  },
+  {
+   "i": 850,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 1030,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 559,
+   "p": null
+  },
+  {
+   "i": 489,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 372,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 1098,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 380,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1235,
+   "p": null
+  },
+  {
+   "i": 851,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 560,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 488,
+   "p": null
+  },
+  {
+   "i": 877,
+   "p": null
+  },
+  {
+   "i": 1095,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 381,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 1236,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 848,
+   "p": null
+  },
+  {
+   "i": 302,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 561,
+   "p": "kept-outside-the-circle"
+  },
+  {
+   "i": 1096,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 382,
+   "p": "envy-of-the-one-favoured"
+  },
+  {
+   "i": 1237,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 849,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1025,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 301,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 515,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 562,
+   "p": null
+  },
+  {
+   "i": 875,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 383,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1238,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 846,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1026,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 514,
+   "p": "a-bond-required-unlived"
+  },
+  {
+   "i": 563,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 279,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 876,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 1001,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 384,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 1239,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 847,
+   "p": "the-accuser-holds-the-guilt"
+  },
+  {
+   "i": 1027,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 926,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 303,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 517,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 564,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 492,
+   "p": null
+  },
+  {
+   "i": 278,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 873,
+   "p": null
+  },
+  {
+   "i": 1099,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 1002,
+   "p": null
+  },
+  {
+   "i": 439,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1028,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 927,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 516,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 277,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 874,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 1100,
+   "p": null
+  },
+  {
+   "i": 1003,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 440,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 928,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 276,
+   "p": "consent-extracted-through-need"
+  },
+  {
+   "i": 1004,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 86,
+   "p": null
+  },
+  {
+   "i": 437,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 929,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 518,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 1005,
+   "p": null
+  },
+  {
+   "i": 85,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 438,
+   "p": null
+  },
+  {
+   "i": 930,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 414,
+   "p": "what-was-taken-must-return"
+  },
+  {
+   "i": 84,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 106,
+   "p": "what-was-taken-must-return"
+  },
+  {
+   "i": 534,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 281,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 713,
+   "p": null
+  },
+  {
+   "i": 415,
+   "p": null
+  },
+  {
+   "i": 286,
+   "p": null
+  },
+  {
+   "i": 83,
+   "p": "strength-decides-not-right"
+  },
+  {
+   "i": 107,
+   "p": null
+  },
+  {
+   "i": 535,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 280,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 712,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 412,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 285,
+   "p": null
+  },
+  {
+   "i": 82,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 441,
+   "p": null
+  },
+  {
+   "i": 104,
+   "p": "read-as-the-opposite"
+  },
+  {
+   "i": 532,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 711,
+   "p": null
+  },
+  {
+   "i": 413,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 284,
+   "p": "shelter-across-a-hostile-line"
+  },
+  {
+   "i": 105,
+   "p": "affection-made-to-be-earned"
+  },
+  {
+   "i": 666,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 533,
+   "p": null
+  },
+  {
+   "i": 710,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 283,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 667,
+   "p": "partners-who-expect-betrayal"
+  },
+  {
+   "i": 77,
+   "p": null
+  },
+  {
+   "i": 737,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 709,
+   "p": null
+  },
+  {
+   "i": 282,
+   "p": null
+  },
+  {
+   "i": 802,
+   "p": "the-ordeal-staged-again"
+  },
+  {
+   "i": 78,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 738,
+   "p": "refusing-what-all-have-settled"
+  },
+  {
+   "i": 416,
+   "p": null
+  },
+  {
+   "i": 184,
+   "p": null
+  },
+  {
+   "i": 803,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 79,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 536,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 735,
+   "p": null
+  },
+  {
+   "i": 547,
+   "p": null
+  },
+  {
+   "i": 185,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 804,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 662,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 80,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 736,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 548,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 677,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 182,
+   "p": null
+  },
+  {
+   "i": 805,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 663,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 81,
+   "p": null
+  },
+  {
+   "i": 545,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 183,
+   "p": null
+  },
+  {
+   "i": 806,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 664,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 546,
+   "p": null
+  },
+  {
+   "i": 665,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 1328,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 739,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 56,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 674,
+   "p": null
+  },
+  {
+   "i": 1329,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 1306,
+   "p": null
+  },
+  {
+   "i": 767,
+   "p": "refusing-what-all-have-settled"
+  },
+  {
+   "i": 55,
+   "p": "the-parent-seen-plainly"
+  },
+  {
+   "i": 673,
+   "p": null
+  },
+  {
+   "i": 186,
+   "p": null
+  },
+  {
+   "i": 686,
+   "p": null
+  },
+  {
+   "i": 1326,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 1307,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 766,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 54,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 676,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 685,
+   "p": null
+  },
+  {
+   "i": 1327,
+   "p": null
+  },
+  {
+   "i": 765,
+   "p": "strength-decides-not-right"
+  },
+  {
+   "i": 53,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 675,
+   "p": null
+  },
+  {
+   "i": 150,
+   "p": null
+  },
+  {
+   "i": 684,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 1324,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 1034,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 764,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 149,
+   "p": "a-debt-never-discharged"
+  },
+  {
+   "i": 661,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 683,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 1325,
+   "p": null
+  },
+  {
+   "i": 1033,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 1458,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 1302,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 152,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1032,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 1457,
+   "p": null
+  },
+  {
+   "i": 1303,
+   "p": null
+  },
+  {
+   "i": 255,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 58,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 151,
+   "p": null
+  },
+  {
+   "i": 659,
+   "p": null
+  },
+  {
+   "i": 1031,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 1456,
+   "p": null
+  },
+  {
+   "i": 1304,
+   "p": "shelter-across-a-hostile-line"
+  },
+  {
+   "i": 254,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 769,
+   "p": null
+  },
+  {
+   "i": 57,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 660,
+   "p": null
+  },
+  {
+   "i": 688,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 32,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 1455,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 1305,
+   "p": null
+  },
+  {
+   "i": 696,
+   "p": null
+  },
+  {
+   "i": 257,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 768,
+   "p": null
+  },
+  {
+   "i": 153,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 657,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 687,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 31,
+   "p": "confession-reaches-the-wrong-ear"
+  },
+  {
+   "i": 1454,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 697,
+   "p": null
+  },
+  {
+   "i": 256,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1482,
+   "p": null
+  },
+  {
+   "i": 658,
+   "p": null
+  },
+  {
+   "i": 644,
+   "p": null
+  },
+  {
+   "i": 1036,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 34,
+   "p": null
+  },
+  {
+   "i": 1453,
+   "p": null
+  },
+  {
+   "i": 694,
+   "p": null
+  },
+  {
+   "i": 1483,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 643,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1035,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 33,
+   "p": null
+  },
+  {
+   "i": 695,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 1480,
+   "p": null
+  },
+  {
+   "i": 1090,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1481,
+   "p": null
+  },
+  {
+   "i": 35,
+   "p": null
+  },
+  {
+   "i": 1091,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 640,
+   "p": null
+  },
+  {
+   "i": 1088,
+   "p": null
+  },
+  {
+   "i": 698,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 910,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 639,
+   "p": "affection-made-to-be-earned"
+  },
+  {
+   "i": 1089,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 1287,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 911,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 642,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1094,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1286,
+   "p": null
+  },
+  {
+   "i": 908,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 131,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 641,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 1289,
+   "p": null
+  },
+  {
+   "i": 909,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 130,
+   "p": null
+  },
+  {
+   "i": 1092,
+   "p": "confession-reaches-the-wrong-ear"
+  },
+  {
+   "i": 1288,
+   "p": "carrying-one-who-cannot-stand"
+  },
+  {
+   "i": 129,
+   "p": null
+  },
+  {
+   "i": 622,
+   "p": null
+  },
+  {
+   "i": 1093,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 128,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 845,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 623,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 1290,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 912,
+   "p": "the-rescue-that-binds"
+  },
+  {
+   "i": 1180,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 844,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 624,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1351,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 913,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1179,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 843,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 625,
+   "p": null
+  },
+  {
+   "i": 1350,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 1182,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 133,
+   "p": null
+  },
+  {
+   "i": 969,
+   "p": null
+  },
+  {
+   "i": 842,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 626,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 1280,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1181,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 132,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 968,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 841,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 627,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 223,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 1279,
+   "p": "the-accuser-holds-the-guilt"
+  },
+  {
+   "i": 313,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 1138,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 950,
+   "p": null
+  },
+  {
+   "i": 1347,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 224,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1278,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 951,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1346,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 1464,
+   "p": "the-reckoning-comes-too-late"
+  },
+  {
+   "i": 225,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 1277,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 311,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 965,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 179,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 952,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1349,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 1463,
+   "p": "envy-of-the-one-favoured"
+  },
+  {
+   "i": 15,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 226,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 1276,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 312,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 964,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 487,
+   "p": "the-reckoning-comes-too-late"
+  },
+  {
+   "i": 621,
+   "p": null
+  },
+  {
+   "i": 180,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 207,
+   "p": null
+  },
+  {
+   "i": 953,
+   "p": null
+  },
+  {
+   "i": 1348,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1462,
+   "p": null
+  },
+  {
+   "i": 14,
+   "p": "envy-of-the-one-favoured"
+  },
+  {
+   "i": 227,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1275,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 1219,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1452,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 309,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 967,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 1407,
+   "p": null
+  },
+  {
+   "i": 177,
+   "p": null
+  },
+  {
+   "i": 208,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1134,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 1461,
+   "p": "the-gift-that-goes-unnamed"
+  },
+  {
+   "i": 1220,
+   "p": null
+  },
+  {
+   "i": 1451,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 310,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 966,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1408,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 222,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 230,
+   "p": null
+  },
+  {
+   "i": 619,
+   "p": null
+  },
+  {
+   "i": 178,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 209,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1135,
+   "p": null
+  },
+  {
+   "i": 1460,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 1221,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 1450,
+   "p": null
+  },
+  {
+   "i": 1409,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 221,
+   "p": "the-accuser-holds-the-guilt"
+  },
+  {
+   "i": 484,
+   "p": "consent-extracted-through-need"
+  },
+  {
+   "i": 231,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 620,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 210,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1136,
+   "p": null
+  },
+  {
+   "i": 1459,
+   "p": null
+  },
+  {
+   "i": 11,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 1222,
+   "p": null
+  },
+  {
+   "i": 1449,
+   "p": null
+  },
+  {
+   "i": 1410,
+   "p": null
+  },
+  {
+   "i": 220,
+   "p": null
+  },
+  {
+   "i": 483,
+   "p": null
+  },
+  {
+   "i": 228,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1161,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 211,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 1137,
+   "p": null
+  },
+  {
+   "i": 8,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 10,
+   "p": null
+  },
+  {
+   "i": 1223,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 1056,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1448,
+   "p": null
+  },
+  {
+   "i": 1411,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 219,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 486,
+   "p": null
+  },
+  {
+   "i": 229,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1160,
+   "p": null
+  },
+  {
+   "i": 181,
+   "p": "shelter-across-a-hostile-line"
+  },
+  {
+   "i": 212,
+   "p": null
+  },
+  {
+   "i": 1442,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 9,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 13,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1055,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 552,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1447,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 1512,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 485,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 1441,
+   "p": null
+  },
+  {
+   "i": 6,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 12,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 1054,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 551,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1444,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 7,
+   "p": null
+  },
+  {
+   "i": 1053,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 550,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1178,
+   "p": null
+  },
+  {
+   "i": 232,
+   "p": null
+  },
+  {
+   "i": 1157,
+   "p": null
+  },
+  {
+   "i": 751,
+   "p": null
+  },
+  {
+   "i": 1443,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 4,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 1052,
+   "p": "kept-outside-the-circle"
+  },
+  {
+   "i": 549,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 233,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 1156,
+   "p": "one-temper-sets-the-terms"
+  },
+  {
+   "i": 750,
+   "p": null
+  },
+  {
+   "i": 1446,
+   "p": null
+  },
+  {
+   "i": 5,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 1466,
+   "p": null
+  },
+  {
+   "i": 1051,
+   "p": "the-accuser-holds-the-guilt"
+  },
+  {
+   "i": 1508,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 1159,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 1445,
+   "p": "waiting-out-the-other"
+  },
+  {
+   "i": 1465,
+   "p": null
+  },
+  {
+   "i": 160,
+   "p": null
+  },
+  {
+   "i": 1509,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1158,
+   "p": null
+  },
+  {
+   "i": 1468,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 159,
+   "p": null
+  },
+  {
+   "i": 308,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1510,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 1174,
+   "p": null
+  },
+  {
+   "i": 747,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 1467,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 162,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 553,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 1511,
+   "p": "the-gift-that-goes-unnamed"
+  },
+  {
+   "i": 1175,
+   "p": null
+  },
+  {
+   "i": 746,
+   "p": null
+  },
+  {
+   "i": 161,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 1493,
+   "p": null
+  },
+  {
+   "i": 1176,
+   "p": null
+  },
+  {
+   "i": 749,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 164,
+   "p": null
+  },
+  {
+   "i": 305,
+   "p": "standing-held-at-anothers-pleasure"
+  },
+  {
+   "i": 1494,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1177,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 748,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 188,
+   "p": null
+  },
+  {
+   "i": 163,
+   "p": "consent-extracted-through-need"
+  },
+  {
+   "i": 304,
+   "p": "kept-outside-the-circle"
+  },
+  {
+   "i": 30,
+   "p": null
+  },
+  {
+   "i": 467,
+   "p": null
+  },
+  {
+   "i": 187,
+   "p": null
+  },
+  {
+   "i": 307,
+   "p": null
+  },
+  {
+   "i": 29,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 190,
+   "p": null
+  },
+  {
+   "i": 763,
+   "p": null
+  },
+  {
+   "i": 306,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 28,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 1489,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 189,
+   "p": null
+  },
+  {
+   "i": 27,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1490,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 898,
+   "p": null
+  },
+  {
+   "i": 464,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 1076,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 1491,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 463,
+   "p": "carrying-one-who-cannot-stand"
+  },
+  {
+   "i": 241,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 191,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 1075,
+   "p": null
+  },
+  {
+   "i": 720,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 1384,
+   "p": "rivalry-for-a-single-place"
+  },
+  {
+   "i": 1492,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 466,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 242,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 557,
+   "p": null
+  },
+  {
+   "i": 759,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 1074,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 719,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 465,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 1285,
+   "p": null
+  },
+  {
+   "i": 239,
+   "p": null
+  },
+  {
+   "i": 1171,
+   "p": "one-temper-sets-the-terms"
+  },
+  {
+   "i": 556,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 760,
+   "p": null
+  },
+  {
+   "i": 1073,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 722,
+   "p": null
+  },
+  {
+   "i": 894,
+   "p": null
+  },
+  {
+   "i": 240,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1170,
+   "p": null
+  },
+  {
+   "i": 555,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 761,
+   "p": null
+  },
+  {
+   "i": 1072,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 721,
+   "p": "shut-in-with-an-adversary"
+  },
+  {
+   "i": 1381,
+   "p": null
+  },
+  {
+   "i": 895,
+   "p": null
+  },
+  {
+   "i": 1283,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 1169,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 554,
+   "p": null
+  },
+  {
+   "i": 762,
+   "p": null
+  },
+  {
+   "i": 1396,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 724,
+   "p": null
+  },
+  {
+   "i": 1380,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 896,
+   "p": null
+  },
+  {
+   "i": 1284,
+   "p": null
+  },
+  {
+   "i": 322,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1168,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1397,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 723,
+   "p": null
+  },
+  {
+   "i": 1383,
+   "p": null
+  },
+  {
+   "i": 201,
+   "p": null
+  },
+  {
+   "i": 897,
+   "p": null
+  },
+  {
+   "i": 1281,
+   "p": "waiting-out-the-other"
+  },
+  {
+   "i": 321,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 243,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 1398,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 1382,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 202,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1282,
+   "p": "partners-who-expect-betrayal"
+  },
+  {
+   "i": 320,
+   "p": null
+  },
+  {
+   "i": 1399,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 611,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 203,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 319,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1173,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 558,
+   "p": null
+  },
+  {
+   "i": 1400,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 612,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 204,
+   "p": null
+  },
+  {
+   "i": 1172,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 1401,
+   "p": null
+  },
+  {
+   "i": 43,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 609,
+   "p": "the-only-way-through"
+  },
+  {
+   "i": 1017,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 205,
+   "p": null
+  },
+  {
+   "i": 818,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 399,
+   "p": null
+  },
+  {
+   "i": 42,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 496,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 610,
+   "p": null
+  },
+  {
+   "i": 1018,
+   "p": "a-death-known-in-advance"
+  },
+  {
+   "i": 206,
+   "p": null
+  },
+  {
+   "i": 398,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 45,
+   "p": null
+  },
+  {
+   "i": 495,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 607,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 1015,
+   "p": null
+  },
+  {
+   "i": 1376,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 1203,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 397,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 44,
+   "p": null
+  },
+  {
+   "i": 494,
+   "p": "consent-extracted-through-need"
+  },
+  {
+   "i": 608,
+   "p": null
+  },
+  {
+   "i": 1016,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 110,
+   "p": null
+  },
+  {
+   "i": 1377,
+   "p": null
+  },
+  {
+   "i": 1202,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 815,
+   "p": null
+  },
+  {
+   "i": 396,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 493,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 111,
+   "p": null
+  },
+  {
+   "i": 1374,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 940,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1201,
+   "p": null
+  },
+  {
+   "i": 814,
+   "p": null
+  },
+  {
+   "i": 46,
+   "p": null
+  },
+  {
+   "i": 108,
+   "p": null
+  },
+  {
+   "i": 1375,
+   "p": null
+  },
+  {
+   "i": 941,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1200,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 817,
+   "p": null
+  },
+  {
+   "i": 109,
+   "p": null
+  },
+  {
+   "i": 942,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1199,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1149,
+   "p": null
+  },
+  {
+   "i": 816,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 1116,
+   "p": "the-one-not-reckoned-with"
+  },
+  {
+   "i": 1417,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 943,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1198,
+   "p": null
+  },
+  {
+   "i": 1148,
+   "p": null
+  },
+  {
+   "i": 400,
+   "p": null
+  },
+  {
+   "i": 1115,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 497,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 1416,
+   "p": null
+  },
+  {
+   "i": 1378,
+   "p": "a-death-known-in-advance"
+  },
+  {
+   "i": 944,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 1147,
+   "p": null
+  },
+  {
+   "i": 1114,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1419,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 112,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 670,
+   "p": null
+  },
+  {
+   "i": 1379,
+   "p": null
+  },
+  {
+   "i": 1146,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 811,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1113,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1418,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 671,
+   "p": "a-bond-that-cannot-end"
+  },
+  {
+   "i": 1145,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1112,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 668,
+   "p": "a-bond-required-unlived"
+  },
+  {
+   "i": 1144,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1420,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 669,
+   "p": null
+  },
+  {
+   "i": 808,
+   "p": null
+  },
+  {
+   "i": 1395,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 807,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 1406,
+   "p": null
+  },
+  {
+   "i": 1394,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 810,
+   "p": null
+  },
+  {
+   "i": 1425,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 672,
+   "p": null
+  },
+  {
+   "i": 809,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 378,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 1234,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1391,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 379,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 1233,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1402,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 1390,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 376,
+   "p": "shelter-across-a-hostile-line"
+  },
+  {
+   "i": 974,
+   "p": null
+  },
+  {
+   "i": 1421,
+   "p": null
+  },
+  {
+   "i": 1403,
+   "p": null
+  },
+  {
+   "i": 1393,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 377,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 265,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 975,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1422,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 1404,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 1392,
+   "p": "a-debt-never-discharged"
+  },
+  {
+   "i": 374,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 264,
+   "p": "shut-in-with-an-adversary"
+  },
+  {
+   "i": 597,
+   "p": "strength-decides-not-right"
+  },
+  {
+   "i": 972,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1230,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1423,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 1405,
+   "p": null
+  },
+  {
+   "i": 375,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 263,
+   "p": "standing-held-at-anothers-pleasure"
+  },
+  {
+   "i": 146,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 596,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 973,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 68,
+   "p": null
+  },
+  {
+   "i": 1229,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1424,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 262,
+   "p": null
+  },
+  {
+   "i": 102,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 147,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 595,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 970,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 67,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 1232,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 529,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 103,
+   "p": null
+  },
+  {
+   "i": 144,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 594,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 971,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 66,
+   "p": null
+  },
+  {
+   "i": 1231,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 528,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 100,
+   "p": "rivalry-for-a-single-place"
+  },
+  {
+   "i": 145,
+   "p": null
+  },
+  {
+   "i": 65,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 531,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 445,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 101,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 647,
+   "p": null
+  },
+  {
+   "i": 530,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 266,
+   "p": null
+  },
+  {
+   "i": 444,
+   "p": null
+  },
+  {
+   "i": 98,
+   "p": null
+  },
+  {
+   "i": 599,
+   "p": "the-ordeal-staged-again"
+  },
+  {
+   "i": 648,
+   "p": null
+  },
+  {
+   "i": 443,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 99,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 148,
+   "p": null
+  },
+  {
+   "i": 598,
+   "p": null
+  },
+  {
+   "i": 70,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 824,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 645,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 1228,
+   "p": "carrying-one-who-cannot-stand"
+  },
+  {
+   "i": 442,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 39,
+   "p": null
+  },
+  {
+   "i": 69,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 1503,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 825,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 646,
+   "p": "refusing-what-all-have-settled"
+  },
+  {
+   "i": 38,
+   "p": null
+  },
+  {
+   "i": 97,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 826,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 37,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 96,
+   "p": null
+  },
+  {
+   "i": 122,
+   "p": null
+  },
+  {
+   "i": 827,
+   "p": null
+  },
+  {
+   "i": 539,
+   "p": "the-one-everyone-lives-off"
+  },
+  {
+   "i": 1105,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 36,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 958,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 121,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 828,
+   "p": null
+  },
+  {
+   "i": 649,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 1224,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 1106,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 446,
+   "p": null
+  },
+  {
+   "i": 1499,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 829,
+   "p": null
+  },
+  {
+   "i": 169,
+   "p": null
+  },
+  {
+   "i": 650,
+   "p": "rivalry-for-a-single-place"
+  },
+  {
+   "i": 537,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 1225,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 93,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1500,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 170,
+   "p": null
+  },
+  {
+   "i": 538,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 1226,
+   "p": null
+  },
+  {
+   "i": 41,
+   "p": null
+  },
+  {
+   "i": 1371,
+   "p": null
+  },
+  {
+   "i": 92,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 955,
+   "p": null
+  },
+  {
+   "i": 118,
+   "p": "affection-made-to-be-earned"
+  },
+  {
+   "i": 1501,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 1041,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1227,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 1101,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 40,
+   "p": "refusing-what-all-have-settled"
+  },
+  {
+   "i": 1495,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 1370,
+   "p": "the-ordeal-staged-again"
+  },
+  {
+   "i": 95,
+   "p": null
+  },
+  {
+   "i": 1164,
+   "p": null
+  },
+  {
+   "i": 954,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 117,
+   "p": null
+  },
+  {
+   "i": 1502,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 1042,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 1102,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 1496,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1373,
+   "p": null
+  },
+  {
+   "i": 94,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1165,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 957,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 120,
+   "p": null
+  },
+  {
+   "i": 165,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 1043,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 1103,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1497,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 1372,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 1162,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 956,
+   "p": "the-one-everyone-lives-off"
+  },
+  {
+   "i": 119,
+   "p": null
+  },
+  {
+   "i": 782,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 166,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 1044,
+   "p": null
+  },
+  {
+   "i": 1104,
+   "p": "read-as-the-opposite"
+  },
+  {
+   "i": 1498,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 1163,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 781,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 167,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 1045,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 218,
+   "p": null
+  },
+  {
+   "i": 299,
+   "p": null
+  },
+  {
+   "i": 784,
+   "p": null
+  },
+  {
+   "i": 168,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 217,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 298,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 783,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 297,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 1166,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 296,
+   "p": "shut-in-with-an-adversary"
+  },
+  {
+   "i": 1167,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 785,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 1262,
+   "p": null
+  },
+  {
+   "i": 214,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1263,
+   "p": null
+  },
+  {
+   "i": 213,
+   "p": "the-rescue-that-binds"
+  },
+  {
+   "i": 1240,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 1081,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 1260,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 216,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1241,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 1082,
+   "p": null
+  },
+  {
+   "i": 1474,
+   "p": null
+  },
+  {
+   "i": 1261,
+   "p": "the-accuser-holds-the-guilt"
+  },
+  {
+   "i": 238,
+   "p": null
+  },
+  {
+   "i": 215,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 300,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 194,
+   "p": null
+  },
+  {
+   "i": 1242,
+   "p": "shelter-across-a-hostile-line"
+  },
+  {
+   "i": 1079,
+   "p": "strength-decides-not-right"
+  },
+  {
+   "i": 1473,
+   "p": null
+  },
+  {
+   "i": 1258,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 237,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 195,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1243,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1080,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1472,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1259,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 236,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 192,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1244,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 1077,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1471,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 235,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 193,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 1245,
+   "p": null
+  },
+  {
+   "i": 1078,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 1470,
+   "p": null
+  },
+  {
+   "i": 1010,
+   "p": null
+  },
+  {
+   "i": 234,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 1469,
+   "p": null
+  },
+  {
+   "i": 290,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 1008,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 289,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 732,
+   "p": null
+  },
+  {
+   "i": 1009,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 288,
+   "p": "standing-held-at-anothers-pleasure"
+  },
+  {
+   "i": 733,
+   "p": null
+  },
+  {
+   "i": 994,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 1006,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 287,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 730,
+   "p": "envy-of-the-one-favoured"
+  },
+  {
+   "i": 342,
+   "p": "a-child-wanted-through-another"
+  },
+  {
+   "i": 993,
+   "p": null
+  },
+  {
+   "i": 1007,
+   "p": "the-bond-recast-unilaterally"
+  },
+  {
+   "i": 731,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 343,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 992,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 353,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 1362,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 344,
+   "p": null
+  },
+  {
+   "i": 991,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 354,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 345,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 355,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 744,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 137,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 507,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 734,
+   "p": null
+  },
+  {
+   "i": 1265,
+   "p": null
+  },
+  {
+   "i": 346,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 356,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 362,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 745,
+   "p": null
+  },
+  {
+   "i": 136,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 1517,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 1252,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 451,
+   "p": null
+  },
+  {
+   "i": 1264,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 357,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 135,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1516,
+   "p": null
+  },
+  {
+   "i": 1253,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 1358,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 450,
+   "p": null
+  },
+  {
+   "i": 1267,
+   "p": null
+  },
+  {
+   "i": 1194,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 995,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 134,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 1515,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 1254,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 436,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 1359,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 504,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 449,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 1266,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 140,
+   "p": null
+  },
+  {
+   "i": 1193,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 740,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1514,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 1255,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1315,
+   "p": null
+  },
+  {
+   "i": 435,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1360,
+   "p": null
+  },
+  {
+   "i": 503,
+   "p": null
+  },
+  {
+   "i": 448,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 141,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1196,
+   "p": null
+  },
+  {
+   "i": 358,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 741,
+   "p": null
+  },
+  {
+   "i": 718,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 1513,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1256,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 1316,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 434,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1361,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 506,
+   "p": null
+  },
+  {
+   "i": 447,
+   "p": "carrying-one-who-cannot-stand"
+  },
+  {
+   "i": 1268,
+   "p": null
+  },
+  {
+   "i": 142,
+   "p": null
+  },
+  {
+   "i": 1195,
+   "p": null
+  },
+  {
+   "i": 359,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 742,
+   "p": null
+  },
+  {
+   "i": 139,
+   "p": "read-as-the-opposite"
+  },
+  {
+   "i": 1257,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1313,
+   "p": "consent-extracted-through-need"
+  },
+  {
+   "i": 433,
+   "p": null
+  },
+  {
+   "i": 505,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 143,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 360,
+   "p": null
+  },
+  {
+   "i": 743,
+   "p": null
+  },
+  {
+   "i": 716,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 138,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 1314,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 1197,
+   "p": null
+  },
+  {
+   "i": 361,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 717,
+   "p": null
+  },
+  {
+   "i": 1343,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 714,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 1344,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 338,
+   "p": null
+  },
+  {
+   "i": 715,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 1317,
+   "p": "standing-held-at-anothers-pleasure"
+  },
+  {
+   "i": 899,
+   "p": null
+  },
+  {
+   "i": 1341,
+   "p": "a-bond-that-cannot-end"
+  },
+  {
+   "i": 337,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 499,
+   "p": null
+  },
+  {
+   "i": 900,
+   "p": null
+  },
+  {
+   "i": 1342,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 340,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 498,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 787,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 901,
+   "p": null
+  },
+  {
+   "i": 339,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 501,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 786,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 705,
+   "p": null
+  },
+  {
+   "i": 882,
+   "p": null
+  },
+  {
+   "i": 902,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 500,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 789,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 704,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 881,
+   "p": null
+  },
+  {
+   "i": 1345,
+   "p": null
+  },
+  {
+   "i": 341,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 420,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 24,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 788,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 707,
+   "p": null
+  },
+  {
+   "i": 880,
+   "p": "the-gift-that-goes-unnamed"
+  },
+  {
+   "i": 419,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 472,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 502,
+   "p": null
+  },
+  {
+   "i": 23,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 791,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1127,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 706,
+   "p": null
+  },
+  {
+   "i": 879,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 418,
+   "p": null
+  },
+  {
+   "i": 22,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 790,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 878,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 574,
+   "p": null
+  },
+  {
+   "i": 417,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1436,
+   "p": null
+  },
+  {
+   "i": 21,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 708,
+   "p": "read-as-the-opposite"
+  },
+  {
+   "i": 1479,
+   "p": null
+  },
+  {
+   "i": 573,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 614,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 1437,
+   "p": null
+  },
+  {
+   "i": 1048,
+   "p": null
+  },
+  {
+   "i": 572,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 613,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 468,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 1438,
+   "p": null
+  },
+  {
+   "i": 1049,
+   "p": null
+  },
+  {
+   "i": 1123,
+   "p": null
+  },
+  {
+   "i": 571,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 616,
+   "p": null
+  },
+  {
+   "i": 469,
+   "p": "the-only-way-through"
+  },
+  {
+   "i": 1439,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 26,
+   "p": "the-reckoning-comes-too-late"
+  },
+  {
+   "i": 1046,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 1124,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 421,
+   "p": null
+  },
+  {
+   "i": 615,
+   "p": null
+  },
+  {
+   "i": 470,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 1440,
+   "p": null
+  },
+  {
+   "i": 25,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 1047,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 1125,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1122,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 1475,
+   "p": null
+  },
+  {
+   "i": 725,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 618,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 471,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 481,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1126,
+   "p": null
+  },
+  {
+   "i": 1121,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1476,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 576,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1084,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 726,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 617,
+   "p": null
+  },
+  {
+   "i": 482,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 1120,
+   "p": null
+  },
+  {
+   "i": 1477,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 575,
+   "p": null
+  },
+  {
+   "i": 1083,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 727,
+   "p": "partners-who-expect-betrayal"
+  },
+  {
+   "i": 479,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1522,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 1014,
+   "p": null
+  },
+  {
+   "i": 1050,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 1119,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 1478,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 367,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 1086,
+   "p": "the-accuser-holds-the-guilt"
+  },
+  {
+   "i": 853,
+   "p": null
+  },
+  {
+   "i": 728,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 480,
+   "p": null
+  },
+  {
+   "i": 1013,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 1118,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 1085,
+   "p": "strength-decides-not-right"
+  },
+  {
+   "i": 852,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 729,
+   "p": null
+  },
+  {
+   "i": 477,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1520,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 1012,
+   "p": null
+  },
+  {
+   "i": 1117,
+   "p": null
+  },
+  {
+   "i": 855,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 478,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1521,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1011,
+   "p": "the-warning-that-cannot-land"
+  },
+  {
+   "i": 1087,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 854,
+   "p": "the-only-way-through"
+  },
+  {
+   "i": 317,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 1518,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 363,
+   "p": "carrying-one-who-cannot-stand"
+  },
+  {
+   "i": 857,
+   "p": "held-where-no-help-reaches"
+  },
+  {
+   "i": 316,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 1519,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 1190,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 410,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 364,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 856,
+   "p": null
+  },
+  {
+   "i": 315,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 1191,
+   "p": null
+  },
+  {
+   "i": 1296,
+   "p": null
+  },
+  {
+   "i": 409,
+   "p": null
+  },
+  {
+   "i": 365,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1071,
+   "p": null
+  },
+  {
+   "i": 314,
+   "p": null
+  },
+  {
+   "i": 1188,
+   "p": null
+  },
+  {
+   "i": 1024,
+   "p": null
+  },
+  {
+   "i": 703,
+   "p": null
+  },
+  {
+   "i": 1295,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 408,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 366,
+   "p": "the-parent-seen-plainly"
+  },
+  {
+   "i": 245,
+   "p": "the-accuser-holds-the-guilt"
+  },
+  {
+   "i": 1189,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1023,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 1294,
+   "p": null
+  },
+  {
+   "i": 407,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 577,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 917,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 244,
+   "p": null
+  },
+  {
+   "i": 1022,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 701,
+   "p": null
+  },
+  {
+   "i": 1293,
+   "p": null
+  },
+  {
+   "i": 578,
+   "p": null
+  },
+  {
+   "i": 916,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 247,
+   "p": "confession-reaches-the-wrong-ear"
+  },
+  {
+   "i": 427,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 1021,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 1389,
+   "p": "the-rescue-that-binds"
+  },
+  {
+   "i": 702,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 1292,
+   "p": "shelter-across-a-hostile-line"
+  },
+  {
+   "i": 579,
+   "p": null
+  },
+  {
+   "i": 1067,
+   "p": null
+  },
+  {
+   "i": 915,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 246,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 428,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 318,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1192,
+   "p": null
+  },
+  {
+   "i": 1020,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 699,
+   "p": null
+  },
+  {
+   "i": 1291,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 580,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 1068,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 914,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 429,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1323,
+   "p": null
+  },
+  {
+   "i": 1019,
+   "p": null
+  },
+  {
+   "i": 700,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 411,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 581,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 1069,
+   "p": null
+  },
+  {
+   "i": 935,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 248,
+   "p": null
+  },
+  {
+   "i": 430,
+   "p": null
+  },
+  {
+   "i": 1322,
+   "p": null
+  },
+  {
+   "i": 582,
+   "p": "a-bond-that-cannot-end"
+  },
+  {
+   "i": 1070,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1213,
+   "p": "the-rescue-that-binds"
+  },
+  {
+   "i": 431,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 1218,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1321,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 1385,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 906,
+   "p": null
+  },
+  {
+   "i": 919,
+   "p": null
+  },
+  {
+   "i": 432,
+   "p": null
+  },
+  {
+   "i": 987,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 755,
+   "p": null
+  },
+  {
+   "i": 653,
+   "p": null
+  },
+  {
+   "i": 1320,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1386,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 606,
+   "p": "kept-outside-the-circle"
+  },
+  {
+   "i": 905,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 918,
+   "p": null
+  },
+  {
+   "i": 986,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 754,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 654,
+   "p": null
+  },
+  {
+   "i": 1319,
+   "p": null
+  },
+  {
+   "i": 1387,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 904,
+   "p": "the-parent-seen-plainly"
+  },
+  {
+   "i": 776,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 931,
+   "p": "the-price-of-a-place"
+  },
+  {
+   "i": 1210,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 989,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 753,
+   "p": "strength-decides-not-right"
+  },
+  {
+   "i": 651,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 1318,
+   "p": null
+  },
+  {
+   "i": 1388,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 604,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 903,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 775,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 932,
+   "p": null
+  },
+  {
+   "i": 1209,
+   "p": "another-owns-your-life"
+  },
+  {
+   "i": 988,
+   "p": null
+  },
+  {
+   "i": 752,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 1214,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 652,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 605,
+   "p": null
+  },
+  {
+   "i": 778,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 933,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 1212,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 1215,
+   "p": null
+  },
+  {
+   "i": 524,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 777,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 934,
+   "p": null
+  },
+  {
+   "i": 1211,
+   "p": null
+  },
+  {
+   "i": 990,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 758,
+   "p": null
+  },
+  {
+   "i": 1216,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 525,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 780,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 757,
+   "p": "made-to-answer-for-another"
+  },
+  {
+   "i": 1217,
+   "p": null
+  },
+  {
+   "i": 655,
+   "p": null
+  },
+  {
+   "i": 907,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 526,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 779,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 980,
+   "p": null
+  },
+  {
+   "i": 756,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 656,
+   "p": null
+  },
+  {
+   "i": 871,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 527,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 872,
+   "p": null
+  },
+  {
+   "i": 291,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1505,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 869,
+   "p": null
+  },
+  {
+   "i": 977,
+   "p": "a-child-wanted-through-another"
+  },
+  {
+   "i": 690,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 292,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1504,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 883,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 870,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 1312,
+   "p": "confession-reaches-the-wrong-ear"
+  },
+  {
+   "i": 976,
+   "p": null
+  },
+  {
+   "i": 689,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 293,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1507,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 884,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 90,
+   "p": "wrongdoer-faces-the-wronged"
+  },
+  {
+   "i": 638,
+   "p": null
+  },
+  {
+   "i": 979,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 692,
+   "p": null
+  },
+  {
+   "i": 294,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 1506,
+   "p": null
+  },
+  {
+   "i": 885,
+   "p": null
+  },
+  {
+   "i": 454,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 1310,
+   "p": null
+  },
+  {
+   "i": 89,
+   "p": null
+  },
+  {
+   "i": 978,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 1534,
+   "p": null
+  },
+  {
+   "i": 691,
+   "p": "rivalry-for-a-single-place"
+  },
+  {
+   "i": 295,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 1431,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 886,
+   "p": "harm-passed-to-the-uninvolved"
+  },
+  {
+   "i": 455,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1311,
+   "p": null
+  },
+  {
+   "i": 88,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 1533,
+   "p": "the-gift-that-goes-unnamed"
+  },
+  {
+   "i": 1432,
+   "p": "envy-of-the-one-favoured"
+  },
+  {
+   "i": 887,
+   "p": "affection-made-to-be-earned"
+  },
+  {
+   "i": 352,
+   "p": null
+  },
+  {
+   "i": 452,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1308,
+   "p": null
+  },
+  {
+   "i": 87,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 812,
+   "p": null
+  },
+  {
+   "i": 114,
+   "p": null
+  },
+  {
+   "i": 1536,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 693,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 1433,
+   "p": "a-child-claimed-by-two"
+  },
+  {
+   "i": 351,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 453,
+   "p": null
+  },
+  {
+   "i": 1309,
+   "p": null
+  },
+  {
+   "i": 813,
+   "p": null
+  },
+  {
+   "i": 113,
+   "p": "affection-made-to-be-earned"
+  },
+  {
+   "i": 634,
+   "p": "consent-extracted-through-need"
+  },
+  {
+   "i": 1037,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 1535,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 1434,
+   "p": "consent-extracted-through-need"
+  },
+  {
+   "i": 258,
+   "p": null
+  },
+  {
+   "i": 116,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 635,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 1038,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 1435,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 259,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 115,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 636,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1039,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 1537,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 1338,
+   "p": null
+  },
+  {
+   "i": 1143,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 348,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 456,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 91,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 260,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 637,
+   "p": null
+  },
+  {
+   "i": 1040,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 1339,
+   "p": null
+  },
+  {
+   "i": 51,
+   "p": null
+  },
+  {
+   "i": 1142,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 347,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 261,
+   "p": null
+  },
+  {
+   "i": 922,
+   "p": null
+  },
+  {
+   "i": 1336,
+   "p": null
+  },
+  {
+   "i": 52,
+   "p": "strength-decides-not-right"
+  },
+  {
+   "i": 1141,
+   "p": null
+  },
+  {
+   "i": 350,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 839,
+   "p": "the-only-way-through"
+  },
+  {
+   "i": 923,
+   "p": null
+  },
+  {
+   "i": 1337,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 1140,
+   "p": null
+  },
+  {
+   "i": 349,
+   "p": null
+  },
+  {
+   "i": 838,
+   "p": "the-search-consumes-the-searcher"
+  },
+  {
+   "i": 521,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 920,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 395,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 1139,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 837,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1355,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 522,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 921,
+   "p": null
+  },
+  {
+   "i": 394,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 47,
+   "p": "refusing-what-all-have-settled"
+  },
+  {
+   "i": 836,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1354,
+   "p": "the-pursuit-becomes-the-bond"
+  },
+  {
+   "i": 519,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 1340,
+   "p": null
+  },
+  {
+   "i": 393,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 48,
+   "p": null
+  },
+  {
+   "i": 862,
+   "p": null
+  },
+  {
+   "i": 1353,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 402,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 520,
+   "p": null
+  },
+  {
+   "i": 392,
+   "p": null
+  },
+  {
+   "i": 49,
+   "p": null
+  },
+  {
+   "i": 72,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 1352,
+   "p": "the-dead-claim-the-living"
+  },
+  {
+   "i": 401,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 924,
+   "p": null
+  },
+  {
+   "i": 391,
+   "p": "shut-in-with-an-adversary"
+  },
+  {
+   "i": 50,
+   "p": "harm-done-by-anothers-hands"
+  },
+  {
+   "i": 949,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 71,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 252,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 404,
+   "p": "the-cost-taken-on-willingly"
+  },
+  {
+   "i": 925,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 390,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 840,
+   "p": null
+  },
+  {
+   "i": 74,
+   "p": "torn-between-two-claims"
+  },
+  {
+   "i": 859,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 251,
+   "p": "envy-of-the-one-favoured"
+  },
+  {
+   "i": 403,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 523,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 835,
+   "p": "affection-made-to-be-earned"
+  },
+  {
+   "i": 73,
+   "p": null
+  },
+  {
+   "i": 271,
+   "p": null
+  },
+  {
+   "i": 858,
+   "p": null
+  },
+  {
+   "i": 250,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 1357,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 406,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 834,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 76,
+   "p": "drawn-into-anothers-quarrel"
+  },
+  {
+   "i": 1108,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 861,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 249,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 1356,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 405,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 602,
+   "p": null
+  },
+  {
+   "i": 945,
+   "p": null
+  },
+  {
+   "i": 1369,
+   "p": null
+  },
+  {
+   "i": 75,
+   "p": null
+  },
+  {
+   "i": 1107,
+   "p": null
+  },
+  {
+   "i": 860,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 603,
+   "p": null
+  },
+  {
+   "i": 946,
+   "p": "standing-stripped-answered-with-death"
+  },
+  {
+   "i": 681,
+   "p": null
+  },
+  {
+   "i": 1110,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 1000,
+   "p": null
+  },
+  {
+   "i": 1187,
+   "p": null
+  },
+  {
+   "i": 600,
+   "p": null
+  },
+  {
+   "i": 831,
+   "p": null
+  },
+  {
+   "i": 947,
+   "p": null
+  },
+  {
+   "i": 680,
+   "p": "a-child-wanted-through-another"
+  },
+  {
+   "i": 1367,
+   "p": null
+  },
+  {
+   "i": 1109,
+   "p": null
+  },
+  {
+   "i": 267,
+   "p": null
+  },
+  {
+   "i": 601,
+   "p": null
+  },
+  {
+   "i": 830,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 948,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 679,
+   "p": null
+  },
+  {
+   "i": 1368,
+   "p": null
+  },
+  {
+   "i": 268,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 253,
+   "p": null
+  },
+  {
+   "i": 833,
+   "p": null
+  },
+  {
+   "i": 678,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 1111,
+   "p": "standing-held-at-anothers-pleasure"
+  },
+  {
+   "i": 269,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 542,
+   "p": null
+  },
+  {
+   "i": 1184,
+   "p": null
+  },
+  {
+   "i": 20,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 832,
+   "p": "the-only-way-through"
+  },
+  {
+   "i": 270,
+   "p": null
+  },
+  {
+   "i": 996,
+   "p": "confession-reaches-the-wrong-ear"
+  },
+  {
+   "i": 543,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 1183,
+   "p": "a-wrong-never-answered-for"
+  },
+  {
+   "i": 19,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 997,
+   "p": null
+  },
+  {
+   "i": 540,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 1186,
+   "p": null
+  },
+  {
+   "i": 18,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 998,
+   "p": null
+  },
+  {
+   "i": 864,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 541,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 1185,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 17,
+   "p": "remade-into-anothers-figure"
+  },
+  {
+   "i": 682,
+   "p": null
+  },
+  {
+   "i": 176,
+   "p": "a-life-settled-by-others"
+  },
+  {
+   "i": 999,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 863,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 16,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 794,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 175,
+   "p": "shut-in-with-an-adversary"
+  },
+  {
+   "i": 866,
+   "p": null
+  },
+  {
+   "i": 336,
+   "p": null
+  },
+  {
+   "i": 797,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 795,
+   "p": null
+  },
+  {
+   "i": 865,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 544,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 335,
+   "p": "one-goes-one-keeps-faith"
+  },
+  {
+   "i": 796,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 792,
+   "p": "a-bond-held-by-imposture"
+  },
+  {
+   "i": 868,
+   "p": null
+  },
+  {
+   "i": 334,
+   "p": null
+  },
+  {
+   "i": 476,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 799,
+   "p": null
+  },
+  {
+   "i": 793,
+   "p": "the-trusted-one-turns"
+  },
+  {
+   "i": 1208,
+   "p": null
+  },
+  {
+   "i": 172,
+   "p": "confession-reaches-the-wrong-ear"
+  },
+  {
+   "i": 867,
+   "p": "accounts-that-cannot-be-vouched"
+  },
+  {
+   "i": 333,
+   "p": "the-way-out-refused"
+  },
+  {
+   "i": 511,
+   "p": "two-claims-on-one-person"
+  },
+  {
+   "i": 475,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 798,
+   "p": "the-made-turns-on-maker"
+  },
+  {
+   "i": 171,
+   "p": "the-bond-ended-without-account"
+  },
+  {
+   "i": 332,
+   "p": "refusing-what-all-have-settled"
+  },
+  {
+   "i": 510,
+   "p": "knowing-makes-one-a-target"
+  },
+  {
+   "i": 474,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 200,
+   "p": "the-rescue-that-binds"
+  },
+  {
+   "i": 801,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 174,
+   "p": "truth-kept-from-its-owner"
+  },
+  {
+   "i": 509,
+   "p": "acting-on-a-false-picture"
+  },
+  {
+   "i": 473,
+   "p": null
+  },
+  {
+   "i": 800,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1205,
+   "p": null
+  },
+  {
+   "i": 963,
+   "p": "a-debt-never-discharged"
+  },
+  {
+   "i": 173,
+   "p": "the-bond-recast-unilaterally"
+  },
+  {
+   "i": 508,
+   "p": "the-gift-that-goes-unnamed"
+  },
+  {
+   "i": 1204,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1207,
+   "p": "the-reckoning-comes-too-late"
+  },
+  {
+   "i": 196,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 1206,
+   "p": null
+  },
+  {
+   "i": 960,
+   "p": "rivalry-for-a-single-place"
+  },
+  {
+   "i": 513,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 197,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 1527,
+   "p": "kindness-from-a-stranger"
+  },
+  {
+   "i": 959,
+   "p": "the-returner-and-those-who-stayed"
+  },
+  {
+   "i": 512,
+   "p": null
+  },
+  {
+   "i": 198,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 1526,
+   "p": "devotion-that-runs-one-way"
+  },
+  {
+   "i": 962,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 199,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 569,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 1525,
+   "p": "kept-outside-the-circle"
+  },
+  {
+   "i": 961,
+   "p": null
+  },
+  {
+   "i": 426,
+   "p": "the-price-paid-by-another"
+  },
+  {
+   "i": 330,
+   "p": "what-the-helped-hand-back"
+  },
+  {
+   "i": 570,
+   "p": "withholding-what-cannot-be-compelled"
+  },
+  {
+   "i": 1524,
+   "p": "accounts-that-cannot-be-vouched"
+  },
+  {
+   "i": 425,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 329,
+   "p": null
+  },
+  {
+   "i": 1523,
+   "p": null
+  },
+  {
+   "i": 821,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 458,
+   "p": "carrying-one-who-cannot-stand"
+  },
+  {
+   "i": 424,
+   "p": "help-that-buys-a-hold"
+  },
+  {
+   "i": 328,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 633,
+   "p": null
+  },
+  {
+   "i": 822,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 1153,
+   "p": null
+  },
+  {
+   "i": 457,
+   "p": null
+  },
+  {
+   "i": 423,
+   "p": "a-bond-that-cannot-end"
+  },
+  {
+   "i": 327,
+   "p": null
+  },
+  {
+   "i": 565,
+   "p": "blame-lands-where-it-can"
+  },
+  {
+   "i": 1066,
+   "p": null
+  },
+  {
+   "i": 632,
+   "p": "carrying-one-who-cannot-stand"
+  },
+  {
+   "i": 819,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1152,
+   "p": "the-match-arranged-by-others"
+  },
+  {
+   "i": 460,
+   "p": "the-witness-who-stays-silent"
+  },
+  {
+   "i": 422,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 588,
+   "p": "the-answering-outruns-the-injury"
+  },
+  {
+   "i": 1364,
+   "p": "one-temper-sets-the-terms"
+  },
+  {
+   "i": 566,
+   "p": "the-private-judged-in-public"
+  },
+  {
+   "i": 631,
+   "p": null
+  },
+  {
+   "i": 820,
+   "p": "one-temper-sets-the-terms"
+  },
+  {
+   "i": 1151,
+   "p": null
+  },
+  {
+   "i": 459,
+   "p": "the-account-fixed-beyond-appeal"
+  },
+  {
+   "i": 324,
+   "p": "the-protector-is-the-danger"
+  },
+  {
+   "i": 589,
+   "p": null
+  },
+  {
+   "i": 1363,
+   "p": "a-bond-that-cannot-end"
+  },
+  {
+   "i": 567,
+   "p": "living-off-anothers-ruin"
+  },
+  {
+   "i": 1064,
+   "p": "the-gift-that-goes-unnamed"
+  },
+  {
+   "i": 630,
+   "p": "kept-outside-the-circle"
+  },
+  {
+   "i": 1150,
+   "p": "the-watcher-and-the-watched"
+  },
+  {
+   "i": 462,
+   "p": "the-reckoning-comes-too-late"
+  },
+  {
+   "i": 323,
+   "p": "guilt-fixed-without-proof"
+  },
+  {
+   "i": 590,
+   "p": "the-trusted-serves-another-interest"
+  },
+  {
+   "i": 1247,
+   "p": "bond-forbidden-from-outside"
+  },
+  {
+   "i": 1366,
+   "p": "holding-both-sides-alone"
+  },
+  {
+   "i": 568,
+   "p": "the-appeal-that-goes-unanswered"
+  },
+  {
+   "i": 1065,
+   "p": "later-wanting-against-earlier-tie"
+  },
+  {
+   "i": 629,
+   "p": null
+  },
+  {
+   "i": 1426,
+   "p": null
+  },
+  {
+   "i": 461,
+   "p": "kept-only-while-useful"
+  },
+  {
+   "i": 326,
+   "p": null
+  },
+  {
+   "i": 591,
+   "p": null
+  },
+  {
+   "i": 1246,
+   "p": "supplanted-in-a-held-place"
+  },
+  {
+   "i": 331,
+   "p": "closeness-entered-to-extract"
+  },
+  {
+   "i": 1365,
+   "p": "accounts-that-cannot-be-vouched"
+  },
+  {
+   "i": 1335,
+   "p": "acting-inside-anothers-design"
+  },
+  {
+   "i": 1062,
+   "p": "kin-offices-taken-by-strangers"
+  },
+  {
+   "i": 1531,
+   "p": null
+  },
+  {
+   "i": 628,
+   "p": "the-group-turns-on-one"
+  },
+  {
+   "i": 1427,
+   "p": "the-child-given-up"
+  },
+  {
+   "i": 823,
+   "p": "a-debt-never-discharged"
+  },
+  {
+   "i": 325,
+   "p": "mercy-granted-against-interest"
+  },
+  {
+   "i": 592,
+   "p": "a-bond-resting-on-concealment"
+  },
+  {
+   "i": 1249,
+   "p": "a-person-held-as-leverage"
+  },
+  {
+   "i": 1334,
+   "p": "made-to-answer-for-another"
+  }
+ ]
+}

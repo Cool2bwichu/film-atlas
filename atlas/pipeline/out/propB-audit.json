@@ -1,0 +1,1278 @@
+{
+ "version": 1,
+ "promptVersion": "propB-audit-1",
+ "model": "claude-opus-5",
+ "generated": "2026-08-10T14:11:02.287Z",
+ "note": "Blind precision audit of assigned tags with 1-in-3 random-predicate decoys. Decoy acceptance is the control; without it the real-tag acceptance rate is not evidence.",
+ "summary": {
+  "n": 180,
+  "realTags": 120,
+  "decoys": 60,
+  "realAccepted": 88.3,
+  "decoyAccepted": 0,
+  "gap": 88.3,
+  "verdict": "audit usable — decoys are rejected, so acceptance of real tags carries information"
+ },
+ "verdicts": [
+  {
+   "id": "s1bundefined-daisies-2",
+   "decoy": false,
+   "assignedId": "devotion-goes-unreturned",
+   "shownId": "devotion-goes-unreturned",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-is_paris_burning-4",
+   "decoy": false,
+   "assignedId": "answering-for-anothers-deed",
+   "shownId": "answering-for-anothers-deed",
+   "holds": true
+  },
+  {
+   "id": "s0b4-idiot-0",
+   "decoy": true,
+   "assignedId": "person-passed-between-holders",
+   "shownId": "taken-up-then-discarded",
+   "holds": false
+  },
+  {
+   "id": "s3b3-day_he_arrives-0",
+   "decoy": false,
+   "assignedId": "return-after-long-absence",
+   "shownId": "return-after-long-absence",
+   "holds": true
+  },
+  {
+   "id": "s0b6-variety_lights-0",
+   "decoy": false,
+   "assignedId": "one-leaves-the-bond",
+   "shownId": "one-leaves-the-bond",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-5",
+   "decoy": true,
+   "assignedId": "past-laid-on-the-young",
+   "shownId": "taking-another-into-keeping",
+   "holds": false
+  },
+  {
+   "id": "s0b5-awaara-2",
+   "decoy": false,
+   "assignedId": "deed-done-through-another",
+   "shownId": "deed-done-through-another",
+   "holds": false
+  },
+  {
+   "id": "s2b11-krull-2",
+   "decoy": false,
+   "assignedId": "falsehood-planted-between-two",
+   "shownId": "falsehood-planted-between-two",
+   "holds": true
+  },
+  {
+   "id": "s3b9-salt_of_earth-3",
+   "decoy": true,
+   "assignedId": "return-after-long-absence",
+   "shownId": "arbiter-bent-by-power",
+   "holds": false
+  },
+  {
+   "id": "s0b10-young_one-1",
+   "decoy": false,
+   "assignedId": "verdict-before-proof",
+   "shownId": "verdict-before-proof",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-i_maniaci-2",
+   "decoy": false,
+   "assignedId": "false-impression-planted",
+   "shownId": "false-impression-planted",
+   "holds": true
+  },
+  {
+   "id": "s2b5-dream_lover-2",
+   "decoy": true,
+   "assignedId": "true-account-not-credited",
+   "shownId": "aid-withheld-at-need",
+   "holds": false
+  },
+  {
+   "id": "s2b8-table_for_five-0",
+   "decoy": false,
+   "assignedId": "return-after-long-absence",
+   "shownId": "return-after-long-absence",
+   "holds": true
+  },
+  {
+   "id": "s2b6-memories-2",
+   "decoy": false,
+   "assignedId": "another-given-to-danger",
+   "shownId": "another-given-to-danger",
+   "holds": false
+  },
+  {
+   "id": "s2b2-total_recall-5",
+   "decoy": true,
+   "assignedId": "concealed-thing-surfaces",
+   "shownId": "absolution-sought-from-wronged",
+   "holds": false
+  },
+  {
+   "id": "s2b6-memories-4",
+   "decoy": false,
+   "assignedId": "truth-withheld-from-intimate",
+   "shownId": "truth-withheld-from-intimate",
+   "holds": true
+  },
+  {
+   "id": "s2b10-someone_s_watching_me-4",
+   "decoy": false,
+   "assignedId": "hunter-and-quarry",
+   "shownId": "hunter-and-quarry",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-eraserhead-0",
+   "decoy": true,
+   "assignedId": "life-dictated-by-another",
+   "shownId": "leverage-held-for-payment",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-damien_omen_ii-4",
+   "decoy": false,
+   "assignedId": "trusted-turns-on-truster",
+   "shownId": "trusted-turns-on-truster",
+   "holds": true
+  },
+  {
+   "id": "s2b4-time_to_live_and_time_to_die-0",
+   "decoy": false,
+   "assignedId": "vigil-beside-the-unanswering",
+   "shownId": "vigil-beside-the-unanswering",
+   "holds": true
+  },
+  {
+   "id": "s0b0-metropolis-1",
+   "decoy": true,
+   "assignedId": "subordinate-turns-on-superior",
+   "shownId": "kinship-made-from-lack",
+   "holds": false
+  },
+  {
+   "id": "s0b8-beyond_forest-2",
+   "decoy": false,
+   "assignedId": "knower-silenced",
+   "shownId": "knower-silenced",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-eraserhead-1",
+   "decoy": false,
+   "assignedId": "one-leaves-the-bond",
+   "shownId": "one-leaves-the-bond",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-2",
+   "decoy": true,
+   "assignedId": "dependent-handed-over",
+   "shownId": "the-nearest-goes-unseen",
+   "holds": false
+  },
+  {
+   "id": "s2b2-total_recall-3",
+   "decoy": false,
+   "assignedId": "person-used-as-means",
+   "shownId": "person-used-as-means",
+   "holds": true
+  },
+  {
+   "id": "s3b9-star_wars_episode_i_phantom_-5",
+   "decoy": false,
+   "assignedId": "taken-up-then-discarded",
+   "shownId": "taken-up-then-discarded",
+   "holds": true
+  },
+  {
+   "id": "s3b0-memories_of_murder-3",
+   "decoy": true,
+   "assignedId": "hunter-and-quarry",
+   "shownId": "standing-in-anothers-place",
+   "holds": false
+  },
+  {
+   "id": "s0b12-hangmen_also_die-5",
+   "decoy": false,
+   "assignedId": "false-impression-planted",
+   "shownId": "false-impression-planted",
+   "holds": true
+  },
+  {
+   "id": "s2b6-chronicle_of_death_foretold-1",
+   "decoy": false,
+   "assignedId": "truth-withheld-from-intimate",
+   "shownId": "truth-withheld-from-intimate",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-my_dear_killer-0",
+   "decoy": true,
+   "assignedId": "corroded-by-anothers-life",
+   "shownId": "dependent-handed-over",
+   "holds": false
+  },
+  {
+   "id": "s0b8-passing_fancy-0",
+   "decoy": false,
+   "assignedId": "devotion-goes-unreturned",
+   "shownId": "devotion-goes-unreturned",
+   "holds": true
+  },
+  {
+   "id": "s2b9-it_takes_two-2",
+   "decoy": false,
+   "assignedId": "life-dictated-by-another",
+   "shownId": "life-dictated-by-another",
+   "holds": true
+  },
+  {
+   "id": "s0b11-i_know_where_i_m_going-0",
+   "decoy": true,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "made-thing-confronts-maker",
+   "holds": false
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-0",
+   "decoy": false,
+   "assignedId": "leverage-held-for-payment",
+   "shownId": "leverage-held-for-payment",
+   "holds": true
+  },
+  {
+   "id": "s3b3-platform-1",
+   "decoy": false,
+   "assignedId": "life-dictated-by-another",
+   "shownId": "life-dictated-by-another",
+   "holds": true
+  },
+  {
+   "id": "s0b12-foundry_town-1",
+   "decoy": true,
+   "assignedId": "aid-thrown-back",
+   "shownId": "kinship-made-from-lack",
+   "holds": false
+  },
+  {
+   "id": "s0b4-rebel_without_cause-4",
+   "decoy": false,
+   "assignedId": "one-leaves-the-bond",
+   "shownId": "one-leaves-the-bond",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-i_am_cuba-1",
+   "decoy": false,
+   "assignedId": "intimacy-for-support",
+   "shownId": "intimacy-for-support",
+   "holds": true
+  },
+  {
+   "id": "s0b3-red_shoes-2",
+   "decoy": true,
+   "assignedId": "third-holds-two-apart",
+   "shownId": "bond-held-across-separation",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-zatoichi_and_chest_of_gold-2",
+   "decoy": false,
+   "assignedId": "trusted-turns-on-truster",
+   "shownId": "trusted-turns-on-truster",
+   "holds": true
+  },
+  {
+   "id": "s3b7-doubt-4",
+   "decoy": false,
+   "assignedId": "subordinate-turns-on-superior",
+   "shownId": "subordinate-turns-on-superior",
+   "holds": true
+  },
+  {
+   "id": "s3b10-triangle-0",
+   "decoy": true,
+   "assignedId": "bound-parties-turn-hostile",
+   "shownId": "devotion-goes-unreturned",
+   "holds": false
+  },
+  {
+   "id": "s2b0-farewell_my_concubine-4",
+   "decoy": false,
+   "assignedId": "cost-taken-onto-oneself",
+   "shownId": "cost-taken-onto-oneself",
+   "holds": true
+  },
+  {
+   "id": "s3b6-terminal-3",
+   "decoy": false,
+   "assignedId": "devotion-goes-unreturned",
+   "shownId": "devotion-goes-unreturned",
+   "holds": true
+  },
+  {
+   "id": "s2b11-1492_conquest_of_paradise-1",
+   "decoy": true,
+   "assignedId": "subordinate-turns-on-superior",
+   "shownId": "falsehood-planted-between-two",
+   "holds": false
+  },
+  {
+   "id": "s0b10-adua_and_her_friends-4",
+   "decoy": false,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "rival-claims-on-one",
+   "holds": true
+  },
+  {
+   "id": "s0b5-tokyo_chorus-0",
+   "decoy": false,
+   "assignedId": "intervener-struck-down",
+   "shownId": "intervener-struck-down",
+   "holds": true
+  },
+  {
+   "id": "s0b4-rebel_without_cause-3",
+   "decoy": true,
+   "assignedId": "kinship-made-from-lack",
+   "shownId": "false-impression-planted",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-taxi_driver-3",
+   "decoy": false,
+   "assignedId": "cost-taken-onto-oneself",
+   "shownId": "cost-taken-onto-oneself",
+   "holds": true
+  },
+  {
+   "id": "s3b7-dinner_with_friends-0",
+   "decoy": false,
+   "assignedId": "one-leaves-the-bond",
+   "shownId": "one-leaves-the-bond",
+   "holds": true
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-1",
+   "decoy": true,
+   "assignedId": "aid-withheld-at-need",
+   "shownId": "aid-thrown-back",
+   "holds": false
+  },
+  {
+   "id": "s3b2-princess_mononoke-1",
+   "decoy": false,
+   "assignedId": "aid-thrown-back",
+   "shownId": "aid-thrown-back",
+   "holds": true
+  },
+  {
+   "id": "s3b7-dolls-0",
+   "decoy": false,
+   "assignedId": "intimacy-for-support",
+   "shownId": "intimacy-for-support",
+   "holds": false
+  },
+  {
+   "id": "s0b7-difficult_years-0",
+   "decoy": true,
+   "assignedId": "act-demanded-against-conscience",
+   "shownId": "intimacy-for-support",
+   "holds": false
+  },
+  {
+   "id": "s2b9-dangerous_toy-4",
+   "decoy": false,
+   "assignedId": "argued-off-a-course",
+   "shownId": "argued-off-a-course",
+   "holds": true
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-3",
+   "decoy": false,
+   "assignedId": "standing-lowered-before-others",
+   "shownId": "standing-lowered-before-others",
+   "holds": true
+  },
+  {
+   "id": "s0b11-cops_and_robbers-2",
+   "decoy": true,
+   "assignedId": "truth-withheld-from-intimate",
+   "shownId": "act-demanded-against-conscience",
+   "holds": false
+  },
+  {
+   "id": "s0b3-red_shoes-4",
+   "decoy": false,
+   "assignedId": "cost-borne-gain-taken",
+   "shownId": "cost-borne-gain-taken",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-0",
+   "decoy": false,
+   "assignedId": "antagonism-without-settleable-cause",
+   "shownId": "antagonism-without-settleable-cause",
+   "holds": true
+  },
+  {
+   "id": "s2b6-memories-1",
+   "decoy": true,
+   "assignedId": "harm-answered-with-harm",
+   "shownId": "withholds-the-blow",
+   "holds": false
+  },
+  {
+   "id": "s2b5-joi_baba_felunath-0",
+   "decoy": false,
+   "assignedId": "act-demanded-against-conscience",
+   "shownId": "act-demanded-against-conscience",
+   "holds": false
+  },
+  {
+   "id": "s0b11-close_to_my_heart-3",
+   "decoy": false,
+   "assignedId": "identity-assigned-from-outside",
+   "shownId": "identity-assigned-from-outside",
+   "holds": true
+  },
+  {
+   "id": "s3b2-inland_empire-4",
+   "decoy": true,
+   "assignedId": "cost-taken-onto-oneself",
+   "shownId": "taken-up-then-discarded",
+   "holds": false
+  },
+  {
+   "id": "s2b9-it_takes_two-4",
+   "decoy": false,
+   "assignedId": "confession-to-the-powerless",
+   "shownId": "confession-to-the-powerless",
+   "holds": true
+  },
+  {
+   "id": "s2b4-time_to_live_and_time_to_die-3",
+   "decoy": false,
+   "assignedId": "injury-discharged-on-outsiders",
+   "shownId": "injury-discharged-on-outsiders",
+   "holds": true
+  },
+  {
+   "id": "s3b3-platform-4",
+   "decoy": true,
+   "assignedId": "one-leaves-the-bond",
+   "shownId": "person-passed-between-holders",
+   "holds": false
+  },
+  {
+   "id": "s0b6-without_pity-2",
+   "decoy": false,
+   "assignedId": "leverage-held-for-payment",
+   "shownId": "leverage-held-for-payment",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-graduate-0",
+   "decoy": false,
+   "assignedId": "bond-across-forbidden-line",
+   "shownId": "bond-across-forbidden-line",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-shadows_of_forgotten_ancesto-2",
+   "decoy": true,
+   "assignedId": "standing-in-anothers-place",
+   "shownId": "deference-withheld-from-power",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-such_gorgeous_kid_like_me-3",
+   "decoy": false,
+   "assignedId": "answering-for-anothers-deed",
+   "shownId": "answering-for-anothers-deed",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-lucky_luciano-2",
+   "decoy": false,
+   "assignedId": "trusted-turns-on-truster",
+   "shownId": "trusted-turns-on-truster",
+   "holds": true
+  },
+  {
+   "id": "s2b6-big_deal_after_20_years-3",
+   "decoy": true,
+   "assignedId": "person-used-as-means",
+   "shownId": "another-given-to-danger",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-touch-0",
+   "decoy": false,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "rival-claims-on-one",
+   "holds": true
+  },
+  {
+   "id": "s0b6-without_pity-3",
+   "decoy": false,
+   "assignedId": "cost-taken-onto-oneself",
+   "shownId": "cost-taken-onto-oneself",
+   "holds": true
+  },
+  {
+   "id": "s2b5-joi_baba_felunath-1",
+   "decoy": true,
+   "assignedId": "harm-answered-with-harm",
+   "shownId": "withdrawal-inside-the-bond",
+   "holds": false
+  },
+  {
+   "id": "s3b11-spiderwick_chronicles-0",
+   "decoy": false,
+   "assignedId": "true-account-not-credited",
+   "shownId": "true-account-not-credited",
+   "holds": true
+  },
+  {
+   "id": "s0b10-children_of_hiroshima-0",
+   "decoy": false,
+   "assignedId": "reckoning-with-those-left",
+   "shownId": "reckoning-with-those-left",
+   "holds": true
+  },
+  {
+   "id": "s3b10-panic_room-4",
+   "decoy": true,
+   "assignedId": "aid-thrown-back",
+   "shownId": "accounting-demanded-by-wronged",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-dont_look_back-2",
+   "decoy": false,
+   "assignedId": "cost-borne-gain-taken",
+   "shownId": "cost-borne-gain-taken",
+   "holds": true
+  },
+  {
+   "id": "s0b8-law_is_law-0",
+   "decoy": false,
+   "assignedId": "hidden-life-exposed",
+   "shownId": "hidden-life-exposed",
+   "holds": true
+  },
+  {
+   "id": "s3b3-flowers_of_shanghai-5",
+   "decoy": true,
+   "assignedId": "restraint-dropped-before-another",
+   "shownId": "dependent-handed-over",
+   "holds": false
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-3",
+   "decoy": false,
+   "assignedId": "living-under-the-harmer",
+   "shownId": "living-under-the-harmer",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-flesh_for_frankenstein-3",
+   "decoy": false,
+   "assignedId": "one-absorbs-another-identity",
+   "shownId": "one-absorbs-another-identity",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-cat_o_nine_tails-3",
+   "decoy": true,
+   "assignedId": "vigil-beside-the-unanswering",
+   "shownId": "taking-another-into-keeping",
+   "holds": false
+  },
+  {
+   "id": "s3b2-midsommar-0",
+   "decoy": false,
+   "assignedId": "aid-withheld-at-need",
+   "shownId": "aid-withheld-at-need",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-les_creatures-1",
+   "decoy": false,
+   "assignedId": "incomer-denied-a-place",
+   "shownId": "incomer-denied-a-place",
+   "holds": true
+  },
+  {
+   "id": "s0b3-pandora_s_box-4",
+   "decoy": true,
+   "assignedId": "devotion-goes-unreturned",
+   "shownId": "withholds-the-blow",
+   "holds": false
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-5",
+   "decoy": false,
+   "assignedId": "life-dictated-by-another",
+   "shownId": "life-dictated-by-another",
+   "holds": true
+  },
+  {
+   "id": "s2b9-it_takes_two-0",
+   "decoy": false,
+   "assignedId": "one-leaves-the-bond",
+   "shownId": "one-leaves-the-bond",
+   "holds": true
+  },
+  {
+   "id": "s2b0-yeelen-4",
+   "decoy": true,
+   "assignedId": "trusted-turns-on-truster",
+   "shownId": "identity-passed-off",
+   "holds": false
+  },
+  {
+   "id": "s3b7-dinner_with_friends-4",
+   "decoy": false,
+   "assignedId": "truth-withheld-from-intimate",
+   "shownId": "truth-withheld-from-intimate",
+   "holds": true
+  },
+  {
+   "id": "s0b10-children_of_hiroshima-1",
+   "decoy": false,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "rival-claims-on-one",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-shadows_of_forgotten_ancesto-3",
+   "decoy": true,
+   "assignedId": "withdrawal-inside-the-bond",
+   "shownId": "drawn-into-anothers-quarrel",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-le_samourai-0",
+   "decoy": false,
+   "assignedId": "trusted-turns-on-truster",
+   "shownId": "trusted-turns-on-truster",
+   "holds": true
+  },
+  {
+   "id": "s0b3-crowd-5",
+   "decoy": false,
+   "assignedId": "bond-held-by-need",
+   "shownId": "bond-held-by-need",
+   "holds": true
+  },
+  {
+   "id": "s3b1-killers_of_flower_moon-0",
+   "decoy": true,
+   "assignedId": "protector-is-the-harm",
+   "shownId": "cost-taken-onto-oneself",
+   "holds": false
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-3",
+   "decoy": false,
+   "assignedId": "standing-lowered-before-others",
+   "shownId": "standing-lowered-before-others",
+   "holds": false
+  },
+  {
+   "id": "s2b11-bad_company-1",
+   "decoy": false,
+   "assignedId": "trusted-turns-on-truster",
+   "shownId": "trusted-turns-on-truster",
+   "holds": true
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-4",
+   "decoy": true,
+   "assignedId": "answering-for-anothers-deed",
+   "shownId": "person-passed-between-holders",
+   "holds": false
+  },
+  {
+   "id": "s0b7-manxman-4",
+   "decoy": false,
+   "assignedId": "sheltered-from-consequence",
+   "shownId": "sheltered-from-consequence",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-don_t_look_now-2",
+   "decoy": false,
+   "assignedId": "true-account-not-credited",
+   "shownId": "true-account-not-credited",
+   "holds": true
+  },
+  {
+   "id": "s3b1-mad_max_fury_road-1",
+   "decoy": true,
+   "assignedId": "subordinate-turns-on-superior",
+   "shownId": "restraint-dropped-before-another",
+   "holds": false
+  },
+  {
+   "id": "s0b2-strike-2",
+   "decoy": false,
+   "assignedId": "deed-done-through-another",
+   "shownId": "deed-done-through-another",
+   "holds": true
+  },
+  {
+   "id": "s3b7-dolls-5",
+   "decoy": false,
+   "assignedId": "return-after-long-absence",
+   "shownId": "return-after-long-absence",
+   "holds": true
+  },
+  {
+   "id": "s0b0-rashomon-3",
+   "decoy": true,
+   "assignedId": "taking-another-into-keeping",
+   "shownId": "identity-assigned-from-outside",
+   "holds": false
+  },
+  {
+   "id": "s0b5-tokyo_chorus-3",
+   "decoy": false,
+   "assignedId": "cost-taken-onto-oneself",
+   "shownId": "cost-taken-onto-oneself",
+   "holds": false
+  },
+  {
+   "id": "s3b7-dinner_with_friends-5",
+   "decoy": false,
+   "assignedId": "concealed-thing-surfaces",
+   "shownId": "concealed-thing-surfaces",
+   "holds": true
+  },
+  {
+   "id": "s0b5-secrets_of_women-3",
+   "decoy": true,
+   "assignedId": "truth-withheld-from-intimate",
+   "shownId": "answering-for-anothers-deed",
+   "holds": false
+  },
+  {
+   "id": "s0b7-manxman-1",
+   "decoy": false,
+   "assignedId": "return-after-long-absence",
+   "shownId": "return-after-long-absence",
+   "holds": true
+  },
+  {
+   "id": "s0b5-piece_of_sky-1",
+   "decoy": false,
+   "assignedId": "false-impression-planted",
+   "shownId": "false-impression-planted",
+   "holds": true
+  },
+  {
+   "id": "s2b10-goopy_bagha_phire_elo-4",
+   "decoy": true,
+   "assignedId": "hunter-and-quarry",
+   "shownId": "incomer-denied-a-place",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-little_night_music-2",
+   "decoy": false,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "rival-claims-on-one",
+   "holds": true
+  },
+  {
+   "id": "s0b3-crowd-4",
+   "decoy": false,
+   "assignedId": "aid-thrown-back",
+   "shownId": "aid-thrown-back",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-mirror-2",
+   "decoy": true,
+   "assignedId": "past-laid-on-the-young",
+   "shownId": "deference-withheld-from-power",
+   "holds": false
+  },
+  {
+   "id": "s0b5-secrets_of_women-4",
+   "decoy": false,
+   "assignedId": "shut-in-together",
+   "shownId": "shut-in-together",
+   "holds": true
+  },
+  {
+   "id": "s2b0-blade_runner-5",
+   "decoy": false,
+   "assignedId": "withholds-the-blow",
+   "shownId": "withholds-the-blow",
+   "holds": true
+  },
+  {
+   "id": "s3b12-tokyo_family-1",
+   "decoy": true,
+   "assignedId": "aid-withheld-at-need",
+   "shownId": "claim-of-the-dead",
+   "holds": false
+  },
+  {
+   "id": "s2b0-shining-1",
+   "decoy": false,
+   "assignedId": "shut-in-together",
+   "shownId": "shut-in-together",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-viva_maria-1",
+   "decoy": false,
+   "assignedId": "claim-of-the-dead",
+   "shownId": "claim-of-the-dead",
+   "holds": true
+  },
+  {
+   "id": "s2b10-il_marchese_del_grillo-3",
+   "decoy": true,
+   "assignedId": "standing-in-anothers-place",
+   "shownId": "distant-stranger-harmed",
+   "holds": false
+  },
+  {
+   "id": "s3b1-eo-2",
+   "decoy": false,
+   "assignedId": "devotion-goes-unreturned",
+   "shownId": "devotion-goes-unreturned",
+   "holds": true
+  },
+  {
+   "id": "s2b2-elephant_man-4",
+   "decoy": false,
+   "assignedId": "cast-out-by-group",
+   "shownId": "cast-out-by-group",
+   "holds": true
+  },
+  {
+   "id": "s3b8-prisoners-3",
+   "decoy": true,
+   "assignedId": "injury-discharged-on-outsiders",
+   "shownId": "arbiter-bent-by-power",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-dont_look_back-0",
+   "decoy": false,
+   "assignedId": "identity-assigned-from-outside",
+   "shownId": "identity-assigned-from-outside",
+   "holds": true
+  },
+  {
+   "id": "s0b0-cleo_from_5_to_7-1",
+   "decoy": false,
+   "assignedId": "kept-under-watch",
+   "shownId": "kept-under-watch",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-high_and_low-0",
+   "decoy": true,
+   "assignedId": "cost-taken-onto-oneself",
+   "shownId": "reckoning-with-those-left",
+   "holds": false
+  },
+  {
+   "id": "s3b3-persepolis-5",
+   "decoy": false,
+   "assignedId": "false-impression-planted",
+   "shownId": "false-impression-planted",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-man_who_shot_liberty_valance-3",
+   "decoy": false,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "rival-claims-on-one",
+   "holds": true
+  },
+  {
+   "id": "s3b6-from_up_on_poppy_hill-3",
+   "decoy": true,
+   "assignedId": "dependent-handed-over",
+   "shownId": "made-thing-confronts-maker",
+   "holds": false
+  },
+  {
+   "id": "s0b12-hangmen_also_die-3",
+   "decoy": false,
+   "assignedId": "trusted-turns-on-truster",
+   "shownId": "trusted-turns-on-truster",
+   "holds": true
+  },
+  {
+   "id": "s3b10-adaptation-4",
+   "decoy": false,
+   "assignedId": "act-demanded-against-conscience",
+   "shownId": "act-demanded-against-conscience",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-harlan_county_usa-4",
+   "decoy": true,
+   "assignedId": "kept-under-watch",
+   "shownId": "failing-life-in-keeping",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-dont_look_back-1",
+   "decoy": false,
+   "assignedId": "kept-under-watch",
+   "shownId": "kept-under-watch",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-battle_of_algiers-1",
+   "decoy": false,
+   "assignedId": "will-pressed-into-yielding",
+   "shownId": "will-pressed-into-yielding",
+   "holds": true
+  },
+  {
+   "id": "s3b10-unknown_pleasures-3",
+   "decoy": true,
+   "assignedId": "truth-withheld-from-intimate",
+   "shownId": "another-shaped-to-order",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-le_samourai-3",
+   "decoy": false,
+   "assignedId": "one-removed-from-the-way",
+   "shownId": "one-removed-from-the-way",
+   "holds": true
+  },
+  {
+   "id": "s0b9-best_of_enemies-1",
+   "decoy": false,
+   "assignedId": "withholds-the-blow",
+   "shownId": "withholds-the-blow",
+   "holds": false
+  },
+  {
+   "id": "s3b10-panic_room-3",
+   "decoy": true,
+   "assignedId": "act-demanded-against-conscience",
+   "shownId": "standing-lowered-before-others",
+   "holds": false
+  },
+  {
+   "id": "s2b5-king_lear-1",
+   "decoy": false,
+   "assignedId": "pressed-for-an-account",
+   "shownId": "pressed-for-an-account",
+   "holds": true
+  },
+  {
+   "id": "s0b4-devi-0",
+   "decoy": false,
+   "assignedId": "life-dictated-by-another",
+   "shownId": "life-dictated-by-another",
+   "holds": true
+  },
+  {
+   "id": "s2b7-another_woman-0",
+   "decoy": true,
+   "assignedId": "confession-to-the-powerless",
+   "shownId": "injury-discharged-on-outsiders",
+   "holds": false
+  },
+  {
+   "id": "s3b12-tokyo_family-0",
+   "decoy": false,
+   "assignedId": "person-passed-between-holders",
+   "shownId": "person-passed-between-holders",
+   "holds": true
+  },
+  {
+   "id": "s0b6-without_pity-4",
+   "decoy": false,
+   "assignedId": "search-consumes-the-searcher",
+   "shownId": "search-consumes-the-searcher",
+   "holds": true
+  },
+  {
+   "id": "s0b4-late_chrysanthemums-2",
+   "decoy": true,
+   "assignedId": "one-leaves-the-bond",
+   "shownId": "identity-passed-off",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-lolita-1",
+   "decoy": false,
+   "assignedId": "concealed-thing-surfaces",
+   "shownId": "concealed-thing-surfaces",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-un_flic-0",
+   "decoy": false,
+   "assignedId": "hunter-and-quarry",
+   "shownId": "hunter-and-quarry",
+   "holds": true
+  },
+  {
+   "id": "s2b10-let_s_hope_it_s_girl-5",
+   "decoy": true,
+   "assignedId": "taking-another-into-keeping",
+   "shownId": "identity-assigned-from-outside",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-little_night_music-3",
+   "decoy": false,
+   "assignedId": "false-impression-planted",
+   "shownId": "false-impression-planted",
+   "holds": true
+  },
+  {
+   "id": "s0b2-strike-0",
+   "decoy": false,
+   "assignedId": "true-account-not-credited",
+   "shownId": "true-account-not-credited",
+   "holds": false
+  },
+  {
+   "id": "s2b9-love_in_germany-4",
+   "decoy": true,
+   "assignedId": "pressed-for-an-account",
+   "shownId": "act-demanded-against-conscience",
+   "holds": false
+  },
+  {
+   "id": "s2b3-sweetie-1",
+   "decoy": false,
+   "assignedId": "return-after-long-absence",
+   "shownId": "return-after-long-absence",
+   "holds": true
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-5",
+   "decoy": false,
+   "assignedId": "arbiter-bent-by-power",
+   "shownId": "arbiter-bent-by-power",
+   "holds": false
+  },
+  {
+   "id": "s0b2-diary_of_country_priest-0",
+   "decoy": true,
+   "assignedId": "aid-thrown-back",
+   "shownId": "own-death-brought-about",
+   "holds": false
+  },
+  {
+   "id": "s2b12-tasmania_story-2",
+   "decoy": false,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "rival-claims-on-one",
+   "holds": true
+  },
+  {
+   "id": "s3b8-okja-3",
+   "decoy": false,
+   "assignedId": "person-used-as-means",
+   "shownId": "person-used-as-means",
+   "holds": true
+  },
+  {
+   "id": "s3b3-persepolis-3",
+   "decoy": true,
+   "assignedId": "identity-passed-off",
+   "shownId": "concealed-thing-surfaces",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-i_am_cuba-4",
+   "decoy": false,
+   "assignedId": "drawn-into-anothers-quarrel",
+   "shownId": "drawn-into-anothers-quarrel",
+   "holds": true
+  },
+  {
+   "id": "s3b7-song_to_song-4",
+   "decoy": false,
+   "assignedId": "taking-up-the-written-off",
+   "shownId": "taking-up-the-written-off",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-merchant_of_four_seasons-4",
+   "decoy": true,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "person-used-as-means",
+   "holds": false
+  },
+  {
+   "id": "s0b2-mother_joan_of_angels-4",
+   "decoy": false,
+   "assignedId": "aid-withheld-at-need",
+   "shownId": "aid-withheld-at-need",
+   "holds": true
+  },
+  {
+   "id": "s2b1-schindler_s_list-3",
+   "decoy": false,
+   "assignedId": "scarcity-divided-among-dependents",
+   "shownId": "scarcity-divided-among-dependents",
+   "holds": true
+  },
+  {
+   "id": "s3b2-eureka-3",
+   "decoy": true,
+   "assignedId": "dependent-handed-over",
+   "shownId": "third-holds-two-apart",
+   "holds": false
+  },
+  {
+   "id": "s0b9-era_lui_si_si-1",
+   "decoy": false,
+   "assignedId": "taken-up-then-discarded",
+   "shownId": "taken-up-then-discarded",
+   "holds": true
+  },
+  {
+   "id": "s3b11-spiderwick_chronicles-4",
+   "decoy": false,
+   "assignedId": "identity-passed-off",
+   "shownId": "identity-passed-off",
+   "holds": false
+  },
+  {
+   "id": "s2b3-aria-1",
+   "decoy": true,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "concealed-thing-surfaces",
+   "holds": false
+  },
+  {
+   "id": "s0b9-burning_soil-0",
+   "decoy": false,
+   "assignedId": "intimacy-for-support",
+   "shownId": "intimacy-for-support",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-trip_to_vienna-1",
+   "decoy": false,
+   "assignedId": "withdrawal-inside-the-bond",
+   "shownId": "withdrawal-inside-the-bond",
+   "holds": true
+  },
+  {
+   "id": "s0b2-cabinet_of_dr_caligari-2",
+   "decoy": true,
+   "assignedId": "true-account-not-credited",
+   "shownId": "person-used-as-means",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-mother_kusters_trip_to_heave-1",
+   "decoy": false,
+   "assignedId": "hidden-life-exposed",
+   "shownId": "hidden-life-exposed",
+   "holds": true
+  },
+  {
+   "id": "s3b0-tree_of_life-4",
+   "decoy": false,
+   "assignedId": "aid-withheld-at-need",
+   "shownId": "aid-withheld-at-need",
+   "holds": false
+  },
+  {
+   "id": "s1bundefined-touch-4",
+   "decoy": true,
+   "assignedId": "devotion-goes-unreturned",
+   "shownId": "bond-across-forbidden-line",
+   "holds": false
+  },
+  {
+   "id": "s2b6-crimes_and_misdemeanors-4",
+   "decoy": false,
+   "assignedId": "own-death-brought-about",
+   "shownId": "own-death-brought-about",
+   "holds": true
+  },
+  {
+   "id": "s1bundefined-cowboys-1",
+   "decoy": false,
+   "assignedId": "knower-silenced",
+   "shownId": "knower-silenced",
+   "holds": true
+  },
+  {
+   "id": "s2b4-castle_of_cagliostro-3",
+   "decoy": true,
+   "assignedId": "hunter-and-quarry",
+   "shownId": "person-passed-between-holders",
+   "holds": false
+  },
+  {
+   "id": "s2b11-confucian_confusion-1",
+   "decoy": false,
+   "assignedId": "rival-claims-on-one",
+   "shownId": "rival-claims-on-one",
+   "holds": true
+  },
+  {
+   "id": "s0b11-task_force-3",
+   "decoy": false,
+   "assignedId": "bond-held-across-separation",
+   "shownId": "bond-held-across-separation",
+   "holds": true
+  },
+  {
+   "id": "s2b0-akira-4",
+   "decoy": true,
+   "assignedId": "identity-assigned-from-outside",
+   "shownId": "protector-is-the-harm",
+   "holds": false
+  },
+  {
+   "id": "s2b8-last_note-1",
+   "decoy": false,
+   "assignedId": "concealed-thing-surfaces",
+   "shownId": "concealed-thing-surfaces",
+   "holds": true
+  },
+  {
+   "id": "s2b3-germany_in_autumn-1",
+   "decoy": false,
+   "assignedId": "taking-another-into-keeping",
+   "shownId": "taking-another-into-keeping",
+   "holds": true
+  },
+  {
+   "id": "s2b8-farewell_to_nostradamus-4",
+   "decoy": true,
+   "assignedId": "will-pressed-into-yielding",
+   "shownId": "failing-life-in-keeping",
+   "holds": false
+  }
+ ]
+}

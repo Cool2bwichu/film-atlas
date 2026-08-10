@@ -1,0 +1,1416 @@
+{
+ "version": 1,
+ "promptVersion": "propC-reach-1",
+ "model": "claude-opus-5",
+ "stage": "merge",
+ "generated": "2026-08-10T14:01:59.707Z",
+ "localFamilies": 360,
+ "round1": 270,
+ "predicates": 95,
+ "vocab": [
+  {
+   "id": "bond-forbidden-from-outside",
+   "label": "Parties outside a bond claim the authority to forbid, sever or refuse permission for it, and what the two of them want counts for nothing.",
+   "roles": [
+    "those who claim authority over the bond",
+    "the two who are bound"
+   ],
+   "inducedFrom": [
+    "g0-the-bond-is-forbidden",
+    "g31-bond-judged-from-outside",
+    "g29-outside-power-severs-the-tie",
+    "g11-permission-withheld-for-a-bond"
+   ],
+   "inducedFilmCount": 10
+  },
+  {
+   "id": "shelter-across-a-hostile-line",
+   "label": "One party gives shelter or care to someone their own side is set against, and takes that danger onto themselves by giving it.",
+   "roles": [
+    "the one who shelters",
+    "the one sheltered"
+   ],
+   "inducedFrom": [
+    "g0-hidden-from-those-hunting",
+    "g26-care-across-the-enmity"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-bond-ended-without-account",
+   "label": "One party ends or leaves the bond on their own account and gives the other no reason they can accept, and the other has no standing to refuse it.",
+   "roles": [
+    "the one who ends it",
+    "the one left"
+   ],
+   "inducedFrom": [
+    "g0-gone-without-an-account",
+    "g9-one-goes-one-stays",
+    "g30-bond-ended-without-consent",
+    "g14-an-ending-one-side-refuses"
+   ],
+   "inducedFilmCount": 10
+  },
+  {
+   "id": "knowing-makes-one-a-target",
+   "label": "What one party knows would ruin another, so the knowing itself makes the knower a thing to be silenced or removed.",
+   "roles": [
+    "the one it would ruin",
+    "the one who knows"
+   ],
+   "inducedFrom": [
+    "g1-knowledge-that-endangers-its-holder",
+    "g17-fate-turns-on-a-silence",
+    "g10-knowing-makes-one-a-target",
+    "g12-killing-to-keep-it-standing",
+    "g3-naming-it-gets-you-silenced",
+    "g11-what-is-known-can-ruin",
+    "g14-what-one-knows-invites-silencing",
+    "g15-the-knower-is-silenced"
+   ],
+   "inducedFilmCount": 17
+  },
+  {
+   "id": "devotion-that-runs-one-way",
+   "label": "One party keeps giving to a bond the other will not return, and no reason is given that the giving can work on.",
+   "roles": [
+    "the one who holds on",
+    "the one who withholds"
+   ],
+   "inducedFrom": [
+    "g1-one-holds-to-a-spent-bond",
+    "g18-only-one-side-chooses",
+    "g26-love-withheld-without-relief",
+    "g11-pressing-a-closed-bond",
+    "g22-offered-bond-refused",
+    "g10-reaching-met-with-refusal"
+   ],
+   "inducedFilmCount": 13
+  },
+  {
+   "id": "the-returner-and-those-who-stayed",
+   "label": "Someone counted gone comes back and finds out whether the people and the place kept a space for them or closed over it.",
+   "roles": [
+    "the one who returns",
+    "those who stayed"
+   ],
+   "inducedFrom": [
+    "g1-the-one-who-left-comes-back",
+    "g23-returned-to-a-closed-place",
+    "g4-return-finds-a-stranger",
+    "g9-the-return-finds-it-changed",
+    "g11-the-absent-one-returns",
+    "g25-return-to-a-place-kept-or-filled"
+   ],
+   "inducedFilmCount": 12
+  },
+  {
+   "id": "harm-done-by-anothers-hands",
+   "label": "One party decides what harm will be done and another's hands or body carry it, so the whole weight of the doing falls on the one who was sent.",
+   "roles": [
+    "the one who decides the harm",
+    "the one who carries it"
+   ],
+   "inducedFrom": [
+    "g2-the-harm-is-delegated",
+    "g7-conscripted-into-anothers-harm",
+    "g8-the-killing-asked-of-another",
+    "g19-the-body-disowns-its-own",
+    "g10-one-person-as-anothers-hands",
+    "g9-obedience-turned-against-the-obedient"
+   ],
+   "inducedFilmCount": 16
+  },
+  {
+   "id": "a-child-claimed-by-two",
+   "label": "A child is claimed at once by those who bore them and those who keep them, and where the child belongs is settled between the adults.",
+   "roles": [
+    "the one who claims",
+    "the one who keeps"
+   ],
+   "inducedFrom": [
+    "g2-a-child-claimed-by-two",
+    "g10-two-claims-on-one-child",
+    "g15-a-child-claimed-away"
+   ],
+   "inducedFilmCount": 8
+  },
+  {
+   "id": "the-reckoning-comes-too-late",
+   "label": "One party finally sees, repays or repents their part only after the moment when it could have changed anything has closed.",
+   "roles": [
+    "the one who comes to see",
+    "the one it was done to"
+   ],
+   "inducedFrom": [
+    "g2-understanding-arrives-too-late",
+    "g2-reaching-for-the-receding",
+    "g5-reckoning-arrives-too-late",
+    "g19-return-that-comes-too-late"
+   ],
+   "inducedFilmCount": 10
+  },
+  {
+   "id": "supplanted-in-a-held-place",
+   "label": "Another comes to stand in the place one party held — in a household, a role, an attachment — and the displaced one is passed over with no account they can live with.",
+   "roles": [
+    "the one who takes the place",
+    "the one displaced"
+   ],
+   "inducedFrom": [
+    "g3-the-place-already-taken",
+    "g11-supplanted-by-a-newcomer",
+    "g15-replaced-without-remainder",
+    "g16-the-place-already-filled",
+    "g25-set-aside-for-another",
+    "g0-a-third-takes-the-bond",
+    "g2-the-place-can-be-refilled",
+    "g26-set-aside-for-a-rival",
+    "g28-a-third-takes-the-place",
+    "g4-left-for-a-newcomer",
+    "g17-displaced-by-a-rival"
+   ],
+   "inducedFilmCount": 26
+  },
+  {
+   "id": "the-price-of-a-place",
+   "label": "One party may have or keep a place among others only by surrendering something of what they are.",
+   "roles": [
+    "those who set the price",
+    "the one who pays it"
+   ],
+   "inducedFrom": [
+    "g3-an-offer-that-costs-the-self",
+    "g18-the-price-of-a-place"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "another-owns-your-life",
+   "label": "One party holds the disposal of another's life and labour as a thing of their own and will not hand it back when it is asked for.",
+   "roles": [
+    "the one who disposes",
+    "the one disposed of"
+   ],
+   "inducedFrom": [
+    "g4-a-life-held-as-property",
+    "g26-a-life-settled-by-others",
+    "g21-another-holds-your-life"
+   ],
+   "inducedFilmCount": 8
+  },
+  {
+   "id": "a-life-settled-by-others",
+   "label": "Others with the standing to do it settle the shape of a party's life in advance, and the one whose life it is was never put the question.",
+   "roles": [
+    "the one who decides",
+    "the one decided for"
+   ],
+   "inducedFrom": [
+    "g4-an-elder-rules-the-young",
+    "g9-kin-decide-anothers-life",
+    "g7-life-arranged-without-consent",
+    "g24-decided-about-unheard",
+    "g2-a-life-others-dispose-of",
+    "g11-life-decided-by-another",
+    "g18-elders-terms-on-the-young"
+   ],
+   "inducedFilmCount": 20
+  },
+  {
+   "id": "affection-made-to-be-earned",
+   "label": "One party makes their regard wait on a proof of worth, and the other keeps performing for a love that is never simply given.",
+   "roles": [
+    "the one who sets the condition",
+    "the one who tries to meet it"
+   ],
+   "inducedFrom": [
+    "g5-love-held-behind-a-test",
+    "g15-love-withheld-until-earned"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-trusted-serves-another-interest",
+   "label": "One party is taken in and relied on while acting for an interest that is not the other's, and the trust itself is what opens the way.",
+   "roles": [
+    "the one admitted",
+    "the one who trusts"
+   ],
+   "inducedFrom": [
+    "g5-the-one-let-inside-turns",
+    "g11-entrusted-voice-serves-another",
+    "g18-false-face-among-the-trusting",
+    "g21-trust-used-against-the-truster",
+    "g1-entered-under-a-hidden-purpose",
+    "g9-the-ally-serves-the-enemy",
+    "g24-hidden-allegiance-within-the-trust"
+   ],
+   "inducedFilmCount": 17
+  },
+  {
+   "id": "the-child-given-up",
+   "label": "A child is sent out of the household or handed over to be raised elsewhere, and the bond is broken by the sending rather than by anything either party wanted.",
+   "roles": [
+    "the one who sends the child away",
+    "the child sent"
+   ],
+   "inducedFrom": [
+    "g7-child-handed-to-a-stranger",
+    "g21-child-put-out-of-the-house"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "later-wanting-against-earlier-tie",
+   "label": "A wanting that arrives after a binding already made cannot be had without breaking it, and one of the two people must be given up.",
+   "roles": [
+    "the one held by the earlier tie",
+    "the one who comes after it"
+   ],
+   "inducedFrom": [
+    "g7-third-party-in-a-bond",
+    "g12-a-third-enters-the-pair",
+    "g17-older-claim-forbids-the-love",
+    "g25-a-pledge-outlived-by-desire",
+    "g9-a-third-inside-the-bond"
+   ],
+   "inducedFilmCount": 11
+  },
+  {
+   "id": "truth-kept-from-its-owner",
+   "label": "One party holds a truth belonging to another's own life and manages what that other is allowed to believe about it.",
+   "roles": [
+    "the one who withholds",
+    "the one kept unknowing"
+   ],
+   "inducedFrom": [
+    "g8-kept-from-what-concerns-them",
+    "g11-news-withheld-from-its-subject",
+    "g23-life-governed-by-withheld-truth",
+    "g5-kept-from-what-concerns-them",
+    "g16-truth-withheld-as-care",
+    "g19-deciding-what-another-may-know",
+    "g24-truth-kept-from-arriving",
+    "g2-a-past-held-by-others",
+    "g10-kept-from-ones-own-origin",
+    "g21-a-truth-carried-for-years"
+   ],
+   "inducedFilmCount": 28
+  },
+  {
+   "id": "kin-offices-taken-by-strangers",
+   "label": "People with no claim or duty take up the offices of kin toward someone whose own have withdrawn, on a bond with nothing behind it to hold it in place.",
+   "roles": [
+    "the one who takes them in",
+    "the one taken in"
+   ],
+   "inducedFrom": [
+    "g8-taken-in-by-strangers",
+    "g16-kin-made-without-claim",
+    "g18-a-parent-without-title",
+    "g12-in-the-keeping-of-strangers",
+    "g23-sheltering-a-child-not-one-s-own",
+    "g7-care-from-the-unobliged"
+   ],
+   "inducedFilmCount": 13
+  },
+  {
+   "id": "a-bond-held-by-imposture",
+   "label": "One party keeps up a self they know to be false and is given standing and closeness because of it, while the other lives inside the performance.",
+   "roles": [
+    "the one performing",
+    "the one taken in"
+   ],
+   "inducedFrom": [
+    "g9-the-deceived-finds-out",
+    "g28-false-face-taken-on-trust",
+    "g19-hiding-the-life-one-has",
+    "g9-living-under-a-borrowed-name",
+    "g11-false-face-gives-way",
+    "g2-one-drops-the-part",
+    "g3-the-bond-is-a-pretext",
+    "g8-a-bond-one-side-performs"
+   ],
+   "inducedFilmCount": 19
+  },
+  {
+   "id": "the-search-consumes-the-searcher",
+   "label": "One party's whole life narrows to finding someone who has gone, without knowing whether there is anyone left to find.",
+   "roles": [
+    "the one searching",
+    "the one sought"
+   ],
+   "inducedFrom": [
+    "g9-the-search-consumes-the-searcher",
+    "g4-living-around-an-absence",
+    "g9-a-loved-one-is-seized",
+    "g19-searching-for-the-vanished"
+   ],
+   "inducedFilmCount": 8
+  },
+  {
+   "id": "a-child-wanted-through-another",
+   "label": "One party wants a child their own life will not give them and must put that want onto another person's body to answer.",
+   "roles": [
+    "the one who wants",
+    "the one who must supply it"
+   ],
+   "inducedFrom": [
+    "g9-a-child-wanted-and-withheld"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "kept-outside-the-circle",
+   "label": "A settled group decides who may be let in, and the one outside is allowed to see the life shared there but never to join it.",
+   "roles": [
+    "those who hold the threshold",
+    "the one kept outside"
+   ],
+   "inducedFrom": [
+    "g11-threshold-of-a-closed-circle",
+    "g3-looking-in-on-a-shared-life",
+    "g30-condemned-for-what-one-is"
+   ],
+   "inducedFilmCount": 8
+  },
+  {
+   "id": "the-bond-recast-unilaterally",
+   "label": "One party takes up a role toward the other that the tie between them never called for, and the bond is re-set on that footing.",
+   "roles": [
+    "the one who offers new terms",
+    "the one who must accept them"
+   ],
+   "inducedFrom": [
+    "g11-bond-put-on-new-terms"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "the-protector-is-the-danger",
+   "label": "The harm arrives through the very party charged with keeping the other safe, often done in the name of keeping them.",
+   "roles": [
+    "the one entrusted",
+    "the one in their charge"
+   ],
+   "inducedFrom": [
+    "g12-harm-from-inside-the-circle",
+    "g18-power-turned-on-the-kept",
+    "g22-harm-from-inside-trust",
+    "g9-the-protector-does-the-harm",
+    "g25-harm-comes-from-inside-the-bond",
+    "g5-love-that-also-wounds",
+    "g29-shelter-only-from-the-captor",
+    "g14-the-keeper-is-the-danger"
+   ],
+   "inducedFilmCount": 21
+  },
+  {
+   "id": "living-off-anothers-ruin",
+   "label": "One party's living, advancement or survival is drawn directly out of another's ruin, so what feeds the one is taken from the other.",
+   "roles": [
+    "the one who profits",
+    "the one it is taken from"
+   ],
+   "inducedFrom": [
+    "g12-ruin-that-feeds-another",
+    "g8-a-hold-worn-down-not-taken",
+    "g24-anothers-ruin-as-income",
+    "g26-one-spent-for-anothers-rise",
+    "g5-survival-at-anothers-cost",
+    "g10-work-known-under-another-name"
+   ],
+   "inducedFilmCount": 13
+  },
+  {
+   "id": "the-gift-that-goes-unnamed",
+   "label": "What one party gives or owes another is kept from being named, so the good done is credited elsewhere and the debt is never spoken.",
+   "roles": [
+    "the unnamed giver",
+    "the unknowing other"
+   ],
+   "inducedFrom": [
+    "g14-help-given-without-a-name",
+    "g15-a-feeling-with-no-address"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-cost-taken-on-willingly",
+   "label": "A cost that belongs to one party is taken up by another who pays it in their place, often unasked and untold.",
+   "roles": [
+    "the one who bears it",
+    "the one spared"
+   ],
+   "inducedFrom": [
+    "g14-another-carries-the-consequence",
+    "g21-given-up-so-family-is-spared",
+    "g29-cost-borne-for-another",
+    "g2-one-dies-so-others-live",
+    "g5-harm-taken-in-anothers-place",
+    "g12-ruined-to-keep-another-safe",
+    "g0-one-takes-anothers-ruin"
+   ],
+   "inducedFilmCount": 16
+  },
+  {
+   "id": "read-as-the-opposite",
+   "label": "Others fix on a party a name or reading that inverts what they are, and nothing they say or do reads as evidence against it.",
+   "roles": [
+    "those who name",
+    "the one named"
+   ],
+   "inducedFrom": [
+    "g15-a-name-imposed-and-refused",
+    "g26-read-as-the-opposite",
+    "g9-the-account-is-not-believed",
+    "g28-account-refused-belief",
+    "g19-read-as-the-opposite"
+   ],
+   "inducedFilmCount": 11
+  },
+  {
+   "id": "the-private-judged-in-public",
+   "label": "A matter one party held to be their own affair is taken up by onlookers who judge it openly, and their verdict settles what becomes of them.",
+   "roles": [
+    "those who judge",
+    "the one judged"
+   ],
+   "inducedFrom": [
+    "g16-the-private-judged-in-public",
+    "g23-intimate-matter-publicly-judged",
+    "g25-the-watching-crowd-decides"
+   ],
+   "inducedFilmCount": 7
+  },
+  {
+   "id": "rivalry-for-a-single-place",
+   "label": "Two who belong to each other come to want the same place, which cannot hold both, so the one who holds it fears the one who would take it.",
+   "roles": [
+    "the one who holds the place",
+    "the one who would take it"
+   ],
+   "inducedFrom": [
+    "g16-the-successor-as-threat",
+    "g8-kin-made-rivals-by-one-claim"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "help-that-buys-a-hold",
+   "label": "The only help on offer comes from someone who holds what the other cannot do without, and the giving carries terms — named or hidden — that the receiver is in no position to refuse.",
+   "roles": [
+    "the one who holds what is needed",
+    "the one at their mercy"
+   ],
+   "inducedFrom": [
+    "g19-help-that-binds",
+    "g30-need-turned-into-price",
+    "g23-favour-must-be-courted",
+    "g14-freedom-held-by-another",
+    "g11-freedom-sold-back",
+    "g12-payment-exacted-under-hold",
+    "g15-help-that-is-a-claim",
+    "g24-help-with-an-undisclosed-motive"
+   ],
+   "inducedFilmCount": 18
+  },
+  {
+   "id": "a-wrong-never-answered-for",
+   "label": "A wrong is known and no one with the standing to own it can be made to answer, so it goes on standing.",
+   "roles": [
+    "the one who evades",
+    "the one seeking account"
+   ],
+   "inducedFrom": [
+    "g22-wrong-never-answered-for",
+    "g10-wrong-known-never-answered",
+    "g18-harm-with-no-one-answerable"
+   ],
+   "inducedFilmCount": 7
+  },
+  {
+   "id": "the-made-turns-on-maker",
+   "label": "What one party shaped, taught or set in motion refuses the purpose it was given and comes back on the one who made it.",
+   "roles": [
+    "the maker",
+    "the made"
+   ],
+   "inducedFrom": [
+    "g24-what-was-given-turns-back",
+    "g1-the-made-turns-on-its-maker",
+    "g1-the-lesser-takes-up-the-appetite",
+    "g23-maker-outdone-by-the-made",
+    "g25-the-made-turns-on-its-maker"
+   ],
+   "inducedFilmCount": 13
+  },
+  {
+   "id": "made-to-answer-for-another",
+   "label": "A reckoning is pressed against a substitute — kin, messenger, stand-in — who is made to answer for someone else's act.",
+   "roles": [
+    "the one exacting it",
+    "the one made to answer"
+   ],
+   "inducedFrom": [
+    "g24-reckoning-pressed-by-a-proxy",
+    "g25-the-bearer-punished-for-the-message",
+    "g3-paying-for-another-s-act"
+   ],
+   "inducedFilmCount": 6
+  },
+  {
+   "id": "guilt-fixed-without-proof",
+   "label": "One party settles on another's guilt and acts on it, holding neither proof nor standing to judge, and leaves the accused no way to answer.",
+   "roles": [
+    "the one who judges",
+    "the one judged"
+   ],
+   "inducedFrom": [
+    "g25-the-verdict-precedes-the-evidence",
+    "g12-guilt-settled-without-proof",
+    "g3-suspicion-among-the-near",
+    "g18-guilt-pinned-and-upheld",
+    "g30-accused-with-no-answer"
+   ],
+   "inducedFilmCount": 11
+  },
+  {
+   "id": "the-warning-that-cannot-land",
+   "label": "One party sees plainly what is true and cannot get it credited by the people who would have to act on it, and the cost falls where they said it would.",
+   "roles": [
+    "the one who sees",
+    "those who will not credit it"
+   ],
+   "inducedFrom": [
+    "g25-one-sees-what-others-deny",
+    "g7-warning-that-changes-nothing",
+    "g12-the-warning-that-cannot-land",
+    "g1-the-word-that-carries-no-weight",
+    "g21-a-fear-nobody-credits",
+    "g2-truth-that-cannot-be-credited",
+    "g29-true-account-goes-uncredited"
+   ],
+   "inducedFilmCount": 19
+  },
+  {
+   "id": "the-trusted-one-turns",
+   "label": "The party admitted closest uses that very closeness to hand the other over or to take from them.",
+   "roles": [
+    "the one entrusted",
+    "the one who entrusted"
+   ],
+   "inducedFrom": [
+    "g0-the-entrusted-does-the-harm",
+    "g19-trust-turned-against-truster",
+    "g12-turning-on-the-ally",
+    "g14-the-trusted-one-turns"
+   ],
+   "inducedFilmCount": 11
+  },
+  {
+   "id": "closeness-entered-to-extract",
+   "label": "One party enters or is granted closeness only for what can be got out of it, while the other takes the bond as real.",
+   "roles": [
+    "the one who uses",
+    "the one used"
+   ],
+   "inducedFrom": [
+    "g0-the-bond-is-a-means",
+    "g10-closeness-entered-to-be-used",
+    "g4-courted-as-a-means",
+    "g7-guest-who-preys-on-the-house"
+   ],
+   "inducedFilmCount": 11
+  },
+  {
+   "id": "one-goes-one-keeps-faith",
+   "label": "One party goes out of the shared life and the other stays inside it, holding the bond in place alone across the gap.",
+   "roles": [
+    "the one who goes",
+    "the one who holds the place"
+   ],
+   "inducedFrom": [
+    "g10-bond-outlasts-its-reason",
+    "g0-holding-a-bond-alone",
+    "g2-one-leaves-one-holds",
+    "g16-left-to-go-on-alone",
+    "g11-leaving-to-be-followed",
+    "g8-the-bond-held-through-absence",
+    "g14-the-one-owed-return-stays-away",
+    "g26-return-to-the-one-left",
+    "g22-raising-bond-broken-by-going",
+    "g26-one-departs-one-remains"
+   ],
+   "inducedFilmCount": 26
+  },
+  {
+   "id": "the-witness-who-stays-silent",
+   "label": "One party knows of a wrong and holds it unspoken — because speaking would ruin them, or because they simply will not — and the silence lets the wrong stand.",
+   "roles": [
+    "the one who says nothing",
+    "the one it falls on"
+   ],
+   "inducedFrom": [
+    "g1-witness-keeps-the-wrong-unspoken",
+    "g9-the-wrong-goes-unanswered",
+    "g28-word-that-would-clear-withheld",
+    "g9-truth-costs-the-teller"
+   ],
+   "inducedFilmCount": 9
+  },
+  {
+   "id": "two-claims-on-one-person",
+   "label": "Two parties press a whole claim on the same person, who can be neither shared nor divided, so going to one is the unmaking of the other.",
+   "roles": [
+    "the one pressing a claim",
+    "the one holding the claim"
+   ],
+   "inducedFrom": [
+    "g1-a-prior-claim-stands-between",
+    "g11-a-person-claimed-away",
+    "g22-two-claim-one-person",
+    "g10-a-third-inside-the-pair",
+    "g24-two-claim-the-same-person"
+   ],
+   "inducedFilmCount": 11
+  },
+  {
+   "id": "a-bond-resting-on-concealment",
+   "label": "One party holds a bond in place by keeping from the person closest to them something that would change what the bond is.",
+   "roles": [
+    "the one concealing",
+    "the one kept from knowing"
+   ],
+   "inducedFrom": [
+    "g2-loved-on-concealed-terms",
+    "g14-past-kept-from-the-nearest",
+    "g1-kin-kept-from-the-truth",
+    "g3-kept-from-what-would-change-everything",
+    "g12-the-hidden-past-surfaces"
+   ],
+   "inducedFilmCount": 15
+  },
+  {
+   "id": "harm-passed-to-the-uninvolved",
+   "label": "One party, having been damaged, unloads the same damage onto someone with no part in it and less standing to refuse it.",
+   "roles": [
+    "the one passing it on",
+    "the one made to carry it"
+   ],
+   "inducedFrom": [
+    "g3-punishment-passed-downward",
+    "g9-the-harm-is-passed-on"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "drawn-into-anothers-quarrel",
+   "label": "A rupture between two parties forces someone with no stake in it to enter and take a side.",
+   "roles": [
+    "those at odds",
+    "the one drawn in"
+   ],
+   "inducedFrom": [
+    "g3-pulled-into-another-s-fight",
+    "g2-a-quarrel-conscripts-onlookers"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "one-temper-sets-the-terms",
+   "label": "One party's readiness to turn on the others sets the terms under which everyone around them has to live.",
+   "roles": [
+    "the one who rules by threat",
+    "those living under it"
+   ],
+   "inducedFrom": [
+    "g3-one-temper-sets-the-terms"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "remade-into-anothers-figure",
+   "label": "One party forms another into the figure or purpose they require, and the other must live as that person or refuse the name.",
+   "roles": [
+    "the one who remakes",
+    "the one remade"
+   ],
+   "inducedFrom": [
+    "g4-made-into-what-others-need",
+    "g8-carrying-anothers-unfinished-purpose",
+    "g26-made-over-into-a-needed-shape",
+    "g18-made-to-be-someone-absent",
+    "g22-made-into-what-one-wants"
+   ],
+   "inducedFilmCount": 10
+  },
+  {
+   "id": "the-appeal-that-goes-unanswered",
+   "label": "One party calls on those bound to answer for them, and the call is heard and not taken up.",
+   "roles": [
+    "the one who appeals",
+    "the one who withholds"
+   ],
+   "inducedFrom": [
+    "g14-the-order-breaks-faith-with-its-own",
+    "g5-left-to-fend-alone",
+    "g0-the-appeal-is-refused",
+    "g9-the-appeal-goes-unanswered",
+    "g23-creator-refuses-the-created",
+    "g1-the-protector-stands-back",
+    "g22-failure-of-nerve-paid-by-another"
+   ],
+   "inducedFilmCount": 19
+  },
+  {
+   "id": "blame-lands-where-it-can",
+   "label": "A loss no one can be shown to have caused is converted into blame settled on whoever is close enough to receive it.",
+   "roles": [
+    "the one seeking someone to blame",
+    "the one held to account"
+   ],
+   "inducedFrom": [
+    "g5-grief-turned-on-the-blameless",
+    "g3-harm-without-an-author"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "holding-both-sides-alone",
+   "label": "One party keeps up a relation with someone who can no longer answer or speak for their own part in it, and so holds both sides alone.",
+   "roles": [
+    "the one attending",
+    "the one past answering"
+   ],
+   "inducedFrom": [
+    "g7-tending-one-past-answering",
+    "g3-speaking-for-the-unanswering",
+    "g18-the-voice-that-never-arrives"
+   ],
+   "inducedFilmCount": 7
+  },
+  {
+   "id": "the-price-paid-by-another",
+   "label": "The penalty or cost owed for one party's act or settlement falls on someone else, while the one who owes it goes free.",
+   "roles": [
+    "the one who escapes it",
+    "the one made to answer"
+   ],
+   "inducedFrom": [
+    "g9-blame-lands-on-the-innocent",
+    "g21-the-cost-lands-elsewhere",
+    "g30-safety-bought-with-harm",
+    "g0-another-answers-for-the-deed",
+    "g7-punished-in-anothers-place",
+    "g1-penalty-falls-on-another",
+    "g12-blame-lands-on-the-innocent"
+   ],
+   "inducedFilmCount": 18
+  },
+  {
+   "id": "the-pursuit-becomes-the-bond",
+   "label": "One party is set to run another down, and the chase becomes the whole relation between them, remaking the pursuer as it goes.",
+   "roles": [
+    "the pursuer",
+    "the pursued"
+   ],
+   "inducedFrom": [
+    "g9-the-hunter-knows-the-quarry",
+    "g18-run-down-as-quarry",
+    "g16-trap-turns-on-its-setter",
+    "g0-the-hunt-remakes-the-hunter"
+   ],
+   "inducedFilmCount": 8
+  },
+  {
+   "id": "kindness-from-a-stranger",
+   "label": "A need is laid before someone with no prior claim or duty, who must decide whether to take up a burden that is not theirs.",
+   "roles": [
+    "the one who asks",
+    "the one with no obligation"
+   ],
+   "inducedFrom": [
+    "g10-comfort-from-a-stranger",
+    "g15-a-stranger-asked-to-carry"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "standing-held-at-anothers-pleasure",
+   "label": "One party's whole position exists at another's discretion — granted, withheld or withdrawn without account or appeal.",
+   "roles": [
+    "the one who grants and revokes",
+    "the one who depends on it"
+   ],
+   "inducedFrom": [
+    "g11-recognition-denied-to-one-side",
+    "g28-a-place-that-can-be-withdrawn",
+    "g2-a-place-granted-or-withdrawn",
+    "g7-waiting-to-be-chosen",
+    "g12-the-place-is-revoked",
+    "g31-lifted-then-discarded"
+   ],
+   "inducedFilmCount": 15
+  },
+  {
+   "id": "the-account-fixed-beyond-appeal",
+   "label": "One party fixes the account of what happened or of who someone is, and the party it concerns has no purchase on it, whatever they say.",
+   "roles": [
+    "the one who fixes the account",
+    "the one who cannot contest it"
+   ],
+   "inducedFrom": [
+    "g14-the-account-settled-by-survivors",
+    "g7-speech-on-anothers-terms",
+    "g2-judged-without-a-hearing",
+    "g8-a-mark-that-will-not-lift",
+    "g4-naming-settles-the-deed"
+   ],
+   "inducedFilmCount": 15
+  },
+  {
+   "id": "the-way-out-refused",
+   "label": "One party holds open a way through — rescue, comfort, a love within reach — and the other will not take it.",
+   "roles": [
+    "the one who offers",
+    "the one who refuses"
+   ],
+   "inducedFrom": [
+    "g15-rescue-offered-and-refused",
+    "g25-the-offered-escape-refused",
+    "g4-refuses-the-way-out",
+    "g25-fleeing-the-love-in-reach",
+    "g32-offered-comfort-refused-as-injury"
+   ],
+   "inducedFilmCount": 12
+  },
+  {
+   "id": "envy-of-the-one-favoured",
+   "label": "One party has without effort the standing the other cannot reach at any cost, and the watching turns into hostility toward the one who has it.",
+   "roles": [
+    "the one passed over",
+    "the one favoured"
+   ],
+   "inducedFrom": [
+    "g15-what-comes-easy-to-another",
+    "g4-takes-what-he-was-denied"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "withholding-what-cannot-be-compelled",
+   "label": "One party keeps back what the other is owed, knowing the other has no means to make them give it.",
+   "roles": [
+    "the one withholding",
+    "the one owed"
+   ],
+   "inducedFrom": [
+    "g16-withholding-what-cannot-be-compelled",
+    "g0-a-promise-is-withdrawn",
+    "g15-compliance-quietly-withheld",
+    "g31-demanding-what-cannot-be-compelled"
+   ],
+   "inducedFilmCount": 10
+  },
+  {
+   "id": "kept-only-while-useful",
+   "label": "One party holds to another only while that other supplies something or costs nothing, and sets them aside the moment the use runs out.",
+   "roles": [
+    "the one who discards",
+    "the one discarded"
+   ],
+   "inducedFrom": [
+    "g17-dropped-when-the-bond-costs",
+    "g22-used-then-discarded",
+    "g23-worth-lasts-while-useful",
+    "g8-wanted-only-while-useful",
+    "g19-cast-out-as-surplus",
+    "g9-the-helper-is-discarded"
+   ],
+   "inducedFilmCount": 16
+  },
+  {
+   "id": "the-ordeal-staged-again",
+   "label": "A party is put back inside the thing they survived by someone else's arrangement, and the second passage works on them as the memory alone did not.",
+   "roles": [
+    "the one who puts them back",
+    "the one returned to it"
+   ],
+   "inducedFrom": [
+    "g17-returned-to-the-ordeal-survived",
+    "g10-the-ordeal-played-again"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-parent-seen-plainly",
+   "label": "A child sees what the parent actually is and can no longer be held by the figure the parent was.",
+   "roles": [
+    "the one who sees",
+    "the one seen"
+   ],
+   "inducedFrom": [
+    "g19-the-parent-seen-plainly"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "wrongdoer-faces-the-wronged",
+   "label": "The one who did the wrong comes back and lays it before the person it harmed, and what happens next is entirely the harmed party's to decide.",
+   "roles": [
+    "the one who admits it",
+    "the one who must answer it"
+   ],
+   "inducedFrom": [
+    "g21-the-wrongdoer-comes-back",
+    "g11-wrong-laid-before-the-wronged"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "shut-in-with-an-adversary",
+   "label": "Two parties set against each other are held together with no way out and must go on alongside the enmity.",
+   "roles": [
+    "the one who presses",
+    "the one who must answer"
+   ],
+   "inducedFrom": [
+    "g22-made-to-serve-an-enemy",
+    "g11-shut-in-with-an-adversary"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-accuser-holds-the-guilt",
+   "label": "The party pressing another to account is the party that holds the fault, and hands it to someone who cannot carry it back.",
+   "roles": [
+    "the one accusing",
+    "the one accused"
+   ],
+   "inducedFrom": [
+    "g23-accuser-shares-the-fault",
+    "g8-guilt-named-by-the-guilty"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-group-turns-on-one",
+   "label": "A body of people secures itself by turning its collective weight on one of its own, who cannot answer it as an equal.",
+   "roles": [
+    "the group that closes ranks",
+    "the one singled out"
+   ],
+   "inducedFrom": [
+    "g24-group-closes-on-one",
+    "g7-one-spent-for-the-group",
+    "g1-group-withdraws-its-welcome"
+   ],
+   "inducedFilmCount": 9
+  },
+  {
+   "id": "consent-extracted-through-need",
+   "label": "One party's need to go on living puts their consent within reach of whoever can supply what they need, and they must live inside that price.",
+   "roles": [
+    "the one who supplies and exacts",
+    "the one who complies to survive"
+   ],
+   "inducedFrom": [
+    "g31-shelter-with-a-price",
+    "g1-consent-taken-not-given",
+    "g19-self-as-the-only-currency",
+    "g3-compliance-bought-by-need",
+    "g5-a-person-put-to-a-price"
+   ],
+   "inducedFilmCount": 12
+  },
+  {
+   "id": "a-person-held-as-leverage",
+   "label": "One party seizes a person another loves and uses them to force that other to give up what they would never otherwise give.",
+   "roles": [
+    "the one holding",
+    "the one made to yield"
+   ],
+   "inducedFrom": [
+    "g0-made-to-betray-under-threat",
+    "g2-a-person-held-as-leverage"
+   ],
+   "inducedFilmCount": 6
+  },
+  {
+   "id": "a-bond-that-cannot-end",
+   "label": "The bond can be neither made into what it might be nor got out of, and every attempt to leave fastens it tighter.",
+   "roles": [
+    "the one who holds",
+    "the one held"
+   ],
+   "inducedFrom": [
+    "g2-neither-completed-nor-broken",
+    "g31-bound-to-the-harmer",
+    "g5-bond-that-cannot-be-left",
+    "g15-kept-by-a-claim"
+   ],
+   "inducedFilmCount": 12
+  },
+  {
+   "id": "standing-stripped-answered-with-death",
+   "label": "One party strips another of standing or denies them what they took as their due, and the answer comes not as argument but as destruction.",
+   "roles": [
+    "the one who degrades or denies",
+    "the one degraded"
+   ],
+   "inducedFrom": [
+    "g3-refusal-answered-with-ruin",
+    "g21-degradation-settled-by-a-death",
+    "g28-contempt-turned-inward"
+   ],
+   "inducedFilmCount": 6
+  },
+  {
+   "id": "the-one-everyone-lives-off",
+   "label": "A circle of people draws its life from a single person, and that person is cut off from ordinary relation with any of them.",
+   "roles": [
+    "those who surround",
+    "the one surrounded"
+   ],
+   "inducedFrom": [
+    "g4-the-one-they-live-off"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "acting-on-a-false-picture",
+   "label": "Parties proceed on an account of who someone is that is simply wrong, and the truth reaches them only once the damage is done.",
+   "roles": [
+    "the one who mistakes",
+    "the one mistaken"
+   ],
+   "inducedFrom": [
+    "g5-a-false-reading-governs",
+    "g29-taken-for-someone-else",
+    "g1-truth-arrives-after-the-act",
+    "g25-known-as-someone-he-is-not"
+   ],
+   "inducedFilmCount": 9
+  },
+  {
+   "id": "refusing-what-all-have-settled",
+   "label": "One party will not concede what everyone around them treats as already settled, and the group's agreement is exactly what cannot move them.",
+   "roles": [
+    "those who have settled it",
+    "the one holding out"
+   ],
+   "inducedFrom": [
+    "g8-one-against-a-settled-agreement",
+    "g14-the-group-closes-against-one"
+   ],
+   "inducedFilmCount": 6
+  },
+  {
+   "id": "confession-reaches-the-wrong-ear",
+   "label": "What one party finally admits reaches a listener it was never meant for, and the wrong hearing changes both of them.",
+   "roles": [
+    "the one confessing",
+    "the one who hears"
+   ],
+   "inducedFrom": [
+    "g9-confession-to-the-wrong-ear"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "the-answering-outruns-the-injury",
+   "label": "Two parties return harm to each other past the original grievance, with no authority standing behind the accounting, until the answering itself decides the outcome.",
+   "roles": [
+    "the one who acts first",
+    "the one who answers"
+   ],
+   "inducedFrom": [
+    "g11-harm-returned-roles-reversed",
+    "g16-escalation-outlasts-the-quarrel",
+    "g31-redress-without-an-authority",
+    "g2-an-old-injury-collected-again",
+    "g18-injury-answered-in-kind"
+   ],
+   "inducedFilmCount": 12
+  },
+  {
+   "id": "a-bond-required-unlived",
+   "label": "Two people are held to each other by a tie one of them requires be lived as though it did not exist.",
+   "roles": [
+    "the one who imposes the distance",
+    "the one who complies"
+   ],
+   "inducedFrom": [
+    "g14-bond-treated-as-nothing",
+    "g19-bound-to-the-unreachable"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-match-arranged-by-others",
+   "label": "Whom a person is bound to is settled by parties outside the bond for ends of their own, and the one bound must go on living inside it.",
+   "roles": [
+    "the one who disposes",
+    "the one disposed of"
+   ],
+   "inducedFrom": [
+    "g14-a-bond-entered-under-compulsion",
+    "g8-the-match-decided-by-others",
+    "g22-anothers-hand-on-ones-love",
+    "g16-a-future-disposed-by-others"
+   ],
+   "inducedFilmCount": 11
+  },
+  {
+   "id": "the-dead-claim-the-living",
+   "label": "An obligation left by the dead governs how the living may act, and the one who carries it can neither argue with it nor set it down.",
+   "roles": [
+    "the dead who claim",
+    "the living who are bound"
+   ],
+   "inducedFrom": [
+    "g15-the-dead-claim-the-living",
+    "g25-the-dead-claim-the-living",
+    "g7-errand-left-by-the-dead",
+    "g10-the-dead-bind-the-living",
+    "g22-the-task-outlives-the-teacher",
+    "g0-an-inherited-claim-still-binds"
+   ],
+   "inducedFilmCount": 15
+  },
+  {
+   "id": "what-the-helped-hand-back",
+   "label": "One who was once helped comes back to the one who helped them, and what they return — gratitude or violence — settles what the bond was.",
+   "roles": [
+    "the one who gave",
+    "the one given to"
+   ],
+   "inducedFrom": [
+    "g17-service-repaid-with-hostility",
+    "g22-old-help-comes-due"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "a-debt-never-discharged",
+   "label": "One party owes those they harmed or failed something no act of theirs can settle, and arranges their whole existence around it.",
+   "roles": [
+    "the one who owes",
+    "the one owed"
+   ],
+   "inducedFrom": [
+    "g23-debt-that-cannot-be-paid",
+    "g19-a-life-around-one-wrong"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-only-way-through",
+   "label": "One party's whole reach into the world runs through a single other person, and neither can act apart from the other.",
+   "roles": [
+    "the one who is the channel",
+    "the one cut off without them"
+   ],
+   "inducedFrom": [
+    "g28-reached-only-through-another",
+    "g30-standing-in-for-another"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "the-one-not-reckoned-with",
+   "label": "One party discounts another as of no account, and the outcome turns out to rest on the one discounted.",
+   "roles": [
+    "the one who discounts",
+    "the one discounted"
+   ],
+   "inducedFrom": [
+    "g0-the-overlooked-proves-decisive"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "acting-inside-anothers-design",
+   "label": "One party arranges what others are living through from a position they cannot see, turning their need and their movements to an end that is not theirs.",
+   "roles": [
+    "the one directing unseen",
+    "the ones acting in the dark"
+   ],
+   "inducedFrom": [
+    "g14-the-unseen-hand-behind-events",
+    "g16-dependence-made-into-an-instrument"
+   ],
+   "inducedFilmCount": 7
+  },
+  {
+   "id": "mercy-granted-against-interest",
+   "label": "One party holds another's destruction in hand and grants clemency or help they were not supposed to grant, to someone who cannot repay it.",
+   "roles": [
+    "the one who spares",
+    "the one spared"
+   ],
+   "inducedFrom": [
+    "g16-mercy-extended-against-interest",
+    "g23-power-to-end-withheld"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "held-where-no-help-reaches",
+   "label": "One party keeps another within reach by force, somewhere no outside authority reaches, and answers to nobody for what is done there.",
+   "roles": [
+    "the one who holds",
+    "the one held"
+   ],
+   "inducedFrom": [
+    "g17-kept-within-reach-by-force",
+    "g16-power-answerable-to-no-one"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "carrying-one-who-cannot-stand",
+   "label": "One party takes damage onto themselves to keep another upright, and that other can go on only for as long as the holding lasts.",
+   "roles": [
+    "the one who carries",
+    "the one carried"
+   ],
+   "inducedFrom": [
+    "g19-carrying-one-who-cannot-stand",
+    "g11-survival-rests-on-another"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "strength-decides-not-right",
+   "label": "The matter goes to whichever party is stronger, and being in the right does not protect the other.",
+   "roles": [
+    "the stronger",
+    "the one with the claim"
+   ],
+   "inducedFrom": [
+    "g21-stronger-not-rightful-prevails",
+    "g7-judgment-goes-to-the-stronger"
+   ],
+   "inducedFilmCount": 4
+  },
+  {
+   "id": "torn-between-two-claims",
+   "label": "One person is bound to two parties at once and cannot answer one without wounding the other.",
+   "roles": [
+    "the one who is torn",
+    "the claim that demands the whole of them"
+   ],
+   "inducedFrom": [
+    "g25-the-enemy-is-also-ones-own",
+    "g11-duty-overrides-the-person",
+    "g19-torn-between-two-loyalties",
+    "g21-promised-here-drawn-elsewhere"
+   ],
+   "inducedFilmCount": 8
+  },
+  {
+   "id": "what-was-taken-must-return",
+   "label": "One party comes, after time has passed, to make another give back a taking that other had treated as closed.",
+   "roles": [
+    "the claimant",
+    "the one who took"
+   ],
+   "inducedFrom": [
+    "g29-old-wrong-brought-back",
+    "g26-what-was-taken-comes-back"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "the-watcher-and-the-watched",
+   "label": "One party makes another the object of a look they cannot see or refuse, and the looking acts on the life it was meant only to observe.",
+   "roles": [
+    "the one watching",
+    "the one watched"
+   ],
+   "inducedFrom": [
+    "g0-watched-without-consent",
+    "g16-watching-alters-the-watched",
+    "g4-loved-as-an-image"
+   ],
+   "inducedFilmCount": 6
+  },
+  {
+   "id": "a-death-known-in-advance",
+   "label": "A death is settled between the parties before it comes, and they go on with each other in the interval before it arrives.",
+   "roles": [
+    "the one the death is coming for",
+    "the one who stays beside them"
+   ],
+   "inducedFrom": [
+    "g9-a-death-arranged-in-advance",
+    "g16-living-inside-a-known-ending"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "accounts-that-cannot-be-vouched",
+   "label": "What passed between the parties survives only as accounts that cannot be reconciled, and whoever must carry one cannot vouch for it.",
+   "roles": [
+    "the one who tells it",
+    "the one who must take it on trust"
+   ],
+   "inducedFrom": [
+    "g11-account-no-one-can-vouch"
+   ],
+   "inducedFilmCount": 3
+  },
+  {
+   "id": "present-but-no-longer-heard",
+   "label": "One party stays in the other's company while no longer taking in anything the other says.",
+   "roles": [
+    "the one not listening",
+    "the one unheard"
+   ],
+   "inducedFrom": [
+    "g21-present-but-not-heard"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "waiting-out-the-other",
+   "label": "One party holds an undeclared intention across years and moves only when the other can no longer withstand it.",
+   "roles": [
+    "the one biding",
+    "the one unguarded"
+   ],
+   "inducedFrom": [
+    "g30-waiting-out-the-other"
+   ],
+   "inducedFilmCount": 2
+  },
+  {
+   "id": "the-rescue-that-binds",
+   "label": "One party's saving of another becomes the whole of what is between them — a tie neither chose, or the very thing that ruins the one saved.",
+   "roles": [
+    "the one who saves",
+    "the one saved"
+   ],
+   "inducedFrom": [
+    "g4-the-saving-destroys",
+    "g19-rescue-becomes-a-claim"
+   ],
+   "inducedFilmCount": 5
+  },
+  {
+   "id": "partners-who-expect-betrayal",
+   "label": "Two who depend on each other each come to expect the worst of the other, and the dependence itself turns hostile.",
+   "roles": [
+    "the one who distrusts",
+    "the one distrusted"
+   ],
+   "inducedFrom": [
+    "g5-partners-who-expect-betrayal"
+   ],
+   "inducedFilmCount": 2
+  }
+ ]
+}

@@ -782,6 +782,7 @@ function stageMeasure() {
       cohortPrevalencePct: cohortShare,
       reach: {
         pairs, unreachable: unr, unreachablePct: pct(unr, pairs),
+        alreadyReachablePct: pct(pairs - unr, pairs),
         liftOverChance: +(pct(unr, pairs) / (100 * B)).toFixed(3),
         alreadyEdged: edge, sharesAttribute: attr, commonNeighbour: hop2, tonallyNear: tonalNear, inTopSix: top6,
         pairsWithNoEdge: pairs - edge,
@@ -811,6 +812,87 @@ function stageMeasure() {
   orderReach.forEach((id, k) => { if (orderBlind[k] !== id) moved++; });
   kept.sort((a, b) => orderReach.indexOf(a.id) - orderReach.indexOf(b.id));
 
+  /* PERMUTATION CONTROL — the test this proposal can fail.
+   *
+   * Every kept predicate joins films with no edge, because 99% of cohort pairs have no edge.
+   * That number therefore says nothing on its own. The question that does discriminate is
+   * whether the predicates concentrate unreachable pairs ABOVE what film sets of the same
+   * sizes drawn at random would. And the second question, which the proposal's order-of-
+   * operations rule turns on: are a predicate's films tonally CLOSER than chance? If they
+   * are, the layer is partly re-deriving the fingerprint and the co-occurrence filter is not
+   * independent of the thing it is supposed to replace.
+   *
+   * Sizes are held fixed and only the membership is resampled, so the control isolates the
+   * clustering and not the size distribution. Deterministic: a fixed 32-bit LCG seed. */
+  const titleToIdx = new Map(films.map((f) => [f.title, f.fi]));
+  function permutationControl(K) {
+    const sizes = kept.map((p) => p.films);
+    const obsPairs = [], obsUnr = [];
+    for (const p of kept) { obsPairs.push(p.reach.pairs); obsUnr.push(p.reach.unreachable); }
+    const observedUnrPct = pct(obsUnr.reduce((a, b) => a + b, 0), obsPairs.reduce((a, b) => a + b, 0));
+    let obsDistSum = 0, obsDistN = 0;
+    for (const p of kept) {
+      const idx = p.memberFilms.map((m) => titleToIdx.get(m.title));
+      for (let a = 0; a < idx.length; a++) for (let b = a + 1; b < idx.length; b++) {
+        const d = facts.tonal[idx[a] * N + idx[b]];
+        if (d >= 0) { obsDistSum += d; obsDistN++; }
+      }
+    }
+    const observedDist = obsDistN ? obsDistSum / obsDistN : null;
+
+    /* The `unreachable` definition folds in a tonal clause, so if a predicate's films turn out
+       to be tonally tighter than chance it will score below chance on unreachability for that
+       reason alone. Decompose it: STRUCTURAL unreachability drops the tonal clause and asks
+       only whether the atlas has an industrial or graph route to the pair. */
+    let obsStruct = 0, obsStructTot = 0;
+    for (const p of kept) {
+      const idx = p.memberFilms.map((m) => titleToIdx.get(m.title));
+      for (let a = 0; a < idx.length; a++) for (let b = a + 1; b < idx.length; b++) {
+        obsStructTot++;
+        if (!(facts.flags[idx[a] * N + idx[b]] & (facts.F.EDGE | facts.F.ATTR | facts.F.HOP2))) obsStruct++;
+      }
+    }
+    const observedStructPct = pct(obsStruct, obsStructTot);
+
+    let seed = 20260810;
+    const rnd = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
+    const all = films.map((f) => f.fi);
+    const unrRuns = [], distRuns = [], structRuns = [];
+    for (let k = 0; k < K; k++) {
+      let u = 0, st = 0, tot = 0, ds = 0, dn = 0;
+      for (const size of sizes) {
+        const pool_ = all.slice();
+        for (let t = 0; t < size; t++) { const r = t + Math.floor(rnd() * (pool_.length - t)); const tmp = pool_[t]; pool_[t] = pool_[r]; pool_[r] = tmp; }
+        const pick = pool_.slice(0, size);
+        for (let a = 0; a < size; a++) for (let b = a + 1; b < size; b++) {
+          const i = pick[a], j = pick[b], f = facts.flags[i * N + j];
+          tot++;
+          if (!(f & (facts.F.EDGE | facts.F.ATTR | facts.F.HOP2 | facts.F.TONAL))) u++;
+          if (!(f & (facts.F.EDGE | facts.F.ATTR | facts.F.HOP2))) st++;
+          const d = facts.tonal[i * N + j];
+          if (d >= 0) { ds += d; dn++; }
+        }
+      }
+      unrRuns.push(100 * u / tot);
+      structRuns.push(100 * st / tot);
+      distRuns.push(dn ? ds / dn : 0);
+    }
+    const stat = (a) => { const s = a.slice().sort((x, y) => x - y); const m = a.reduce((p, q) => p + q, 0) / a.length; return { mean: +m.toFixed(2), p5: +s[Math.floor(a.length * 0.05)].toFixed(2), p95: +s[Math.floor(a.length * 0.95)].toFixed(2) }; };
+    const su = stat(unrRuns), sd = stat(distRuns), ss = stat(structRuns);
+    const call_ = (obs, s) => obs > s.p95 ? 'above chance' : obs < s.p5 ? 'BELOW chance' : 'indistinguishable from chance';
+    return {
+      permutations: K,
+      note: 'film-set sizes held fixed, membership resampled uniformly from the 300-film cohort',
+      unreachableShareOfProposedPairs: { observed: observedUnrPct, random: su, verdict: call_(observedUnrPct, su) },
+      structurallyUnreachableShare: {
+        note: 'the same test with the tonal clause dropped — no edge, no shared crew/cast/keyword, no common neighbour. This is the industrial question on its own.',
+        observed: observedStructPct, random: ss, verdict: call_(observedStructPct, ss),
+      },
+      meanTonalDistanceWithinPredicates: { observed: observedDist === null ? null : +observedDist.toFixed(1), random: sd, verdict: observedDist === null ? null : observedDist < sd.p5 ? 'tonally TIGHTER than chance — the layer is partly re-deriving the fingerprint' : observedDist > sd.p95 ? 'tonally wider than chance' : 'indistinguishable from chance — co-occurrence is independent of tonal distance, which is what the proposal requires' },
+    };
+  }
+  const control = permutationControl(500);
+
   const heldOutPhrases = phrases.filter((p) => heldOut.has(p.fi));
   const inducedPhrases = phrases.filter((p) => !heldOut.has(p.fi));
   const noneRate = (list) => {
@@ -827,7 +909,6 @@ function stageMeasure() {
      result. A film with no predicate partner cannot have its top six changed by this layer at
      any strength, so this is the ceiling on the trial contract's crew% number and it is a
      count, not a projection. Nothing here scores or ranks anything. */
-  const titleToIdx = new Map(films.map((f) => [f.title, f.fi]));
   const partners = new Map(films.map((f) => [f.fi, new Set()]));
   const newPartners = new Map(films.map((f) => [f.fi, new Set()]));
   for (const p of kept) {
@@ -897,6 +978,21 @@ function stageMeasure() {
       caution: `99% of cohort pairs have no edge to begin with (${facts.counts.noEdge} of ${facts.counts.pairs}), so "joins films sharing no edge" is nearly free. The unreachable count is the number that discriminates, against a ${pct(facts.counts.unreachable, facts.counts.pairs)}% chance baseline.`,
     },
     mapImpact,
+    permutationControl: control,
+    pairLoad: {
+      note: 'what the layer would ask the graph to carry. Not an edge count — a candidate-pair count, before any strength or budget is applied.',
+      candidatePairsProposedInsideTheCohort: kept.reduce((a, p) => a + p.reach.pairs, 0),
+      cohortInternalEdgesToday: facts.counts.edge,
+      ratio: +(kept.reduce((a, p) => a + p.reach.pairs, 0) / facts.counts.edge).toFixed(1),
+      largestPredicateFilms: Math.max(...kept.map((p) => p.films)),
+      pairsFromTheLargestPredicate: Math.max(...kept.map((p) => p.reach.pairs)),
+      projectedAtCorpusScale: {
+        note: 'a predicate at the top of the proposal band holds 8% of the corpus. Pairs go as n squared, so the band bounds the vocabulary semantically and does not bound the graph at all. Arithmetic, not a measurement.',
+        filmsAtEightPercentOf2204: Math.round(0.08 * 2204),
+        pairsThatPredicateWouldPropose: Math.round(0.08 * 2204 * (0.08 * 2204 - 1) / 2),
+        edgesInTheWholeAtlasToday: 22217,
+      },
+    },
     ordering: {
       note: 'kept predicates are ordered by unreachable pairs joined, tonal mean as tiebreak',
       predicatesMovedByTheTonalTiebreak: moved,
