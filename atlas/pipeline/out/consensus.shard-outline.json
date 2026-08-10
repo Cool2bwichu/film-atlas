@@ -3,7 +3,7 @@
  "vocabVersion": "consensus-vocab-1",
  "model": "claude-opus-5",
  "promptVersion": "consensus-prompt-1",
- "generated": "2026-08-10T06:40:59.942Z",
+ "generated": "2026-08-10T08:14:31.835Z",
  "tier": "outline",
  "note": "no vocabulary declared on purpose: silence here is ignorance, not absence",
  "films": {
