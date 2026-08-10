@@ -1,0 +1,949 @@
+{
+  "version": 1,
+  "vocabVersion": "consensus-vocab-1",
+  "note": "The reader's words, mapped onto the 59 closed attributes. consensus-vocab.json's gloss is written for the attributor; questioner-phrasings.json turns each attribute into a question; this file is the third face of the same claim — what a person TYPES. It is the most dangerous file in the search for the same reason questioner-phrasings.json is the most dangerous file in the questioner: a wrong entry makes the reader search for something other than what they said, and nothing downstream can detect it. Every phrase below was written against the gloss AND the NOT clause, and a phrase was left out whenever the NOT clause said it would be a lie.",
+  "rules": [
+    "A phrase earns its place only if a reader typing it means the gloss. 'atmospheric' means nothing in this vocabulary and is deliberately absent — it would have to guess between menacing, dreamlike, austere and painterly, and guessing is how a search stops being trustworthy.",
+    "Ambiguity is expressed, not resolved. 'fast' is genuinely relentless-or-brisk, so it maps to BOTH and becomes one anyOf clause. It does not silently pick one.",
+    "`polarity: \"inherent\"` marks a phrase that already contains its own absence — 'little dialogue', 'no dialogue', 'barely speak'. A preceding 'not' must not invert it a second time, and the parser refuses to.",
+    "A phrase must not be a plot word. 'someone dies' is not subject:grief and 'a priest' is not subject:spiritual; the NOT clauses say so explicitly and the lexicon obeys them.",
+    "Multi-word phrases are matched longest-first, so 'little dialogue' beats 'dialogue' and 'coming of age' beats 'coming'."
+  ],
+  "degree": {
+    "up": [
+      "very",
+      "really",
+      "extremely",
+      "deeply",
+      "intensely",
+      "seriously",
+      "utterly",
+      "totally",
+      "properly",
+      "genuinely",
+      "profoundly",
+      "incredibly",
+      "so"
+    ],
+    "down": [
+      "a bit",
+      "a little",
+      "slightly",
+      "somewhat",
+      "fairly",
+      "mildly",
+      "kind of",
+      "sort of",
+      "vaguely",
+      "a touch"
+    ]
+  },
+  "negation": [
+    "not",
+    "no",
+    "without",
+    "never",
+    "nothing",
+    "none",
+    "avoid",
+    "avoiding",
+    "except",
+    "but not",
+    "minus",
+    "dont",
+    "don't",
+    "doesnt",
+    "doesn't",
+    "isnt",
+    "isn't",
+    "hate",
+    "sick of",
+    "tired of",
+    "anything but"
+  ],
+  "filmRef": {
+    "groupCues": {
+      "mood": [
+        "the mood of",
+        "the atmosphere of",
+        "the feel of",
+        "the feeling of",
+        "the air of",
+        "mood of"
+      ],
+      "tone": [
+        "the tone of",
+        "tone of"
+      ],
+      "pace": [
+        "the pace of",
+        "the rhythm of",
+        "the tempo of",
+        "paced like"
+      ],
+      "texture": [
+        "the texture of",
+        "the look of",
+        "the surface of",
+        "shot like",
+        "looks like"
+      ],
+      "setting": [
+        "the world of",
+        "the setting of",
+        "set like"
+      ],
+      "story": [
+        "the story of",
+        "the shape of",
+        "the plot of"
+      ],
+      "structure": [
+        "the structure of",
+        "told like"
+      ],
+      "subject": [
+        "about what",
+        "the subject of"
+      ]
+    },
+    "wholeCues": [
+      "like",
+      "similar to",
+      "in the vein of",
+      "reminds me of",
+      "something like",
+      "close to",
+      "the same energy as",
+      "in the spirit of",
+      "along the lines of",
+      "as good as"
+    ],
+    "neighbourhood": {
+      "_note": "When a reader points at a film with a group cue, the named group is read first. If it is thin, the reading may widen — but only into the groups a reader plausibly MEANT by that word, declared here rather than invented at runtime. 'the mood of The Matrix' may reach its tone and its texture; it may not reach mode:action. Widening across into mode, subject or story under the word 'mood' would be the parser answering a question the reader did not ask, which is the one failure this whole layer is built to avoid.",
+      "mood": [
+        "mood",
+        "tone",
+        "texture"
+      ],
+      "tone": [
+        "tone",
+        "mood"
+      ],
+      "pace": [
+        "pace"
+      ],
+      "texture": [
+        "texture",
+        "mood"
+      ],
+      "setting": [
+        "setting"
+      ],
+      "story": [
+        "story",
+        "structure"
+      ],
+      "structure": [
+        "structure",
+        "story"
+      ],
+      "subject": [
+        "subject",
+        "story"
+      ]
+    }
+  },
+  "phrases": {
+    "pace:relentless": [
+      "relentless",
+      "relentlessly",
+      "breathless",
+      "breathlessly",
+      "no room to breathe",
+      "doesnt let up",
+      "never lets up",
+      "flat out",
+      "propulsive",
+      "adrenaline",
+      "high octane",
+      "full throttle",
+      "nonstop",
+      "non stop",
+      "pulse pounding",
+      "fast",
+      "fast paced",
+      "fast-paced",
+      "fast pacing",
+      "fast pace",
+      "quick",
+      "quickly",
+      "speedy",
+      "pacy",
+      "moves fast",
+      "rapid",
+      "swift"
+    ],
+    "pace:brisk": [
+      "brisk",
+      "briskly",
+      "snappy",
+      "zippy",
+      "nimble",
+      "light on its feet",
+      "quick and light",
+      "sprightly",
+      "rattles along",
+      "moves quickly",
+      "fast",
+      "fast paced",
+      "fast-paced",
+      "fast pacing",
+      "fast pace",
+      "quick",
+      "quickly",
+      "speedy",
+      "pacy",
+      "moves fast",
+      "rapid",
+      "swift"
+    ],
+    "pace:slow-burn": [
+      "slow burn",
+      "slow-burn",
+      "slowburn",
+      "builds slowly",
+      "tightens",
+      "simmering",
+      "creeping",
+      "builds and builds",
+      "coiled",
+      "winds up slowly"
+    ],
+    "pace:contemplative": [
+      "contemplative",
+      "unhurried",
+      "meditative",
+      "takes its time",
+      "slow cinema",
+      "slow paced",
+      "slow-paced",
+      "leisurely",
+      "still and quiet",
+      "long takes",
+      "room to look",
+      "languid",
+      "slow",
+      "slowly",
+      "quiet and slow",
+      "no rush"
+    ],
+    "tone:hopeful": [
+      "hopeful",
+      "hope",
+      "hopefulness",
+      "uplifting",
+      "life affirming",
+      "life-affirming",
+      "redemptive",
+      "something can be mended",
+      "believes in people",
+      "leaves you with hope",
+      "optimistic",
+      "warm hearted ending"
+    ],
+    "tone:bleak": [
+      "bleak",
+      "bleakness",
+      "no comfort",
+      "comfortless",
+      "unsparing",
+      "desolate",
+      "grim",
+      "despairing",
+      "nihilistic",
+      "hopeless",
+      "offers no consolation",
+      "brutal outlook"
+    ],
+    "tone:melancholy": [
+      "melancholy",
+      "melancholic",
+      "wistful",
+      "bittersweet",
+      "sad in a soft way",
+      "a soft sadness",
+      "aching",
+      "rueful",
+      "sorrowful",
+      "quietly sad"
+    ],
+    "tone:comic": [
+      "funny",
+      "comic",
+      "comedic",
+      "comedy",
+      "hilarious",
+      "makes me laugh",
+      "make me laugh",
+      "laugh out loud",
+      "humour",
+      "humor",
+      "amusing",
+      "a laugh",
+      "light hearted",
+      "lighthearted"
+    ],
+    "tone:ironic": [
+      "ironic",
+      "irony",
+      "wry",
+      "tongue in cheek",
+      "keeps its distance",
+      "sardonic",
+      "deadpan"
+    ],
+    "tone:earnest": [
+      "earnest",
+      "sincere",
+      "sincerity",
+      "heartfelt",
+      "unguarded",
+      "means what it says",
+      "no irony",
+      "straight faced sincerity",
+      "wears its heart on its sleeve"
+    ],
+    "tone:cerebral": [
+      "cerebral",
+      "intellectual",
+      "makes you think",
+      "thought provoking",
+      "thought-provoking",
+      "something to think about",
+      "philosophical",
+      "brainy",
+      "heady",
+      "cerebral and demanding",
+      "gives you something to chew on"
+    ],
+    "tone:tender": [
+      "tender",
+      "tenderness",
+      "gentle",
+      "gently",
+      "kindness",
+      "compassionate",
+      "caring",
+      "soft with its people"
+    ],
+    "mood:dreamlike": [
+      "dreamlike",
+      "dream logic",
+      "dreamy",
+      "oneiric",
+      "like a dream",
+      "hypnotic",
+      "trancelike",
+      "trance like",
+      "hallucinatory",
+      "surreal logic"
+    ],
+    "mood:menacing": [
+      "menacing",
+      "menace",
+      "dread",
+      "dreadful atmosphere",
+      "ominous",
+      "foreboding",
+      "something bad is coming",
+      "sinister",
+      "creepy",
+      "unsettling",
+      "eerie",
+      "uneasy"
+    ],
+    "mood:paranoid": [
+      "paranoid",
+      "paranoia",
+      "someone is watching",
+      "being watched",
+      "conspiratorial",
+      "conspiracy",
+      "you cant trust anyone",
+      "cant tell who to trust",
+      "surveillance feeling",
+      "distrustful"
+    ],
+    "mood:warm": [
+      "warm",
+      "warmth",
+      "cosy",
+      "cozy",
+      "companionable",
+      "comforting",
+      "sit inside it",
+      "generous",
+      "hospitable",
+      "glowing"
+    ],
+    "mood:austere": [
+      "austere",
+      "austerity",
+      "severe",
+      "stark",
+      "spare",
+      "stripped back",
+      "stripped-back",
+      "ascetic",
+      "cold and severe",
+      "unadorned",
+      "rigorous"
+    ],
+    "mood:elegiac": [
+      "elegiac",
+      "elegy",
+      "mourns a world",
+      "a vanished world",
+      "a way of life gone",
+      "the end of an era",
+      "valedictory",
+      "requiem"
+    ],
+    "mood:sensual": [
+      "sensual",
+      "sensuous",
+      "sensuality",
+      "tactile",
+      "appetite",
+      "erotic",
+      "voluptuous",
+      "wants to be touched"
+    ],
+    "mood:absurd": [
+      "absurd",
+      "absurdist",
+      "absurdity",
+      "broken logic",
+      "nonsensical world",
+      "kafkaesque",
+      "deadpan strangeness",
+      "makes no sense on purpose"
+    ],
+    "subject:spiritual": [
+      "spiritual",
+      "spirituality",
+      "faith",
+      "the sacred",
+      "sacred",
+      "grace",
+      "transcendent",
+      "transcendence",
+      "religious",
+      "religion",
+      "god",
+      "the search for meaning",
+      "metaphysical",
+      "soul"
+    ],
+    "subject:political": [
+      "political",
+      "politics",
+      "power",
+      "the state",
+      "ideology",
+      "ideological",
+      "revolutionary",
+      "propaganda",
+      "who decides",
+      "protest",
+      "resistance"
+    ],
+    "subject:coming-of-age": [
+      "coming of age",
+      "coming-of-age",
+      "growing up",
+      "adolescence",
+      "teenage years",
+      "childhood ending",
+      "becoming an adult",
+      "first love and growing up"
+    ],
+    "subject:grief": [
+      "grief",
+      "grieving",
+      "bereavement",
+      "mourning",
+      "bereaved",
+      "what a person does with loss",
+      "widowed"
+    ],
+    "subject:obsession": [
+      "obsession",
+      "obsessive",
+      "obsessed",
+      "consumed by",
+      "fixation",
+      "monomania",
+      "past the point of reason",
+      "single minded",
+      "single-minded"
+    ],
+    "subject:family": [
+      "family",
+      "families",
+      "parents",
+      "parenthood",
+      "siblings",
+      "brothers and sisters",
+      "mother and son",
+      "father and son",
+      "inheritance",
+      "family drama",
+      "domestic"
+    ],
+    "subject:desire": [
+      "desire",
+      "longing",
+      "lust",
+      "wanting someone",
+      "love",
+      "romance",
+      "romantic",
+      "infatuation",
+      "yearning",
+      "attraction"
+    ],
+    "subject:work": [
+      "work",
+      "labour",
+      "labor",
+      "craft",
+      "a trade",
+      "the crew",
+      "professional craft",
+      "doing the job properly",
+      "workplace"
+    ],
+    "subject:memory": [
+      "memory",
+      "remembering",
+      "the past worked over",
+      "recollection",
+      "reconstructing the past",
+      "nostalgia",
+      "remembrance"
+    ],
+    "subject:class": [
+      "class",
+      "social class",
+      "money and station",
+      "rich and poor",
+      "inequality",
+      "the servants",
+      "upstairs downstairs",
+      "social climbing"
+    ],
+    "story:coming-home": [
+      "coming home",
+      "coming-home",
+      "returning home",
+      "a return home",
+      "going back home",
+      "homecoming",
+      "back to where they came from",
+      "returns to the village"
+    ],
+    "story:fish-out-of-water": [
+      "fish out of water",
+      "fish-out-of-water",
+      "out of place",
+      "doesnt belong",
+      "does not belong",
+      "a stranger in a strange place",
+      "lands somewhere they dont belong"
+    ],
+    "story:race-against-time": [
+      "race against time",
+      "race-against-time",
+      "against the clock",
+      "a clock is running",
+      "ticking clock",
+      "beat the deadline",
+      "countdown"
+    ],
+    "story:descent": [
+      "a descent",
+      "comes apart",
+      "falls apart",
+      "unravels",
+      "unravelling",
+      "unraveling",
+      "spiral",
+      "downward spiral",
+      "disintegration",
+      "breakdown"
+    ],
+    "story:investigation": [
+      "investigation",
+      "investigating",
+      "detective",
+      "a mystery to solve",
+      "finding out what happened",
+      "whodunit",
+      "sleuthing"
+    ],
+    "story:revenge": [
+      "revenge",
+      "vengeance",
+      "getting even",
+      "payback",
+      "avenging",
+      "settling a score"
+    ],
+    "story:survival": [
+      "survival",
+      "surviving",
+      "staying alive",
+      "stranded",
+      "siege",
+      "the walk out",
+      "man against nature",
+      "endurance"
+    ],
+    "texture:sparse-dialogue": [
+      {
+        "phrase": "little dialogue",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "almost no dialogue",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "no dialogue",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "hardly any dialogue",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "barely any dialogue",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "not much talking",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "barely speak",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "hardly speaks",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "few words",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "wordless",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "sparse dialogue",
+        "polarity": "inherent"
+      },
+      {
+        "phrase": "quiet film",
+        "polarity": "inherent"
+      },
+      "dialogue free",
+      "carried by images",
+      "told in images"
+    ],
+    "texture:talky": [
+      "talky",
+      "talkative",
+      "dialogue driven",
+      "dialogue-driven",
+      "lots of talking",
+      "wall to wall dialogue",
+      "conversational",
+      "people talking",
+      "great dialogue"
+    ],
+    "texture:painterly": [
+      "painterly",
+      "beautifully composed",
+      "made to be looked at",
+      "the image is the point",
+      "pictorial",
+      "every frame a painting",
+      "composed images"
+    ],
+    "texture:handheld-raw": [
+      "handheld",
+      "hand held",
+      "documentary style",
+      "documentary-adjacent",
+      "verite",
+      "vérité",
+      "cinema verite",
+      "shaky camera",
+      "in the room",
+      "raw and immediate",
+      "rough and immediate"
+    ],
+    "texture:stylised": [
+      "stylised",
+      "stylized",
+      "heightened",
+      "designed",
+      "artificial in a good way",
+      "mannered",
+      "theatrical",
+      "bold colours",
+      "bold colors",
+      "highly designed"
+    ],
+    "texture:graphic-violence": [
+      "graphic violence",
+      "violent",
+      "violence shown",
+      "gory",
+      "gore",
+      "bloody",
+      "brutal violence",
+      "hard to watch violence"
+    ],
+    "texture:music-led": [
+      "music led",
+      "music-led",
+      "musical",
+      "songs",
+      "the score carries it",
+      "song driven",
+      "music is the engine",
+      "a great score"
+    ],
+    "texture:grimy": [
+      "grimy",
+      "grimey",
+      "grubby",
+      "dirty",
+      "sweaty",
+      "squalid",
+      "seedy",
+      "decaying",
+      "you can smell it",
+      "filthy"
+    ],
+    "structure:nonlinear": [
+      "nonlinear",
+      "non linear",
+      "non-linear",
+      "time is shuffled",
+      "out of order",
+      "backwards",
+      "fractured timeline",
+      "jumps around in time",
+      "puzzle structure"
+    ],
+    "structure:ensemble": [
+      "ensemble",
+      "many characters",
+      "several stories",
+      "no single lead",
+      "interlocking stories",
+      "multiple storylines",
+      "group of people"
+    ],
+    "structure:single-setting": [
+      "one place",
+      "single setting",
+      "one location",
+      "confined",
+      "one room",
+      "bottle film",
+      "trapped in one place",
+      "claustrophobic setting"
+    ],
+    "structure:episodic": [
+      "episodic",
+      "a chain of episodes",
+      "chapters",
+      "vignettes",
+      "series of encounters",
+      "picaresque"
+    ],
+    "structure:twist": [
+      "a twist",
+      "a turn",
+      "a revelation",
+      "reframes everything",
+      "pulls the rug",
+      "changes what you saw",
+      "with a twist",
+      "a big twist"
+    ],
+    "structure:narrated": [
+      "narrated",
+      "narration",
+      "voice over",
+      "voice-over",
+      "voiceover",
+      "a voice tells it",
+      "diary",
+      "testimony",
+      "talks to camera"
+    ],
+    "setting:space": [
+      "in space",
+      "space",
+      "outer space",
+      "spaceship",
+      "space station",
+      "another planet",
+      "off earth",
+      "interstellar travel",
+      "orbit"
+    ],
+    "setting:small-town": [
+      "small town",
+      "small-town",
+      "a village",
+      "provincial",
+      "everyone knows everyone",
+      "a small community"
+    ],
+    "setting:city-at-night": [
+      "city at night",
+      "the night city",
+      "neon",
+      "night streets",
+      "after dark in the city",
+      "nocturnal city",
+      "bars and streets at night"
+    ],
+    "setting:wilderness": [
+      "wilderness",
+      "mountains",
+      "jungle",
+      "desert",
+      "the ice",
+      "open sea",
+      "landscape that does not care",
+      "remote landscape"
+    ],
+    "setting:future": [
+      "the future",
+      "future",
+      "futuristic",
+      "science fiction future",
+      "near future",
+      "far future",
+      "dystopian future",
+      "set ahead of its time"
+    ],
+    "mode:action": [
+      "action film",
+      "chases",
+      "fights",
+      "fight scenes",
+      "physical action",
+      "stunts",
+      "set pieces",
+      "action",
+      "action packed"
+    ],
+    "mode:suspense": [
+      "suspense",
+      "suspenseful",
+      "tense",
+      "tension",
+      "nail biting",
+      "on the edge of your seat",
+      "thriller",
+      "anxious about what happens next"
+    ],
+    "mode:spectacle": [
+      "spectacle",
+      "spectacular",
+      "epic scale",
+      "grand scale",
+      "sheer scale",
+      "the sight of it",
+      "visually enormous",
+      "blockbuster scale"
+    ]
+  },
+  "stopWords": [
+    "a",
+    "an",
+    "the",
+    "film",
+    "films",
+    "movie",
+    "movies",
+    "with",
+    "and",
+    "that",
+    "is",
+    "it",
+    "its",
+    "i",
+    "want",
+    "would",
+    "like to see",
+    "give me",
+    "show me",
+    "something",
+    "please",
+    "of",
+    "to",
+    "in",
+    "for",
+    "me",
+    "some",
+    "one",
+    "which",
+    "has",
+    "have",
+    "about",
+    "on",
+    "at",
+    "by",
+    "or",
+    "be",
+    "as",
+    "are",
+    "was",
+    "feel",
+    "feels",
+    "watch",
+    "watching",
+    "looking",
+    "look",
+    "tone",
+    "mood",
+    "pacing",
+    "pace",
+    "vibe",
+    "vibes",
+    "atmosphere",
+    "texture",
+    "setting",
+    "story",
+    "structure",
+    "subject",
+    "kind",
+    "type",
+    "sense",
+    "quality",
+    "overall",
+    "really"
+  ]
+}
