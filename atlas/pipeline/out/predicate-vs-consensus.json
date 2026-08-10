@@ -1,0 +1,2578 @@
+{
+  "generated": "2026-08-10T16:26:55.606Z",
+  "note": "Adversarial redundancy test: how much of the predicate layer could the existing consensus layer have produced? Consensus is given every advantage (best of four metrics, ties resolved in its favour, predictors fitted on the same films they are scored on). Read-only; nothing merged.",
+  "alignment": {
+    "filmsWithPredicateEdges": 292,
+    "ofThoseCoveredByConsensus": 292,
+    "consensusKnownLevelOfThose": {
+      "well": 219,
+      "outline": 58,
+      "no": 15
+    },
+    "passCCohortMapped": 300,
+    "passCCohortUnmapped": [],
+    "predicateEdges": 7299,
+    "consensusCorpus": 2204
+  },
+  "pairOverlapEqualBudget": {
+    "universe": {
+      "films": 292,
+      "possiblePairs": 42486,
+      "predicateEdges": 7299,
+      "predicateDensity": "17.18%"
+    },
+    "chanceOverlapIfConsensusPickedAtRandom": 1254,
+    "byMetric": [
+      {
+        "metric": "jaccard",
+        "taken": 7299,
+        "overlapDeterministic": 1527,
+        "overlapBestCase": 1532,
+        "tiedAtCutoff": 361,
+        "strictlyAboveCutoff": 7294,
+        "cutoff": 0.181818,
+        "chanceExpected": 1254,
+        "liftBestCase": 1.222,
+        "shareOfPredicateEdgesRecovered": 21
+      },
+      {
+        "metric": "cosine",
+        "taken": 7299,
+        "overlapDeterministic": 1579,
+        "overlapBestCase": 1579,
+        "tiedAtCutoff": 1,
+        "strictlyAboveCutoff": 7298,
+        "cutoff": 0.295146,
+        "chanceExpected": 1254,
+        "liftBestCase": 1.259,
+        "shareOfPredicateEdgesRecovered": 21.6
+      },
+      {
+        "metric": "idfCosine",
+        "taken": 7299,
+        "overlapDeterministic": 1557,
+        "overlapBestCase": 1557,
+        "tiedAtCutoff": 1,
+        "strictlyAboveCutoff": 7298,
+        "cutoff": 0.242546,
+        "chanceExpected": 1254,
+        "liftBestCase": 1.242,
+        "shareOfPredicateEdgesRecovered": 21.3
+      },
+      {
+        "metric": "idfOverlap",
+        "taken": 7299,
+        "overlapDeterministic": 1579,
+        "overlapBestCase": 1580,
+        "tiedAtCutoff": 2,
+        "strictlyAboveCutoff": 7298,
+        "cutoff": 1.969528,
+        "chanceExpected": 1254,
+        "liftBestCase": 1.26,
+        "shareOfPredicateEdgesRecovered": 21.6
+      },
+      {
+        "metric": "rareShared",
+        "taken": 7299,
+        "overlapDeterministic": 1469,
+        "overlapBestCase": 1493,
+        "tiedAtCutoff": 349,
+        "strictlyAboveCutoff": 7070,
+        "cutoff": 1.914204,
+        "chanceExpected": 1254,
+        "liftBestCase": 1.191,
+        "shareOfPredicateEdgesRecovered": 20.5
+      }
+    ],
+    "best": {
+      "metric": "idfOverlap",
+      "taken": 7299,
+      "overlapDeterministic": 1579,
+      "overlapBestCase": 1580,
+      "tiedAtCutoff": 2,
+      "strictlyAboveCutoff": 7298,
+      "cutoff": 1.969528,
+      "chanceExpected": 1254,
+      "liftBestCase": 1.26,
+      "shareOfPredicateEdgesRecovered": 21.6
+    },
+    "verdict": "Consensus's best metric (idfOverlap) recovers 1580 of 7299 predicate pairs (21.6%) at equal budget, against 1254 expected at chance — lift 1.26x."
+  },
+  "pairOverlapControls": {
+    "wellKnownOnly": {
+      "note": "Restricted to the films consensus says it knows WELL and for which it declared attributes, so a missing overlap is a judgement rather than a silence. This is the version most favourable to consensus.",
+      "films": 219,
+      "byMetric": [
+        {
+          "metric": "jaccard",
+          "pairsInPool": 23871,
+          "predicateEdgesInPool": 4185,
+          "overlapBestCase": 1035,
+          "chanceExpected": 733.7,
+          "lift": 1.411,
+          "recovered": 24.7
+        },
+        {
+          "metric": "cosine",
+          "pairsInPool": 23871,
+          "predicateEdgesInPool": 4185,
+          "overlapBestCase": 979,
+          "chanceExpected": 733.7,
+          "lift": 1.334,
+          "recovered": 23.4
+        },
+        {
+          "metric": "idfCosine",
+          "pairsInPool": 23871,
+          "predicateEdgesInPool": 4185,
+          "overlapBestCase": 924,
+          "chanceExpected": 733.7,
+          "lift": 1.259,
+          "recovered": 22.1
+        },
+        {
+          "metric": "idfOverlap",
+          "pairsInPool": 23871,
+          "predicateEdgesInPool": 4185,
+          "overlapBestCase": 958,
+          "chanceExpected": 733.7,
+          "lift": 1.306,
+          "recovered": 22.9
+        },
+        {
+          "metric": "rareShared",
+          "pairsInPool": 23871,
+          "predicateEdgesInPool": 4185,
+          "overlapBestCase": 931,
+          "chanceExpected": 733.7,
+          "lift": 1.269,
+          "recovered": 22.2
+        }
+      ]
+    },
+    "strongestPredicateEdgesOnly": {
+      "note": "The predicate edges strong enough to have any chance of a visible slot, against an equal-size consensus draw.",
+      "rows": [
+        {
+          "metric": "cosine",
+          "topN": 500,
+          "overlap": 24,
+          "chanceExpected": 5.9,
+          "lift": 4.079
+        },
+        {
+          "metric": "idfOverlap",
+          "topN": 500,
+          "overlap": 14,
+          "chanceExpected": 5.9,
+          "lift": 2.379
+        },
+        {
+          "metric": "rareShared",
+          "topN": 500,
+          "overlap": 20,
+          "chanceExpected": 5.9,
+          "lift": 3.399
+        },
+        {
+          "metric": "cosine",
+          "topN": 1000,
+          "overlap": 54,
+          "chanceExpected": 23.5,
+          "lift": 2.294
+        },
+        {
+          "metric": "idfOverlap",
+          "topN": 1000,
+          "overlap": 54,
+          "chanceExpected": 23.5,
+          "lift": 2.294
+        },
+        {
+          "metric": "rareShared",
+          "topN": 1000,
+          "overlap": 30,
+          "chanceExpected": 23.5,
+          "lift": 1.275
+        },
+        {
+          "metric": "cosine",
+          "topN": 2000,
+          "overlap": 176,
+          "chanceExpected": 94.1,
+          "lift": 1.869
+        },
+        {
+          "metric": "idfOverlap",
+          "topN": 2000,
+          "overlap": 174,
+          "chanceExpected": 94.1,
+          "lift": 1.848
+        },
+        {
+          "metric": "rareShared",
+          "topN": 2000,
+          "overlap": 158,
+          "chanceExpected": 94.1,
+          "lift": 1.678
+        }
+      ]
+    }
+  },
+  "rankRecovery": {
+    "question": "If you rank a film's 291 co-cohort films by consensus similarity, where do its predicate partners land?",
+    "byMetric": [
+      {
+        "metric": "jaccard",
+        "auc": 0.5374,
+        "recallAt6": 25.3,
+        "recallAtK": 24.1,
+        "meanPartnerPercentile": 47.3,
+        "filmsScored": 292
+      },
+      {
+        "metric": "cosine",
+        "auc": 0.5434,
+        "recallAt6": 27.4,
+        "recallAtK": 24.6,
+        "meanPartnerPercentile": 46.9,
+        "filmsScored": 292
+      },
+      {
+        "metric": "idfCosine",
+        "auc": 0.5411,
+        "recallAt6": 26.8,
+        "recallAtK": 24.5,
+        "meanPartnerPercentile": 47,
+        "filmsScored": 292
+      },
+      {
+        "metric": "idfOverlap",
+        "auc": 0.5409,
+        "recallAt6": 26.2,
+        "recallAtK": 24.5,
+        "meanPartnerPercentile": 47,
+        "filmsScored": 292
+      },
+      {
+        "metric": "rareShared",
+        "auc": 0.5327,
+        "recallAt6": 23.8,
+        "recallAtK": 23.5,
+        "meanPartnerPercentile": 47.7,
+        "filmsScored": 292
+      }
+    ],
+    "best": {
+      "metric": "cosine",
+      "auc": 0.5434,
+      "recallAt6": 27.4,
+      "recallAtK": 24.6,
+      "meanPartnerPercentile": 46.9,
+      "filmsScored": 292
+    },
+    "chance": {
+      "auc": 0.5,
+      "recallAt6": 17.2,
+      "meanPartnerPercentile": 50
+    }
+  },
+  "vocabularyDuplication": {
+    "method": "For every predicate on >=6 cohort films, the best consensus predictor is searched over all 59 attributes, all 1,711 two-attribute ANDs and all 1,711 two-attribute ORs, fitted and scored on the same films. This overfits in consensus's favour deliberately: the F1 is an upper bound on what a consensus rule could have achieved.",
+    "predicatesTested": 85,
+    "bestF1": {
+      "median": 0.333,
+      "p90": 0.429,
+      "max": 0.667,
+      "min": 0.222
+    },
+    "countAtOrAbove": {
+      "0.7": 0,
+      "0.5": 3,
+      "0.35": 35
+    },
+    "top15": [
+      {
+        "predicate": "return-after-long-absence",
+        "films": 8,
+        "f1": 0.667,
+        "precision": 0.714,
+        "recall": 0.625,
+        "predictor": "tone:melancholy AND story:coming-home",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 5
+      },
+      {
+        "predicate": "the-one-in-power-punishes-his-own-instrument",
+        "films": 7,
+        "f1": 0.6,
+        "precision": 1,
+        "recall": 0.429,
+        "predictor": "story:revenge AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 3
+      },
+      {
+        "predicate": "a-wrong-never-answered-for",
+        "films": 6,
+        "f1": 0.5,
+        "precision": 1,
+        "recall": 0.333,
+        "predictor": "tone:melancholy AND mood:paranoid",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "knower-silenced",
+        "films": 29,
+        "f1": 0.455,
+        "precision": 0.339,
+        "recall": 0.69,
+        "predictor": "structure:twist OR mode:suspense",
+        "kind": "or",
+        "predictorFilms": 59,
+        "intersect": 20
+      },
+      {
+        "predicate": "later-wanting-against-earlier-tie",
+        "films": 12,
+        "f1": 0.444,
+        "precision": 0.4,
+        "recall": 0.5,
+        "predictor": "subject:family AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 15,
+        "intersect": 6
+      },
+      {
+        "predicate": "torn-between-two-claims",
+        "films": 9,
+        "f1": 0.444,
+        "precision": 0.444,
+        "recall": 0.444,
+        "predictor": "tone:earnest AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 4
+      },
+      {
+        "predicate": "help-comes-from-the-enemy",
+        "films": 6,
+        "f1": 0.444,
+        "precision": 0.667,
+        "recall": 0.333,
+        "predictor": "story:race-against-time AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "pressed-for-an-account",
+        "films": 7,
+        "f1": 0.444,
+        "precision": 1,
+        "recall": 0.286,
+        "predictor": "story:investigation AND structure:episodic",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-work-consumes-the-life",
+        "films": 8,
+        "f1": 0.429,
+        "precision": 0.5,
+        "recall": 0.375,
+        "predictor": "mood:absurd AND subject:class",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 3
+      },
+      {
+        "predicate": "held-in-place-by-force",
+        "films": 10,
+        "f1": 0.429,
+        "precision": 0.75,
+        "recall": 0.3,
+        "predictor": "story:survival AND setting:wilderness",
+        "kind": "and",
+        "predictorFilms": 4,
+        "intersect": 3
+      },
+      {
+        "predicate": "kindness-from-a-stranger",
+        "films": 9,
+        "f1": 0.421,
+        "precision": 0.4,
+        "recall": 0.444,
+        "predictor": "tone:earnest AND structure:ensemble",
+        "kind": "and",
+        "predictorFilms": 10,
+        "intersect": 4
+      },
+      {
+        "predicate": "own-death-brought-about",
+        "films": 13,
+        "f1": 0.421,
+        "precision": 0.667,
+        "recall": 0.308,
+        "predictor": "mood:austere AND setting:city-at-night",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 4
+      },
+      {
+        "predicate": "devotion-that-runs-one-way",
+        "films": 14,
+        "f1": 0.4,
+        "precision": 0.667,
+        "recall": 0.286,
+        "predictor": "mood:elegiac AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 4
+      },
+      {
+        "predicate": "grievance-read-as-insubordination",
+        "films": 7,
+        "f1": 0.4,
+        "precision": 0.667,
+        "recall": 0.286,
+        "predictor": "pace:relentless AND subject:class",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "living-under-the-harmer",
+        "films": 23,
+        "f1": 0.4,
+        "precision": 0.269,
+        "recall": 0.783,
+        "predictor": "story:descent OR texture:graphic-violence",
+        "kind": "or",
+        "predictorFilms": 67,
+        "intersect": 18
+      }
+    ],
+    "bottom10": [
+      {
+        "predicate": "leverage-held-for-payment",
+        "films": 12,
+        "f1": 0.267,
+        "precision": 0.667,
+        "recall": 0.167,
+        "predictor": "mood:absurd AND mode:spectacle",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-price-paid-by-another",
+        "films": 7,
+        "f1": 0.267,
+        "precision": 0.25,
+        "recall": 0.286,
+        "predictor": "subject:obsession AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 8,
+        "intersect": 2
+      },
+      {
+        "predicate": "cost-borne-gain-taken",
+        "films": 10,
+        "f1": 0.267,
+        "precision": 0.4,
+        "recall": 0.2,
+        "predictor": "mood:dreamlike AND story:descent",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 2
+      },
+      {
+        "predicate": "will-pressed-into-yielding",
+        "films": 25,
+        "f1": 0.264,
+        "precision": 0.182,
+        "recall": 0.48,
+        "predictor": "structure:single-setting OR mode:suspense",
+        "kind": "or",
+        "predictorFilms": 66,
+        "intersect": 12
+      },
+      {
+        "predicate": "arbiter-bent-by-power",
+        "films": 8,
+        "f1": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
+        "predictor": "subject:class AND story:investigation",
+        "kind": "and",
+        "predictorFilms": 8,
+        "intersect": 2
+      },
+      {
+        "predicate": "what-the-helped-hand-back",
+        "films": 7,
+        "f1": 0.25,
+        "precision": 0.222,
+        "recall": 0.286,
+        "predictor": "pace:brisk AND tone:earnest",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 2
+      },
+      {
+        "predicate": "identity-assigned-from-outside",
+        "films": 8,
+        "f1": 0.235,
+        "precision": 0.222,
+        "recall": 0.25,
+        "predictor": "pace:slow-burn AND subject:spiritual",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-warning-that-cannot-land",
+        "films": 15,
+        "f1": 0.235,
+        "precision": 1,
+        "recall": 0.133,
+        "predictor": "mood:sensual AND structure:twist",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "hunter-and-quarry",
+        "films": 16,
+        "f1": 0.233,
+        "precision": 0.159,
+        "recall": 0.438,
+        "predictor": "pace:relentless OR setting:wilderness",
+        "kind": "or",
+        "predictorFilms": 44,
+        "intersect": 7
+      },
+      {
+        "predicate": "aid-withheld-at-need",
+        "films": 17,
+        "f1": 0.222,
+        "precision": 0.179,
+        "recall": 0.294,
+        "predictor": "tone:bleak AND subject:class",
+        "kind": "and",
+        "predictorFilms": 28,
+        "intersect": 5
+      }
+    ],
+    "all": [
+      {
+        "predicate": "return-after-long-absence",
+        "films": 8,
+        "f1": 0.667,
+        "precision": 0.714,
+        "recall": 0.625,
+        "predictor": "tone:melancholy AND story:coming-home",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 5
+      },
+      {
+        "predicate": "the-one-in-power-punishes-his-own-instrument",
+        "films": 7,
+        "f1": 0.6,
+        "precision": 1,
+        "recall": 0.429,
+        "predictor": "story:revenge AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 3
+      },
+      {
+        "predicate": "a-wrong-never-answered-for",
+        "films": 6,
+        "f1": 0.5,
+        "precision": 1,
+        "recall": 0.333,
+        "predictor": "tone:melancholy AND mood:paranoid",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "knower-silenced",
+        "films": 29,
+        "f1": 0.455,
+        "precision": 0.339,
+        "recall": 0.69,
+        "predictor": "structure:twist OR mode:suspense",
+        "kind": "or",
+        "predictorFilms": 59,
+        "intersect": 20
+      },
+      {
+        "predicate": "later-wanting-against-earlier-tie",
+        "films": 12,
+        "f1": 0.444,
+        "precision": 0.4,
+        "recall": 0.5,
+        "predictor": "subject:family AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 15,
+        "intersect": 6
+      },
+      {
+        "predicate": "torn-between-two-claims",
+        "films": 9,
+        "f1": 0.444,
+        "precision": 0.444,
+        "recall": 0.444,
+        "predictor": "tone:earnest AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 4
+      },
+      {
+        "predicate": "help-comes-from-the-enemy",
+        "films": 6,
+        "f1": 0.444,
+        "precision": 0.667,
+        "recall": 0.333,
+        "predictor": "story:race-against-time AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "pressed-for-an-account",
+        "films": 7,
+        "f1": 0.444,
+        "precision": 1,
+        "recall": 0.286,
+        "predictor": "story:investigation AND structure:episodic",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-work-consumes-the-life",
+        "films": 8,
+        "f1": 0.429,
+        "precision": 0.5,
+        "recall": 0.375,
+        "predictor": "mood:absurd AND subject:class",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 3
+      },
+      {
+        "predicate": "held-in-place-by-force",
+        "films": 10,
+        "f1": 0.429,
+        "precision": 0.75,
+        "recall": 0.3,
+        "predictor": "story:survival AND setting:wilderness",
+        "kind": "and",
+        "predictorFilms": 4,
+        "intersect": 3
+      },
+      {
+        "predicate": "kindness-from-a-stranger",
+        "films": 9,
+        "f1": 0.421,
+        "precision": 0.4,
+        "recall": 0.444,
+        "predictor": "tone:earnest AND structure:ensemble",
+        "kind": "and",
+        "predictorFilms": 10,
+        "intersect": 4
+      },
+      {
+        "predicate": "own-death-brought-about",
+        "films": 13,
+        "f1": 0.421,
+        "precision": 0.667,
+        "recall": 0.308,
+        "predictor": "mood:austere AND setting:city-at-night",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 4
+      },
+      {
+        "predicate": "devotion-that-runs-one-way",
+        "films": 14,
+        "f1": 0.4,
+        "precision": 0.667,
+        "recall": 0.286,
+        "predictor": "mood:elegiac AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 4
+      },
+      {
+        "predicate": "grievance-read-as-insubordination",
+        "films": 7,
+        "f1": 0.4,
+        "precision": 0.667,
+        "recall": 0.286,
+        "predictor": "pace:relentless AND subject:class",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "living-under-the-harmer",
+        "films": 23,
+        "f1": 0.4,
+        "precision": 0.269,
+        "recall": 0.783,
+        "predictor": "story:descent OR texture:graphic-violence",
+        "kind": "or",
+        "predictorFilms": 67,
+        "intersect": 18
+      },
+      {
+        "predicate": "absolution-sought-from-wronged",
+        "films": 6,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.333,
+        "predictor": "tone:earnest AND structure:nonlinear",
+        "kind": "and",
+        "predictorFilms": 4,
+        "intersect": 2
+      },
+      {
+        "predicate": "taking-up-the-written-off",
+        "films": 10,
+        "f1": 0.4,
+        "precision": 0.6,
+        "recall": 0.3,
+        "predictor": "subject:coming-of-age AND mode:action",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 3
+      },
+      {
+        "predicate": "aid-thrown-back",
+        "films": 8,
+        "f1": 0.4,
+        "precision": 1,
+        "recall": 0.25,
+        "predictor": "pace:contemplative AND story:coming-home",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "deference-withheld-from-power",
+        "films": 6,
+        "f1": 0.4,
+        "precision": 0.333,
+        "recall": 0.5,
+        "predictor": "subject:family AND setting:small-town",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 3
+      },
+      {
+        "predicate": "incomer-denied-a-place",
+        "films": 8,
+        "f1": 0.4,
+        "precision": 1,
+        "recall": 0.25,
+        "predictor": "subject:coming-of-age AND story:fish-out-of-water",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "a-parent-cannot-love-the-child",
+        "films": 6,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.333,
+        "predictor": "mood:menacing AND subject:coming-of-age",
+        "kind": "and",
+        "predictorFilms": 4,
+        "intersect": 2
+      },
+      {
+        "predicate": "vigil-beside-the-unanswering",
+        "films": 12,
+        "f1": 0.375,
+        "precision": 0.75,
+        "recall": 0.25,
+        "predictor": "subject:grief AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 4,
+        "intersect": 3
+      },
+      {
+        "predicate": "intimacy-for-support",
+        "films": 10,
+        "f1": 0.375,
+        "precision": 0.5,
+        "recall": 0.3,
+        "predictor": "mood:sensual AND structure:episodic",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 3
+      },
+      {
+        "predicate": "the-trap-closes-on-the-one-who-set-it",
+        "films": 9,
+        "f1": 0.375,
+        "precision": 0.429,
+        "recall": 0.333,
+        "predictor": "mood:absurd AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 3
+      },
+      {
+        "predicate": "subordinate-turns-on-superior",
+        "films": 10,
+        "f1": 0.37,
+        "precision": 0.294,
+        "recall": 0.5,
+        "predictor": "subject:political AND mode:spectacle",
+        "kind": "and",
+        "predictorFilms": 17,
+        "intersect": 5
+      },
+      {
+        "predicate": "acting-on-a-false-picture",
+        "films": 8,
+        "f1": 0.364,
+        "precision": 0.667,
+        "recall": 0.25,
+        "predictor": "subject:coming-of-age AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "taking-another-into-keeping",
+        "films": 8,
+        "f1": 0.364,
+        "precision": 0.667,
+        "recall": 0.25,
+        "predictor": "tone:hopeful AND subject:memory",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-reckoning-comes-too-late",
+        "films": 6,
+        "f1": 0.364,
+        "precision": 0.4,
+        "recall": 0.333,
+        "predictor": "tone:cerebral AND subject:family",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 2
+      },
+      {
+        "predicate": "bond-across-forbidden-line",
+        "films": 10,
+        "f1": 0.364,
+        "precision": 0.333,
+        "recall": 0.4,
+        "predictor": "subject:political AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 12,
+        "intersect": 4
+      },
+      {
+        "predicate": "another-shaped-to-order",
+        "films": 9,
+        "f1": 0.364,
+        "precision": 1,
+        "recall": 0.222,
+        "predictor": "mood:sensual AND mood:absurd",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-witness-who-stays-silent",
+        "films": 13,
+        "f1": 0.357,
+        "precision": 0.333,
+        "recall": 0.385,
+        "predictor": "tone:bleak AND story:investigation",
+        "kind": "and",
+        "predictorFilms": 15,
+        "intersect": 5
+      },
+      {
+        "predicate": "the-protector-is-the-danger",
+        "films": 12,
+        "f1": 0.353,
+        "precision": 0.6,
+        "recall": 0.25,
+        "predictor": "mood:dreamlike AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 3
+      },
+      {
+        "predicate": "betrayed-by-the-closest",
+        "films": 10,
+        "f1": 0.353,
+        "precision": 0.429,
+        "recall": 0.3,
+        "predictor": "pace:brisk AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 3
+      },
+      {
+        "predicate": "dependent-handed-over",
+        "films": 10,
+        "f1": 0.353,
+        "precision": 0.429,
+        "recall": 0.3,
+        "predictor": "subject:spiritual AND subject:class",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 3
+      },
+      {
+        "predicate": "bound-parties-turn-hostile",
+        "films": 10,
+        "f1": 0.353,
+        "precision": 0.429,
+        "recall": 0.3,
+        "predictor": "subject:work AND setting:city-at-night",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 3
+      },
+      {
+        "predicate": "loved-one-carried-off",
+        "films": 14,
+        "f1": 0.348,
+        "precision": 0.444,
+        "recall": 0.286,
+        "predictor": "story:race-against-time",
+        "kind": "single",
+        "predictorFilms": 9,
+        "intersect": 4
+      },
+      {
+        "predicate": "one-kills-what-one-loves",
+        "films": 9,
+        "f1": 0.348,
+        "precision": 0.286,
+        "recall": 0.444,
+        "predictor": "mood:dreamlike AND mood:menacing",
+        "kind": "and",
+        "predictorFilms": 14,
+        "intersect": 4
+      },
+      {
+        "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+        "films": 14,
+        "f1": 0.345,
+        "precision": 0.333,
+        "recall": 0.357,
+        "predictor": "subject:desire AND texture:talky",
+        "kind": "and",
+        "predictorFilms": 15,
+        "intersect": 5
+      },
+      {
+        "predicate": "the-wrong-person-is-blamed",
+        "films": 36,
+        "f1": 0.337,
+        "precision": 0.271,
+        "recall": 0.444,
+        "predictor": "mood:paranoid OR story:investigation",
+        "kind": "or",
+        "predictorFilms": 59,
+        "intersect": 16
+      },
+      {
+        "predicate": "deed-done-through-another",
+        "films": 18,
+        "f1": 0.333,
+        "precision": 0.417,
+        "recall": 0.278,
+        "predictor": "subject:political AND story:investigation",
+        "kind": "and",
+        "predictorFilms": 12,
+        "intersect": 5
+      },
+      {
+        "predicate": "parent-walks-out",
+        "films": 12,
+        "f1": 0.333,
+        "precision": 0.278,
+        "recall": 0.417,
+        "predictor": "subject:family AND texture:stylised",
+        "kind": "and",
+        "predictorFilms": 18,
+        "intersect": 5
+      },
+      {
+        "predicate": "the-trusted-serves-another-interest",
+        "films": 18,
+        "f1": 0.333,
+        "precision": 0.417,
+        "recall": 0.278,
+        "predictor": "mood:paranoid AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 12,
+        "intersect": 5
+      },
+      {
+        "predicate": "the-nearest-goes-unseen",
+        "films": 10,
+        "f1": 0.333,
+        "precision": 1,
+        "recall": 0.2,
+        "predictor": "pace:brisk AND tone:cerebral",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "a-life-is-bought-back-for-a-price",
+        "films": 9,
+        "f1": 0.333,
+        "precision": 0.667,
+        "recall": 0.222,
+        "predictor": "tone:bleak AND story:race-against-time",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "corroded-by-anothers-life",
+        "films": 6,
+        "f1": 0.333,
+        "precision": 0.333,
+        "recall": 0.333,
+        "predictor": "tone:cerebral AND subject:class",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-newcomer-takes-the-place-already-held",
+        "films": 6,
+        "f1": 0.333,
+        "precision": 0.333,
+        "recall": 0.333,
+        "predictor": "tone:comic AND tone:cerebral",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 2
+      },
+      {
+        "predicate": "one-removed-from-the-way",
+        "films": 11,
+        "f1": 0.333,
+        "precision": 0.429,
+        "recall": 0.273,
+        "predictor": "pace:slow-burn AND mood:elegiac",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 3
+      },
+      {
+        "predicate": "a-bond-resting-on-concealment",
+        "films": 8,
+        "f1": 0.333,
+        "precision": 0.5,
+        "recall": 0.25,
+        "predictor": "tone:ironic AND texture:sparse-dialogue",
+        "kind": "and",
+        "predictorFilms": 4,
+        "intersect": 2
+      },
+      {
+        "predicate": "cost-taken-onto-oneself",
+        "films": 27,
+        "f1": 0.328,
+        "precision": 0.294,
+        "recall": 0.37,
+        "predictor": "story:survival OR mode:action",
+        "kind": "or",
+        "predictorFilms": 34,
+        "intersect": 10
+      },
+      {
+        "predicate": "standing-lowered-before-others",
+        "films": 12,
+        "f1": 0.316,
+        "precision": 0.429,
+        "recall": 0.25,
+        "predictor": "subject:spiritual AND subject:class",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 3
+      },
+      {
+        "predicate": "hidden-life-exposed",
+        "films": 10,
+        "f1": 0.316,
+        "precision": 0.333,
+        "recall": 0.3,
+        "predictor": "tone:cerebral AND structure:nonlinear",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 3
+      },
+      {
+        "predicate": "argued-off-a-course",
+        "films": 13,
+        "f1": 0.316,
+        "precision": 0.5,
+        "recall": 0.231,
+        "predictor": "subject:family AND structure:ensemble",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 3
+      },
+      {
+        "predicate": "past-laid-on-the-young",
+        "films": 10,
+        "f1": 0.316,
+        "precision": 0.333,
+        "recall": 0.3,
+        "predictor": "subject:family AND structure:nonlinear",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 3
+      },
+      {
+        "predicate": "appeal-turned-away",
+        "films": 18,
+        "f1": 0.313,
+        "precision": 0.357,
+        "recall": 0.278,
+        "predictor": "tone:comic AND subject:family",
+        "kind": "and",
+        "predictorFilms": 14,
+        "intersect": 5
+      },
+      {
+        "predicate": "a-secret-kept-from-the-one-loved",
+        "films": 18,
+        "f1": 0.313,
+        "precision": 0.357,
+        "recall": 0.278,
+        "predictor": "subject:family AND texture:talky",
+        "kind": "and",
+        "predictorFilms": 14,
+        "intersect": 5
+      },
+      {
+        "predicate": "the-account-fixed-beyond-appeal",
+        "films": 11,
+        "f1": 0.308,
+        "precision": 1,
+        "recall": 0.182,
+        "predictor": "tone:cerebral AND texture:graphic-violence",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "marriage-made-for-gain",
+        "films": 9,
+        "f1": 0.308,
+        "precision": 0.5,
+        "recall": 0.222,
+        "predictor": "tone:hopeful AND setting:wilderness",
+        "kind": "and",
+        "predictorFilms": 4,
+        "intersect": 2
+      },
+      {
+        "predicate": "kinship-made-from-lack",
+        "films": 7,
+        "f1": 0.308,
+        "precision": 0.333,
+        "recall": 0.286,
+        "predictor": "mood:warm AND subject:political",
+        "kind": "and",
+        "predictorFilms": 6,
+        "intersect": 2
+      },
+      {
+        "predicate": "truth-kept-from-its-owner",
+        "films": 8,
+        "f1": 0.308,
+        "precision": 0.4,
+        "recall": 0.25,
+        "predictor": "subject:memory AND setting:future",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 2
+      },
+      {
+        "predicate": "acting-inside-anothers-design",
+        "films": 6,
+        "f1": 0.308,
+        "precision": 0.286,
+        "recall": 0.333,
+        "predictor": "texture:talky AND structure:ensemble",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 2
+      },
+      {
+        "predicate": "sheltered-from-consequence",
+        "films": 12,
+        "f1": 0.296,
+        "precision": 0.267,
+        "recall": 0.333,
+        "predictor": "mood:menacing AND setting:city-at-night",
+        "kind": "and",
+        "predictorFilms": 15,
+        "intersect": 4
+      },
+      {
+        "predicate": "person-used-as-means",
+        "films": 39,
+        "f1": 0.296,
+        "precision": 0.232,
+        "recall": 0.41,
+        "predictor": "mood:austere OR texture:grimy",
+        "kind": "or",
+        "predictorFilms": 69,
+        "intersect": 16
+      },
+      {
+        "predicate": "harm-answered-with-harm",
+        "films": 31,
+        "f1": 0.292,
+        "precision": 0.412,
+        "recall": 0.226,
+        "predictor": "subject:political AND texture:graphic-violence",
+        "kind": "and",
+        "predictorFilms": 17,
+        "intersect": 7
+      },
+      {
+        "predicate": "set-aside-for-another",
+        "films": 15,
+        "f1": 0.286,
+        "precision": 0.308,
+        "recall": 0.267,
+        "predictor": "subject:class AND story:descent",
+        "kind": "and",
+        "predictorFilms": 13,
+        "intersect": 4
+      },
+      {
+        "predicate": "kept-under-watch",
+        "films": 12,
+        "f1": 0.286,
+        "precision": 0.333,
+        "recall": 0.25,
+        "predictor": "mood:paranoid AND setting:city-at-night",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 3
+      },
+      {
+        "predicate": "identity-passed-off",
+        "films": 23,
+        "f1": 0.286,
+        "precision": 0.417,
+        "recall": 0.217,
+        "predictor": "tone:comic AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 12,
+        "intersect": 5
+      },
+      {
+        "predicate": "third-holds-two-apart",
+        "films": 12,
+        "f1": 0.286,
+        "precision": 1,
+        "recall": 0.167,
+        "predictor": "mood:absurd AND setting:future",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-match-arranged-by-others",
+        "films": 9,
+        "f1": 0.286,
+        "precision": 0.4,
+        "recall": 0.222,
+        "predictor": "mood:sensual AND texture:sparse-dialogue",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 2
+      },
+      {
+        "predicate": "concealed-thing-surfaces",
+        "films": 9,
+        "f1": 0.286,
+        "precision": 0.4,
+        "recall": 0.222,
+        "predictor": "mood:warm AND subject:desire",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 2
+      },
+      {
+        "predicate": "injury-discharged-on-outsiders",
+        "films": 6,
+        "f1": 0.286,
+        "precision": 1,
+        "recall": 0.167,
+        "predictor": "subject:grief AND texture:grimy",
+        "kind": "and",
+        "predictorFilms": 1,
+        "intersect": 1
+      },
+      {
+        "predicate": "withholds-the-blow",
+        "films": 6,
+        "f1": 0.286,
+        "precision": 1,
+        "recall": 0.167,
+        "predictor": "pace:slow-burn AND setting:future",
+        "kind": "and",
+        "predictorFilms": 1,
+        "intersect": 1
+      },
+      {
+        "predicate": "claim-of-the-dead",
+        "films": 17,
+        "f1": 0.281,
+        "precision": 0.2,
+        "recall": 0.471,
+        "predictor": "subject:grief OR story:fish-out-of-water",
+        "kind": "or",
+        "predictorFilms": 40,
+        "intersect": 8
+      },
+      {
+        "predicate": "taken-up-then-discarded",
+        "films": 14,
+        "f1": 0.273,
+        "precision": 0.2,
+        "recall": 0.429,
+        "predictor": "subject:political AND subject:class",
+        "kind": "and",
+        "predictorFilms": 30,
+        "intersect": 6
+      },
+      {
+        "predicate": "act-demanded-against-conscience",
+        "films": 12,
+        "f1": 0.267,
+        "precision": 0.667,
+        "recall": 0.167,
+        "predictor": "texture:graphic-violence AND structure:narrated",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "verdict-before-proof",
+        "films": 8,
+        "f1": 0.267,
+        "precision": 0.286,
+        "recall": 0.25,
+        "predictor": "mood:austere AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 7,
+        "intersect": 2
+      },
+      {
+        "predicate": "leverage-held-for-payment",
+        "films": 12,
+        "f1": 0.267,
+        "precision": 0.667,
+        "recall": 0.167,
+        "predictor": "mood:absurd AND mode:spectacle",
+        "kind": "and",
+        "predictorFilms": 3,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-price-paid-by-another",
+        "films": 7,
+        "f1": 0.267,
+        "precision": 0.25,
+        "recall": 0.286,
+        "predictor": "subject:obsession AND mode:suspense",
+        "kind": "and",
+        "predictorFilms": 8,
+        "intersect": 2
+      },
+      {
+        "predicate": "cost-borne-gain-taken",
+        "films": 10,
+        "f1": 0.267,
+        "precision": 0.4,
+        "recall": 0.2,
+        "predictor": "mood:dreamlike AND story:descent",
+        "kind": "and",
+        "predictorFilms": 5,
+        "intersect": 2
+      },
+      {
+        "predicate": "will-pressed-into-yielding",
+        "films": 25,
+        "f1": 0.264,
+        "precision": 0.182,
+        "recall": 0.48,
+        "predictor": "structure:single-setting OR mode:suspense",
+        "kind": "or",
+        "predictorFilms": 66,
+        "intersect": 12
+      },
+      {
+        "predicate": "arbiter-bent-by-power",
+        "films": 8,
+        "f1": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
+        "predictor": "subject:class AND story:investigation",
+        "kind": "and",
+        "predictorFilms": 8,
+        "intersect": 2
+      },
+      {
+        "predicate": "what-the-helped-hand-back",
+        "films": 7,
+        "f1": 0.25,
+        "precision": 0.222,
+        "recall": 0.286,
+        "predictor": "pace:brisk AND tone:earnest",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 2
+      },
+      {
+        "predicate": "identity-assigned-from-outside",
+        "films": 8,
+        "f1": 0.235,
+        "precision": 0.222,
+        "recall": 0.25,
+        "predictor": "pace:slow-burn AND subject:spiritual",
+        "kind": "and",
+        "predictorFilms": 9,
+        "intersect": 2
+      },
+      {
+        "predicate": "the-warning-that-cannot-land",
+        "films": 15,
+        "f1": 0.235,
+        "precision": 1,
+        "recall": 0.133,
+        "predictor": "mood:sensual AND structure:twist",
+        "kind": "and",
+        "predictorFilms": 2,
+        "intersect": 2
+      },
+      {
+        "predicate": "hunter-and-quarry",
+        "films": 16,
+        "f1": 0.233,
+        "precision": 0.159,
+        "recall": 0.438,
+        "predictor": "pace:relentless OR setting:wilderness",
+        "kind": "or",
+        "predictorFilms": 44,
+        "intersect": 7
+      },
+      {
+        "predicate": "aid-withheld-at-need",
+        "films": 17,
+        "f1": 0.222,
+        "precision": 0.179,
+        "recall": 0.294,
+        "predictor": "tone:bleak AND subject:class",
+        "kind": "and",
+        "predictorFilms": 28,
+        "intersect": 5
+      }
+    ],
+    "reverseStoryAndSubject": [
+      {
+        "attr": "story:coming-home",
+        "cohortFilms": 8,
+        "closestPredicate": {
+          "f1": 0.625,
+          "predicate": "return-after-long-absence",
+          "predicateFilms": 8,
+          "shared": 5
+        }
+      },
+      {
+        "attr": "story:revenge",
+        "cohortFilms": 6,
+        "closestPredicate": {
+          "f1": 0.462,
+          "predicate": "the-one-in-power-punishes-his-own-instrument",
+          "predicateFilms": 7,
+          "shared": 3
+        }
+      },
+      {
+        "attr": "story:investigation",
+        "cohortFilms": 41,
+        "closestPredicate": {
+          "f1": 0.4,
+          "predicate": "knower-silenced",
+          "predicateFilms": 29,
+          "shared": 14
+        }
+      },
+      {
+        "attr": "story:survival",
+        "cohortFilms": 8,
+        "closestPredicate": {
+          "f1": 0.364,
+          "predicate": "many-are-spent-to-hold-a-position",
+          "predicateFilms": 3,
+          "shared": 2
+        }
+      },
+      {
+        "attr": "story:descent",
+        "cohortFilms": 33,
+        "closestPredicate": {
+          "f1": 0.357,
+          "predicate": "living-under-the-harmer",
+          "predicateFilms": 23,
+          "shared": 10
+        }
+      },
+      {
+        "attr": "story:race-against-time",
+        "cohortFilms": 9,
+        "closestPredicate": {
+          "f1": 0.348,
+          "predicate": "loved-one-carried-off",
+          "predicateFilms": 14,
+          "shared": 4
+        }
+      },
+      {
+        "attr": "subject:grief",
+        "cohortFilms": 30,
+        "closestPredicate": {
+          "f1": 0.286,
+          "predicate": "vigil-beside-the-unanswering",
+          "predicateFilms": 12,
+          "shared": 6
+        }
+      },
+      {
+        "attr": "subject:political",
+        "cohortFilms": 91,
+        "closestPredicate": {
+          "f1": 0.268,
+          "predicate": "the-wrong-person-is-blamed",
+          "predicateFilms": 36,
+          "shared": 17
+        }
+      },
+      {
+        "attr": "story:fish-out-of-water",
+        "cohortFilms": 12,
+        "closestPredicate": {
+          "f1": 0.267,
+          "predicate": "the-old-give-way-to-the-young",
+          "predicateFilms": 3,
+          "shared": 2
+        }
+      },
+      {
+        "attr": "subject:desire",
+        "cohortFilms": 64,
+        "closestPredicate": {
+          "f1": 0.263,
+          "predicate": "later-wanting-against-earlier-tie",
+          "predicateFilms": 12,
+          "shared": 10
+        }
+      },
+      {
+        "attr": "subject:coming-of-age",
+        "cohortFilms": 21,
+        "closestPredicate": {
+          "f1": 0.258,
+          "predicate": "taking-up-the-written-off",
+          "predicateFilms": 10,
+          "shared": 4
+        }
+      },
+      {
+        "attr": "subject:obsession",
+        "cohortFilms": 33,
+        "closestPredicate": {
+          "f1": 0.25,
+          "predicate": "identity-passed-off",
+          "predicateFilms": 23,
+          "shared": 7
+        }
+      },
+      {
+        "attr": "subject:family",
+        "cohortFilms": 72,
+        "closestPredicate": {
+          "f1": 0.222,
+          "predicate": "a-secret-kept-from-the-one-loved",
+          "predicateFilms": 18,
+          "shared": 10
+        }
+      },
+      {
+        "attr": "subject:class",
+        "cohortFilms": 79,
+        "closestPredicate": {
+          "f1": 0.206,
+          "predicate": "appeal-turned-away",
+          "predicateFilms": 18,
+          "shared": 10
+        }
+      },
+      {
+        "attr": "subject:spiritual",
+        "cohortFilms": 35,
+        "closestPredicate": {
+          "f1": 0.2,
+          "predicate": "will-pressed-into-yielding",
+          "predicateFilms": 25,
+          "shared": 6
+        }
+      },
+      {
+        "attr": "subject:memory",
+        "cohortFilms": 48,
+        "closestPredicate": {
+          "f1": 0.2,
+          "predicate": "vigil-beside-the-unanswering",
+          "predicateFilms": 12,
+          "shared": 6
+        }
+      },
+      {
+        "attr": "subject:work",
+        "cohortFilms": 68,
+        "closestPredicate": {
+          "f1": 0.189,
+          "predicate": "cost-taken-onto-oneself",
+          "predicateFilms": 27,
+          "shared": 9
+        }
+      }
+    ],
+    "namedCell_revenge": {
+      "cell": "story:revenge  x  harm-answered-with-harm",
+      "attrFilms": 6,
+      "predicateFilms": 31,
+      "both": 5,
+      "precisionPredicateGivenAttr": 0.833,
+      "recallAttrGivenPredicate": 0.161
+    }
+  },
+  "selectivity": {
+    "question": "A predicate is a selector. How selective is a consensus attribute by comparison?",
+    "consensusAttributePrevalenceOverCorpus": {
+      "median": "11.71%",
+      "min": "1.36%",
+      "max": "30.08%",
+      "insidePredicateBand_0p4_to_8pct": 16,
+      "insidePredicateBandList": [
+        "pace:relentless 4.72%",
+        "tone:hopeful 6.76%",
+        "subject:coming-of-age 7.21%",
+        "subject:grief 7.99%",
+        "story:coming-home 2.95%",
+        "story:fish-out-of-water 3.9%",
+        "story:race-against-time 2.81%",
+        "story:revenge 4.17%",
+        "story:survival 5.13%",
+        "texture:sparse-dialogue 6.81%",
+        "texture:handheld-raw 7.4%",
+        "structure:nonlinear 7.58%",
+        "structure:single-setting 7.76%",
+        "structure:twist 6.4%",
+        "setting:space 1.36%",
+        "setting:future 2.86%"
+      ]
+    },
+    "predicatePrevalenceOverCohort": {
+      "band": [
+        0.004,
+        0.08
+      ],
+      "measuredOn": "300 films of the 300-film stratified Pass A cohort — all above the 1,500-char evidence floor by construction. The corpus is 2,204 films of which 657 (29.8%) are below that floor and can never be tagged, so this is a prevalence over the READABLE corpus estimated from a stratified sample, not a corpus prevalence.",
+      "aboveBand": [
+        {
+          "predicate": "person-used-as-means",
+          "films": 39,
+          "pctOfCohort": 13,
+          "label": "One party spends another on a purpose that other is never made party to"
+        },
+        {
+          "predicate": "the-wrong-person-is-blamed",
+          "films": 36,
+          "pctOfCohort": 12,
+          "label": "The blame is fixed on someone who did not do it"
+        },
+        {
+          "predicate": "harm-answered-with-harm",
+          "films": 31,
+          "pctOfCohort": 10.33,
+          "label": "One party sets out to make another pay in kind for a harm already done to them or to their own"
+        },
+        {
+          "predicate": "knower-silenced",
+          "films": 29,
+          "pctOfCohort": 9.67,
+          "label": "One party moves against another for what that other has learned, to keep it from getting out"
+        },
+        {
+          "predicate": "cost-taken-onto-oneself",
+          "films": 27,
+          "pctOfCohort": 9,
+          "label": "One party takes onto itself the danger, ruin or loss that belongs to another, so the other does not carry it"
+        },
+        {
+          "predicate": "will-pressed-into-yielding",
+          "films": 25,
+          "pctOfCohort": 8.33,
+          "label": "One party applies pressure, harm or the threat of it until another gives up what they were withholding"
+        }
+      ],
+      "belowBand": 12,
+      "note": "Recorded, NOT cut. The band cut belongs after full-corpus tagging (frozen file, afterPassC)."
+    },
+    "consensusCoOccurrencePairsAmongThe292": {
+      "possiblePairs": 42486,
+      "shareAtLeast1Attr": 28752,
+      "shareAtLeast3Attrs": 8725,
+      "shareAtLeast5Attrs": 1196,
+      "predicateEdges": 7299
+    }
+  },
+  "predicateOnly": {
+    "edgesWithZeroConsensusAttributeOverlap": {
+      "count": 2192,
+      "shareOfPredicateEdges": "30%",
+      "bothFilmsFullyDescribedByConsensus": 1451,
+      "shareOfPredicateEdgesHonest": "19.9%",
+      "note": "The honest figure is the second: the rest involve one of the 15 films consensus declined to describe, which is a coverage gap, not a disagreement.",
+      "examples": [
+        {
+          "a": "The Mirror",
+          "b": "Days of Thunder",
+          "predicate": "past-laid-on-the-young",
+          "type": "rebuttal",
+          "strength": 0.5116,
+          "aAttrs": [
+            "subject:memory",
+            "pace:contemplative",
+            "structure:nonlinear",
+            "mood:dreamlike",
+            "texture:painterly",
+            "tone:melancholy",
+            "subject:family",
+            "subject:spiritual",
+            "mood:elegiac",
+            "structure:narrated",
+            "tone:cerebral"
+          ],
+          "bAttrs": [
+            "pace:relentless",
+            "mode:action",
+            "mode:spectacle",
+            "subject:work",
+            "subject:obsession",
+            "texture:stylised",
+            "texture:music-led",
+            "tone:earnest"
+          ]
+        },
+        {
+          "a": "Joi Baba Felunath",
+          "b": "Bugonia",
+          "predicate": "identity-passed-off",
+          "type": "rebuttal",
+          "strength": 0.5051,
+          "aAttrs": [
+            "pace:brisk",
+            "tone:comic",
+            "mood:menacing",
+            "mood:warm",
+            "story:investigation",
+            "mode:suspense",
+            "subject:family"
+          ],
+          "bAttrs": [
+            "structure:twist",
+            "mood:paranoid",
+            "tone:ironic",
+            "mood:absurd",
+            "tone:bleak",
+            "structure:single-setting",
+            "subject:obsession",
+            "subject:political",
+            "pace:slow-burn",
+            "texture:graphic-violence"
+          ]
+        },
+        {
+          "a": "Investigation of a Citizen Above Suspicion",
+          "b": "Sleepers",
+          "predicate": "sheltered-from-consequence",
+          "type": "rebuttal",
+          "strength": 0.5006,
+          "aAttrs": [
+            "subject:political",
+            "tone:ironic",
+            "texture:stylised",
+            "mood:absurd",
+            "mood:paranoid",
+            "subject:obsession",
+            "story:investigation",
+            "structure:nonlinear",
+            "texture:music-led",
+            "pace:brisk"
+          ],
+          "bAttrs": [
+            "story:revenge",
+            "structure:narrated",
+            "subject:class",
+            "subject:family",
+            "texture:grimy",
+            "tone:earnest",
+            "tone:bleak",
+            "pace:slow-burn",
+            "subject:memory",
+            "texture:graphic-violence"
+          ]
+        },
+        {
+          "a": "Il gatto",
+          "b": "Someone's Watching Me!",
+          "predicate": "kept-under-watch",
+          "type": "rebuttal",
+          "strength": 0.4913,
+          "aAttrs": [
+            "tone:comic",
+            "tone:ironic",
+            "subject:family",
+            "story:investigation"
+          ],
+          "bAttrs": [
+            "mood:paranoid",
+            "mood:menacing",
+            "mode:suspense",
+            "structure:single-setting",
+            "pace:slow-burn",
+            "subject:obsession"
+          ]
+        },
+        {
+          "a": "The Wild Child",
+          "b": "Flesh for Frankenstein",
+          "predicate": "another-shaped-to-order",
+          "type": "rebuttal",
+          "strength": 0.4824,
+          "aAttrs": [
+            "tone:earnest",
+            "structure:narrated",
+            "mood:austere",
+            "tone:tender",
+            "texture:sparse-dialogue",
+            "subject:work",
+            "pace:contemplative",
+            "subject:coming-of-age"
+          ],
+          "bAttrs": [
+            "texture:graphic-violence",
+            "mood:absurd",
+            "tone:ironic",
+            "texture:stylised",
+            "mood:sensual",
+            "tone:comic",
+            "subject:obsession",
+            "subject:desire",
+            "texture:grimy"
+          ]
+        },
+        {
+          "a": "Mara Maru",
+          "b": "The Conformist",
+          "predicate": "the-trusted-serves-another-interest",
+          "type": "rhyme",
+          "strength": 0.4824,
+          "aAttrs": [
+            "mode:action",
+            "mode:suspense"
+          ],
+          "bAttrs": [
+            "texture:painterly",
+            "texture:stylised",
+            "subject:political",
+            "subject:desire",
+            "subject:memory",
+            "mood:paranoid",
+            "mood:sensual",
+            "tone:bleak",
+            "tone:ironic",
+            "structure:nonlinear"
+          ]
+        },
+        {
+          "a": "Good News",
+          "b": "Honeyland",
+          "predicate": "the-warning-that-cannot-land",
+          "type": "rhyme",
+          "strength": 0.4803,
+          "aAttrs": [
+            "mood:paranoid",
+            "subject:political"
+          ],
+          "bAttrs": [
+            "subject:work",
+            "texture:handheld-raw",
+            "texture:painterly",
+            "pace:contemplative",
+            "mood:elegiac",
+            "tone:melancholy",
+            "setting:wilderness",
+            "subject:family",
+            "subject:class",
+            "tone:bleak"
+          ]
+        },
+        {
+          "a": "Yeelen",
+          "b": "To Catch a Killer",
+          "predicate": "hunter-and-quarry",
+          "type": "rhyme",
+          "strength": 0.4786,
+          "aAttrs": [
+            "subject:spiritual",
+            "subject:family",
+            "setting:wilderness",
+            "pace:contemplative",
+            "texture:painterly",
+            "texture:sparse-dialogue",
+            "mood:dreamlike",
+            "tone:earnest",
+            "mood:austere"
+          ],
+          "bAttrs": [
+            "story:investigation",
+            "mode:suspense",
+            "tone:bleak",
+            "mood:menacing",
+            "setting:city-at-night",
+            "subject:obsession"
+          ]
+        },
+        {
+          "a": "Dream Lover",
+          "b": "Killers of the Flower Moon",
+          "predicate": "the-protector-is-the-danger",
+          "type": "rebuttal",
+          "strength": 0.4762,
+          "aAttrs": [
+            "mood:dreamlike",
+            "mode:suspense",
+            "mood:paranoid"
+          ],
+          "bAttrs": [
+            "pace:slow-burn",
+            "tone:bleak",
+            "mood:menacing",
+            "subject:political",
+            "subject:class",
+            "subject:family",
+            "mood:elegiac",
+            "story:investigation",
+            "texture:graphic-violence",
+            "texture:painterly"
+          ]
+        },
+        {
+          "a": "The Hellbenders",
+          "b": "Days of Thunder",
+          "predicate": "past-laid-on-the-young",
+          "type": "rebuttal",
+          "strength": 0.4753,
+          "aAttrs": [
+            "subject:family",
+            "tone:bleak",
+            "texture:grimy",
+            "setting:wilderness",
+            "texture:graphic-violence"
+          ],
+          "bAttrs": [
+            "pace:relentless",
+            "mode:action",
+            "mode:spectacle",
+            "subject:work",
+            "subject:obsession",
+            "texture:stylised",
+            "texture:music-led",
+            "tone:earnest"
+          ]
+        }
+      ]
+    },
+    "consensusBlindestPredicateEdges": [
+      {
+        "a": "The Mirror",
+        "b": "Days of Thunder",
+        "predicate": "past-laid-on-the-young",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "Joi Baba Felunath",
+        "b": "Bugonia",
+        "predicate": "identity-passed-off",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "Investigation of a Citizen Above Suspicion",
+        "b": "Sleepers",
+        "predicate": "sheltered-from-consequence",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "Il gatto",
+        "b": "Someone's Watching Me!",
+        "predicate": "kept-under-watch",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "The Wild Child",
+        "b": "Flesh for Frankenstein",
+        "predicate": "another-shaped-to-order",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "Mara Maru",
+        "b": "The Conformist",
+        "predicate": "the-trusted-serves-another-interest",
+        "type": "rhyme",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "Good News",
+        "b": "Honeyland",
+        "predicate": "the-warning-that-cannot-land",
+        "type": "rhyme",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "The Plot of the Fuma Clan",
+        "b": "Farewell to Nostradamus",
+        "predicate": "loved-one-carried-off",
+        "type": "rhyme",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "Yeelen",
+        "b": "To Catch a Killer",
+        "predicate": "hunter-and-quarry",
+        "type": "rhyme",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "Dream Lover",
+        "b": "Killers of the Flower Moon",
+        "predicate": "the-protector-is-the-danger",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "The Hellbenders",
+        "b": "Days of Thunder",
+        "predicate": "past-laid-on-the-young",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      },
+      {
+        "a": "The Young One",
+        "b": "Dream Lover",
+        "predicate": "the-protector-is-the-danger",
+        "type": "rebuttal",
+        "consensusSimilarity": 0,
+        "sharedAttrs": 0,
+        "consensusPercentileAmongAllPairs": 0
+      }
+    ],
+    "argumentTyping": {
+      "question": "Consensus has no outcome and no role, so it cannot say two films DISAGREE. Can consensus similarity separate the predicate layer's rebuttals from its rhymes at all?",
+      "rebuttals": 2384,
+      "rhymes": 4915,
+      "medianConsensusSimilarity": {
+        "rebuttal": 0.6964,
+        "rhyme": 0.852
+      },
+      "aucRebuttalVsRhyme": 0.4665,
+      "metric": "idfOverlap",
+      "reading": "0.50 means consensus similarity carries no information about which predicate pairs are arguments."
+    }
+  },
+  "consensusOnly": {
+    "coverage": {
+      "corpusFilms": 2204,
+      "consensusFilms": 2204,
+      "filmsWithAtLeastOneConsensusAttr": 2097,
+      "filmsWithPredicateTags": 300,
+      "filmsWithPredicateEdges": 292
+    },
+    "crossCoverage": {
+      "consensus known x readable": 1356,
+      "consensus known x below floor": 284,
+      "consensus outline x readable": 166,
+      "consensus outline x below floor": 292,
+      "consensus unknown x readable": 19,
+      "consensus unknown x below floor": 87
+    },
+    "belowFloorFilms": 663,
+    "belowFloorFilmsConsensusCanStillDescribe": 575,
+    "noneOfTheseFilms": [
+      {
+        "title": "Rabindranath Tagore",
+        "consensusAttrs": 4,
+        "attrs": [
+          "structure:narrated",
+          "tone:earnest",
+          "mood:elegiac",
+          "subject:memory"
+        ],
+        "nearestByConsensus": [
+          "A Letter to Elia (0.845)",
+          "My Voyage to Italy (0.813)",
+          "A Personal Journey with Martin Scorsese Through American Movies (0.756)"
+        ]
+      },
+      {
+        "title": "Dont Look Back",
+        "consensusAttrs": 7,
+        "attrs": [
+          "texture:handheld-raw",
+          "texture:music-led",
+          "texture:talky",
+          "tone:ironic",
+          "structure:episodic",
+          "pace:brisk",
+          "subject:work"
+        ],
+        "nearestByConsensus": [
+          "Salesman (0.754)",
+          "Breathless (0.737)",
+          "The Making of Fanny and Alexander (0.729)"
+        ]
+      },
+      {
+        "title": "Joy of Learning",
+        "consensusAttrs": 8,
+        "attrs": [
+          "tone:cerebral",
+          "subject:political",
+          "texture:talky",
+          "structure:single-setting",
+          "mood:austere",
+          "structure:episodic",
+          "structure:narrated",
+          "texture:stylised"
+        ],
+        "nearestByConsensus": [
+          "The Rite (0.877)",
+          "La Chinoise (0.857)",
+          "The Magic Mountain (0.818)"
+        ]
+      },
+      {
+        "title": "Koyaanisqatsi",
+        "consensusAttrs": 10,
+        "attrs": [
+          "texture:sparse-dialogue",
+          "texture:music-led",
+          "mode:spectacle",
+          "texture:painterly",
+          "pace:relentless",
+          "tone:cerebral",
+          "subject:political",
+          "mood:elegiac",
+          "setting:wilderness",
+          "structure:episodic"
+        ],
+        "nearestByConsensus": [
+          "Baraka (0.781)",
+          "Jag Mandir (0.695)",
+          "Lessons of Darkness (0.665)"
+        ]
+      },
+      {
+        "title": "Lessons of Darkness",
+        "consensusAttrs": 13,
+        "attrs": [
+          "texture:painterly",
+          "structure:narrated",
+          "mood:elegiac",
+          "tone:cerebral",
+          "pace:contemplative",
+          "mode:spectacle",
+          "mood:dreamlike",
+          "subject:spiritual",
+          "tone:ironic",
+          "texture:music-led",
+          "texture:sparse-dialogue",
+          "setting:wilderness",
+          "tone:bleak"
+        ],
+        "nearestByConsensus": [
+          "Voyage of Time (0.849)",
+          "Fata Morgana (0.784)",
+          "Encounters at the End of the World (0.769)"
+        ]
+      },
+      {
+        "title": "Lumière and Company",
+        "consensusAttrs": 6,
+        "attrs": [
+          "structure:episodic",
+          "mood:elegiac",
+          "texture:sparse-dialogue",
+          "subject:work",
+          "structure:narrated",
+          "tone:cerebral"
+        ],
+        "nearestByConsensus": [
+          "Useless (0.712)",
+          "Kings of the Road (0.710)",
+          "Sonatine (0.649)"
+        ]
+      },
+      {
+        "title": "Encounters at the End of the World",
+        "consensusAttrs": 11,
+        "attrs": [
+          "structure:narrated",
+          "setting:wilderness",
+          "tone:cerebral",
+          "tone:ironic",
+          "subject:work",
+          "pace:contemplative",
+          "structure:episodic",
+          "subject:spiritual",
+          "texture:painterly",
+          "mood:elegiac",
+          "mode:spectacle"
+        ],
+        "nearestByConsensus": [
+          "Into the Inferno (0.872)",
+          "Sikkim (0.781)",
+          "Lessons of Darkness (0.769)"
+        ]
+      },
+      {
+        "title": "Le Quattro Volte",
+        "consensusAttrs": 10,
+        "attrs": [
+          "pace:contemplative",
+          "texture:sparse-dialogue",
+          "texture:painterly",
+          "subject:spiritual",
+          "subject:work",
+          "mood:elegiac",
+          "structure:episodic",
+          "setting:small-town",
+          "setting:wilderness",
+          "tone:earnest"
+        ],
+        "nearestByConsensus": [
+          "Baraka (0.784)",
+          "Au Hasard Balthazar (0.780)",
+          "Voyage of Time (0.772)"
+        ]
+      },
+      {
+        "title": "Pina",
+        "consensusAttrs": 10,
+        "attrs": [
+          "texture:music-led",
+          "mood:elegiac",
+          "subject:work",
+          "texture:stylised",
+          "structure:episodic",
+          "tone:melancholy",
+          "subject:grief",
+          "texture:painterly",
+          "texture:sparse-dialogue",
+          "mode:spectacle"
+        ],
+        "nearestByConsensus": [
+          "The Last Waltz (0.766)",
+          "Three Colours: Blue (0.765)",
+          "Inside Llewyn Davis (0.691)"
+        ]
+      },
+      {
+        "title": "The Day He Arrives",
+        "consensusAttrs": 9,
+        "attrs": [
+          "texture:talky",
+          "structure:episodic",
+          "tone:ironic",
+          "tone:comic",
+          "pace:contemplative",
+          "tone:melancholy",
+          "structure:nonlinear",
+          "setting:city-at-night",
+          "subject:desire"
+        ],
+        "nearestByConsensus": [
+          "Right Now, Wrong Then (0.790)",
+          "The Mother and the Whore (0.695)",
+          "Shoot the Piano Player (0.632)"
+        ]
+      },
+      {
+        "title": "The Salt of the Earth",
+        "consensusAttrs": 10,
+        "attrs": [
+          "structure:narrated",
+          "texture:painterly",
+          "subject:work",
+          "pace:contemplative",
+          "structure:episodic",
+          "mood:elegiac",
+          "tone:bleak",
+          "tone:hopeful",
+          "tone:earnest",
+          "setting:wilderness"
+        ],
+        "nearestByConsensus": [
+          "Happy People: A Year in the Taiga (0.853)",
+          "Encounters at the End of the World (0.710)",
+          "Days of Heaven (0.689)"
+        ]
+      },
+      {
+        "title": "EO",
+        "consensusAttrs": 9,
+        "attrs": [
+          "tone:bleak",
+          "tone:melancholy",
+          "mood:dreamlike",
+          "subject:political",
+          "texture:stylised",
+          "texture:painterly",
+          "texture:sparse-dialogue",
+          "structure:episodic",
+          "setting:wilderness"
+        ],
+        "nearestByConsensus": [
+          "Dolls (0.823)",
+          "The Limits of Control (0.702)",
+          "Sonatine (0.698)"
+        ]
+      }
+    ],
+    "strongestConsensusPairsThePredicateLayerDoesNotProduce": [
+      {
+        "a": "The Mirror",
+        "b": "The Tree of Life",
+        "similarity": 12.0592,
+        "sharedAttrs": [
+          "subject:memory",
+          "pace:contemplative",
+          "structure:nonlinear",
+          "mood:dreamlike",
+          "texture:painterly",
+          "subject:family",
+          "subject:spiritual",
+          "mood:elegiac",
+          "structure:narrated"
+        ]
+      },
+      {
+        "a": "Aftersun",
+        "b": "The Time to Live and the Time to Die",
+        "similarity": 9.0215,
+        "sharedAttrs": [
+          "subject:memory",
+          "subject:family",
+          "tone:melancholy",
+          "tone:tender",
+          "subject:grief",
+          "pace:contemplative",
+          "subject:coming-of-age",
+          "mood:elegiac",
+          "texture:painterly"
+        ]
+      },
+      {
+        "a": "Aftersun",
+        "b": "The Tree of Life",
+        "similarity": 8.7908,
+        "sharedAttrs": [
+          "subject:memory",
+          "subject:family",
+          "subject:grief",
+          "pace:contemplative",
+          "subject:coming-of-age",
+          "mood:elegiac",
+          "texture:sparse-dialogue",
+          "structure:nonlinear",
+          "texture:painterly"
+        ]
+      },
+      {
+        "a": "Ordet",
+        "b": "The Sacrifice",
+        "similarity": 8.7865,
+        "sharedAttrs": [
+          "subject:spiritual",
+          "pace:contemplative",
+          "mood:austere",
+          "texture:painterly",
+          "tone:earnest",
+          "tone:hopeful",
+          "texture:talky",
+          "tone:cerebral"
+        ]
+      },
+      {
+        "a": "Hiroshima mon amour",
+        "b": "The Mirror",
+        "similarity": 8.6607,
+        "sharedAttrs": [
+          "subject:memory",
+          "structure:nonlinear",
+          "tone:melancholy",
+          "structure:narrated",
+          "pace:contemplative",
+          "tone:cerebral",
+          "texture:painterly"
+        ]
+      },
+      {
+        "a": "The Bird with the Crystal Plumage",
+        "b": "The Cat o' Nine Tails",
+        "similarity": 8.0398,
+        "sharedAttrs": [
+          "mood:menacing",
+          "story:investigation",
+          "texture:stylised",
+          "texture:graphic-violence",
+          "structure:twist",
+          "setting:city-at-night",
+          "mode:suspense"
+        ]
+      },
+      {
+        "a": "Daisies",
+        "b": "The Phantom of Liberty",
+        "similarity": 7.9766,
+        "sharedAttrs": [
+          "pace:brisk",
+          "tone:comic",
+          "tone:ironic",
+          "mood:absurd",
+          "mood:dreamlike",
+          "subject:political",
+          "structure:episodic"
+        ]
+      },
+      {
+        "a": "The Mirror",
+        "b": "The Time to Live and the Time to Die",
+        "similarity": 7.6379,
+        "sharedAttrs": [
+          "subject:memory",
+          "pace:contemplative",
+          "texture:painterly",
+          "tone:melancholy",
+          "subject:family",
+          "mood:elegiac",
+          "structure:narrated"
+        ]
+      },
+      {
+        "a": "Another Woman",
+        "b": "Hiroshima mon amour",
+        "similarity": 7.6098,
+        "sharedAttrs": [
+          "tone:cerebral",
+          "tone:melancholy",
+          "texture:talky",
+          "structure:narrated",
+          "subject:memory",
+          "pace:contemplative",
+          "subject:desire",
+          "structure:nonlinear"
+        ]
+      },
+      {
+        "a": "Another Woman",
+        "b": "La Jetée",
+        "similarity": 7.5938,
+        "sharedAttrs": [
+          "tone:cerebral",
+          "tone:melancholy",
+          "structure:narrated",
+          "subject:memory",
+          "mood:austere",
+          "pace:contemplative",
+          "subject:desire"
+        ]
+      }
+    ]
+  },
+  "verdict": {
+    "redundancyHeadline": "Consensus's best metric (idfOverlap) recovers 1580 of 7299 predicate pairs (21.6%) at equal budget, against 1254 expected at chance — lift 1.26x.",
+    "rankHeadline": "Consensus AUC for predicate partners: 0.5434 (0.5 = no information); recall@6 27.4% against 17.2% at chance.",
+    "vocabularyHeadline": "Median best-case consensus F1 for a predicate: 0.333; 3 of 85 predicates reach 0.5 even with an overfitted 2-attribute rule."
+  }
+}

@@ -533,6 +533,29 @@ function buildParser(opts) {
       i++;
     }
 
+    /* ── THE NAMESPACE CUE IS PART OF WHAT THEY SAID ──
+       "a hopeful tone" reads as tone:hopeful off the word "hopeful", and "tone"
+       was then a lone stop-word run: not a chip, not unread, gone. Measured on
+       "zorbnax frobnitz a hopeful tone with little dialogue", 1 of 8 typed words
+       had no trace anywhere on screen. It is the reader's own word and it names
+       the very namespace the reading landed in, so it belongs to the reading —
+       the chip now says "hopeful tone", which is also what they typed. Only the
+       nine namespace names, only immediately after a span, only if unused. */
+    const NAMESPACES = new Set(["pace","tone","mood","subject","story","texture","structure","setting","mode"]);
+    for (const r of readings) {
+      let k = toks.findIndex((t) => t.start === r.start);
+      if (k < 0) continue;
+      let end = k;
+      while (end < toks.length && toks[end].start < r.end) end++;
+      while (end < toks.length && !used[end] && NAMESPACES.has(toks[end].t)
+             && r.terms.some((a) => a.split(":")[0] === toks[end].t)) {
+        used[end] = true;
+        r.end = toks[end].end;
+        r.text = text.slice(r.start, r.end);
+        end++;
+      }
+    }
+
     /* ── everything the parse could not use, kept as spans ── */
     let runStart = -1;
     const flush = (end) => {
@@ -540,8 +563,27 @@ function buildParser(opts) {
       const t = say(runStart, end).trim();
       const meaningful = toks.slice(runStart, end).some((x) => !L.stop.has(x.t));
       if (t && meaningful) {
-        unread.push({ text: t, start: toks[runStart].start, end: toks[end - 1].end,
-          why: "not in the vocabulary", kind: "unknown" });
+        /* A FAILED FILM POINTER IS NOT AN UNKNOWN ADJECTIVE, and reporting it as
+           one told a reader who typed "the mood of Amélie" that their words were
+           not in the vocabulary. The words were; the FILM is not in this corpus,
+           which is a different fact and a fixable one. The run is checked
+           against the same film-reference cues the branch above uses, so the two
+           can never drift apart. */
+        let why = "not in the vocabulary", kind = "unknown";
+        outer:
+        for (let a = runStart; a < end; a++) {
+          for (const cue of L.cues) {
+            const n = cue.toks.length;
+            if (a + n >= end) continue;           /* the cue alone names nothing */
+            let ok = true;
+            for (let d = 0; d < n; d++) if (toks[a + d].t !== cue.toks[d]) { ok = false; break; }
+            if (!ok) continue;
+            why = "a film this atlas does not hold";
+            kind = "film-missing";
+            break outer;
+          }
+        }
+        unread.push({ text: t, start: toks[runStart].start, end: toks[end - 1].end, why, kind });
       }
       runStart = -1;
     };

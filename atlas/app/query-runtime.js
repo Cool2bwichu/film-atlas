@@ -60,7 +60,8 @@
 
 const fs = require("fs");
 const path = require("path");
-const { buildMatcher, buildTable, attributeModel } = require("../pipeline/match.js");
+const { buildMatcher, buildTable, attributeModel,
+  conjunctive: matchConjunctive } = require("../pipeline/match.js");
 const { withComplements } = require("../pipeline/questioner.js");
 const { buildParser } = require("../pipeline/query-parse.js");
 
@@ -81,6 +82,8 @@ const symIndex = new Map([...SYM].map((c, i) => [c, i]));
 const NEAR = 60;            /* the front of the sky an offer is measured against */
 const OFFER_ROW = 4;        /* doors, never more than the row can hold           */
 const OFFER_PER_GROUP = 2;  /* diversity ACROSS the row, not a restriction on the pool */
+const EVIDENCE_MIN = 20;    /* read films the near band needs before q is an estimate */
+const FRONT = 12;           /* "the front of the sky" for the per-clause miss count */
 
 /* ══ THE ATTRIBUTE TABLE ON THE WIRE ═══════════════════════════════════════
 
@@ -306,17 +309,45 @@ function buildFind(opts) {
   };
 
   /* ── the record channel over the spans the reading could not use ── */
-  function readMarks(unread) {
+  function readMarks(unread, source) {
     const found = [];
     const rest = [];
+    const src = String(source || "");
     for (const u of unread) {
       if (u.guarded) { rest.push(u); continue; }
+      /* THE ECHO IS THE READER'S OWN STRING, SLICED, NEVER REBUILT.
+         markNorm folds case, strips accents and drops punctuation so a phrase
+         can be looked up in the mark index — and the previous version then
+         printed the NORMALISED tokens back at the reader as "what it could not
+         place". "¿un film… «très» spirituel" came back "un film tres spirituel"
+         and "sí" came back "si". The block two lines below this one used to be
+         literally empty under the comment "nothing found: keep the original
+         span verbatim": the intent was written and never implemented.
+         Normalised text is for the lookup; the reader sees what they typed. */
       const toks = markNorm(u.text).split(" ").filter(Boolean);
+      /* Where each normalised token starts in the ORIGINAL span, so a run of
+         them can be sliced back out of it. markNorm maps one source word to one
+         token, so the k-th token is the k-th word of the span. */
+      const words = [];
+      {
+        const re = /\S+/g;
+        let m;
+        while ((m = re.exec(u.text)) !== null) words.push([m.index, m.index + m[0].length]);
+      }
+      const slice = (a, b) => {
+        /* a..b are token indices; fall back to the whole span if the token
+           count and the word count disagree (a source word that normalises to
+           two tokens, or to none). Falling back to the reader's own words is
+           the safe direction. */
+        if (words.length !== toks.length) return u.text;
+        return u.text.slice(words[a][0], words[b][1]);
+      };
       let i = 0, any = false;
       let run = [];
       const flushRun = () => {
         if (!run.length) return;
-        rest.push({ text: run.join(" "), why: u.why, kind: u.kind || "unknown" });
+        rest.push({ text: slice(run[0], run[run.length - 1]), said: u.text,
+                    start: u.start, end: u.end, why: u.why, kind: u.kind || "unknown" });
         run = [];
       };
       while (i < toks.length) {
@@ -328,10 +359,11 @@ function buildFind(opts) {
         }
         if (hit) {
           flushRun();
+          const hitFrom = i, hitTo = i + hit.len - 1;
           if (!found.some((f) => f.field === hit.m.field && f.value === hit.m.value)) {
             const ks = markKeys(disco, hit.m.field, hit.m.value);
             found.push({
-              field: hit.m.field, value: hit.m.value, said: hit.said,
+              field: hit.m.field, value: hit.m.value, said: slice(hitFrom, hitTo),
               label: (disco.facets.definitions[hit.m.field].values[hit.m.value] || {}).label || hit.m.value,
               fieldLabel: disco.facets.definitions[hit.m.field].label || hit.m.field,
               keys: ks, count: ks.length,
@@ -341,18 +373,31 @@ function buildFind(opts) {
           i += hit.len;
           continue;
         }
-        run.push(toks[i]); i++;
+        run.push(i); i++;
       }
       flushRun();
-      if (!any && !rest.some((r) => r.text === u.text)) { /* nothing found: keep the original span verbatim */ }
+      /* Nothing found and nothing to flush — an all-punctuation or emoji span
+         normalises to no tokens at all. It is still something the reader typed,
+         so it is still handed back rather than swallowed. */
+      if (!any && !toks.length && u.text.trim()) {
+        rest.push({ text: u.text, said: u.text, start: u.start, end: u.end,
+                    why: u.why, kind: u.kind || "unknown" });
+      }
     }
     return { marks: found, unread: rest };
   }
 
   /* ── the closed form. Verified against a full re-score in --selftest ──
      Adding one clause to a scored query moves every film by arithmetic already
-     on the table: score' = clamp((raw + w*credit)/(denom + w*sigmaMax), 0, 1).
-     No re-score, no second pass over the shards. */
+     on the table: mean' = clamp((raw + w*credit)/(denom + w*sigmaMax), 0, 1).
+     No re-score, no second pass over the shards.
+
+     THE CONJUNCTIVE TERM RIDES IN THE SAME CLOSED FORM, and it has to, or the
+     offer row would be ranking a different scorer than the picture. match.js
+     multiplies the mean by conjunctive(holdWeight, knownWeight); both are
+     WEIGHTS, so adding one clause moves them by w and by w-or-nothing, and
+     explain() carries them for exactly this. A clause the corpus never read
+     for a film moves neither, which is the same rule the scorer applies. */
   function shiftedTop(res, attr, w, n) {
     const M = modelFor(attr);
     if (!(M.sigmaMax > 0)) return null;
@@ -363,8 +408,10 @@ function buildFind(opts) {
       const v = table.value(k, attr);
       const credit = v === undefined ? M.prior : M.sigmaAt(v);
       const den = d.denom + w * M.sigmaMax;
-      const s = den > 0 ? Math.max(0, Math.min(1, (d.raw + w * credit) / den)) : 0;
-      out.push([k, s]);
+      const mean = den > 0 ? Math.max(0, Math.min(1, (d.raw + w * credit) / den)) : 0;
+      const knownW = d.knownWeight + (v === undefined ? 0 : w);
+      const holdW = d.holdWeight + (v !== undefined && v > 0 ? w : 0);
+      out.push([k, mean * matchConjunctive(holdW, knownW)]);
     }
     out.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
     return out.slice(0, n).map((r) => r[0]);
@@ -384,8 +431,36 @@ function buildFind(opts) {
      are the two most fame-loaded namespaces in the vocabulary. find-probe.mjs
      measures the fame of the films each offer brings in, against the band they
      join, and that measurement is what keeps this checkable. */
-  function offersFor(res, band, w, spent) {
+  /* ── WHAT THE READER ALREADY COMMITTED TO, BY AXIS ──
+     A namespace IS an axis: `pace` has four values and they are four points on
+     one line, so offering pace:contemplative to somebody who typed "fast
+     pacing" is not a neutral "you did not say — want to?", it is the opposite
+     of what they said, presented as a question they had not answered. Measured:
+     the first offer sat in an already-spoken namespace in 4 of 14 sentences,
+     and on the owner's own it was UNHURRIED, offered first.
+
+     THE POOL IS NOT NARROWED, and that is deliberate — restricting offers to
+     unspoken namespaces is the slot rule this file argues against two comments
+     up, on rule-1 grounds that have not changed. What changes is the SENTENCE
+     over it and the tie-break: an offer on a spoken axis is marked as a
+     correction and carries what the reader said, so the row can print "you said
+     fast — try unhurried instead?" rather than pretending they were silent. */
+  function axesSpoken(query, taken) {
+    const said = new Map();
+    const add = (a, label) => {
+      const ns = String(a).replace(/^not:/, "").split(":")[0];
+      if (!said.has(ns)) said.set(ns, []);
+      const L = label || labelOf(String(a).replace(/^not:/, ""));
+      if (L && !said.get(ns).includes(L)) said.get(ns).push(L);
+    };
+    for (const c of query) for (const a of (c.anyOf || [])) add(a, null);
+    for (const t of taken) add(t.attr, null);
+    return said;
+  }
+
+  function offersFor(res, band, w, spent, spokenAxes) {
     const B = new Set(band);
+    const spoken = spokenAxes || new Map();
     const rows = [];
     for (const attr of VOCAB_IDS) {
       if (spent.has(attr)) continue;
@@ -401,7 +476,16 @@ function buildFind(opts) {
         if (v === undefined) continue;
         sum += v; seen++;
       }
-      if (seen < band.length * 0.75) continue;          /* the coverage guard */
+      /* THE COVERAGE GUARD IS ABOUT EVIDENCE, NOT ABOUT SHARE, and written as a
+         share it silenced the sentence with the most room left to narrow. "set
+         in space" puts ~30 films nobody read into the nearest 60, so every one
+         of the 59 attributes failed a 75%-of-the-band test and the row went
+         silent on a one-clause query while an eight-clause one got four doors.
+         What the estimate of q actually needs is enough films to be an
+         estimate; below EVIDENCE_MIN read films the question really is about
+         nothing, and above it the share is reported (`coverage`) rather than
+         used as a gate. */
+      if (seen < Math.min(band.length * 0.75, EVIDENCE_MIN)) continue;
       const q = seen ? sum / seen : 0;
       const yes = shiftedTop(res, attr, w, NEAR);
       const no = shiftedTop(res, "not:" + attr, w, NEAR);
@@ -409,14 +493,24 @@ function buildFind(opts) {
       const newYes = yes.filter((k) => !B.has(k)).length / NEAR;
       const newNo = no.filter((k) => !B.has(k)).length / NEAR;
       const value = q * newYes + (1 - q) * newNo;
+      const group = attr.split(":")[0];
+      const against = spoken.get(group) || null;
       rows.push({
-        attr, group: attr.split(":")[0], label: labelOf(attr), question: questionOf(attr),
+        attr, group, label: labelOf(attr), question: questionOf(attr),
         gloss: GLOSS[attr] ? GLOSS[attr].gloss : "", not: GLOSS[attr] ? GLOSS[attr].not : "",
         value, newYes, newNo, q, coverage: seen / band.length,
+        /* a correction rather than a question, and what it is correcting */
+        corrects: against ? against.slice() : null,
+        /* THE RANK THE ROW IS PICKED ON. A correction has to be worth more than
+           a question to be asked before one, because a reader who typed "fast"
+           is owed the things they did NOT say first. 0.75 is one demotion step,
+           not an exclusion: a correction that is genuinely the strongest door in
+           the vocabulary still leads the row. */
+        rank: value * (against ? 0.75 : 1),
         brings: yes.filter((k) => !B.has(k)).slice(0, 3),
       });
     }
-    rows.sort((a, b) => b.value - a.value || a.attr.localeCompare(b.attr));
+    rows.sort((a, b) => b.rank - a.rank || a.attr.localeCompare(b.attr));
     return rows;
   }
 
@@ -427,17 +521,25 @@ function buildFind(opts) {
      The numbers are product judgements, not derivations; --battery re-measures
      them and find-probe.mjs asserts the row is not a fixed list. */
   const OFFER_FLOOR = 0.08;
-  const OFFER_STANDOUT = 1.8;
+  /* RE-MEASURED WHEN THE SCORER CHANGED, WHICH IS THE WHOLE POINT OF CALLING
+     THEM PRODUCT JUDGEMENTS RATHER THAN DERIVATIONS. match.js's conjunctive
+     term makes the front of the sky more stable, so every influx figure fell
+     and the top-over-median ratio fell with it: measured over twelve sentences
+     the ratio runs 1.71 to 6.35, and at 1.8 the gritty-revenge sentence lost
+     its whole row to a threshold that had been calibrated against a different
+     scorer. 1.5 keeps silence reachable — a genuinely flat row sits near 1.1 —
+     without making it the answer to a sentence that has four good doors. */
+  const OFFER_STANDOUT = 1.5;
 
   function pickOffers(rows) {
     if (!rows.length) return [];
-    const med = rows.map((r) => r.value).sort((a, b) => a - b)[Math.floor(rows.length / 2)];
+    const med = rows.map((r) => r.rank).sort((a, b) => a - b)[Math.floor(rows.length / 2)];
     const out = [];
     const perGroup = new Map();
     for (const r of rows) {
       if (out.length >= OFFER_ROW) break;
-      if (r.value < OFFER_FLOOR) break;
-      if (med > 0 && r.value < med * OFFER_STANDOUT) break;
+      if (r.rank < OFFER_FLOOR) break;
+      if (med > 0 && r.rank < med * OFFER_STANDOUT) break;
       const n = perGroup.get(r.group) || 0;
       if (n >= OFFER_PER_GROUP) continue;
       perGroup.set(r.group, n + 1);
@@ -486,7 +588,7 @@ function buildFind(opts) {
     const taken = ropts.taken || [];        /* [{attr, weight}] offers accepted */
     const spentIn = ropts.spent || [];      /* attributes never to offer again  */
     const parsed = parser.parse(String(text || ""));
-    const { marks: found, unread } = readMarks(parsed.unread);
+    const { marks: found, unread } = readMarks(parsed.unread, parsed.text || text);
 
     /* OUT OF VOCABULARY. The scorer will not tell us — an unseen attribute has
        ceiling 0 and contributes to neither numerator nor denominator, so a typo
@@ -540,8 +642,15 @@ function buildFind(opts) {
          films at exactly 1.000 and the top 60 are 60 films tied at 1.000,
          alphabetical from "10 on ten". */
       const r = matcher.score(parsed.query());
+      /* AT THE TOP SCORE, NOT AT 1.000. The conjunctive term in match.js scales
+         every score by a factor below 1, so a hard-coded 1.000 counted zero
+         films and the refusal printed "0 of 2,204 films are equally not that",
+         which is the opposite of the thing it is refusing over. The claim is
+         about the size of the tie at the front, so that is what is counted. */
+      let peak = 0;
+      for (const k of keys) if (r.scores[k] > peak) peak = r.scores[k];
       let tied = 0;
-      for (const k of keys) if (r.scores[k] >= 0.999999) tied++;
+      for (const k of keys) if (peak - r.scores[k] <= 1e-9) tied++;
       return Object.assign(base, {
         drawable: false,
         refusal: { code: "negation-only",
@@ -549,6 +658,7 @@ function buildFind(opts) {
           detail: tied + " of " + keys.length + " films are equally not that, so they would all "
             + "sit at the same distance. Say one thing you do want and the fence will hold "
             + "alongside it." },
+        topScore: peak,
         tied,
       });
     }
@@ -623,14 +733,48 @@ function buildFind(opts) {
       coverage: { blind, thin, of: band.length, tiedAtTop, topScore },
       ceilings, capped,
       offers: [], offerRows: null, tension: [], deepened: false,
-      top: band.slice(0, 12).map((k) => ({
-        key: k, title: meta[k] && meta[k].title, year: meta[k] && meta[k].year,
-        score: res.scores[k], coverage: (res.explain(k) || {}).coverage,
-      })),
+      /* PER FILM, WHAT IT DOES NOT HOLD. explain() has always returned the
+         per-clause table and nothing ever showed it, so a reader looking at the
+         film drawn nearest the centre could not find out that it scores exactly
+         zero on the first thing they typed. `misses` is that list, by the
+         clause's own label — the reader's words, not attribute ids. */
+      top: band.slice(0, 12).map((k) => {
+        const d = res.explain(k) || { per: [], misses: [], unread: [] };
+        return {
+          key: k, title: meta[k] && meta[k].title, year: meta[k] && meta[k].year,
+          score: res.scores[k], coverage: d.coverage,
+          misses: (d.misses || []).slice(), unreadClauses: (d.unread || []).slice(),
+          held: (d.per || []).filter((x) => x.state === "present").length, of: query.length,
+        };
+      }),
+      /* AND ACROSS THE FRONT OF THE SKY, PER CLAUSE. The tension note only ever
+         fired on the one clause whose retraction churned the most, so a
+         sentence whose front scores zero on two of the reader's five asks
+         printed one line about one of them and nothing about the other. This
+         counts every clause, every time, over the films drawn nearest. */
+      frontMiss: (() => {
+        const front = band.slice(0, FRONT);
+        return query.map((c, i) => {
+          let zero = 0, unknown = 0;
+          for (const k of front) {
+            const d = res.explain(k);
+            if (!d || !d.per[i]) continue;
+            if (d.per[i].state === "unknown") unknown++;
+            else if (!(d.per[i].value > 0)) zero++;
+          }
+          return { clause: i, label: c.label, zero, unknown, of: front.length };
+        });
+      })(),
+      /* WHAT THE BEST ANSWER ACTUALLY REACHED. layout-match.js normalises the
+         radius against this, so the centre of the picture is the best the
+         corpus has rather than a perfect match — and the number that says how
+         far that is from perfect has to be printed, or the normalisation is a
+         flattering lie. */
+      headroom: { best: res.scores[ranked[0]], of: 1 },
       deepen() {
         if (deepened) return out;
         deepened = true;
-        out.offerRows = offersFor(res, band, w, spent);
+        out.offerRows = offersFor(res, band, w, spent, axesSpoken(query, taken));
         out.offers = pickOffers(out.offerRows);
         out.tension = [];
         for (let i = 0; i < query.length; i++) {
@@ -685,7 +829,11 @@ function selftest() {
       const d = r.explain(k);
       const v = F.table.value(k, attr);
       const credit = v === undefined ? M.prior : M.sigmaAt(v);
-      const s = Math.max(0, Math.min(1, (d.raw + w * credit) / (d.denom + w * M.sigmaMax)));
+      const mean = Math.max(0, Math.min(1, (d.raw + w * credit) / (d.denom + w * M.sigmaMax)));
+      /* the conjunctive term rides in the same closed form — see shiftedTop */
+      const knownW = d.knownWeight + (v === undefined ? 0 : w);
+      const holdW = d.holdWeight + (v !== undefined && v > 0 ? w : 0);
+      const s = mean * matchConjunctive(holdW, knownW);
       worst = Math.max(worst, Math.abs(s - full.scores[k]));
       checked++;
     }

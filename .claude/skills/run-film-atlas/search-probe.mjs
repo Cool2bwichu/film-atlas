@@ -277,7 +277,12 @@ const MEASURE = (opts) => {
     }
     return best;
   };
-  const step = Math.max(1, Math.floor(rows.length / 700));
+  /* EVERY DISC, NOT EVERY THIRD. Sampling 700 of 2,204 starves the minority
+     class the moment the layout packs equal scores together: on "set in space"
+     it left 3 isolated hollow discs to carry a 0.90 AUC gate, which is not a
+     measurement. getImageData at one pixel per film is 2,204 reads and costs
+     under 200 ms; the number is worth it. */
+  const step = 1;
   let inkedFill = 0, sampledFill = 0, inkedHollow = 0, sampledHollow = 0;
   const inkFill = [], inkHollow = [], ink = [];
   for (let i = 0; i < rows.length; i += step) {
@@ -524,12 +529,46 @@ head("2. rule 1 — radius against score, against fame, against degree");
     const lo = Math.min(...list.map((r) => r.rad)), hi = Math.max(...list.map((r) => r.rad));
     if (hi - lo > worstSpread) { worstSpread = hi - lo; worstScore = s; }
   }
-  check("radius is a pure function of score — a tie is drawn at one radius",
-    worstSpread <= 1.0,
-    `${ties} score ties covering ${tiedFilms} of ${rows.length} films; widest spread ` +
-    `${worstSpread.toFixed(2)}px (${(100 * worstSpread / m.rimMean).toFixed(0)}% of the ${m.rimMean.toFixed(0)}px ` +
-    `radius) at score ${(+worstScore).toFixed(4)} — layout-match.js line 27 says "the radius below is a pure ` +
-    `function of the score and of nothing else", and its tie section then spends that on purpose`);
+  /* THE OLD FORM OF THIS CHECK ASKED FOR SOMETHING THE DESIGN REFUSES TO GIVE
+     and could therefore never pass: layout-match.js spreads a tie on purpose,
+     its own note in this file said so, and a spread of 0px would draw 396 films
+     on one circle. "A tie is drawn at one radius" is not the property that
+     protects the reader. THIS is: a tie occupies a BAND, and no film the score
+     ordered differently is drawn inside that band. A 396-film ring is honest
+     when nothing better and nothing worse is mixed into it, and a lie when a
+     film that scored three times higher is drawn among them — which is exactly
+     what 13.31% of pairs drawn backwards was, before the bands.
+
+     Two numbers, both hard: how many films from another score are drawn inside
+     some tie's radial band, and how wide the widest band is as a share of the
+     radius, which is the figure the slate is required to print. */
+  const groups = [...byScore.entries()]
+    .map(([s, list]) => ({ score: +s, n: list.length,
+      lo: Math.min(...list.map((r) => r.rad)), hi: Math.max(...list.map((r) => r.rad)) }))
+    .filter((g) => g.n > 1);
+  let intruders = 0, worstBand = null;
+  for (const g of groups) {
+    let bad = 0;
+    for (const r of rows) {
+      if (r.score === null || r.score === g.score) continue;
+      /* ONE PIXEL OF TOLERANCE AT EACH EDGE, BECAUSE THE SCREEN IS PIXELS.
+         456 distinct scores share a 183px radius, so adjacent bands are
+         routinely under a pixel apart and quantisation alone puts a neighbour
+         on a band's own edge. That is the raster, not an interleave. A film
+         drawn a pixel INSIDE a 22px band is a different claim, and the
+         permuted-radius control below puts 226,896 of them there. */
+      if (r.rad > g.lo + 1 && r.rad < g.hi - 1) bad++;
+    }
+    intruders += bad;
+    if (bad && (!worstBand || bad > worstBand.bad)) worstBand = { g, bad };
+  }
+  check("a tie is drawn as a band, and nothing the score ordered is drawn inside it",
+    intruders === 0 && worstSpread <= m.rimMean * 0.25,
+    `${ties} score ties covering ${tiedFilms} of ${rows.length} films; ${intruders} films from a ` +
+    `different score are drawn inside some tie's own radial band` +
+    (worstBand ? ` (worst: ${worstBand.bad} inside the ${worstBand.g.n}-film ring at ${worstBand.g.score.toFixed(4)})` : "") +
+    `; widest band ${worstSpread.toFixed(2)}px = ${(100 * worstSpread / m.rimMean).toFixed(0)}% of the ` +
+    `${m.rimMean.toFixed(0)}px radius, against a 25% gate`);
   /* IF THE SPREAD IS DELIBERATE IT HAS TO BE DISCLOSED, because the reader
      cannot see which films the score declined to order. The slate says so for
      the top tie only. */
@@ -563,6 +602,21 @@ head("2. rule 1 — radius against score, against fame, against degree");
     control("a shuffled radius fails the score gate",
       rho(shRows, (r) => r.rad, (r) => r.score).rho <= -0.80,
       `rho ${sig(rho(shRows, (r) => r.rad, (r) => r.score).rho)} once the radii are permuted`);
+    /* AND THE BAND CHECK CAN SEE THE SAME DAMAGE. A permutation destroys the
+       bands without touching the score, so a tie's radial range fills with
+       films from every other score — which is what the check exists to catch
+       and what it must therefore report when the property is broken. */
+    const shBy = new Map();
+    for (const r of shRows) { const k = r.score.toFixed(12); if (!shBy.has(k)) shBy.set(k, []); shBy.get(k).push(r); }
+    let shIntruders = 0;
+    for (const [sc, list] of shBy) {
+      if (list.length < 2) continue;
+      const lo = Math.min(...list.map((r) => r.rad)), hi = Math.max(...list.map((r) => r.rad));
+      for (const r of shRows) if (r.score.toFixed(12) !== sc && r.rad > lo + 1 && r.rad < hi - 1) shIntruders++;
+    }
+    control("a shuffled radius is seen by the tie-band check",
+      shIntruders === 0,
+      `${shIntruders} films from another score drawn inside a tie's band once the radii are permuted`);
     /* THE FAME CONTROL IS THE ONE THAT MATTERS: a layout that really did rank
        by fame must trip the fame gate, or the gate is decoration. */
     const famed = rows.filter((r) => r.fame !== null).slice().sort((a, b) => b.fame - a.fame)

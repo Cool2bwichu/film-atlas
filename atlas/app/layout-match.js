@@ -64,8 +64,9 @@
  * field TIGHTENS. It does not become a new picture, because the thing that
  * decides left-from-right was never a function of the query. Measured over the
  * owner's 1 -> 2 -> 3 -> 4 clause progression, 88% of the motion between
- * consecutive frames is radial (see `measure-match-layout.js`); a full re-solve
- * per clause has no such guarantee and did not show one.
+ * consecutive frames is radial (measured by `pipeline/measure-match-layout.js`,
+ * which this header cited for months before it existed — see THE CITATION at
+ * the foot of this comment); a full re-solve per clause has no such guarantee.
  *
  * ── WHAT DOES TRANSFER FROM layout-sky.js, VERBATIM ──────────────────────────
  *
@@ -157,12 +158,71 @@
  * The resolution is that A TIE COSTS NOTHING TO SPREAD. Radial spread only
  * misrepresents the score if it reorders films the score DID order. Within a
  * group the score declined to order, any arrangement is faithful — so the
- * slack-stiffness spring above is not a compromise on fidelity, it is spending
- * freedom the score itself handed over. Films that ARE ordered are stiff and
- * keep their order; films that are tied are slack and fill the space they have.
- * The measured cost of this is small and it is reported rather than assumed:
- * Spearman(score, radius) = -0.993 against the -1.000 a hard projection gets,
- * and the 0.007 is entirely intra-tie motion.
+ * spread is not a compromise on fidelity, it is spending freedom the score
+ * itself handed over.
+ *
+ * ── AND THE FIRST DRAFT SPENT FREEDOM IT DID NOT HAVE ───────────────────────
+ *
+ * That argument was right and the implementation of it was not, which is the
+ * defect this version exists to fix. Slack stiffness is not a fence: it lets a
+ * tied film be SPREAD, but it also lets the crowd PUSH it, and on a real query
+ * the crowd all pushes the same way. Most of the corpus scores near zero, most
+ * rest lengths are therefore near the rim, the rim is jammed, and the only
+ * direction left for the pressure to go is inward — through the films the
+ * score DID order. Measured off the composited page on the owner's sentence:
+ *
+ *     Spearman(radius, score)  -0.876  (this header used to claim -0.993)
+ *     ordered pairs drawn backwards            13.31% of 376,155
+ *     widest tie                    103.06px on a 171.8px radial range
+ *     of the 30 films drawn NEAREST the centre, 11 were outside the top 30
+ *     by score and 5 outside the top 100; the worst was score-rank 779
+ *
+ * A film the reader's sentence answered three times worse, drawn nearer. That
+ * is not intra-tie freedom, it is the picture lying about the one thing it
+ * claims to say.
+ *
+ * SO THE TIE IS GIVEN A ROOM RATHER THAN A SPRING. Every distinct score gets
+ * its own annulus — a BAND — and no film may leave its own band, ever, on any
+ * iteration. The bands are laid out in score order, so a better answer is
+ * drawn nearer than a worse one BY CONSTRUCTION and the inversion count is not
+ * a statistic that came out well, it is zero for the same reason a sorted list
+ * is sorted. Inside its band a tie is as free as it always was, and the crowd
+ * pressure that used to travel inward now travels around the ring, which is
+ * the direction that costs the reader nothing.
+ *
+ * Each band is wide enough to hold its own films — the area a group needs at
+ * the solver's own k, times `bandPack` — and the slack left over is spent in
+ * proportion to the score gaps, so where the score DID separate two films the
+ * canvas still separates them. The widest band is a number the interface is
+ * expected to print: `matchBands()` returns the table so the readout can say
+ * "N films the score declined to order are spread over X of the radius"
+ * instead of leaving the reader to infer an order that is not there.
+ *
+ * ── THE MIDDLE HAS TO BE OCCUPIED ───────────────────────────────────────────
+ *
+ * The absolute mapping rTarget(s) = rimInset*(1-s)^2 has one more consequence
+ * that measurement caught and argument had not: on the owner's own sentence the
+ * best score in the corpus is 0.381, so NOTHING is drawn inside r=0.246 and the
+ * picture is a dark hole a quarter of the disc wide with a bright rim around
+ * it. 365 of 2,204 films (16.6%) sit in the outermost 0.05. The brightest thing
+ * on screen was the ring of films that did not answer, and the caption under it
+ * said "distance from the centre is how well each one answers, nearest first".
+ *
+ * So the score is normalised against what the query can actually reach before
+ * it becomes a radius. THE ORDER IS UNCHANGED — it is a monotone divide by one
+ * constant — and the centre now holds the best answers the corpus has, which is
+ * what the sentence above it says it holds. The absolute number does not
+ * disappear: `matchBands().scoreMax` is what the readout prints as "the closest
+ * anything gets is 0.38 of what you asked", which is the honest sentence, and
+ * it is a sentence rather than a hole in the middle of the picture. An
+ * impossible query still draws the shell — with every score 0 there is nothing
+ * to normalise against, `scoreMax` is 0, and every target is the rim.
+ *
+ * ── THE CITATION ────────────────────────────────────────────────────────────
+ *
+ * `measure-match-layout.js` was cited three times by this header and did not
+ * exist. It exists now, in pipeline/, and every number in this comment comes
+ * out of it or out of .claude/skills/run-film-atlas/search-probe.mjs.
  *
  * ── AN IMPOSSIBLE QUERY IS A WORLD, NOT AN ERROR ────────────────────────────
  *
@@ -192,7 +252,7 @@
  */
 "use strict";
 
-const MATCH_LAYOUT_VERSION = "match-radial-bh-v1";
+const MATCH_LAYOUT_VERSION = "match-radial-banded-v2";
 
 /* Seeded, for the reason above: "deterministic" has to survive someone adding
    a film, and a bare Math.random() would break that while still looking fine. */
@@ -223,16 +283,31 @@ const DEFAULTS = {
   /* rTarget(s) = rimInset * (1 - s)^radialExp, in disc radii.
      radialExp is the analogue of layout-sky's restExp and it is convex for the
      same reason: a linear map wastes the middle of the canvas. Match scores do
-     not reach 1 — the owner's four-clause query tops out at 0.449, because 1.0
-     means "answered every clause at the corpus maximum" and almost nothing can
-     — so under a linear map the best film in the corpus sits at 0.55 of the
-     radius and the centre is always empty, on every query, which would make the
-     empty middle meaningless. Convexity pulls the genuinely good answers in
-     while leaving 0 pinned at the rim, so an empty middle still means what it
-     should. Swept in measure-match-layout.js: 2.0 is where centre-to-rim areal
-     density stops improving and top-20 legibility starts to suffer. */
+     not reach 1 — the owner's five-ask sentence tops out at 0.381, because 1.0
+     means "answered every clause at the corpus maximum" and almost nothing can.
+     Convexity spends the canvas on the differences that exist rather than on
+     the empty top of the scale. Swept in measure-match-layout.js: 2.0 is where
+     centre-to-rim areal density stops improving and top-20 legibility starts to
+     suffer. */
   radialExp: 2.0,
   rimInset: 0.985,     /* keeps the rim ring off the clip edge                 */
+
+  /* THE SCORE IS NORMALISED AGAINST WHAT THIS QUERY CAN REACH. See THE MIDDLE
+     HAS TO BE OCCUPIED in the header. `normalise:false` restores the absolute
+     mapping; `scoreMax` overrides the divisor. */
+  normalise: true,
+  scoreMax: null,
+
+  /* `bands:false` restores the v1 arrangement exactly — absolute score, no
+     fence, rim wall only — so the comparison in measure-match-layout.js is a
+     control that runs rather than a claim about a deleted version. */
+  bands: true,
+
+  /* Band packing — see THE TIE PROBLEM. bandPack is how much more annulus area
+     a score group gets than its films strictly need at the solver's own k;
+     measured, below ~1.6 the widest tie welds into a solid ring. */
+  bandPack: 1.9,
+  bandMin: 0.0035,     /* no band is thinner than this, in disc radii          */
 
   /* The single spring. Both halves are pure functions of the score.           */
   anchorK: 2.4,        /* radial spring coefficient                            */
@@ -405,6 +480,107 @@ function repelBarnesHut(x, y, n, dx, dy, k2, P) {
   }
 }
 
+/* ── the bands: one annulus per distinct score, laid out in score order ───────
+
+   This is the fence the first version did not have. `matchBands` is a PURE
+   function of (scores, opts) — no relaxation, no randomness — so the interface
+   can ask for the same table the solver used and quote it in words.
+
+   Returned:
+     scoreMax   the best score in this query, BEFORE normalisation. This is the
+                number the readout owes the reader: "the closest anything gets".
+     normalised whether the radius was divided by it
+     groups     [{ score, n, lo, hi }] in score order, radii in disc radii
+     widest     the largest band that holds more than one film, and its count —
+                i.e. how far apart the picture draws films it refuses to order.  */
+function matchBands(scores, opts) {
+  const P = Object.assign({}, DEFAULTS, opts || {});
+  const keys = Object.keys(scores);
+  const n = keys.length;
+  if (!n) return { scoreMax: 0, normalised: false, div: 1, groups: [], widest: null, index: {} };
+
+  const val = new Float64Array(n);
+  let sMax = 0;
+  for (let i = 0; i < n; i++) {
+    const v = Math.max(0, Math.min(1, scores[keys[i]] || 0));
+    val[i] = v;
+    if (v > sMax) sMax = v;
+  }
+  /* Divide by what the query can reach, not by 1. A monotone divide by one
+     constant cannot reorder anything; it decides only whether the best answer
+     is drawn in the middle of the picture that describes it as the middle. */
+  const div = P.scoreMax !== null && P.scoreMax !== undefined
+    ? Math.max(0, Math.min(1, P.scoreMax))
+    : (P.normalise ? sMax : 1);
+
+  const count = new Map();
+  for (let i = 0; i < n; i++) count.set(val[i], (count.get(val[i]) || 0) + 1);
+  const vals = [...count.keys()].sort((a, b) => b - a);
+  const G = vals.length;
+
+  /* Where each group WANTS to be, on the same convex map as before. */
+  const t = vals.map((v) => P.rimInset * Math.pow(1 - (div > 0 ? Math.min(1, v / div) : 0), P.radialExp));
+
+  /* The desired edges: halfway between neighbouring targets, which is the hard
+     projection this file used to draw. Everything below only widens them. */
+  const want = new Array(G);
+  {
+    let prev = 0;
+    for (let g = 0; g < G; g++) {
+      const next = g === G - 1 ? P.rimInset : (t[g] + t[g + 1]) / 2;
+      want[g] = Math.max(0, next - prev);
+      prev = next;
+    }
+  }
+
+  /* HOW MUCH ROOM A TIE ACTUALLY NEEDS, from the same k the repulsion uses.
+     An annulus between disc radii r0 and r1 has world area (pi/4)(r1^2-r0^2),
+     and a film occupies about k^2; bandPack is the slack over shoulder-to-
+     shoulder. Two passes, because the area a band needs depends on how far out
+     it ended up and that is what is being solved for. */
+  const k2 = 1 / Math.max(1, n);
+  const width = want.slice();
+  for (let pass = 0; pass < 2; pass++) {
+    const need = new Array(G);
+    let sumNeed = 0, sumWant = 0;
+    let at = 0;
+    for (let g = 0; g < G; g++) {
+      const mid = Math.max(1e-3, at + width[g] / 2);
+      at += width[g];
+      need[g] = Math.max(P.bandMin, (2 * count.get(vals[g]) * P.bandPack * k2) / (Math.PI * mid));
+      sumNeed += need[g];
+      sumWant += want[g];
+    }
+    if (sumNeed >= P.rimInset) {
+      /* The disc is full: every band is squeezed by the same factor, so the
+         ORDER survives even when the room does not. */
+      const f = P.rimInset / sumNeed;
+      for (let g = 0; g < G; g++) width[g] = need[g] * f;
+    } else {
+      const slack = P.rimInset - sumNeed;
+      for (let g = 0; g < G; g++) {
+        width[g] = need[g] + slack * (sumWant > 0 ? want[g] / sumWant : 1 / G);
+      }
+    }
+  }
+
+  const lo = new Array(G), hi = new Array(G);
+  {
+    let at = 0;
+    for (let g = 0; g < G; g++) { lo[g] = at; at += width[g]; hi[g] = at; }
+    /* Rounding drift over ~1,900 groups must not push the last band past the
+       rim, because the rim is a wall the solver enforces separately. */
+    hi[G - 1] = Math.min(hi[G - 1], P.rimInset);
+  }
+
+  const index = new Map(vals.map((v, g) => [v, g]));
+  const groups = vals.map((v, g) => ({ score: v, n: count.get(v), lo: lo[g], hi: hi[g], target: t[g] }));
+  let widest = null;
+  for (const g of groups) if (g.n > 1 && (!widest || g.hi - g.lo > widest.hi - widest.lo)) widest = g;
+
+  return { scoreMax: sMax, normalised: div !== 1 && P.normalise, div, groups, widest, index, vals, lo, hi, t };
+}
+
 /* ── the solve ───────────────────────────────────────────────────────────────
 
    `scores` : { filmKey -> 0..1 }, every film in the corpus, from match.js.
@@ -425,11 +601,26 @@ function layoutMatch(scores, opts) {
 
   const x = new Float64Array(n), y = new Float64Array(n);
   const rT = new Float64Array(n), stiff = new Float64Array(n);
+  const bLo = new Float64Array(n), bHi = new Float64Array(n);
   const dx = new Float64Array(n), dy = new Float64Array(n);
+
+  /* THE FENCE. One band per distinct score, in score order — see the header.
+     Nothing below may move a film out of its own band, so "a better answer is
+     drawn nearer" is a property of the arrangement rather than of the outcome. */
+  const B = P.bands === false ? null : matchBands(scores, P);
 
   for (let i = 0; i < n; i++) {
     const s = Math.max(0, Math.min(1, scores[keys[i]] || 0));
-    rT[i] = P.rimInset * Math.pow(1 - s, P.radialExp);
+    const g = B ? B.index.get(s) : undefined;
+    const lo = g === undefined ? 0 : B.lo[g];
+    const hi = g === undefined ? P.rimInset : B.hi[g];
+    bLo[i] = lo; bHi[i] = hi;
+    /* The spring still pulls to the score's own target; the band only says how
+       far the crowd may carry it away from that. A band narrower than its
+       target's distance from it simply pins the target to the near edge. */
+    const pad = Math.min((hi - lo) * 0.5, 1e-4);
+    const t = g === undefined ? P.rimInset * Math.pow(1 - s, P.radialExp) : B.t[g];
+    rT[i] = Math.min(hi - pad, Math.max(lo + pad, t));
     stiff[i] = P.stiffFloor + (1 - P.stiffFloor) * Math.pow(s, P.stiffExp);
 
     const a = bearings[keys[i]] === undefined ? hashAngle(keys[i]) : bearings[keys[i]];
@@ -551,15 +742,29 @@ function layoutMatch(scores, opts) {
         x[i] += dx[i] * s;
         y[i] += dy[i] * s;
       }
-      /* hard wall at the rim: the disc is the whole world and nothing leaves it.
-         Reflecting rather than clamping stops a rim crowd welding itself into a
-         one-film-thick circle, which is what a clamp produces. */
+      /* THE BAND IS A WALL ON BOTH SIDES, and the rim is the outer wall of the
+         outermost band. Reflecting rather than clamping stops a crowd welding
+         itself into a one-film-thick circle, which is what a clamp produces;
+         the reflection is bounded by the far edge so a band narrower than the
+         overshoot cannot bounce a film out through its other side. */
       const ox = x[i] - 0.5, oy = y[i] - 0.5;
       const r = Math.hypot(ox, oy) * 2;
-      if (r > P.rimInset) {
-        const back = (2 * P.rimInset - r) / r;
-        x[i] = 0.5 + ox * back;
-        y[i] = 0.5 + oy * back;
+      let want = r;
+      if (r > bHi[i]) want = Math.max(bLo[i], 2 * bHi[i] - r);
+      else if (r < bLo[i]) want = Math.min(bHi[i], 2 * bLo[i] - r);
+      if (want > P.rimInset) want = P.rimInset;
+      if (want !== r) {
+        if (r < 1e-9) {
+          /* exactly on the centre with a band that excludes it: leave along the
+             film's own bearing, deterministically */
+          const a = bearings[keys[i]] === undefined ? hashAngle(keys[i]) : bearings[keys[i]];
+          x[i] = 0.5 + 0.5 * want * Math.cos(a);
+          y[i] = 0.5 + 0.5 * want * Math.sin(a);
+        } else {
+          const back = want / r;
+          x[i] = 0.5 + ox * back;
+          y[i] = 0.5 + oy * back;
+        }
       }
     }
   }
@@ -575,10 +780,16 @@ function layoutMatch(scores, opts) {
 /* ── the honest radius, for anything that wants to read it back ──────────────
    The renderer should never re-derive "how good was this match" from the drawn
    position: intra-tie spread means the drawn radius is faithful in ORDER, not
-   in value. Ask for the score. */
+   in value, and since v2 the radius is also relative to what the query could
+   reach. Ask for the score. Pass `scoreMax` to get the mapping this query
+   actually used. */
 function targetRadius(score, opts) {
   const P = Object.assign({}, DEFAULTS, opts || {});
-  return P.rimInset * Math.pow(1 - Math.max(0, Math.min(1, score)), P.radialExp);
+  const div = P.scoreMax !== null && P.scoreMax !== undefined
+    ? Math.max(0, Math.min(1, P.scoreMax)) : 1;
+  const s = Math.max(0, Math.min(1, score));
+  const u = div > 0 ? Math.min(1, s / div) : 0;
+  return P.rimInset * Math.pow(1 - u, P.radialExp);
 }
 
-module.exports = { layoutMatch, skyBearings, hashAngle, targetRadius, DEFAULTS, MATCH_LAYOUT_VERSION };
+module.exports = { layoutMatch, matchBands, skyBearings, hashAngle, targetRadius, DEFAULTS, MATCH_LAYOUT_VERSION };

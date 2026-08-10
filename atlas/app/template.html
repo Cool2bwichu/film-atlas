@@ -1037,6 +1037,21 @@ main{flex:1;position:relative;overflow:hidden}
   text-transform:uppercase;color:var(--faint)}
 .find-mark:not(.off):hover,.find-mark:not(.off):focus-visible{border-left-color:var(--accent)}
 .find-honest{margin-top:11px;padding-top:9px;border-top:1px solid var(--hair)}
+/* THE SENTENCE ARGUING WITH ITSELF, AND THE PART OF THE ANSWER THE DISTANCE
+   CANNOT CARRY. Both are prose about the reading rather than claims inside it,
+   so they take the slate's quiet register and the serif's readable one in the
+   same pairing every other honesty block in this box uses. --dim is 7.6:1 and
+   --faint 5.0:1 on this ground; nothing here goes under the floor. */
+.find-conflicts,.find-miss{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.find-conflict,.find-miss-row{display:flex;flex-direction:column;gap:2px;
+  padding:6px 8px;border-left:1px solid var(--hair)}
+.find-conflict{border-left-color:var(--rebuttal,#D15D53)}
+.find-conflict b,.find-miss-row b{font-weight:400;font-family:var(--serif);font-size:12px;
+  line-height:1.3;color:var(--ink)}
+.find-miss-row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim)}
+.find-conflict span,.find-miss-row span{font-family:var(--serif);font-size:11.5px;
+  line-height:1.45;color:var(--dim)}
 .find-honest span{display:block;margin-top:5px;font-family:var(--mono);font-size:8.5px;
   letter-spacing:.11em;line-height:1.6;color:var(--faint);text-transform:none}
 .find-honest span:first-child{color:var(--dim)}
@@ -1058,9 +1073,45 @@ main{flex:1;position:relative;overflow:hidden}
   background:none;color:var(--faint);cursor:pointer;
   font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase}
 .find-either:hover,.find-either:focus-visible{color:var(--dim)}
-/* The query's readout is the tallest thing this box ever holds after a route,
-   so it takes the same room a route does rather than the resting cap. */
-.sky-readbox.find{max-height:100%}
+/* THE READOUT IS CAPPED AT EVERY WIDTH, AND IT IS A GEOMETRY FIX RATHER THAN
+   A TASTE ONE. This rule used to read `max-height:100%` — "the query's readout
+   is the tallest thing this box ever holds, so it takes the same room a route
+   does". What that actually bought, measured:
+
+     900x820 — the box laid out 632x657 over a 900x750 canvas, `skySafeBand`
+     collapsed under its own 140px floor and returned the WHOLE canvas as safe,
+     the camera fitted to it, and 551 of 551 sampled film positions returned the
+     readout from elementFromPoint. Every film the sentence answered was
+     invisible and unclickable, behind the panel describing it.
+
+     1440x900 — the follow-up offers land ~1.2s after the flight and took the
+     box to 721px of an 830px field. Same collapse: the safe band went from
+     379px to the full 830, the frame on screen carried discs at 1.371px where
+     the same state redraws them at 2.300px, and camera k sat at 349 against a
+     fit of 763.6.
+
+   Both are the same defect and it is not the readout's content, it is that the
+   readout had no ceiling. A panel that covers the field has eaten the thing it
+   is describing — which is the argument .sky-read's own comment already makes
+   about a Passage, applied to the box that grows the most. Capped at 46vh, the
+   band is 340-425px at every width measured and the box scrolls. 38vh rather
+   than half the field because the band is what sets the zoom: at 46vh the
+   constellation fitted to a 326px band and drew at a 150px radius, against
+   195px at 38vh, and the readout scrolls where the picture cannot.
+
+   A ROUTE IS STILL EXEMPT, for the reason DESIGN.md gives: during a Passage the
+   claims ARE the content. Everything else, including the reading, is not. */
+.sky-readbox:not(.route){max-height:min(38vh,380px)}
+/* AND THE READING'S BOX IS A FIXED HEIGHT, NOT A CAP, WHICH IS RULE 7.
+   The offers cost 300-400ms and land about 1.2s after the flight, so under a
+   cap the box is one height before they arrive and another after — and the
+   camera is fitted to the band the box leaves. Two cold loads of one address
+   then draw two pictures depending on which side of that the frame was taken:
+   measured, 38 of 256 tiles and 38.7 luma apart. The frame is a function of the
+   chrome, so the chrome may not be a function of content that has not arrived
+   yet. Fixed, the band is the same from the first paint and the reading scrolls
+   inside a box that never moves the picture it is describing. */
+.sky-readbox.find{height:min(38vh,380px)}
 /* The door out of the dead end, in the suggestion list. */
 .sugg-find .sugg-find-mark{display:flex;align-items:center;justify-content:center;
   width:34px;height:50px;flex-shrink:0;color:var(--accent);font-size:15px}
@@ -6103,11 +6154,30 @@ function skyHaloBuild(k,ox,oy){
   const gapPx=SKY_GAP/Math.sqrt(Math.max(1,sky.n))*sky.cam.k;
   const R=Math.max(3,Math.min(90,SKY_HALO_GAPS*gapPx))*dpr*scale*0.5;
   const px=dpr*scale;
+  /* A FILM NOBODY READ THROWS LESS LIGHT, AND THAT IS WHERE RULE 3 ACTUALLY
+     LANDS ON THIS PLATE. The disc loop withholds the fill for an unread film —
+     right, and measured useless on its own: at the resting 1.46px disc the
+     hollow centre read +146.3 luma against a filled +151.6, AUC 0.591 against
+     a 0.90 gate, because THIS PASS put the film's own halo straight back into
+     the hole the ring left. The halo is a ~15px kernel and the hole is one
+     pixel; the ring could not win that argument at any line width.
+
+     So the confidence is carried by the light, which is the one channel a
+     2px dot has left. Position and size are untouched — AGENTS rule 1 owns
+     both, and neither may say "we did not read this one". The integral this
+     pass computes is still the integral of the plate; a film the corpus never
+     read simply contributes less of itself to it, which is the truthful
+     statement rather than a decorative one.
+
+     QC is null except under a typed reading, so every other picture this view
+     draws pays one property read per film and nothing else. */
+  const QCH=sky.qcov;
   g.globalAlpha=0.26;
   for (let i=0;i<sky.n;i++){
     if (A[i]<=0.004) continue;
     const x=SX[i]*px, y=SY[i]*px;
     if (x<rx0-R||y<ry0-R||x>rx1+R||y>ry1+R) continue;
+    if (QCH) g.globalAlpha = QCH[i] ? 0.055 : 0.26;
     g.drawImage(skyHaloSprite(sky.glow[i]),x-R,y-R,R*2,R*2);
   }
   g.globalAlpha=1;
@@ -7429,6 +7499,45 @@ function skyDraw(){
        sky.qcov; QC is null except under a typed reading, so this is one test
        not taken in every other picture this view draws. */
     if (QC && QC[i]){
+      /* THE HOLE HAS TO SURVIVE THE DISC, AND AT THE RESTING ZOOM IT DID NOT.
+         Measured on the composited canvas over isolated discs (nearest
+         neighbour >= 6px), a 1.64px disc separated hollow from filled at AUC
+         0.591 against a 0.90 gate — barely above the 0.5 of two populations a
+         reader cannot tell apart — and 0 of 163 hollow discs were even half as
+         dark at the centre as a median filled one. The draw calls were right:
+         563 strokes for exactly the 563 films with no reading. The GEOMETRY was
+         not. At r*0.92 with a max(0.7, r*0.42) line, the ring leaves a hole
+         about one pixel across, and the integration pass — halation, a ~22px
+         kernel — puts the surrounding ink straight back into it. Pushed in to
+         3.45px the same films separated at AUC 0.976, which is what says the
+         grammar was real and the size could not carry it.
+
+         So below ~3px the confidence is carried by something a 2px dot can
+         hold. The ring stays — it is the grammar, and it reads the moment the
+         reader zooms — and it is drawn on LESS INK, because ink is what a
+         single pixel has. Nothing about position or size moves: AGENTS rule 1
+         governs both of those and neither may say "we did not read this one". */
+      /* THE HOLE IS PUNCHED, NOT LEFT. Leaving it was the whole defect: the
+         integration pass is blitted beneath the discs with a ~15px kernel, so
+         whatever the ring declined to paint, the plate's own halation painted
+         back. Dimming this film's own halo moved the hollow centre from +146.3
+         luma to +144.8 against a filled +152.1 — because at this density the
+         light in that pixel is mostly its NEIGHBOURS' halos, and no property of
+         this film can be expected to remove those.
+         destination-out takes the pixel out of the plate instead, so the hole
+         is a hole in the print: ground, at the centre of the disc, at every
+         zoom and at every density. Nothing about position or size changes —
+         rule 1 owns both — and the ring is still drawn at full ink on top, so
+         the grammar reads exactly as it always did once the reader pushes in. */
+      const core=Math.max(0.55, r*0.50);
+      const keepA=ctx.globalAlpha, keepOp=ctx.globalCompositeOperation;
+      ctx.globalCompositeOperation="destination-out";
+      ctx.globalAlpha=1;
+      ctx.beginPath();
+      ctx.arc(px,py,core,0,TAU);
+      ctx.fill();
+      ctx.globalCompositeOperation=keepOp;
+      ctx.globalAlpha=keepA;
       ctx.beginPath();
       ctx.arc(px,py,r*0.92,0,TAU);
       ctx.lineWidth=Math.max(0.7,r*0.42);
@@ -7864,6 +7973,42 @@ function skyFoldApply(){
    makes when the strip rolls up, and for the same reason. Only when nothing
    else owns the camera: a reader who has panned somewhere has said where they
    want to be, and a fold is not a request to be moved. */
+/* ONE ANSWER TO "THE CHROME MOVED, NOW WHAT". The readout is in the camera's
+   safe band and in the label placer's obstacle list, so any repaint that
+   changes its height changes the frame — and a frame nothing repaints into is
+   a frame the reader is looking at and the state does not draw. Only when
+   nothing else owns the camera: a reader who has panned somewhere has said
+   where they want to be, and a box growing under them is not a request to move. */
+function skyRefitAfterChrome(ms){
+  const was=skySafeBand();
+  sky.chrome=null;
+  const now=skySafeBand();
+  /* RULE 7 BEFORE EVERYTHING. Re-fitting unconditionally makes the camera
+     depend on WHETHER the flight had finished when the offers landed, which is
+     a race, and a race is a different picture for the same address — measured,
+     38 of 256 tiles differed between two cold loads of one sentence. The fit
+     is only touched when the band it is a function of actually moved, so a
+     repaint that changes nothing changes nothing. */
+  if (Math.abs(now.top-was.top)<0.5 && Math.abs(now.bot-was.bot)<0.5){
+    skyPlaceLabels(); skyRender(); return;
+  }
+  if (!(state.view==="sky" && sky.ready && !sky.anim && !sky.form
+        && !skyInHand() && !sky.orbitKey && !sky.passage.from)){
+    skyPlaceLabels(); skyRender(); return;
+  }
+  if (sky.query && sky.query.drawn){
+    /* A query sky is fitted to its own point cloud, exactly as skyFormTo fits
+       it — not to skyFitCam, which is the whole atlas's fit. */
+    skyFitFiltered(ms===undefined?620:ms);
+  } else if (skyFilterOn() && sky.visibleN){
+    skyFitFiltered(ms===undefined?620:ms);
+  } else {
+    const f=skyFitCam(); skyGo(f.cx,f.cy,f.k,ms===undefined?620:ms);
+  }
+  skyPlaceLabels();
+  skyRender();
+}
+
 function skyFoldToggle(){
   state.skyFolded=!(state.skyFolded===true);
   persistPreferences();
@@ -8457,8 +8602,17 @@ window.__ATLAS_SKY__ = {
       offers:(r.offers||[]).map(o=>({attr:o.attr,value:o.value,brings:o.brings.slice()})),
       taken:q.taken.slice(), spent:q.spent.slice(),
       coverage:r.coverage||null, capped:(r.capped||[]).map(c=>c.label),
+      /* query-parse.js's contract says a contradiction must be SHOWN. It could
+         not be: this object did not carry it, so no view could reach it. */
+      conflicts:(r.conflicts||[]).map(c=>({terms:c.terms.slice(),text:c.text,against:c.against})),
+      frontMiss:(r.frontMiss||[]).map(x=>({label:x.label,zero:x.zero,unknown:x.unknown,of:x.of})),
+      headroom:r.headroom||null,
+      bands: q.bands ? { groups:q.bands.groups.length, scoreMax:q.bands.scoreMax,
+        normalised:!!q.bands.normalised,
+        widest:q.bands.widest?{n:q.bands.widest.n,span:q.bands.widest.hi-q.bands.widest.lo}:null } : null,
       tension:(r.tension||[]).map(t=>({label:t.label,churn:t.churn,honoured:t.honoured})),
-      top:(r.top||[]).slice(0,10).map(t=>({key:t.key,score:t.score,coverage:t.coverage})),
+      top:(r.top||[]).slice(0,10).map(t=>({key:t.key,score:t.score,coverage:t.coverage,
+        misses:(t.misses||[]).slice(),held:t.held,of:t.of})),
       bearings: findBearings ? findBearings.__hit : 0,
       buildMs: Math.round(findBuildMs),
     };
@@ -8652,8 +8806,17 @@ function skyQueryRun(text, opts){
     }
     sky.qcov=cov;
   }
+  /* THE BAND TABLE IS PART OF THE ANSWER, NOT PART OF THE SOLVE. matchBands is
+     a pure function of the scores — no relaxation, no randomness — so the slate
+     can quote the same arithmetic the layout used rather than re-deriving a
+     radius from the picture, which is the one thing layout-match.js's own
+     header tells callers never to do. */
+  let bands=null;
+  if (r.drawable){
+    try{ bands=FIND_LAYOUT.matchBands(r.scores); }catch(error){ bands=null; }
+  }
   sky.query = {
-    text: raw, r,
+    text: raw, r, bands,
     taken: (o.taken||[]).slice(), spent: (o.spent||[]).slice(),
     /* Set here rather than after the solve, because skyTpApply below asks
        skyQueryOn() whether the century may stand under this picture and the
@@ -8679,12 +8842,47 @@ function skyQueryRun(text, opts){
   skySyncHash();
 
   if (!r.drawable){
-    /* REFUSING TO DRAW IS THE POINT, NOT A MISSING FEATURE. Three of the four
-       refusals would otherwise produce a picture that is convincing and false:
-       a negation-only reading puts 1,346 of 2,204 films at exactly 1.000, which
-       layoutMatch draws as an inner ring holding 61% of the corpus. The slate
-       says which refusal it is and what to type instead; whatever the field was
-       showing goes back to the whole atlas so nothing is captioned wrongly. */
+    /* THE FOUR REFUSALS ARE NOT ONE THING, AND ONE OF THEM WAS WRONG.
+       Three of them would otherwise produce a picture that is convincing and
+       false, and they still refuse: a negation-only reading puts 1,346 of 2,204
+       films at exactly 1.000, which layoutMatch draws as an inner ring holding
+       61% of the corpus; a record-only sentence names filing facts that AGENTS
+       rule 8 forbids scoring; no-denominator means every term in the reading is
+       one the corpus cannot speak to at all.
+
+       "NOTHING READ" IS DIFFERENT, and putting the resting atlas back for it
+       was a defect measured against the owner's own words: "BUT those films can
+       still live in the constellation. they might just exist a bit further away
+       then the films who are more closely related". A sentence nobody could
+       read is the limit of that rule, not an exception to it — every film
+       answers it equally badly, every score is 0, and layout-match.js has
+       always drawn that state deliberately: a shell with a hollow middle that
+       says "nothing here answered you" in its shape before a single title is
+       read. The words still come back unread in the slate, and the headline
+       still says the vocabulary did not hold them. What changes is that
+       distance now answers, instead of the picture quietly reverting to an
+       atlas that is about nothing the reader typed.
+
+       The four codes are named in DESIGN.md under "what an unanswerable
+       sentence draws", so this is a settled ruling rather than a branch. */
+    if (r.refusal && r.refusal.code==="no-reading"){
+      skyStratumRender();
+      skyFindRender();
+      skyRender();
+      const zeroToken=sky.query;
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        if (sky.query!==zeroToken) return;
+        const flat=Object.create(null);
+        for (const k of sky.keys) flat[k]=0;
+        let target=null;
+        try{ target=skyTargetQuery(flat); }catch(error){ target=null; }
+        if (!target){ skyFormTo(skyTargetHome(),{ms:SKY_FORM_MS,label:""}); return; }
+        zeroToken.drawn=true;
+        skyFormTo(target,{ms:SKY_FORM_MS,label:raw});
+        skyFindRender();
+      }));
+      return true;
+    }
     if (wasDrawn || sky.formKind!=="whole") skyFormTo(skyTargetHome(),{ms:SKY_FORM_MS,label:""});
     else { skyStratumRender(); skyReadout(); }
     skyFindRender();
@@ -8721,7 +8919,22 @@ function skyQueryRun(text, opts){
     setTimeout(()=>{
       if (sky.query!==token || !token.r.drawable) return;
       try{ token.r.deepen(); }catch(error){ return; }
-      if (sky.query===token) skyFindRender();
+      if (sky.query!==token) return;
+      skyFindRender();
+      /* THE OFFERS CHANGE THE HEIGHT OF THE BOX, AND THE BOX IS THE FRAME.
+         skyReadout invalidates sky.chrome, and nothing then re-measured, re-fit
+         or repainted — so the reader kept the frame the flight had solved for a
+         readout that no longer exists. Measured at 1440x900: the box went to
+         721px, the safe band moved, and the picture on screen carried discs at
+         1.371px where the same state redraws them at 2.300px. Verified
+         idle-stable over 900ms, i.e. it never corrected itself.
+         This is the correction skyFoldToggle already makes when the fold
+         changes the box height, on the same condition: only when nothing else
+         owns the camera. */
+      requestAnimationFrame(()=>{
+        if (sky.query!==token) return;
+        skyRefitAfterChrome();
+      });
     }, SKY_FORM_MS+60);
   }));
   return true;
@@ -8756,9 +8969,11 @@ function skyQuerySpend(attr){
   if (!q) return;
   skyQueryRun(q.text,{taken:q.taken,spent:q.spent.concat([attr])});
 }
-function skyQueryDrop(i){
+function skyQueryDrop(spec){
   const q=sky.query;
   if (!q) return;
+  const list=String(spec).split(",").map(Number).filter(Number.isFinite);
+  const i=list[0];
   if (i>=0 && i<q.taken.length){
     const taken=q.taken.slice(); taken.splice(i,1);
     skyQueryRun(q.text,{taken,spent:q.spent});
@@ -8767,13 +8982,21 @@ function skyQueryDrop(i){
   /* Dropping one of the reader's OWN readings edits the sentence, because the
      sentence is what the address carries and what a second person would read.
      Removing the span rather than suppressing the clause keeps those two the
-     same thing. */
-  const rd=q.r.readings[-i-1];
-  if (!rd) return;
+     same thing.
+
+     ALL THE SPANS OF ONE CHIP, not the first of them. A chip that says "said
+     ×45" is one clause and its × has to take back the clause; leaving 44 copies
+     in the sentence would take back nothing the scorer was doing. The spans are
+     cut back-to-front so an earlier cut cannot move a later offset. */
+  const rds=list.map(n=>q.r.readings[-n-1]).filter(Boolean)
+    .sort((a,b)=>b.start-a.start);
+  if (!rds.length) return;
+  let cut=q.text;
+  for (const rd of rds) cut=cut.slice(0,rd.start)+cut.slice(rd.end);
   /* The span comes out of the sentence and the punctuation around it closes up,
      because the sentence is what the address carries and "a film that has , has
      the mood of" is not something a second reader should be sent. */
-  const next=(q.text.slice(0,rd.start)+q.text.slice(rd.end))
+  const next=cut
     .replace(/\s+,/g,",")
     .replace(/,(\s*,)+/g,",")
     .replace(/\s{2,}/g," ")
@@ -8810,34 +9033,64 @@ let findFocusKey=null;                 /* the attribute whose gloss is open */
    identical chips describes our machinery rather than their sentence — and the
    × on each would take back a quarter of a phrase, which is not a thing anybody
    typed. The terms are listed inside the one chip instead. */
+/* AND ONE CHIP PER CLAUSE THE SCORER ACTUALLY RUNS, not one per repetition of
+   it. A 500-word sentence built from 11 vocabulary words repeated 45 times each
+   rendered 500 chips: #sky-read scrollHeight 7,038px inside a 708px box, the
+   last chip at y=6,702, and the follow-up offers ~6,300px below the fold. The
+   parser is not the problem — it deduplicates correctly, combining the repeated
+   weights by MAX, and hands back 11 clauses. It is this function that described
+   500 things the query does not contain, because it grouped by (span, position)
+   and 45 positions are 45 groups.
+
+   The two levels are both needed and they are different questions. said+start
+   is "one span the reader typed" — it is what merges the four attributes of
+   "the mood of the matrix" into one chip. The second pass is "one clause the
+   scorer runs", and it merges the forty-five identical spans into one chip
+   carrying a count. The × then takes back ALL of them, because taking back a
+   forty-fifth of a repeated word is not a thing anybody asked for. */
 function findGroupReadings(readings){
-  const groups=[];
+  const spans=[];
   const at=new Map();
   readings.forEach((rd,i)=>{
     const id=rd.said+"|"+rd.start+"|"+(rd.negate?1:0);
     let g=at.get(id);
     if (!g){ g={said:rd.said, start:rd.start, end:rd.end, negate:rd.negate, kind:rd.kind,
-                film:rd.film, note:rd.note, terms:[], labels:[], weights:[], first:i};
-             at.set(id,g); groups.push(g); }
+                film:rd.film, note:rd.note, terms:[], labels:[], weights:[], first:i, all:[]};
+             at.set(id,g); spans.push(g); }
     g.terms.push(rd.terms[0]);
     g.labels.push(rd.label);
     g.weights.push(rd.weight);
+    g.all.push(i);
   });
+  const groups=[];
+  const byClause=new Map();
+  for (const g of spans){
+    const key=g.said.toLowerCase()+"\u0000"+[...new Set(g.labels)].join("\u0001")+"\u0000"+(g.negate?1:0);
+    const seen=byClause.get(key);
+    if (seen){ seen.count++; seen.all=seen.all.concat(g.all); continue; }
+    g.count=1;
+    byClause.set(key,g);
+    groups.push(g);
+  }
   return groups;
 }
 function findChipHTML(g){
   const said=esc(g.said);
   const label=esc([...new Set(g.labels)].join(" · "));
   const w = (g.weights.length===1 && g.weights[0]!==1) ? `<i>×${g.weights[0]}</i>` : "";
+  /* The repeat count is the reader's own sentence reported back, not ours: they
+     did type it forty-five times, and the scorer ran it once. */
+  const rep = g.count>1 ? `<i>said ×${g.count}</i>` : "";
   const neg = g.negate ? `<em>not</em> ` : "";
   const focus = g.terms.includes(findFocusKey) ? findFocusKey : g.terms[0];
+  const drop = g.all.map(i=>-i-1).join(",");
   return `<span class="find-chip${g.negate?" neg":""}">`+
     `<button type="button" class="find-chip-face" data-gloss="${esc(focus||"")}" `+
       `aria-expanded="${findFocusKey&&g.terms.includes(findFocusKey)?"true":"false"}">`+
       `<span class="said">${said}</span>`+
-      `<span class="ours">${neg}${label}${w}</span>`+
+      `<span class="ours">${neg}${label}${w}${rep}</span>`+
     `</button>`+
-    `<button type="button" class="find-chip-x" data-drop="${-g.first-1}" `+
+    `<button type="button" class="find-chip-x" data-drop="${drop}" `+
       `aria-label="Take back &quot;${said}&quot;">&times;</button></span>`;
 }
 
@@ -8850,6 +9103,11 @@ function skyFindSlate(){
   if (r.refusal){
     out.push(`<span class="t">${esc(r.refusal.headline)}</span>`);
     out.push(`<span class="find-say">${esc(r.refusal.detail)}</span>`);
+    if (r.refusal.code==="no-reading" && q.drawn){
+      out.push(`<span class="find-note">The atlas is still drawn, and it is drawn as the answer: `+
+        `every film answers this equally badly, so every film is the same distance out and the `+
+        `middle is empty. Nothing has been removed — the shape is the reading.</span>`);
+    }
   }
 
   const groups=findGroupReadings(r.readings);
@@ -8863,6 +9121,29 @@ function skyFindSlate(){
       `<span class="find-chip added"><span class="find-chip-face"><span class="said">you chose</span>`+
       `<span class="ours">${esc(FIND_ENGINE.labelOf(t.attr))}</span></span>`+
       `<button type="button" class="find-chip-x" data-drop="${i}" aria-label="Take that back">&times;</button></span>`).join("")}</div>`);
+  }
+
+  /* THE READER'S OWN SENTENCE ARGUING WITH ITSELF, WHICH THE ENGINE HAS ALWAYS
+     DETECTED AND THE INTERFACE NEVER SAID. query-parse.js's own contract, at
+     the top of the clause pass: "A contradiction (said and un-said) is kept and
+     reported: the interface must show it, not silently pick a side." It was
+     kept and it was not reported — `grep -c conflicts template.html` was 0, and
+     `conflicts` was not even among the keys __ATLAS_SKY__.query() exposed, so
+     the field was unreachable from the view layer at all. Typing "a very
+     violent film with nothing violent in it" drew Salò at 0.975 dead centre
+     under two chips that say the opposite of each other and no third word.
+     Which side the arithmetic took is named, because that is the part the
+     reader cannot see from the picture. */
+  const cf=(r.conflicts||[]);
+  if (cf.length){
+    out.push(`<span class="y" style="margin-top:9px">you said both</span>`);
+    out.push(`<div class="find-conflicts">${cf.map(c=>{
+      const label=c.terms.map(a=>{ try{ return FIND_ENGINE.labelOf(a); }catch(_e){ return a; } }).join(" · ");
+      return `<span class="find-conflict"><b>“${esc(c.against)}”</b> and <b>“${esc(c.text)}”</b>`+
+        `<span>Both point at ${esc(label)}. The atlas kept both and scored the `+
+        `LAST one — “${esc(c.text)}” — so the sky in front of you is the one that `+
+        `answers that. Take either chip back with its × to see the other picture.</span></span>`;
+    }).join("")}</div>`);
   }
 
   /* The widening note prints verbatim. "the mood of the matrix" reaches exactly
@@ -8923,12 +9204,62 @@ function skyFindSlate(){
         `Any film drawn hollow further out is one the corpus never read.</span>`)+
     (c.tiedAtTop>1
       ? `<span>${c.tiedAtTop} films share the top score of ${c.topScore.toFixed(3)}. That is a tie, not an order.</span>` : "")+
+    /* WHAT THE BEST ANSWER ACTUALLY REACHED. layout-match.js normalises the
+       radius against this so the centre of the picture holds the best the
+       corpus has; without this line that normalisation would be flattery. The
+       old "Nothing can reach 1.000 here" fires only when a clause's CEILING is
+       unreachable and was silent on the owner's own sentence, where the best
+       score is 0.381 of what was asked. */
+    (r.headroom && r.headroom.best < 0.995
+      ? `<span>The centre is the best this corpus has, not a perfect answer: `+
+        `the closest anything gets is ${r.headroom.best.toFixed(3)} of everything you asked for. `+
+        `Distance is measured against that, so the middle is occupied rather than empty.</span>` : "")+
+    /* WHERE DISTANCE STOPS MEANING ANYTHING, IN THE PICTURE'S OWN UNITS. The
+       only tie sentence this slate had fired on tiedAtTop, which is 1 for most
+       sentences, so the intra-tie spread — 60% of the whole radial range at its
+       worst — was never disclosed at all. */
+    (q.bands && q.bands.widest && q.bands.widest.n>1
+      ? `<span>${q.bands.widest.n} films the score declined to order are spread over `+
+        `${Math.round((q.bands.widest.hi-q.bands.widest.lo)*100)}% of the distance from the centre to the rim. `+
+        `That is a tie, not an order: inside one of those rings what you see is the atlas's own `+
+        `angular order, and no film in it is drawn nearer than a film that scored better.</span>` : "")+
     (r.capped.length
       ? `<span>Nothing can reach 1.000 here: ${r.capped.map(x=>esc(x.label)).join(", ")} `+
         `${r.capped.length===1?"is":"are"} held at full strength by `+
         `${r.capped.map(x=>x.filmsAtFull).join("/")} film${r.capped[0].filmsAtFull===1?"":"s"} in the whole corpus, `+
         `so the ceiling is above anything that exists.</span>` : "")+
     `</div>`);
+
+  /* WHAT THE FRONT OF THE SKY DOES NOT HOLD, CLAUSE BY CLAUSE.
+     The blocker this answers: on the owner's own sentence the film drawn
+     nearest the centre scored EXACTLY ZERO on "fast pacing" and on "hopeful",
+     the first and third things he typed, and the page printed one tension line
+     about "hopeful" and nothing at all about the pace. explain() has returned
+     the per-clause table from the first commit; nothing ever showed it. */
+  const fm=(r.frontMiss||[]).filter(x=>x.zero>=Math.max(2,x.of*0.34));
+  if (fm.length){
+    out.push(`<span class="y" style="margin-top:11px">what the nearest films do not hold</span>`);
+    out.push(`<div class="find-miss">${fm.map(x=>
+      `<span class="find-miss-row"><b>${esc(x.label)}</b>`+
+      `<span>${x.zero} of the nearest ${x.of} score zero on it`+
+      (x.unknown?` · ${x.unknown} were never read for it`:"")+`</span></span>`).join("")}</div>`);
+    out.push(`<span class="find-note">A film can be near the centre and still `+
+      `answer none of that: the score is a weighted mean over everything you said, `+
+      `held down by how much of it each film actually holds. This is the part the `+
+      `distance cannot say.</span>`);
+  }
+  /* AND PER FILM, FOR THE ONES THE READER IS LOOKING AT. */
+  const nearest=(r.top||[]).slice(0,5).filter(t=>t.misses && t.misses.length);
+  if (nearest.length){
+    out.push(`<span class="y" style="margin-top:11px">nearest first, and what each one misses</span>`);
+    out.push(`<div class="find-miss">${(r.top||[]).slice(0,5).map(t=>
+      `<span class="find-miss-row"><b>${esc(t.title||t.key)}</b>`+
+      `<span>${t.held} of ${t.of} · ${t.misses.length
+        ? "no "+t.misses.map(esc).join(", no ")
+        : "nothing you asked for is missing"}${
+        t.unreadClauses && t.unreadClauses.length
+          ? " · never read for "+t.unreadClauses.length+" of them" : ""}</span></span>`).join("")}</div>`);
+  }
 
   for (const t of (r.tension||[])){
     out.push(`<span class="find-note tension">Your own words pull apart here: drop `+
@@ -8971,7 +9302,7 @@ function skyFindRender(){
    rewritten wholesale (the same discipline every other panel in this view
    uses). */
 function skyFindBind(box){
-  box.querySelectorAll("[data-drop]").forEach(b=>b.onclick=()=>skyQueryDrop(+b.dataset.drop));
+  box.querySelectorAll("[data-drop]").forEach(b=>b.onclick=()=>skyQueryDrop(b.dataset.drop));
   box.querySelectorAll("[data-take]").forEach(b=>b.onclick=()=>skyQueryTake(b.dataset.take));
   box.querySelectorAll("[data-spend]").forEach(b=>b.onclick=()=>skyQuerySpend(b.dataset.spend));
   box.querySelectorAll("[data-gloss]").forEach(b=>b.onclick=()=>{

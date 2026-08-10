@@ -1705,16 +1705,40 @@ attributes of `pipeline/consensus-vocab.json`, scored by `pipeline/match.js`,
 and placed by `app/layout-match.js`. `app/query-runtime.js` is the one new file
 that assembles the four and decides whether a reading is fit to draw.
 
-### The four refusals, which are the feature
+### What an unanswerable sentence draws — settled 2026-08-10
 
-Three of them would otherwise produce a picture that is convincing and false.
+The three refusals below stand, and **`no-reading` no longer does**, which is a
+correction against the owner's own words rather than a change of mind about the
+argument. *"BUT those films can still live in the constellation. they might just
+exist a bit further away then the films who are more closely related."* A
+sentence nobody could read is the limit of that rule, not an exception to it:
+every film answers it equally badly, every score is 0, and `layout-match.js` has
+always drawn that state deliberately — a shell with a hollow middle that says
+"nothing here answered you" in its shape before a title is read. Putting the
+resting atlas back instead captioned a picture that was about nothing the reader
+typed. `zorbnax plughcromulent frobnitz wibbleflum` now forms the shell, keeps
+its unread words in the slate, and keeps the headline that says the vocabulary
+did not hold them.
 
-| refusal | measured |
-|---|---|
-| **nothing read** — "under 90 minutes, in english" | `match.js` throws `match: empty query` on `[]`; the reader gets the atlas's own admission and the unread spans instead |
-| **negation only** — "nothing violent" | 1,346 of 2,204 films tie at **exactly 1.000**; the top 60 are 60 films tied at 1.000, alphabetical from *10 on Ten*. An inner ring holding 61% of the corpus is not a constellation |
-| **out of vocabulary** | `attributeModel` returns `{known:0, sigmaMax:0, prior:0}`, so a typo contributes to **neither** numerator nor denominator — `[setting:space, typo:nope]` has denom 2.238, identical to the one-clause query. The scorer cannot report it; validation happens in the wrapper against the 59 closed ids or it happens nowhere. (`match.js:410` claims the opposite and is wrong.) |
-| **thin near band** — not a refusal, a notice | `setting:space` alone puts **30 of the top 60** on films the corpus has no opinion about at all, floating on unknown-prior credit |
+The other three still refuse, because each of them would draw something
+convincing and false rather than something empty and true. **These four codes
+are the whole answer to "what does an unanswerable sentence draw" and no fifth
+one may be added without a row in this table.**
+
+| refusal | draws | measured |
+|---|---|---|
+| **nothing read** — "zorbnax frobnitz" | **the shell** — every film at 0, the middle empty | `match.js` throws `match: empty query` on `[]`, so the scores are synthesised as zero rather than asked for; the unread spans and the headline stand above the picture |
+| **record only** — "a good western" | nothing moves; the films are **marked where they are** | genre, era, cinema and director are RECORD (AGENTS rule 8) and folding them into the same 0..1 number would be the interface pretending two kinds of claim are one |
+| **negation only** — "nothing violent" | refuses | 1,346 of 2,204 films tie at **exactly 1.000**; an inner ring holding 61% of the corpus is not a constellation |
+| **no denominator** | refuses | every term in the reading has ceiling 0, so every film would sit at the same distance and the ring would mean nothing |
+
+Two things sit beside the table and are not refusals. **Out of vocabulary** is
+caught in the wrapper — `attributeModel` returns `{known:0, sigmaMax:0,
+prior:0}`, so a typo contributes to neither numerator nor denominator and the
+scorer cannot report it; validation happens against the 59 closed ids in
+`query-runtime.js` or it happens nowhere. **A thin near band** is a notice:
+`setting:space` alone puts 30 of the top 60 on films the corpus has no opinion
+about at all, and the count is printed rather than buried.
 
 ### Rule 3 is drawn, not only written
 
@@ -1828,7 +1852,7 @@ dialogue, which it is not.
 | score, 8 clauses over 2,204 films | **30 ms** |
 | `layoutMatch`, 90 passes | **186–248 ms** in Chromium — the brief's ~50 ms and the module header's ~32 ms do not reproduce |
 | offers, 118 branches | **210 ms**, after settle |
-| Spearman(score, drawn radius) | **−0.870**, with **13.4%** of ordered pairs drawn in the wrong radial order. `layout-match.js`'s header claims −0.993 and cites `measure-match-layout.js`, which does not exist. Never re-derive strength from a radius — read `r.scores` and `explain()` |
+| Spearman(score, drawn radius) | **−0.995**, with **0.00%** of ordered pairs drawn in the wrong radial order — see *The bands* below. It was −0.870 and 13.4% wrong, and the header's −0.993 was uncited: `measure-match-layout.js` did not exist. It does now, in `pipeline/`, and `--v1` runs the old arrangement as a control (−0.863, 14.59% backwards). Never re-derive strength from a radius — read `r.scores` and `explain()` |
 | payload | attrs **39 KB** raw / 21 KB gz, vocab+lexicon+phrasings 36 KB, five modules 136 KB; artifact 9,676,663 → 9,956,303 bytes, **1,520 → 1,619 KB gzipped (+6.6%)** |
 
 The attribute payload carries a **tier byte per film** so the three consensus
