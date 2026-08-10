@@ -42,22 +42,22 @@
   "worst": {
    "baseline_reproduced": 0.24209560361755342,
    "tmdb_raw": 0.24861527029022626,
-   "fg": 0.195867547893905,
-   "mixed_raw": 0.22991030011919633,
-   "mixed_cal": 0.22991030011919633
+   "fg": 0.19605061168931665,
+   "mixed_raw": 0.22981789044361509,
+   "mixed_cal": 0.22981789044361509
   },
   "n": {
    "baseline": 220,
    "tmdb": 224,
-   "fg": 614,
-   "mixed": 728
+   "fg": 618,
+   "mixed": 732
   },
   "worst_axis_note": "worst |rho| across the seven measures vs 60-day en.wikipedia pageviews"
  },
  "bwAnchor": {
   "film-grab": {
-   "n": 216,
-   "at_zero": 174,
+   "n": 217,
+   "at_zero": 175,
    "max_chroma": 0.052
   },
   "tmdb": {
@@ -71,10 +71,10 @@
  "coverage": {
   "corpus": 2204,
   "filmgrab_matched": 904,
-  "filmgrab_attempted": 623,
-  "filmgrab_measured": 623,
+  "filmgrab_attempted": 627,
+  "filmgrab_measured": 627,
   "tmdb_only": 114,
-  "total": 737,
+  "total": 741,
   "filmgrab_no_usable_frames": []
  },
  "caveat": "film-grab coverage carries a steep fame gradient (9.7% of the quietest pageview quartile, 76.1% of the loudest), so this file has a PRECISION gradient favouring the canon: famous films get 32-frame measurements, quiet films 8-frame ones, and much of the corpus none. Never compare these numbers without carrying source and n alongside them.",
@@ -3089,6 +3089,20 @@
    "warmth": -0.00049,
    "warmspread": 0.000516
   },
+  "high noon": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 64,
+   "provenance": "https://film-grab.com/2025/08/14/high-noon/",
+   "calibrated": false,
+   "glare": 0.453886,
+   "Lrange": 0.513987,
+   "hardness": 0.193069,
+   "chroma": 0.0,
+   "chroma90": 0.0,
+   "warmth": 0.0,
+   "warmspread": 0.0
+  },
   "one wonderful sunday": {
    "source": "film-grab",
    "n": 32,
@@ -3410,6 +3424,20 @@
    "chroma90": 0.086917,
    "warmth": 0.02597,
    "warmspread": 0.063967
+  },
+  "the assassination of jesse james by the coward robert ford": {
+   "source": "film-grab",
+   "n": 27,
+   "galleryFrames": 60,
+   "provenance": "https://film-grab.com/2010/06/17/the-assassination-of-jesse-james-by-the-coward-robert-ford/",
+   "calibrated": false,
+   "glare": 0.27107,
+   "Lrange": 0.477867,
+   "hardness": 0.29414,
+   "chroma": 0.026427,
+   "chroma90": 0.045287,
+   "warmth": 0.027013,
+   "warmspread": 0.027822
   },
   "2046": {
    "source": "film-grab",
@@ -4376,6 +4404,20 @@
    "chroma90": 0.010759,
    "warmth": 0.000293,
    "warmspread": 0.000176
+  },
+  "where the wild things are": {
+   "source": "film-grab",
+   "n": 31,
+   "galleryFrames": 63,
+   "provenance": "https://film-grab.com/2010/08/10/where-the-wild-things-are/",
+   "calibrated": false,
+   "glare": 0.241387,
+   "Lrange": 0.270435,
+   "hardness": 0.219273,
+   "chroma": 0.021533,
+   "chroma90": 0.044333,
+   "warmth": 0.02585,
+   "warmspread": 0.019019
   },
   "the seventh seal": {
    "source": "film-grab",
@@ -7512,6 +7554,20 @@
    "chroma90": 0.038179,
    "warmth": -0.011714,
    "warmspread": 0.020899
+  },
+  "nineteen eighty four": {
+   "source": "film-grab",
+   "n": 32,
+   "galleryFrames": 57,
+   "provenance": "https://film-grab.com/2020/03/20/1984/",
+   "calibrated": false,
+   "glare": 0.204198,
+   "Lrange": 0.373087,
+   "hardness": 0.170293,
+   "chroma": 0.010654,
+   "chroma90": 0.019955,
+   "warmth": -0.00232,
+   "warmspread": 0.011763
   },
   "belladonna of sadness": {
    "source": "film-grab",
