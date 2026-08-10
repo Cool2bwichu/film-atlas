@@ -1740,6 +1740,78 @@ scorer cannot report it; validation happens against the 59 closed ids in
 `setting:space` alone puts 30 of the top 60 on films the corpus has no opinion
 about at all, and the count is printed rather than buried.
 
+### The bands, and why the middle is occupied — settled 2026-08-10
+
+`layout-match.js` gave a tied film a SLACK spring, on the argument that a tie
+costs nothing to spread. The argument is right and the mechanism was not: a
+slack spring is not a fence. Most of the corpus scores near zero, most rest
+lengths are therefore at the rim, the rim is jammed, and the crowd pressure has
+nowhere to go but inward — through the films the score DID order. Measured off
+the composited page on the owner's sentence: **13.31% of 376,155 ordered pairs
+drawn backwards**, the widest tie spread **103px on a 171.8px radius**, and of
+the thirty films drawn NEAREST the centre, **eleven were outside the top thirty
+by score and five outside the top hundred** (worst: score-rank 779).
+
+Every distinct score now owns an **annulus**, laid out in score order, and no
+film leaves its own band on any iteration. A better answer is drawn nearer than
+a worse one *by construction*. Inside its band a tie is as free as it was, and
+the crowd pressure travels around the ring instead of through the answer. Band
+width is the area the group needs at the solver's own `k`, times `bandPack`,
+with the slack spent in proportion to the score gaps.
+
+| | before | after |
+|---|---|---|
+| Spearman(radius, score), owner sentence | −0.876 | **−0.995** |
+| ordered pairs drawn backwards | 13.31% | **0.00%** |
+| top-30 by score ∩ nearest-30 drawn | 21 of 30 | **29 of 30** |
+| worst score-rank inside the nearest 30 | 466 | **31** |
+| widest tie | 396 films over 60% of the radius | 396 films over **12%** |
+| films inside r = 0.25 | 0 | **217** |
+
+**And the radius is normalised against what the query can reach.** The absolute
+map put nothing inside r=0.246 on the owner's sentence — the best score in the
+corpus is 0.381 — so the picture was a dark hole a quarter of the disc wide with
+the *rim* as its brightest feature, under a caption reading "distance from the
+centre is how well each one answers". Normalising is a monotone divide by one
+constant and reorders nothing. The absolute number does not disappear: the slate
+prints **"the closest anything gets is 0.381 of everything you asked for"**,
+which is a sentence rather than a hole. An impossible query has nothing to
+normalise against, so it still draws the shell.
+
+**The intra-tie band is disclosed.** The slate's only tie sentence used to fire
+on `tiedAtTop`, which is 1 for most sentences, so a 60%-of-the-radius spread was
+never mentioned. It now names the widest band and its size every time.
+
+### The conjunctive floor — settled 2026-08-10
+
+The score was a weight-normalised mean, and a mean lets a film rank first by
+ignoring part of the sentence. On the owner's own words the film drawn nearest
+the centre — *The Color of Pomegranates* — scored **exactly zero** on "fast
+pacing" and **exactly zero** on "hopeful", the first and third things he typed.
+Across the top 20, 11 films scored zero on pace and 11 on hopeful. Those films
+score well; they are not a good answer.
+
+`match.js` now multiplies the mean by a term only a conjunction can satisfy:
+`met = (held weight + 1) / (checkable weight + 2)`, `conj = 0.25 + 0.75·met`.
+**Unknown is neither met nor unmet** — counting it as a miss puts a fame
+gradient straight into the score, counting it as a hit rewards being unread —
+and the prior of two clause-weights stops a film the corpus read once from
+claiming a perfect conjunction.
+
+| owner's sentence, top 20 | before | after |
+|---|---|---|
+| nearest the centre | *The Color of Pomegranates* (0 on pace, 0 on hopeful) | ***The Matrix*** |
+| score zero on "fast pacing" | 11 | **6** |
+| score zero on "hopeful" | 11 | **8** |
+| holding both pace and hopeful | 5 | **6** |
+| rho(score, degree) | +0.023 | **−0.036** (gate 0.45) |
+| rho(score, coverage) | −0.119 | **−0.327** |
+
+0 of 2,204 films satisfy all five asks at any level, so no arrangement can put a
+perfect answer at the front — there is not one. The rest is disclosure, and it
+is not optional: the slate now names, per clause, how many of the nearest twelve
+score zero on it, and lists the nearest five films with what each one misses.
+
 ### Rule 3 is drawn, not only written
 
 An unknown film is credited the corpus average on every clause it was not read
@@ -1749,6 +1821,21 @@ read and agreed with. So **a film with zero coverage on the query is drawn
 hollow**: same position, same radius, the fill withheld, which is the same
 record-versus-reading grammar the edges already use. On `setting:space` that is
 563 of 2,204 discs, and the slate prints the count for the near band.
+
+**The hole has to be punched, not left — settled 2026-08-10.** The draw calls
+were right from the first commit (563 strokes for exactly the 563 films with no
+coverage) and a reader could not see it: measured on the composited canvas over
+isolated discs, filled centre **+152.6 luma** against hollow **+147.4**, AUC
+**0.591** against a 0.90 gate, with **0 of 163** hollow discs even half as dark
+at the centre as a median filled one. The cause is the integration pass, which
+is blitted *beneath* the discs with a ~15px kernel: whatever the ring declined
+to paint, the plate's own halation painted back into a one-pixel hole. Dimming
+the film's own halo moved it 1.5 luma, because most of the light in that pixel
+belongs to its neighbours. The centre is now taken out of the plate with
+`destination-out` before the ring is stroked, so the hole is ground at every
+zoom and at every density, and an unread film's halo contributes at 0.055
+instead of 0.26. Position and size are untouched — AGENTS rule 1 owns both, and
+neither may say "we did not read this one".
 
 ### The offers, and why there is no "no"
 
