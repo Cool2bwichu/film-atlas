@@ -15,7 +15,7 @@
 "use strict";
 
 const fs=require("fs"), path=require("path"), os=require("os"), cp=require("child_process");
-const {canonicalJson,contentVersion,projectDiscovery,validateDiscovery}=
+const {canonicalJson,contentVersion,layoutVersionFor,projectDiscovery,validateDiscovery}=
   require("../pipeline/discovery-contract.js");
 const {LAYOUT_ALGORITHM_VERSION,layout}=require("./layout-sky.js");
 const {STRATA_LAYOUT_VERSION,strataLayouts}=require("./layout-strata.js");
@@ -223,6 +223,300 @@ if(Object.keys(positions).length!==Object.keys(corpus.films).length){
  * with the measurements, is at the top of layout-strata.js. */
 const {strata,report:strataReport}=strataLayouts(corpus,discovery);
 
+/* ══ THE TRANSPORT ═══════════════════════════════════════════════════════════
+ * The atlas is a century laid out left to right and it has never been played.
+ * The view now has a footage track and a playhead; running it draws films as
+ * they were made and connections as they became makeable. Everything the run
+ * needs that the shipped corpus does not already carry is computed here, once.
+ *
+ * WHAT IS BAKED AND WHAT IS NOT. Years are already on every film and the
+ * ordering is a sort, so neither ships — app/template.html builds those index
+ * arrays lazily, the first time somebody actually touches the track, which is
+ * why the resting atlas pays nothing at all for this feature. What ships is
+ * the four things the runtime cannot recompute or should not:
+ *
+ *   1. THE PEN DIRECTION. `edge.from` names which end of a typed argument the
+ *      claim runs OUT OF, and it is dropped from the shipped corpus by both
+ *      build paths above. It is 425 edges of 22,217 — descent and rebuttal —
+ *      so it ships as two index lists rather than a mostly-zero array.
+ *   2. THE YEAR'S MEASURED COLOUR, which needs every poster palette in the
+ *      corpus and an adaptive window over them. See the block below.
+ *   3. THE CENSUS, so the track can print the corpus's own rhythm without a
+ *      pass over 2,204 films on the first paint.
+ *   4. THE NEIGHBOURHOOD RESIDUAL — one float per film, the graft named in
+ *      docs/specs/visual-architecture-decision.md.
+ */
+
+/* ── WHICH WAY A TYPED ARGUMENT TRAVELS, AND WHEN THE CORPUS DOES NOT SAY ────
+ * `edge.from` names the end a claim runs OUT OF and it has THREE values, not
+ * two: "a", "b" and **"none"**. 82 of the 315 descent edges carry "none" — the
+ * associator produced the relationship without establishing which film is the
+ * ancestor — and the prototype this was designed from read `from === "a" ? a :
+ * b`, which silently turns every one of those into "b" and invents a direction
+ * for a quarter of the descents. Its headline 80.6% is that mistake measured.
+ *
+ * So the rule here is the project's own: an argument is drawn in the direction
+ * the corpus RECORDS it running, and drawn symmetrically — out from the middle
+ * to both ends — when the corpus does not record one. Nothing is guessed from
+ * the years, because guessing the direction from the years and then reporting
+ * how often the direction agrees with the years would be a tautology printed as
+ * a measurement.
+ *
+ * Measured over the edges that DO carry a direction, which is what the app's
+ * key prints together with how many of them there are:
+ *
+ *     descent      233 of 315 directed, 94.0% of those run forward in time
+ *     rebuttal     110 of 110 directed, 88.2% of those reach back
+ *     convergence   22 of 7,584   rhyme 9 of 2,178   hand 0 of 12,030
+ *
+ * The three symmetric types are symmetric because the corpus almost never says
+ * otherwise, which is a better reason than a coin flip and is the reason the
+ * key gives. Only descent and rebuttal are treated as directed at all: a
+ * `convergence` is two films arriving at the same place independently, and a
+ * direction on twenty-two of seven thousand of them is noise, not a finding. */
+const TRANSPORT_DIRECTED=new Set(["descent","rebuttal"]);
+const transportFrom=new Map();
+for(const e of sourceCorpus.edges) transportFrom.set(e.a+" "+e.b, e.from);
+const penA=[],penB=[];
+const tenseCount={},tenseDirected={},tenseFwd={};
+for(const [index,e] of corpus.edges.entries()){
+  const from=transportFrom.get(e.a+" "+e.b);
+  const ya=corpus.films[e.a].year, yb=corpus.films[e.b].year;
+  tenseCount[e.type]=(tenseCount[e.type]||0)+1;
+  const directed = from==="a"||from==="b";
+  if(directed && Number.isFinite(ya) && Number.isFinite(yb)){
+    tenseDirected[e.type]=(tenseDirected[e.type]||0)+1;
+    /* "Forward" means the pen ends on the LATER film. */
+    if(from==="a" ? yb>ya : ya>yb) tenseFwd[e.type]=(tenseFwd[e.type]||0)+1;
+  }
+  if(!TRANSPORT_DIRECTED.has(e.type) || !directed) continue;
+  if(from==="b") penB.push(index); else penA.push(index);
+}
+const tense={};
+for(const type of ["descent","rebuttal","convergence","rhyme","hand"]){
+  const n=tenseCount[type]||0, directed=tenseDirected[type]||0;
+  tense[type]={
+    n, directed,
+    /* null rather than 0 when nothing is directed: "no recorded direction" and
+       "never runs forward" are different sentences and the readout says the
+       first one. */
+    forward: directed ? +((tenseFwd[type]||0)/directed).toFixed(4) : null,
+    /* Whether the app draws this type with an arrow at all. */
+    drawn: TRANSPORT_DIRECTED.has(type),
+  };
+}
+
+/* ── THE YEAR'S MEASURED COLOUR ──────────────────────────────────────────────
+ * DESIGN.md, "Colour at field scale is a data channel": a film provides the
+ * colour when a film is in hand, and at field scale colour must carry the
+ * stratum. Under the transport the stratum is the YEAR, so the room takes the
+ * year's colour and no disc ever does — AGENTS rule 5 is untouched, the disc
+ * stays the film's own measured highlight.
+ *
+ * FOUR THINGS MAKE THIS A MEASUREMENT RATHER THAN A RAMP, and the readout
+ * prints the numbers so it can be checked instead of believed:
+ *
+ *  - POSTER-MEASURED FILMS ONLY. 1,982 of 2,204. A film whose palette came
+ *    from an era default cannot be evidence about its era; including them
+ *    would be the interface measuring its own assumption.
+ *  - AN ADAPTIVE WINDOW to at least 70 prints, so 1916 — one film — is not
+ *    allowed to name a colour for 1916.
+ *  - EMPIRICAL-BAYES SHRINK toward the corpus mean by n/(n+45), so a thin year
+ *    is pulled back to the middle rather than shouting.
+ *  - CHROMA AMPLIFIED, HUE NEVER ROTATED. This is the exact inverse of the
+ *    mistake DESIGN.md records for the registers, and deliberately so. There,
+ *    chroma gain clipped and collapsed four doors onto one hue, so the fix was
+ *    to rotate an authored hue to a measured angle. Here there is nothing
+ *    authored to rotate: the hue IS the measurement and the only authored
+ *    quantity is how far the difference is pushed. The gain is stated on
+ *    screen as authored, every time it is on screen.
+ */
+const OK_GAIN=3.6, OK_L=0.745, OK_CCAP=0.155, OK_NMIN=70, OK_SHRINK=45;
+const srgbToLin=c=>{c/=255;return c<=0.04045?c/12.92:Math.pow((c+0.055)/1.055,2.4);};
+const linToSrgb=c=>{c=c<=0.0031308?12.92*c:1.055*Math.pow(c,1/2.4)-0.055;
+  return Math.max(0,Math.min(255,Math.round(c*255)));};
+function hexToOklab(hex){
+  const r=srgbToLin(parseInt(hex.slice(1,3),16)),g=srgbToLin(parseInt(hex.slice(3,5),16)),
+        b=srgbToLin(parseInt(hex.slice(5,7),16));
+  const l=Math.cbrt(0.4122214708*r+0.5363325363*g+0.0514459929*b),
+        m=Math.cbrt(0.2119034982*r+0.6806995451*g+0.1073969566*b),
+        s=Math.cbrt(0.0883024619*r+0.2817188376*g+0.6299787005*b);
+  return [0.2104542553*l+0.7936177850*m-0.0040720468*s,
+          1.9779984951*l-2.4285922050*m+0.4505937099*s,
+          0.0259040371*l+0.7827717662*m-0.8086757660*s];
+}
+function oklabToHex(L,A,B){
+  const l=Math.pow(L+0.3963377774*A+0.2158037573*B,3),
+        m=Math.pow(L-0.1055613458*A-0.0638541728*B,3),
+        s=Math.pow(L-0.0894841775*A-1.2914855480*B,3);
+  return "#"+[linToSrgb(4.0767416621*l-3.3077115913*m+0.2309699292*s),
+              linToSrgb(-1.2684380046*l+2.6097574011*m-0.3413193965*s),
+              linToSrgb(-0.0041960863*l-0.7034186147*m+1.7076147010*s)]
+    .map(v=>v.toString(16).padStart(2,"0")).join("");
+}
+const filmYears=Object.values(corpus.films).map(f=>f.year).filter(Number.isFinite);
+if(!filmYears.length) throw new Error("The transport needs at least one dated film");
+const TRANSPORT_Y0=Math.min(...filmYears), TRANSPORT_Y1=Math.max(...filmYears);
+const measured=Object.values(corpus.films)
+  .filter(f=>f.paletteSource==="poster"&&Number.isFinite(f.year))
+  .map(f=>({y:f.year,ok:hexToOklab(f.highlight)}));
+const meanA=measured.length?measured.reduce((s,r)=>s+r.ok[1],0)/measured.length:0;
+const meanB=measured.length?measured.reduce((s,r)=>s+r.ok[2],0)/measured.length:0;
+const meanC=Math.hypot(meanA,meanB);
+const yearRaw=[];
+for(let y=TRANSPORT_Y0;y<=TRANSPORT_Y1;y++){
+  let w=2,pool;
+  do{ pool=measured.filter(r=>Math.abs(r.y-y)<=w); w++; }while(pool.length<OK_NMIN&&w<=120);
+  const n=pool.length;
+  const a0=n?pool.reduce((s,r)=>s+r.ok[1],0)/n:meanA;
+  const b0=n?pool.reduce((s,r)=>s+r.ok[2],0)/n:meanB;
+  const k=n/(n+OK_SHRINK);
+  yearRaw.push([meanA+(a0-meanA)*k, meanB+(b0-meanB)*k, n]);
+}
+/* One [.25 .5 .25] pass. Adjacent windows already overlap heavily, so this is
+   not smoothing away a signal — it is stopping a one-film step at a window
+   boundary from reading as a change in cinema. */
+const yearSm=yearRaw.map((r,i)=>{
+  const p=yearRaw[Math.max(0,i-1)], q=yearRaw[Math.min(yearRaw.length-1,i+1)];
+  return [0.25*p[0]+0.5*r[0]+0.25*q[0], 0.25*p[1]+0.5*r[1]+0.25*q[1], r[2]];
+});
+const yearHex=yearSm.map(([a,b])=>{
+  const c=Math.hypot(a,b), h=Math.atan2(b,a);
+  const c2=Math.min(OK_CCAP,Math.max(0.010,meanC+(c-meanC)*OK_GAIN));
+  return oklabToHex(OK_L,Math.cos(h)*c2,Math.sin(h)*c2);
+});
+const yearHue=yearSm.map(([a,b])=>+((Math.atan2(b,a)*180/Math.PI+360)%360).toFixed(1));
+const yearN=yearSm.map(r=>r[2]);
+
+/* The census: films per year, drawn once under the rail as the run's own
+   rhythm. 1916 is one film and 1969 is fifty-three, and that lumpiness is a
+   fact about this corpus that the track prints rather than smooths. */
+const census=new Array(TRANSPORT_Y1-TRANSPORT_Y0+1).fill(0);
+for(const f of Object.values(corpus.films)) if(Number.isFinite(f.year)) census[f.year-TRANSPORT_Y0]++;
+
+/* ── THE NEIGHBOURHOOD RESIDUAL — the one graft ──────────────────────────────
+ * A film's own year minus the MEAN year of its graph neighbours. Negative
+ * means its company arrived after it — it was drawn on by what came later;
+ * positive means it is reaching back. Snow White scores -38.3 and The Other
+ * Side of the Wind +52.5, which is a 1970s film released in 2018 whose lineage
+ * knows it.
+ *
+ * A mean and not a degree weighting, so rule 1 holds: a film with forty
+ * neighbours and a film with four are read the same way. It IS noisy at low
+ * degree, so it is floored at three neighbours and the count ships with it —
+ * the readout prints n, and 4 films of 2,204 get no residual at all rather
+ * than a number computed from one or two friends.
+ *
+ * Aligned to discovery.filmOrder, exactly as LAYOUT.positions is: a per-film
+ * array indexed by anything else is an array that silently retargets the day
+ * a slug moves (AGENTS 6c's argument, one field along). */
+const transportAdj=Object.create(null);
+for(const key of Object.keys(corpus.films)) transportAdj[key]=[];
+for(const e of corpus.edges){ transportAdj[e.a].push(e.b); transportAdj[e.b].push(e.a); }
+const RESID_FLOOR=3;
+const resid=[], residN=[];
+for(const filmId of discovery.filmOrder){
+  const key=discovery.keyByFilmId[filmId], own=corpus.films[key].year;
+  const years=transportAdj[key].map(k=>corpus.films[k].year).filter(Number.isFinite);
+  if(!Number.isFinite(own)||years.length<RESID_FLOOR){ resid.push(null); residN.push(years.length); continue; }
+  resid.push(+(own-years.reduce((s,v)=>s+v,0)/years.length).toFixed(2));
+  residN.push(years.length);
+}
+
+
+/* ── WHAT TIER THE YEAR'S LIGHT IS, MEASURED HERE AND PRINTED ON SCREEN ──────
+ * DESIGN.md's three tiers exist to stop a chosen quantity being dressed as a
+ * measured one, and this light is exactly the kind of thing they were invented
+ * for. Both halves are computed with build-registers.js's own instruments, so
+ * the number in the readout is this corpus's number and not a number copied
+ * out of a prototype:
+ *
+ *  - HOW FAR A DECADE SEPARATES: its poster-measured films' mean highlight
+ *    against the corpus mean, in units of the null SD of the same statistic
+ *    over same-size random samples. Seeded — a build that reports a different
+ *    tier on Tuesday is not a build (rule 7).
+ *  - HOW MUCH OF ONE FILM'S OWN COLOUR THE DECADE EXPLAINS: eta-squared of a
+ *    one-way decomposition over the same Oklab triples.
+ *
+ * The prototype this was designed from printed "● RECORDED", and that is an
+ * overclaim by one tier. `recorded` is reserved for a fact about the print —
+ * the silver print's films ARE monochrome on the record. Here the DIRECTION is
+ * measured and the INTENSITY is a x3.6 gain somebody chose, which is the
+ * definition of `amplified` word for word. The interface says so.
+ *
+ * It is also why the light may touch the room and may never touch a disc: a
+ * wash over a population IS a mean, and a disc is one film.
+ */
+const TIER_NULL_TRIALS=400, TIER_AMPLIFY_SIGMA=3.0;
+function tierRandom(a){
+  return function(){
+    a|=0; a=(a+0x6d2b79f5)|0;
+    let t=Math.imul(a^(a>>>15),1|a);
+    t=(t+Math.imul(t^(t>>>7),61|t))^t;
+    return ((t^(t>>>14))>>>0)/4294967296;
+  };
+}
+const tierAll=Object.values(corpus.films).map(f=>hexToOklab(f.highlight));
+const tierN=tierAll.length;
+const tierMean=tierAll.reduce((a,v)=>[a[0]+v[0]/tierN,a[1]+v[1]/tierN,a[2]+v[2]/tierN],[0,0,0]);
+function tierSigma(labs){
+  const n=labs.length;
+  if(!n) return 0;
+  const m=labs.reduce((a,v)=>[a[0]+v[0]/n,a[1]+v[1]/n,a[2]+v[2]/n],[0,0,0]);
+  const d=Math.hypot(m[0]-tierMean[0],m[1]-tierMean[1],m[2]-tierMean[2]);
+  const rnd=tierRandom(0x5eed^n), nulls=[];
+  for(let t=0;t<TIER_NULL_TRIALS;t++){
+    let L=0,A=0,B=0;
+    for(let i=0;i<n;i++){ const v=tierAll[(rnd()*tierN)|0]; L+=v[0]/n; A+=v[1]/n; B+=v[2]/n; }
+    nulls.push(Math.hypot(L-tierMean[0],A-tierMean[1],B-tierMean[2]));
+  }
+  const mu=nulls.reduce((a,b)=>a+b,0)/TIER_NULL_TRIALS;
+  const sd=Math.sqrt(nulls.reduce((a,b)=>a+(b-mu)**2,0)/TIER_NULL_TRIALS)||1e-9;
+  return (d-mu)/sd;
+}
+const decades=new Map();
+for(const f of Object.values(corpus.films)){
+  if(f.paletteSource!=="poster"||!Number.isFinite(f.year)) continue;
+  const d=Math.floor(f.year/10)*10;
+  if(!decades.has(d)) decades.set(d,[]);
+  decades.get(d).push(hexToOklab(f.highlight));
+}
+let bestSigma=0,bestDecade=null;
+for(const [d,labs] of decades){
+  const s=tierSigma(labs);
+  if(s>bestSigma){ bestSigma=s; bestDecade=d; }
+}
+let ssTotal=0,ssBetween=0;
+{
+  const pool=[...decades.values()].flat(), n=pool.length;
+  const gm=pool.reduce((a,v)=>[a[0]+v[0]/n,a[1]+v[1]/n,a[2]+v[2]/n],[0,0,0]);
+  for(const v of pool) ssTotal+=(v[0]-gm[0])**2+(v[1]-gm[1])**2+(v[2]-gm[2])**2;
+  for(const labs of decades.values()){
+    const g=labs.length;
+    const m=labs.reduce((a,v)=>[a[0]+v[0]/g,a[1]+v[1]/g,a[2]+v[2]/g],[0,0,0]);
+    ssBetween+=g*((m[0]-gm[0])**2+(m[1]-gm[1])**2+(m[2]-gm[2])**2);
+  }
+}
+const tierSep={
+  sigma:+bestSigma.toFixed(2),
+  decade:bestDecade,
+  share:+(ssTotal?ssBetween/ssTotal:0).toFixed(4),
+  tier:bestSigma>=TIER_AMPLIFY_SIGMA?"amplified":"authored",
+};
+
+const TRANSPORT={
+  y0:TRANSPORT_Y0, y1:TRANSPORT_Y1,
+  yearHex, yearHue, yearN, census,
+  penA, penB, tense,
+  resid, residN, residFloor:RESID_FLOOR,
+  /* The authored constants, printed by the readout in the same breath as the
+     measurement they were applied to (AGENTS rule 8). */
+  chromaGain:OK_GAIN, windowMin:OK_NMIN, shrink:OK_SHRINK,
+  measuredPrints:measured.length, films:filmYears.length,
+  sep:tierSep,
+};
+
+
 /* ── THE REGISTERS ─────────────────────────────────────────────────────────
  * static/registers.json is DERIVED (pipeline/build-registers.js evaluates a
  * rule over themes), where discovery.json is RECORDED. They ship as separate
@@ -271,8 +565,29 @@ if(fs.existsSync(REGISTERS_PATH)){
   }
 }
 
+/* THE SHIPPED LAYOUT VERSION NAMES THE POSITIONS, NOT THE FILM ORDER.
+ * This read `discovery.layoutVersion`, which is a hash of the corpus version,
+ * the film order and discovery's OWN `layoutAlgorithmVersion` — a string about
+ * how discovery.json was built (`atlas-layout-v1`) that has never had anything
+ * to do with the constellation solver. So the one version stamped on 2,204
+ * solved coordinates could not see the solver that solved them: commit e49de94
+ * retuned restWeak, moved 2,204 of 2,204 positions, and `LAYOUT.version` came
+ * out byte-identical on both sides of it.
+ *
+ * Same function, same three inputs, with the SKY solver's version in the
+ * algorithm slot — and that version is now a fingerprint of the solver's own
+ * tuned constants (app/layout-sky.js), so this hash moves whenever the picture
+ * does. layoutVersionFor is imported rather than re-derived here for the reason
+ * DESIGN.md gives about the palette table: a copy of a hashing rule is a copy
+ * that goes stale the day the rule changes.
+ *
+ * It therefore no longer equals discovery.layoutVersion, and that inequality is
+ * the point: they answer different questions. `DISCOVERY.layoutVersion` names
+ * WHICH FILMS in what order; `LAYOUT.version` names WHERE THEY SIT. */
+const layoutVersion=layoutVersionFor(LAYOUT_ALGORITHM_VERSION,discovery.corpusVersion,discovery.filmOrder);
+
 const layoutManifest={
-  version:discovery.layoutVersion,
+  version:layoutVersion,
   algorithmVersion:LAYOUT_ALGORITHM_VERSION,
   corpusVersion:discovery.corpusVersion,
   positions,
@@ -297,6 +612,7 @@ const block=pack("CORPUS",corpus);
 const discoveryBlock=pack("DISCOVERY",discovery);
 const layoutBlock=pack("LAYOUT",layoutManifest);
 const registerBlock=pack("REGISTERS",REGISTERS);
+const transportBlock=pack("TRANSPORT",TRANSPORT);
 
 let html=fs.readFileSync(path.join(__dirname,"template.html"),"utf8");
 const marker="/* __CORPUS__ */";
@@ -315,6 +631,10 @@ const registerMarker="/* __REGISTERS__ */";
 if(!html.includes(registerMarker)) throw new Error("Atlas template is missing its registers marker");
 html=html.replace(registerMarker,registerBlock);
 if(html.includes(registerMarker)) throw new Error("Atlas template contains more than one registers marker");
+const transportMarker="/* __TRANSPORT__ */";
+if(!html.includes(transportMarker)) throw new Error("Atlas template is missing its transport marker");
+html=html.replace(transportMarker,transportBlock);
+if(html.includes(transportMarker)) throw new Error("Atlas template contains more than one transport marker");
 const inspectionMarker="/* __RADIAL_INSPECTION__ */";
 if(!html.includes(inspectionMarker)) throw new Error("Atlas template is missing its radial inspection marker");
 const inspectionSource=fs.readFileSync(path.join(__dirname,"radial-inspection.js"),"utf8");
@@ -389,3 +709,14 @@ console.log(`${strataReport.length} strata re-formed — ${strataReport.reduce((
 console.log(REGISTERS
   ? `${Object.keys(REGISTERS.definitions).length} registers, ${registerStrataCount} of them with their own baked constellation`
   : "no registers — static/registers.json absent, atlas builds without the register layer");
+/* Say what the transport was baked from, in the same voice: a percentage the
+   app prints in its own key is a percentage somebody should be able to see the
+   build compute. */
+console.log(`transport ${TRANSPORT.y0}-${TRANSPORT.y1} — ${TRANSPORT.measuredPrints} measured prints, `+
+  `descent ${TRANSPORT.tense.descent.directed}/${TRANSPORT.tense.descent.n} directed at `+
+  `${(TRANSPORT.tense.descent.forward*100).toFixed(1)}% forward, `+
+  `rebuttal ${TRANSPORT.tense.rebuttal.directed}/${TRANSPORT.tense.rebuttal.n} at `+
+  `${((1-TRANSPORT.tense.rebuttal.forward)*100).toFixed(1)}% back, `+
+  `${TRANSPORT.penA.length+TRANSPORT.penB.length} pens, `+
+  `${TRANSPORT.resid.filter(v=>v===null).length} films under the residual floor, `+
+  `${(JSON.stringify(TRANSPORT).length/1024).toFixed(0)} KB`);

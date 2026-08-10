@@ -951,6 +951,7 @@ module.exports = {
   candidateCorpusVersion,
   contentVersion,
   filmIdForQid,
+  layoutVersionFor,
   normalizeFacetTaxonomy,
   parseMergeOptions,
   prepareDiscoveryHarvest,

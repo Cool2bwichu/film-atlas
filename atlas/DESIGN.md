@@ -1146,6 +1146,227 @@ reached into `sky.wy` and a page that lands on the wall has none — which is
 its own lesson: a check that throws cannot tell you which of the two things
 broke.
 
+## The transport — the century, and a way to run it — settled 2026-08-10
+
+The atlas was already a century laid out left to right and it had never been
+played. `app/layout-sky.js` is handed films and edges and **nothing else** — no
+years, no degree, no ranking — and the constellation still comes out sorted by
+time, west to east, because influence runs forward and the springs mostly point
+that way. Nobody designed that. It is the corpus confessing through the physics,
+and it was the one thing this view knew and could not say.
+
+> **A footage track under the field, a playhead, and a run. The resting
+> constellation is the last frame of a reel that has already run.**
+
+The full argument, the three architectures this beat and the costs measured for
+each, are in `docs/specs/visual-architecture-decision.md`. What follows is what
+shipped and what it is held to.
+
+### It reads the year as a low-frequency aggregate, and never as a coordinate
+
+This is the rule the whole design turns on. Measured at HEAD by
+`pipeline/measure-layout.js`, which now reports it in the layout gate:
+
+| | |
+|---|---|
+| corr(year, x) | **+0.448** |
+| best axis, swept over rotation | **−0.474 at 161°** |
+| five-year centroid: net drift / path length | **0.382** / 1.797 world units, in a box 1.0 wide |
+| mean \|Δyear\| to a nearest neighbour, as a share of a shuffled control | **0.845** (1.000 = no local signal) |
+
+The first three say the century really does cross the plate. The fourth says
+your nearest neighbour is on average 22.5 years away from you against 27.1 for a
+shuffle, and reading a year off one film's x has an RMSE of **20.9 years**
+against a corpus SD of 23.4 — r² = 0.201.
+
+> **Nothing in this view may ever print or imply a year from a position.**
+
+So the light of a year is a broad wash at the centroid of the films actually
+striking, and it is never a front, never a contour and never a focus plane. An
+architecture that turned the year into a per-film geometric coordinate was
+built, measured and rejected for standing *Un Chien Andalou* (1928) on ground
+reading 1996. `measure-layout.js --selftest` now carries three controls for
+these numbers, because the correlation fell from +0.612 to +0.448 across one
+solver retune and nothing noticed for three weeks.
+
+### The five typed relationships become five tenses, and the corpus decides which
+
+An edge appears when its **later** endpoint exists — the moment the connection
+becomes *makeable* — and it is drawn as a line **travelling**, in the direction
+its own type was recorded to run. Using the earlier endpoint was tried in the
+prototype and kills the last third of the run: 26% of this corpus's lineage
+arrives after 2003.
+
+`edge.from` has **three** values and one of them is `"none"`:
+
+| type | edges | carry a recorded direction | of those, run forward |
+|---|---|---|---|
+| `descent` | 315 | **233** | **94.0%** |
+| `rebuttal` | 110 | **110** | 11.8% — i.e. **88.2% reach back** |
+| `convergence` | 7,584 | 22 | — |
+| `rhyme` | 2,178 | 9 | — |
+| `hand` | 12,030 | 0 | — |
+
+**The prototype's headline 80.6% was that third value being swallowed.** It read
+`from === "a" ? a : b`, which turns every `"none"` into `"b"` and invents an
+ancestor for 82 of the 315 descents. A descent whose ancestor the corpus does
+not record is drawn symmetrically here, like everything else, and left out of
+the percentage — and the readout prints the denominator so the claim can be
+checked rather than believed. The three symmetric types are symmetric because
+the corpus records a direction for **31 of their 21,792 edges**. That is a
+better reason than a coin flip and it is the reason the key gives.
+
+### What it is not allowed to do
+
+- **Rule 1.** The premiere flare is `skyTpStrike(age)` — a function of age and
+  of nothing else. At any cursor the corpus takes only five or six distinct
+  ages, so "a function of age alone" has an exact test rather than a statistical
+  one: `transport-probe.mjs` records every sprite blit and requires **one alpha
+  and one size per age group**, measured across degrees 1–34. Edge width is a
+  property of the **type** — 2px directed, 1.15px symmetric, identical for every
+  edge of that type.
+- **Rule 3.** A sub-0.5 claim is dashed at every cursor position. Checked by
+  instrumenting the 2D context, counting stroked segments by the dash state they
+  were laid down under, and comparing with what the page's own data says must be
+  dashed. Eleven cursors, 11/11.
+- **Rule 4.** The readout is DOM type on its own opaque ground; the canvas never
+  touches a glyph, so nothing can blur however fast the reel runs.
+- **Rule 5.** The disc keeps the film's own measured highlight. The year's
+  colour lights the **room** and never a disc — see the tier below.
+- **Rule 7.** Both time constants are measured in **years, never seconds**, so
+  the picture at 1968.0 is the same picture whether you ran there at speed,
+  dragged there by hand or arrived by keyboard, on every machine.
+
+### The year's light prints its own tier, and it is ◐ amplified
+
+Computed at build time with `build-registers.js`'s own instruments, over the
+1,982 poster-measured films only — a film whose palette came from an era default
+cannot be evidence about its era:
+
+- the best-separating decade sits **4.99 null SD** off the corpus mean;
+- the decade explains **2.1%** of an individual film's own colour.
+
+So the **direction is measured and the intensity is authored** (chroma ×3.6, hue
+never rotated), which is `amplified` word for word. The prototype printed
+`● RECORDED`, and that is an overclaim by one tier: `recorded` is reserved for a
+fact about the print itself, the way the silver print's films *are* monochrome
+on the record. A wash over a population **is** a mean; a disc is one film. That
+is the whole reason the light may touch the room and may never touch a disc, and
+the readout says it in those words every time it is on screen.
+
+### The one graft, and it is a sentence rather than a picture
+
+A film's own year minus the **mean** year of its graph neighbours, baked one
+float per film. Negative means its company arrived after it. *Snow White*
+scores −38.3 over 20 connections, *The Other Side of the Wind* +52.5 over 22 —
+a 1970s film released in 2018 whose lineage knows it. A mean and not a degree
+weighting, so a film with forty neighbours and one with four are read the same
+way; floored at three neighbours, which excludes 4 films of 2,204, and `n` is
+printed beside it. Both years are marked on the track and the gap between the
+two marks is the reading.
+
+### Cost — the property that decided whether it ships
+
+The bar is the night sky's: *not more expensive than the view it replaces.*
+Measured by `transport-probe.mjs` in real Chromium at 1440×900, rAF-paced, with
+the untreated control re-measured in the same page, twice, round the treatments:
+
+| | ms/frame | vs control |
+|---|---|---|
+| control, transport switched off | 1.11–1.24 mean · 1.05–1.20 p50 | 1.00× |
+| **at rest** | **1.19–1.31 mean · 1.20 p50** | **0.98–1.14×** |
+| grazing a year | 1.75–2.14 mean · 1.70–1.90 p50 | 1.55–1.86× |
+| **running the century** (150 frames) | **1.00–1.12 mean · 1.5–2.1 p95** | **0.81–0.94×** |
+
+Ranges over five runs, because this is a 1.1 ms measurement in a container that
+is also rasterising in software: quoting one run's third digit here would be
+inventing precision. The ratios hold their shape across all of them.
+
+Idle draws in 3 s: **0 at rest, 0 while a year is held lit, 0 after the reel has
+run.** Running costs *less* per frame than sitting still, because most of the
+reel has fewer films in it.
+
+**The resting claim is exact rather than statistical.** `skyTpFrame()` returns
+null the moment the cursor is parked at the end with nothing grazed, so the
+resting draw is the draw that shipped — and the probe proves it by capturing the
+canvas, switching the transport off in the page, capturing again, and comparing
+**byte for byte**. 495 KB of PNG, identical.
+
+The graze is the one state that costs more than the control, and it is the same
+bill the worlds strip's own preview already pays for the identical gesture
+(2.92 against a 1.91 control, 1.53×, and blessed above). It is paid only while a
+pointer is on the track, one repaint per move.
+
+`driver.mjs film transport` runs the reel under the screencast: **161 presented
+frames over 6,945 ms, peak share 8.8%, half the motion spread over 40 frames,
+centroid at 53.2% of nominal, 0 identical frames, worst single draw 9.1 ms,
+worst paint-to-paint 88 ms, 0 frames after the window.** Forcing the cursor to 1
+reports a snap on four readings; a 340 ms busy-wait mid-run is caught by the gap
+check alone and draws a hole in the profile.
+
+### What it costs the resting picture, stated rather than buried
+
+The track is **opaque standing chrome**, so it is seeded into `skyChrome()` and
+the camera fits above it — "fit means the part you can see" does not stop
+applying because the chrome is new. That is real band:
+
+| | safe band before | after | the track |
+|---|---|---|---|
+| 1440×900 | 501.6 px | **426.6 px** | 75 px |
+| 900×820 | 438.3 px | **346.6 px** | 75 px |
+| 390×780 | 299.2 px | **237.2 px** | 62 px |
+
+Resting ink at 1440×900 goes **13.14% → 9.58%**, measured by `driver.mjs smoke`
+on both builds. (900×820 loses 92 px rather than 75 because the readout rewraps
+at that width; the track itself is the same 75 px.)
+
+75 px on a desktop and 62 px on a phone. It is less than the worlds strip's 147
+px and it is the same kind of bargain: the strip gave the constellation a job,
+this gives it a century. The number is here so the next person can decide it was
+worth it rather than discover it.
+
+**The phone needed two more answers, and one of them was a bug this exposed.**
+
+1. **The readout is capped on a phone.** DESIGN's own rule already said the
+   readout gives up the field before the constellation does; until now it gave
+   up nothing. With a film in hand at 390×780 the box measured 265–304 px of a
+   659 px field, leaving the camera's safe band at 133 px — thirteen under
+   `skySafeBand`'s 140 px floor is a **collapse**, and a collapsed band is one
+   that no longer corrects for chrome at all. 62 px of transport pushed it over.
+   `.sky-readbox:not(.route)` is now capped at `min(30vh, 204px)` and scrolls; a
+   Passage is exempt, because there the claims *are* the content.
+2. **Every camera move onto a single film now centres on the visible band.**
+   `skyFitCam` has always applied that correction for the whole atlas;
+   `skyOrbit`, `skyFocus` and `skyStep` centred on the middle of the **canvas**,
+   which is a different point whenever the chrome is asymmetrical — and it has
+   never been symmetrical. It only became visible when the band collapsed:
+   anchoring a film parked it 45 px inside the readout, and the third tap of the
+   anchor-then-open gesture landed on `#sky-read` instead of on the film.
+   `elementFromPoint`, not a screenshot. One rule, `skyCentreOn`, every caller.
+
+### What it does not solve
+
+- **It stands only while the atlas is whole**, on the same condition the worlds
+  strip uses. A re-formed sky is a different set of films in different places;
+  *"play folk horror"* — ten films over twenty-two years — is a real question
+  with no answer here, and re-forming mid-run is undefined. Retracting says so;
+  composing the two badly would not.
+- **The resting picture is still an even disc.** Open question 2 stays open. The
+  transport reframes it — the playhead is parked at 2026 *because the reel has
+  run*, which is a terminal state a reader can have an attitude about — and it
+  gives the resting atlas weather on demand at zero idle cost. It does not put
+  structure into the pixels.
+- **There is no `#/sky/year:1968` address.** The transport is a state that lasts
+  until the next click, which is exactly the second grammar open question 0 says
+  is missing, and the address machinery carries nine negative controls that a
+  new token class would have to be re-proved against. Not built; worth saying
+  out loud.
+- **The reel is lumpy and that is the corpus.** 1916–1940 is 99 films and the
+  1960s alone are 374, so a linear run spends its first seconds on almost
+  nothing. The census printed under the rail is that rhythm drawn flat rather
+  than smoothed away. Whether the reel should run in *film time* or *wall time*
+  is unresolved and is a design question.
+
 ## The print in the gate — Latent Image, settled 2026-08
 
 ATLAS is one photographic print of the whole of cinema, held in a projector
@@ -1483,11 +1704,23 @@ world is made of film and paper, not plastic.
 2. **The field is an even disc because the corpus is.** 84% of edges are
    convergence + hand, so no tradition separates from any other at low zoom.
    That is the material, not the layout; the layout can only choose whether to
-   impose an axis on it. `descent` is 91% forward in time (181 of 199), which
-   is the one honest axis available. **The registers give the disc regions
+   impose an axis on it. `descent` is the one honest axis available, and the
+   figure this entry used to quote — 91% forward of 199 — is two corpora out of
+   date and was counting edges whose direction the corpus does not record. It is
+   **94.0% forward of the 233 descents that carry a recorded `from`**, of 315;
+   see "The transport" above for why the other 82 are not counted. **The registers give the disc regions
    without imposing an axis on it** — grazing the strip shows that folk horror
    is a corner and family drama is weather across the whole plate — but only
    while a frame is being grazed. At rest the disc is still even.
+   **The transport gives the resting disc a REASON rather than a texture —
+   see "The transport" above.** The playhead is parked at 2026 because the reel
+   has run, so the picture is the last frame of something rather than an
+   undifferentiated blob, and grazing the track lights any year where it
+   already is at zero idle cost. The pixels at rest are unchanged, byte for
+   byte. That is a smaller claim than putting structure into them and it is the
+   one that is true; this question stays open, and the honest options for it are
+   still a different layout or a different corpus, not a treatment.
+
 3a. **The strip's ground is your plate, and the frames are still the register's.**
    `skyMiniGroundCanvas` draws the whole atlas underneath every one of the 28
    frames, so developing it develops all 28 for the cost of one pass — silver

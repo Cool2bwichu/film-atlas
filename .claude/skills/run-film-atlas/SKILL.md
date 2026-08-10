@@ -152,6 +152,47 @@ phone viewport, and the strip failing to come back when a route is cleared.
 **Proven by breaking it** — the exact patch is in the file's own header; it puts
 9 of the 27 states back over the line at 316.7 / 293.8 / 176.4px.
 
+### Does the century run, and does it cost the resting atlas anything
+
+```bash
+node .claude/skills/run-film-atlas/transport-probe.mjs
+node .claude/skills/run-film-atlas/transport-probe.mjs --controls
+```
+
+The constellation has a footage track, a playhead and a run (DESIGN.md, "The
+transport"). This probe asks the page what it DREW rather than what it would
+draw: it instruments the 2D context and counts every stroked segment with the
+dash state it was laid down under, every filled arc, and every sprite blit with
+the alpha and size it carried.
+
+Eight things, each ending in a number:
+
+1. **The resting draw is the draw that shipped** — the canvas is captured at
+   rest, the transport is switched off in the page, the canvas is captured
+   again, and the two are compared **byte for byte**. Every cost claim rests on
+   this, and it is exact where a millisecond measurement is not.
+2. **Cost** at rest, grazing and running, against the untreated control
+   re-measured in the same page twice, plus idle draws in 3 s in three states.
+3. **Rule 1** — at any cursor the corpus takes only five or six distinct AGES,
+   so "the strike is a function of age alone" has an exact test: one alpha and
+   one size per age group, across degrees 1–34.
+4. **Rule 3** — dashed segments counted against what the page's own data says
+   must be dashed, at eleven cursors.
+5. **Nothing before its time** — every disc matched back to a film and every
+   stroked endpoint that lands exactly on a film checked against the cursor.
+   Exact float positions, never rounded: rounding to the pixel makes a born and
+   an unborn film share a coordinate and the check fires on everything.
+6. **Nothing parked under the track**, at three viewports.
+7. **Reduced motion** arrives, says so, and the track still scrubs and focuses.
+8. **The graft** prints the baked neighbour mean and its `n`.
+
+`--controls` patches the built artifact eight ways — the strike made to depend
+on degree, the dash removed, an edge drawn forty years early, a film drawn
+before it was made, the resting draw changed, the track dropped from
+`skyChrome`, reduced motion made to animate, the graft computed off the plate —
+and requires each to be reported by the check it was aimed at. **8 of 8.** ~6
+min with controls, ~2 without.
+
 ## Film — motion capture, and how to judge it
 
 Everything above ends in a **still**. This app does not: a selection flies
@@ -165,6 +206,8 @@ case arithmetically."*
 
 ```bash
 node .claude/skills/run-film-atlas/driver.mjs film all          # reform, return, meteor
+node .claude/skills/run-film-atlas/driver.mjs film transport    # the century, run end to end
+node .claude/skills/run-film-atlas/driver.mjs film graze        # the track grazed, judged as a loop
 node .claude/skills/run-film-atlas/driver.mjs film reform
 node .claude/skills/run-film-atlas/driver.mjs film reform silver-print
 node .claude/skills/run-film-atlas/driver.mjs film return
@@ -312,6 +355,33 @@ from a hard ease. The stall trips exactly one too, the gap check: the stalled
 build's peak share, centroid, spread, identical-frame count **and** landing time
 were all healthy — it landed at 1151 ms against 1150. The filmstrip labels the
 same hole in words: *"+675ms no new frame — still showing +528ms"*.
+
+**`film transport` is the scene this harness exists for.** A still frame of the
+reel is worthless — every frame of it is a legitimate picture — and the two ways
+it can be broken are exactly the two named above. Both were produced against the
+real artifact and confirmed:
+
+```bash
+# IT SNAPS — force the cursor to the end on the first step
+sed 's|const p=Math.min(1,(now-TP.runT0)/ms);|const p=1;|' public/atlas.html > /tmp/atlas-tp-snap.html
+ATLAS_HTML=/tmp/atlas-tp-snap.html node .claude/skills/run-film-atlas/driver.mjs film transport
+#   FAIL: only 1 frames were presented across a 6900ms motion
+#   FAIL: motion centroid is +0ms — the picture jumped and then sat still
+#   FAIL: half the motion is in 1 frame(s) — no gradient
+#   FAIL: 1 frame(s) inside the flight were pixel-identical to the one before
+
+# IT STALLS — 340ms of busy-wait once, mid-run (appended to skyTpStep's `p`)
+#   FAIL: the app went 381ms without a paint inside the flight
+#   profile     █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁··▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅
+```
+
+Healthy, for comparison: **161 presented frames over 6,945 ms, peak share 8.8%,
+half the motion over 40 frames, centroid 53.2% of nominal, 0 identical frames,
+worst single draw 9.1 ms, worst paint-to-paint 88 ms, 0 frames after the
+window.** `film graze` is judged as a **loop** and not as a tween on purpose:
+a graze is a sequence of discrete repaints, one per pointer move and none in
+between, so "half the motion is in 2 frames" is the gesture working. What that
+scene films is the flat stretches — the zero idle draws, on video.
 
 `film still` is the standing negative control and needs no patched artifact: a
 register whose signature is `still` must not be repainting, the screencast only
@@ -464,7 +534,7 @@ npm test                            # full vinext build + both of the above
 | `FILM FAIL: only N frames were presented` | either the motion never happened, or the box is loaded. Check `paints` on the same line: paints high and frames low is the container, both low is the app |
 | `film meteor` throws `no meteor spawned` | `skyMeteorStep` returned null. Either the night-sky world is not selected or the context came up under `prefers-reduced-motion`, which kills meteors by design |
 | the video is 9s of the front door | recording starts at page load; the printed `the action begins about Ns in` is where to scrub to |
-| `film <name>` says unknown scene | scenes are `reform`, `return`, `meteor`, `worlds`, `still`, `pulse`, `drift`, `flicker`, `all`. A world id is the second argument, not the first |
+| `film <name>` says unknown scene | scenes are `reform`, `return`, `transport`, `graze`, `develop`, `meteor`, `worlds`, `still`, `pulse`, `drift`, `flicker`, `all`. A world id is the second argument, not the first |
 
 ## Proving a check still works
 

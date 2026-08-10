@@ -412,6 +412,118 @@ function measureLayout(label, films, edges, positions, attrs, opts) {
     formFit = spearman(fs_, fl_);
   }
 
+  /* ---- the century, which the solver was never told about --------------- */
+
+  /* THE LAYOUT IS TIME-ORDERED AND NOBODY DESIGNED THAT. layout-sky.js is
+     handed films and edges and nothing else — no years, no degree, no ranking
+     — and the constellation still comes out sorted west to east, because
+     influence runs forward and the springs mostly point that way. It is the
+     corpus confessing through the physics, and app/template.html's transport
+     is built on it.
+   *
+     WHICH MEANS A SOLVER RETUNE CAN FLATTEN IT SILENTLY, and one nearly did:
+     between the morning of 9 August and HEAD, corr(year, x) fell from +0.612
+     to +0.448 and the mean year-gap to a nearest neighbour went 17.2 -> 22.5
+     years against a shuffled control of 27.1. Nothing measured it; it was
+     found by hand, three weeks late, by somebody comparing two prototypes.
+     docs/specs/visual-architecture-decision.md asks for it to be in the gate,
+     so here it is.
+
+     THREE NUMBERS, BECAUSE ONE OF THEM IS A LIE ON ITS OWN:
+       yearX      corr(year, x). The headline, and axis-dependent — a solver
+                  that produced the same picture rotated would score 0.
+       yearAxis   the same correlation maximised over rotation, with the angle.
+                  This is the honest global figure.
+       yearNN     mean |dyear| to a nearest neighbour, as a RATIO of the same
+                  statistic over shuffled positions. 1.0 is no local signal at
+                  all. It is deliberately reported beside the correlation
+                  because the two disagree and the disagreement is the finding:
+                  the drift is real at field scale and nearly absent locally,
+                  which is exactly why the transport reads the year as a wash
+                  and never as a per-film coordinate.
+       yearTravel how far the five-year centroid walks across the plate, in
+                  world units, over a box 1.0 wide. This is the quantity the
+                  transport's light actually rides on. */
+  let yearX = NaN, yearAxis = NaN, yearAxisDeg = NaN, yearNN = NaN, yearTravel = NaN, yearDrift = NaN, yearN = 0;
+  {
+    const yrs = new Float64Array(n), idx = [];
+    for (let i = 0; i < n; i++) {
+      const y = films[keys[i]] && films[keys[i]].year;
+      if (Number.isFinite(y)) { yrs[i] = y; idx.push(i); }
+    }
+    yearN = idx.length;
+    if (yearN >= 30) {
+      const pear = (a, b) => {
+        const m = a.length;
+        const ma = a.reduce((s2, v) => s2 + v, 0) / m, mb = b.reduce((s2, v) => s2 + v, 0) / m;
+        let nu = 0, da = 0, db = 0;
+        for (let i = 0; i < m; i++) { nu += (a[i] - ma) * (b[i] - mb); da += (a[i] - ma) ** 2; db += (b[i] - mb) ** 2; }
+        return da && db ? nu / Math.sqrt(da * db) : 0;
+      };
+      const yv = idx.map((i) => yrs[i]);
+      yearX = pear(yv, idx.map((i) => xs[i]));
+      /* Swept rather than solved: 0.5-degree steps over the half circle is 360
+         correlations over 2,204 points, which is milliseconds, and it cannot
+         be wrong about a maximum the way a closed form can be wrong about a
+         sign convention. */
+      for (let d = 0; d < 180; d += 0.5) {
+        const th = d * Math.PI / 180, c2 = Math.cos(th), s2 = Math.sin(th);
+        const r2 = pear(yv, idx.map((i) => (xs[i] - 0.5) * c2 + (ys[i] - 0.5) * s2));
+        if (!(Math.abs(r2) <= Math.abs(yearAxis))) { yearAxis = r2; yearAxisDeg = d; }
+      }
+      /* Nearest neighbour in space, difference in years, against the same
+         statistic over shuffled positions — the shuffle is the null that says
+         what a corpus with no time structure at all would score. */
+      const nnGap = (px, py) => {
+        let sum = 0;
+        for (const i of idx) {
+          let best = Infinity, bi = -1;
+          for (const j of idx) {
+            if (j === i) continue;
+            const d2 = (px[i] - px[j]) ** 2 + (py[i] - py[j]) ** 2;
+            if (d2 < best) { best = d2; bi = j; }
+          }
+          if (bi >= 0) sum += Math.abs(yrs[i] - yrs[bi]);
+        }
+        return sum / idx.length;
+      };
+      const rnd2 = mulberry32(0x1a7e5 ^ n);
+      const px2 = Float64Array.from(xs), py2 = Float64Array.from(ys);
+      for (let i = idx.length - 1; i > 0; i--) {
+        const j = (rnd2() * (i + 1)) | 0;
+        const a = idx[i], b = idx[j];
+        let t = px2[a]; px2[a] = px2[b]; px2[b] = t;
+        t = py2[a]; py2[a] = py2[b]; py2[b] = t;
+      }
+      yearNN = nnGap(xs, ys) / Math.max(1e-9, nnGap(px2, py2));
+      /* The five-year centroid's walk. Windows are stepped by one year and the
+         travel is the total path length, which is what the transport's light
+         does frame by frame rather than the straight-line displacement. */
+      const lo = Math.min(...yv), hi = Math.max(...yv);
+      let prev = null, first = null, travel = 0;
+      for (let y = lo; y + 4 <= hi; y++) {
+        let cx = 0, cy = 0, c3 = 0;
+        for (const i of idx) if (yrs[i] >= y && yrs[i] < y + 5) { cx += xs[i]; cy += ys[i]; c3++; }
+        if (c3 < 8) continue;
+        cx /= c3; cy /= c3;
+        if (prev) travel += Math.hypot(cx - prev[0], cy - prev[1]);
+        else first = [cx, cy];
+        prev = [cx, cy];
+      }
+      yearTravel = travel;
+      /* PATH LENGTH IS NOT THE NULL-SAFE STATISTIC AND THE SELFTEST CAUGHT IT.
+         A shuffled layout scores 2.255 world units of travel against the
+         shipped 1.797, because a centroid of fifty random films jitters and
+         the path length of a jitter is longer than the path length of a
+         smooth drift. What actually says "the century crosses the plate" is
+         the NET displacement from the first window to the last — 0.45 shipped
+         against ~0.05 for a shuffle. Both are printed: the path length is the
+         distance the transport's light travels frame by frame, and the drift
+         is the claim. */
+      yearDrift = first && prev ? Math.hypot(prev[0] - first[0], prev[1] - first[1]) : NaN;
+    }
+  }
+
   /* ---- bandRatio: the same strength drawn two different lengths -------- */
 
   /* Rule 1 says rendered length is a statement about bond strength AND NOTHING
@@ -545,7 +657,8 @@ function measureLayout(label, films, edges, positions, attrs, opts) {
       degreeBias, degreeBiasLinked, degreeBiasCeiling, isolates, closerP, weakCloserP, weakRatio,
       formFit, formEdges: formIdx.length, bandRatio, bandRatioWorst,
       medianEdgeLength: median(Array.prototype.slice.call(Lv)), medianUnconnected: medUnc,
-      restWeakWorld: restWeakWorldAt(n), nnLift: {} };
+      restWeakWorld: restWeakWorldAt(n), nnLift: {},
+      yearX, yearAxis, yearAxisDeg, yearNN, yearTravel, yearDrift, yearN };
   }
   const K = Math.min(o.knn, n - 1);
   const nn = [];
@@ -653,6 +766,7 @@ function measureLayout(label, films, edges, positions, attrs, opts) {
     medianEdgeLength: median(Array.prototype.slice.call(Lv)), medianUnconnected: medUnc,
     spacing, spacingConstant: spacing * Math.sqrt(n),
     restWeakWorld: restWeakWorldAt(n),
+    yearX, yearAxis, yearAxisDeg, yearNN, yearTravel, yearDrift, yearN,
     nnLift,
   };
 }
@@ -735,6 +849,18 @@ function printWhole(r) {
     "   (restWeak=" + REST_WEAK + " at n=" + REST_WEAK_N + ", exponent " + REST_WEAK_EXP +
     ", in units of the finished picture's width — rises as n^" +
     (REST_WEAK_EXP - 0.5).toFixed(2) + " by construction)");
+  /* THE CENTURY, WHICH THE SOLVER WAS NEVER TOLD ABOUT. Printed here rather
+     than buried in the JSON because a solver retune that flattens it is
+     invisible in every other number on this page — bondFit, formFit and
+     weakRatio all improved across the change that took corr(year, x) from
+     +0.612 to +0.448. Read the three together: the drift is a FIELD-SCALE
+     fact and it is nearly absent locally, which is what app/template.html's
+     transport is built to respect. */
+  console.log("century (nobody told it) : corr(year, x) " + fmt(r.yearX, 3) +
+    "   best axis " + fmt(r.yearAxis, 3) + " at " + fmt(r.yearAxisDeg, 1) + " deg" +
+    "   5-year centroid: drift " + fmt(r.yearDrift, 3) + ", path " + fmt(r.yearTravel, 3) + " world units");
+  console.log("  nearest-neighbour year gap, as a share of a shuffled control : " + fmt(r.yearNN, 3) +
+    "   (1.000 = the plate carries no local time signal at all)");
   console.log("spacing (median NN dist) : " + fmt(r.spacing, 5) +
     "   = " + fmt(r.spacingConstant, 3) + "/sqrt(N)   (DESIGN.md asserts " +
     DESIGN_SPACING_CONSTANT + ")");
@@ -802,6 +928,8 @@ function selftest(corpus, discovery, attrs) {
   console.log("control (the shipped layout)");
   console.log("  bondFit " + fmt(truth.bondFit) + "   closerP " + fmt(truth.closerP, 3) +
     "   degreeBias " + fmt(truth.degreeBias) + "   director lift " + truth.nnLift.director.lift.toFixed(2) + "x");
+  console.log("  century: corr(year, x) " + fmt(truth.yearX, 3) + "   best axis " + fmt(truth.yearAxis, 3) +
+    "   nn year gap " + fmt(truth.yearNN, 3) + " of a shuffle   centroid drift " + fmt(truth.yearDrift, 3));
   results.push(["control", truth]);
 
   /* 1. INVERT THE STRENGTH -> REST-LENGTH MAPPING.
@@ -835,6 +963,10 @@ function selftest(corpus, discovery, attrs) {
   console.log("  bandRatio " + shuf.bandRatio.map((b) => b.ratio == null ? "thin" : b.ratio.toFixed(3)).join(" ") +
     "   (worst " + fmt(shuf.bandRatioWorst, 3) + " against " + fmt(truth.bandRatioWorst, 3) + " shipped)");
   console.log("  lifts: " + Object.entries(shuf.nnLift).map(([f, v]) => f + " " + v.lift.toFixed(2) + "x").join("   "));
+  console.log("  century: axis " + fmt(shuf.yearAxis, 3) + " (shipped " + fmt(truth.yearAxis, 3) + ")" +
+    "   nn year gap " + fmt(shuf.yearNN, 3) + " (shipped " + fmt(truth.yearNN, 3) + ")" +
+    "   centroid drift " + fmt(shuf.yearDrift, 3) + " (shipped " + fmt(truth.yearDrift, 3) + ")" +
+    "   path " + fmt(shuf.yearTravel, 3) + " (shipped " + fmt(truth.yearTravel, 3) + ")");
   results.push(["shuffled", shuf]);
 
   /* 3. PLANT A DEGREE-ORDERED LAYOUT. Films are laid on a spiral sorted by
@@ -938,6 +1070,18 @@ function selftest(corpus, discovery, attrs) {
        floor: it is the maximal version of exactly the defect bandRatio names. */
     ["bandRatio collapses on a director-packed layout",
       dirL.bandRatioWorst < 0.15 && dirL.bandRatioWorst < truth.bandRatioWorst],
+    /* THE CENTURY. Three controls, because the three numbers can fail
+       separately and the transport depends on all of them: a layout with no
+       time structure must score ~0 on the axis, ~1.0 on the neighbour ratio
+       and must not walk its centroid anywhere. And the shipped layout has to
+       be visibly clear of all three, or the reel is running over noise. */
+    ["the year axis collapses to ~0 when positions are shuffled", Math.abs(shuf.yearAxis) < 0.08],
+    ["the nearest-neighbour year gap goes to ~1.0 when positions are shuffled",
+      Math.abs(shuf.yearNN - 1) < 0.06],
+    ["the five-year centroid stops DRIFTING when positions are shuffled",
+      shuf.yearDrift < truth.yearDrift * 0.4],
+    ["the shipped layout still carries the century it was never told about",
+      Math.abs(truth.yearAxis) > 0.30 && truth.yearDrift > 0.25],
   ];
   console.log("\n── assertions ─────────────────────────────────────────────────────");
   let bad = 0;

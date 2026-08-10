@@ -15,7 +15,16 @@ const buildScript = fileURLToPath(new URL("../atlas/app/build.js", import.meta.u
 const authoredCorpusPath = fileURLToPath(new URL("../atlas/static/corpus.json", import.meta.url));
 const discoveryPath = fileURLToPath(new URL("../atlas/static/discovery.json", import.meta.url));
 const require = createRequire(import.meta.url);
-const { contentVersion } = require("../atlas/pipeline/discovery-contract.js");
+const { contentVersion, layoutVersionFor } = require("../atlas/pipeline/discovery-contract.js");
+const { LAYOUT_ALGORITHM_VERSION } = require("../atlas/app/layout-sky.js");
+
+/* The shipped layout version has to name the POSITIONS, which means the sky
+   solver has to be inside it. Asserting equality with DISCOVERY.layoutVersion
+   — which is what this file used to do — is exactly the check that passed
+   across commit e49de94 while every one of the 2,204 coordinates moved. */
+const layoutVersionOf = (embedded) =>
+  layoutVersionFor(LAYOUT_ALGORITHM_VERSION, embedded.DISCOVERY.corpusVersion, embedded.DISCOVERY.filmOrder);
+
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -147,8 +156,14 @@ test("embeds versioned discovery and permanent-ID layout data in full and sample
     };
 
     assert.equal(full.CORPUS.meta.corpusVersion, full.DISCOVERY.corpusVersion);
-    assert.equal(full.DISCOVERY.layoutVersion, full.LAYOUT.version);
-    assert.equal(full.LAYOUT.algorithmVersion, "sky-fr-bh-v1");
+    assert.equal(full.LAYOUT.version, layoutVersionOf(full));
+    assert.notEqual(full.LAYOUT.version, full.DISCOVERY.layoutVersion,
+      "the layout version must name the positions, not repeat discovery's film-order hash");
+    assert.equal(full.LAYOUT.algorithmVersion, LAYOUT_ALGORITHM_VERSION);
+    /* Derived from the solver's own tuned constants, so a retune renames the
+       layout without anybody remembering to. Checked as a shape here; that it
+       actually MOVES on a constant change is tests/layout-version.test.mjs. */
+    assert.match(full.LAYOUT.algorithmVersion, /^sky-fr-bh-v2-[0-9a-f]{16}$/);
     assert.equal(full.LAYOUT.corpusVersion, full.DISCOVERY.corpusVersion);
     /* Derived, not hardcoded: this file's contract is that every count comes
        from the corpus the build actually read, so a growth run moves it. */
@@ -200,9 +215,9 @@ test("embeds versioned discovery and permanent-ID layout data in full and sample
     );
     assert.equal(sample.DISCOVERY.corpusVersion, full.DISCOVERY.corpusVersion);
     assert.equal(sample.LAYOUT.corpusVersion, full.DISCOVERY.corpusVersion);
-    assert.equal(sample.LAYOUT.version, sample.DISCOVERY.layoutVersion);
+    assert.equal(sample.LAYOUT.version, layoutVersionOf(sample));
     assert.notEqual(sample.LAYOUT.version, full.LAYOUT.version);
-    assert.equal(sample.LAYOUT.algorithmVersion, "sky-fr-bh-v1");
+    assert.equal(sample.LAYOUT.algorithmVersion, LAYOUT_ALGORITHM_VERSION);
     assert.match(sample.DISCOVERY.layoutAlgorithmVersion, /^sample-[0-9a-f]{16}$/);
     assert.deepEqual(
       Object.keys(sample.LAYOUT.positions).sort(),
