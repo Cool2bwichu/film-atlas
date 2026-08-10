@@ -75,16 +75,31 @@
   "cohortFilmsTouched": 291,
   "caution": "99% of cohort pairs have no edge to begin with (44396 of 44850), so \"joins films sharing no edge\" is nearly free. The unreachable count is the number that discriminates, against a 70.59% chance baseline."
  },
- "mapImpact": {
-  "note": "a precondition, not a result. A cohort film with no predicate partner cannot have its top six changed by this layer at any strength. Nothing is merged and no edge is scored.",
-  "cohortFilms": 300,
-  "filmsWithAtLeastOnePartner": 291,
-  "filmsWithAtLeastThreePartners": 291,
-  "filmsWithNoPartner": 9,
-  "medianNewPartnersPerFilm": 38,
-  "maxNewPartnersOnOneFilm": 87,
-  "filmsWhoseTopSixIsEntirelyCrewOrCast": 92,
-  "ofThoseThatGainAPartner": 90
+ "independentVerification": {
+  "note": "every headline number below was re-derived from static/corpus.json, harvest.json, enrich.json and fingerprints.json by a second implementation that shares no code with build-predicates-propC.js, resolving films by title+year against corpus.films rather than by plots.json slug, and using a different RNG (mulberry32, seed 20260810) for the permutation.",
+  "verifiedAt": "2026-08-10T14:54:15.771Z",
+  "reproduced": {
+   "cohortPairs": 44850,
+   "pairsWithAnEdge": 454,
+   "unreachablePairs": 31661,
+   "unreachablePct": 70.59,
+   "candidatePairsProposed": 6228,
+   "proposedPairsWithNoEdge": 6139,
+   "proposedPairsWithNoEdgePct": 98.57,
+   "predicatesJoiningAtLeastOneNoEdgePair": 89,
+   "observedUnreachableShareOfProposedPairs": 66.71,
+   "observedMeanTonalDistance": 61.77
+  },
+  "perPredicateDisagreementsWithTheFile": 0,
+  "permutation": {
+   "permutations": 500,
+   "randomUnreachableShareMean": 70.57,
+   "p5": 69.51,
+   "p95": 71.61,
+   "permutationsAtOrBelowObserved": 0,
+   "oneSidedP": 0.002,
+   "reading": "the observed 66.71% falls outside the whole null distribution on the low side. The vocabulary joins films that are MORE reachable than random film sets of the same sizes, not less. This is the brief's own question answered against the layer."
+  }
  },
  "permutationControl": {
   "permutations": 500,
@@ -117,6 +132,921 @@
    },
    "verdict": "tonally TIGHTER than chance — the layer is partly re-deriving the fingerprint"
   }
+ },
+ "perPredicateSignificance": {
+  "note": "the aggregate permutation can hide a good minority inside a bad average. This asks the question once per predicate: resample a film set of exactly this predicate's size uniformly from the 300-film cohort, 2,000 times, and ask how often chance joins at least as many unreachable pairs.",
+  "permutationsPerPredicate": 2000,
+  "predicates": 89,
+  "withLiftAboveOne": 31,
+  "significantAt05Uncorrected": 0,
+  "expectedFalsePositivesAt05": 4.5,
+  "significantAt05Bonferroni": 0,
+  "bestP": 0.0555,
+  "bestPredicate": "the-pursuit-becomes-the-bond",
+  "reading": "not one of the 89 clears even the uncorrected 0.05 threshold, and 89 tests should have thrown ~4.5 false positives by chance alone. Getting zero is itself evidence of a systematic pull TOWARD reachability rather than a null result. No subset of this vocabulary can be defended as a stranger-joiner on this cohort.",
+  "perPredicate": [
+   {
+    "id": "the-pursuit-becomes-the-bond",
+    "films": 13,
+    "pairs": 78,
+    "unreachable": 62,
+    "obsPct": 79.49,
+    "nullMeanPct": 70.43,
+    "lift": 1.129,
+    "p": 0.0555
+   },
+   {
+    "id": "the-watcher-and-the-watched",
+    "films": 11,
+    "pairs": 55,
+    "unreachable": 44,
+    "obsPct": 80,
+    "nullMeanPct": 70.39,
+    "lift": 1.136,
+    "p": 0.0895
+   },
+   {
+    "id": "read-as-the-opposite",
+    "films": 5,
+    "pairs": 10,
+    "unreachable": 9,
+    "obsPct": 90,
+    "nullMeanPct": 70.43,
+    "lift": 1.278,
+    "p": 0.1569
+   },
+   {
+    "id": "the-rescue-that-binds",
+    "films": 5,
+    "pairs": 10,
+    "unreachable": 9,
+    "obsPct": 90,
+    "nullMeanPct": 70.69,
+    "lift": 1.273,
+    "p": 0.1699
+   },
+   {
+    "id": "a-bond-resting-on-concealment",
+    "films": 20,
+    "pairs": 190,
+    "unreachable": 141,
+    "obsPct": 74.21,
+    "nullMeanPct": 70.69,
+    "lift": 1.05,
+    "p": 0.1939
+   },
+   {
+    "id": "guilt-fixed-without-proof",
+    "films": 15,
+    "pairs": 105,
+    "unreachable": 78,
+    "obsPct": 74.29,
+    "nullMeanPct": 70.61,
+    "lift": 1.052,
+    "p": 0.2709
+   },
+   {
+    "id": "a-bond-that-cannot-end",
+    "films": 6,
+    "pairs": 15,
+    "unreachable": 12,
+    "obsPct": 80,
+    "nullMeanPct": 70.44,
+    "lift": 1.136,
+    "p": 0.3103
+   },
+   {
+    "id": "the-gift-that-goes-unnamed",
+    "films": 6,
+    "pairs": 15,
+    "unreachable": 12,
+    "obsPct": 80,
+    "nullMeanPct": 70.52,
+    "lift": 1.134,
+    "p": 0.3318
+   },
+   {
+    "id": "one-goes-one-keeps-faith",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 67,
+    "obsPct": 73.63,
+    "nullMeanPct": 70.64,
+    "lift": 1.042,
+    "p": 0.3393
+   },
+   {
+    "id": "the-match-arranged-by-others",
+    "films": 9,
+    "pairs": 36,
+    "unreachable": 27,
+    "obsPct": 75,
+    "nullMeanPct": 70.57,
+    "lift": 1.063,
+    "p": 0.3648
+   },
+   {
+    "id": "torn-between-two-claims",
+    "films": 13,
+    "pairs": 78,
+    "unreachable": 57,
+    "obsPct": 73.08,
+    "nullMeanPct": 70.3,
+    "lift": 1.04,
+    "p": 0.3793
+   },
+   {
+    "id": "envy-of-the-one-favoured",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 16,
+    "obsPct": 76.19,
+    "nullMeanPct": 70.4,
+    "lift": 1.082,
+    "p": 0.3918
+   },
+   {
+    "id": "affection-made-to-be-earned",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 16,
+    "obsPct": 76.19,
+    "nullMeanPct": 70.55,
+    "lift": 1.08,
+    "p": 0.3943
+   },
+   {
+    "id": "the-witness-who-stays-silent",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 66,
+    "obsPct": 72.53,
+    "nullMeanPct": 70.49,
+    "lift": 1.029,
+    "p": 0.4078
+   },
+   {
+    "id": "standing-stripped-answered-with-death",
+    "films": 10,
+    "pairs": 45,
+    "unreachable": 33,
+    "obsPct": 73.33,
+    "nullMeanPct": 70.62,
+    "lift": 1.038,
+    "p": 0.4168
+   },
+   {
+    "id": "acting-on-a-false-picture",
+    "films": 18,
+    "pairs": 153,
+    "unreachable": 110,
+    "obsPct": 71.9,
+    "nullMeanPct": 70.59,
+    "lift": 1.018,
+    "p": 0.4173
+   },
+   {
+    "id": "kept-outside-the-circle",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 16,
+    "obsPct": 76.19,
+    "nullMeanPct": 70.99,
+    "lift": 1.073,
+    "p": 0.4193
+   },
+   {
+    "id": "the-reckoning-comes-too-late",
+    "films": 5,
+    "pairs": 10,
+    "unreachable": 8,
+    "obsPct": 80,
+    "nullMeanPct": 70.4,
+    "lift": 1.136,
+    "p": 0.4218
+   },
+   {
+    "id": "a-debt-never-discharged",
+    "films": 4,
+    "pairs": 6,
+    "unreachable": 5,
+    "obsPct": 83.33,
+    "nullMeanPct": 70.65,
+    "lift": 1.18,
+    "p": 0.4558
+   },
+   {
+    "id": "acting-inside-anothers-design",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 65,
+    "obsPct": 71.43,
+    "nullMeanPct": 70.37,
+    "lift": 1.015,
+    "p": 0.4843
+   },
+   {
+    "id": "kindness-from-a-stranger",
+    "films": 13,
+    "pairs": 78,
+    "unreachable": 56,
+    "obsPct": 71.79,
+    "nullMeanPct": 70.6,
+    "lift": 1.017,
+    "p": 0.4893
+   },
+   {
+    "id": "the-cost-taken-on-willingly",
+    "films": 21,
+    "pairs": 210,
+    "unreachable": 149,
+    "obsPct": 70.95,
+    "nullMeanPct": 70.54,
+    "lift": 1.006,
+    "p": 0.5027
+   },
+   {
+    "id": "mercy-granted-against-interest",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 65,
+    "obsPct": 71.43,
+    "nullMeanPct": 70.71,
+    "lift": 1.01,
+    "p": 0.5087
+   },
+   {
+    "id": "the-appeal-that-goes-unanswered",
+    "films": 23,
+    "pairs": 253,
+    "unreachable": 179,
+    "obsPct": 70.75,
+    "nullMeanPct": 70.47,
+    "lift": 1.004,
+    "p": 0.5092
+   },
+   {
+    "id": "the-search-consumes-the-searcher",
+    "films": 8,
+    "pairs": 28,
+    "unreachable": 20,
+    "obsPct": 71.43,
+    "nullMeanPct": 70.44,
+    "lift": 1.014,
+    "p": 0.5567
+   },
+   {
+    "id": "made-to-answer-for-another",
+    "films": 8,
+    "pairs": 28,
+    "unreachable": 20,
+    "obsPct": 71.43,
+    "nullMeanPct": 70.59,
+    "lift": 1.012,
+    "p": 0.5722
+   },
+   {
+    "id": "holding-both-sides-alone",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 64,
+    "obsPct": 70.33,
+    "nullMeanPct": 70.56,
+    "lift": 0.997,
+    "p": 0.5857
+   },
+   {
+    "id": "the-accuser-holds-the-guilt",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 15,
+    "obsPct": 71.43,
+    "nullMeanPct": 70.68,
+    "lift": 1.011,
+    "p": 0.5892
+   },
+   {
+    "id": "strength-decides-not-right",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 15,
+    "obsPct": 71.43,
+    "nullMeanPct": 71.01,
+    "lift": 1.006,
+    "p": 0.6112
+   },
+   {
+    "id": "remade-into-anothers-figure",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 46,
+    "obsPct": 69.7,
+    "nullMeanPct": 70.53,
+    "lift": 0.988,
+    "p": 0.6182
+   },
+   {
+    "id": "a-wrong-never-answered-for",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 46,
+    "obsPct": 69.7,
+    "nullMeanPct": 70.58,
+    "lift": 0.987,
+    "p": 0.6287
+   },
+   {
+    "id": "what-the-helped-hand-back",
+    "films": 9,
+    "pairs": 36,
+    "unreachable": 25,
+    "obsPct": 69.44,
+    "nullMeanPct": 70.43,
+    "lift": 0.986,
+    "p": 0.6447
+   },
+   {
+    "id": "the-made-turns-on-maker",
+    "films": 11,
+    "pairs": 55,
+    "unreachable": 38,
+    "obsPct": 69.09,
+    "nullMeanPct": 70.55,
+    "lift": 0.979,
+    "p": 0.6582
+   },
+   {
+    "id": "a-death-known-in-advance",
+    "films": 2,
+    "pairs": 1,
+    "unreachable": 1,
+    "obsPct": 100,
+    "nullMeanPct": 68.75,
+    "lift": 1.455,
+    "p": 0.6877
+   },
+   {
+    "id": "what-was-taken-must-return",
+    "films": 2,
+    "pairs": 1,
+    "unreachable": 1,
+    "obsPct": 100,
+    "nullMeanPct": 70.3,
+    "lift": 1.422,
+    "p": 0.7031
+   },
+   {
+    "id": "closeness-entered-to-extract",
+    "films": 19,
+    "pairs": 171,
+    "unreachable": 118,
+    "obsPct": 69.01,
+    "nullMeanPct": 70.7,
+    "lift": 0.976,
+    "p": 0.7051
+   },
+   {
+    "id": "the-returner-and-those-who-stayed",
+    "films": 20,
+    "pairs": 190,
+    "unreachable": 131,
+    "obsPct": 68.95,
+    "nullMeanPct": 70.56,
+    "lift": 0.977,
+    "p": 0.7076
+   },
+   {
+    "id": "the-bond-recast-unilaterally",
+    "films": 2,
+    "pairs": 1,
+    "unreachable": 1,
+    "obsPct": 100,
+    "nullMeanPct": 71.35,
+    "lift": 1.402,
+    "p": 0.7136
+   },
+   {
+    "id": "the-bond-ended-without-account",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 45,
+    "obsPct": 68.18,
+    "nullMeanPct": 70.65,
+    "lift": 0.965,
+    "p": 0.7161
+   },
+   {
+    "id": "the-price-of-a-place",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 45,
+    "obsPct": 68.18,
+    "nullMeanPct": 70.47,
+    "lift": 0.968,
+    "p": 0.7216
+   },
+   {
+    "id": "kin-offices-taken-by-strangers",
+    "films": 17,
+    "pairs": 136,
+    "unreachable": 93,
+    "obsPct": 68.38,
+    "nullMeanPct": 70.67,
+    "lift": 0.968,
+    "p": 0.7376
+   },
+   {
+    "id": "confession-reaches-the-wrong-ear",
+    "films": 6,
+    "pairs": 15,
+    "unreachable": 10,
+    "obsPct": 66.67,
+    "nullMeanPct": 70.83,
+    "lift": 0.941,
+    "p": 0.7396
+   },
+   {
+    "id": "a-life-settled-by-others",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 62,
+    "obsPct": 68.13,
+    "nullMeanPct": 70.82,
+    "lift": 0.962,
+    "p": 0.7431
+   },
+   {
+    "id": "later-wanting-against-earlier-tie",
+    "films": 19,
+    "pairs": 171,
+    "unreachable": 117,
+    "obsPct": 68.42,
+    "nullMeanPct": 70.54,
+    "lift": 0.97,
+    "p": 0.7481
+   },
+   {
+    "id": "standing-held-at-anothers-pleasure",
+    "films": 6,
+    "pairs": 15,
+    "unreachable": 10,
+    "obsPct": 66.67,
+    "nullMeanPct": 71.27,
+    "lift": 0.935,
+    "p": 0.7571
+   },
+   {
+    "id": "wrongdoer-faces-the-wronged",
+    "films": 10,
+    "pairs": 45,
+    "unreachable": 30,
+    "obsPct": 66.67,
+    "nullMeanPct": 70.56,
+    "lift": 0.945,
+    "p": 0.7626
+   },
+   {
+    "id": "the-account-fixed-beyond-appeal",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 44,
+    "obsPct": 66.67,
+    "nullMeanPct": 70.57,
+    "lift": 0.945,
+    "p": 0.7751
+   },
+   {
+    "id": "bond-forbidden-from-outside",
+    "films": 19,
+    "pairs": 171,
+    "unreachable": 116,
+    "obsPct": 67.84,
+    "nullMeanPct": 70.55,
+    "lift": 0.962,
+    "p": 0.7761
+   },
+   {
+    "id": "withholding-what-cannot-be-compelled",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 44,
+    "obsPct": 66.67,
+    "nullMeanPct": 70.5,
+    "lift": 0.946,
+    "p": 0.7871
+   },
+   {
+    "id": "the-one-everyone-lives-off",
+    "films": 3,
+    "pairs": 3,
+    "unreachable": 2,
+    "obsPct": 66.67,
+    "nullMeanPct": 70.13,
+    "lift": 0.951,
+    "p": 0.8036
+   },
+   {
+    "id": "a-child-wanted-through-another",
+    "films": 3,
+    "pairs": 3,
+    "unreachable": 2,
+    "obsPct": 66.67,
+    "nullMeanPct": 70.75,
+    "lift": 0.942,
+    "p": 0.8096
+   },
+   {
+    "id": "a-bond-required-unlived",
+    "films": 3,
+    "pairs": 3,
+    "unreachable": 2,
+    "obsPct": 66.67,
+    "nullMeanPct": 70.05,
+    "lift": 0.952,
+    "p": 0.8126
+   },
+   {
+    "id": "harm-passed-to-the-uninvolved",
+    "films": 8,
+    "pairs": 28,
+    "unreachable": 18,
+    "obsPct": 64.29,
+    "nullMeanPct": 70.61,
+    "lift": 0.91,
+    "p": 0.8276
+   },
+   {
+    "id": "help-that-buys-a-hold",
+    "films": 9,
+    "pairs": 36,
+    "unreachable": 23,
+    "obsPct": 63.89,
+    "nullMeanPct": 70.26,
+    "lift": 0.909,
+    "p": 0.8396
+   },
+   {
+    "id": "the-private-judged-in-public",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 60,
+    "obsPct": 65.93,
+    "nullMeanPct": 70.51,
+    "lift": 0.935,
+    "p": 0.8426
+   },
+   {
+    "id": "a-child-claimed-by-two",
+    "films": 9,
+    "pairs": 36,
+    "unreachable": 23,
+    "obsPct": 63.89,
+    "nullMeanPct": 70.49,
+    "lift": 0.906,
+    "p": 0.8446
+   },
+   {
+    "id": "held-where-no-help-reaches",
+    "films": 9,
+    "pairs": 36,
+    "unreachable": 23,
+    "obsPct": 63.89,
+    "nullMeanPct": 70.51,
+    "lift": 0.906,
+    "p": 0.8461
+   },
+   {
+    "id": "rivalry-for-a-single-place",
+    "films": 5,
+    "pairs": 10,
+    "unreachable": 6,
+    "obsPct": 60,
+    "nullMeanPct": 70.39,
+    "lift": 0.852,
+    "p": 0.8511
+   },
+   {
+    "id": "blame-lands-where-it-can",
+    "films": 10,
+    "pairs": 45,
+    "unreachable": 29,
+    "obsPct": 64.44,
+    "nullMeanPct": 70.57,
+    "lift": 0.913,
+    "p": 0.8516
+   },
+   {
+    "id": "refusing-what-all-have-settled",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 13,
+    "obsPct": 61.9,
+    "nullMeanPct": 70.64,
+    "lift": 0.876,
+    "p": 0.8556
+   },
+   {
+    "id": "the-trusted-serves-another-interest",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 43,
+    "obsPct": 65.15,
+    "nullMeanPct": 70.55,
+    "lift": 0.924,
+    "p": 0.8621
+   },
+   {
+    "id": "shut-in-with-an-adversary",
+    "films": 5,
+    "pairs": 10,
+    "unreachable": 6,
+    "obsPct": 60,
+    "nullMeanPct": 71.55,
+    "lift": 0.839,
+    "p": 0.8716
+   },
+   {
+    "id": "living-off-anothers-ruin",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 59,
+    "obsPct": 64.84,
+    "nullMeanPct": 70.53,
+    "lift": 0.919,
+    "p": 0.8771
+   },
+   {
+    "id": "the-group-turns-on-one",
+    "films": 13,
+    "pairs": 78,
+    "unreachable": 50,
+    "obsPct": 64.1,
+    "nullMeanPct": 70.6,
+    "lift": 0.908,
+    "p": 0.8906
+   },
+   {
+    "id": "kept-only-while-useful",
+    "films": 20,
+    "pairs": 190,
+    "unreachable": 125,
+    "obsPct": 65.79,
+    "nullMeanPct": 70.45,
+    "lift": 0.934,
+    "p": 0.8931
+   },
+   {
+    "id": "consent-extracted-through-need",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 12,
+    "obsPct": 57.14,
+    "nullMeanPct": 70.68,
+    "lift": 0.808,
+    "p": 0.93
+   },
+   {
+    "id": "one-temper-sets-the-terms",
+    "films": 4,
+    "pairs": 6,
+    "unreachable": 3,
+    "obsPct": 50,
+    "nullMeanPct": 70.26,
+    "lift": 0.712,
+    "p": 0.9305
+   },
+   {
+    "id": "carrying-one-who-cannot-stand",
+    "films": 7,
+    "pairs": 21,
+    "unreachable": 12,
+    "obsPct": 57.14,
+    "nullMeanPct": 70.71,
+    "lift": 0.808,
+    "p": 0.933
+   },
+   {
+    "id": "a-bond-held-by-imposture",
+    "films": 17,
+    "pairs": 136,
+    "unreachable": 87,
+    "obsPct": 63.97,
+    "nullMeanPct": 70.51,
+    "lift": 0.907,
+    "p": 0.9345
+   },
+   {
+    "id": "truth-kept-from-its-owner",
+    "films": 14,
+    "pairs": 91,
+    "unreachable": 57,
+    "obsPct": 62.64,
+    "nullMeanPct": 70.39,
+    "lift": 0.89,
+    "p": 0.9395
+   },
+   {
+    "id": "the-dead-claim-the-living",
+    "films": 16,
+    "pairs": 120,
+    "unreachable": 76,
+    "obsPct": 63.33,
+    "nullMeanPct": 70.62,
+    "lift": 0.897,
+    "p": 0.945
+   },
+   {
+    "id": "the-only-way-through",
+    "films": 5,
+    "pairs": 10,
+    "unreachable": 5,
+    "obsPct": 50,
+    "nullMeanPct": 70.15,
+    "lift": 0.713,
+    "p": 0.946
+   },
+   {
+    "id": "the-price-paid-by-another",
+    "films": 18,
+    "pairs": 153,
+    "unreachable": 98,
+    "obsPct": 64.05,
+    "nullMeanPct": 70.53,
+    "lift": 0.908,
+    "p": 0.947
+   },
+   {
+    "id": "shelter-across-a-hostile-line",
+    "films": 6,
+    "pairs": 15,
+    "unreachable": 8,
+    "obsPct": 53.33,
+    "nullMeanPct": 70.73,
+    "lift": 0.754,
+    "p": 0.951
+   },
+   {
+    "id": "the-ordeal-staged-again",
+    "films": 3,
+    "pairs": 3,
+    "unreachable": 1,
+    "obsPct": 33.33,
+    "nullMeanPct": 70.95,
+    "lift": 0.47,
+    "p": 0.9605
+   },
+   {
+    "id": "the-parent-seen-plainly",
+    "films": 3,
+    "pairs": 3,
+    "unreachable": 1,
+    "obsPct": 33.33,
+    "nullMeanPct": 70.68,
+    "lift": 0.472,
+    "p": 0.963
+   },
+   {
+    "id": "a-person-held-as-leverage",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 39,
+    "obsPct": 59.09,
+    "nullMeanPct": 70.54,
+    "lift": 0.838,
+    "p": 0.9675
+   },
+   {
+    "id": "devotion-that-runs-one-way",
+    "films": 18,
+    "pairs": 153,
+    "unreachable": 95,
+    "obsPct": 62.09,
+    "nullMeanPct": 70.51,
+    "lift": 0.881,
+    "p": 0.9725
+   },
+   {
+    "id": "another-owns-your-life",
+    "films": 11,
+    "pairs": 55,
+    "unreachable": 31,
+    "obsPct": 56.36,
+    "nullMeanPct": 70.47,
+    "lift": 0.8,
+    "p": 0.9825
+   },
+   {
+    "id": "drawn-into-anothers-quarrel",
+    "films": 11,
+    "pairs": 55,
+    "unreachable": 31,
+    "obsPct": 56.36,
+    "nullMeanPct": 70.78,
+    "lift": 0.796,
+    "p": 0.9845
+   },
+   {
+    "id": "two-claims-on-one-person",
+    "films": 12,
+    "pairs": 66,
+    "unreachable": 37,
+    "obsPct": 56.06,
+    "nullMeanPct": 70.55,
+    "lift": 0.795,
+    "p": 0.985
+   },
+   {
+    "id": "the-warning-that-cannot-land",
+    "films": 21,
+    "pairs": 210,
+    "unreachable": 131,
+    "obsPct": 62.38,
+    "nullMeanPct": 70.77,
+    "lift": 0.881,
+    "p": 0.9875
+   },
+   {
+    "id": "the-answering-outruns-the-injury",
+    "films": 8,
+    "pairs": 28,
+    "unreachable": 14,
+    "obsPct": 50,
+    "nullMeanPct": 70.53,
+    "lift": 0.709,
+    "p": 0.9885
+   },
+   {
+    "id": "the-child-given-up",
+    "films": 11,
+    "pairs": 55,
+    "unreachable": 30,
+    "obsPct": 54.55,
+    "nullMeanPct": 70.46,
+    "lift": 0.774,
+    "p": 0.992
+   },
+   {
+    "id": "the-protector-is-the-danger",
+    "films": 23,
+    "pairs": 253,
+    "unreachable": 155,
+    "obsPct": 61.26,
+    "nullMeanPct": 70.7,
+    "lift": 0.867,
+    "p": 0.9955
+   },
+   {
+    "id": "harm-done-by-anothers-hands",
+    "films": 20,
+    "pairs": 190,
+    "unreachable": 114,
+    "obsPct": 60,
+    "nullMeanPct": 70.72,
+    "lift": 0.848,
+    "p": 0.9955
+   },
+   {
+    "id": "knowing-makes-one-a-target",
+    "films": 19,
+    "pairs": 171,
+    "unreachable": 100,
+    "obsPct": 58.48,
+    "nullMeanPct": 70.6,
+    "lift": 0.828,
+    "p": 0.9965
+   },
+   {
+    "id": "accounts-that-cannot-be-vouched",
+    "films": 4,
+    "pairs": 6,
+    "unreachable": 1,
+    "obsPct": 16.67,
+    "nullMeanPct": 71.42,
+    "lift": 0.233,
+    "p": 0.998
+   },
+   {
+    "id": "the-way-out-refused",
+    "films": 17,
+    "pairs": 136,
+    "unreachable": 74,
+    "obsPct": 54.41,
+    "nullMeanPct": 70.61,
+    "lift": 0.771,
+    "p": 0.9995
+   }
+  ]
+ },
+ "mapImpact": {
+  "note": "a precondition, not a result. A cohort film with no predicate partner cannot have its top six changed by this layer at any strength. Nothing is merged and no edge is scored.",
+  "cohortFilms": 300,
+  "filmsWithAtLeastOnePartner": 291,
+  "filmsWithAtLeastThreePartners": 291,
+  "filmsWithNoPartner": 9,
+  "medianNewPartnersPerFilm": 38,
+  "maxNewPartnersOnOneFilm": 87,
+  "filmsWhoseTopSixIsEntirelyCrewOrCast": 92,
+  "ofThoseThatGainAPartner": 90
  },
  "pairLoad": {
   "note": "what the layer would ask the graph to carry. Not an edge count — a candidate-pair count, before any strength or budget is applied.",
@@ -278,6 +1208,202 @@
    ]
   }
  ],
+ "strangerExamples": {
+  "note": "the pairs the layer would add that the current atlas has no route to at all — no edge, no shared crew, cast or keyword, no common neighbour, and outside each other's 200 nearest by five-axis distance. Ranked within each predicate by tonal distance, which is exactly the axis the fingerprint would use to bury them. These are illustrations of what the layer proposes, not a claim that the layer proposes them at a rate above chance — it does not.",
+  "fingerprintRankNote": "rank is the position of the second film in the first film's five-axis nearest list over 1,531 scored films — the number the proposal cites as #1291 for Old Joy against Banshees.",
+  "predicates": [
+   {
+    "id": "a-bond-resting-on-concealment",
+    "label": "One party holds a bond in place by keeping from the person closest to them something that would change what the bond is.",
+    "topPairs": [
+     {
+      "a": "Rosemary's Baby (1968)",
+      "b": "The Last Waltz (1978)",
+      "td": 110.2,
+      "rank": 1499,
+      "sitA": "a partner conceals what would end the bond",
+      "sitB": "someone hides their work from their parents"
+     },
+     {
+      "a": "I maniaci (1964)",
+      "b": "Aftersun (2022)",
+      "td": 108.8,
+      "rank": 1460,
+      "sitA": "each partner hides the same secret",
+      "sitB": "a child cannot see what a parent hides"
+     },
+     {
+      "a": "Rosemary's Baby (1968)",
+      "b": "Aftersun (2022)",
+      "td": 101.6,
+      "rank": 1442,
+      "sitA": "a partner conceals what would end the bond",
+      "sitB": "a child cannot see what a parent hides"
+     },
+     {
+      "a": "I maniaci (1964)",
+      "b": "The Touch (1971)",
+      "td": 100.9,
+      "rank": 1345,
+      "sitA": "each partner hides the same secret",
+      "sitB": "a hidden relative is discovered by the lover"
+     }
+    ]
+   },
+   {
+    "id": "the-pursuit-becomes-the-bond",
+    "label": "One party is set to run another down, and the chase becomes the whole relation between them, remaking the pursuer as it goes.",
+    "topPairs": [
+     {
+      "a": "Lolita (1962)",
+      "b": "Tropical Malady (2004)",
+      "td": 127.1,
+      "rank": 1540,
+      "sitA": "a man is stalked by an unnamed rival",
+      "sitB": "a pursuer is changed by the one pursued"
+     },
+     {
+      "a": "The Burning Soil (1922)",
+      "b": "Tropical Malady (2004)",
+      "td": 116.7,
+      "rank": 1519,
+      "sitA": "revenge on the guilty destroys the avenger",
+      "sitB": "a pursuer is changed by the one pursued"
+     },
+     {
+      "a": "Women of the Night (1948)",
+      "b": "Tropical Malady (2004)",
+      "td": 113.1,
+      "rank": 1519,
+      "sitA": "revenge on the guilty destroys the avenger",
+      "sitB": "a pursuer is changed by the one pursued"
+     },
+     {
+      "a": "Lupin III: Dead or Alive (1996)",
+      "b": "Tropical Malady (2004)",
+      "td": 112,
+      "rank": 1499,
+      "sitA": "a killer hunts the last of a family",
+      "sitB": "a pursuer is changed by the one pursued"
+     }
+    ]
+   },
+   {
+    "id": "the-watcher-and-the-watched",
+    "label": "One party makes another the object of a look they cannot see or refuse, and the looking acts on the life it was meant only to observe.",
+    "topPairs": [
+     {
+      "a": "The Terrorizers (1986)",
+      "b": "The Iron Giant (1999)",
+      "td": 123.2,
+      "rank": 1484,
+      "sitA": "someone falls for a stranger never actually met",
+      "sitB": "a watcher moves into the home he watches"
+     },
+     {
+      "a": "Someone's Watching Me! (1978)",
+      "b": "The Terrorizers (1986)",
+      "td": 108.8,
+      "rank": 1508,
+      "sitA": "a stranger watches someone unable to see him",
+      "sitB": "someone falls for a stranger never actually met"
+     },
+     {
+      "a": "Cléo from 5 to 7 (1962)",
+      "b": "The Terrorizers (1986)",
+      "td": 102.7,
+      "rank": 1511,
+      "sitA": "a woman is looked at rather than heard",
+      "sitB": "someone falls for a stranger never actually met"
+     },
+     {
+      "a": "The Terrorizers (1986)",
+      "b": "Portrait of a Lady on Fire (2019)",
+      "td": 99.7,
+      "rank": 863,
+      "sitA": "someone falls for a stranger never actually met",
+      "sitB": "one is paid to observe another in secret"
+     }
+    ]
+   },
+   {
+    "id": "read-as-the-opposite",
+    "label": "Others fix on a party a name or reading that inverts what they are, and nothing they say or do reads as evidence against it.",
+    "topPairs": [
+     {
+      "a": "The General (1926)",
+      "b": "Rashomon (1950)",
+      "td": 118.9,
+      "rank": 1496,
+      "sitA": "a man is thought a coward wrongly",
+      "sitB": "a woman is shamed for her own violation"
+     },
+     {
+      "a": "Rashomon (1950)",
+      "b": "Exorcist II: The Heretic (1977)",
+      "td": 89.6,
+      "rank": 675,
+      "sitA": "a woman is shamed for her own violation",
+      "sitB": "a gift is mistaken for a sickness"
+     },
+     {
+      "a": "The General (1926)",
+      "b": "The Idiot (1951)",
+      "td": 77.5,
+      "rank": 953,
+      "sitA": "a man is thought a coward wrongly",
+      "sitB": "goodness is taken for foolishness by everyone"
+     },
+     {
+      "a": "Rashomon (1950)",
+      "b": "A Confucian Confusion (1994)",
+      "td": 77.4,
+      "rank": 392,
+      "sitA": "a woman is shamed for her own violation",
+      "sitB": "a person's kindness is read as pretence"
+     }
+    ]
+   },
+   {
+    "id": "the-rescue-that-binds",
+    "label": "One party's saving of another becomes the whole of what is between them — a tie neither chose, or the very thing that ruins the one saved.",
+    "topPairs": [
+     {
+      "a": "Song to Song (2017)",
+      "b": "EO (2022)",
+      "td": 75.7,
+      "rank": 1259,
+      "sitA": "someone is lifted out of need by another",
+      "sitB": "someone is saved only to be destroyed later"
+     },
+     {
+      "a": "The Castle of Cagliostro (1979)",
+      "b": "EO (2022)",
+      "td": 71.7,
+      "rank": 1203,
+      "sitA": "the rescued offers to follow the rescuer away",
+      "sitB": "someone is saved only to be destroyed later"
+     },
+     {
+      "a": "Without Pity (1948)",
+      "b": "Song to Song (2017)",
+      "td": 67.9,
+      "rank": 1020,
+      "sitA": "saving a life creates a lasting bond",
+      "sitB": "someone is lifted out of need by another"
+     },
+     {
+      "a": "Sword of Penitence (1927)",
+      "b": "EO (2022)",
+      "td": 51,
+      "rank": 777,
+      "sitA": "saving a life creates a lasting bond",
+      "sitB": "someone is saved only to be destroyed later"
+     }
+    ]
+   }
+  ]
+ },
  "predicates": [
   {
    "id": "the-appeal-that-goes-unanswered",

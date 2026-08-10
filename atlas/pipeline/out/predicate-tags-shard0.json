@@ -1,0 +1,4073 @@
+{
+ "version": 1,
+ "pass": "C — tag",
+ "promptVersion": "tag-prompt-1",
+ "model": "claude-opus-5",
+ "vocabulary": "predicate-vocab-1.0.0",
+ "vocabularyFile": "pipeline/out/predicates-frozen.json",
+ "source": "reading",
+ "shard": {
+  "index": 0,
+  "of": 3,
+  "cohort": "pipeline/predicate-cohort-300.pc-shard0.txt",
+  "films": 100,
+  "readable": 100,
+  "belowFloor": 0,
+  "batches": 34,
+  "batchesFailed": 0,
+  "failed": []
+ },
+ "note": "Closed-vocabulary classification against predicate-vocab-1.0.0. Read from pipeline/out/plots.json and nothing else. 'none of these' is a first-class answer and empty tag arrays are real answers, not failures. NOT merged into corpus.json and not to be merged before full-corpus tagging (proposal phase 5).",
+ "summary": {
+  "filmsInShard": 100,
+  "readable": 100,
+  "belowFloor": 0,
+  "tags": 416,
+  "meanTagsPerReadableFilm": 4.16,
+  "noneOfThese": 2,
+  "noneOfTheseShare": 2,
+  "distinctPredicatesFired": 133,
+  "predicatesNeverFired": 42,
+  "rejectedTags": 5
+ },
+ "rejected": [
+  {
+   "film": "The Law Is the Law",
+   "reason": "role not in predicate",
+   "value": "acting-on-a-false-picture:mistaken"
+  },
+  {
+   "film": "Vertigo",
+   "reason": "role not in predicate",
+   "value": "acting-inside-anothers-design:acting in the dark"
+  },
+  {
+   "film": "Adua and Her Friends",
+   "reason": "role not in predicate",
+   "value": "help-that-buys-a-hold:needing"
+  },
+  {
+   "film": "Loving Couples",
+   "reason": "role not in predicate",
+   "value": "the-match-arranged-by-others:disposed of"
+  },
+  {
+   "film": "Au Hasard Balthazar",
+   "reason": "role not in predicate",
+   "value": "help-that-buys-a-hold:at their mercy"
+  }
+ ],
+ "generated": "2026-08-10T15:26:49.791Z",
+ "films": [
+  {
+   "title": "The Cabinet of Dr. Caligari",
+   "year": 1920,
+   "filmId": "film-c5acf09630c31a30",
+   "plotChars": 3944,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "deed-done-through-another",
+     "role": "directing",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Caligari sends the somnambulist Cesare out at night to stab the town clerk and Alan in their beds while Caligari keeps a dummy in the box to appear innocent."
+    },
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one entrusted",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "The asylum director experiments on a somnambulist admitted into his care until the man becomes his Cesare, and Cesare finally collapses and dies of exhaustion after the abduction."
+    },
+    {
+     "predicate": "loved-one-carried-off",
+     "role": "losing",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Cesare drags Jane out of her bedroom window into the street and Franzis and an angry mob chase him until he drops her and flees."
+    },
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "After Franzis attacks the asylum director and is strapped into a straitjacket, the director announces to the staff that he now understands Franzis's delusion and can cure him, and Franzis has no answer to it."
+    },
+    {
+     "predicate": "standing-stripped-answered-with-death",
+     "role": "the one degraded",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "The rude town clerk keeps Caligari waiting and shouts at him before granting the fair permit, and that night the clerk is stabbed to death in his bed."
+    }
+   ]
+  },
+  {
+   "title": "The Burning Soil",
+   "year": 1922,
+   "filmId": "film-dee634cf9ec8f116",
+   "plotChars": 2144,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "marriage-made-for-gain",
+     "role": "marrying",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Having overheard that the Count found oil under Devil's Field and having written the will that leaves Devil's Field to Helga, Johannes tells Helga he loves her and marries her after the Count's death."
+    },
+    {
+     "predicate": "contempt-drives-a-person-to-end-their-life",
+     "role": "despising",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Helga, having sold Devil's Field to Peter and been forced by a furious Johannes to cancel the sale, drowns herself in the river in despair that he never loved her."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "answered on",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "When Johannes tells Gerda he never loved either woman and acted only from ambition, she sets fire to the oil rig on Devil's Field and dies in the explosion."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "preferring",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Johannes courts the Count's daughter Gerda and then turns to her stepmother Helga once he learns Devil's Field will go to Helga, leaving Gerda to get engaged to Baron von Lellewel out of spite."
+    },
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who withholds",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Maria, the country girl in love with Johannes, waits at the farm with his brother Peter throughout his climb and marriage, and he only returns to her once the oilfield and both women are lost."
+    }
+   ]
+  },
+  {
+   "title": "Safety Last!",
+   "year": 1923,
+   "filmId": "film-04d06e76443b3519",
+   "plotChars": 3302,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-lie-must-be-fed",
+     "role": "lying",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "Harold hides his salesclerk job by sending Mildred presents he cannot afford, then when she arrives must pretend to be the De Vore general manager, which drives him to propose the human-fly stunt and finally climb the twelve-story Bolton building himself."
+    },
+    {
+     "predicate": "drawn-into-anothers-quarrel",
+     "role": "drawing in",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "To show off his supposed pull with the police, Harold talks Bill into knocking a policeman backwards over him, Bill floors the wrong officer, and Bill spends the rest of the film hunted by a cop who has sworn to pinch him on sight."
+    }
+   ]
+  },
+  {
+   "title": "Battleship Potemkin",
+   "year": 1925,
+   "filmId": "film-4c56fa7c442d6e97",
+   "plotChars": 3967,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "grievance-read-as-insubordination",
+     "role": "complaining",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "basis": "The crew complains that the ship's meat is maggot-infested and refuses the borscht; Dr Smirnov declares it edible, Giliarovsky drives them off, and all who refused are judged guilty of insubordination and brought to the fore-deck to be shot under a canvas."
+    },
+    {
+     "predicate": "subordinate-turns-on-superior",
+     "role": "rising",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "At Vakulinchuk's plea the condemned sailors rise, overwhelm the outnumbered officers, throw them overboard along with the doctor 'as food for the worms', and take control of the Potemkin."
+    },
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "The First Officer orders the firing squad to shoot their own shipmates and the squad lowers its rifles; later the Tsarist squadron sent to quell the mutiny refuses to open fire and cheers the Potemkin through its ships."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Dismounted Cossacks form lines at the top of the Odessa steps and advance on unarmed women and children, halting to fire volleys and ignoring their pleas, while cavalry cuts down the survivors at the bottom."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.35,
+     "outcome": "ambiguous",
+     "basis": "In retaliation for the steps massacre the sailors turn the battleship's guns on the Odessa opera house where Tsarist military leaders are meeting."
+    }
+   ]
+  },
+  {
+   "title": "Strike",
+   "year": 1925,
+   "filmId": "film-41df9b5f750a4877",
+   "plotChars": 3907,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "grievance-read-as-insubordination",
+     "role": "complaining",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "The workers put their demands — eight-hour day, 30% wages, a six-hour day for minors, fair treatment — to the shareholders, who discuss them dismissively over cigars, use the demand letter as a rag to wipe a spill, post a rejection, and send police to raid the sit-down protest before the army drives the strikers into a field and shoots them en masse."
+    },
+    {
+     "predicate": "contempt-drives-a-person-to-end-their-life",
+     "role": "despised",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "The worker Yakov is accused of stealing a micrometer worth three weeks' pay and hangs himself, which is what sets the strike off."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watched",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The administration reviews a list of code-named agents planted among the workers, and the spy 'Owl' photographs a strike leader taking the posted rejection letter with a camera hidden in a pocket watch, after which the leader is beaten and captured."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "directing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "A tsarist police agent strikes a deal with the barrel-dwelling 'King of Thieves' to supply provocateurs who burn and loot the state liquor depot in the factory district, so the workers who gather at the fire are set upon by firemen and then the military."
+    }
+   ]
+  },
+  {
+   "title": "A Page of Madness",
+   "year": 1926,
+   "filmId": "film-44c9d4d054fa08e7",
+   "plotChars": 2792,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "secret-amends-to-wronged",
+     "role": "atoning",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "The old sailor whose long voyages drove his wife to madness and an attempt on her own and their child's life now works as the asylum's custodian to watch over her, unknown to the staff and unrecognised by her."
+    },
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "The janitor stares into his wife's cell and attends her through examinations and her morning walk though she never recognises him, and at the end he can no longer reach her ward because the doctor has picked up the keys he lost."
+    },
+    {
+     "predicate": "absolution-sought-from-wronged",
+     "role": "asking",
+     "centrality": 0.45,
+     "outcome": "ambiguous",
+     "basis": "The daughter, who cannot forgive her father for driving her mother crazy, is met by him again outside the ward, where he asks her forgiveness and asks after her engagement."
+    },
+    {
+     "predicate": "the-house-hides-its-shame",
+     "role": "concealing",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "When the daughter tells him her marriage is in trouble, the janitor imagines taking his wife out of the asylum to hide her existence, and dreams of a lottery-won chest of drawers to give her as a dowry."
+    },
+    {
+     "predicate": "parent-walks-out",
+     "role": "leaving",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "As a sailor he repeatedly left his wife and daughter alone for long voyages at sea, which is what unhinged the wife and put her in the cell."
+    }
+   ]
+  },
+  {
+   "title": "The General",
+   "year": 1926,
+   "filmId": "film-2a7ab58de88c4211",
+   "plotChars": 3866,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "appeal-turned-away",
+     "role": "asking",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Johnnie hurries to be first in line at the Marietta recruiting office and is rejected because he is worth more as an engineer, a reason the recruiters never tell him."
+    },
+    {
+     "predicate": "acting-on-a-false-picture",
+     "role": "the one mistaken",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Annabelle's father and brother see Johnnie walk away from the enlistment line and take him for a shirker, and Annabelle declares she will not speak to him again until he is in uniform, a picture only undone when he is commissioned lieutenant."
+    },
+    {
+     "predicate": "loved-one-carried-off",
+     "role": "losing",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Annabelle goes back aboard for her belongings just as Captain Anderson's Union spies steal The General, and she is carried north as their captive until Johnnie finds her at the officers' house and smuggles her into a boxcar."
+    },
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "pursuing",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Johnnie chases the stolen General alone by foot, handcar, bicycle and then the Texas while the hijackers uncouple a trailing car and drop railroad ties on the track, and the chase reverses with two Union trains behind him once he steals his engine back."
+    }
+   ]
+  },
+  {
+   "title": "Downhill",
+   "year": 1927,
+   "filmId": "film-4a319f1c098e986d",
+   "plotChars": 2384,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Tim Wakeley is the father of Mabel's child but cannot lose his Oxford scholarship, so Roddy promises never to reveal the truth and accepts expulsion from the school in his place."
+    },
+    {
+     "predicate": "verdict-before-proof",
+     "role": "condemned",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Sir Thomas Berwick takes his son's guilt on the shopgirl's accusation as settled and Roddy leaves home, until years later the father learns the truth and begs Roddy's forgiveness."
+    },
+    {
+     "predicate": "marriage-made-for-gain",
+     "role": "married",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Julia Fotheringale marries Roddy after his £30,000 inheritance, keeps up her affair with her leading man Archie, and discards him once the money is spent and his mansion swindled away."
+    },
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "To pay his debts Roddy is rented out by a Paris dance-hall madame as a taxi dancer, and quits in disgust the dawn a homely wealthy older woman propositions him."
+    },
+    {
+     "predicate": "return-after-long-absence",
+     "role": "returning",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Shipped home by pitying sailors from Marseille and delirious through London, Roddy finds his way back to the father who had thrown him over, and is joyfully taken back."
+    }
+   ]
+  },
+  {
+   "title": "Metropolis",
+   "year": 1927,
+   "filmId": "film-79bbed3c1d961ca6",
+   "plotChars": 3922,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "many-are-spent-to-hold-a-position",
+     "role": "spent",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "basis": "The underground workers are consumed operating the machines that power Joh Fredersen's city — a machine explosion kills and injures them and one collapses from exhaustion at his post before Freder takes his place — until Freder joins Fredersen's hand to Grot's."
+    },
+    {
+     "predicate": "subordinate-turns-on-superior",
+     "role": "rising",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Freder, the master's son and heir, sees his father's cold indifference to the machine-hall dead and secretly rebels, enlisting the dismissed Josaphat and going down to the catacombs to take the workers' side against Fredersen."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "taken in",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "Rotwang kidnaps Maria and gives the robot her likeness, and the false Maria preaches insurrection to the workers and dances at the Yoshiwara club with neither the workers nor the wealthy men recognising she is a machine, until the fire at the stake reveals the metal."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one who trusts",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Fredersen brings the maps to Rotwang and orders him to build Maria's likeness into the robot, unaware that Rotwang's real plan is to destroy Metropolis and kill Freder."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "answered on",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Rotwang, whose beloved Hel left him to marry Fredersen and died bearing Freder, works his revenge through the false Maria and dies falling from the cathedral roof while fighting Freder."
+    }
+   ]
+  },
+  {
+   "title": "Sunrise: A Song of Two Humans",
+   "year": 1927,
+   "filmId": "film-1f28d38a43ba6dc3",
+   "plotChars": 2628,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one entrusted",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "The Man takes his unsuspecting Wife out onto the lake intending to throw her overboard and drown her, and only abandons it when she pleads for mercy in the boat."
+    },
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "The Woman from the City whistles at the farmhouse fence and asks the Man to sell the farm and come to the city, which he cannot do while the Wife and child exist — and he finally sends her carriage away and returns to his wife's bedside."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "instrument",
+     "centrality": 0.55,
+     "outcome": "transfigured",
+     "basis": "The Woman from the City proposes drowning the Wife and gathers the bundles of reeds that will keep the Man afloat when the boat is overturned, so that he does the killing and she stays clear of it."
+    },
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealing",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "The Man slips out after dark to meet the city woman while the Wife sits alone at home suspecting nothing, until he breaks down in the church and asks her forgiveness."
+    }
+   ]
+  },
+  {
+   "title": "Sword of Penitence",
+   "year": 1927,
+   "filmId": "film-0c71233acf5a19aa",
+   "plotChars": 2600,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "identity-assigned-from-outside",
+     "role": "assigned",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Manabe reveals Sakichi's five years in prison to the rice-merchant, who dismisses his diligent apprentice, and Sakichi concludes that society will never believe a man with a criminal record has genuinely reformed."
+    },
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "written off",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "basis": "Oyae hides the hunted Sakichi at her father's premises, and when he raids the cash-box in a sleepwalking trance her father refuses to call him a thief and gives him more money to start again."
+    },
+    {
+     "predicate": "another-given-to-danger",
+     "role": "handed over",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Ishimatsu, fleeing the constable Manabe with Oyae's stolen hair ornament, presses it into Sakichi's hand without warning and runs off, leaving his brother holding the stolen goods until Oyae arrives and clears him."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "After Genshichi attacks Ishimatsu and leaves him badly injured, Sakichi fights his way past the constables to the house where Genshichi is hiding and kills him."
+    },
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielding",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Sakichi hides the burglar Genshichi from the officers pursuing him, and later denies to Manabe that he knows where his thieving brother Ishimatsu is."
+    }
+   ]
+  },
+  {
+   "title": "The Crowd",
+   "year": 1928,
+   "filmId": "film-819e102fe6cecf7f",
+   "plotChars": 2568,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "John's father dies when he is twelve, and at 21 he leaves for New York certain he will become somebody important 'just as his father had always believed', a conviction that survives every job he loses."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "refusing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Mary's brothers reluctantly offer John a position and he refuses it as a 'charity job', ending up carrying a sandwich board instead."
+    },
+    {
+     "predicate": "the-nearest-goes-unseen",
+     "role": "overlooking",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "John comes home drunk on Christmas Eve after a woman at Bert's throws herself at him, yells at Mary over something trivial, and shows such apathy when she threatens to leave in April that she is shocked and hurt."
+    }
+   ]
+  },
+  {
+   "title": "The Passion of Joan of Arc",
+   "year": 1928,
+   "filmId": "film-5399e9c274a6a055",
+   "plotChars": 1893,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "arbiter-bent-by-power",
+     "role": "denied redress",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Joan is tried for heresy at Rouen by French clergymen loyal to the Burgundian-English coalition and against her king, judges who work to trap her into self-discrediting answers and finally condemn her to the stake."
+    },
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "The court presses Joan to say something that would disown her God-given mission to drive the English from France, and she holds to it through interrogation, and after signing recants the confession as unfaithfulness to God."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "After being taken to view the torture chamber and then threatened with burning at the stake, Joan breaks and lets a priest guide her hand in signing a confession, for which she is sentenced to life imprisonment."
+    },
+    {
+     "predicate": "faculty-supplied-for-another",
+     "role": "lacking",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "A priest reads aloud in the prison to the illiterate Joan a forged letter said to be from Charles VII telling her to trust the bearer, her only access to the king's word being the mouth of her captors."
+    }
+   ]
+  },
+  {
+   "title": "Pandora's Box",
+   "year": 1929,
+   "filmId": "film-388c2740821c1b96",
+   "plotChars": 3494,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Lulu lives as Dr Schön's kept mistress, was earlier kept by the old man Schigolch her 'first patron', and ends driven to prostitution in a London garret on Christmas Eve."
+    },
+    {
+     "predicate": "person-passed-between-holders",
+     "role": "held",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "On the gambling ship Marquis Casti-Piani sells Lulu to an Egyptian for his brothel, arranging her disposal among Schigolch, Quast and himself without her consent."
+    },
+    {
+     "predicate": "one-kills-what-one-loves",
+     "role": "loved",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Jack the Ripper, having no money but liked by Lulu and touched enough to secretly throw away his knife, sees another knife on the table as they embrace and kills her."
+    },
+    {
+     "predicate": "leverage-held-for-payment",
+     "role": "needing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Casti-Piani recognises the escaped Lulu on the train and offers to keep silent in return for money, and Quast then blackmails her to finance his new variety act."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Schön tells Lulu he is to marry Charlotte von Zarnikow, the Interior Minister's daughter, and pushes her into his son's revue to get her off his hands, until she seduces him in the storage room in front of Charlotte."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "directing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Schigolch persuades the reluctant Countess Geschwitz, infatuated with Lulu, to lure Quast into a stateroom and kill him, while Lulu and Schigolch keep clear."
+    }
+   ]
+  },
+  {
+   "title": "The Manxman",
+   "year": 1929,
+   "filmId": "film-79e0fb5216a1cb8b",
+   "plotChars": 4148,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "betrayed-by-the-closest",
+     "role": "both",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Pete leaves for Africa asking his childhood friend Philip to take care of Kate, and Philip calls on her daily and begins an affair with her at the old mill."
+    },
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealing",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Kate and Philip let Pete believe the child Kate bears is his, and Pete raises the baby as a devoted father until Kate returns and tells him he is not the father."
+    },
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Kate promised to wait for Pete and loves Philip instead; when Pete turns out to be alive Philip urges her to keep the promise and marry him, and she can hardly bear the marriage."
+    },
+    {
+     "predicate": "a-child-claimed-by-two",
+     "role": "the one who claims",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Kate returns to take the baby and tells Pete he is not its father, Pete refuses to believe her or give the child up, and only after the courtroom scene do Kate and Philip come to the cottage and carry the child away."
+    },
+    {
+     "predicate": "promise-of-marriage-broken",
+     "role": "promising",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Kate says yes when Pete asks her to wait for him while he makes his fortune in Africa, and takes up with Philip in his absence."
+    },
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "parted",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Kate's father Caesar Cregeen refuses consent to Pete's proposal because Pete is penniless, sending him to Africa, and only agrees once Pete returns prosperous."
+    }
+   ]
+  },
+  {
+   "title": "Rich and Strange",
+   "year": 1931,
+   "filmId": "film-20928827f2103e69",
+   "plotChars": 2646,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Em, married to Fred, falls in love with Commodore Gordon aboard the liner and prepares to leave with him for Kuala Lumpur, then abandons Gordon at the last moment to warn Fred about the adventuress."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "taken in",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The woman Fred takes for a German princess is an adventuress; she sails for Rangoon with £1000 of his money before he learns what she was."
+    }
+   ]
+  },
+  {
+   "title": "Tokyo Chorus",
+   "year": 1931,
+   "filmId": "film-a1fbdecc05b726ac",
+   "plotChars": 3315,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "grievance-read-as-insubordination",
+     "role": "complaining",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Okajima goes to the boss to protest Yamada's dismissal for having two clients die after signing policies; the boss takes offence, the two scuffle, and Okajima is fired and bows on his way out."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Okajima gathers his co-workers to protest Yamada's firing together, but they back down and one of them dares him to go in alone, leaving him to face the boss unsupported."
+    },
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Omura sets his former pupil to holding a banner and handing out flyers for the Calorie Café — the same job the sacked Douryou took — which Okajima feels is beneath him and which distresses Sugako, until the teaching post from the Ministry arrives."
+    }
+   ]
+  },
+  {
+   "title": "Passing Fancy",
+   "year": 1933,
+   "filmId": "film-138b21b8f526a44f",
+   "plotChars": 2103,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Jiro borrows from the barber to pay Tomio's doctor's bill and plans to work as a labourer in Hokkaido to repay it, so Kihachi knocks him unconscious to make him miss the ship and sails for Hokkaido in his place — then jumps overboard and swims home."
+    },
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who holds on",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Kihachi begins grooming himself so Harue will notice him, and she tells him plainly she thinks of him as nothing more than a kind uncle."
+    },
+    {
+     "predicate": "taking-another-into-keeping",
+     "role": "taking in",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Kihachi finds the destitute Harue outside the rōkyoku theatre, and over Jiro's reluctance installs her in Otome's restaurant, where she helps out and Otome grows fond of her."
+    },
+    {
+     "predicate": "the-match-arranged-by-others",
+     "role": "the one who disposes",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Otome asks Kihachi to talk Jiro into marrying Harue, and Kihachi — stung that nobody considers him a match himself — puts it to Jiro, who gruffly rejects it."
+    }
+   ]
+  },
+  {
+   "title": "A Mother Should be Loved",
+   "year": 1934,
+   "filmId": "film-d8b72504cc9ebcf7",
+   "plotChars": 1980,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "concealed-thing-surfaces",
+     "role": "learning",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Sadao consults his birth certificate while preparing his university application and learns that Chieko is not his mother but his father's second wife, forcing the years-long concealment into the open between them until he tearfully apologises and, after a second rupture, comes home."
+    },
+    {
+     "predicate": "taking-another-into-keeping",
+     "role": "taking in",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "After Kajiwara's funeral Okazuki asks Chieko to go on raising Sadao, her dead husband's son by his first marriage, as if he were her own child."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "The charge of raising Sadao is laid on Chieko by Okazuki immediately after Kajiwara's funeral, and she carries it for years without telling the boy."
+    },
+    {
+     "predicate": "scarcity-divided-among-dependents",
+     "role": "dividing",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Chieko lends Sadao money to pay off Hattori's whorehouse debts and quietly makes Kosaku cancel his expensive trip to cover it, until the sons confront her about favouring Sadao and she relents."
+    }
+   ]
+  },
+  {
+   "title": "Modern Times",
+   "year": 1936,
+   "filmId": "film-1b8d0e86b75c83f1",
+   "plotChars": 2833,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "kinship-made-from-lack",
+     "role": "one",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "The unemployed Tramp and Ellen, an orphaned street urchin caught stealing bread, have no claim on each other but end up sharing a run-down shack, finding each other jobs, and walking down the road together at dawn."
+    },
+    {
+     "predicate": "the-work-consumes-the-life",
+     "role": "consumed",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "The pace of the assembly line drives the Tramp to a nervous breakdown; he runs amok, is caught inside the machine, and is hospitalised, and every later job — shipbuilder, night watchman, mechanic's assistant, singing waiter — throws him back out again."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "To keep Ellen from arrest for stealing the loaf of bread, the Tramp tells the police he is the thief, until a witness exposes his confession as false and he is freed."
+    },
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "evading",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Ellen first appears fleeing police over the stolen bread, escapes the crashed paddy wagon with the Tramp, and at the café the police arrive to arrest her for that escape, sending the two of them running again."
+    }
+   ]
+  },
+  {
+   "title": "Hangmen Also Die!",
+   "year": 1943,
+   "filmId": "film-576f24a8203ee20d",
+   "plotChars": 2821,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-innocent-answer-for-one-mans-act",
+     "role": "acting",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "After Svoboda shoots Heydrich, the Nazis seize four hundred Czech men as hostages to be shot forty at a time until the assassin surrenders, and when he does not they liquidate the remainder, Professor Novotny among them."
+    },
+    {
+     "predicate": "torn-between-two-claims",
+     "role": "the one who is torn",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Mascha, having hidden Svoboda, is pulled between saving her hostage father and protecting the assassin: she goes to the Gestapo to denounce him, pleads for her father instead, and finally testifies falsely against Czaka while her father is executed anyway."
+    },
+    {
+     "predicate": "kindness-from-a-stranger",
+     "role": "the one with no obligation",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Svoboda, rejected by his own safe house, turns up at the home of Mascha, a stranger who had just misdirected the German search party, and her father Professor Novotny takes him in knowing he is the assassin."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one who trusts",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Emil Czaka, the wealthy brewer admitted to resistance meetings and privy to its leaders, is in fact a German fifth-columnist, and when he is tricked into revealing it the Gestapo kill or arrest most of the resistance."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Dedic's plan has Mascha claim at Gestapo headquarters that Czaka was the man she saw fleeing Heydrich's killing, backed by a mass of false testimony, and Czaka is gunned down for a murder he did not commit."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "When Inspector Gruber works out that the affair between Svoboda and Mascha was staged, Svoboda and Jan kill him and pin that murder on Czaka too."
+    }
+   ]
+  },
+  {
+   "title": "I Know Where I'm Going!",
+   "year": 1945,
+   "filmId": "film-0db655a64d3bc555",
+   "plotChars": 3559,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "Joan, travelling to Mull to marry Sir Robert Bellinger, is stranded by the gale and falls for Torquil MacNeil, and cannot have him without abandoning the engagement she set out to complete — she finally walks back to Moy Castle behind the three pipers instead of crossing to Kiloran."
+    },
+    {
+     "predicate": "marriage-made-for-gain",
+     "role": "marrying",
+     "centrality": 0.5,
+     "outcome": "transfigured",
+     "basis": "Joan has arranged to marry one of the wealthiest industrialists in England, a man nearly her father's age whom the Mull locals openly disparage on the bus, and her 'carefully laid plans' rather than any feeling for Bellinger drive her to hire Kenny to run the crossing."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.35,
+     "outcome": "transfigured",
+     "basis": "Torquil, laird of Kiloran, refuses to enter Moy Castle because of the curse the drowned woman laid on every future MacNeil — that he shall never leave it a free man and shall be chained to a woman until he dies — and only enters after Joan has gone, to meet her there."
+    }
+   ]
+  },
+  {
+   "title": "Pardon My Past",
+   "year": 1945,
+   "filmId": "film-685f30f93ce5582c",
+   "plotChars": 5264,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "Eddie York, taken for the playboy Francis Pemberton by Arnold's thug, goes to the Pemberton mansion and is accepted as Francis by Grandpa, Mary, Stephanie and Uncle Wills, ordering the safe opened and later impersonating him again to make the police release Mary, until the real Francis arrives by taxi and the twin birth is confessed."
+    },
+    {
+     "predicate": "made-to-answer-for-another",
+     "role": "the one made to answer",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Arnold the bookie refuses to believe Eddie is not Francis, takes the $3,000 in his wallet against Francis's $12,000 gambling debt and orders him to return next day with the rest."
+    },
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "separating",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Uncle Wills destroys every letter Mary writes to Francis, backs the suit to declare her an unfit mother and has her arrested for trying to see Stephanie, until Eddie tricks him into confessing it in Francis's hearing and Francis throws him out of the house."
+    },
+    {
+     "predicate": "a-life-is-bought-back-for-a-price",
+     "role": "held",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Chuck is left behind in Arnold's clutches as security for the debt after Wills's $12,000 check bounces, and is released only when Francis writes a second check."
+    }
+   ]
+  },
+  {
+   "title": "Difficult Years",
+   "year": 1948,
+   "filmId": "film-248b2120d7109a3b",
+   "plotChars": 1685,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Aldo Piscitello's boss tells him to join the Fascist Party or lose his municipal job, so he enrolls and backdates the enrollment to 1921 while continuing to meet his anti-Fascist friends at the pharmacist's shop."
+    },
+    {
+     "predicate": "the-price-paid-by-another",
+     "role": "the one made to answer",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "After the liberation of Sicily the same boss who forced him into the party is sitting with an American officer while former Fascists call themselves anti-Fascists, and he sacks Piscitello for that party membership."
+    },
+    {
+     "predicate": "the-young-are-spent-for-the-old",
+     "role": "spent",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Giovanni comes home from military service hoping for an ordinary life and marries Maria, but Italy's alliance with Germany sends him back to the army, and on furlough he is stopped by a unit of fleeing German soldiers."
+    },
+    {
+     "predicate": "deference-withheld-from-power",
+     "role": "withholding",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "The pharmacist intones the French anthem on the day Italy declares war on France and is imprisoned for it."
+    }
+   ]
+  },
+  {
+   "title": "The Red Shoes",
+   "year": 1948,
+   "filmId": "film-0f9a22fa17226cc4",
+   "plotChars": 4116,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "torn-between-two-claims",
+     "role": "the one who is torn",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "On the night of her Monte Carlo comeback Vicky must choose between Julian, who has abandoned his own opera premiere and demands she leave with him at once, and Lermontov's claim on her as a dancer; she chooses the company, then runs from the theatre in the red shoes and throws herself under a train."
+    },
+    {
+     "predicate": "the-work-consumes-the-life",
+     "role": "consumed",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Vicky's dancing career, and the Red Shoes ballet in which the shoes will not let the dancer stop until she dies, takes her over exactly as the fairytale predicts — she dies in costume and asks Julian to take the red shoes off."
+    },
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "parted",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Lermontov, whose company policy forced Irina Boronskaya out for marrying, tells Julian and Vicky their work is deteriorating and gives Julian the ultimatum to end the relationship or leave Ballet Lermontov, then later works on Vicky in Cannes to bring her back without Julian."
+    },
+    {
+     "predicate": "corroded-by-anothers-life",
+     "role": "envying",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Lermontov, who has no emotional life of his own, treats his dancers' happiness as a personal slight and moves against Vicky and Julian's love out of jealousy of it, even while his own choreographer praises Julian's work."
+    },
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "expended",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Julian walks out of Heart of Fire on recognising that his professor has passed off Julian's own compositions as his score, and writes to Lermontov exposing it."
+    }
+   ]
+  },
+  {
+   "title": "Without Pity",
+   "year": 1948,
+   "filmId": "film-17da1b0bfb84c108",
+   "plotChars": 3251,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "help-that-buys-a-hold",
+     "role": "the one at their mercy",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Pier Luigi, the only person housing Angela, tells Jerry he can no longer support her and that she will end up a prostitute, which is what finally makes Jerry agree to run the stolen U.S. military goods for him."
+    },
+    {
+     "predicate": "what-the-helped-hand-back",
+     "role": "the one who gave",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Angela stops the train so the wounded Sergeant Jerry Jackson can be treated; he returns to thank her, keeps coming back for her, breaks out of the prison camp to reach her, and dies driving off a cliff with her body beside him."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "asking",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Angela begs Pier Luigi at the nightclub to go back for Dina, who was left behind on the way and is then run over by a transport truck, and later asks him for help escaping and is refused outright."
+    },
+    {
+     "predicate": "search-consumes-the-searcher",
+     "role": "searching",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Angela's journey to Livorno is a search for her brother Carlo — she questions Pier Luigi about his whereabouts, and when Pier Luigi tells her at the docks that Carlo is dead she throws herself into the river."
+    }
+   ]
+  },
+  {
+   "title": "Women of the Night",
+   "year": 1948,
+   "filmId": "film-6eb6fec6100312e6",
+   "plotChars": 4656,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Kuriyama, learning that Fusako's husband died in the war, hires her as his secretary in order to seduce her and promises to care for and support her; she reluctantly becomes his mistress and he then uses her flat to hide his smuggled opium."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Kuriyama takes up with Fusako's sister Natsuko, a dance-hall hostess he meets at his regular hall, and Fusako — devastated at being passed over — walks out into prostitution and later scolds Natsuko in the prison hospital for stealing her paramour."
+    },
+    {
+     "predicate": "injury-discharged-on-outsiders",
+     "role": "discharging",
+     "centrality": 0.45,
+     "outcome": "transfigured",
+     "basis": "Fusako declares she will avenge herself on the men of Japan by giving them syphilis; asked by the reformatory clinician whether the revenge has worked she cannot answer, and after seeing Natsuko's stillbirth she gives up prostitution."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Fusako's brother-in-law, who otherwise keeps the Owada household, refuses to pay for her infant's vaccinations as unnecessary and overpriced while she sells her possessions for food, and the baby dies of illness."
+    },
+    {
+     "predicate": "the-strong-hound-the-weakest",
+     "role": "hounded",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "A rival group of prostitutes beats Kumiko for soliciting on their turf in a bombed-out church, and when Fusako talks Kumiko into quitting their leader savagely beats Fusako until the others pull her off and order both women out of the red-light district."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "refusing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Kumiko, having stolen money and run from home, comes to Natsuko, who turns her away for fear the Owada family will blame the sisters for corrupting her; Kumiko is then picked up by a gangster who rapes and robs her."
+    },
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Kuriyama brushes off his treatment of Fusako and orders the unwilling, syphilitic Natsuko to abort his child, and is about to drag her to the clinic when the police arrest him for opium smuggling."
+    }
+   ]
+  },
+  {
+   "title": "Beyond the Forest",
+   "year": 1949,
+   "filmId": "film-47ee1cc2a24309fa",
+   "plotChars": 2890,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Moose overhears Rosa and Latimer planning her divorce and remarriage and threatens to tell Latimer about her pregnancy himself, so Rosa shoots him dead on the hunting trip and claims she mistook him for a deer."
+    },
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealing",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Rosa carries on a year-long affair with Neil Latimer while her husband Lewis, the town doctor, knows nothing of it, until her delirium and resentment over the pregnancy drive her to confess both the affair and the murder of Moose to him."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.45,
+     "outcome": "ambiguous",
+     "basis": "Rosa arrives in Chicago expecting Latimer to marry her and he first avoids her, then tells her he loves and intends to marry another woman, sending her back to Wisconsin devastated."
+    },
+    {
+     "predicate": "a-wrong-never-answered-for",
+     "role": "the one who evades",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Rosa is acquitted of killing Moose by testifying she thought he was a deer, and when she later admits to Lewis that the killing was deliberate he answers only that he cares about the baby and she may go where she pleases."
+    }
+   ]
+  },
+  {
+   "title": "Rashomon",
+   "year": 1950,
+   "filmId": "film-08a33cc704c1fa09",
+   "plotChars": 4012,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "each-teller-shapes-the-past",
+     "role": "telling",
+     "centrality": 1,
+     "outcome": "unrestored",
+     "basis": "Tajōmaru, the wife, the dead samurai through a medium, and finally the woodcutter each give an account of the same killing in which their own conduct is least shameful — an honourable duel, a faint with a dagger, a suicide, a clumsy fight — and the woodcutter's own version is compromised by his theft of the dagger."
+    },
+    {
+     "predicate": "a-woman-is-shamed-for-her-own-violation",
+     "role": "violated",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "After Tajōmaru rapes her, the wife frees her husband from his bonds and he stares at her with contempt and loathing, and in the woodcutter's telling refuses to fight for her because he will not risk his life for a ruined woman."
+    },
+    {
+     "predicate": "taking-another-into-keeping",
+     "role": "taking in",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "The three men find an abandoned baby at the Rashōmon gate and the woodcutter carries it away saying he will raise it alongside his own children, which restores the monk's faith."
+    },
+    {
+     "predicate": "hidden-life-exposed",
+     "role": "exposing",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "The commoner deduces in front of the monk that the woodcutter lied at the trial not from fear of trouble but because he stole the wife's dagger, and leaves mocking him for it."
+    }
+   ]
+  },
+  {
+   "title": "Task Force",
+   "year": 1950,
+   "filmId": "film-2d2e853897e2f84e",
+   "plotChars": 1827,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Scotty Scott spends decades arguing the aircraft carrier's power to a Navy and Congress that will not credit it, losing a promotion for his outspokenness at Annapolis, and is vindicated only after Pearl Harbor, at Midway and finally at Okinawa once he has pleaded in Washington for the carrier fleet."
+    }
+   ]
+  },
+  {
+   "title": "Variety Lights",
+   "year": 1950,
+   "filmId": "film-a88a291ed1249d39",
+   "plotChars": 2543,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "set-aside-for-another",
+     "role": "preferring",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "After the dinner at the wealthy man's mansion Checco walks away from his faithful mistress Melina to walk alone with Liliana, and leaves the troupe in Rome to build a new one around Liliana, only to end up back beside Melina on the Foggia train."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Liliana lets Checco break from his troupe and rehearse a whole new show built around her, then arrives at rehearsal to say she has signed with a competitor, and Checco collapses."
+    },
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "collecting",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Broke, Checco begs Melina for the money to launch the show featuring Liliana; she hands it over, orders him never to contact her again, and he takes it triumphantly."
+    },
+    {
+     "predicate": "incomer-denied-a-place",
+     "role": "established",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Liliana asks Checco on the night train to be taken into the troupe and is refused; the company only accepts her the next morning after she spends her last money hiring the carriage that spares them miles of walking."
+    }
+   ]
+  },
+  {
+   "title": "Awaara",
+   "year": 1951,
+   "filmId": "film-587fa46b410d485d",
+   "plotChars": 4089,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "judged-by-birth-not-by-act",
+     "role": "judged",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "Judge Raghunath holds that \"good people are born to good people, and criminals are born to criminals\", convicts the criminal's son Jagga on thin evidence, is suspicious of Raj for not knowing his father and refuses him Rita — until he accepts Raj as his own son and asks forgiveness."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.65,
+     "outcome": "fatal",
+     "basis": "Jagga, having learned Leela is pregnant with the judge's child, releases her and instead grooms the boy Raj into a thief to disprove Raghunath's doctrine, a design Raj knows nothing of until he kills Jagga in his mother's house."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "After Jagga's four-day kidnapping people suspect Leela of adultery and Raghunath throws her out of the house, rejecting her plea that the child she carries is his; she gives birth to Raj on the streets."
+    },
+    {
+     "predicate": "concealed-thing-surfaces",
+     "role": "learning",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Dying in hospital after being struck by a car outside the courthouse, Leela finally tells Raj that Raghunath is his father and asks him to forgive the judge."
+    },
+    {
+     "predicate": "made-to-answer-for-another",
+     "role": "the one made to answer",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Jagga, unable to reach the judge who convicted him, kidnaps Raghunath's wife Leela to take his revenge on Raghunath through her."
+    },
+    {
+     "predicate": "the-child-carries-the-household",
+     "role": "child",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Raj is struck off the school rolls trying to hold a shoeshine job, and Jagga uses his starving mother to talk him into stealing."
+    }
+   ]
+  },
+  {
+   "title": "Close to My Heart",
+   "year": 1951,
+   "filmId": "film-5a715962f07bc99f",
+   "plotChars": 2565,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "taking-another-into-keeping",
+     "role": "taking in",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Brad and Midge Sheridan set out to adopt Danny, a foundling abandoned at a police station and made a ward of the juvenile court, and Brad finally talks Mrs. Morrow into approving the adoption."
+    },
+    {
+     "predicate": "judged-by-birth-not-by-act",
+     "role": "judged",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Danny is passed over by other prospective parents for being a foundling, and Mrs. Morrow halts the adoption outright once she recognises the photo of Edward Hewitt, imprisoned for murder, as his father."
+    },
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "parted",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Mrs. Morrow's agency warns the adoption cannot proceed while Brad investigates, then takes Danny in to protect him from Brad, and a probation officer stops Brad when he rushes to retrieve the boy."
+    },
+    {
+     "predicate": "the-wanted-child-denied",
+     "role": "childless",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Brad and Midge cannot have children of their own and are told by the adoption agency that the waiting list is long, which sends Midge to the police station child."
+    },
+    {
+     "predicate": "a-parent-cannot-love-the-child",
+     "role": "child",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "At San Quentin, told by Brad that Martha died in childbirth and that he has a son, Hewitt answers bitterly that there was no place in his life for a child."
+    }
+   ]
+  },
+  {
+   "title": "Come Fill the Cup",
+   "year": 1951,
+   "filmId": "film-d58d835fe9c59210",
+   "plotChars": 1632,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "written off",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Charley Dolan, an ex-alcoholic, takes in the fired, gutter-drunk Lew Marsh, gives him a room in his apartment and finds him work on a construction crew, and Lew stays sober and is restored to the newspaper."
+    },
+    {
+     "predicate": "help-comes-from-the-enemy",
+     "role": "helping",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Lew invites Boyd Copeland — the man who married Paula, the woman Lew loves — to live with him and Charley in order to dry him out, and it is Lew who is with Boyd when Garr corners them."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Lew learns Paula has married Boyd Copeland, brings her back to work at the paper secretly hoping she will love him again, and instead watches Boyd persuade her to give the marriage another try."
+    },
+    {
+     "predicate": "one-dies-in-another-mans-place",
+     "role": "both",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Lennie Garr and his henchman rig a car to kill Boyd and kill Charley Dolan by mistake, and Boyd, who was the intended target, attempts suicide out of guilt."
+    },
+    {
+     "predicate": "the-trap-closes-on-the-one-who-set-it",
+     "role": "intended",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Garr holds Boyd and Lew at gunpoint and orders them to drink so their deaths will look accidental, but the two get the upper hand and Garr is the one killed."
+    }
+   ]
+  },
+  {
+   "title": "Cops and Robbers",
+   "year": 1951,
+   "filmId": "film-ca1eee1fa8dbd60b",
+   "plotChars": 1939,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "both",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "Sergeant Bottoni is given three months to catch the small-time swindler Esposito or lose his job, and the pursuit ends not in capture but in Esposito walking himself to prison while Bottoni is reluctant to take him."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one admitted",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "basis": "Bottoni goes to Esposito's house in civilian clothes, wins the family over with favours and offers of food while they do not know he is the policeman hunting the man of the house, until the recognition scene outside the meal."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "basis": "Once Bottoni confides that he will lose his job if the thief is not taken, Esposito decides to deliver himself to prison so the sergeant is not ruined."
+    },
+    {
+     "predicate": "the-house-hides-its-shame",
+     "role": "concealing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Bottoni hides his suspension from his family, and at the end both men send Esposito off to the station as though he were leaving on a business trip so neither household learns the truth."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceiving",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Esposito and Amilcare sell the American tourist Locuzzo a fake ancient coin supposedly found in the Roman Forum, and Locuzzo recognises him during the charity gift-pack distribution and denounces him on the spot."
+    }
+   ]
+  },
+  {
+   "title": "Diary of a Country Priest",
+   "year": 1951,
+   "filmId": "film-0337c3129e5199b6",
+   "plotChars": 4102,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Chantal, having overheard the priest's talk with her mother, tells the Count that the priest drove the Countess to despair, and the priest will not clear himself with the Countess' letter of thanks before the church investigator."
+    },
+    {
+     "predicate": "an-open-secret-nobody-acts-on",
+     "role": "knowing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "The Count's affair with Louise the governess is known to the Countess, who acquiesces, and to Chantal, who resents it, and the Count turns cold on the priest for raising it because he expects the blind eye."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "pressing",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "basis": "Sensing Chantal is suicidal, the priest follows Torcy's counsel to project strength and intimidates her into surrendering her suicide note, leaving her terrified and resolved to ruin him."
+    },
+    {
+     "predicate": "a-life-settled-by-others",
+     "role": "both",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "The Count and Louise arrange to pack Chantal off to boarding school to get her out of the way, and Chantal comes to the priest for advice about it carrying a suicide note."
+    }
+   ]
+  },
+  {
+   "title": "Era lui... sì! sì!",
+   "year": 1951,
+   "filmId": "film-696449b56599abd9",
+   "plotChars": 1624,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "acting-on-a-false-picture",
+     "role": "the one who mistakes",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Fernando deals with Walter as the youngster who steals women from him in his recurring dreams, hiring, promoting, then attacking him on the strength of that resemblance, and only the doctor's therapy session sorts out that the young jobseeker is not the dream rival."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "taking up",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Fernando makes Walter general manager within two days of hiring him, then, as the nightmares continue, turns on him and tries to kill him, leaving Walter tossed about with no explanation until the staff track him down and the position is handed back."
+    },
+    {
+     "predicate": "absolution-sought-from-wronged",
+     "role": "asking",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "The therapy session reveals Fernando is responsible for a wrong done against Walter, and the prescribed cure is to give Walter back the director's post and implore his forgiveness."
+    },
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealing",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Grazia falls for Walter at first sight and begins seeing him while hiding from him that the department-store owner who employs him is her father."
+    }
+   ]
+  },
+  {
+   "title": "The Idiot",
+   "year": 1951,
+   "filmId": "film-01193e4e2cc0afa4",
+   "plotChars": 4277,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "two-claims-on-one-person",
+     "role": "the one holding the claim",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Ayako arranges a meeting at Akama's house where she and Taeko face each other over Kameda, who has proposed to Ayako while Taeko loves him; when he follows Ayako home to see her safe, Taeko faints believing she has been chosen against, and is dead by the end of the night."
+    },
+    {
+     "predicate": "one-kills-what-one-loves",
+     "role": "killing",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Akama, who bought Taeko a diamond ring with money stolen from his father and could never bring himself to dislike Kameda in person, kills Taeko out of jealousy over the feelings she holds for Kameda, then sits with Kameda beside her unburned corpse through the night."
+    },
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "taking up",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Kameda, meeting the social pariah Taeko whom the men around her trade like chattel, is drawn to the sadness in her and wants to help her, and his kindness gives her the strength to run away from Tohata, Kayama and Akama."
+    },
+    {
+     "predicate": "the-match-arranged-by-others",
+     "role": "the one disposed of",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Tohata offers Kayama a Y600,000 dowry to take Taeko off his hands and spare him disgrace, Ono brokers the deal, and Akama counters with Y1,000,000 for Kayama not to marry her — none of it settled with Taeko, who bolts."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Taeko was kept as the rich Tohata's mistress from childhood, and his long-term abusive treatment has twisted her psyche and left her a pariah even after she runs from him."
+    },
+    {
+     "predicate": "truth-kept-from-its-owner",
+     "role": "the one kept unknowing",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Kameda's father left him a large ranch which Ono sold through Kayama, and Kameda knows nothing of the inheritance until Ono's daughter Ayako teases him about it."
+    }
+   ]
+  },
+  {
+   "title": "Children of Hiroshima",
+   "year": 1952,
+   "filmId": "film-c709f2c6474afbba",
+   "plotChars": 2317,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "return-after-long-absence",
+     "role": "returning",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Takako takes the summer ferry back from her island school to Hiroshima to visit her parents' and sister's graves, and works through the people who stayed — Iwakichi begging in the street, Natsue at the destroyed kindergarten, Sanpei's dying father, Heita's family — each of whom has to account to her for what became of them."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "offering",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "basis": "Takako offers to take the blinded, burned Iwakichi and his grandson Tarō back to the island with her, and Iwakichi refuses and runs away, relenting only when the neighbour talks him round — and then only for the boy."
+    },
+    {
+     "predicate": "dependent-handed-over",
+     "role": "giving up",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Iwakichi, Tarō's only surviving relative, feeds the boy a last meal, gives him the new shoes he bought and sends him to Takako with a letter, putting the grandson he had kept out of the orphanage into her hands."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Having sent Tarō off with the letter, Iwakichi sets fire to his own shack and dies of the burns, leaving the boy to carry his ashes off the island."
+    },
+    {
+     "predicate": "the-wanted-child-denied",
+     "role": "childless",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Natsue, the midwife Takako once taught alongside, has been left sterile by the bomb's aftereffects and is arranging with her husband to adopt."
+    }
+   ]
+  },
+  {
+   "title": "Mara Maru",
+   "year": 1952,
+   "filmId": "film-ecc35e86570a1d9b",
+   "plotChars": 3201,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one who trusts",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "Mason hires Steven Ranier as his protector after Ranier's testimony as a witness to Callahan's murder clears him, not knowing Ranier has been working with Brock Benedict all along and agrees aboard the Mara Maru to throw Mason overboard once the crucifix is raised."
+    },
+    {
+     "predicate": "a-bargain-with-a-price-not-named",
+     "role": "accepting",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Benedict outfits the salvage boat and offers Mason and Stella an equal split of the million-dollar diamonds, while intending to kill Mason the moment the sunken box is brought up."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "refusing",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Stella discovers Benedict's plan to murder Mason, warns him and begs him to abandon the expedition and return with her to a normal life in the United States, and Mason chooses the treasure instead."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Lt. Zuenon arrests Mason for Callahan's murder on the strength of the bar quarrel and Callahan's jealousy over Mason's pre-marriage relationship with Stella, until Ranier's account frees him."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "refusing",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Senor Ortega, whose brother had hidden the crucifix from the Japanese, begs Mason at the church steps to give the cross back and Mason wrests it from him instead — only handing it to Manuelo after Ortega is killed."
+    }
+   ]
+  },
+  {
+   "title": "Secrets of Women",
+   "year": 1952,
+   "filmId": "film-ff9906db5708d704",
+   "plotChars": 3501,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealing",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Marta, pregnant by Martin, finds him refusing to hear her news the day his brothers bring word of their father's death, and when he raises parting ways she tells him she was only joking about having something to say, then bears the child without him."
+    },
+    {
+     "predicate": "concealed-thing-surfaces",
+     "role": "holding the truth",
+     "centrality": 0.5,
+     "outcome": "transfigured",
+     "basis": "Rakel tells Eugen outright that she has cheated on him with Kaj and does not want his forgiveness; in the stuck elevator Karin answers Fredrik's question about unfaithfulness first with a lie, then with a partial truth, drawing out his own affair with Diana."
+    },
+    {
+     "predicate": "the-bond-recast-unilaterally",
+     "role": "the one who offers new terms",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "After Eugen's rifle and suicide threat, Rakel tells the women at the table that she has come to think of her husband as her child and is resolved to take care of him on those terms."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuading",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "When Eugen storms out with a rifle threatening to shoot himself after Rakel's confession, she chases him and fetches an elderly neighbour to talk sense into him."
+    }
+   ]
+  },
+  {
+   "title": "Fear and Desire",
+   "year": 1953,
+   "filmId": "film-3181bc846b461a85",
+   "plotChars": 2330,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "one-kills-what-one-loves",
+     "role": "killing",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Sidney, left alone to guard the peasant girl tied to the tree, talks at her in a language she cannot understand, unbelts her expecting an embrace, and shoots her dead when she runs."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Mac persuades Corby and Fletcher to let him take the raft alone and draw the general's guards' fire, and is shot while they infiltrate the house, kill the general and fly out on an enemy plane."
+    },
+    {
+     "predicate": "held-in-place-by-force",
+     "role": "holding",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "The four downed soldiers seize the young peasant woman who cannot speak their language and bind her to a tree with their belts, leaving Sidney to keep her there."
+    }
+   ]
+  },
+  {
+   "title": "It Happened in the Park",
+   "year": 1953,
+   "filmId": "film-9d4a82f180f04052",
+   "plotChars": 1667,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.45,
+     "outcome": "transfigured",
+     "basis": "Anna Maria is sent by her classmates to meet the Greek teacher at the Sea Horse Fountain and kiss him so they can photograph it and blackmail him into passing them, and the teacher is never party to the arrangement — until, hearing he is losing his sight and must give up teaching, she hugs him while covering his face so the photograph fails."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Marietta disdainfully refuses the Neapolitan soldier's invitation to a night meeting in the park and then sees him courting a Swedish nanny, after which she vanishes and her friends search the Muro Torto cliff for her body."
+    }
+   ]
+  },
+  {
+   "title": "Jolanda, the Daughter of the Black Corsair",
+   "year": 1953,
+   "filmId": "film-6f375767ea886d8f",
+   "plotChars": 2481,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Learning that Van Guld, Count of Medina, treacherously murdered her father the Black Corsair, Jolanda allies with Morgan's pirates at Tortuga to make Van Guld pay, and he ends adrift in a boat full of lepers while she takes the family treasure."
+    },
+    {
+     "predicate": "concealed-thing-surfaces",
+     "role": "learning",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Only as he lies dying of his wounds after the fight near Maracaibo does the guardian who raised her tell Jolly that she is Jolanda, daughter of the Count of Ventimiglia, and that a family treasure exists."
+    },
+    {
+     "predicate": "withholds-the-blow",
+     "role": "at their mercy",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Van Guld handed the two-year-old child to the guardian with instructions to kill her, and instead he raised her among the gypsies and trained her in the military arts."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Jolanda, raised to look and bear herself like a young man, enters the Medina palace and reaches Consuelo, who has been madly in love with her since their first meeting six months earlier, deceived by that masculine appearance."
+    },
+    {
+     "predicate": "a-life-is-bought-back-for-a-price",
+     "role": "ransoming",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Jolanda kidnaps Consuelo of Medina to trade her for the release of Ralf and the arrested pirates, but Van Guld turns the exchange site into an ambush."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Captured at the ambush, Jolanda is tortured for the location of the Ventimiglia treasure and does not reveal it."
+    }
+   ]
+  },
+  {
+   "title": "Stalag 17",
+   "year": 1953,
+   "filmId": "film-37e54fc1c5bb3b45",
+   "plotChars": 4200,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "Because Sefton barters openly with the German guards and was away with the Russian women when the radio was confiscated, the men of Barracks 4 conclude he informed on Manfredi, Johnson and Dunbar and beat him brutally, until he exposes Price and they are convinced."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one who trusts",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Frank Price, the barracks' own security officer, is the German plant, passing messages through the hollow black queen and the looped light-bulb cord and feeding Schulz the matchbook-and-cigarette bomb recipe as evidence against Dunbar; the men throw him out with cans tied to his leg and the guard towers shoot him."
+    },
+    {
+     "predicate": "help-comes-from-the-enemy",
+     "role": "helping",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Sefton, whom these men have just beaten as an informer and who despises Dunbar as a rich boy who only passed officer school on his family's money, is the one who goes into the water tower and gets Dunbar out of the camp."
+    }
+   ]
+  },
+  {
+   "title": "A Slice of Life",
+   "year": 1954,
+   "filmId": "film-bfdeddfbd8afb6cf",
+   "plotChars": 2743,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuading",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "In 'Other people's houses' the old village priest, learning that Zelinda means to end her strenuous, monotonous life, argues her out of it and physically hauls her back up when she slips off the cliff; in 'Mara' Vasco talks Mara out of going to work in a brothel the next morning by offering to keep her on his teacher's wage."
+    },
+    {
+     "predicate": "dependent-handed-over",
+     "role": "giving up",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "In 'The baby' the broke young Roman couple carry their newborn to a church to abandon it, but the mother cannot settle on the right spot and the father finally changes his mind and they keep the child."
+    },
+    {
+     "predicate": "the-one-entrusted-keeps-it",
+     "role": "entrusting",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "In 'The camera' Totò and the girl, unable to work the self-timer, hand the newly won camera to a passing stranger to take their picture; he poses them, distracts them and runs off with it."
+    }
+   ]
+  },
+  {
+   "title": "La Strada",
+   "year": 1954,
+   "filmId": "film-5ce439fa7fcc4b48",
+   "plotChars": 3520,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Bought from her mother and travelling in Zampanò's motocarro, Gelsomina is presented as his wife, intimidated, forced upon and beaten, and when she rebels and runs to town he simply carries her back by force."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "Once Gelsomina's madness after Il Matto's death makes her useless for drawing a crowd, Zampanò leaves her asleep by the roadside with some clothes, some money and his trumpet, and drives on."
+    },
+    {
+     "predicate": "dependent-handed-over",
+     "role": "given up",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Gelsomina's impoverished mother, with other mouths to feed, accepts Zampanò's 10,000 lire for her daughter, and the tearful girl leaves with him the same day."
+    },
+    {
+     "predicate": "the-reckoning-comes-too-late",
+     "role": "the one who comes to see",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Years on, Zampanò hears a woman singing Gelsomina's trumpet tune, learns that she was taken in on a beach, wasted away and died in her sleep, and that night he gets drunk, brawls, and collapses weeping on the sand."
+    },
+    {
+     "predicate": "antagonism-without-settleable-cause",
+     "role": "both",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Il Matto needles Zampanò at every opportunity in the travelling circus and cannot explain to anyone what makes him do it, until on an empty road Zampanò's punches leave him dead beside his flat tyre."
+    },
+    {
+     "predicate": "standing-in-anothers-place",
+     "role": "standing in",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Zampanò comes back a year after Rosa died on the road with him to ask her mother whether Gelsomina will take Rosa's place, and Gelsomina is handed over to fill it."
+    }
+   ]
+  },
+  {
+   "title": "Late Chrysanthemums",
+   "year": 1954,
+   "filmId": "film-33aedcd5803fce68",
+   "plotChars": 1674,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "appeal-turned-away",
+     "role": "refusing",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Seki, the old customer jailed for trying to kill Kin and then himself, comes to borrow money and is shown the door, and when the ex-soldier Tabe she has been longing for turns out to want a loan too she refuses him and burns his photograph."
+    },
+    {
+     "predicate": "the-child-leaves-the-one-who-raised-them",
+     "role": "raised-by",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Tamae's son Kiyoshi takes a job in Hokkaido and Tomi's daughter Sachiko moves in with her fiancé, leaving the two widowed ex-geisha alone in the house they share."
+    },
+    {
+     "predicate": "return-after-long-absence",
+     "role": "who stayed",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Kin is thrown into excitement by news that Tabe, her former patron and lover, is coming back, and the reunion consists of his asking her for money, after which she burns his photograph to erase what is left of him."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuading",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Tomi laments her daughter Sachiko's engagement to a much older man and tries to talk her out of it; Sachiko moves in with him anyway."
+    },
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Tamae is unhappy that her son Kiyoshi is kept by an older mistress who pays him for being at her service."
+    }
+   ]
+  },
+  {
+   "title": "Seven Samurai",
+   "year": 1954,
+   "filmId": "film-c07c730f2c279772",
+   "plotChars": 4277,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "kindness-from-a-stranger",
+     "role": "the one with no obligation",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "The farmers, with no claim on him, ask Kambei to defend their village for nothing but food, and he agrees after recognising their suffering, then recruits Gorobei, Shichirōji, Heihachi and Kyūzō to a burden that is not theirs."
+    },
+    {
+     "predicate": "many-are-spent-to-hold-a-position",
+     "role": "spent",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Heihachi, Gorobei, Kyūzō and Kikuchiyo die holding a village that is not theirs, and Kambei tells Shichirōji at the funeral mounds that the victory belongs to the farmers, not the samurai."
+    },
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Katsushirō secretly shares his rice with Shino, whose father Manzō had disguised her as a boy, and the two form a relationship they know their class difference forbids; Manzō beats her when he sees them leave a hut together."
+    },
+    {
+     "predicate": "loved-one-carried-off",
+     "role": "losing",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Rikichi's wife was taken by the bandits in an earlier raid, and when the samurai burn the camp he breaks down at the sight of her; she runs back into the burning barracks rather than return to him."
+    }
+   ]
+  },
+  {
+   "title": "Ordet",
+   "year": 1955,
+   "filmId": "film-a3438eff633b46be",
+   "plotChars": 2675,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "parted",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Anders wants to marry Anne Petersen, but her father Peter refuses the proposal unless the Borgens join his Inner Mission church, and Morten at first refuses to assent to the match; only over Inger's coffin does Peter agree to permit the marriage."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.55,
+     "outcome": "transfigured",
+     "basis": "Johannes tells Morten that death is nearby and will take Inger unless he has faith; Morten refuses to listen and Inger dies suddenly, exactly as prophesied, and only after her death does the family credit Johannes enough to ask for her raising."
+    },
+    {
+     "predicate": "absolution-sought-from-wronged",
+     "role": "asking",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Peter, who told Morten he hoped Inger would die so Morten would see the error of his ways, realises before the funeral that he has wronged him terribly and reconciles with him over Inger's open coffin."
+    },
+    {
+     "predicate": "the-child-sees-what-the-adults-will-not-say",
+     "role": "child",
+     "centrality": 0.3,
+     "outcome": "transfigured",
+     "basis": "While the adults prepare Inger's funeral and doubt Johannes, Inger's small daughter takes his hand and impatiently asks him to raise her mother from the dead, and he praises her childlike faith before praying."
+    }
+   ]
+  },
+  {
+   "title": "Rebel Without a Cause",
+   "year": 1955,
+   "filmId": "film-0f0069fb97c74906",
+   "plotChars": 4039,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Jim asks Frank how a man defends his honour and is told to avoid confrontation, then pleads with his father to stand up for him when Carol announces another move; Frank refuses and Jim attacks him, until at the observatory Frank finally comforts him and vows to be a better father."
+    },
+    {
+     "predicate": "kinship-made-from-lack",
+     "role": "one",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Jim, Judy and Plato — each with a home that has failed them — take refuge in the deserted mansion and act out a fantasy of being a family, until the police shoot Plato dead outside the observatory."
+    },
+    {
+     "predicate": "parent-walks-out",
+     "role": "left",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Plato's father abandoned the family when he was a toddler and his mother is usually away, leaving him with the housekeeper; he attaches himself to Jim as a substitute and dies accusing Jim of abandoning him too."
+    },
+    {
+     "predicate": "a-parent-cannot-love-the-child",
+     "role": "child",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Judy believes her father ignores her now that she is no longer a little girl, and when she dresses in racy clothes to draw his attention he calls her a 'dirty tramp'."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Buzz's gang become convinced Jim informed on them about the chickie-run death, steal Plato's address book and hunt Jim down, though Jim's attempt to confess had been turned away at the police station."
+    },
+    {
+     "predicate": "acting-on-a-false-picture",
+     "role": "the one mistaken",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Jim quietly removes the ammunition before handing the gun back to Plato, and the police, seeing only that Plato is still holding it, shoot him dead as he charges them."
+    }
+   ]
+  },
+  {
+   "title": "Street of Shame",
+   "year": 1956,
+   "filmId": "film-d3f9008d3c085e69",
+   "plotChars": 1993,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The five women at Dreamland sell their presence to clients to live — Yasumi keeps Mr. Aoki as a long-term paying client and Hanae works to feed a suicidal husband and infant — and when the anti-prostitution bill fails the maid Shizuko is sent out front to beckon in the next customers."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceiving",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Yasumi lets Mr. Aoki believe she will elope with him so he pays off her debts and embezzles to do it; when he confronts her and finds she never meant to marry him he attacks her and nearly kills her."
+    },
+    {
+     "predicate": "a-debt-holds-a-person-in-place",
+     "role": "debtor",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Yorie cannot marry the man she wants because she owes the Tayas a large sum, and only a court ruling voiding the debt lets her walk out of Dreamland at all — after which she comes back."
+    },
+    {
+     "predicate": "the-child-leaves-the-one-who-raised-them",
+     "role": "raised-by",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Yumeko, who has avoided her Tokyo-working son out of embarrassment, finally meets him and he denounces her prostitution and disowns her; she loses her mind and is taken away."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "refusing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Mickey's father comes from Kobe with news of her mother's death and asks her to quit the brothel for the family's sake; she throws him out, telling him he lived for pleasure while her mother was alive."
+    },
+    {
+     "predicate": "scarcity-divided-among-dependents",
+     "role": "dividing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Hanae's earnings have to cover a husband with suicidal tendencies and an infant, and it is not enough — the landlord evicts them."
+    }
+   ]
+  },
+  {
+   "title": "The Battle of the River Plate",
+   "year": 1956,
+   "filmId": "film-f18ec9a7d6f3d390",
+   "plotChars": 2219,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "acting-inside-anothers-design",
+     "role": "the ones acting in the dark",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The British, knowing their heavy ships are far off, lobby Uruguay to extend Graf Spee's stay in Montevideo while local media report battleships and carriers massing outside; Langsdorff, seeing only the trap he is meant to see, sails out with a skeleton crew and scuttles his ship."
+    }
+   ]
+  },
+  {
+   "title": "The Burmese Harp",
+   "year": 1956,
+   "filmId": "film-63cc641b4d579e11",
+   "plotChars": 2604,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "Finding Japanese corpses unburied along the road to Mudon, Mizushima keeps the stolen monk's robe and writes that he cannot go home until every fallen soldier is buried."
+    },
+    {
+     "predicate": "one-goes-one-keeps-faith",
+     "role": "the one who goes",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Captain Inouye and his men in the Mudon camp hold to the belief Mizushima lives and train a parrot to say 'Mizushima, let's go back to Japan together'; the answer comes back as a second parrot saying 'No, I cannot go back' and a letter."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "offering",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Sent by the British captain with thirty minutes to talk down the holdouts, Mizushima climbs to the cave, tells them the war is over and begs them to surrender; the commander and men vote unanimously to fight to the end and the cave is bombarded."
+    },
+    {
+     "predicate": "witness-misreads-the-scene",
+     "role": "knowing",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "When Mizushima makes a white flag intending to ask the British for more time, the holdout soldiers take it for him surrendering on their behalf and beat him unconscious, leaving him on the cave floor."
+    },
+    {
+     "predicate": "withholds-the-blow",
+     "role": "at their mercy",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Inouye's men sing and clap to feign ignorance of the British and Indian troops surrounding the village, and instead of opening fire the British join in singing 'Home! Sweet Home!' and let them surrender."
+    }
+   ]
+  },
+  {
+   "title": "War and Peace",
+   "year": 1956,
+   "filmId": "film-1df764e9a1c75f49",
+   "plotChars": 7563,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Natasha, having promised to wait a year for Andrei while he is in Prussia, is seduced by Anatole Kuragin and agrees to elope with him; the plan is foiled by Sonya and Pierre but Andrei ends the engagement and refuses to forgive her even on the eve of Borodino."
+    },
+    {
+     "predicate": "marriage-made-for-gain",
+     "role": "married",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Hélène Kuragina sets her sights on Pierre the moment old Count Bezukhov's will makes him sole heir, and her father Prince Vasily installs himself as administrator of Pierre's estates; after her flirtation with Dolokhov and the duel, Pierre separates from her."
+    },
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "parted",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Prince Nicholas Bolkonsky, holding that Natasha is too young and the Rostovs not the Bolkonskys' social equals, makes Andrei wait a year before marrying her, and it is inside that imposed year that the engagement is destroyed."
+    },
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealed-from",
+     "centrality": 0.35,
+     "outcome": "ambiguous",
+     "basis": "Anatole Kuragin courts Natasha and persuades her to elope while concealing that he is already secretly married — the fact Pierre uses to threaten him with exposure."
+    },
+    {
+     "predicate": "judged-by-birth-not-by-act",
+     "role": "judged",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Pierre is snubbed by the Bezukhov relatives at his dying father's mansion as the count's illegitimate son, and their derision turns to hypocritical concern only when the will acknowledges him as legitimate and sole heir."
+    },
+    {
+     "predicate": "the-reckoning-comes-too-late",
+     "role": "the one who comes to see",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Andrei, who felt trapped by the clinging Lise and had told Pierre never to marry, blames himself for not having given her enough comfort and love only after she dies giving birth to Kolya."
+    }
+   ]
+  },
+  {
+   "title": "Mother India",
+   "year": 1957,
+   "filmId": "film-9521de1cfcafeb00",
+   "plotChars": 2318,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "a-debt-holds-a-person-in-place",
+     "role": "debtor",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "The ₹500 borrowed from Sukhilala to pay for Radha and Shamu's wedding binds them to hand over three-quarters of every harvest as interest, and the debt governs the family across the whole of Radha's life, down to her pawned kangan."
+    },
+    {
+     "predicate": "one-kills-what-one-loves",
+     "role": "killing",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Having promised Sukhilala she would not let Birju harm his family, Radha shoots her own bandit son as he rides off with the kidnapped Rupa, and he dies in her arms."
+    },
+    {
+     "predicate": "help-that-buys-a-hold",
+     "role": "the one at their mercy",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "After the flood ruins the harvest, Sukhilala offers Radha food to save her and her sons on condition she trade her body to him; she refuses vehemently and her infant dies in the storm."
+    },
+    {
+     "predicate": "parent-walks-out",
+     "role": "left",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "His arms crushed by a boulder and humiliated by Sukhilala for living on his wife's earnings, Shamu decides he is of no use and walks away from Radha and their three sons to his probable death by starvation."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Birju, embittered since childhood by Sukhilala's demands and driven out as a bandit after seizing back his mother's pawned kangan, returns on Rupa's wedding day to kill Sukhilala and carry off his daughter."
+    },
+    {
+     "predicate": "arbiter-bent-by-power",
+     "role": "denied redress",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "When the conditions of the mother-in-law's loan are disputed, the village elders rule in favour of the moneylender Sukhilala, fixing the three-quarters-of-the-crop interest on Radha and Shamu with no appeal."
+    }
+   ]
+  },
+  {
+   "title": "Piece of the Sky",
+   "year": 1958,
+   "filmId": "film-8a6ce1a49a032ef9",
+   "plotChars": 2215,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "a-bargain-with-a-price-not-named",
+     "role": "offering",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Severino sells the three naive old men of Migliarino a hectare of sky, promising rent from the passing planes but adding that they can only enjoy the property once dead; they hand over their entire savings of 3,000 lire and then try to drown themselves in the swamp to collect, and he gives the money back at the end."
+    }
+   ]
+  },
+  {
+   "title": "The Law Is the Law",
+   "year": 1958,
+   "filmId": "film-4c82fb892345a0cd",
+   "plotChars": 5104,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "pursuing",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "French customs officer Ferdinand and Neapolitan smuggler Giuseppe run a daily cat-and-mouse across the Assola border, and the film closes exactly as it opened, with Ferdinand chasing Giuseppe again and telling the audience the Law is the Law."
+    },
+    {
+     "predicate": "help-comes-from-the-enemy",
+     "role": "helped",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Facing the loss of his job, Ferdinand asks the very smuggler he has spent years arresting to help him, and Giuseppe takes him across to the Italian side for identity papers and later brings him food and the truth on the mountain."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Made stateless, Ferdinand takes his wartime marksman's rifle to the mountain above Assola and fires 'first notice' shots at the property of everyone in his notepad, planning to execute them one by one."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "In the Italian cell, dejected at being called a deserter, Ferdinand attempts suicide and is talked out of it by Giuseppe, who had got himself arrested to avoid leaving his wife alone with her ex-husband."
+    },
+    {
+     "predicate": "witness-misreads-the-scene",
+     "role": "mistaken",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Seeing Giuseppe climbing the mountain flanked by the Italian police and the French Gendarmerie, Ferdinand takes it for betrayal and shoots, the bullet stopped by a bottle of smuggled liquor under Giuseppe's clothes."
+    }
+   ]
+  },
+  {
+   "title": "Vertigo",
+   "year": 1958,
+   "filmId": "film-a72b0c4f67711b42",
+   "plotChars": 3938,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "loved-under-a-mistaken-identity",
+     "role": "loving",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Scottie falls in love at Muir Woods and Cypress Point with a woman haunted by Carlotta Valdes who does not exist — Judy Barton of Salina, Kansas, performing a script Gavin paid her to play."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "taken in",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "Judy Barton stands before Scottie throughout as Madeleine Elster, visiting Carlotta's grave and the Portrait of Carlotta, and he takes the possession as genuine."
+    },
+    {
+     "predicate": "another-shaped-to-order",
+     "role": "shaping",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "After meeting Judy on the street, Scottie makes her change her clothes and dye her hair until she is 'Madeleine' again, and holds her to that shape."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceived",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Scottie sees Judy wearing the necklace from Carlotta's portrait, drives her back to San Juan Bautista and forces her up the tower until she admits Gavin paid her to impersonate his wife."
+    },
+    {
+     "predicate": "a-wrong-never-answered-for",
+     "role": "the one seeking account",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "The inquest rules Madeleine Elster's death a suicide and rebukes Scottie rather than Gavin; Gavin, who staged the murder, is never called to account even after Judy's confession."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Judy was Gavin's mistress and was cast aside once the scheme was done, repeating Carlotta Valdes, whose wealthy lover kept their child and discarded her."
+    }
+   ]
+  },
+  {
+   "title": "Hiroshima mon amour",
+   "year": 1959,
+   "filmId": "film-981680ac563ae775",
+   "plotChars": 3991,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "In occupied Nevers the French woman loved a German soldier and planned to elope to Bavaria with him; he was shot while waiting for her on the day the town was liberated."
+    },
+    {
+     "predicate": "cast-out-by-group",
+     "role": "expelled",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "When the villagers of Nevers learn of her affair with the German they shave her head, and once her hair has grown back her parents send her away to Paris."
+    },
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "The actress, married with children and flying to Paris the next day, and the married Hiroshima architect cannot have each other without breaking those marriages; she agrees to stay, then tells him to go away."
+    },
+    {
+     "predicate": "held-in-place-by-force",
+     "role": "held",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "After the German's death her parents lock her alternately in her bedroom and the cellar in Nevers while her shaved hair grows out and she comes out of her madness."
+    },
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "She stayed with the German soldier for the two days he took to die, watching his twitching hand, and never saw the moment he died."
+    },
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealing",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "She has never told her husband about the German soldier at Nevers, and the architect is elated when he learns that the story she has just told him has been kept from her husband."
+    }
+   ]
+  },
+  {
+   "title": "The Great War",
+   "year": 1959,
+   "filmId": "film-d25a8e7c55011c74",
+   "plotChars": 1978,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "both",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Oreste takes Giovanni's money at the recruiting district on a false promise to get him out of conscription, and Giovanni discovers the fraud when they meet again on the troop train, his anger giving way to friendship."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Captured in Austrian coats and threatened with shooting, Oreste blurts out that they know the Italian plan for the Piave counterattack, and the Austrian officer presses them to hand it over — until his contemptuous joke about Italians makes both men withhold it and take the firing squad instead."
+    },
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "The film closes on the captain, who knows nothing of the two men's refusal and execution, remarking that Oreste and Giovanni ran off — an account of them as shirkers that the dead cannot answer."
+    }
+   ]
+  },
+  {
+   "title": "The Human Condition II: Road to Eternity",
+   "year": 1959,
+   "filmId": "film-773dc6eead649061",
+   "plotChars": 2651,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Leading his group of recruits, Kaji repeatedly takes onto himself the beatings the veteran artillerymen mete out for the slightest offence, so that his men are not the ones struck."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Kaji, marked as a leftist sympathiser, is given the harshest duties in his recruiting class and is beaten again and again by the veteran artillerymen, with no way out from under the army he is bound to."
+    },
+    {
+     "predicate": "contempt-drives-a-person-to-end-their-life",
+     "role": "both",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Obara, weak and poor-sighted, kills himself after PFC Yoshida and the other soldiers subject him to ceaseless punishment and humiliation on top of his troubles at home."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "withholding",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "When Kaji and Yoshida are both caught in quicksand while pursuing the deserting Shinjo, Kaji refuses to pull Yoshida out and lets him sink."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "asking",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Kaji demands that his superiors discipline Yoshida for driving Obara to suicide, and Yoshida goes unpunished."
+    },
+    {
+     "predicate": "one-goes-one-keeps-faith",
+     "role": "the one who goes",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Conscripted away from Michiko, Kaji stays in the army out of faithfulness to her, while she writes to his commanding officer pleading for understanding and makes a highly irregular visit to the military facility to declare her solidarity."
+    }
+   ]
+  },
+  {
+   "title": "The Last Days of Pompeii",
+   "year": 1959,
+   "filmId": "film-d7e62cd154f3cf65",
+   "plotChars": 4177,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Glaucus returns to find his father murdered and the house looted by the cross-marking hooded band, vows revenge, and hunts them to the Temple of Isis, where Arbaces and Julia are finally crushed by the toppling idol and Gallinus shot in the royal box."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.55,
+     "outcome": "ambiguous",
+     "basis": "Julia stabs Consul Ascanius and pins the killing on Glaucus, who is imprisoned for murder alongside the Christians already condemned for the crime wave her own hooded men committed."
+    },
+    {
+     "predicate": "acting-on-a-false-picture",
+     "role": "the one who mistakes",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Blind Nydia, believing she is speaking to Antonius after Marcus's funeral, tells Gallinus — the man charged with persecuting Christians — how to find the secret Christian gathering, and that night he rounds them all up for torture and death."
+    },
+    {
+     "predicate": "betrayed-by-the-closest",
+     "role": "both",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Julia, the Consul's Egyptian mistress, has been directing the hooded murders to fund an uprising against Rome, and confesses it to Ascanius before stabbing him."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "both",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Marcus traces the soldier carrying Glaucus's father's ring to the Temple of Isis and is killed by the High Priest Arbaces before he can tell anyone what he found, his body left marked with a Christian cross."
+    }
+   ]
+  },
+  {
+   "title": "Two Men in Manhattan",
+   "year": 1959,
+   "filmId": "film-6d32ac3f55778c8d",
+   "plotChars": 3748,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "hidden-life-exposed",
+     "role": "exposing",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Delmas photographs Fèvre-Berthier's corpse — moving it onto the bed for a better shot — to sell the story that the UN delegate died in his mistress Judith's apartment, and at dawn pushes both rolls of film through a storm drain instead."
+    },
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "both",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "basis": "Moreau brings in his friend Delmas to help find the diplomat, then threatens to take the film by force and finally punches him at the Pike Slip Inn over the corpse photographs."
+    },
+    {
+     "predicate": "pressed-for-an-account",
+     "role": "pressing",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "In her hospital room, Delmas keeps demanding of the hysterical Judith where Fèvre-Berthier is and how he died until she admits she found him dead on her sofa, then photographs her."
+    },
+    {
+     "predicate": "a-secret-kept-from-the-one-loved",
+     "role": "concealing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Anne, who has been trailing Moreau to find her father, sends her mother out of the room and tells Moreau that she knows of the affair with Judith but her mother does not."
+    }
+   ]
+  },
+  {
+   "title": "Adua and Her Friends",
+   "year": 1960,
+   "filmId": "film-99accbf84d0966cd",
+   "plotChars": 1577,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "answered on",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "After Adua refuses Ercoli's rent and humiliates him in front of the others, he has all four women arrested for prostitution in revenge."
+    },
+    {
+     "predicate": "hidden-life-exposed",
+     "role": "exposed",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "The arrest puts the four women's pictures in the newspapers, so the past their restaurant was covering is named publicly and Marilina's, Milly's and Adua's respectable lives collapse."
+    }
+   ]
+  },
+  {
+   "title": "Devi",
+   "year": 1960,
+   "filmId": "film-9bfdcda2dd5dd26c",
+   "plotChars": 3262,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "identity-assigned-from-outside",
+     "role": "assigned",
+     "centrality": 0.95,
+     "outcome": "ambiguous",
+     "basis": "On the strength of a dream in which Kali's eyes merge with hers, Kalikinkar falls at his daughter-in-law Doyamoyee's feet, has the priest perform a ritual over her and installs her in a private room as an idol to be worshipped."
+    },
+    {
+     "predicate": "the-one-everyone-lives-off",
+     "role": "the one surrounded",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "After the beggar's grandson revives, supplicants travel from afar to worship Doyamoyee, who sits stoically through the ceremonies while her isolation grows and even Khoka, the child she mothered, begins to avoid her."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Umaprasad, back from his English studies in Calcutta, argues privately with his father that the goddess business is delusion, but the sick boy's eyes opening settles it for Kalikinkar, and the cost falls on Khoka."
+    },
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one entrusted",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Told by Taraprasad that Harasundari has smuggled in a doctor for the feverish Khoka, Kalikinkar instead brings the boy to Doyamoyee for charanamrito and a night in her arms, and Khoka is dead by morning."
+    },
+    {
+     "predicate": "the-nearest-cannot-stop-what-one-becomes",
+     "role": "watching",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "basis": "Umaprasad gets Doyamoyee as far as the boat on the riverbank but she asks to be taken back, having begun to wonder whether she is a goddess; when he returns he finds her dressing in her wedding attire saying they must leave before she is killed, and she runs into the mist as he calls after her."
+    }
+   ]
+  },
+  {
+   "title": "The Young One",
+   "year": 1960,
+   "filmId": "film-51e8a92df69ff9b7",
+   "plotChars": 6127,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one entrusted",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Miller, left as the orphaned teenage Evvie's sole guardian after Pee-Wee's death and planning to hand her to the church, instead gives her a new dress and high heels, moves her into his cabin and rapes her while Traver plays the clarinet next door."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Traver flees a lynch mob for a rape he did not commit, accused by a woman the Reverend knows to be a drunk who falsely accused a white man of the same thing two years earlier."
+    },
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "evading",
+     "centrality": 0.55,
+     "outcome": "transfigured",
+     "basis": "Miller takes a rifle into the woods after Traver, shoots four holes in his boat and fires on him crossing the swamp, and later Jackson sets out to kill him, while Traver survives on foot until he is caught in an animal trap."
+    },
+    {
+     "predicate": "withholds-the-blow",
+     "role": "holding the blow",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Miller, who has hunted Traver with a rifle and tied him up to hand him to the mainland authorities, instead runs Jackson off the island and gives Traver his oars for crutches and carries his motor to the boat."
+    },
+    {
+     "predicate": "a-life-settled-by-others",
+     "role": "the one decided for",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "basis": "Miller decides Evvie will be given to the church and schooled on the mainland, revokes his permission for her to go to town with Jackson, and then asks the Reverend whether marrying her would settle the matter of the rape."
+    }
+   ]
+  },
+  {
+   "title": "Girls of the Night",
+   "year": 1961,
+   "filmId": "film-ff1a467ca5f73530",
+   "plotChars": 2146,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "identity-assigned-from-outside",
+     "role": "assigned",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Once Mrs. Takagi learns Kuniko was a prostitute she is treated with disdain as a maid, and later Tsukasa's mother writes that she will not allow her son to marry a woman with that past."
+    },
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "parted",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "Tsukasa proposes to Kuniko in the Shimas' rose garden, but his mother's letter forbidding the marriage and the Shimas' announcement that they are kin to his family and see no possibility for it break her down and she disappears."
+    },
+    {
+     "predicate": "the-strong-hound-the-weakest",
+     "role": "hounded",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Kimiko and her clique of factory girls, who sell sexual services themselves, arrange customers for Kuniko and then torture and beat her when she drives the men off, sending her back to the reformatory."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Answering Mrs. Takagi's contempt, Kuniko seduces Mr. Takagi while his wife is away visiting relatives and makes no secret of it."
+    }
+   ]
+  },
+  {
+   "title": "Mother Joan of the Angels",
+   "year": 1961,
+   "filmId": "film-a70ae7623375324c",
+   "plotChars": 1978,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Father Suryn takes Mother Joan's eight demons into himself through his love for her and then damns himself by doing Satan's bidding so that she may be saved."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Suryn takes an axe at night and kills the stablemen Kaziuk and Juraj, who have no part in the convent's possession, purely as the sacrifice he believes will free Mother Joan."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Sister Małgorzata leaves the convent and becomes Margareth after falling in love with the squire Chrząszczewski, who abandons her the morning after the killings."
+    },
+    {
+     "predicate": "a-message-goes-astray",
+     "role": "carrying",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Suryn, holding the bloodied axe, instructs Margareth to tell Mother Joan of the sacrifice he made for her salvation, but Margareth runs back to the convent and only weeps with her, neither saying a word."
+    }
+   ]
+  },
+  {
+   "title": "Rabindranath Tagore",
+   "year": 1961,
+   "filmId": "film-8881e4349dd4d1e6",
+   "plotChars": 2396,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": true,
+   "tags": []
+  },
+  {
+   "title": "The Best of Enemies",
+   "year": 1961,
+   "filmId": "film-8215fd9f32e2c0c4",
+   "plotChars": 2941,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "help-comes-from-the-enemy",
+     "role": "both",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Blasi deliberately lets his prisoners Richardson and Burke escape, and later Richardson refuses to hand the captured Italians or their weapons over to the hostile headman and decides instead to arm his own prisoners when the village surrounds them."
+    },
+    {
+     "predicate": "what-the-helped-hand-back",
+     "role": "both",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Having been released by Blasi, Richardson is ordered to take his motorized squadron and round up Blasi's unit, which Blasi calls a betrayal at Richardson's hands; by the end Richardson has his men present arms to the recaptured Italians."
+    },
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "both",
+     "centrality": 0.45,
+     "outcome": "transfigured",
+     "basis": "Richardson, furious at Blasi sneaking his infantrymen out the back of the fort, chases them into hilly terrain against Rootes' advice, and the Italians answer by having dismissed tribal warriors fire the forest and destroy his armored cars."
+    }
+   ]
+  },
+  {
+   "title": "Cléo from 5 to 7",
+   "year": 1962,
+   "filmId": "film-54b6d91edfc98df8",
+   "plotChars": 4604,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Waiting on her biopsy result, Cléo raises her fear of cancer with her lover José, who talks lovingly but dismisses the fears and stays only a few minutes, after which she tells Angèle she is thinking of breaking up with him."
+    },
+    {
+     "predicate": "kinship-made-from-lack",
+     "role": "one",
+     "centrality": 0.5,
+     "outcome": "transfigured",
+     "basis": "In Parc Montsouris Cléo, awaiting a cancer diagnosis, meets Antoine, a soldier on the last day of his leave from the Algerian War, and they bond over their mutual fear of dying; he offers to come with her to the hospital and she gives him her real name, Florence."
+    }
+   ]
+  },
+  {
+   "title": "Foundry Town",
+   "year": 1962,
+   "filmId": "film-57fd73db907f71e6",
+   "plotChars": 6005,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-child-carries-the-household",
+     "role": "child",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "With Tatsugoro laid off after his injury and drinking the union-won sickness benefit away on alcohol and motorcycle racing, Jun works shifts at a pachinko parlour for living expenses and her high-school tuition while Takayuki tries to raise and sell carrier pigeons."
+    },
+    {
+     "predicate": "the-child-sees-what-the-adults-will-not-say",
+     "role": "child",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Jun peers into the pub where her mother Tomi now works and is shocked to see her flirting with male patrons, after which she stops going to school; the sight is never spoken of between them."
+    },
+    {
+     "predicate": "friends-divided-by-a-larger-force",
+     "role": "friend",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "The repatriation programme for Koreans in Japan takes Sankichi's family to North Korea, and Takayuki sees him off at Kawaguchi Station with a bag of marbles and a carrier pigeon to release from the train window."
+    },
+    {
+     "predicate": "parent-walks-out",
+     "role": "left",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Sankichi gets off the repatriation train at Omiya to return to his Japanese mother, only to find she has closed her diner and disappeared to marry another man."
+    },
+    {
+     "predicate": "the-house-hides-its-shame",
+     "role": "concealing",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "Tatsugoro quits the foundry job Nobuko's father Tougo arranged for him without telling his family and only admits it on the morning of Jun's school trip, and Jun skips the station meeting point to avoid facing Nobuko."
+    }
+   ]
+  },
+  {
+   "title": "Harakiri",
+   "year": 1962,
+   "filmId": "film-c52ebc979fdb3fca",
+   "plotChars": 6065,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Hanshirō tracks down Hayato, Umenosuke and Hikokuro and takes their topknots for forcing Motome to disembowel himself with a bamboo blade, then names all three as his second at the Iyi estate and kills four retainers before dying."
+    },
+    {
+     "predicate": "verdict-before-proof",
+     "role": "condemned",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "The three senior Iyi samurai treat Motome as an extortionist running a suicide bluff and refuse the two-day delay he asks for without ever investigating that he wanted it to settle affairs with his dying wife and child."
+    },
+    {
+     "predicate": "accounting-demanded-by-wronged",
+     "role": "calling to account",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Hanshirō tells Saitō he will die without another word if Saitō will convey a statement of regret to Motome, Miho and Kingo, and Saitō refuses, calling Motome an extortionist who deserved to die."
+    },
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "The House of Iyi records Hanshirō as mentally unstable, attributes every death he caused to 'illness', and receives the Shōgun's commendation for handling the suicide bluffs of Motome and Hanshirō."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Hanshirō says Motome, Miho and Kingo have every right to ask him whether justice has been exacted for their deaths, and comes to the Iyi courtyard to answer that question before joining them."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "spared",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "When Hanshirō's clan was abolished in 1619 and he planned to die alongside his lord, his closest friend died in his place, leaving Hanshirō alive and responsible for the friend's teenage son Motome."
+    },
+    {
+     "predicate": "the-one-in-power-punishes-his-own-instrument",
+     "role": "both",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Saitō, who let Hayato and Umenosuke talk him into forcing Motome's seppuku, orders both of them to commit seppuku as atonement for having lost their topknots to Hanshirō."
+    }
+   ]
+  },
+  {
+   "title": "Jules and Jim",
+   "year": 1962,
+   "filmId": "film-3f69d7b08b34afc1",
+   "plotChars": 2925,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "two-claims-on-one-person",
+     "role": "the one pressing a claim",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Jules marries Catherine but, fearing she will leave him forever, gives Jim his blessing to marry her so he can keep visiting the chalet and seeing her; the arrangement holds until Jim leaves for Paris and Catherine drives them both off the bridge."
+    },
+    {
+     "predicate": "one-kills-what-one-loves",
+     "role": "killing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "After Jim rebuffs her and says he will marry Gilberte, Catherine asks him into her car, tells Jules to watch, and drives off a ruined bridge into the river, killing herself and Jim."
+    },
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who holds on",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Jules stays with Catherine through the affairs she uses to torment and punish him and through the six months she left him and Sabine, and holds the marriage in place by offering her to Jim."
+    },
+    {
+     "predicate": "the-wanted-child-denied",
+     "role": "childless",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Catherine and Jim's life at the chalet breaks down over their inability to conceive, and the reunion they agree to on news of her pregnancy is cancelled when Jules writes that she has miscarried."
+    },
+    {
+     "predicate": "friends-divided-by-a-larger-force",
+     "role": "friend",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "The war puts Jules in the Austrian army and Jim in the French one, each spending the conflict fearing he will face the other or learn he has killed his friend."
+    }
+   ]
+  },
+  {
+   "title": "La Jetée",
+   "year": 1962,
+   "filmId": "film-024d43ab3640a911",
+   "plotChars": 1929,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "The camp scientists select the prisoner for time-travel experiments because his obsessive memory of the woman on the Orly jetty makes him able to withstand the shock, use him to fetch a power unit from the future, and then move to execute him once the mission is accomplished."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "refusing",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "The people of the future contact him and offer him permanent escape to their own time, and he refuses it, asking instead to be sent back to the pre-war jetty to find the woman."
+    },
+    {
+     "predicate": "search-consumes-the-searcher",
+     "role": "searching",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "His childhood memory of the woman at Orly governs every passage he makes and finally decides his last journey, so that he is shot on the jetty rushing toward her — the death he had watched as a child."
+    }
+   ]
+  },
+  {
+   "title": "Lolita",
+   "year": 1962,
+   "filmId": "film-27c9343c1bc1d680",
+   "plotChars": 4342,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one entrusted",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Humbert marries Charlotte to be near Dolores, becomes her sole guardian after Charlotte's death, and travels the country with her publicly as father and daughter while sleeping with her and policing her contact with boys and the school play."
+    },
+    {
+     "predicate": "marriage-made-for-gain",
+     "role": "marrying",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Humbert laughs at Charlotte's love letter but marries her anyway purely to stay in the house with Dolores, and his diary — recording his passion for the daughter and contempt for the wife — is what sends Charlotte running into the road."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceiving",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Charlotte finds Humbert's hidden diary and reads his desire for Dolores and his loathing of her, then runs out of the house distraught and is struck by a car."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "taken in",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Clare Quilty crosses Humbert's path first as a policeman at the convention hotel and then as the school psychologist 'Dr. Zempf' in his darkened living room, and Humbert only learns years later from Dolores who the man was."
+    },
+    {
+     "predicate": "loved-one-carried-off",
+     "role": "losing",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Quilty removes Dolores from the hospital by claiming to be her uncle, and Humbert — devastated — spends three years unable to find her, learning her whereabouts only when she writes asking for money."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "After Dolores names Quilty as the man who took her and secluded her at the dude ranch, Humbert drives to Quilty's mansion with a gun and shoots him dead among his drunken evasions."
+    }
+   ]
+  },
+  {
+   "title": "Love under the Crucifix",
+   "year": 1962,
+   "filmId": "film-9572e70c0b15e4aa",
+   "plotChars": 2347,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-match-arranged-by-others",
+     "role": "the one disposed of",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Ogin accepts Shintaro of the Mozuya family because her mother warns that refusing would bring consequences on her father Rikyū and Ukon shows no opposition, and two years on Shintaro reproaches her for still loving Ukon while refusing him."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Hideyoshi summons Ogin to his palace, and when she refuses to become his mistress gives her two days to reconsider or he will take Rikyū's life."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "With the house surrounded by soldiers and Rikyū's plan to send her to Ukon and kill himself foreclosed, Ogin prepares to take her own life and sends her maid with a farewell note written on a fan to Ukon in Kaga."
+    },
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Ogin, a married woman, and the exiled Christian Ukon, whose faith the government is suppressing, escape arrest and shelter in a farmer's hut, where she learns his wife has died and they spend the night together."
+    },
+    {
+     "predicate": "acting-inside-anothers-design",
+     "role": "the ones acting in the dark",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Ishida, wanting to block Ukon's rehabilitation and place in the coming campaign, works on Shintaro at Hideyoshi's tea ceremony to engineer a meeting between Ogin and Ukon that can be used to prosecute them both."
+    },
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Under the government's anti-Christian policy Ukon is required to renounce his faith, refuses, and is sent into exile."
+    }
+   ]
+  },
+  {
+   "title": "Ningen",
+   "year": 1962,
+   "filmId": "film-71bbb1f01a367ff1",
+   "plotChars": 1519,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Hachizo and Gorosuke lure Sankichi with the promise of food and kill him with an axe in order to eat him, the boy never told what he is being brought for."
+    },
+    {
+     "predicate": "shut-in-together",
+     "role": "confined",
+     "centrality": 0.5,
+     "outcome": "transfigured",
+     "basis": "Kamegoro, his grandson and the two crewmen are closed in aboard a ship that has lost all navigation and drifts for weeks, until a ship blown off course by a typhoon finds them."
+    },
+    {
+     "predicate": "scarcity-divided-among-dependents",
+     "role": "dividing",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Captain Kamegoro rations the last food and water among the four men aboard, and Hachizo and Gorosuke refuse the ration and eat theirs all at once."
+    },
+    {
+     "predicate": "subordinate-turns-on-superior",
+     "role": "set over",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Hachizo and Gorosuke rebel against Kamegoro's rationing and prayers to Kompira, and end by murdering the captain's own grandson behind his back."
+    },
+    {
+     "predicate": "absolution-sought-from-wronged",
+     "role": "holding the release",
+     "centrality": 0.3,
+     "outcome": "ambiguous",
+     "basis": "After Sankichi's killing, Gorosuke repents and begs Kamegoro — the boy's grandfather — for forgiveness before they bury the body at sea."
+    }
+   ]
+  },
+  {
+   "title": "The Man Who Shot Liberty Valance",
+   "year": 1962,
+   "filmId": "film-b163f70a96c309e0",
+   "plotChars": 4346,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "collecting",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Tom Doniphon shoots Valance with Pompey's rifle from the shadows and loses house, ranch plans and Hallie, while Ranse takes the killing as his own reputation and rides it to governor, senator and ambassador; Tom dies a poor rancher."
+    },
+    {
+     "predicate": "love-renounced-to-spare-the-other",
+     "role": "spared",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Having seen Hallie tend Ranse's wounded arm, Tom burns the house renovations built for their marriage and then tells Ranse to take the nomination 'for Hallie's sake'."
+    },
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Ranse finally tells the newspaper editor the truth about who shot Valance and the editor burns the reporter's notes — 'when the legend becomes fact, print the legend' — so the false account stands and the train conductor still calls Ranse the man who shot Liberty Valance."
+    },
+    {
+     "predicate": "the-newcomer-takes-the-place-already-held",
+     "role": "arriving",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Ranse arrives in Shinbone as a beaten young lawyer, is nursed by Tom's girlfriend Hallie, teaches her to read, and ends holding both Hallie and the town's future that Tom had built his ranch renovations for."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Liberty Valance terrorises Shinbone unchecked — robbing Ranse, bullying him in Ericson's steakhouse, wrecking the Star office and beating Peabody — because Marshal Appleyard is too cowardly to act."
+    }
+   ]
+  },
+  {
+   "title": "High and Low",
+   "year": 1963,
+   "filmId": "film-1a6cfbaee9b45ab4",
+   "plotChars": 3966,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Gondō pays the ransom for his chauffeur's son Shin'ichi with the money mortgaged for the National Shoes buyout, and is forced out of the company while creditors auction the collateral."
+    },
+    {
+     "predicate": "a-life-is-bought-back-for-a-price",
+     "role": "ransoming",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Gondō throws the two treated briefcases of ransom money from a moving train on the kidnapper's instructions, and Shin'ichi is recovered alive at the drop site."
+    },
+    {
+     "predicate": "corroded-by-anothers-life",
+     "role": "envied",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "In the prison meeting the condemned medical intern tells Gondō he has no regrets, that seeing Gondō's house on the hill every day was what bred the crime, then shrieks as the screen closes between them."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "refusing",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "With the wrong child taken, Gondō announces he will not pay the ransom for his chauffeur's son, and only relents after the chauffeur's continuous pleading and his wife's pressure."
+    },
+    {
+     "predicate": "betrayed-by-the-closest",
+     "role": "trusting",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Gondō's top aide tips off the cheap-shoes faction about the kidnapping in exchange for a promotion when they take over, wrecking the secret buyout."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "The kidnapper supplies his two accomplices, who could identify him, with uncut heroin and they are found dead of overdose in the hideout where Shin'ichi was held."
+    }
+   ]
+  },
+  {
+   "title": "Muriel",
+   "year": 1963,
+   "filmId": "film-f514a174e91399f4",
+   "plotChars": 3362,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "return-after-long-absence",
+     "role": "who stayed",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Hélène, widowed and running her antique business out of her Boulogne apartment, meets her former lover Alphonse off the night train after decades apart, and their reminiscing keeps returning to the refused invitation to Algiers and the life they did not have."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceived",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Alphonse presents Françoise to Hélène as his niece when she is his young lover, and the whole footing of the reunion collapses when his brother-in-law Ernest arrives demanding he return to his wife, shocking Hélène."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Bernard cannot get free of Muriel, the girl he helped torture and murder during his service in Algeria, and writes in the journal Alphonse finds that since her death he is 'no longer alive'."
+    },
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "turning",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Bernard murders Robert, the man he served alongside in Algeria, shortly after Hélène has urged Robert to go and talk to him."
+    }
+   ]
+  },
+  {
+   "title": "Blood and Black Lace",
+   "year": 1964,
+   "filmId": "film-9f08c078ca82907f",
+   "plotChars": 3734,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Isabella discovered that Morlacchi and Cristiana had murdered the Countess's husband and tried to blackmail them, so they kill her and then hunt her diary through the fashion house, killing Nicole and burning Peggy to death in a furnace to find out where it went."
+    },
+    {
+     "predicate": "marriage-made-for-gain",
+     "role": "both",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Morlacchi's marriage to the Countess Cristiana was only a means of making himself heir to her fortune, which she grasps when she finds him rifling her desk for her jewelry."
+    },
+    {
+     "predicate": "the-trap-closes-on-the-one-who-set-it",
+     "role": "scheming",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Morlacchi engineers Cristiana's fall from the second-story window to be rid of her; she survives, walks in on him searching her desk, and shoots him before collapsing beside his body."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Silvestri's sex-maniac theory sends every man at the salon into custody and prompts Marco to accuse the designer Cesare, while Cristiana kills a fifth model and strews the mask, hat and coat around her bathroom to pass her off as the killer."
+    }
+   ]
+  },
+  {
+   "title": "I Am Cuba",
+   "year": 1964,
+   "filmId": "film-efac39c5c23adde5",
+   "plotChars": 3542,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "hidden-life-exposed",
+     "role": "exposed",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Maria's fruit-seller fiancé René walks into her hovel as her American client is leaving with her crucifix, and the American calls out 'Goodbye, Betty!' — naming her casino bar-prostitute life in front of him."
+    },
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "expended",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Pedro's landlord rides up mid-harvest to say he has sold the land to United Fruit, telling him he may keep 'the sweat you put into growing them' and nothing else of his best sugar crop; Pedro burns the crop and house and dies in the smoke."
+    },
+    {
+     "predicate": "withholds-the-blow",
+     "role": "holding the blow",
+     "centrality": 0.3,
+     "outcome": "transfigured",
+     "basis": "Enrique goes alone to assassinate the chief of police, gets him in his sights, and sees him eating breakfast with his wife and young children — and cannot pull the trigger."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "refusing",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "A rebel soldier asks the farmer Mariano to join the war, appealing to his children's future; Mariano says he only wants to live in peace and orders him off, and only joins the Sierra Maestra rebels after government planes bomb his home and kill his son."
+    }
+   ]
+  },
+  {
+   "title": "I maniaci",
+   "year": 1964,
+   "filmId": "film-00359adb822c3f5b",
+   "plotChars": 2047,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "In La parolaccia the successful author tells the struggling first-novelist to write out his most depraved fantasies, then humiliates him in front of the assembled literary society when he presents the result."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.28,
+     "outcome": "unrestored",
+     "basis": "In Lo sport the bullying office manager, having lost a bet, puts his wife out on the street to settle it, and an employee who finds out uses the fact as a hold over him."
+    }
+   ]
+  },
+  {
+   "title": "Loving Couples",
+   "year": 1964,
+   "filmId": "film-8c0b46a69d30fdf5",
+   "plotChars": 2727,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "marriage-made-for-gain",
+     "role": "married",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Agda, the maid pregnant by the officer Bernhard Landborg, is married off to the painter Stellan von Pahlen after Bernhard offers Stellan 15,000 Kroner in annual annuity."
+    }
+   ]
+  },
+  {
+   "title": "Onibaba",
+   "year": 1964,
+   "filmId": "film-c4d48b540a65caa3",
+   "plotChars": 3902,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "separating",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "The older woman, who needs her daughter-in-law's help to ambush and loot soldiers, blocks her nightly path to Hachi's hut wearing the dead samurai's robes and hannya mask and convinces her the demon is punishment for the affair."
+    },
+    {
+     "predicate": "the-trap-closes-on-the-one-who-set-it",
+     "role": "scheming",
+     "centrality": 0.75,
+     "outcome": "transfigured",
+     "basis": "The hannya mask she took from the samurai she tricked into the pit will not come off after the rain, and when the daughter-in-law breaks it away with a mallet the older woman's own face is disfigured like the samurai's, so that she is fled from as the demon she pretended to be."
+    },
+    {
+     "predicate": "corroded-by-anothers-life",
+     "role": "envying",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "The older woman, having tried to seduce Hachi herself and been coldly rebuffed, watches from the grass while Hachi and her daughter-in-law have sex during the storm."
+    }
+   ]
+  },
+  {
+   "title": "Shadows of Forgotten Ancestors",
+   "year": 1964,
+   "filmId": "film-7bcafc1794428148",
+   "plotChars": 1580,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Ivan loves and plans to marry Marichka, the daughter of the man who killed his father, across the bitter enmity between their Hutsul families, until she drowns in the river while he is away earning money for their household."
+    },
+    {
+     "predicate": "the-quarrel-passes-down-the-generations",
+     "role": "inheritor",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "The killing of Ivan's father by Marichka's father sets the enmity that Ivan, who had nothing to do with it, inherits and must live inside when he loves Marichka."
+    },
+    {
+     "predicate": "withdrawal-inside-the-bond",
+     "role": "withdrawing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Ivan marries Palahna in the blindfolded, yoked Hutsul ceremony but stays shut inside his obsession with the dead Marichka, and the emotionally abandoned Palahna takes up with the molfar Yurko, whose blow eventually kills Ivan."
+    },
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Ivan goes on addressing the drowned Marichka for years, hallucinating her spirit in the water and among the trees, until her colourless shade touches his outstretched hand and he screams and dies."
+    }
+   ]
+  },
+  {
+   "title": "Zatoichi and the Chest of Gold",
+   "year": 1964,
+   "filmId": "film-a6ddc0b0703eac11",
+   "plotChars": 5968,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "arbiter-bent-by-power",
+     "role": "denied redress",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Intendant Gundayu, who secretly arranged to receive the villagers' stolen 1,000 Ryō himself, calls the Itakura headman a liar, insists the tax be paid again in ten days and orders the headman and three villagers executed at dawn."
+    },
+    {
+     "predicate": "kindness-from-a-stranger",
+     "role": "the one with no obligation",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "The Itakura villagers' ruin and Chiyo's plea to save them are laid before Ichi, a passing blind masseur with no duty to them, who promises to find the gold, kills Gundayu's eight musketeers and hands the recovered chest to Chiyo."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "The village men accost Ichi and blame him for the theft of the tax gold, and later mob him again on his return to Itakura, though he had fought off the robbers atop the chest."
+    },
+    {
+     "predicate": "the-one-in-power-punishes-his-own-instrument",
+     "role": "both",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Gundayu burns the written evidence in a way that saves himself and implicates his constabulary chief Monji, then kills Monji when he demands half the gold."
+    }
+   ]
+  },
+  {
+   "title": "Casanova 70",
+   "year": 1965,
+   "filmId": "film-531ea8ea85ba028b",
+   "plotChars": 4240,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who withholds",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Gigliola goes on loving Andrea after he abandons her the night before their wedding to kiss the lion tamer, offers herself to cure him when he returns, is the only former lover to defend him at his trial, and he answers by spending that night with another woman."
+    },
+    {
+     "predicate": "the-trap-closes-on-the-one-who-set-it",
+     "role": "intended",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "The count, who was never really deaf, hears his wife's plan to crush Andrea's rival under the balanced stone ball, rigs it more unsteadily and coaxes Andrea into the seat — and is himself killed by the ball when Andrea slams a door."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Andrea is publicly tried for the count's murder he did not intend or commit, and is acquitted only when an autopsy shows the count's hearing was sound and he could have saved himself."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "In Sicily Andrea presents himself to the girl's honour-bound family as a doctor come to examine her for impurity, and uses the access to seduce her until the family catches him and gives chase."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceiving",
+     "centrality": 0.25,
+     "outcome": "unrestored",
+     "basis": "Andrea invents a dying relative to work himself into danger-arousal with the Asian air stewardess, and she works out the sham, ending the liaison disastrously."
+    }
+   ]
+  },
+  {
+   "title": "Viva Maria!",
+   "year": 1965,
+   "filmId": "film-b762692eda07f8b5",
+   "plotChars": 3025,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "kinship-made-from-lack",
+     "role": "other",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Orphaned after her father dies in the bridge explosion she was forced to set off, Maria II hides in the wagon of Maria I, whose own stage partner has just killed himself over a failed romance, and the two strangers become each other's people and a double act called \"Maria and Maria\"."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Dying of a henchman's bullet during the escape from Rodríguez's hacienda, Florès makes Maria I promise to carry on his revolution in San Miguel, and she takes up the peasant army and the campaign on his behalf."
+    },
+    {
+     "predicate": "drawn-into-anothers-quarrel",
+     "role": "drawn in",
+     "centrality": 0.35,
+     "outcome": "transfigured",
+     "basis": "Maria II, reluctant to take up Florès' cause that she never shared, is pulled into it to help Maria I, and ends up supplying the bombmaking skills that save the ambushed rebels."
+    }
+   ]
+  },
+  {
+   "title": "Au Hasard Balthazar",
+   "year": 1966,
+   "filmId": "film-6cfb4f00a7b53e68",
+   "plotChars": 4311,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-passed-between-holders",
+     "role": "held",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Balthazar is handed from Jacques' family to Marie's, then to farmhands, a bakery, Gérard, Arnold, a circus, a market auction, the miller, and finally back to Gérard for a contraband run, and is abandoned wounded in the border ambush to die among sheep."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Gérard, who takes charge of Balthazar at the bakery out of jealousy over Marie's affection, beats the donkey and prepares to bludgeon him to death, and holds Marie in a violent relationship that ends with him and his gang stripping, beating and locking her in the barn."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "refusing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Jacques offers to marry Marie even after she tells him of the abuse, and tells her his father has dropped the court-ordered money, but she leaves and her mother tells him only \"She's gone and will never come back.\""
+    },
+    {
+     "predicate": "the-work-consumes-the-life",
+     "role": "consumed",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Balthazar is worked relentlessly by the farmhands, used for bakery deliveries, then bought by the miller to pump water and mill grain, and collapses into months of illness lying immobile."
+    }
+   ]
+  },
+  {
+   "title": "Blowup",
+   "year": 1966,
+   "filmId": "film-f4a458a2af9ba83e",
+   "plotChars": 3413,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-one-who-saw-is-not-believed",
+     "role": "telling",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "basis": "Thomas, having found the body in Maryon Park, asks Ron at the drug-drenched Thames party to come to the park as a witness and cannot get the cannabis-addled Ron to credit any of it, and is drawn into the party instead."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "knowing",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "After Thomas enlarges the frames showing the gunman in the trees and the shape on the ground, a man follows him and looks into his car, his studio is ransacked, and every negative and print is taken except one grainy blow-up."
+    },
+    {
+     "predicate": "witness-misreads-the-scene",
+     "role": "mistaken",
+     "centrality": 0.45,
+     "outcome": "ambiguous",
+     "basis": "Thomas photographs the older man and Jane in the park as a pair of lovers and only later, in the blow-ups, sees Jane looking worriedly toward a figure with a pistol, while Jane — who chases him to his studio demanding the roll and leaves a false phone number — knew what she was in."
+    }
+   ]
+  },
+  {
+   "title": "Daisies",
+   "year": 1966,
+   "filmId": "film-d603a03ffcdb4a8f",
+   "plotChars": 3323,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "The two Maries systematically trade their company for meals — flirting with a man to secure a free lunch and crying when he leaves, and Marie II sitting with the butterfly collector who declares his love while she only asks him for food."
+    },
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who withholds",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "The butterfly collector professes his love to Marie II in person and then goes on declaring it over the telephone while she remains indifferent and cuts up phallic-shaped food in the apartment."
+    }
+   ]
+  },
+  {
+   "title": "Is Paris Burning?",
+   "year": 1966,
+   "filmId": "film-4ed3cbf310237dfe",
+   "plotChars": 3479,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "basis": "Hitler appoints Choltitz military governor expecting him to detonate the explosives rigged under the Eiffel Tower and the bridges, and Choltitz, judging Hitler insane and the war lost, gives no destruction order and surrenders the city instead."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "The Allies plan to bypass Paris to avoid street-fighting while the uprising is under way, and a Resistance messenger has to cross the lines and invoke Warsaw before Bradley agrees to send Leclerc's 2nd Armored Division in."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Swedish consul Nordling talks Choltitz out of the Luftwaffe bombing of the Police Prefecture by pointing out that stray bombs would hit Notre Dame, and Choltitz accepts the Gaullist truce offer instead."
+    }
+   ]
+  },
+  {
+   "title": "Les Créatures",
+   "year": 1966,
+   "filmId": "film-003cd9d457cc2db9",
+   "plotChars": 5685,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "acting-inside-anothers-design",
+     "role": "the one directing unseen",
+     "centrality": 0.65,
+     "outcome": "fatal",
+     "basis": "Mr. Ducasse's metal discs let him control the townspeople for one minute at a time, and he and Edgar play out the residents' relationships as miniatures on a chessboard while a monitor shows the lives being steered from the tower."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "those who will not credit it",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Mylène asks Edgar twice to slow down as he speeds toward their seaside house, he answers that his ideas go fast when he drives fast, and the crash into the tree leaves her mute and pregnant for the rest of the film."
+    },
+    {
+     "predicate": "incomer-denied-a-place",
+     "role": "incomer",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "On Noirmoutier the shopkeeper's daughter says the newcomer scared her, the linen vendors Max and Pierre single him out in the market as someone amiss, and the hotel accuses him of killing the cat left on his doorstep."
+    },
+    {
+     "predicate": "drawn-into-anothers-quarrel",
+     "role": "drawn in",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Max and Pierre block the road and stage a fake fight so that when Edgar steps in to break it up they can throw a rigged sheet over him and demand 50 francs for tearing it."
+    }
+   ]
+  },
+  {
+   "title": "Persona",
+   "year": 1966,
+   "filmId": "film-b28079f0d239fb6c",
+   "plotChars": 2803,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Alma opens the unsealed letter Elisabet has written to the doctor and finds she is being 'studied' — her story of the orgy and abortion set down as material — and rounds on Elisabet for using her."
+    },
+    {
+     "predicate": "one-absorbs-another-identity",
+     "role": "imitating",
+     "centrality": 0.8,
+     "outcome": "ambiguous",
+     "basis": "Alma, alone at the cottage with the silent Elisabet, ends up telling Elisabet's own story of the despised son back to her and has to break off insisting on her own name, denying that she is Elisabet."
+    },
+    {
+     "predicate": "confession-to-the-powerless",
+     "role": "confessing",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Alma tells the mute Elisabet about sunbathing with Katarina, the orgy with the two boys and the abortion she still feels guilty for, to a listener who neither answers nor absolves her."
+    },
+    {
+     "predicate": "a-parent-cannot-love-the-child",
+     "role": "parent",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Elisabet tears up the photograph of her son that came in her husband's letter, and Alma recounts that she attempted a self-induced abortion and gave birth to a boy she despises while he craves her love."
+    },
+    {
+     "predicate": "loved-under-a-mistaken-identity",
+     "role": "mistaken",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Elisabet's husband arrives at the cottage calling for his wife, addresses Alma as 'Elisabet', and though she tells him he is mistaken they have sex."
+    }
+   ]
+  },
+  {
+   "title": "The Battle of Algiers",
+   "year": 1966,
+   "filmId": "film-387d8fb9b0af8032",
+   "plotChars": 2655,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "evading",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "basis": "Colonel Mathieu's paratroopers work through the FLN network by assassination and capture until they corner Ali la Pointe in his Casbah hideout and tell him he is surrounded and the organization is finished."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "One of Ali la Pointe's compatriots, under torture by the French Army, gives up the location of Ali's hideout."
+    },
+    {
+     "predicate": "injury-discharged-on-outsiders",
+     "role": "both",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "In the escalating exchange between pieds-noirs and locals, Djamila, Zohra and Hassiba carry bombs into European civilian spaces such as the Milk Bar Café, while the security forces answer with indiscriminate killings in the Casbah."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.45,
+     "outcome": "transfigured",
+     "basis": "The Algerians of the Casbah live under French colonial administration and its paratroopers' routine torture, intimidation and murder, until the closing nationalist demonstrations show the war lost even though the battle was won."
+    }
+   ]
+  },
+  {
+   "title": "Dont Look Back",
+   "year": 1967,
+   "filmId": "film-69038b37aad1dd0a",
+   "plotChars": 2113,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": true,
+   "tags": []
+  },
+  {
+   "title": "Grand Slam",
+   "year": 1967,
+   "filmId": "film-77cd39a1c9a315e5",
+   "plotChars": 2438,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "Anders recruits Gregg, Agostino, Jean-Paul and Erich for the Rio diamond job while secretly partnered with Mary Ann, who swaps the diamonds for an empty case, so the four experts do the work and die for a purpose they were never told about."
+    },
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "both",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "After evading the police roadblock Erich murders his own crewmate Jean-Paul for the diamond case, and is then intercepted and murdered in turn by Milford at the meeting point."
+    }
+   ]
+  }
+ ]
+}
