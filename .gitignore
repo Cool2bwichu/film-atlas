@@ -124,3 +124,4 @@ __pycache__/
 /atlas/pipeline/.cache-propB/
 /atlas/pipeline/.cache-propC/
 /atlas/pipeline/.cache-tags-passc/
+/atlas/pipeline/rag/interpret-cache/
