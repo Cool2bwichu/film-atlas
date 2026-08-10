@@ -1,0 +1,1651 @@
+{
+ "version": 1,
+ "promptVersion": "propB-role-1",
+ "model": "claude-opus-5",
+ "stage": "merge",
+ "generated": "2026-08-10T13:40:09.810Z",
+ "candidates": 317,
+ "afterMerge": 133,
+ "afterAudit": 95,
+ "auditFolded": [
+  "truth-withheld-to-spare",
+  "pretence-performed-into-fact",
+  "affection-feigned-for-access",
+  "self-concealed-from-intimates",
+  "harm-returns-to-author",
+  "the-many-turn-on-one",
+  "defrauder-faces-defrauded",
+  "petition-for-return",
+  "secret-held-as-leverage",
+  "price-set-on-deliverance",
+  "attachment-used-as-leverage",
+  "speech-dictated-by-force",
+  "pressed-to-abandon-position",
+  "support-withdrawn-from-dependent",
+  "left-waiting-by-departed",
+  "claim-will-not-release",
+  "made-one-overtakes-maker",
+  "instrument-refuses-its-maker",
+  "private-matter-made-public",
+  "acknowledgment-withheld",
+  "account-of-oneself-rejected",
+  "wrong-left-unanswered",
+  "authority-breaks-its-terms",
+  "harmed-turned-against-kind",
+  "promised-payment-unhonoured",
+  "substance-taken-from-weaker",
+  "power-injures-its-support",
+  "blame-laid-on-blameless",
+  "rule-over-intimate-life",
+  "care-from-the-unobliged",
+  "carrying-anothers-obligation",
+  "one-claimed-by-two",
+  "bond-held-across-death",
+  "approach-refused",
+  "warning-disregarded",
+  "remade-into-the-adversary",
+  "adversaries-turn-intimate",
+  "met-as-a-function"
+ ],
+ "outcomeLeaks": [
+  "harm-returns-to-author",
+  "search-consumes-the-searcher",
+  "remade-into-the-adversary",
+  "pretence-performed-into-fact",
+  "adversaries-turn-intimate"
+ ],
+ "topicsFlagged": [
+  "wanting-without-limit",
+  "the-wanted-child-denied"
+ ],
+ "predicates": [
+  {
+   "id": "intimacy-for-support",
+   "label": "One party obtains another's closeness or presence and pays for it with the means to live",
+   "roles": [
+    "paying",
+    "giving closeness"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "intimacy-for-material-support"
+   ]
+  },
+  {
+   "id": "dependent-handed-over",
+   "label": "One party gives a dependent it was bound to keep out of its own hands into someone else's",
+   "roles": [
+    "giving up",
+    "given up"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "dependent-handed-over",
+    "dependent-given-up",
+    "household-disposes-of-a-dependent"
+   ]
+  },
+  {
+   "id": "loved-one-carried-off",
+   "label": "An outside party takes a person out of the keeping of those bound to them, who must get them back",
+   "roles": [
+    "taking",
+    "losing"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "person-held-until-recovered",
+    "taken-out-of-the-family",
+    "loved-one-carried-off"
+   ]
+  },
+  {
+   "id": "answering-for-anothers-deed",
+   "label": "One party is made to bear the penalty, blame or cost for what a different party did",
+   "roles": [
+    "exacting",
+    "answering"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "guilt-borne-for-another",
+    "made-to-answer-for-another's-deed",
+    "another-answers-for-the-act",
+    "answering-for-others-harm",
+    "answering-for-another",
+    "answering-for-anothers-act",
+    "cost-shifted-onto-another",
+    "charged-without-grounds",
+    "blame-laid-on-the-blameless",
+    "blame-fastened-elsewhere",
+    "unaimed-suspicion-settles-on-one",
+    "loss-charged-to-the-uninvolved",
+    "blame-lodged-on-another",
+    "blame-laid-on-blameless"
+   ],
+   "mergedIn": [
+    {
+     "id": "blame-laid-on-blameless",
+     "why": "authorship of a harm fastened onto a party that did not do it"
+    }
+   ]
+  },
+  {
+   "id": "harm-answered-with-harm",
+   "label": "One party sets out to make another pay in kind for a harm already done to them or to their own",
+   "roles": [
+    "avenging",
+    "answered on"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "harm-answered-with-harm",
+    "injury-avenged-on-its-author",
+    "wronged-settles-with-wrongdoer",
+    "old-wrong-brought-back",
+    "death-answered-with-death",
+    "harm-returns-to-its-author",
+    "undone-by-the-targeted",
+    "harm-returns-to-author"
+   ],
+   "mergedIn": [
+    {
+     "id": "harm-returns-to-author",
+     "why": "the harmed party striking back at the harmer is the same relation, stated once as intent and once as landed result"
+    }
+   ]
+  },
+  {
+   "id": "knower-silenced",
+   "label": "One party moves against another for what that other has learned, to keep it from getting out",
+   "roles": [
+    "silencing",
+    "knowing"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "knower-silenced",
+    "knower-moved-against",
+    "silence-imposed-on-a-witness"
+   ]
+  },
+  {
+   "id": "act-demanded-against-conscience",
+   "label": "One party requires of another an act that other cannot square with themselves",
+   "roles": [
+    "demanding",
+    "refusing"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "act-demanded-against-conscience",
+    "instrument-refuses-its-maker"
+   ],
+   "mergedIn": [
+    {
+     "id": "instrument-refuses-its-maker",
+     "why": "same parties, same transaction: one refuses the act or purpose the commanding party assigns"
+    }
+   ]
+  },
+  {
+   "id": "standing-lowered-before-others",
+   "label": "One party puts another into a position that lowers them in the eyes of those watching",
+   "roles": [
+    "degrading",
+    "degraded"
+   ],
+   "axis": "witness",
+   "absorbs": [
+    "standing-lowered-before-others"
+   ]
+  },
+  {
+   "id": "life-dictated-by-another",
+   "label": "One party settles what another's life is to be, over that other's own claim on it",
+   "roles": [
+    "dictating",
+    "dictated to"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "life-dictated-by-authority",
+    "life-disposed-of-by-others",
+    "authority-over-another-life",
+    "a-word-that-disposes-a-life",
+    "life-course-set-by-another",
+    "fate-assigned-without-consent",
+    "life-steered-by-another",
+    "life-lived-to-another-s-design",
+    "rules-how-another-lives"
+   ]
+  },
+  {
+   "id": "devotion-goes-unreturned",
+   "label": "One party keeps reaching for a bond the other will not or cannot return",
+   "roles": [
+    "reaching",
+    "withholding"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "wanting-more-than-returned",
+    "reaching-for-a-bond-not-returned",
+    "devotion-goes-unreturned",
+    "approach-refused",
+    "claim-pressed-on-the-unwilling"
+   ],
+   "mergedIn": [
+    {
+     "id": "approach-refused",
+     "why": "one party presses a bond on another who will not have it"
+    }
+   ]
+  },
+  {
+   "id": "cost-borne-gain-taken",
+   "label": "One party takes the gain of what another spent, made or suffered, and returns them nothing for it",
+   "roles": [
+    "collecting",
+    "expended"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "cost-borne-gain-taken",
+    "living-off-another",
+    "work-taken-payment-withheld",
+    "promised-payment-unhonoured",
+    "payment-withheld-for-work-done",
+    "substance-taken-from-the-weaker",
+    "need-turned-into-profit",
+    "ground-taken-from-those-living-on-it",
+    "substance-taken-from-weaker"
+   ],
+   "mergedIn": [
+    {
+     "id": "promised-payment-unhonoured",
+     "why": "one party takes the value another spent or yielded and returns nothing for it"
+    },
+    {
+     "id": "substance-taken-from-weaker",
+     "why": "one party takes the value another spent or yielded and returns nothing for it"
+    }
+   ]
+  },
+  {
+   "id": "distant-stranger-harmed",
+   "label": "One party's act secures its own safety or advantage and lands as harm on someone with no part in it",
+   "roles": [
+    "acting",
+    "struck"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "distant-stranger-harmed",
+    "harm-lands-on-the-uninvolved"
+   ]
+  },
+  {
+   "id": "arbiter-bent-by-power",
+   "label": "One party turns the judging power against the weaker side, who is left without redress",
+   "roles": [
+    "bending",
+    "denied redress"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "arbiter-bent-by-power",
+    "office-will-not-answer",
+    "wrong-known-and-left-unanswered",
+    "wrong-left-unanswered"
+   ],
+   "mergedIn": [
+    {
+     "id": "wrong-left-unanswered",
+     "why": "the party holding the power to redress denies it to the one wronged; which office is not a difference of relation"
+    }
+   ]
+  },
+  {
+   "id": "deed-done-through-another",
+   "label": "One party moves another to carry out the deed in its place while itself staying clear of it",
+   "roles": [
+    "directing",
+    "instrument"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "utterance-made-true-by-hearer",
+    "deed-done-through-another",
+    "unseen-hand-directs",
+    "another-sent-to-do-the-killing",
+    "harmed-set-upon-their-own",
+    "harmed-turned-against-kind"
+   ],
+   "mergedIn": [
+    {
+     "id": "harmed-turned-against-kind",
+     "why": "one party works its deed through an instrument; that the instrument is drawn from the harmed class is which person, not which relation"
+    }
+   ]
+  },
+  {
+   "id": "withholds-the-blow",
+   "label": "One party who could destroy another, and is entitled or sent to, sees them as a person and holds the blow back",
+   "roles": [
+    "holding the blow",
+    "at their mercy"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "quarry-recognized-and-spared",
+    "hand-stayed-before-the-kill",
+    "withholds-the-blow",
+    "mercy-from-the-stronger-hand"
+   ]
+  },
+  {
+   "id": "protector-is-the-harm",
+   "label": "The party bound to keep, heal or protect another is the source of the harm done to them",
+   "roles": [
+    "entrusted with",
+    "entrusted to"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "harm-from-the-bound-protector",
+    "protector-is-the-harm",
+    "bound-one-is-the-harm",
+    "guardian-is-the-harm",
+    "protector-inflicts-the-harm"
+   ]
+  },
+  {
+   "id": "bond-held-across-separation",
+   "label": "Two parties hold to each other across an absence or a barrier neither of them set and neither can lift",
+   "roles": [
+    "holding",
+    "held apart"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "bond-held-across-separation",
+    "held-apart-across-a-limit"
+   ]
+  },
+  {
+   "id": "subordinate-turns-on-superior",
+   "label": "One party moves against the one placed above it and set over what it was to become",
+   "roles": [
+    "rising",
+    "set over"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "subordinate-turns-on-superior",
+    "the-outmatched-turns-on-the-stronger",
+    "made-one-overtakes-its-maker",
+    "made-thing-turns-on-maker",
+    "successor-takes-a-failing-elder-s-place",
+    "raised-turns-on-raiser",
+    "made-one-overtakes-maker"
+   ],
+   "mergedIn": [
+    {
+     "id": "made-one-overtakes-maker",
+     "why": "the one placed under or made by another rises and takes that other's place"
+    }
+   ]
+  },
+  {
+   "id": "restraint-dropped-before-another",
+   "label": "One party loses its hold on what it was keeping back and lets the other have it",
+   "roles": [
+    "releasing",
+    "receiving"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "restraint-dropped-in-drink"
+   ]
+  },
+  {
+   "id": "personhood-held-by-another",
+   "label": "One party holds in its hands whether the other counts as anyone at all",
+   "roles": [
+    "holding",
+    "dependent"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "personhood-held-by-another"
+   ]
+  },
+  {
+   "id": "trusted-turns-on-truster",
+   "label": "One party standing inside another's trust works or strikes against the very person who granted it",
+   "roles": [
+    "turning",
+    "trusting"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "trusted-turns-on-the-truster",
+    "trusted-hands-over",
+    "trust-granted-then-taken",
+    "trust-turned-on-the-truster",
+    "trust-entered-to-harm",
+    "shelter-turned-against-the-sheltered",
+    "authority-breaks-its-own-terms",
+    "authority-breaks-its-terms"
+   ],
+   "mergedIn": [
+    {
+     "id": "authority-breaks-its-terms",
+     "why": "a party inside another's reliance turns it against them; that the truster is an institution is not a relational difference"
+    }
+   ]
+  },
+  {
+   "id": "false-impression-planted",
+   "label": "One party manufactures an appearance so that another takes it as true and acts on it",
+   "roles": [
+    "staging",
+    "taken in"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "false-impression-planted",
+    "falsehood-set-before-another",
+    "pretence-performed-into-fact",
+    "affection-feigned-for-access"
+   ],
+   "mergedIn": [
+    {
+     "id": "pretence-performed-into-fact",
+     "why": "all three are one party manufacturing a false appearance that another takes as real and acts on; what is counterfeited is subject matter"
+    },
+    {
+     "id": "affection-feigned-for-access",
+     "why": "all three are one party manufacturing a false appearance that another takes as real and acts on; what is counterfeited is subject matter"
+    }
+   ]
+  },
+  {
+   "id": "vigil-beside-the-unanswering",
+   "label": "One party keeps attendance on another who can no longer answer or meet them, and goes on addressing them anyway",
+   "roles": [
+    "attending",
+    "unreachable"
+   ],
+   "axis": "witness",
+   "absorbs": [
+    "vigil-beside-the-unanswering",
+    "bound-to-one-who-cannot-answer",
+    "holding-on-to-one-slipping",
+    "held-by-the-dead",
+    "cannot-release-the-lost",
+    "bond-held-across-death"
+   ],
+   "mergedIn": [
+    {
+     "id": "bond-held-across-death",
+     "why": "one party sustains a bond with someone who cannot answer or return it"
+    }
+   ]
+  },
+  {
+   "id": "corroded-by-anothers-life",
+   "label": "One party stands close enough to watch another's life and is eaten by the sight of it",
+   "roles": [
+    "envying",
+    "envied"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "corroded-by-another's-life"
+   ]
+  },
+  {
+   "id": "concealed-thing-surfaces",
+   "label": "What one party held back comes into the open between them and the person whose life it governed",
+   "roles": [
+    "holding the truth",
+    "learning"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "withheld-truth-reaches-its-subject",
+    "concealed-thing-surfaces",
+    "concealment-brought-to-light",
+    "telling-breaks-the-hearer"
+   ]
+  },
+  {
+   "id": "identity-assigned-from-outside",
+   "label": "One party fixes an identity on another and deals with them by it rather than by what they are",
+   "roles": [
+    "assigning",
+    "assigned"
+   ],
+   "axis": "witness",
+   "absorbs": [
+    "identity-assigned-from-outside",
+    "identity-assigned-by-others",
+    "read-as-the-opposite",
+    "regard-conditional-on-worth",
+    "met-as-a-function"
+   ],
+   "mergedIn": [
+    {
+     "id": "met-as-a-function",
+     "why": "one party deals with another through an imposed category or use rather than the person"
+    }
+   ]
+  },
+  {
+   "id": "standing-in-anothers-place",
+   "label": "One party comes to occupy, or is installed in, the place that belongs to someone gone, and is held to it",
+   "roles": [
+    "installing",
+    "standing in"
+   ],
+   "axis": "inheritance",
+   "absorbs": [
+    "standing-in-another's-place",
+    "stand-in-for-the-lost",
+    "stands-in-for-another"
+   ]
+  },
+  {
+   "id": "aid-withheld-at-need",
+   "label": "One party that owes another protection, backing or help stays away at the moment the other most needs it",
+   "roles": [
+    "withholding",
+    "in need"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "protection-owed-and-withheld",
+    "backing-refused-by-the-one-obliged",
+    "aid-withheld-at-need",
+    "aid-withheld-from-the-needing",
+    "bond-withdrawn-from-the-dependent",
+    "withdraws-from-the-undertaking",
+    "support-withdrawn-from-dependent"
+   ],
+   "mergedIn": [
+    {
+     "id": "support-withdrawn-from-dependent",
+     "why": "the party another relies on is not there when relied upon"
+    }
+   ]
+  },
+  {
+   "id": "living-under-the-harmer",
+   "label": "One party's rule or violence sets the condition of another who is bound to them and has no way out from under it",
+   "roles": [
+    "harming",
+    "enduring"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "dominion-accepted-within-a-bond",
+    "living-under-the-one-who-harms",
+    "household-set-by-one-temper"
+   ]
+  },
+  {
+   "id": "confession-to-the-powerless",
+   "label": "One party discharges a guilt onto someone who can neither punish it nor absolve it",
+   "roles": [
+    "confessing",
+    "unable to act"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "confession-to-one-who-cannot-use-it"
+   ]
+  },
+  {
+   "id": "pressed-for-an-account",
+   "label": "One party presses another to hand over the account of themselves or of a past act that the other would rather keep",
+   "roles": [
+    "pressing",
+    "holding the account"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "pressed-for-an-account",
+    "account-pressed-out-of-one"
+   ]
+  },
+  {
+   "id": "claim-of-the-dead",
+   "label": "The dead leave a charge, a debt or an unfinished work on the living, who carry it and cannot hand it back",
+   "roles": [
+    "charging",
+    "carrying"
+   ],
+   "axis": "inheritance",
+   "absorbs": [
+    "claim-of-the-dead-on-the-living",
+    "unfinished-work-taken-up",
+    "the-dead-charge-the-living"
+   ]
+  },
+  {
+   "id": "taking-another-into-keeping",
+   "label": "One party takes into its own house and keeping someone with no claim to be there",
+   "roles": [
+    "taking in",
+    "taken in"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "taking-another-into-keeping",
+    "stranger-taken-into-the-house",
+    "harmed-offered-a-place",
+    "care-given-where-none-owed",
+    "stranger-gives-what-kin-withhold",
+    "care-from-the-unobliged"
+   ],
+   "mergedIn": [
+    {
+     "id": "care-from-the-unobliged",
+     "why": "one party takes into its keeping someone it owes nothing to"
+    }
+   ]
+  },
+  {
+   "id": "held-in-place-by-force",
+   "label": "One party keeps another inside a position they can neither leave nor advance from",
+   "roles": [
+    "holding",
+    "held"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "held-in-place-by-force",
+    "held-where-one-cannot-leave"
+   ]
+  },
+  {
+   "id": "antagonism-without-settleable-cause",
+   "label": "Two parties meet in a hostility that has no cause either can settle, and it reasserts itself between them",
+   "roles": [
+    "one side",
+    "other side"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "antagonism-without-a-settleable-cause"
+   ]
+  },
+  {
+   "id": "kept-under-watch",
+   "label": "One party holds another under a sustained look, and the watching stands in place of any exchange between them",
+   "roles": [
+    "watching",
+    "watched"
+   ],
+   "axis": "witness",
+   "absorbs": [
+    "made-an-object-of-the-gaze",
+    "kept-under-watch"
+   ]
+  },
+  {
+   "id": "faculty-supplied-for-another",
+   "label": "One party lends their voice, eyes or hands to another who lacks them, so that the other can act only through them",
+   "roles": [
+    "lending",
+    "lacking"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "voice-supplied-for-the-voiceless",
+    "faculty-lent-to-lacking",
+    "one-acts-as-anothers-faculty",
+    "faculty-supplied-for-another"
+   ]
+  },
+  {
+   "id": "rival-claims-on-one",
+   "label": "One party presses a claim on someone or something another already holds, and the two claims cannot both stand",
+   "roles": [
+    "claiming",
+    "displaced"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "rival-claims-on-one-person",
+    "rival-claim-on-the-beloved",
+    "desire-for-one-already-bound",
+    "claim-pressed-on-another-s-beloved",
+    "two-claim-one-thing",
+    "rivals-for-one-regard",
+    "supplanted-in-a-bond",
+    "chosen-between-claimants",
+    "two-claim-the-same-person",
+    "one-claimed-by-two",
+    "held-between-two-loyalties"
+   ],
+   "mergedIn": [
+    {
+     "id": "one-claimed-by-two",
+     "why": "two claims on the same party that cannot both stand — same triangle, told from claimant and from claimed"
+    }
+   ]
+  },
+  {
+   "id": "one-absorbs-another-identity",
+   "label": "One party models itself on another until the two can barely be told apart, and is brought face to face with the one it copies",
+   "roles": [
+    "imitating",
+    "imitated"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "imitator-meets-the-imitated",
+    "one-absorbs-another-identity",
+    "remade-into-the-adversary"
+   ],
+   "mergedIn": [
+    {
+     "id": "remade-into-the-adversary",
+     "why": "one party is made over into the one it copies or opposes and confronts it"
+    }
+   ]
+  },
+  {
+   "id": "bound-parties-turn-hostile",
+   "label": "Parties bound to each other by service, alliance or company come to act against each other",
+   "roles": [
+    "turning",
+    "turned on"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "turning-on-the-one-bound-to",
+    "companions-move-against-each-other"
+   ]
+  },
+  {
+   "id": "intervener-struck-down",
+   "label": "One party steps between two others and is struck by the party it stood against",
+   "roles": [
+    "striking",
+    "intervening"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "intervener-struck-down"
+   ]
+  },
+  {
+   "id": "cost-taken-onto-oneself",
+   "label": "One party takes onto itself the danger, ruin or loss that belongs to another, so the other does not carry it",
+   "roles": [
+    "shielding",
+    "spared"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "burden-taken-on-for-another",
+    "cost-taken-onto-oneself",
+    "protector-bears-the-cost",
+    "peril-borne-for-another",
+    "ruin-taken-on-for-another",
+    "risk-taken-for-a-stranger",
+    "one-spent-to-keep-another",
+    "carrying-another-s-obligation",
+    "carrying-anothers-obligation"
+   ],
+   "mergedIn": [
+    {
+     "id": "carrying-anothers-obligation",
+     "why": "one party assumes the burden, danger or debt that properly belongs to another"
+    }
+   ]
+  },
+  {
+   "id": "shut-in-together",
+   "label": "Two parties are closed in with each other and neither can leave",
+   "roles": [
+    "confining",
+    "confined"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "shut-in-together"
+   ]
+  },
+  {
+   "id": "bond-held-by-need",
+   "label": "One party stays inside a bond out of need or obligation rather than out of wanting the other",
+   "roles": [
+    "staying",
+    "held"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "bond-held-by-need"
+   ]
+  },
+  {
+   "id": "one-leaves-the-bond",
+   "label": "One party goes out of a shared life, or sets it aside for something wanted more, while the other is still held inside it",
+   "roles": [
+    "leaving",
+    "left"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "bond-set-aside-for-what-is-wanted-more",
+    "one-leaves-the-shared-life",
+    "bond-left-by-one-side",
+    "one-withdraws-as-the-other-holds-on",
+    "departure-undoes-dependent",
+    "left-waiting-by-the-departed",
+    "left-waiting-by-departed",
+    "claim-will-not-release",
+    "will-not-release-the-leaving"
+   ],
+   "mergedIn": [
+    {
+     "id": "left-waiting-by-departed",
+     "why": "one party going out of a shared life while the other is still held in it — same event told from the leaver's, the left's, and the holder-on's side"
+    },
+    {
+     "id": "claim-will-not-release",
+     "why": "one party going out of a shared life while the other is still held in it — same event told from the leaver's, the left's, and the holder-on's side"
+    }
+   ]
+  },
+  {
+   "id": "deference-withheld-from-power",
+   "label": "One party withholds from a power-holder the compliance or deference expected of them",
+   "roles": [
+    "withholding",
+    "commanding"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "deference-withheld-from-power"
+   ]
+  },
+  {
+   "id": "person-used-as-means",
+   "label": "One party spends another on a purpose that other is never made party to",
+   "roles": [
+    "using",
+    "used"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "person-used-as-means",
+    "one-made-an-instrument"
+   ]
+  },
+  {
+   "id": "leverage-held-for-payment",
+   "label": "One party takes control of the thing another cannot do without and sets the terms of its release",
+   "roles": [
+    "holding back",
+    "needing"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "leverage-held-for-payment",
+    "leverage-over-what-another-needs",
+    "secret-held-as-leverage",
+    "price-set-on-deliverance",
+    "help-priced-against-the-self",
+    "attachment-used-as-leverage",
+    "kin-made-the-lever",
+    "one-harmed-to-move-another"
+   ],
+   "mergedIn": [
+    {
+     "id": "secret-held-as-leverage",
+     "why": "one party controls what another cannot do without and names the terms; secret, rescue or loved one is only which lever"
+    },
+    {
+     "id": "price-set-on-deliverance",
+     "why": "one party controls what another cannot do without and names the terms; secret, rescue or loved one is only which lever"
+    },
+    {
+     "id": "attachment-used-as-leverage",
+     "why": "one party controls what another cannot do without and names the terms; secret, rescue or loved one is only which lever"
+    }
+   ]
+  },
+  {
+   "id": "search-consumes-the-searcher",
+   "label": "One party gives themselves over to recovering someone lost or taken, and the search takes them over",
+   "roles": [
+    "searching",
+    "sought"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "search-that-consumes-the-searcher",
+    "search-for-a-taken-person"
+   ]
+  },
+  {
+   "id": "own-death-brought-about",
+   "label": "One party settles the terms of its own death and requires those bound to it to stand by and let it happen",
+   "roles": [
+    "ending themselves",
+    "left behind"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "own-death-brought-about",
+    "own-end-put-before-others"
+   ]
+  },
+  {
+   "id": "another-given-to-danger",
+   "label": "One party hands another over to the harm that is coming, so that itself or the rest may go clear",
+   "roles": [
+    "handing over",
+    "handed over"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "another-given-to-the-danger",
+    "one-given-up-for-the-rest",
+    "intimate-handed-to-power"
+   ]
+  },
+  {
+   "id": "taken-up-then-discarded",
+   "label": "One party takes another up while they serve its purpose and drops them, with no cause given, once they do not",
+   "roles": [
+    "taking up",
+    "cast off"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "dropped-once-no-longer-needed",
+    "raised-then-discarded",
+    "taken-up-then-discarded",
+    "power-injures-its-support"
+   ],
+   "mergedIn": [
+    {
+     "id": "power-injures-its-support",
+     "why": "the party held up by another's service drops or injures them once they no longer serve"
+    }
+   ]
+  },
+  {
+   "id": "another-shaped-to-order",
+   "label": "One party fashions another into what it requires and holds them to that shape",
+   "roles": [
+    "shaping",
+    "shaped"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "another-shaped-to-order"
+   ]
+  },
+  {
+   "id": "another-kept-dependent",
+   "label": "One party keeps another unable to stand on their own so that they cannot leave",
+   "roles": [
+    "keeping",
+    "kept"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "another-kept-dependent"
+   ]
+  },
+  {
+   "id": "bond-across-forbidden-line",
+   "label": "Two parties take each other up across a line their people hold as forbidden, and keep it out of sight of those who would move against them",
+   "roles": [
+    "crossing",
+    "forbidding"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "bond-against-existing-ties",
+    "bond-kept-out-of-sight",
+    "bond-across-a-forbidden-line",
+    "attachment-across-a-forbidden-line"
+   ]
+  },
+  {
+   "id": "incomer-denied-a-place",
+   "label": "Those already in place weigh the one who arrives among them and withhold a standing of their own from them",
+   "roles": [
+    "established",
+    "incomer"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "incomer-denied-a-place",
+    "admission-to-the-settled",
+    "closed-ranks-against-an-outsider"
+   ]
+  },
+  {
+   "id": "hidden-life-exposed",
+   "label": "One party names another's concealed life or wrong in front of those who did not know of it",
+   "roles": [
+    "exposing",
+    "exposed"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "hidden-life-brought-to-light",
+    "hidden-guilt-named-publicly",
+    "private-suffering-put-on-show",
+    "private-matter-made-public"
+   ],
+   "mergedIn": [
+    {
+     "id": "private-matter-made-public",
+     "why": "another's concealed or private life laid before those who had no part in it"
+    }
+   ]
+  },
+  {
+   "id": "return-after-long-absence",
+   "label": "One party comes back to a bond or a place that has closed over their absence, and those who stayed must answer the return",
+   "roles": [
+    "returning",
+    "who stayed"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "return-after-long-absence",
+    "return-of-the-departed",
+    "return-to-an-abandoned-bond",
+    "returns-to-closed-place"
+   ]
+  },
+  {
+   "id": "argued-off-a-course",
+   "label": "One party works on another to turn them back from a course that would undo them",
+   "roles": [
+    "dissuading",
+    "dissuaded"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "one-turned-back-from-ruin",
+    "warning-disregarded"
+   ],
+   "mergedIn": [
+    {
+     "id": "warning-disregarded",
+     "why": "one party works to turn another back from a course; whether the other heeds is not a separate relation"
+    }
+   ]
+  },
+  {
+   "id": "true-account-not-credited",
+   "label": "One party states what is so about themselves or about the danger, and those who hear refuse to credit it",
+   "roles": [
+    "telling",
+    "disbelieving"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "true-account-not-credited",
+    "speech-the-hearer-refuses",
+    "warning-not-credited",
+    "truth-told-not-taken",
+    "account-of-harm-disbelieved",
+    "credence-refused",
+    "acknowledgment-withheld",
+    "contested-account-of-the-past",
+    "account-of-oneself-rejected"
+   ],
+   "mergedIn": [
+    {
+     "id": "acknowledgment-withheld",
+     "why": "one party states what is so and the other refuses to credit it"
+    },
+    {
+     "id": "account-of-oneself-rejected",
+     "why": "one party states what is so and the other refuses to credit it"
+    }
+   ]
+  },
+  {
+   "id": "set-aside-for-another",
+   "label": "One party is passed over by someone whose regard they held, in favour of another that person prefers",
+   "roles": [
+    "preferring",
+    "set aside"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "place-given-to-another",
+    "pledged-turns-to-newcomer",
+    "one-set-aside-for-another",
+    "attachment-goes-elsewhere"
+   ]
+  },
+  {
+   "id": "past-laid-on-the-young",
+   "label": "An older party passes into a younger one the injury or the task it carried, which the younger has to take forward",
+   "roles": [
+    "handing down",
+    "carrying"
+   ],
+   "axis": "inheritance",
+   "absorbs": [
+    "passed-to-the-formed",
+    "elders-past-laid-on-the-young"
+   ]
+  },
+  {
+   "id": "verdict-before-proof",
+   "label": "One party settles what another is before hearing anything that other can offer",
+   "roles": [
+    "condemning",
+    "condemned"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "verdict-before-proof",
+    "verdict-fixed-in-advance",
+    "guilt-fixed-without-a-hearing"
+   ]
+  },
+  {
+   "id": "account-that-spares-teller",
+   "label": "A party called to answer gives the one judging an account of the deed that clears itself",
+   "roles": [
+    "accounting",
+    "judging"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "account-that-spares-teller"
+   ]
+  },
+  {
+   "id": "truth-withheld-from-intimate",
+   "label": "One party holds back from another the fact that governs what they are to each other, or that belongs to that other's own life",
+   "roles": [
+    "withholding",
+    "kept in the dark"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "withheld-from-the-intimate",
+    "decisive-knowledge-withheld",
+    "fact-kept-from-its-subject",
+    "truth-withheld-from-intimate",
+    "kept-from-their-own-blood",
+    "deception-as-shelter",
+    "truth-withheld-to-spare"
+   ],
+   "mergedIn": [
+    {
+     "id": "truth-withheld-to-spare",
+     "why": "both are one party holding a truth back from an intimate; the sparing motive is not a different transaction"
+    }
+   ]
+  },
+  {
+   "id": "made-thing-confronts-maker",
+   "label": "A being made or raised by another presses a claim on its maker, who will not answer it",
+   "roles": [
+    "made",
+    "making"
+   ],
+   "axis": "inheritance",
+   "absorbs": [
+    "made-thing-confronts-maker",
+    "petition-to-the-author"
+   ]
+  },
+  {
+   "id": "secret-amends-to-wronged",
+   "label": "One party quietly serves the person it once harmed without disclosing that it was the author of the harm",
+   "roles": [
+    "atoning",
+    "unknowing"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "secret-amends-to-wronged"
+   ]
+  },
+  {
+   "id": "falsehood-planted-between-two",
+   "label": "A third party sets a falsehood before one member of a bond that turns them against the other",
+   "roles": [
+    "planting",
+    "turned against"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "false-proof-of-betrayal",
+    "falsehood-planted-between-two"
+   ]
+  },
+  {
+   "id": "kinship-made-from-lack",
+   "label": "Two parties with no claim on each other, each holding the same loss or damage, become each other's only people",
+   "roles": [
+    "one",
+    "other"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "kinship-made-from-lack",
+    "shared-affliction-draws-two-together",
+    "two-destitute-hold-each-other"
+   ]
+  },
+  {
+   "id": "will-pressed-into-yielding",
+   "label": "One party applies pressure, harm or the threat of it until another gives up what they were withholding",
+   "roles": [
+    "pressing",
+    "yielding"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "will-pressed-into-yielding",
+    "compliance-forced-by-harm",
+    "speech-dictated-by-force",
+    "pressed-to-abandon-a-position",
+    "compelled-to-give-up-a-conviction",
+    "pressed-to-abandon-position"
+   ],
+   "mergedIn": [
+    {
+     "id": "speech-dictated-by-force",
+     "why": "pressure or threat applied until the other gives up what they held; what is surrendered is subject matter"
+    },
+    {
+     "id": "pressed-to-abandon-position",
+     "why": "pressure or threat applied until the other gives up what they held; what is surrendered is subject matter"
+    }
+   ]
+  },
+  {
+   "id": "absolution-sought-from-wronged",
+   "label": "One party asks the person they harmed for a release that is that person's alone to give",
+   "roles": [
+    "asking",
+    "holding the release"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "absolution-sought-from-the-wronged",
+    "pardon-granted-by-the-wronged",
+    "estranged-party-sought-back",
+    "petition-for-return"
+   ],
+   "mergedIn": [
+    {
+     "id": "petition-for-return",
+     "why": "both are the wrongdoer asking the person they harmed for something only that person can grant"
+    }
+   ]
+  },
+  {
+   "id": "hunter-and-quarry",
+   "label": "One party hunts another who survives only by staying ahead of it, and the chase works on both of them",
+   "roles": [
+    "pursuing",
+    "evading"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "quarry-and-pursuer",
+    "hunter-and-quarry",
+    "captor-bound-to-quarry",
+    "adversaries-turn-intimate",
+    "opponents-bound-together"
+   ],
+   "mergedIn": [
+    {
+     "id": "adversaries-turn-intimate",
+     "why": "pursuer and pursued bound by the chase; what the pursuit does to them is not a second predicate"
+    }
+   ]
+  },
+  {
+   "id": "witness-misreads-the-scene",
+   "label": "One party takes what they saw for something it was not, while another holds the sense of it",
+   "roles": [
+    "knowing",
+    "mistaken"
+   ],
+   "axis": "witness",
+   "absorbs": [
+    "witness-misreads-what-another-knows"
+   ]
+  },
+  {
+   "id": "person-passed-between-holders",
+   "label": "One party holds another as property or charge and hands them on to the next holder, who has no say in it",
+   "roles": [
+    "holding",
+    "held"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "custody-converted-into-sale",
+    "person-passed-between-holders",
+    "living-being-held-as-property",
+    "passed-between-keepers",
+    "person-handed-between-parties"
+   ]
+  },
+  {
+   "id": "failing-life-in-keeping",
+   "label": "One party's failing life falls into the hands of the one they used to carry, who must now carry them or leave them",
+   "roles": [
+    "taking charge",
+    "failing"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "failing-life-in-anothers-keeping",
+    "dependent-becomes-the-keeper"
+   ]
+  },
+  {
+   "id": "scarcity-divided-among-dependents",
+   "label": "One party must divide what is not enough among those who depend on them for it",
+   "roles": [
+    "dividing",
+    "depending"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "scarcity-shared-among-dependents"
+   ]
+  },
+  {
+   "id": "injury-discharged-on-outsiders",
+   "label": "One party who has been denied or bereaved unloads it as harm on people who had no part in it",
+   "roles": [
+    "discharging",
+    "struck"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "injury-discharged-on-outsiders"
+   ]
+  },
+  {
+   "id": "aid-thrown-back",
+   "label": "One party holds out rescue, pity or an easier way and the one it is meant for will not take it",
+   "roles": [
+    "offering",
+    "refusing"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "aid-thrown-back",
+    "way-out-declined"
+   ]
+  },
+  {
+   "id": "grievance-read-as-insubordination",
+   "label": "One party brings a grievance upward and the party above treats it as an offence to be put down",
+   "roles": [
+    "suppressing",
+    "complaining"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "grievance-read-as-insubordination"
+   ]
+  },
+  {
+   "id": "cast-out-by-group",
+   "label": "A body of people puts out one of its own members and withholds standing from them",
+   "roles": [
+    "expelling",
+    "expelled"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "group-shuts-out-one-of-its-own",
+    "cast-out-by-the-body",
+    "the-many-turn-on-one",
+    "own-side-turns-on-one",
+    "group-turns-on-weakest"
+   ],
+   "mergedIn": [
+    {
+     "id": "the-many-turn-on-one",
+     "why": "a body moving against one of its own and withholding standing from them is one relation"
+    }
+   ]
+  },
+  {
+   "id": "withdrawal-inside-the-bond",
+   "label": "Two parties stay in each other's company while one holds itself closed and the other turns outside it",
+   "roles": [
+    "withdrawing",
+    "turning elsewhere"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "withdrawal-inside-the-bond",
+    "closeness-withheld-within-bond"
+   ]
+  },
+  {
+   "id": "one-removed-from-the-way",
+   "label": "One party puts another out of the world because that other stands between it and what it means to hold or gain",
+   "roles": [
+    "removing",
+    "removed"
+   ],
+   "axis": "wound",
+   "absorbs": [
+    "obstacle-removed-to-keep-hold",
+    "kills-to-clear-the-way"
+   ]
+  },
+  {
+   "id": "reckoning-with-those-left",
+   "label": "One party comes through and is left answerable to those it did not bring through with it",
+   "roles": [
+    "surviving",
+    "left behind"
+   ],
+   "axis": "witness",
+   "absorbs": [
+    "reckoning-with-the-unsaved"
+   ]
+  },
+  {
+   "id": "unchosen-debt-created",
+   "label": "What one party does for or asks of another leaves the two standing in an obligation neither chose",
+   "roles": [
+    "binding",
+    "bound"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "unchosen-debt-created",
+    "bound-by-an-unasked-obligation"
+   ]
+  },
+  {
+   "id": "kin-subordinated-to-rule",
+   "label": "One party applies to its own blood the rule it would apply to anyone, at that blood's cost",
+   "roles": [
+    "holding to rule",
+    "kin"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "kin-subordinated-to-rule"
+   ]
+  },
+  {
+   "id": "wanting-without-limit",
+   "label": "One party wants another so completely that the wanting itself is what passes between them",
+   "roles": [
+    "wanting",
+    "wanted"
+   ],
+   "axis": "desire",
+   "absorbs": [
+    "wanting-that-destroys"
+   ]
+  },
+  {
+   "id": "third-holds-two-apart",
+   "label": "A third party stands between two who would join and keeps them apart",
+   "roles": [
+    "separating",
+    "parted"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "third-party-keeps-two-apart",
+    "union-denied-sanction",
+    "bond-decided-by-another",
+    "attachment-forbidden-by-third",
+    "rule-over-anothers-intimate-life",
+    "rule-over-intimate-life"
+   ],
+   "mergedIn": [
+    {
+     "id": "rule-over-intimate-life",
+     "why": "a party outside the attachment moves to forbid or break it and keep the two apart"
+    }
+   ]
+  },
+  {
+   "id": "appeal-turned-away",
+   "label": "One party comes asking something of another who is free to answer it, and is turned away",
+   "roles": [
+    "refusing",
+    "asking"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "appeal-turned-away",
+    "aid-sought-from-another"
+   ]
+  },
+  {
+   "id": "taking-up-the-written-off",
+   "label": "One party takes up someone others have written off and treats them as worth something",
+   "roles": [
+    "taking up",
+    "written off"
+   ],
+   "axis": "belonging",
+   "absorbs": [
+    "taking-up-the-written-off"
+   ]
+  },
+  {
+   "id": "drawn-into-anothers-quarrel",
+   "label": "One party draws another into a fight that was not theirs to take up",
+   "roles": [
+    "drawing in",
+    "drawn in"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "drawn-into-another-s-quarrel"
+   ]
+  },
+  {
+   "id": "the-nearest-goes-unseen",
+   "label": "One party fails to see or value the person standing closest to it",
+   "roles": [
+    "overlooking",
+    "overlooked"
+   ],
+   "axis": "witness",
+   "absorbs": [
+    "the-nearest-goes-unseen"
+   ]
+  },
+  {
+   "id": "the-wanted-child-denied",
+   "label": "One party is denied the child it wants, and the party bound to them is caught in the lack",
+   "roles": [
+    "childless",
+    "implicated"
+   ],
+   "axis": "inheritance",
+   "absorbs": [
+    "the-wanted-child-denied"
+   ]
+  },
+  {
+   "id": "identity-passed-off",
+   "label": "One party stands before another under an identity that is not their own, and the other takes it as true",
+   "roles": [
+    "passing",
+    "taken in"
+   ],
+   "axis": "knowledge",
+   "absorbs": [
+    "identity-passed-off",
+    "life-kept-hidden-from-intimates",
+    "false-face-inside-a-bond",
+    "loyalty-given-to-a-false-face",
+    "self-concealed-from-intimates",
+    "false-front-kept-up",
+    "bond-held-under-a-false-self"
+   ],
+   "mergedIn": [
+    {
+     "id": "self-concealed-from-intimates",
+     "why": "same parties, same transaction — one party stands before another under a false account of what they are and the other credits it"
+    }
+   ]
+  },
+  {
+   "id": "sheltered-from-consequence",
+   "label": "One party covers what another did so that the other never has to answer for it",
+   "roles": [
+    "shielding",
+    "shielded"
+   ],
+   "axis": "authority",
+   "absorbs": [
+    "sheltered-from-consequence"
+   ]
+  },
+  {
+   "id": "accounting-demanded-by-wronged",
+   "label": "The party who was failed or harmed confronts the one responsible and demands they answer for it",
+   "roles": [
+    "calling to account",
+    "answering"
+   ],
+   "axis": "debt",
+   "absorbs": [
+    "accounting-demanded-by-the-wronged",
+    "defrauder-faces-the-defrauded",
+    "defrauder-faces-defrauded"
+   ],
+   "mergedIn": [
+    {
+     "id": "defrauder-faces-defrauded",
+     "why": "wronged and wrongdoer brought face to face; that the wrong was fraud is subject matter"
+    }
+   ]
+  }
+ ]
+}

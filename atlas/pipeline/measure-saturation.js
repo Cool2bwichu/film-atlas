@@ -213,43 +213,121 @@ for (const [name, fn, note] of NORMALISERS) {
 }
 
 /* ---- the curve, per normaliser, at the requested checkpoints ---- */
-// Films are ordered as the cohort file lists them where possible, so the
-// as-read curve is reproducible; the rarefaction does not depend on it.
+//
+// TWO SCOPES, because they answer different questions and one of them lies.
+//
+//   ALL   — every cohort film in file order. A below-floor film contributes an
+//           empty phrase set, so it flattens the curve WITHOUT the grain having
+//           improved. This is the honest "what does 24 films of budget buy you"
+//           curve, and the checkpoints 6/12/24/36/48/60 are stated on it.
+//   READ  — readable films only. This is the grain question with the coverage
+//           ceiling removed. Read the verdict from this one.
+//
 const CHECK = [6, 12, 24, 36, 48, 60];
-const order = films.map((_, i) => i);
-
-console.log("\n  CUMULATIVE DISTINCT PHRASES vs FILMS READ");
-console.log("  counted over ALL " + films.length + " cohort films in file order (below-floor films add 0)");
-const table = {};
-for (const [name, fn] of NORMALISERS) {
-  const keysByFilm = films.map((f) => new Set((f.predicaments || []).map((p) => fn(p.situation || "")).filter(Boolean)));
-  const asRead = curveFor(order, keysByFilm);
-  const rare = rarefy(keysByFilm, o.perms, mulberry(o.seed));
-  const at = (arr, k) => (k <= arr.length ? arr[k - 1] : null);
-  table[name] = { asRead, rare };
-  const cells = CHECK.map((k) => {
-    const a = at(asRead, k), r = at(rare, k);
-    return a === null ? "   —  " : `${String(a).padStart(3)}/${r.toFixed(0).padStart(3)}`;
-  });
-  console.log(`  ${name.padEnd(18)}` + CHECK.map((k, i) => `${String(k).padStart(3)}f:${cells[i]}`).join("  "));
-}
-console.log("  (cells are as-read / rarefaction-mean)");
-
-/* ---- marginal rate: the actual test of flattening ---- */
-console.log("\n  NEW DISTINCT PHRASES PER FILM, by window (rarefaction mean)");
-console.log("  " + "level".padEnd(18) + ["1-12", "13-24", "25-36", "37-48", "49-60"].map((s) => s.padStart(8)).join("") + "   last/first");
 const WIN = [[1, 12], [13, 24], [25, 36], [37, 48], [49, 60]];
+const SCOPES = [
+  ["ALL  cohort", films],
+  ["READ readable", films.filter((f) => (f.plotChars || 0) > 0 && !f.belowFloor)],
+];
+
+const table = {};
 const slopes = {};
-for (const [name] of NORMALISERS) {
-  const r = table[name].rare;
-  const vals = WIN.map(([a, b]) => {
-    if (b > r.length) return null;
-    const lo = a === 1 ? 0 : r[a - 2];
-    return (r[b - 1] - lo) / (b - a + 1);
+for (const [scopeName, set] of SCOPES) {
+  console.log(`\n  CUMULATIVE DISTINCT PHRASES vs FILMS READ — ${scopeName} (n=${set.length})`);
+  const order = set.map((_, i) => i);
+  for (const [name, fn] of NORMALISERS) {
+    const keysByFilm = set.map((f) => new Set((f.predicaments || []).map((p) => fn(p.situation || "")).filter(Boolean)));
+    const asRead = curveFor(order, keysByFilm);
+    const rare = rarefy(keysByFilm, o.perms, mulberry(o.seed));
+    table[scopeName + "|" + name] = { asRead, rare };
+    const cells = CHECK.map((k) => {
+      if (k > asRead.length) return "  —  ";
+      return `${String(asRead[k - 1]).padStart(3)}/${rare[k - 1].toFixed(0).padStart(3)}`;
+    });
+    console.log(`  ${name.padEnd(18)}` + CHECK.map((k, i) => `${String(k).padStart(3)}f:${cells[i]}`).join("  "));
+  }
+  console.log("  (cells are as-read / rarefaction-mean over " + o.perms + " orderings)");
+
+  console.log(`  NEW DISTINCT PHRASES PER FILM by window, rarefaction — ${scopeName}`);
+  console.log("  " + "level".padEnd(18) + WIN.map(([a, b]) => `${a}-${b}`.padStart(8)).join("") + "   last/first");
+  for (const [name] of NORMALISERS) {
+    const r = table[scopeName + "|" + name].rare;
+    const vals = WIN.map(([a, b]) => {
+      const hi = Math.min(b, r.length);
+      if (a > r.length) return null;
+      const lo = a === 1 ? 0 : r[a - 2];
+      return (r[hi - 1] - lo) / (hi - a + 1);
+    });
+    slopes[scopeName + "|" + name] = vals;
+    const last = [...vals].reverse().find((v) => v != null);
+    const ratio = vals[0] ? last / vals[0] : null;
+    console.log(`  ${name.padEnd(18)}` + vals.map((v) => (v == null ? "     —  " : v.toFixed(2).padStart(8))).join("") + "   " + (ratio == null ? "—" : ratio.toFixed(2)));
+  }
+}
+
+/* ---- WITHIN-BATCH vs CROSS-BATCH reuse — the number that predicts a shard ----
+ *
+ * readings.js sends BATCH_SIZE films in one prompt, and the prompt asks the
+ * model to reuse a phrase when two films in front of it share a situation. That
+ * instruction can only operate inside a batch. So a headline reuse figure can be
+ * entirely an artifact of batching and vanish the moment the pass is sharded
+ * across agents that never see each other's films.
+ *
+ * CROSS-BATCH reuse is therefore the honest number: it is what the 300-film pass
+ * across four shard agents would actually get. Within-batch reuse is real but it
+ * does not scale — it is bounded by BATCH_SIZE and it is not evidence about the
+ * corpus.
+ *
+ * Batches are contiguous in the output (a worker pushes a whole parsed batch at
+ * once) and each film carries its 1-based position `n` within its batch, so a
+ * batch boundary is n===1. Falls back to fixed chunks if `n` is missing.
+ */
+{
+  let b = -1;
+  const batchOf = new Map();
+  const hasN = films.some((f) => f.n === 1);
+  films.forEach((f, i) => {
+    if (hasN) { if (f.n === 1) b++; } else if (i % 6 === 0) b++;
+    if (!f.belowFloor && (f.plotChars || 0) > 0) batchOf.set(f.title, b);
   });
-  slopes[name] = vals;
-  const ratio = vals[0] && vals[vals.length - 1] != null ? (vals[vals.length - 1] / vals[0]) : null;
-  console.log(`  ${name.padEnd(18)}` + vals.map((v) => (v == null ? "     —  " : v.toFixed(2).padStart(8))).join("") + "   " + (ratio == null ? "—" : ratio.toFixed(2)));
+  const nBatches = new Set(batchOf.values()).size;
+
+  const byPhrase = new Map();
+  for (const f of films) {
+    if (!batchOf.has(f.title)) continue;
+    for (const pr of f.predicaments || []) {
+      const k = n2(pr.situation || "");
+      if (!k) continue;
+      if (!byPhrase.has(k)) byPhrase.set(k, new Set());
+      byPhrase.get(k).add(f.title);
+    }
+  }
+  let shared = 0, withinOnly = 0, crossB = 0;
+  const crossExamples = [];
+  for (const [k, set] of byPhrase) {
+    if (set.size < 2) continue;
+    shared++;
+    const bs = new Set([...set].map((t) => batchOf.get(t)));
+    if (bs.size > 1) { crossB++; crossExamples.push([k, [...set]]); } else withinOnly++;
+  }
+  // phrase instances that land on a phrase some OTHER batch also used
+  let crossInstances = 0, total = 0;
+  for (const f of films) {
+    if (!batchOf.has(f.title)) continue;
+    for (const pr of f.predicaments || []) {
+      const k = n2(pr.situation || "");
+      if (!k) continue;
+      total++;
+      const set = byPhrase.get(k);
+      if (set && new Set([...set].map((t) => batchOf.get(t))).size > 1) crossInstances++;
+    }
+  }
+  console.log(`\n  WITHIN-BATCH vs CROSS-BATCH REUSE — ${nBatches} batches of readable films`);
+  console.log(`  phrases used by more than one film: ${shared}`);
+  console.log(`    shared only inside one batch : ${withinOnly}   (bounded by BATCH_SIZE — does NOT scale, and does NOT survive sharding)`);
+  console.log(`    shared ACROSS batches        : ${crossB}   <- the number a sharded 300-film pass would get`);
+  console.log(`  cross-batch reuse rate: ${(crossInstances / (total || 1) * 100).toFixed(1)}% of ${total} phrase instances`);
+  crossExamples.slice(0, 10).forEach(([k, t]) => console.log(`    + ${k.slice(0, 78)}  <- ${t.join(" | ").slice(0, 60)}`));
 }
 
 /* ---- concept clusters: what pass B would have to work with ---- */
@@ -264,10 +342,11 @@ for (const t of [0.5, 0.6]) {
 /* cluster-level saturation curve, same checkpoints */
 {
   const { assign } = cluster(allPhrases, 0.6);
-  const keysByFilm = films.map((f) => new Set((f.predicaments || []).map((p) => assign.get(p.situation)).filter((v) => v !== undefined).map(String)));
+  const readOnly = films.filter((f) => (f.plotChars || 0) > 0 && !f.belowFloor);
+  const keysByFilm = readOnly.map((f) => new Set((f.predicaments || []).map((p) => assign.get(p.situation)).filter((v) => v !== undefined).map(String)));
   const rare = rarefy(keysByFilm, o.perms, mulberry(o.seed));
   const cells = CHECK.map((k) => (k <= rare.length ? rare[k - 1].toFixed(0).padStart(3) : "  —"));
-  console.log(`  cluster curve (j>=0.6, rarefaction): ` + CHECK.map((k, i) => `${k}f:${cells[i]}`).join("  "));
+  console.log(`  cluster curve (j>=0.6, rarefaction, READ scope): ` + CHECK.map((k, i) => `${k}f:${cells[i]}`).join("  "));
   const w = WIN.map(([a, b]) => (b > rare.length ? null : (rare[b - 1] - (a === 1 ? 0 : rare[a - 2])) / (b - a + 1)));
   console.log(`  cluster new/film by window: ` + w.map((v) => (v == null ? "—" : v.toFixed(2))).join("  "));
 }

@@ -8,7 +8,8 @@
     "`polarity: \"inherent\"` marks a phrase that already contains its own absence — 'little dialogue', 'no dialogue', 'barely speak'. A preceding 'not' must not invert it a second time, and the parser refuses to.",
     "A phrase must not be a plot word. 'someone dies' is not subject:grief and 'a priest' is not subject:spiritual; the NOT clauses say so explicitly and the lexicon obeys them.",
     "Multi-word phrases are matched longest-first, so 'little dialogue' beats 'dialogue' and 'coming of age' beats 'coming'.",
-    "A GUARD is a phrase this atlas cannot answer that would otherwise be answered wrongly by a shorter phrase inside it. It wins the longest-first match and becomes an admission with its own reason, never a claim. “for the whole family” is audience and consensus-vocab.json forbids reading it as subject:family; “family drama” is unaffected."
+    "A GUARD is a phrase this atlas cannot answer that would otherwise be answered wrongly by a shorter phrase inside it. It wins the longest-first match and becomes an admission with its own reason, never a claim. “for the whole family” is audience and consensus-vocab.json forbids reading it as subject:family; “family drama” is unaffected.",
+    "\"sad\" maps to melancholy OR bleak, and the tension is recorded rather than hidden. consensus-vocab.json says of tone:bleak \"Not merely sad or violent\" — but that sentence tells the ATTRIBUTOR what the label means, not what a reader's word may reach. anyOf takes the max, so including bleak can only help a film that genuinely is one. Measured on \"quiet and sad ... nothing much happens\": with bleak the front is Satantango, The Turin Horse, Goodbye Dragon Inn; without it, Goodbye Dragon Inn, Vive L'Amour, In the Mood for Love. Both are defensible answers and the first is the wider one. If this is ever reversed, reverse it here rather than in the scorer."
   ],
   "degree": {
     "up": [

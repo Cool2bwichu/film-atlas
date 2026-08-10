@@ -609,7 +609,26 @@ function famePageviews(meta, keys) {
   let ps;
   try { ps = require("./plot-source.js"); }
   catch (e) { return null; }
-  const win = ps.viewsWindow();
+  /* THE WINDOW IS PINNED TO WHAT THE CACHE ACTUALLY HOLDS.
+     viewsWindow() is derived from Date.now(), so the day after the cache was
+     written it asks for a key one day forward and NOTHING matches — and this
+     check then reports "cannot run. This is not a pass." on every day but one,
+     which is a permanent false failure for anything that gates on it. The cache
+     is never fetched from here, so the honest thing is to read the window off
+     the files that are there and SAY which one was used. */
+  let win = ps.viewsWindow();
+  try {
+    const probe = meta[keys.find((k) => meta[k] && meta[k].wikipedia)];
+    if (probe && !fs.existsSync(ps.cachePath(ps.CACHE_VIEWS, "pv_" + win.start + "_" + probe.wikipedia))) {
+      const seen = new Set();
+      for (const f of fs.readdirSync(ps.CACHE_VIEWS)) {
+        const m = f.match(/^pv_(\d{8})_/);
+        if (m) seen.add(m[1]);
+      }
+      const newest = [...seen].sort().pop();
+      if (newest) win = { start: newest, end: win.end, pinned: true };
+    }
+  } catch (e) { /* no cache directory: the caller reports hit 0 */ }
   const views = Object.create(null);
   let hit = 0;
   for (const k of keys) {
@@ -636,7 +655,8 @@ function fameCheck(m, query, controls) {
     return false;
   }
   const { ps, win, views } = fv;
-  console.log("\nRULE 1 — match score vs 60-day Wikipedia pageviews, window " + win.start + ".." + win.end);
+  console.log("\nRULE 1 — match score vs 60-day Wikipedia pageviews, window " + win.start + ".." + win.end +
+    (win.pinned ? "  (pinned to the cache, which is older than today)" : ""));
   console.log("           cache-only, never fetched. gate |rho| <= " + SCORE_FAME_MAX_RHO);
 
   const r = m.score(query);

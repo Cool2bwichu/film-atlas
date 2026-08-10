@@ -1,0 +1,7529 @@
+{
+ "version": 1,
+ "promptVersion": "propB-role-1",
+ "model": "claude-opus-5",
+ "stage": "induce",
+ "generated": "2026-08-10T13:14:50.420Z",
+ "inductionSample": 1032,
+ "poolSize": 1538,
+ "groups": 11,
+ "families": [
+  {
+   "id": "intimacy-for-material-support",
+   "label": "One party obtains another's closeness or presence, and pays for it with the means to live",
+   "roles": [
+    "paying",
+    "giving closeness"
+   ],
+   "act": "obtains another's intimacy in exchange for material support",
+   "members": [
+    1,
+    5,
+    19,
+    84
+   ],
+   "group": 3,
+   "memberIds": [
+    "s1bundefined-i_am_cuba-1",
+    "s1bundefined-daisies-1",
+    "s2b6-one_hundred_and_one_nights-1",
+    "s2b2-piano-1"
+   ],
+   "memberSituations": [
+    "intimacy is traded for food",
+    "intimacy is traded for food",
+    "a young person is paid to visit nightly",
+    "intimacy is bought back piece by piece"
+   ]
+  },
+  {
+   "id": "dependent-handed-over",
+   "label": "One party gives a dependent out of its own keeping into someone else's hands",
+   "roles": [
+    "giving up",
+    "given up"
+   ],
+   "act": "hands a dependent over to be kept by others",
+   "members": [
+    3,
+    36,
+    53,
+    90
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b6-eastern_promises-4",
+    "s2b0-farewell_my_concubine-3",
+    "s3b0-tree_of_life-5",
+    "s0b0-la_strada-0"
+   ],
+   "memberSituations": [
+    "a child is given away to be raised",
+    "a mother leaves her child with strangers",
+    "a child is sent away from the household",
+    "a child is sold to feed the others"
+   ]
+  },
+  {
+   "id": "person-held-until-recovered",
+   "label": "One party seizes and holds a person another is bound to, who must get them back",
+   "roles": [
+    "holding",
+    "losing"
+   ],
+   "act": "holds a person another is bound to, against that other's power to recover them",
+   "members": [
+    26,
+    79,
+    87
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b3-no_bears-3",
+    "s1bundefined-high_and_low-1",
+    "s3b8-prisoners-0"
+   ],
+   "memberSituations": [
+    "release must be bought from those holding one",
+    "a child is held by strangers for gain",
+    "a loved one is taken away by strangers"
+   ]
+  },
+  {
+   "id": "deception-as-shelter",
+   "label": "One party keeps another from a truth in order to shield that other from what the truth would do",
+   "roles": [
+    "deceiving",
+    "shielded"
+   ],
+   "act": "withholds the truth from another for that other's sake",
+   "members": [
+    15,
+    30
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b3-modern_times-3",
+    "s1bundefined-ningen-3"
+   ],
+   "memberSituations": [
+    "a lie is told to protect another",
+    "a lie is told to keep people alive"
+   ]
+  },
+  {
+   "id": "affection-feigned-for-access",
+   "label": "One party counterfeits love toward another as the means of reaching something else",
+   "roles": [
+    "feigning",
+    "believing"
+   ],
+   "act": "simulates attachment to one party in order to get at another thing",
+   "members": [
+    17,
+    94
+   ],
+   "group": 3,
+   "memberIds": [
+    "s1bundefined-lolita-0",
+    "s0b9-women_of_night-1"
+   ],
+   "memberSituations": [
+    "one marries the mother to reach the daughter",
+    "love is feigned to get something else"
+   ]
+  },
+  {
+   "id": "life-kept-hidden-from-intimates",
+   "label": "One party keeps a part of their life out of sight of the people closest to them",
+   "roles": [
+    "concealing",
+    "kept in the dark"
+   ],
+   "act": "hides a part of their own life from those with a claim to know it",
+   "members": [
+    10,
+    27,
+    43,
+    71
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b12-foundry_town-2",
+    "s1bundefined-grand_slam-3",
+    "s2b12-trois_places_pour_le_26-3",
+    "s0b0-rashomon-2"
+   ],
+   "memberSituations": [
+    "a child hides home from friends",
+    "a secret partner is hidden from the rest",
+    "a child learns a parent kept something hidden",
+    "a bystander conceals his own small theft"
+   ]
+  },
+  {
+   "id": "guilt-borne-for-another",
+   "label": "One party's deed is charged to another, who is made to answer in their place",
+   "roles": [
+    "escaping",
+    "answering"
+   ],
+   "act": "leaves another to be held answerable for a deed that was not theirs",
+   "members": [
+    13,
+    59,
+    80
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b12-hangmen_also_die-4",
+    "s0b11-mara_maru-0",
+    "s0b7-last_days_of_pompeii-2"
+   ],
+   "memberSituations": [
+    "one man is made to answer for another",
+    "a man is suspected of a friend's murder",
+    "a man is condemned for another's crime"
+   ]
+  },
+  {
+   "id": "harm-answered-with-harm",
+   "label": "One party sets out to make another pay in kind for a harm already done",
+   "roles": [
+    "avenging",
+    "answering for"
+   ],
+   "act": "pursues another to exact payment for a past harm",
+   "members": [
+    16,
+    55,
+    75,
+    92
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b7-last_days_of_pompeii-0",
+    "s1bundefined-once_upon_time_in_west-0",
+    "s0b9-women_of_night-4",
+    "s3b7-into_abyss-0"
+   ],
+   "memberSituations": [
+    "a child sets out to avenge a parent",
+    "a grown man hunts his childhood tormentor",
+    "revenge on the guilty destroys the avenger",
+    "a killing is answered with another killing"
+   ]
+  },
+  {
+   "id": "captor-bound-to-quarry",
+   "label": "One party is set to take another and ends up bound to the one they were hunting",
+   "roles": [
+    "pursuing",
+    "pursued"
+   ],
+   "act": "pursues another and is drawn into a bond with them",
+   "members": [
+    12,
+    89
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b0-memories_of_murder-3",
+    "s2b4-castle_of_cagliostro-3"
+   ],
+   "memberSituations": [
+    "a pursuer is changed by the one pursued",
+    "a pursuer must cooperate with the one pursued"
+   ]
+  },
+  {
+   "id": "knower-silenced",
+   "label": "One party removes another for having learned what that other was not meant to know",
+   "roles": [
+    "silencing",
+    "knowing"
+   ],
+   "act": "disposes of another because of what they came to know",
+   "members": [
+    47,
+    66
+   ],
+   "group": 3,
+   "memberIds": [
+    "s1bundefined-my_dear_killer-1",
+    "s3b10-triangle-3"
+   ],
+   "memberSituations": [
+    "whoever learns the secret dies before telling it",
+    "learning too much makes a person disposable"
+   ]
+  },
+  {
+   "id": "act-demanded-against-conscience",
+   "label": "One party requires of another an act that other cannot square with themselves",
+   "roles": [
+    "demanding",
+    "refusing"
+   ],
+   "act": "demands from another an act against that other's conscience",
+   "members": [
+    18,
+    25,
+    33,
+    57
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b7-difficult_years-0",
+    "s1bundefined-love_under_crucifix-3",
+    "s2b6-chronicle_of_death_foretold-2",
+    "s3b10-adaptation-4"
+   ],
+   "memberSituations": [
+    "a man joins what he despises to survive",
+    "a person is punished for refusing to recant",
+    "a killing is done to satisfy others",
+    "an accomplice balks at what the plan requires"
+   ]
+  },
+  {
+   "id": "standing-lowered-before-others",
+   "label": "One party puts another into a position that lowers them in the eyes of those watching",
+   "roles": [
+    "degrading",
+    "degraded"
+   ],
+   "act": "imposes on another a condition that diminishes them before others",
+   "members": [
+    6,
+    23,
+    24,
+    78
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b10-great_war-2",
+    "s3b7-little_dieter_needs_to_fly-0",
+    "s3b4-waltz_with_bashir-3",
+    "s3b5-certain_women-5"
+   ],
+   "memberSituations": [
+    "a coward chooses death over one more insult",
+    "a survivor is made to re-enact his ordeal",
+    "one is given the work others refuse",
+    "one partner is undermined before the child"
+   ]
+  },
+  {
+   "id": "life-dictated-by-authority",
+   "label": "One party settles what another's life will be, over that other's own wish for it",
+   "roles": [
+    "dictating",
+    "dictated to"
+   ],
+   "act": "decides the shape of another's life against that other's will",
+   "members": [
+    28,
+    63,
+    81,
+    88
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b3-no_bears-1",
+    "s2b12-death_of_salesman-0",
+    "s3b8-man_from_london-2",
+    "s3b8-okja-1"
+   ],
+   "memberSituations": [
+    "two lovers are refused permission to marry",
+    "a father cannot accept his son's ordinariness",
+    "a parent decides a child's life for her",
+    "a parent decides a child's life for her"
+   ]
+  },
+  {
+   "id": "chosen-between-claimants",
+   "label": "One party must take one of two who both claim them, and passes the other over",
+   "roles": [
+    "choosing",
+    "passed over"
+   ],
+   "act": "takes one claimant and leaves the other unchosen",
+   "members": [
+    29,
+    77,
+    95
+   ],
+   "group": 3,
+   "memberIds": [
+    "s2b6-crimes_and_misdemeanors-2",
+    "s0b2-sunrise_song_of_two_humans-1",
+    "s1bundefined-mirror-3"
+   ],
+   "memberSituations": [
+    "a woman chooses the rival over the suitor",
+    "a man must choose between two women",
+    "a child is asked to choose between parents"
+   ]
+  },
+  {
+   "id": "wanting-more-than-returned",
+   "label": "One party wants more from another than that other is able or willing to give back",
+   "roles": [
+    "wanting",
+    "withholding"
+   ],
+   "act": "asks of another a feeling that other cannot return in kind",
+   "members": [
+    50,
+    93
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b5-certain_women-3",
+    "s2b0-farewell_my_concubine-0"
+   ],
+   "memberSituations": [
+    "one person wants more than the other returns",
+    "one loves a friend unable to return it"
+   ]
+  },
+  {
+   "id": "estranged-party-sought-back",
+   "label": "One party goes after another with whom the bond lapsed, asking to have them back",
+   "roles": [
+    "seeking back",
+    "gone"
+   ],
+   "act": "seeks the return of one from whom the bond was broken",
+   "members": [
+    37,
+    52,
+    67
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b7-into_abyss-1",
+    "s3b8-dust_of_time-4",
+    "s1bundefined-autumn_sonata-5"
+   ],
+   "memberSituations": [
+    "a parent pleads for the child he abandoned",
+    "a family retrieves a child gone astray",
+    "a reconciliation is attempted too late"
+   ]
+  },
+  {
+   "id": "cost-borne-gain-taken",
+   "label": "One party takes the gain of what another spent, made or suffered",
+   "roles": [
+    "collecting",
+    "expended"
+   ],
+   "act": "collects the return on another party's labour or loss",
+   "members": [
+    45,
+    51,
+    58
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b7-two_men_in_manhattan-1",
+    "s0b0-seven_samurai-3",
+    "s0b3-red_shoes-4"
+   ],
+   "memberSituations": [
+    "one man's ruin is another man's living",
+    "a victory leaves the winners with nothing",
+    "another takes credit for one's work"
+   ]
+  },
+  {
+   "id": "distant-stranger-harmed",
+   "label": "One party secures its own safety or advantage by a harm that lands on someone it will never meet",
+   "roles": [
+    "saving itself",
+    "struck"
+   ],
+   "act": "buys its own protection at the cost of an unmet stranger",
+   "members": [
+    7,
+    42
+   ],
+   "group": 3,
+   "memberIds": [
+    "s2b10-city_hall-0",
+    "s1bundefined-seemabaddha-0"
+   ],
+   "memberSituations": [
+    "a favour granted in private kills a stranger",
+    "harm is done to strangers to protect oneself"
+   ]
+  },
+  {
+   "id": "arbiter-bent-by-power",
+   "label": "One party turns the judging power against the weaker side, who is left without redress",
+   "roles": [
+    "bending",
+    "denied redress"
+   ],
+   "act": "bends the machinery of judgement to the stronger party",
+   "members": [
+    22,
+    35
+   ],
+   "group": 3,
+   "memberIds": [
+    "s2b10-il_marchese_del_grillo-2",
+    "s2b4-castle_of_cagliostro-5"
+   ],
+   "memberSituations": [
+    "justice is sold to the stronger side",
+    "an official is stopped from prosecuting the powerful"
+   ]
+  },
+  {
+   "id": "utterance-made-true-by-hearer",
+   "label": "One party says a thing, and the one who hears it goes and makes it true",
+   "roles": [
+    "saying",
+    "acting on it"
+   ],
+   "act": "speaks something the hearer then brings about",
+   "members": [
+    20,
+    56
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b5-tragedy_of_macbeth-0",
+    "s0b5-piece_of_sky-1"
+   ],
+   "memberSituations": [
+    "being told the future makes it come true",
+    "a lie is taken more seriously than intended"
+   ]
+  },
+  {
+   "id": "quarry-recognized-and-spared",
+   "label": "One party, poised to destroy another, sees them as a person and does not",
+   "roles": [
+    "poised to strike",
+    "recognized"
+   ],
+   "act": "recognizes the one it was set against and withholds the blow",
+   "members": [
+    31,
+    38
+   ],
+   "group": 3,
+   "memberIds": [
+    "s1bundefined-i_am_cuba-3",
+    "s0b10-young_one-2"
+   ],
+   "memberSituations": [
+    "an enemy is seen among their children",
+    "a man saves the one he despised"
+   ]
+  },
+  {
+   "id": "harm-from-the-bound-protector",
+   "label": "One party inflicts the harm on the very person it is bound to keep or depends upon",
+   "roles": [
+    "entrusted with",
+    "entrusted to"
+   ],
+   "act": "harms the one it is bound to protect",
+   "members": [
+    8,
+    14,
+    60,
+    85
+   ],
+   "group": 3,
+   "memberIds": [
+    "s1bundefined-martha-1",
+    "s3b1-killers_of_flower_moon-0",
+    "s1bundefined-lucky_luciano-3",
+    "s0b10-young_one-0"
+   ],
+   "memberSituations": [
+    "cruelty is received as love",
+    "a man harms the person he loves",
+    "a leader punishes the one he depends on",
+    "a guardian takes the child he should protect"
+   ]
+  },
+  {
+   "id": "care-given-where-none-owed",
+   "label": "One party takes on the care of another that the other's own people withhold",
+   "roles": [
+    "giving",
+    "owed nothing by"
+   ],
+   "act": "gives to another the care that other's own people will not",
+   "members": [
+    21,
+    70
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b12-tokyo_family-1",
+    "s1bundefined-wild_child-3"
+   ],
+   "memberSituations": [
+    "a stranger gives the care family withholds",
+    "a man raises a child not his own"
+   ]
+  },
+  {
+   "id": "bond-held-across-separation",
+   "label": "One party goes away for a term, and the bond must be lived out around the absence",
+   "roles": [
+    "going away",
+    "staying"
+   ],
+   "act": "leaves the other to hold the bond alone for a fixed span",
+   "members": [
+    40,
+    46,
+    65
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b11-task_force-3",
+    "s3b0-portrait_of_lady_on_fire-1",
+    "s1bundefined-loving_couples-5"
+   ],
+   "memberSituations": [
+    "a marriage is lived around long absences",
+    "two people love inside a fixed deadline",
+    "the women are left behind by departing men"
+   ]
+  },
+  {
+   "id": "subordinate-turns-on-superior",
+   "label": "One party moves against the one placed above it and set over what it was to become",
+   "roles": [
+    "rising",
+    "set over"
+   ],
+   "act": "turns against the authority that assigned it its place",
+   "members": [
+    11,
+    41
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b7-doubt-4",
+    "s3b4-iron_giant-0"
+   ],
+   "memberSituations": [
+    "someone below moves against someone above",
+    "a made thing refuses its given purpose"
+   ]
+  },
+  {
+   "id": "pretence-performed-into-fact",
+   "label": "Parties act out an untruth between them until it stands where the truth was",
+   "roles": [
+    "performing",
+    "taking as real"
+   ],
+   "act": "performs a fiction until it holds as the real account",
+   "members": [
+    9,
+    32
+   ],
+   "group": 3,
+   "memberIds": [
+    "s1bundefined-last_tango_in_paris-4",
+    "s1bundefined-blowup-4"
+   ],
+   "memberSituations": [
+    "a killing is rehearsed into a different story",
+    "a shared pretence becomes as good as real"
+   ]
+  },
+  {
+   "id": "restraint-dropped-in-drink",
+   "label": "One party loses its hold on what it was keeping back and lets the other have it",
+   "roles": [
+    "releasing",
+    "receiving"
+   ],
+   "act": "discharges at another what it had been withholding",
+   "members": [
+    34,
+    64
+   ],
+   "group": 3,
+   "memberIds": [
+    "s3b3-day_he_arrives-4",
+    "s3b3-flowers_of_shanghai-5"
+   ],
+   "memberSituations": [
+    "intoxication releases what was being held back",
+    "intoxication releases what was being held back"
+   ]
+  },
+  {
+   "id": "personhood-held-by-another",
+   "label": "One party holds in its hands whether the other counts as anyone at all",
+   "roles": [
+    "holding",
+    "dependent"
+   ],
+   "act": "holds another's standing as a person at its own discretion",
+   "members": [
+    2,
+    96
+   ],
+   "group": 3,
+   "memberIds": [
+    "s0b8-law_is_law-1",
+    "s0b10-adua_and_her_friends-1"
+   ],
+   "memberSituations": [
+    "a man is declared to belong nowhere",
+    "a new life is held in another's name"
+   ]
+  },
+  {
+   "id": "trusted-turns-on-the-truster",
+   "label": "One party who stands inside another's trust works or strikes against the very person who trusts them",
+   "roles": [
+    "turning",
+    "trusting"
+   ],
+   "act": "acts against the one who trusts them from inside the bond",
+   "members": [
+    7,
+    30,
+    95
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-once_upon_time_in_west-4",
+    "s0b12-pardon_my_past-5",
+    "s1bundefined-quiet_place_in_country-4"
+   ],
+   "memberSituations": [
+    "one betrays the man he was serving",
+    "one of the trusted works against them",
+    "the closest companion becomes the victim"
+   ]
+  },
+  {
+   "id": "false-face-inside-a-bond",
+   "label": "One party keeps up a false account of themselves toward someone who is bound to them in good faith",
+   "roles": [
+    "deceiving",
+    "deceived"
+   ],
+   "act": "sustains a false identity toward someone attached to them",
+   "members": [
+    12,
+    82
+   ],
+   "group": 2,
+   "memberIds": [
+    "s2b9-thunderheart-2",
+    "s2b6-one_hundred_and_one_nights-3"
+   ],
+   "memberSituations": [
+    "someone loyally serves the one deceiving them",
+    "the deceiver comes to love the deceived"
+   ]
+  },
+  {
+   "id": "false-impression-planted",
+   "label": "One party manufactures an appearance so that another will act as the first one wishes",
+   "roles": [
+    "staging",
+    "taken in"
+   ],
+   "act": "stages a false impression to move another to act",
+   "members": [
+    25,
+    53,
+    76
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b8-battle_of_river_plate-1",
+    "s1bundefined-onibaba-3",
+    "s1bundefined-klute-0"
+   ],
+   "memberSituations": [
+    "a rumour is planted to move an enemy",
+    "a person frightens another with a false face",
+    "the one being sought arranged the search"
+   ]
+  },
+  {
+   "id": "vigil-beside-the-unanswering",
+   "label": "One party keeps attendance on another who is past answering, and goes on addressing them anyway",
+   "roles": [
+    "attending",
+    "unreachable"
+   ],
+   "act": "keeps attendance on one who cannot answer",
+   "members": [
+    27,
+    52
+   ],
+   "group": 2,
+   "memberIds": [
+    "s3b11-past-4",
+    "s3b11-bugonia-4"
+   ],
+   "memberSituations": [
+    "a vigil is kept beside someone past answering",
+    "a vigil is kept beside someone past answering"
+   ]
+  },
+  {
+   "id": "corroded-by-another's-life",
+   "label": "One party is close enough to watch another's life and is eaten by the sight of it",
+   "roles": [
+    "envying",
+    "envied"
+   ],
+   "act": "is corroded by the sight of what another has",
+   "members": [
+    3,
+    26
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-high_and_low-2",
+    "s3b9-faithless-1"
+   ],
+   "memberSituations": [
+    "one man envies the life he can see",
+    "another's happiness is unbearable to the one watching"
+   ]
+  },
+  {
+   "id": "promised-payment-unhonoured",
+   "label": "One party holds another to a promised consideration that never becomes real",
+   "roles": [
+    "promising",
+    "awaiting"
+   ],
+   "act": "promises a payment that never arrives or proves worthless",
+   "members": [
+    35,
+    36
+   ],
+   "group": 2,
+   "memberIds": [
+    "s3b4-nine_queens-4",
+    "s1bundefined-oldest_profession-2"
+   ],
+   "memberSituations": [
+    "a promised payment turns out to be worthless",
+    "a promise of payment is never kept"
+   ]
+  },
+  {
+   "id": "substance-taken-from-the-weaker",
+   "label": "One party converts what a weaker party holds into its own gain, because the weaker cannot refuse",
+   "roles": [
+    "extracting",
+    "yielding up"
+   ],
+   "act": "takes its gain out of another's substance or life",
+   "members": [
+    13,
+    28,
+    60,
+    72
+   ],
+   "group": 2,
+   "memberIds": [
+    "s2b6-chronicle_of_death_foretold-5",
+    "s0b10-great_war-1",
+    "s1bundefined-mother_kusters_trip_to_heave-2",
+    "s1bundefined-zatoichi_and_chest_of_gold-3"
+   ],
+   "memberSituations": [
+    "a man is worn down into selling",
+    "the least valued are sent to die first",
+    "one person's ruin is another's livelihood",
+    "the poor are made to pay twice"
+   ]
+  },
+  {
+   "id": "pressed-to-abandon-a-position",
+   "label": "One party works on another to make them give up the position they are keeping",
+   "roles": [
+    "pressing",
+    "holding"
+   ],
+   "act": "urges or punishes another into surrendering their stand",
+   "members": [
+    4,
+    14,
+    23
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b11-mara_maru-3",
+    "s2b6-river-3",
+    "s1bundefined-serpico-1"
+   ],
+   "memberSituations": [
+    "a man refuses the easier life offered him",
+    "a wife asks her husband to stop fighting",
+    "a man's own virtue is turned against him"
+   ]
+  },
+  {
+   "id": "attachment-used-as-leverage",
+   "label": "One party takes hold of what another loves and uses it to extract an act the other would never give",
+   "roles": [
+    "coercing",
+    "yielding"
+   ],
+   "act": "uses another's attachment to force an act from them",
+   "members": [
+    18,
+    43,
+    91,
+    96
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b12-hangmen_also_die-1",
+    "s3b9-megalopolis-3",
+    "s1bundefined-mouchette-2",
+    "s3b10-panic_room-2"
+   ],
+   "memberSituations": [
+    "a child must betray to save a parent",
+    "the one with power names an intimate price",
+    "someone is made to lie to shield another",
+    "a child is taken to force a parent"
+   ]
+  },
+  {
+   "id": "withheld-truth-reaches-its-subject",
+   "label": "A fact long held by one party reaches the person whose bond it silently governed",
+   "roles": [
+    "holding the truth",
+    "learning"
+   ],
+   "act": "delivers a withheld truth to the one it concerns",
+   "members": [
+    24,
+    40,
+    62
+   ],
+   "group": 2,
+   "memberIds": [
+    "s2b7-waterland-3",
+    "s2b10-city_hall-1",
+    "s3b9-like_father_like_son-2"
+   ],
+   "memberSituations": [
+    "a hidden parentage is revealed to the child",
+    "someone learns what the man he trusted did",
+    "a parent learns he was loved without knowing"
+   ]
+  },
+  {
+   "id": "identity-assigned-from-outside",
+   "label": "One party fixes an identity on another and deals with them by it rather than by what they are",
+   "roles": [
+    "assigning",
+    "assigned"
+   ],
+   "act": "fixes an identity on another and treats them by it",
+   "members": [
+    9,
+    42,
+    66,
+    84,
+    87
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-fantastic_planet-2",
+    "s2b0-blade_runner-4",
+    "s3b3-day_he_arrives-3",
+    "s1bundefined-graduate-4",
+    "s0b5-awaara-0"
+   ],
+   "memberSituations": [
+    "someone refuses the name others give him",
+    "one is taken for someone he is not",
+    "a person is defined by work already abandoned",
+    "everyone tells a young man what to want",
+    "a child is judged by his father's name"
+   ]
+  },
+  {
+   "id": "standing-in-another's-place",
+   "label": "One party comes to occupy the place that belongs to another",
+   "roles": [
+    "standing in",
+    "displaced"
+   ],
+   "act": "occupies the place that belongs to another",
+   "members": [
+    17,
+    31,
+    33,
+    46,
+    78
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b8-passing_fancy-2",
+    "s3b11-postcard-3",
+    "s2b8-table_for_five-0",
+    "s2b5-dream_lover-3",
+    "s2b11-confucian_confusion-5"
+   ],
+   "memberSituations": [
+    "one takes another's place at great cost",
+    "a returning man finds his place already taken",
+    "a parent returns to children raised by another",
+    "a stranger takes the place of the missing",
+    "someone is chosen as a replacement for another"
+   ]
+  },
+  {
+   "id": "two-claim-the-same-person",
+   "label": "One party presses a claim on someone another already holds, and the two claims cannot both stand",
+   "roles": [
+    "contending",
+    "displaced"
+   ],
+   "act": "presses a claim on someone another already holds",
+   "members": [
+    8,
+    90
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-blood_and_black_lace-3",
+    "s2b7-waterland-2"
+   ],
+   "memberSituations": [
+    "a third person enters a settled couple",
+    "two men want the same woman"
+   ]
+  },
+  {
+   "id": "protection-owed-and-withheld",
+   "label": "One party owes another protection and does not give it while harm proceeds",
+   "roles": [
+    "owing protection",
+    "exposed"
+   ],
+   "act": "withholds or abandons the protection it owes",
+   "members": [
+    11,
+    44,
+    67,
+    70
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-mirror-0",
+    "s2b11-1492_conquest_of_paradise-3",
+    "s2b9-love_in_germany-3",
+    "s1bundefined-man_who_shot_liberty_valance-5"
+   ],
+   "memberSituations": [
+    "a parent walks out on a small child",
+    "a leader cannot stop his own men's cruelty",
+    "the one warning of danger later abandons them",
+    "the ones meant to protect him stand back"
+   ]
+  },
+  {
+   "id": "dominion-accepted-within-a-bond",
+   "label": "One party rules or hurts another inside a bond of affection, and the other stays and consents to it",
+   "roles": [
+    "dominating",
+    "submitting"
+   ],
+   "act": "takes possession of another who accepts being possessed",
+   "members": [
+    45,
+    54,
+    64
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b0-la_strada-2",
+    "s1bundefined-liza-2",
+    "s1bundefined-touch-1"
+   ],
+   "memberSituations": [
+    "a person stays with someone cruel to them",
+    "one lover consents to be owned by another",
+    "the one offering love also deals the blows"
+   ]
+  },
+  {
+   "id": "reaching-for-a-bond-not-returned",
+   "label": "One party keeps reaching for a bond the other will not or cannot return",
+   "roles": [
+    "reaching",
+    "withholding"
+   ],
+   "act": "reaches for a bond the other does not return",
+   "members": [
+    21,
+    47,
+    55
+   ],
+   "group": 2,
+   "memberIds": [
+    "s3b3-platform-0",
+    "s1bundefined-casanova_70-0",
+    "s1bundefined-persona-2"
+   ],
+   "memberSituations": [
+    "someone keeps returning to a person already lost",
+    "a man can love only under threat",
+    "a mother cannot love the child she made"
+   ]
+  },
+  {
+   "id": "confession-to-one-who-cannot-use-it",
+   "label": "One party discharges a guilt onto someone who can neither punish it nor absolve it",
+   "roles": [
+    "confessing",
+    "unable to act"
+   ],
+   "act": "confesses to a party who can do nothing with the confession",
+   "members": [
+    6,
+    22
+   ],
+   "group": 2,
+   "memberIds": [
+    "s3b9-like_father_like_son-5",
+    "s2b10-where_are_you_going_on_holid-4"
+   ],
+   "memberSituations": [
+    "a wrong is admitted too late to punish",
+    "a man confesses to the wrong listener"
+   ]
+  },
+  {
+   "id": "pressed-for-an-account",
+   "label": "One party presses another to hand over the account of a past act the other holds",
+   "roles": [
+    "pressing",
+    "holding the account"
+   ],
+   "act": "presses another to deliver the account of what happened",
+   "members": [
+    79,
+    93
+   ],
+   "group": 2,
+   "memberIds": [
+    "s3b4-waltz_with_bashir-1",
+    "s1bundefined-exorcist_ii_heretic-1"
+   ],
+   "memberSituations": [
+    "a man asks others what he himself did",
+    "a survivor is pressed to remember what happened"
+   ]
+  },
+  {
+   "id": "claim-of-the-dead-on-the-living",
+   "label": "One party settles with the dead an obligation the living still carry",
+   "roles": [
+    "settling",
+    "owed"
+   ],
+   "act": "discharges to the dead what is still owed them",
+   "members": [
+    38,
+    92
+   ],
+   "group": 2,
+   "memberIds": [
+    "s2b3-decalogue_v-4",
+    "s1bundefined-cowboys-4"
+   ],
+   "memberSituations": [
+    "the dying ask to lie beside their dead",
+    "the living settle a debt to the dead"
+   ]
+  },
+  {
+   "id": "taking-another-into-keeping",
+   "label": "One party takes another, weaker or unplaced, into their keeping",
+   "roles": [
+    "sheltering",
+    "taken in"
+   ],
+   "act": "takes another into their keeping",
+   "members": [
+    29,
+    50,
+    94
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b11-task_force-4",
+    "s0b11-close_to_my_heart-0",
+    "s0b11-come_fill_cup-1"
+   ],
+   "memberSituations": [
+    "a younger man is protected by an older one",
+    "a childless couple seeks a child to raise",
+    "a rescued man becomes the rescuer of another"
+   ]
+  },
+  {
+   "id": "held-in-place-by-force",
+   "label": "One party keeps another inside a relation the other cannot leave",
+   "roles": [
+    "holding",
+    "held"
+   ],
+   "act": "keeps another from withdrawing by force or threat",
+   "members": [
+    19,
+    85,
+    88
+   ],
+   "group": 2,
+   "memberIds": [
+    "s3b6-my_best_fiend-1",
+    "s1bundefined-lucky_luciano-0",
+    "s1bundefined-wicker_man-4"
+   ],
+   "memberSituations": [
+    "a collaboration is held together by threats",
+    "a captive buys freedom by serving his captors",
+    "a man is kept from leaving by others"
+   ]
+  },
+  {
+   "id": "antagonism-without-a-settleable-cause",
+   "label": "Two parties meet in a hostility that has no cause either can settle, and it reasserts itself",
+   "roles": [
+    "one side",
+    "other side"
+   ],
+   "act": "meets another with an antagonism that cannot be settled",
+   "members": [
+    63,
+    74
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-i_maniaci-3",
+    "s0b6-rich_and_strange-5"
+   ],
+   "memberSituations": [
+    "two strangers grow hostile without cause",
+    "a reconciliation returns to the old quarrel"
+   ]
+  },
+  {
+   "id": "charged-without-grounds",
+   "label": "One party lays a charge on another that nothing supports",
+   "roles": [
+    "accusing",
+    "accused"
+   ],
+   "act": "charges another with a deed on no evidence",
+   "members": [
+    51,
+    61
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b6-sword_of_penitence-1",
+    "s3b2-eureka-4"
+   ],
+   "memberSituations": [
+    "blame falls on the wrong person",
+    "one is accused repeatedly without any evidence"
+   ]
+  },
+  {
+   "id": "made-to-answer-for-another's-deed",
+   "label": "One party exacts the penalty for a deed from people who did not do it",
+   "roles": [
+    "exacting",
+    "standing for the doer"
+   ],
+   "act": "visits the consequence of a deed on those who did not do it",
+   "members": [
+    1,
+    77
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-battle_of_algiers-3",
+    "s3b5-tragedy_of_macbeth-4"
+   ],
+   "memberSituations": [
+    "the innocent suffer for what others do",
+    "a family is punished for one man's escape"
+   ]
+  },
+  {
+   "id": "authority-breaks-its-own-terms",
+   "label": "A party that set the terms breaks them against those who relied on it",
+   "roles": [
+    "breaking faith",
+    "relying"
+   ],
+   "act": "breaks the terms it set with those who relied on them",
+   "members": [
+    15,
+    86
+   ],
+   "group": 2,
+   "memberIds": [
+    "s1bundefined-last_tango_in_paris-2",
+    "s1bundefined-exorcist_ii_heretic-0"
+   ],
+   "memberSituations": [
+    "a rule is broken by its own maker",
+    "an institution disowns the man it sent"
+   ]
+  },
+  {
+   "id": "harm-returns-to-its-author",
+   "label": "A harm one party set going comes back onto the one who dealt it",
+   "roles": [
+    "returning the harm",
+    "the one who dealt it"
+   ],
+   "act": "returns a harm to the party who first set it going",
+   "members": [
+    34,
+    49
+   ],
+   "group": 2,
+   "memberIds": [
+    "s3b5-intolerable_cruelty-0",
+    "s0b5-mother_india-5"
+   ],
+   "memberSituations": [
+    "a trap is sprung on its own maker",
+    "a wronged child grows up to take revenge"
+   ]
+  },
+  {
+   "id": "made-an-object-of-the-gaze",
+   "label": "One party holds another under a sustained look, and the looking stands in place of any exchange between them",
+   "roles": [
+    "watching",
+    "watched"
+   ],
+   "act": "makes another the object of a look rather than a party to an exchange",
+   "members": [
+    20,
+    41
+   ],
+   "group": 2,
+   "memberIds": [
+    "s0b0-cleo_from_5_to_7-1",
+    "s1bundefined-klute-2"
+   ],
+   "memberSituations": [
+    "a woman is looked at rather than heard",
+    "the watcher falls for the one watched"
+   ]
+  },
+  {
+   "id": "identity-assigned-by-others",
+   "label": "One party is taken by others for someone he is not, and is dealt with as that person",
+   "roles": [
+    "taking-for",
+    "taken-for"
+   ],
+   "act": "fixes on another an identity that is not his and acts on it",
+   "members": [
+    1,
+    21,
+    55
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b0-akira-4",
+    "s0b3-modern_times-4",
+    "s1bundefined-taxi_driver-5"
+   ],
+   "memberSituations": [
+    "one is taken for someone he is not",
+    "a man is mistaken for another",
+    "the public makes a hero of him"
+   ]
+  },
+  {
+   "id": "voice-supplied-for-the-voiceless",
+   "label": "One party speaks in place of another who cannot speak for himself",
+   "roles": [
+    "speaking-for",
+    "spoken-for"
+   ],
+   "act": "supplies the voice of one who has none",
+   "members": [
+    4,
+    72
+   ],
+   "group": 0,
+   "memberIds": [
+    "s1bundefined-wild_child-1",
+    "s2b2-elephant_man-2"
+   ],
+   "memberSituations": [
+    "someone unable to speak is spoken for",
+    "a voiceless person depends on another's voice"
+   ]
+  },
+  {
+   "id": "loyalty-given-to-a-false-face",
+   "label": "One party gives loyalty and service to another who is concealing what he actually is",
+   "roles": [
+    "concealing",
+    "trusting"
+   ],
+   "act": "takes another's loyalty while hiding what he is",
+   "members": [
+    33,
+    54,
+    74
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b0-vertigo-0",
+    "s2b9-lupin_iii_dead_or_alive-1",
+    "s2b9-dangerous_toy-0"
+   ],
+   "memberSituations": [
+    "a false double replaces a trusted person",
+    "someone loyally serves the one deceiving them",
+    "someone loyally serves the one deceiving them"
+   ]
+  },
+  {
+   "id": "rival-claims-on-one-person",
+   "label": "Two parties each lay claim to the same third person, and each becomes the other's obstacle",
+   "roles": [
+    "claiming",
+    "counter-claiming"
+   ],
+   "act": "lays claim to a person the other party also claims",
+   "members": [
+    26,
+    63,
+    95
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b2-cabinet_of_dr_caligari-5",
+    "s0b10-young_one-4",
+    "s0b4-idiot-2"
+   ],
+   "memberSituations": [
+    "two friends want the same person",
+    "an outsider offers to take a child away",
+    "two friends want the same person"
+   ]
+  },
+  {
+   "id": "life-disposed-of-by-others",
+   "label": "One party settles the course of another's life without that person's say in it",
+   "roles": [
+    "deciding",
+    "decided-for"
+   ],
+   "act": "disposes of another's life over their head",
+   "members": [
+    80,
+    81
+   ],
+   "group": 0,
+   "memberIds": [
+    "s3b3-no_bears-2",
+    "s3b3-platform-1"
+   ],
+   "memberSituations": [
+    "a woman's life is decided by others",
+    "a woman's life is decided by others"
+   ]
+  },
+  {
+   "id": "union-denied-sanction",
+   "label": "One party refuses to sanction another's chosen bond on account of what the chosen one is",
+   "roles": [
+    "withholding-sanction",
+    "seeking-sanction"
+   ],
+   "act": "refuses to sanction a bond because of what the other party is",
+   "members": [
+    6,
+    62
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b4-late_chrysanthemums-3",
+    "s2b7-best_intentions-0"
+   ],
+   "memberSituations": [
+    "a parent objects to a child's chosen partner",
+    "a match is refused for what someone is"
+   ]
+  },
+  {
+   "id": "warning-disregarded",
+   "label": "One party delivers a warning and the other proceeds as though it had not been given",
+   "roles": [
+    "warning",
+    "disregarding"
+   ],
+   "act": "warns another who will not act on it",
+   "members": [
+    22,
+    92
+   ],
+   "group": 0,
+   "memberIds": [
+    "s1bundefined-rosemary_s_baby-4",
+    "s3b2-inland_empire-1"
+   ],
+   "memberSituations": [
+    "a warning is delivered and not believed",
+    "lovers proceed despite a warning of consequences"
+   ]
+  },
+  {
+   "id": "imitator-meets-the-imitated",
+   "label": "One party models himself on another and is brought face to face with the one he copies",
+   "roles": [
+    "imitating",
+    "imitated"
+   ],
+   "act": "takes another as his model and presents the copy to him",
+   "members": [
+    10,
+    43
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b0-close_up-3",
+    "s1bundefined-flesh_for_frankenstein-3"
+   ],
+   "memberSituations": [
+    "the admired one meets the one imitating him",
+    "a servant copies his master's appetites"
+   ]
+  },
+  {
+   "id": "turning-on-the-one-bound-to",
+   "label": "One party turns against the very party he was bound to by service, alliance or following",
+   "roles": [
+    "turning",
+    "turned-on"
+   ],
+   "act": "turns against the one he was bound to serve or follow",
+   "members": [
+    2,
+    24,
+    73,
+    75
+   ],
+   "group": 0,
+   "memberIds": [
+    "s1bundefined-blood_and_black_lace-4",
+    "s2b11-1492_conquest_of_paradise-1",
+    "s1bundefined-high_and_low-3",
+    "s1bundefined-le_samourai-0"
+   ],
+   "memberSituations": [
+    "a partner turns on the partner in crime",
+    "those led turn against the one leading them",
+    "one betrays the man he was serving",
+    "help is repaid with violence"
+   ]
+  },
+  {
+   "id": "account-of-oneself-rejected",
+   "label": "One party demands that another account for himself and refuses the account he gives",
+   "roles": [
+    "demanding-account",
+    "accounting"
+   ],
+   "act": "requires another to prove himself and rejects the proof",
+   "members": [
+    12,
+    51,
+    60
+   ],
+   "group": 0,
+   "memberIds": [
+    "s3b3-no_bears-0",
+    "s3b8-prisoners-1",
+    "s3b1-grizzly_man-2"
+   ],
+   "memberSituations": [
+    "one cannot prove the truth about oneself",
+    "someone is punished for what he cannot explain",
+    "a man's own account of himself is contested"
+   ]
+  },
+  {
+   "id": "another-answers-for-the-act",
+   "label": "One party exacts the penalty for an act from someone who did not commit it",
+   "roles": [
+    "exacting",
+    "answering"
+   ],
+   "act": "makes one party answer for what another did",
+   "members": [
+    29,
+    82,
+    87
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b10-il_marchese_del_grillo-4",
+    "s2b7-eyes_of_laura_mars-4",
+    "s1bundefined-is_paris_burning-4"
+   ],
+   "memberSituations": [
+    "the wrong person is punished for another's act",
+    "a wrong is pinned on the most convenient person",
+    "a man's family answers for his disobedience"
+   ]
+  },
+  {
+   "id": "intervener-struck-down",
+   "label": "One party steps between two others and is struck by the party he stood against",
+   "roles": [
+    "striking",
+    "intervening"
+   ],
+   "act": "punishes the one who stepped in on another's behalf",
+   "members": [
+    48,
+    96
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b5-tokyo_chorus-0",
+    "s3b10-triangle-1"
+   ],
+   "memberSituations": [
+    "a man is punished for defending another",
+    "the one who intervenes is killed for it"
+   ]
+  },
+  {
+   "id": "burden-taken-on-for-another",
+   "label": "One party takes upon himself a cost or degradation that properly belongs to another",
+   "roles": [
+    "taking-on",
+    "spared"
+   ],
+   "act": "takes on a burden so that another does not carry it",
+   "members": [
+    57,
+    78,
+    88
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b5-tokyo_chorus-3",
+    "s0b12-foundry_town-0",
+    "s0b11-cops_and_robbers-3"
+   ],
+   "memberSituations": [
+    "a man takes work beneath him for family",
+    "a child carries the household the parent cannot",
+    "one man accepts punishment to save another"
+   ]
+  },
+  {
+   "id": "shut-in-together",
+   "label": "Two parties are closed in with each other and neither can leave",
+   "roles": [
+    "confining",
+    "confined"
+   ],
+   "act": "is shut in with another with no way out for either",
+   "members": [
+    17,
+    46
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b0-shining-1",
+    "s0b5-fear_and_desire-0"
+   ],
+   "memberSituations": [
+    "shut in together with no way out",
+    "two people alone together share no language"
+   ]
+  },
+  {
+   "id": "bond-held-by-need",
+   "label": "One party stays in a bond out of need or obligation rather than out of wanting to",
+   "roles": [
+    "staying",
+    "held"
+   ],
+   "act": "remains bound to another by necessity rather than desire",
+   "members": [
+    52,
+    58
+   ],
+   "group": 0,
+   "memberIds": [
+    "s1bundefined-onibaba-0",
+    "s3b2-midsommar-1"
+   ],
+   "memberSituations": [
+    "one person's survival depends on another staying",
+    "a partner stays out of obligation not love"
+   ]
+  },
+  {
+   "id": "bond-set-aside-for-what-is-wanted-more",
+   "label": "One party sets aside the one bound to him in favour of something he wants more",
+   "roles": [
+    "forsaking",
+    "forsaken"
+   ],
+   "act": "forsakes a bond for something he prefers to it",
+   "members": [
+    28,
+    44,
+    56
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b7-manxman-2",
+    "s3b7-dinner_with_friends-0",
+    "s2b5-no_end-1"
+   ],
+   "memberSituations": [
+    "ambition is chosen over the person one loves",
+    "one leaves a marriage for someone new",
+    "one chooses the dead over the living"
+   ]
+  },
+  {
+   "id": "backing-refused-by-the-one-obliged",
+   "label": "One party appeals to the person obliged to vouch for him and is refused",
+   "roles": [
+    "refusing",
+    "appealing"
+   ],
+   "act": "withholds belief or backing from the one entitled to expect it",
+   "members": [
+    35,
+    47
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b7-downhill-1",
+    "s0b4-rebel_without_cause-0"
+   ],
+   "memberSituations": [
+    "a father refuses to believe his own child",
+    "a parent refuses to stand for his child"
+   ]
+  },
+  {
+   "id": "the-many-turn-on-one",
+   "label": "A body of people turns hostile toward a party on account of what that party is",
+   "roles": [
+    "turning-on",
+    "set-apart"
+   ],
+   "act": "turns as a body against a party for what he is",
+   "members": [
+    18,
+    59,
+    71,
+    83
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b2-elephant_man-4",
+    "s3b4-incredibles-3",
+    "s3b4-iron_giant-2",
+    "s1bundefined-exorcist_ii_heretic-3"
+   ],
+   "memberSituations": [
+    "a crowd turns on someone for being different",
+    "a people turn against those they once welcomed",
+    "a stranger is feared for what he could do",
+    "the ones able to heal are hunted"
+   ]
+  },
+  {
+   "id": "the-outmatched-turns-on-the-stronger",
+   "label": "The weaker or pursued party provokes or attacks the stronger instead of withdrawing",
+   "roles": [
+    "outmatched",
+    "stronger"
+   ],
+   "act": "turns on a stronger party rather than yield or flee",
+   "members": [
+    23,
+    30,
+    38
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b0-la_strada-3",
+    "s2b10-someone_s_watching_me-4",
+    "s0b8-battle_of_river_plate-0"
+   ],
+   "memberSituations": [
+    "a weaker man goads a stronger one fatally",
+    "the hunted becomes the hunter",
+    "the weaker party attacks instead of withdrawing"
+   ]
+  },
+  {
+   "id": "read-as-the-opposite",
+   "label": "One party receives another's true nature or appeal as the opposite of what it is",
+   "roles": [
+    "misreading",
+    "misread"
+   ],
+   "act": "takes another's quality or plea for its opposite",
+   "members": [
+    15,
+    27,
+    76
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b11-confucian_confusion-3",
+    "s1bundefined-exorcist_ii_heretic-4",
+    "s2b12-death_of_salesman-3"
+   ],
+   "memberSituations": [
+    "a person's kindness is read as pretence",
+    "a gift is mistaken for a sickness",
+    "a plea is heard as its opposite"
+   ]
+  },
+  {
+   "id": "protector-is-the-harm",
+   "label": "The party standing as rescuer is the one doing the harm to the party being rescued",
+   "roles": [
+    "protecting",
+    "protected"
+   ],
+   "act": "harms the very party he stands as rescuer to",
+   "members": [
+    31,
+    77
+   ],
+   "group": 0,
+   "memberIds": [
+    "s3b9-star_wars_episode_i_phantom_-0",
+    "s2b8-plot_of_fuma_clan-3"
+   ],
+   "memberSituations": [
+    "the rescuer secretly arranged the danger",
+    "a rescuer wounds the person being rescued"
+   ]
+  },
+  {
+   "id": "deference-withheld-from-power",
+   "label": "One party withholds from a power-holder the compliance or deference that is expected",
+   "roles": [
+    "withholding",
+    "commanding"
+   ],
+   "act": "withholds obedience or deference from one with power over him",
+   "members": [
+    16,
+    79
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b7-best_intentions-4",
+    "s1bundefined-is_paris_burning-0"
+   ],
+   "memberSituations": [
+    "one refuses to flatter those with power",
+    "an order is quietly not carried out"
+   ]
+  },
+  {
+   "id": "deed-done-through-another",
+   "label": "One party has another carry out the deed in his place",
+   "roles": [
+    "directing",
+    "instrument"
+   ],
+   "act": "acts on a third party through another's hands",
+   "members": [
+    14,
+    68
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b2-cabinet_of_dr_caligari-1",
+    "s2b10-where_are_you_going_on_holid-2"
+   ],
+   "memberSituations": [
+    "a person is used as another's hands",
+    "a wife hires someone to kill her husband"
+   ]
+  },
+  {
+   "id": "person-used-as-means",
+   "label": "One party puts another to use for a purpose the other is never made party to",
+   "roles": [
+    "using",
+    "used"
+   ],
+   "act": "uses another as a means and gives them no standing in it",
+   "members": [
+    45,
+    93
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b9-dangerous_toy-1",
+    "s1bundefined-machine_gun_mccain-0"
+   ],
+   "memberSituations": [
+    "someone is discarded once no longer useful",
+    "a person is used without being told why"
+   ]
+  },
+  {
+   "id": "leverage-held-for-payment",
+   "label": "One party seizes hold of what another cannot afford to lose and demands payment for it",
+   "roles": [
+    "coercing",
+    "coerced"
+   ],
+   "act": "holds what another needs and names a price for it",
+   "members": [
+    11,
+    66
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b7-pirates-3",
+    "s2b3-hard_eight-3"
+   ],
+   "memberSituations": [
+    "a captive is used to bargain with kin",
+    "a secret is used to extract money"
+   ]
+  },
+  {
+   "id": "adversaries-turn-intimate",
+   "label": "Two parties set against each other as hunter and quarry turn the antagonism into a personal bond",
+   "roles": [
+    "pursuing",
+    "pursued"
+   ],
+   "act": "converts a pursuit or combat into an intimacy between the two",
+   "members": [
+    5,
+    41,
+    70
+   ],
+   "group": 0,
+   "memberIds": [
+    "s0b11-cops_and_robbers-0",
+    "s3b9-to_catch_killer-4",
+    "s3b5-intolerable_cruelty-1"
+   ],
+   "memberSituations": [
+    "a pursuer becomes the friend of his quarry",
+    "the hunted asks the pursuer to end him",
+    "two people court each other as opponents"
+   ]
+  },
+  {
+   "id": "search-that-consumes-the-searcher",
+   "label": "One party gives himself over to recovering another who is lost, and the search takes him over",
+   "roles": [
+    "searching",
+    "sought"
+   ],
+   "act": "binds himself to the recovery of one who is gone",
+   "members": [
+    67,
+    91
+   ],
+   "group": 0,
+   "memberIds": [
+    "s2b5-king_lear-3",
+    "s3b8-prisoners-4"
+   ],
+   "memberSituations": [
+    "one is charged with recovering what was lost",
+    "a search for the lost destroys the searcher"
+   ]
+  },
+  {
+   "id": "own-death-brought-about",
+   "label": "One party deliberately brings about his own death in front of those bound to him",
+   "roles": [
+    "ending-himself",
+    "left-behind"
+   ],
+   "act": "sets his own death in motion knowingly",
+   "members": [
+    9,
+    19
+   ],
+   "group": 0,
+   "memberIds": [
+    "s1bundefined-un_flic-5",
+    "s1bundefined-mouchette-4"
+   ],
+   "memberSituations": [
+    "a man arranges his own death deliberately",
+    "a person walks knowingly toward their own death"
+   ]
+  },
+  {
+   "id": "living-under-the-one-who-harms",
+   "label": "One party goes on harming another who has no way out from under him",
+   "roles": [
+    "harming",
+    "enduring"
+   ],
+   "act": "keeps another under his power and keeps harming them",
+   "members": [
+    8,
+    69
+   ],
+   "group": 0,
+   "memberIds": [
+    "s3b1-act_of_killing-3",
+    "s3b2-inland_empire-5"
+   ],
+   "memberSituations": [
+    "the wronged still live under their tormentors",
+    "one is beaten inside her own home"
+   ]
+  },
+  {
+   "id": "held-by-the-dead",
+   "label": "One party stays bound to someone dead and withholds themselves from a living claimant",
+   "roles": [
+    "holding to the dead",
+    "refused"
+   ],
+   "act": "keeps faith with the dead and withholds itself from the living",
+   "members": [
+    1,
+    68
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b5-green_room-1",
+    "s1bundefined-shadows_of_forgotten_ancesto-2"
+   ],
+   "memberSituations": [
+    "one chooses the dead over the living",
+    "a new bond cannot replace the lost one"
+   ]
+  },
+  {
+   "id": "cost-taken-onto-oneself",
+   "label": "One party takes the danger or the loss onto itself so that others do not have to carry it",
+   "roles": [
+    "shielding",
+    "spared"
+   ],
+   "act": "absorbs a cost that would otherwise fall on another",
+   "members": [
+    3,
+    27,
+    64
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b12-daisy-4",
+    "s0b8-battle_of_river_plate-2",
+    "s0b5-fear_and_desire-3"
+   ],
+   "memberSituations": [
+    "one person dies in another's place",
+    "a leader ends the fight to save lives",
+    "a man volunteers to draw the danger away"
+   ]
+  },
+  {
+   "id": "aid-withheld-at-need",
+   "label": "One party that could come to another stays away at the moment the other most needs them",
+   "roles": [
+    "withholding",
+    "in need"
+   ],
+   "act": "withholds presence or aid at the moment of need",
+   "members": [
+    15,
+    29
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b9-human_condition_ii_road_to_e-3",
+    "s1bundefined-mother_kusters_trip_to_heave-3"
+   ],
+   "memberSituations": [
+    "one man lets another die within reach",
+    "kin are absent when they are most needed"
+   ]
+  },
+  {
+   "id": "injury-avenged-on-its-author",
+   "label": "One party takes up an injury done to someone close to them and repays it on whoever did it",
+   "roles": [
+    "avenging",
+    "avenged on"
+   ],
+   "act": "repays on its author an injury done to a third party",
+   "members": [
+    11,
+    39
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b5-sleepers-3",
+    "s2b5-joi_baba_felunath-1"
+   ],
+   "memberSituations": [
+    "an injury to a friend is avenged",
+    "an injury to a friend is avenged"
+   ]
+  },
+  {
+   "id": "unfinished-work-taken-up",
+   "label": "One party takes up the work or the debt that the dead left behind them",
+   "roles": [
+    "taking up",
+    "who left it"
+   ],
+   "act": "continues what the dead did not finish",
+   "members": [
+    12,
+    13
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b5-no_end-3",
+    "s1bundefined-cowboys-3"
+   ],
+   "memberSituations": [
+    "one takes up the work the dead left",
+    "children take up the killing of adults"
+   ]
+  },
+  {
+   "id": "harmed-set-upon-their-own",
+   "label": "One party pays or compels those it has already harmed to carry that harm to others like them",
+   "roles": [
+    "directing",
+    "directed"
+   ],
+   "act": "turns the harmed into the instrument of harm against their own kind",
+   "members": [
+    7,
+    10
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b6-river-2",
+    "s3b0-white_ribbon-1"
+   ],
+   "memberSituations": [
+    "the ruined are hired to ruin the remaining",
+    "those punished pass the punishment to the weaker"
+   ]
+  },
+  {
+   "id": "price-set-on-deliverance",
+   "label": "One party that alone can grant release or rescue sets a price on it the other can barely bear to pay",
+   "roles": [
+    "granting",
+    "yielding"
+   ],
+   "act": "makes another pay an unbearable price for what only it can give",
+   "members": [
+    14,
+    19,
+    20
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b8-all_money_in_world-2",
+    "s3b2-midsommar-3",
+    "s3b3-flowers_of_shanghai-3"
+   ],
+   "memberSituations": [
+    "a rescue is granted only on cruel terms",
+    "a choice is imposed with no innocent option",
+    "release must be bought from those holding one"
+   ]
+  },
+  {
+   "id": "another-given-to-the-danger",
+   "label": "One party hands another over to the harm that is coming, in order to stay clear of it themselves",
+   "roles": [
+    "handing over",
+    "handed over"
+   ],
+   "act": "gives another up to danger to save itself",
+   "members": [
+    24,
+    61
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b3-infernal_affairs-3",
+    "s1bundefined-conformist-2"
+   ],
+   "memberSituations": [
+    "an innocent is accused to save oneself",
+    "one betrays a friend to those hunting him"
+   ]
+  },
+  {
+   "id": "dropped-once-no-longer-needed",
+   "label": "One party sets another aside once they no longer serve its purpose",
+   "roles": [
+    "discarding",
+    "discarded"
+   ],
+   "act": "drops another the moment their usefulness ends",
+   "members": [
+    37,
+    50,
+    56
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b6-sword_of_penitence-2",
+    "s2b11-days_of_thunder-4",
+    "s1bundefined-le_samourai-3"
+   ],
+   "memberSituations": [
+    "a helper is left behind after being used",
+    "a backer abandons the one he raised up",
+    "a person becomes an inconvenience to be removed"
+   ]
+  },
+  {
+   "id": "regard-conditional-on-worth",
+   "label": "One party grants another a place only for what they supply or can prove, not for who they are",
+   "roles": [
+    "measuring",
+    "measured"
+   ],
+   "act": "makes its acceptance conditional on what the other is worth to it",
+   "members": [
+    25,
+    42,
+    66
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b0-there_will_be_blood-0",
+    "s2b1-hoop_dreams-0",
+    "s0b3-crowd-1"
+   ],
+   "memberSituations": [
+    "a child is taken in to be useful",
+    "someone is wanted only for being useful",
+    "worth must be proved to be loved"
+   ]
+  },
+  {
+   "id": "made-one-overtakes-its-maker",
+   "label": "The one another party raised, fathered or made rises against them and takes their place",
+   "roles": [
+    "successor",
+    "origin"
+   ],
+   "act": "overtakes or turns on the one who made it",
+   "members": [
+    28,
+    71,
+    78
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b3-pandora_s_box-2",
+    "s2b6-big_deal_after_20_years-1",
+    "s2b0-akira-2"
+   ],
+   "memberSituations": [
+    "a son wants what his father has",
+    "the son surpasses the father at his work",
+    "a creature destroys the one who created it"
+   ]
+  },
+  {
+   "id": "another-shaped-to-order",
+   "label": "One party fashions another into what it requires and holds them to that shape",
+   "roles": [
+    "shaping",
+    "shaped"
+   ],
+   "act": "remakes another's self to suit its own need",
+   "members": [
+    30,
+    38,
+    87
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b3-red_shoes-3",
+    "s0b4-idiot-1",
+    "s2b0-blade_runner-3"
+   ],
+   "memberSituations": [
+    "one owns the person one has made",
+    "a person is remade into what others need",
+    "someone discovers their memories are not their own"
+   ]
+  },
+  {
+   "id": "another-kept-dependent",
+   "label": "One party keeps another unable to stand on their own so that they cannot leave",
+   "roles": [
+    "keeping",
+    "kept"
+   ],
+   "act": "holds another in dependence to prevent their leaving",
+   "members": [
+    9,
+    90
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b2-piano-5",
+    "s2b3-sweetie-0"
+   ],
+   "memberSituations": [
+    "one person maims another to keep them",
+    "a grown child is kept a child"
+   ]
+  },
+  {
+   "id": "bond-decided-by-another",
+   "label": "One party decides whom another may be joined to, and whom they may not",
+   "roles": [
+    "disposing",
+    "disposed of"
+   ],
+   "act": "rules who another is permitted to be bound to",
+   "members": [
+    35,
+    48,
+    63
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b5-dream_lover-1",
+    "s0b1-ordet-0",
+    "s2b2-piano-0"
+   ],
+   "memberSituations": [
+    "a father keeps his daughter from other men",
+    "two families forbid the marriage their children want",
+    "a marriage is arranged between strangers"
+   ]
+  },
+  {
+   "id": "bond-against-existing-ties",
+   "label": "Two parties take each other up across a line the ties they already stand in forbid",
+   "roles": [
+    "pressing",
+    "yielding"
+   ],
+   "act": "enters a bond that the ties already held forbid",
+   "members": [
+    31,
+    32
+   ],
+   "group": 4,
+   "memberIds": [
+    "s1bundefined-phantom_of_liberty-2",
+    "s1bundefined-love_in_afternoon-0"
+   ],
+   "memberSituations": [
+    "two people of the same family become lovers",
+    "desire is pursued outside an intact marriage"
+   ]
+  },
+  {
+   "id": "bond-kept-out-of-sight",
+   "label": "One party keeps a bond hidden from those who would not permit it",
+   "roles": [
+    "hiding",
+    "judging"
+   ],
+   "act": "conceals a bond from those with power to punish it",
+   "members": [
+    58,
+    73
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b10-adaptation-2",
+    "s1bundefined-phantom_of_liberty-4"
+   ],
+   "memberSituations": [
+    "a respectable person hides a shameful attachment",
+    "what some do openly others must hide"
+   ]
+  },
+  {
+   "id": "incomer-denied-a-place",
+   "label": "Those already in place refuse the one who arrives among them a standing of their own",
+   "roles": [
+    "established",
+    "incomer"
+   ],
+   "act": "withholds a place from the one who comes among them",
+   "members": [
+    16,
+    52,
+    96
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b11-1492_conquest_of_paradise-2",
+    "s3b4-iron_giant-3",
+    "s0b2-diary_of_country_priest-0"
+   ],
+   "memberSituations": [
+    "the wellborn refuse to obey an upstart",
+    "a people turn against those they once welcomed",
+    "one sent to help is not wanted there"
+   ]
+  },
+  {
+   "id": "hidden-life-brought-to-light",
+   "label": "One party brings another's concealed life into the open and the other's standing is taken from them",
+   "roles": [
+    "exposing",
+    "exposed"
+   ],
+   "act": "makes another's hidden life known and costs them their place",
+   "members": [
+    22,
+    40,
+    95
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b8-girls_of_night-0",
+    "s0b10-adua_and_her_friends-3",
+    "s1bundefined-il_gatto-1"
+   ],
+   "memberSituations": [
+    "someone is despised once their past is known",
+    "a hidden past is exposed to destroy someone",
+    "private lives are searched for grounds to expel"
+   ]
+  },
+  {
+   "id": "account-pressed-out-of-one",
+   "label": "One party presses another to give up an account of themselves they would rather not give",
+   "roles": [
+    "pressing",
+    "pressed"
+   ],
+   "act": "extracts an account from the one who holds it",
+   "members": [
+    8,
+    54,
+    65
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b0-white_ribbon-2",
+    "s2b4-intervista-3",
+    "s2b1-shoah-0"
+   ],
+   "memberSituations": [
+    "the weak are made to confess by force",
+    "a maker is questioned by curious visitors",
+    "a witness is pressed to relive what happened"
+   ]
+  },
+  {
+   "id": "truth-withheld-to-spare",
+   "label": "One party keeps another in ignorance of something that concerns them, meaning to spare them",
+   "roles": [
+    "withholding",
+    "kept ignorant"
+   ],
+   "act": "withholds a truth from another for that other's sake",
+   "members": [
+    26,
+    59,
+    69,
+    82
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b12-daisy-3",
+    "s2b9-doc_hollywood-2",
+    "s2b6-memories-4",
+    "s0b7-manxman-4"
+   ],
+   "memberSituations": [
+    "a man conceals his work from the beloved",
+    "love is concealed to free the other",
+    "a child's question is deflected by the parent",
+    "a lie is told to protect someone's name"
+   ]
+  },
+  {
+   "id": "knower-moved-against",
+   "label": "One party moves against another for what they know, to keep it from getting out",
+   "roles": [
+    "silencing",
+    "knowing"
+   ],
+   "act": "threatens or removes another for what they know",
+   "members": [
+    49,
+    72,
+    94
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b10-ghost_writer-1",
+    "s1bundefined-klute-1",
+    "s3b6-eastern_promises-5"
+   ],
+   "memberSituations": [
+    "learning too much makes a person disposable",
+    "what one man knows would ruin another",
+    "the keeper of a secret is quietly threatened"
+   ]
+  },
+  {
+   "id": "own-side-turns-on-one",
+   "label": "A body, or the one at its head, turns against a member of its own and moves to punish them",
+   "roles": [
+    "turning on",
+    "one of their own"
+   ],
+   "act": "punishes or destroys one of its own",
+   "members": [
+    62,
+    84,
+    85
+   ],
+   "group": 4,
+   "memberIds": [
+    "s1bundefined-machine_gun_mccain-4",
+    "s1bundefined-un_flic-3",
+    "s1bundefined-damien_omen_ii-3"
+   ],
+   "memberSituations": [
+    "a person is hunted by their own people",
+    "a leader punishes the one he depends on",
+    "a friend is killed for refusing to join"
+   ]
+  },
+  {
+   "id": "blame-laid-on-the-blameless",
+   "label": "One party fixes on another the blame for a harm that other did not cause",
+   "roles": [
+    "blaming",
+    "blamed"
+   ],
+   "act": "lays the blame for a loss on one who did not cause it",
+   "members": [
+    2,
+    21
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b11-past-2",
+    "s1bundefined-zatoichi_and_chest_of_gold-1"
+   ],
+   "memberSituations": [
+    "a child blames one parent for the other",
+    "a helper is blamed for the harm done"
+   ]
+  },
+  {
+   "id": "defrauder-faces-the-defrauded",
+   "label": "One party who took another in by deceit comes back into that other's presence",
+   "roles": [
+    "deceiving",
+    "deceived"
+   ],
+   "act": "returns to stand before the one it cheated",
+   "members": [
+    41,
+    51
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b10-great_war-0",
+    "s2b9-it_takes_two-3"
+   ],
+   "memberSituations": [
+    "a cheat becomes the friend of the cheated",
+    "the cheat returns to undo the harm"
+   ]
+  },
+  {
+   "id": "rival-claim-on-the-beloved",
+   "label": "One party's claim on the beloved stands against another's, and one of the two is put out",
+   "roles": [
+    "claiming",
+    "displaced"
+   ],
+   "act": "sets a rival claim on the one another loves",
+   "members": [
+    45,
+    47,
+    88
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b5-green_room-2",
+    "s2b3-sweetie-3",
+    "s0b0-metropolis-4"
+   ],
+   "memberSituations": [
+    "a lover is found to belong to another",
+    "a third person comes between two lovers",
+    "a rival takes revenge for a lost love"
+   ]
+  },
+  {
+   "id": "return-after-long-absence",
+   "label": "One party comes back to another after years away, and the two must meet across what the absence made of them",
+   "roles": [
+    "returning",
+    "who stayed"
+   ],
+   "act": "comes back to one it left long ago",
+   "members": [
+    53,
+    70,
+    80,
+    83
+   ],
+   "group": 4,
+   "memberIds": [
+    "s2b12-tasmania_story-1",
+    "s2b12-trois_places_pour_le_26-0",
+    "s2b1-hoop_dreams-4",
+    "s2b11-krull-3"
+   ],
+   "memberSituations": [
+    "a child faces a parent grown unfamiliar",
+    "old lovers meet again after many years apart",
+    "a parent walks out then comes back",
+    "estranged lovers meet over the child they lost"
+   ]
+  },
+  {
+   "id": "stranger-gives-what-kin-withhold",
+   "label": "A stranger takes in or stays beside someone their own people have left without",
+   "roles": [
+    "stranger",
+    "left without"
+   ],
+   "act": "supplies to another what their own people withheld",
+   "members": [
+    44,
+    76
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b0-rashomon-3",
+    "s3b2-eureka-1"
+   ],
+   "memberSituations": [
+    "a stranger takes in someone abandoned",
+    "a mourner is comforted by strangers not intimates"
+   ]
+  },
+  {
+   "id": "one-turned-back-from-ruin",
+   "label": "One party argues another out of a course that would destroy them",
+   "roles": [
+    "dissuading",
+    "dissuaded"
+   ],
+   "act": "turns another back from a self-destroying course",
+   "members": [
+    6,
+    89
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b10-slice_of_life-0",
+    "s0b10-slice_of_life-3"
+   ],
+   "memberSituations": [
+    "someone is talked out of selling themselves",
+    "the one dissuaded saves the dissuader"
+   ]
+  },
+  {
+   "id": "true-account-not-credited",
+   "label": "One party tells another something true about themselves or the danger and is not believed",
+   "roles": [
+    "telling",
+    "disbelieving"
+   ],
+   "act": "gives a true account the other refuses to credit",
+   "members": [
+    5,
+    92
+   ],
+   "group": 4,
+   "memberIds": [
+    "s0b6-sword_of_penitence-0",
+    "s1bundefined-tidal_wave-0"
+   ],
+   "memberSituations": [
+    "a change of heart is not believed",
+    "a warning is not believed in time"
+   ]
+  },
+  {
+   "id": "place-given-to-another",
+   "label": "The one whose regard another depended on gives that other's place to someone else",
+   "roles": [
+    "passing over",
+    "passed over"
+   ],
+   "act": "withholds the standing another counted on and gives it elsewhere",
+   "members": [
+    55,
+    57
+   ],
+   "group": 4,
+   "memberIds": [
+    "s3b2-gladiator-0",
+    "s3b5-tar-2"
+   ],
+   "memberSituations": [
+    "a son learns his father preferred another",
+    "loyalty is withdrawn after a promotion is denied"
+   ]
+  },
+  {
+   "id": "power-injures-its-support",
+   "label": "A party in power injures, discards or denies its due to the one whose service holds that power up",
+   "roles": [
+    "holding power",
+    "serving"
+   ],
+   "act": "injures or casts off the one whose service sustains it",
+   "members": [
+    1,
+    8,
+    60,
+    61
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-hellbenders-3",
+    "s2b2-total_recall-3",
+    "s3b9-to_catch_killer-1",
+    "s3b5-tragedy_of_macbeth-1"
+   ],
+   "memberSituations": [
+    "a leader punishes the one he depends on",
+    "many are killed to keep power in place",
+    "an institution discards the one who served it",
+    "loyalty is withdrawn after a promotion is denied"
+   ]
+  },
+  {
+   "id": "protector-bears-the-cost",
+   "label": "One party takes the harm or ruin upon itself in order to shield another",
+   "roles": [
+    "shielding",
+    "shielded"
+   ],
+   "act": "absorbs the cost of protecting another",
+   "members": [
+    17,
+    21,
+    36,
+    94
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b9-human_condition_ii_road_to_e-2",
+    "s3b10-panic_room-1",
+    "s2b0-farewell_my_concubine-4",
+    "s1bundefined-high_and_low-0"
+   ],
+   "memberSituations": [
+    "shielding the weak brings punishment upon the protector",
+    "a parent leaves safety to save the child",
+    "punished for the thing done to save another",
+    "one must be ruined to save a child"
+   ]
+  },
+  {
+   "id": "trusted-hands-over",
+   "label": "One of a trusted pair works against the other and delivers them to whoever profits",
+   "roles": [
+    "betraying",
+    "betrayed"
+   ],
+   "act": "delivers a trusting intimate to another party for gain or safety",
+   "members": [
+    15,
+    16,
+    74,
+    77
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-battle_of_algiers-2",
+    "s0b12-hangmen_also_die-3",
+    "s1bundefined-lucky_luciano-2",
+    "s1bundefined-rosemary_s_baby-0"
+   ],
+   "memberSituations": [
+    "one betrays a friend to those hunting him",
+    "one of the trusted works against them",
+    "a betrayer is exposed to the one betrayed",
+    "one partner trades the other for advancement"
+   ]
+  },
+  {
+   "id": "bound-one-is-the-harm",
+   "label": "The party bound to another by love or duty is the source of the violence done to them",
+   "roles": [
+    "harming",
+    "harmed"
+   ],
+   "act": "turns on the very party it exists to keep safe",
+   "members": [
+    27,
+    41,
+    80
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b2-pixote-0",
+    "s0b2-jules_and_jim-2",
+    "s2b5-sleepers-0"
+   ],
+   "memberSituations": [
+    "the protectors are the ones doing the harm",
+    "one tries to kill the person they love",
+    "a child is harmed by its protector"
+   ]
+  },
+  {
+   "id": "unseen-hand-directs",
+   "label": "One party moves another to act while itself remaining unseen",
+   "roles": [
+    "directing",
+    "acting"
+   ],
+   "act": "acts through another's hands without showing itself",
+   "members": [
+    35,
+    64,
+    86
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-lucky_luciano-1",
+    "s1bundefined-grand_slam-0",
+    "s1bundefined-joy_of_learning-1"
+   ],
+   "memberSituations": [
+    "a man acts only through other hands",
+    "the mildest person is the one behind everything",
+    "someone is instructed by a voice never seen"
+   ]
+  },
+  {
+   "id": "passed-to-the-formed",
+   "label": "One party passes into the one it formed the task or the injury it carried",
+   "roles": [
+    "transmitting",
+    "inheriting"
+   ],
+   "act": "hands on to the one it shaped what it carried",
+   "members": [
+    33,
+    49,
+    95
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b4-last_waltz-2",
+    "s1bundefined-sympathy_for_devil-1",
+    "s3b9-to_catch_killer-2"
+   ],
+   "memberSituations": [
+    "those who taught appear beside those who learned",
+    "a child is taught to repeat adult cruelty",
+    "a mentor dies leaving the student his task"
+   ]
+  },
+  {
+   "id": "verdict-before-proof",
+   "label": "One party settles another's guilt before any proof has been heard",
+   "roles": [
+    "condemning",
+    "condemned"
+   ],
+   "act": "fixes another's guilt in advance of evidence",
+   "members": [
+    34,
+    87,
+    90
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b1-harakiri-3",
+    "s0b10-young_one-1",
+    "s3b7-doubt-0"
+   ],
+   "memberSituations": [
+    "the verdict is settled before the hearing begins",
+    "the innocent is presumed guilty by all",
+    "someone acts on certainty without any proof"
+   ]
+  },
+  {
+   "id": "blame-fastened-elsewhere",
+   "label": "One party fastens authorship of a harm onto another who did not cause it",
+   "roles": [
+    "blaming",
+    "blamed"
+   ],
+   "act": "assigns a harm to a chosen party rather than its author",
+   "members": [
+    42,
+    73,
+    83
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b2-terrorizers-1",
+    "s1bundefined-martha-3",
+    "s3b11-past-0"
+   ],
+   "memberSituations": [
+    "a crime is pinned on an innocent person",
+    "a parent blames the child for a death",
+    "someone hunts for a person to blame"
+   ]
+  },
+  {
+   "id": "account-that-spares-teller",
+   "label": "A party called to answer gives an account of the deed that clears itself",
+   "roles": [
+    "accounting",
+    "judging"
+   ],
+   "act": "tells the past in the shape that spares the teller",
+   "members": [
+    28,
+    55,
+    84
+   ],
+   "group": 1,
+   "memberIds": [
+    "s3b7-doubt-1",
+    "s0b0-rashomon-0",
+    "s3b11-taxi_driver-1"
+   ],
+   "memberSituations": [
+    "the accused denies it to the very end",
+    "each teller shapes the past to spare themselves",
+    "those in power deny what was done"
+   ]
+  },
+  {
+   "id": "attachment-forbidden-by-third",
+   "label": "A party with authority over one of two attached people acts to break or forbid the attachment",
+   "roles": [
+    "forbidding",
+    "attached"
+   ],
+   "act": "forbids or severs an attachment between another and the one they love",
+   "members": [
+    3,
+    24,
+    76
+   ],
+   "group": 1,
+   "memberIds": [
+    "s3b9-megalopolis-2",
+    "s0b6-without_pity-1",
+    "s1bundefined-graduate-1"
+   ],
+   "memberSituations": [
+    "a father tries to break his child's attachment",
+    "lovers are not permitted to belong together",
+    "a mother forbids her daughter the mother's lover"
+   ]
+  },
+  {
+   "id": "pledged-turns-to-newcomer",
+   "label": "A party already pledged to one person turns toward another who has just arrived",
+   "roles": [
+    "turning",
+    "pledged to"
+   ],
+   "act": "turns toward a newcomer while still bound to another",
+   "members": [
+    2,
+    39,
+    85
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b6-rich_and_strange-1",
+    "s1bundefined-trip_to_vienna-1",
+    "s0b11-i_know_where_i_m_going-0"
+   ],
+   "memberSituations": [
+    "a devoted partner is left for a newcomer",
+    "desire is pursued outside an intact marriage",
+    "a promise of marriage collides with new love"
+   ]
+  },
+  {
+   "id": "desire-for-one-already-bound",
+   "label": "One party wants someone who is already given or promised to a third",
+   "roles": [
+    "desiring",
+    "already bound"
+   ],
+   "act": "desires a person who belongs to another",
+   "members": [
+    50,
+    63,
+    70
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-onibaba-2",
+    "s3b6-terminal-3",
+    "s3b8-dust_of_time-3"
+   ],
+   "memberSituations": [
+    "a woman wants the man her daughter has",
+    "the beloved is already promised to another",
+    "one loves a person already given to another"
+   ]
+  },
+  {
+   "id": "authority-over-another-life",
+   "label": "One party claims the right to decide what another does with their own life",
+   "roles": [
+    "governing",
+    "claiming their own"
+   ],
+   "act": "asserts control over how another disposes of their own life",
+   "members": [
+    38,
+    51,
+    75
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b9-love_in_germany-2",
+    "s0b5-secrets_of_women-5",
+    "s3b5-lincoln-4"
+   ],
+   "memberSituations": [
+    "a community polices what a woman does privately",
+    "a young woman refuses to be governed",
+    "a father must let his son risk death"
+   ]
+  },
+  {
+   "id": "withheld-from-the-intimate",
+   "label": "One party knowingly keeps from an intimate the fact that would change everything between them",
+   "roles": [
+    "concealing",
+    "kept in the dark"
+   ],
+   "act": "hides from a trusting intimate what would transform the bond",
+   "members": [
+    11,
+    22,
+    45
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-i_am_cuba-0",
+    "s3b6-honey_don_t-1",
+    "s2b8-last_note-0"
+   ],
+   "memberSituations": [
+    "a partner conceals what would end the bond",
+    "the danger is discovered to be the lover",
+    "a visit turns out to be a farewell"
+   ]
+  },
+  {
+   "id": "decisive-knowledge-withheld",
+   "label": "The party holding the knowledge that would settle the matter will not give it to those who need it",
+   "roles": [
+    "withholding",
+    "in the dark"
+   ],
+   "act": "holds back the knowledge that would resolve the matter",
+   "members": [
+    12,
+    48,
+    71
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-investigation_of_citizen_abo-0",
+    "s0b2-diary_of_country_priest-3",
+    "s1bundefined-autumn_sonata-3"
+   ],
+   "memberSituations": [
+    "a man leads the hunt for himself",
+    "a man refuses to clear his own name",
+    "a person sees everything then says nothing"
+   ]
+  },
+  {
+   "id": "made-thing-confronts-maker",
+   "label": "A being made by another presses a claim on its maker that the maker will not answer",
+   "roles": [
+    "made",
+    "making"
+   ],
+   "act": "turns on its maker with a demand the maker refuses",
+   "members": [
+    4,
+    32
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b0-yeelen-1",
+    "s2b0-blade_runner-1"
+   ],
+   "memberSituations": [
+    "a maker refuses what his creation asks",
+    "a creature destroys the one who created it"
+   ]
+  },
+  {
+   "id": "undone-by-the-targeted",
+   "label": "One party moves against another and is destroyed or outplayed by that very party",
+   "roles": [
+    "moving against",
+    "turning it back"
+   ],
+   "act": "attacks or deceives a party who turns it back on them",
+   "members": [
+    6,
+    96
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b10-il_marchese_del_grillo-5",
+    "s2b8-guilty_as_sin-5"
+   ],
+   "memberSituations": [
+    "a trickster is tricked by a greater power",
+    "an attacker is destroyed by the one attacked"
+   ]
+  },
+  {
+   "id": "peril-borne-for-another",
+   "label": "One party takes on a danger that properly belongs to someone else",
+   "roles": [
+    "taking on",
+    "imperilled"
+   ],
+   "act": "assumes another party's peril as its own errand",
+   "members": [
+    14,
+    92
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b11-krull-5",
+    "s0b2-mother_joan_of_angels-0"
+   ],
+   "memberSituations": [
+    "strangers join a doomed errand not their own",
+    "an outsider is sent after repeated failures"
+   ]
+  },
+  {
+   "id": "faculty-lent-to-lacking",
+   "label": "One party supplies a capacity another lacks, so that the other can act only through them",
+   "roles": [
+    "lending",
+    "lacking"
+   ],
+   "act": "stands in for a faculty another does not have",
+   "members": [
+    10,
+    72
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b2-city_of_sadness-3",
+    "s3b8-pina-2"
+   ],
+   "memberSituations": [
+    "a voiceless person depends on another's voice",
+    "one person moves another's body for them"
+   ]
+  },
+  {
+   "id": "secret-amends-to-wronged",
+   "label": "One party quietly serves or helps the person it once harmed, without disclosing that it was the author of the harm",
+   "roles": [
+    "atoning",
+    "unknowing"
+   ],
+   "act": "makes amends in secret to the one it wronged",
+   "members": [
+    43,
+    47
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b4-page_of_madness-0",
+    "s2b3-hard_eight-2"
+   ],
+   "memberSituations": [
+    "one secretly serves the person he harmed",
+    "help is given to hide an old wrong"
+   ]
+  },
+  {
+   "id": "false-proof-of-betrayal",
+   "label": "One party is brought to believe an intimate has betrayed them on evidence that is not true",
+   "roles": [
+    "suspecting",
+    "wrongly suspected"
+   ],
+   "act": "is persuaded of an innocent intimate's treachery",
+   "members": [
+    56,
+    93
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b8-law_is_law-3",
+    "s2b11-confucian_confusion-4"
+   ],
+   "memberSituations": [
+    "a friend is mistaken for a betrayer",
+    "a lover is shown false proof of betrayal"
+   ]
+  },
+  {
+   "id": "speech-the-hearer-refuses",
+   "label": "One party speaks the truth of its situation and the hearers will not take it in",
+   "roles": [
+    "speaking",
+    "dismissing"
+   ],
+   "act": "tells another what is so and is not received",
+   "members": [
+    23,
+    57
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-mirror-5",
+    "s1bundefined-don_t_look_now-3"
+   ],
+   "memberSituations": [
+    "a man cannot make anyone hear his distress",
+    "a warning is delivered and not believed"
+   ]
+  },
+  {
+   "id": "admission-to-the-settled",
+   "label": "An established group weighs whether to grant a place to one who comes from outside it",
+   "roles": [
+    "established",
+    "arriving"
+   ],
+   "act": "grants or withholds a place from an outsider",
+   "members": [
+    31,
+    89
+   ],
+   "group": 1,
+   "memberIds": [
+    "s3b12-rolling_thunder_revue_bob_dy-2",
+    "s3b10-avatar_way_of_water-1"
+   ],
+   "memberSituations": [
+    "an outsider tries to join a closed circle",
+    "outsiders must earn a place among the settled"
+   ]
+  },
+  {
+   "id": "kinship-made-from-lack",
+   "label": "Parties with no claim on each other build a kinship out of what each of them has lost",
+   "roles": [
+    "taking in",
+    "without kin"
+   ],
+   "act": "makes a kinship where none was given",
+   "members": [
+    29,
+    82
+   ],
+   "group": 1,
+   "memberIds": [
+    "s2b11-goonies-4",
+    "s1bundefined-viva_maria-0"
+   ],
+   "memberSituations": [
+    "an outcast is taken in as family",
+    "two survivors of separate losses pair up"
+   ]
+  },
+  {
+   "id": "departure-undoes-dependent",
+   "label": "One party leaves another who depends on them, and the one left is undone by the waiting",
+   "roles": [
+    "leaving",
+    "left"
+   ],
+   "act": "walks out on a party who cannot do without them",
+   "members": [
+    69,
+    81
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-eraserhead-1",
+    "s0b4-page_of_madness-4"
+   ],
+   "memberSituations": [
+    "a parent walks out on a small child",
+    "a parent's absence unmakes the one left waiting"
+   ]
+  },
+  {
+   "id": "cannot-release-the-lost",
+   "label": "One party keeps reaching for someone who is already beyond reach",
+   "roles": [
+    "holding on",
+    "lost"
+   ],
+   "act": "goes on reaching for a party who can no longer answer",
+   "members": [
+    19,
+    52
+   ],
+   "group": 1,
+   "memberIds": [
+    "s3b0-portrait_of_lady_on_fire-3",
+    "s3b3-day_he_arrives-2"
+   ],
+   "memberSituations": [
+    "looking back costs the lover the beloved",
+    "someone keeps returning to a person already lost"
+   ]
+  },
+  {
+   "id": "petition-for-return",
+   "label": "One party asks the person it wronged or left to grant a return that only that person can give",
+   "roles": [
+    "petitioning",
+    "withholding"
+   ],
+   "act": "asks the injured party for a reprieve only they can grant",
+   "members": [
+    53,
+    79
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b9-era_lui_si_si-3",
+    "s3b3-infernal_affairs-4"
+   ],
+   "memberSituations": [
+    "a wrongdoer must beg forgiveness of his victim",
+    "a plea to begin again is refused"
+   ]
+  },
+  {
+   "id": "claim-will-not-release",
+   "label": "A standing claim holds a party in a place they are trying to leave",
+   "roles": [
+    "holding to",
+    "straining away"
+   ],
+   "act": "refuses to release the one who wants out",
+   "members": [
+    30,
+    66
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b8-girls_of_night-1",
+    "s0b8-beyond_forest-0"
+   ],
+   "memberSituations": [
+    "old work reclaims someone trying to leave it",
+    "a spouse wants a life the marriage forbids"
+   ]
+  },
+  {
+   "id": "will-pressed-into-yielding",
+   "label": "One party presses another past their unwillingness into giving or doing what they would not choose",
+   "roles": [
+    "pressing",
+    "yielding"
+   ],
+   "act": "overrides another's reluctance to obtain their participation",
+   "members": [
+    20,
+    46
+   ],
+   "group": 1,
+   "memberIds": [
+    "s3b5-certain_women-4",
+    "s2b1-shoah-1"
+   ],
+   "memberSituations": [
+    "something is taken from the barely willing",
+    "someone is made to help do harm"
+   ]
+  },
+  {
+   "id": "office-will-not-answer",
+   "label": "A wrong is brought to the party answerable for it, and that party neither answers nor is made to",
+   "roles": [
+    "holding office",
+    "seeking account"
+   ],
+   "act": "fails or refuses to answer to the one owed an account",
+   "members": [
+    37,
+    88
+   ],
+   "group": 1,
+   "memberIds": [
+    "s1bundefined-conformist-4",
+    "s3b2-serious_man-1"
+   ],
+   "memberSituations": [
+    "those in power protect their own from consequence",
+    "the appointed authorities cannot answer the question"
+   ]
+  },
+  {
+   "id": "met-as-a-function",
+   "label": "One party regards another only through what they represent or supply, and so never meets the person",
+   "roles": [
+    "regarding",
+    "reduced"
+   ],
+   "act": "treats another as an emblem or a use rather than a person",
+   "members": [
+    18,
+    91
+   ],
+   "group": 1,
+   "memberIds": [
+    "s0b4-devi-2",
+    "s2b1-schindler_s_list-2"
+   ],
+   "memberSituations": [
+    "being adored cuts one off from everyone",
+    "someone is wanted only for being useful"
+   ]
+  },
+  {
+   "id": "absolution-sought-from-the-wronged",
+   "label": "One party asks the person they harmed to release them from the harm, and that release is the other's alone to give",
+   "roles": [
+    "asking",
+    "withholding"
+   ],
+   "act": "asks the wronged party to absolve them",
+   "members": [
+    2,
+    69
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b0-tree_of_life-3",
+    "s3b6-honey_don_t-4"
+   ],
+   "memberSituations": [
+    "a father asks his son to forgive him",
+    "an absent parent asks to be forgiven"
+   ]
+  },
+  {
+   "id": "search-for-a-taken-person",
+   "label": "One party is removed from another's keeping and the one left behind spends themselves looking for them",
+   "roles": [
+    "searching",
+    "missing"
+   ],
+   "act": "searches for the one who was taken away",
+   "members": [
+    3,
+    83
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b11-taxi_driver-4",
+    "s0b7-two_men_in_manhattan-4"
+   ],
+   "memberSituations": [
+    "a mother searches for a son taken away",
+    "a child searches for a parent gone missing"
+   ]
+  },
+  {
+   "id": "unaimed-suspicion-settles-on-one",
+   "label": "A charge that names nobody circulates among a group until it fastens on the party least able to carry it",
+   "roles": [
+    "accusing",
+    "accused"
+   ],
+   "act": "casts a charge that names no one until it settles on someone",
+   "members": [
+    4,
+    38
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-les_creatures-2",
+    "s1bundefined-il_gatto-4"
+   ],
+   "memberSituations": [
+    "a dead animal sets neighbors accusing one another",
+    "a vague accusation lands on a guilty conscience"
+   ]
+  },
+  {
+   "id": "need-turned-into-profit",
+   "label": "One party makes another's need for a roof or a place the source of their own gain",
+   "roles": [
+    "extracting",
+    "in need"
+   ],
+   "act": "charges another for what they cannot live without",
+   "members": [
+    5,
+    9,
+    21
+   ],
+   "group": 5,
+   "memberIds": [
+    "s0b5-piece_of_sky-0",
+    "s1bundefined-au_hasard_balthazar-2",
+    "s1bundefined-il_gatto-0"
+   ],
+   "memberSituations": [
+    "the poor are sold what cannot be owned",
+    "shelter is offered with a price attached",
+    "people are driven from their home for profit"
+   ]
+  },
+  {
+   "id": "wronged-settles-with-wrongdoer",
+   "label": "The party who was degraded comes back before the one who degraded them and pays it back in the same coin",
+   "roles": [
+    "wronged",
+    "wrongdoer"
+   ],
+   "act": "returns the injury to the one who inflicted it",
+   "members": [
+    6,
+    61
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b0-there_will_be_blood-3",
+    "s1bundefined-high_and_low-4"
+   ],
+   "memberSituations": [
+    "humiliation is repaid with humiliation",
+    "two enemies finally stand face to face"
+   ]
+  },
+  {
+   "id": "harm-lands-on-the-uninvolved",
+   "label": "One party's act destroys a party who had no hand in it and was never its object",
+   "roles": [
+    "acting",
+    "struck"
+   ],
+   "act": "destroys a party who had no part in the matter",
+   "members": [
+    7,
+    28
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-au_hasard_balthazar-4",
+    "s0b11-come_fill_cup-4"
+   ],
+   "memberSituations": [
+    "the innocent suffer for what others do",
+    "a bystander dies in another man's place"
+   ]
+  },
+  {
+   "id": "one-absorbs-another-identity",
+   "label": "One party takes on the manner and person of another until the two can barely be told apart",
+   "roles": [
+    "taking on",
+    "taken from"
+   ],
+   "act": "assumes another's identity as their own",
+   "members": [
+    8,
+    37
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b10-unknown_pleasures-1",
+    "s1bundefined-persona-4"
+   ],
+   "memberSituations": [
+    "the young imitate strangers to become someone",
+    "two people become hard to tell apart"
+   ]
+  },
+  {
+   "id": "quarry-and-pursuer",
+   "label": "One party pursues another living being to take it, and the pursued survives only by staying hidden",
+   "roles": [
+    "pursuing",
+    "pursued"
+   ],
+   "act": "hunts another living being to take it",
+   "members": [
+    10,
+    19
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-wild_child-0",
+    "s3b4-iron_giant-1"
+   ],
+   "memberSituations": [
+    "a person is hunted like an animal",
+    "something living is hidden from those hunting it"
+   ]
+  },
+  {
+   "id": "answering-for-others-harm",
+   "label": "One party is called to account for harm carried out by others, and answers by naming the limits of their own part",
+   "roles": [
+    "confronting",
+    "answering"
+   ],
+   "act": "holds another answerable for harm done by others",
+   "members": [
+    11,
+    43
+   ],
+   "group": 5,
+   "memberIds": [
+    "s2b1-shoah-2",
+    "s1bundefined-zatoichi_and_chest_of_gold-4"
+   ],
+   "memberSituations": [
+    "someone insists they only did their part",
+    "a leader is answerable for his men's crimes"
+   ]
+  },
+  {
+   "id": "one-made-an-instrument",
+   "label": "One party turns another's compliance into a tool, spending them on a purpose that is not theirs",
+   "roles": [
+    "using",
+    "complying"
+   ],
+   "act": "makes an instrument of another's compliance",
+   "members": [
+    12,
+    75
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b1-killers_of_flower_moon-2",
+    "s2b6-big_deal_after_20_years-3"
+   ],
+   "memberSituations": [
+    "an older man uses a younger one's obedience",
+    "a man is used without being told why"
+   ]
+  },
+  {
+   "id": "a-word-that-disposes-a-life",
+   "label": "One party puts a course to another, who takes it up and lets their whole life be settled by it",
+   "roles": [
+    "proposing",
+    "carrying out"
+   ],
+   "act": "proposes a course that the other makes their life",
+   "members": [
+    13,
+    56
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b9-to_catch_killer-3",
+    "s3b9-salt_of_earth-2"
+   ],
+   "memberSituations": [
+    "a parent asks a child to end himself",
+    "a partner's suggestion redirects the other's whole life"
+   ]
+  },
+  {
+   "id": "approach-refused",
+   "label": "One party presses their wanting on another who will not have them",
+   "roles": [
+    "pressing",
+    "refusing"
+   ],
+   "act": "presses a wanting on one who refuses it",
+   "members": [
+    14,
+    35
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-eraserhead-3",
+    "s3b6-honey_don_t-5"
+   ],
+   "memberSituations": [
+    "one is turned away by the person desired",
+    "a suitor cannot hear a refusal"
+   ]
+  },
+  {
+   "id": "compelled-to-give-up-a-conviction",
+   "label": "A party with power demands another give up or keep silent about what they hold, and punishes them for holding to it",
+   "roles": [
+    "compelling",
+    "holding out"
+   ],
+   "act": "demands another surrender what they hold and punishes their refusal",
+   "members": [
+    16,
+    23,
+    59,
+    96
+   ],
+   "group": 5,
+   "memberIds": [
+    "s0b1-passion_of_joan_of_arc-0",
+    "s1bundefined-rocky_road_to_dublin-2",
+    "s3b11-attorney-2",
+    "s2b5-no_end-4"
+   ],
+   "memberSituations": [
+    "one is pressed to disown what she believes",
+    "one must leave home in order to speak",
+    "a person is punished for telling the truth",
+    "one is imprisoned for what they believe"
+   ]
+  },
+  {
+   "id": "ruin-taken-on-for-another",
+   "label": "One party takes ruin, dishonour or sale upon themselves so that another is spared it",
+   "roles": [
+    "taking on",
+    "spared"
+   ],
+   "act": "accepts their own ruin so another goes free",
+   "members": [
+    17,
+    48,
+    86
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-taxi_driver-3",
+    "s1bundefined-le_samourai-2",
+    "s0b6-without_pity-3"
+   ],
+   "memberSituations": [
+    "one must be ruined to save a child",
+    "someone is made to lie to shield another",
+    "someone sells themselves to keep another safe"
+   ]
+  },
+  {
+   "id": "self-concealed-from-intimates",
+   "label": "One party keeps what they are or were out of sight of the person closest to them, so the bond can go on",
+   "roles": [
+    "concealing",
+    "kept from"
+   ],
+   "act": "hides their own nature or past from an intimate",
+   "members": [
+    18,
+    45
+   ],
+   "group": 5,
+   "memberIds": [
+    "s0b4-page_of_madness-3",
+    "s3b4-incredibles-2"
+   ],
+   "memberSituations": [
+    "a past is hidden to protect a marriage",
+    "a man hides his true nature from his family"
+   ]
+  },
+  {
+   "id": "witness-misreads-what-another-knows",
+   "label": "One party takes what they saw for something it was not, while another holds the sense of it",
+   "roles": [
+    "knowing",
+    "mistaken"
+   ],
+   "act": "lets another go on misreading what they witnessed",
+   "members": [
+    22,
+    73
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-man_who_shot_liberty_valance-1",
+    "s1bundefined-bird_with_crystal_plumage-0"
+   ],
+   "memberSituations": [
+    "a man misreads what he actually saw",
+    "a man misreads what he actually saw"
+   ]
+  },
+  {
+   "id": "rule-over-anothers-intimate-life",
+   "label": "One party asserts authority over whom another may be bound to, forbidding, forcing or policing the attachment",
+   "roles": [
+    "governing",
+    "governed"
+   ],
+   "act": "dictates the terms of another's intimate attachments",
+   "members": [
+    24,
+    90,
+    95
+   ],
+   "group": 5,
+   "memberIds": [
+    "s2b5-king_lear-2",
+    "s3b3-platform-2",
+    "s1bundefined-eraserhead-0"
+   ],
+   "memberSituations": [
+    "a father keeps his daughter from other men",
+    "private life is policed by the authorities",
+    "two are made to marry over a child"
+   ]
+  },
+  {
+   "id": "bond-held-across-death",
+   "label": "One party keeps a bond with a party who has died, and is held by what that bond still asks of them",
+   "roles": [
+    "holding",
+    "held"
+   ],
+   "act": "keeps faith with one who can no longer answer",
+   "members": [
+    25,
+    26,
+    39,
+    65,
+    80
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b6-from_up_on_poppy_hill-1",
+    "s1bundefined-cat_o_nine_tails-3",
+    "s1bundefined-shadows_of_forgotten_ancesto-1",
+    "s2b5-no_end-0",
+    "s2b5-green_room-0"
+   ],
+   "memberSituations": [
+    "the dead leave an errand for the living",
+    "the living will not leave the dead alone",
+    "a survivor keeps faith with the dead",
+    "the dead are kept present among the living",
+    "the dead are kept present among the living"
+   ]
+  },
+  {
+   "id": "custody-converted-into-sale",
+   "label": "One party takes a vulnerable other into their charge and then turns that charge into something to be spent or sold",
+   "roles": [
+    "holding",
+    "held"
+   ],
+   "act": "converts the one in their charge into goods",
+   "members": [
+    27,
+    51
+   ],
+   "group": 5,
+   "memberIds": [
+    "s0b1-street_of_shame-4",
+    "s0b3-pandora_s_box-1"
+   ],
+   "memberSituations": [
+    "a rescue proves to be another use",
+    "a protector sells the person he protects"
+   ]
+  },
+  {
+   "id": "one-set-aside-for-another",
+   "label": "One party is passed over by someone whose regard they had, in favour of another they prefer",
+   "roles": [
+    "choosing",
+    "set aside"
+   ],
+   "act": "sets one aside in favour of what is preferred",
+   "members": [
+    29,
+    30,
+    46
+   ],
+   "group": 5,
+   "memberIds": [
+    "s0b10-adua_and_her_friends-4",
+    "s2b2-terrorizers-2",
+    "s0b11-mara_maru-2"
+   ],
+   "memberSituations": [
+    "a woman is replaced by a younger one",
+    "a partner is left for someone more attentive",
+    "a chosen prize is weighed against a person"
+   ]
+  },
+  {
+   "id": "hidden-guilt-named-publicly",
+   "label": "One party names another as the author of a concealed wrong, in front of those who did not know",
+   "roles": [
+    "naming",
+    "named"
+   ],
+   "act": "names another as the author of a hidden wrong",
+   "members": [
+    32,
+    57,
+    84
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-my_dear_killer-2",
+    "s1bundefined-my_dear_killer-4",
+    "s1bundefined-un_flic-4"
+   ],
+   "memberSituations": [
+    "a victim leaves a sign naming the killer",
+    "the guilty is exposed before the assembled household",
+    "a betrayer is exposed to the one betrayed"
+   ]
+  },
+  {
+   "id": "person-passed-between-holders",
+   "label": "One party is held as property by another and then handed on to the next holder",
+   "roles": [
+    "holding",
+    "held"
+   ],
+   "act": "owns another living being and passes them on",
+   "members": [
+    33,
+    34
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b1-mad_max_fury_road-0",
+    "s2b2-elephant_man-1"
+   ],
+   "memberSituations": [
+    "a living being is owned then handed on",
+    "a person is handed between keepers"
+   ]
+  },
+  {
+   "id": "failing-life-in-anothers-keeping",
+   "label": "One party's failing life falls wholly into the hands of a younger one, who must carry them or leave them",
+   "roles": [
+    "keeping",
+    "failing"
+   ],
+   "act": "takes or refuses the keeping of a failing life",
+   "members": [
+    36,
+    88
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b4-honeyland-2",
+    "s2b4-time_to_live_and_time_to_die-1"
+   ],
+   "memberSituations": [
+    "a grown child tends a dying parent alone",
+    "the young neglect an elder unto death"
+   ]
+  },
+  {
+   "id": "scarcity-shared-among-dependents",
+   "label": "One party must divide what is not enough among those who depend on them for it",
+   "roles": [
+    "dividing",
+    "depending"
+   ],
+   "act": "portions out what is not enough to go round",
+   "members": [
+    40,
+    72
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b4-honeyland-3",
+    "s1bundefined-ningen-0"
+   ],
+   "memberSituations": [
+    "a household is pressed by mouths to feed",
+    "a man rations the little that is left"
+   ]
+  },
+  {
+   "id": "leverage-over-what-another-needs",
+   "label": "One party comes to control the thing another cannot do without, and sets terms for its release",
+   "roles": [
+    "holding back",
+    "needing"
+   ],
+   "act": "holds back what another must have and names terms",
+   "members": [
+    42,
+    91
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-fantastic_planet-3",
+    "s2b8-farewell_to_nostradamus-0"
+   ],
+   "memberSituations": [
+    "the weak withhold what the strong need",
+    "a hostage is taken to force a trade"
+   ]
+  },
+  {
+   "id": "injury-discharged-on-outsiders",
+   "label": "One party who has been denied or bereaved unloads it as harm on people who had nothing to do with it",
+   "roles": [
+    "discharging",
+    "struck"
+   ],
+   "act": "turns their own injury into violence toward outsiders",
+   "members": [
+    44,
+    71
+   ],
+   "group": 5,
+   "memberIds": [
+    "s2b2-terrorizers-4",
+    "s2b4-time_to_live_and_time_to_die-3"
+   ],
+   "memberSituations": [
+    "a man denied his advancement turns to violence",
+    "grief is discharged as violence toward strangers"
+   ]
+  },
+  {
+   "id": "shared-affliction-draws-two-together",
+   "label": "Two parties recognise the same damage or dread in each other and close the distance because of it",
+   "roles": [
+    "one",
+    "other"
+   ],
+   "act": "recognises their own affliction in another and binds to them",
+   "members": [
+    52,
+    94
+   ],
+   "group": 5,
+   "memberIds": [
+    "s0b0-cleo_from_5_to_7-3",
+    "s2b7-black_rain-4"
+   ],
+   "memberSituations": [
+    "two strangers share the same fear of dying",
+    "two damaged people find each other"
+   ]
+  },
+  {
+   "id": "elders-past-laid-on-the-young",
+   "label": "An older party unloads what they did or were onto a younger one, who has to carry it forward",
+   "roles": [
+    "handing down",
+    "carrying"
+   ],
+   "act": "makes the young carry what the old were",
+   "members": [
+    60,
+    77
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-flesh_for_frankenstein-5",
+    "s2b7-waterland-4"
+   ],
+   "memberSituations": [
+    "children take up the cruelty of their parents",
+    "an elder makes the young carry his past"
+   ]
+  },
+  {
+   "id": "bond-withdrawn-from-the-dependent",
+   "label": "One party withdraws the presence or backing another had come to stand on, and offers nothing the other can use",
+   "roles": [
+    "withdrawing",
+    "left"
+   ],
+   "act": "withdraws from a bond the other was standing on",
+   "members": [
+    62,
+    79
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b0-tropical_malady-2",
+    "s2b11-1492_conquest_of_paradise-4"
+   ],
+   "memberSituations": [
+    "one walks away without saying why",
+    "a backer abandons the one he raised up"
+   ]
+  },
+  {
+   "id": "held-where-one-cannot-leave",
+   "label": "One party keeps another in a position they can neither advance from nor escape, and lives over them there",
+   "roles": [
+    "holding",
+    "held"
+   ],
+   "act": "keeps another in a place they cannot get out of",
+   "members": [
+    67,
+    85
+   ],
+   "group": 5,
+   "memberIds": [
+    "s3b6-terminal-0",
+    "s3b1-killers_of_flower_moon-3"
+   ],
+   "memberSituations": [
+    "a man is allowed neither forward nor back",
+    "the wronged still live under their tormentors"
+   ]
+  },
+  {
+   "id": "one-acts-as-anothers-faculty",
+   "label": "One party lends their eyes or their voice to another who lacks them, and the two are entangled in what passes through",
+   "roles": [
+    "lending",
+    "lacking"
+   ],
+   "act": "acts as another's eyes or voice",
+   "members": [
+    64,
+    81
+   ],
+   "group": 5,
+   "memberIds": [
+    "s1bundefined-cat_o_nine_tails-2",
+    "s0b6-war_and_peace-5"
+   ],
+   "memberSituations": [
+    "one person must see for another",
+    "a friend loves the one they speak for"
+   ]
+  },
+  {
+   "id": "trust-granted-then-taken",
+   "label": "One party gives another access to what is theirs, and the trusted party takes it for themselves",
+   "roles": [
+    "trusted",
+    "trusting"
+   ],
+   "act": "turns granted trust into taking",
+   "members": [
+    70,
+    89,
+    93
+   ],
+   "group": 5,
+   "memberIds": [
+    "s2b0-yeelen-4",
+    "s0b7-last_days_of_pompeii-3",
+    "s2b11-bad_company-1"
+   ],
+   "memberSituations": [
+    "a welcomed stranger takes advantage of trust",
+    "a secret is confided to the wrong person",
+    "a trusted helper wants the thing he guards"
+   ]
+  },
+  {
+   "id": "warning-not-credited",
+   "label": "One party reports a danger or a truth about their own condition, and those they tell refuse to credit it",
+   "roles": [
+    "disbelieving",
+    "testifying"
+   ],
+   "act": "refuses to credit what another reports about their own condition",
+   "members": [
+    2,
+    16,
+    52,
+    53,
+    95
+   ],
+   "group": 6,
+   "memberIds": [
+    "s1bundefined-taxi_driver-0",
+    "s0b0-cleo_from_5_to_7-0",
+    "s2b8-good_news-0",
+    "s3b3-infernal_affairs-1",
+    "s1bundefined-rosemary_s_baby-2"
+   ],
+   "memberSituations": [
+    "a man cannot make anyone hear his distress",
+    "those closest refuse to take a fear seriously",
+    "a friend reappears convinced he is being hunted",
+    "one cannot prove the truth about oneself",
+    "a person's accurate fear is treated as illness"
+   ]
+  },
+  {
+   "id": "answering-for-another",
+   "label": "One party carries the credit or the blame for what a different party actually did",
+   "roles": [
+    "covering",
+    "covered"
+   ],
+   "act": "takes on or assigns the credit or blame that belongs to another",
+   "members": [
+    10,
+    23,
+    35,
+    76
+   ],
+   "group": 6,
+   "memberIds": [
+    "s3b10-ghost_writer-3",
+    "s0b7-two_men_in_manhattan-0",
+    "s1bundefined-man_who_shot_liberty_valance-0",
+    "s2b10-city_hall-3"
+   ],
+   "memberSituations": [
+    "one takes the blame for another's decisions",
+    "a lie is told to protect someone's name",
+    "a man is honoured for what another did",
+    "the dead are blamed to protect the living"
+   ]
+  },
+  {
+   "id": "raised-then-discarded",
+   "label": "One party takes another up and exalts them, then drops them with no cause given",
+   "roles": [
+    "elevating",
+    "cast off"
+   ],
+   "act": "raises another into favour and then discards them without explanation",
+   "members": [
+    3,
+    55
+   ],
+   "group": 6,
+   "memberIds": [
+    "s0b9-era_lui_si_si-1",
+    "s0b0-la_strada-1"
+   ],
+   "memberSituations": [
+    "someone is exalted then discarded without explanation",
+    "a woman is claimed then cast aside"
+   ]
+  },
+  {
+   "id": "aid-thrown-back",
+   "label": "One party extends rescue or pity and the one it is meant for refuses or despises it",
+   "roles": [
+    "offering",
+    "refusing"
+   ],
+   "act": "extends help to another who will not take it",
+   "members": [
+    6,
+    14,
+    74
+   ],
+   "group": 6,
+   "memberIds": [
+    "s0b4-burmese_harp-3",
+    "s0b0-seven_samurai-1",
+    "s1bundefined-mouchette-3"
+   ],
+   "memberSituations": [
+    "one offered a way out refuses it",
+    "the rescued despise their rescuers",
+    "someone rejects the pity offered to them"
+   ]
+  },
+  {
+   "id": "petition-to-the-author",
+   "label": "One who was made or raised by another asks that maker for release, and is refused",
+   "roles": [
+    "asking",
+    "refusing"
+   ],
+   "act": "refuses the release its own creature or child asks of it",
+   "members": [
+    12,
+    60
+   ],
+   "group": 6,
+   "memberIds": [
+    "s3b0-there_will_be_blood-5",
+    "s2b0-blade_runner-0"
+   ],
+   "memberSituations": [
+    "a grown child asks to be released",
+    "a maker refuses what his creation asks"
+   ]
+  },
+  {
+   "id": "fact-kept-from-its-subject",
+   "label": "One party holds back from another a fact that belongs to that other's own life",
+   "roles": [
+    "withholding",
+    "kept from"
+   ],
+   "act": "withholds from another a fact about that other's own life",
+   "members": [
+    8,
+    25
+   ],
+   "group": 6,
+   "memberIds": [
+    "s3b6-from_up_on_poppy_hill-4",
+    "s2b8-table_for_five-2"
+   ],
+   "memberSituations": [
+    "a birth is hidden from the one born",
+    "the bearer of terrible news delays telling it"
+   ]
+  },
+  {
+   "id": "concealed-thing-surfaces",
+   "label": "What one party hid from another comes into the open between them and the bond cannot stand as it was",
+   "roles": [
+    "concealing",
+    "learning"
+   ],
+   "act": "lets a hidden truth pass to the one it was hidden from",
+   "members": [
+    7,
+    36
+   ],
+   "group": 6,
+   "memberIds": [
+    "s3b7-song_to_song-2",
+    "s1bundefined-lolita-1"
+   ],
+   "memberSituations": [
+    "confession ends what concealment protected",
+    "a hidden contempt is discovered by its object"
+   ]
+  },
+  {
+   "id": "stand-in-for-the-lost",
+   "label": "One party puts another into the place of someone who is gone, and holds them to it",
+   "roles": [
+    "installing",
+    "standing in"
+   ],
+   "act": "puts one person into the place left by another",
+   "members": [
+    38,
+    62,
+    87
+   ],
+   "group": 6,
+   "memberIds": [
+    "s2b11-days_of_thunder-3",
+    "s0b0-vertigo-1",
+    "s0b11-task_force-2"
+   ],
+   "memberSituations": [
+    "someone is chosen as a replacement for another",
+    "a man remakes a woman into someone lost",
+    "a man marries the widow of a comrade"
+   ]
+  },
+  {
+   "id": "stranger-taken-into-the-house",
+   "label": "One party takes into their own household someone who has no claim to be there",
+   "roles": [
+    "taking in",
+    "taken in"
+   ],
+   "act": "takes in someone with no claim on them",
+   "members": [
+    34,
+    83,
+    89
+   ],
+   "group": 6,
+   "memberIds": [
+    "s2b3-hard_eight-1",
+    "s2b10-let_s_hope_it_s_girl-5",
+    "s0b11-i_know_where_i_m_going-1"
+   ],
+   "memberSituations": [
+    "a man makes a son of a stranger",
+    "a wife takes in her husband's mistress",
+    "a traveller is stranded among unfamiliar people"
+   ]
+  },
+  {
+   "id": "one-given-up-for-the-rest",
+   "label": "One party is handed over or destroyed so that others may go free",
+   "roles": [
+    "giving up",
+    "given up"
+   ],
+   "act": "gives up one person to secure the safety of others",
+   "members": [
+    1,
+    48,
+    71
+   ],
+   "group": 6,
+   "memberIds": [
+    "s0b7-jolanda_daughter_of_black_co-4",
+    "s3b8-pina-0",
+    "s1bundefined-un_flic-2"
+   ],
+   "memberSituations": [
+    "a captive is traded for another's freedom",
+    "one is chosen by the group to die",
+    "a wounded companion is killed for safety"
+   ]
+  },
+  {
+   "id": "bond-across-a-forbidden-line",
+   "label": "Two people attach across a line the surrounding group forbids, and the group moves against them",
+   "roles": [
+    "crossing",
+    "forbidding"
+   ],
+   "act": "forms a bond across a boundary the surrounding group enforces",
+   "members": [
+    40,
+    77
+   ],
+   "group": 6,
+   "memberIds": [
+    "s1bundefined-shadows_of_forgotten_ancesto-0",
+    "s0b1-hiroshima_mon_amour-1"
+   ],
+   "memberSituations": [
+    "love crosses a line of inherited enmity",
+    "a love is punished by the whole town"
+   ]
+  },
+  {
+   "id": "grievance-read-as-insubordination",
+   "label": "One party brings a grievance upward and the party above treats it as an offence to be put down",
+   "roles": [
+    "suppressing",
+    "complaining"
+   ],
+   "act": "answers a grievance from below as disobedience",
+   "members": [
+    22,
+    24
+   ],
+   "group": 6,
+   "memberIds": [
+    "s0b2-strike-1",
+    "s0b1-battleship_potemkin-1"
+   ],
+   "memberSituations": [
+    "a demand from below is answered with force",
+    "complaint is answered as disobedience"
+   ]
+  },
+  {
+   "id": "kin-made-the-lever",
+   "label": "One party works on another through that other's bond to their own kin",
+   "roles": [
+    "coercing",
+    "bound by kin"
+   ],
+   "act": "turns a person's tie to their kin into the instrument against them",
+   "members": [
+    63,
+    68
+   ],
+   "group": 6,
+   "memberIds": [
+    "s3b6-eastern_promises-3",
+    "s2b8-guilty_as_sin-3"
+   ],
+   "memberSituations": [
+    "a son is ordered to kill his own kin",
+    "loved ones are punished for another's defiance"
+   ]
+  },
+  {
+   "id": "hand-stayed-before-the-kill",
+   "label": "One party sets out to destroy another and stops short of it",
+   "roles": [
+    "intending",
+    "spared"
+   ],
+   "act": "moves to kill another and does not complete it",
+   "members": [
+    27,
+    47
+   ],
+   "group": 6,
+   "memberIds": [
+    "s0b2-sunrise_song_of_two_humans-2",
+    "s0b9-it_happened_in_park-2"
+   ],
+   "memberSituations": [
+    "one tries to kill the person they love",
+    "pity disarms a plot against someone"
+   ]
+  },
+  {
+   "id": "loss-charged-to-the-uninvolved",
+   "label": "One party turns an old loss into a charge against someone who did not cause it",
+   "roles": [
+    "avenging",
+    "fixed upon"
+   ],
+   "act": "exacts an old loss from a party that did not cause it",
+   "members": [
+    43,
+    67
+   ],
+   "group": 6,
+   "memberIds": [
+    "s2b3-decalogue_v-3",
+    "s3b11-bugonia-2"
+   ],
+   "memberSituations": [
+    "an old loss is repaid on strangers",
+    "someone hunts for a person to blame"
+   ]
+  },
+  {
+   "id": "taken-out-of-the-family",
+   "label": "An outside power removes a person from the family that holds them",
+   "roles": [
+    "taking",
+    "losing"
+   ],
+   "act": "removes a person from their kin by outside authority",
+   "members": [
+    15,
+    39
+   ],
+   "group": 6,
+   "memberIds": [
+    "s3b8-all_money_in_world-0",
+    "s2b1-sacrifice-2"
+   ],
+   "memberSituations": [
+    "a loved one is taken away by strangers",
+    "a family has one of its own removed"
+   ]
+  },
+  {
+   "id": "one-leaves-the-shared-life",
+   "label": "One party leaves a shared life that the other goes on holding",
+   "roles": [
+    "leaving",
+    "staying"
+   ],
+   "act": "departs a common life the other still keeps",
+   "members": [
+    11,
+    46,
+    90
+   ],
+   "group": 6,
+   "memberIds": [
+    "s2b7-another_woman-3",
+    "s0b4-late_chrysanthemums-2",
+    "s3b9-star_wars_episode_i_phantom_-2"
+   ],
+   "memberSituations": [
+    "a marriage is found empty from the inside",
+    "the young depart leaving the old behind",
+    "a child leaves the one who raised him"
+   ]
+  },
+  {
+   "id": "return-of-the-departed",
+   "label": "One who went away seeks re-entry, and those who stayed decide whether it can be undone",
+   "roles": [
+    "ruling on return",
+    "returning"
+   ],
+   "act": "decides whether one who left may be taken back",
+   "members": [
+    54,
+    93
+   ],
+   "group": 6,
+   "memberIds": [
+    "s1bundefined-touch-2",
+    "s0b7-downhill-4"
+   ],
+   "memberSituations": [
+    "one is told leaving cannot be undone",
+    "an exile is taken back by his own"
+   ]
+  },
+  {
+   "id": "bound-to-one-who-cannot-answer",
+   "label": "One party binds their life to another who cannot reach back or sustain the bond",
+   "roles": [
+    "holding on",
+    "unable to answer"
+   ],
+   "act": "stays attached to one who cannot return the attachment",
+   "members": [
+    41,
+    49,
+    86
+   ],
+   "group": 6,
+   "memberIds": [
+    "s3b7-dolls-3",
+    "s1bundefined-working_class_goes_to_heaven-4",
+    "s1bundefined-autumn_sonata-1"
+   ],
+   "memberSituations": [
+    "one is tied to a person beyond reach",
+    "a man tends someone broken before him",
+    "one person's survival depends on another staying"
+   ]
+  },
+  {
+   "id": "life-course-set-by-another",
+   "label": "One party settles what another person's life is to be spent on",
+   "roles": [
+    "assigning",
+    "assigned"
+   ],
+   "act": "determines the course another's life must take",
+   "members": [
+    44,
+    59,
+    84
+   ],
+   "group": 6,
+   "memberIds": [
+    "s2b1-hoop_dreams-2",
+    "s2b3-sweetie-2",
+    "s2b9-it_takes_two-2"
+   ],
+   "memberSituations": [
+    "a child carries an adult's unfinished ambition",
+    "a life is arranged around a prophecy",
+    "others decide what work a person should do"
+   ]
+  },
+  {
+   "id": "trust-turned-on-the-truster",
+   "label": "One party holds a position of trust and turns it against the one who granted it",
+   "roles": [
+    "trusted",
+    "trusting"
+   ],
+   "act": "turns a trusted position against the one who gave it",
+   "members": [
+    4,
+    78,
+    92
+   ],
+   "group": 6,
+   "memberIds": [
+    "s2b8-farewell_to_nostradamus-3",
+    "s3b5-tragedy_of_macbeth-3",
+    "s3b8-okja-2"
+   ],
+   "memberSituations": [
+    "a follower betrays the leader he serves",
+    "a guest is killed by his own host",
+    "someone entrusted to speak for another lies"
+   ]
+  },
+  {
+   "id": "companions-move-against-each-other",
+   "label": "Two parties bound to each other come to act against each other",
+   "roles": [
+    "one side",
+    "other side"
+   ],
+   "act": "two who were joined turn on each other",
+   "members": [
+    42,
+    75,
+    79
+   ],
+   "group": 6,
+   "memberIds": [
+    "s0b2-jules_and_jim-5",
+    "s3b5-intolerable_cruelty-5",
+    "s1bundefined-trip_to_vienna-5"
+   ],
+   "memberSituations": [
+    "friends are made enemies by forces above them",
+    "each pays to have the other killed",
+    "two friends turn on each other afterward"
+   ]
+  },
+  {
+   "id": "group-shuts-out-one-of-its-own",
+   "label": "A group withholds standing from someone who is living among them",
+   "roles": [
+    "closing",
+    "shut out"
+   ],
+   "act": "denies membership to one already in its midst",
+   "members": [
+    31,
+    96
+   ],
+   "group": 6,
+   "memberIds": [
+    "s1bundefined-serpico-0",
+    "s1bundefined-la_chinoise-2"
+   ],
+   "memberSituations": [
+    "a group closes ranks against one man",
+    "the one who serves is excluded"
+   ]
+  },
+  {
+   "id": "withdrawal-inside-the-bond",
+   "label": "One partner withdraws from within a bond and the other turns outside it",
+   "roles": [
+    "withdrawing",
+    "turning elsewhere"
+   ],
+   "act": "withdraws inside a bond while the other seeks outside it",
+   "members": [
+    57,
+    61
+   ],
+   "group": 6,
+   "memberIds": [
+    "s2b4-something_to_talk_about-3",
+    "s1bundefined-flesh_for_frankenstein-1"
+   ],
+   "memberSituations": [
+    "both sides discover their share of the fault",
+    "a neglected wife takes a lover"
+   ]
+  },
+  {
+   "id": "fate-assigned-without-consent",
+   "label": "One party settles another's fate in advance, and that other learns of it only as something already decided about them",
+   "roles": [
+    "designating",
+    "designated"
+   ],
+   "act": "decides another's fate without that other's knowledge or consent",
+   "members": [
+    1,
+    38
+   ],
+   "group": 7,
+   "memberIds": [
+    "s2b1-schindler_s_list-3",
+    "s2b8-guilty_as_sin-2"
+   ],
+   "memberSituations": [
+    "someone decides the few to be spared",
+    "someone discovers they were selected long before meeting"
+   ]
+  },
+  {
+   "id": "false-front-kept-up",
+   "label": "One party sustains a false presentation before another who must go on taking it as real",
+   "roles": [
+    "performing",
+    "believing"
+   ],
+   "act": "keeps up a false performance the other must keep believing",
+   "members": [
+    3,
+    46,
+    71
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b12-hangmen_also_die-5",
+    "s0b3-safety_last-1",
+    "s1bundefined-hellbenders-2"
+   ],
+   "memberSituations": [
+    "two must pretend to be lovers",
+    "a lie must be maintained by more lies",
+    "a stranger is paid to play the mourner"
+   ]
+  },
+  {
+   "id": "concealment-brought-to-light",
+   "label": "One party has kept a truth from another, and that other comes into possession of it",
+   "roles": [
+    "concealing",
+    "concealed-from"
+   ],
+   "act": "keeps a truth from another until that other finds it",
+   "members": [
+    4,
+    8,
+    44,
+    88
+   ],
+   "group": 7,
+   "memberIds": [
+    "s3b3-no_bears-5",
+    "s0b8-mother_should_be_loved-1",
+    "s2b5-dream_lover-4",
+    "s1bundefined-zatoichi_and_chest_of_gold-2"
+   ],
+   "memberSituations": [
+    "a deception is uncovered by the one deceived",
+    "a hidden origin comes to light",
+    "a lover is found to belong to another",
+    "the one entrusted with it took it himself"
+   ]
+  },
+  {
+   "id": "obstacle-removed-to-keep-hold",
+   "label": "One party destroys another who stands between it and what it means to keep holding",
+   "roles": [
+    "removing",
+    "removed"
+   ],
+   "act": "destroys another in order to keep hold of what it has",
+   "members": [
+    5,
+    35,
+    68
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-martha-2",
+    "s2b2-city_of_sadness-1",
+    "s1bundefined-blood_and_black_lace-2"
+   ],
+   "memberSituations": [
+    "a rival is removed to secure possession",
+    "many are killed to keep power in place",
+    "a killing is staged to preserve a lie"
+   ]
+  },
+  {
+   "id": "reckoning-with-the-unsaved",
+   "label": "One party comes through and is left answerable to those it did not bring through with it",
+   "roles": [
+    "surviving",
+    "unsaved"
+   ],
+   "act": "counts what it could not save and cannot discharge the debt",
+   "members": [
+    7,
+    29
+   ],
+   "group": 7,
+   "memberIds": [
+    "s2b1-schindler_s_list-4",
+    "s0b10-children_of_hiroshima-0"
+   ],
+   "memberSituations": [
+    "a rescuer feels they should have done more",
+    "someone returns to count the missing"
+   ]
+  },
+  {
+   "id": "hunter-and-quarry",
+   "label": "One party hunts another who must stay ahead of it, and the chase works on both of them",
+   "roles": [
+    "pursuing",
+    "evading"
+   ],
+   "act": "hunts another who must outlast or outthink it",
+   "members": [
+    9,
+    10
+   ],
+   "group": 7,
+   "memberIds": [
+    "s3b0-tropical_malady-1",
+    "s2b0-shining-4"
+   ],
+   "memberSituations": [
+    "a pursuer is changed by the one pursued",
+    "a child must outthink the adult hunting him"
+   ]
+  },
+  {
+   "id": "acknowledgment-withheld",
+   "label": "One party will not admit what another holds to be plainly the case, and the other cannot make it",
+   "roles": [
+    "refusing-to-see",
+    "insisting"
+   ],
+   "act": "refuses to acknowledge what the other insists is undeniable",
+   "members": [
+    13,
+    81
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b1-battleship_potemkin-0",
+    "s3b1-act_of_killing-4"
+   ],
+   "memberSituations": [
+    "one denies what everyone else can see",
+    "a companion refuses to share the remorse"
+   ]
+  },
+  {
+   "id": "verdict-fixed-in-advance",
+   "label": "A body of people settles what one person is, and nothing that person offers can move it",
+   "roles": [
+    "condemning",
+    "condemned"
+   ],
+   "act": "holds a person to a judgment their own account cannot touch",
+   "members": [
+    14,
+    15
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-cat_o_nine_tails-5",
+    "s0b2-strike-0"
+   ],
+   "memberSituations": [
+    "a person is condemned by others from birth",
+    "an accusation is believed over the accused"
+   ]
+  },
+  {
+   "id": "way-out-declined",
+   "label": "One party holds out an easier or safer continuation and the other will not take it on those terms",
+   "roles": [
+    "offering",
+    "refusing"
+   ],
+   "act": "offers another a way out that the other declines",
+   "members": [
+    16,
+    20,
+    27
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b10-children_of_hiroshima-2",
+    "s0b11-task_force-1",
+    "s1bundefined-machine_gun_mccain-6"
+   ],
+   "memberSituations": [
+    "an offer of rescue is refused",
+    "a man refuses the easier life offered him",
+    "death is the only refusal left"
+   ]
+  },
+  {
+   "id": "bond-left-by-one-side",
+   "label": "One party goes out of an intimate bond while the other is still held inside it",
+   "roles": [
+    "leaving",
+    "left"
+   ],
+   "act": "leaves a bond the other is still inside",
+   "members": [
+    17,
+    36,
+    43,
+    50
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-working_class_goes_to_heaven-3",
+    "s1bundefined-merchant_of_four_seasons-1",
+    "s0b4-rebel_without_cause-4",
+    "s3b3-flowers_of_shanghai-0"
+   ],
+   "memberSituations": [
+    "a man's change drives his partner away",
+    "a wife flees the man she married",
+    "one is left behind by the person adored",
+    "a partner is set aside for someone new"
+   ]
+  },
+  {
+   "id": "help-priced-against-the-self",
+   "label": "One party's help is available only if the other gives up something they hold as themselves",
+   "roles": [
+    "pricing",
+    "needing"
+   ],
+   "act": "makes its help conditional on a price the other counts as self",
+   "members": [
+    18,
+    57,
+    74
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b5-mother_india-4",
+    "s3b5-lincoln-1",
+    "s1bundefined-casanova_70-2"
+   ],
+   "memberSituations": [
+    "survival is offered in exchange for her body",
+    "help is bought with a concession one hates",
+    "a woman offers herself to save a man"
+   ]
+  },
+  {
+   "id": "cast-out-by-the-body",
+   "label": "A body of people puts out one of its own members",
+   "roles": [
+    "expelling",
+    "expelled"
+   ],
+   "act": "ejects a member who belonged to it",
+   "members": [
+    19,
+    77
+   ],
+   "group": 7,
+   "memberIds": [
+    "s3b9-star_wars_episode_i_phantom_-5",
+    "s1bundefined-la_chinoise-1"
+   ],
+   "memberSituations": [
+    "an institution discards the one who served it",
+    "a member is cast out for dissenting"
+   ]
+  },
+  {
+   "id": "dependent-given-up",
+   "label": "One party gives up or consigns elsewhere a dependent it was bound to keep",
+   "roles": [
+    "relinquishing",
+    "relinquished"
+   ],
+   "act": "gives up a dependent it was bound to keep",
+   "members": [
+    21,
+    22,
+    64
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b5-mother_india-3",
+    "s0b10-slice_of_life-1",
+    "s2b10-let_s_hope_it_s_girl-3"
+   ],
+   "memberSituations": [
+    "a man unable to provide abandons his family",
+    "parents cannot go through with abandoning a child",
+    "the old are put away by their families"
+   ]
+  },
+  {
+   "id": "unchosen-debt-created",
+   "label": "One party's single act toward another leaves the two standing in an obligation neither chose",
+   "roles": [
+    "binding",
+    "bound"
+   ],
+   "act": "creates a standing debt between two parties who did not contract it",
+   "members": [
+    25,
+    53
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b6-sword_of_penitence-4",
+    "s2b6-big_deal_after_20_years-4"
+   ],
+   "memberSituations": [
+    "saving a life creates a lasting bond",
+    "a debt is owed for accidental harm"
+   ]
+  },
+  {
+   "id": "faculty-supplied-for-another",
+   "label": "One party's voice or hands carry out what another cannot or will not do in their own person",
+   "roles": [
+    "acting-for",
+    "acted-for"
+   ],
+   "act": "acts or speaks in the place of another",
+   "members": [
+    28,
+    65
+   ],
+   "group": 7,
+   "memberIds": [
+    "s2b2-piano-2",
+    "s0b2-strike-2"
+   ],
+   "memberSituations": [
+    "a voiceless person depends on another's voice",
+    "a person is used as another's hands"
+   ]
+  },
+  {
+   "id": "living-being-held-as-property",
+   "label": "One party owns another living being and passes it on to the next owner",
+   "roles": [
+    "owning",
+    "owned"
+   ],
+   "act": "holds a living being as property and transfers it onward",
+   "members": [
+    31,
+    66
+   ],
+   "group": 7,
+   "memberIds": [
+    "s3b1-eo-0",
+    "s1bundefined-au_hasard_balthazar-0"
+   ],
+   "memberSituations": [
+    "a living being is owned then handed on",
+    "a creature is passed from owner to owner"
+   ]
+  },
+  {
+   "id": "intimate-handed-to-power",
+   "label": "One party gives someone close to it over to an authority that will act against them",
+   "roles": [
+    "delivering",
+    "delivered"
+   ],
+   "act": "hands an intimate to a power that will act on what it is told",
+   "members": [
+    32,
+    47,
+    90
+   ],
+   "group": 7,
+   "memberIds": [
+    "s2b2-city_of_sadness-0",
+    "s2b2-total_recall-2",
+    "s2b11-bad_company-0"
+   ],
+   "memberSituations": [
+    "a friend denounces a friend to the authorities",
+    "a friend denounces a friend to the authorities",
+    "someone is blackmailed into betraying his companions"
+   ]
+  },
+  {
+   "id": "risk-taken-for-a-stranger",
+   "label": "One party takes danger onto itself to shield someone it owes nothing to",
+   "roles": [
+    "sheltering",
+    "sheltered"
+   ],
+   "act": "puts itself at risk for someone it has no obligation to",
+   "members": [
+    33,
+    52,
+    67
+   ],
+   "group": 7,
+   "memberIds": [
+    "s3b0-portrait_of_lady_on_fire-5",
+    "s0b12-hangmen_also_die-2",
+    "s3b12-rolling_thunder_revue_bob_dy-4"
+   ],
+   "memberSituations": [
+    "the powerless are helped in secret",
+    "a household shelters a stranger at mortal risk",
+    "strangers act to free a condemned man"
+   ]
+  },
+  {
+   "id": "speech-dictated-by-force",
+   "label": "One party uses threat or force to fix what another will say or will not say",
+   "roles": [
+    "compelling",
+    "compelled"
+   ],
+   "act": "forces another's words or another's silence",
+   "members": [
+    34,
+    42
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-cowboys-1",
+    "s3b0-memories_of_murder-1"
+   ],
+   "memberSituations": [
+    "a child is sworn to silence by threat",
+    "the weak are made to confess by force"
+   ]
+  },
+  {
+   "id": "kin-subordinated-to-rule",
+   "label": "One party applies to its own blood the rule it would apply to anyone, at that blood's cost",
+   "roles": [
+    "holding-to-rule",
+    "kin"
+   ],
+   "act": "holds its own kin to a rule rather than exempting them",
+   "members": [
+    40,
+    45
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b5-awaara-4",
+    "s2b8-farewell_to_nostradamus-1"
+   ],
+   "memberSituations": [
+    "one must pass judgment on one's own child",
+    "an elder refuses to ransom his own kin"
+   ]
+  },
+  {
+   "id": "old-wrong-brought-back",
+   "label": "One party comes back, after time has passed, to put a wrong back onto the one who did it",
+   "roles": [
+    "returning",
+    "answering"
+   ],
+   "act": "returns an old wrong to the party who dealt it",
+   "members": [
+    49,
+    63,
+    89
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-battle_of_algiers-0",
+    "s3b4-incredibles-0",
+    "s1bundefined-blowup-2"
+   ],
+   "memberSituations": [
+    "each side answers the other's cruelty with worse",
+    "a slight is repaid years later",
+    "a stranger demands back what was taken"
+   ]
+  },
+  {
+   "id": "guardian-is-the-harm",
+   "label": "One party charged with another's safety is itself what the harm comes through",
+   "roles": [
+    "entrusted",
+    "entrusting"
+   ],
+   "act": "brings on the harm it was there to prevent",
+   "members": [
+    55,
+    76,
+    85,
+    95
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b10-stalag_17-1",
+    "s3b8-okja-3",
+    "s0b3-crowd-2",
+    "s3b1-eo-1"
+   ],
+   "memberSituations": [
+    "the one entrusted with safety is the danger",
+    "rescuers act for a cause over the rescued",
+    "a child is lost through a parent's haste",
+    "someone endangers what he means to protect"
+   ]
+  },
+  {
+   "id": "one-claimed-by-two",
+   "label": "Two parties each demand the whole of the same person, who cannot answer both",
+   "roles": [
+    "claiming",
+    "claimed"
+   ],
+   "act": "demands exclusive claim on someone another party also claims",
+   "members": [
+    56,
+    92
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b3-red_shoes-1",
+    "s3b2-gladiator-4"
+   ],
+   "memberSituations": [
+    "two people demand the same person entirely",
+    "one loves both sides of a war"
+   ]
+  },
+  {
+   "id": "household-set-by-one-temper",
+   "label": "One member's disposition sets the condition of everyone bound to them, who can only absorb it",
+   "roles": [
+    "setting-the-weather",
+    "absorbing"
+   ],
+   "act": "governs everyone bound to it by its own disposition",
+   "members": [
+    58,
+    82
+   ],
+   "group": 7,
+   "memberIds": [
+    "s3b0-tree_of_life-0",
+    "s3b0-tree_of_life-4"
+   ],
+   "memberSituations": [
+    "a household is ruled by one man's temper",
+    "one parent's gentleness leaves the children unprotected"
+   ]
+  },
+  {
+   "id": "life-steered-by-another",
+   "label": "One party takes over the running and shaping of another's life",
+   "roles": [
+    "directing",
+    "directed"
+   ],
+   "act": "takes over the direction of another's life",
+   "members": [
+    61,
+    91,
+    94
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-martha-0",
+    "s3b4-wall_e-3",
+    "s0b4-devi-1"
+   ],
+   "memberSituations": [
+    "one person takes charge of another's whole life",
+    "people hand over the steering of their lives",
+    "a person is remade into what others need"
+   ]
+  },
+  {
+   "id": "living-off-another",
+   "label": "One party takes its living from what another holds or produces, returning nothing for it",
+   "roles": [
+    "drawing-on",
+    "drawn-on"
+   ],
+   "act": "lives on what another holds or produces",
+   "members": [
+    62,
+    73,
+    83,
+    93
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-i_am_cuba-2",
+    "s1bundefined-dont_look_back-2",
+    "s2b6-one_hundred_and_one_nights-2",
+    "s0b6-war_and_peace-1"
+   ],
+   "memberSituations": [
+    "the fruit of work belongs to another",
+    "others live off the one they surround",
+    "a fortune draws people to a failing mind",
+    "someone is courted for their money"
+   ]
+  },
+  {
+   "id": "truth-told-not-taken",
+   "label": "One party states what is so, and the party who could act on it treats the statement as false",
+   "roles": [
+    "telling",
+    "disbelieving"
+   ],
+   "act": "tells another what is so and is not believed",
+   "members": [
+    24,
+    48,
+    70
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-such_gorgeous_kid_like_me-1",
+    "s1bundefined-don_t_look_now-2",
+    "s1bundefined-investigation_of_citizen_abo-1"
+   ],
+   "memberSituations": [
+    "a warning goes unheeded",
+    "a person's accurate fear is treated as illness",
+    "the one telling the truth is disbelieved"
+   ]
+  },
+  {
+   "id": "wanting-that-destroys",
+   "label": "One party wants another so completely that the wanting itself does the destroying",
+   "roles": [
+    "wanting",
+    "wanted"
+   ],
+   "act": "wants another past the point either can survive it",
+   "members": [
+    39,
+    54
+   ],
+   "group": 7,
+   "memberIds": [
+    "s0b3-pandora_s_box-0",
+    "s0b4-idiot-4"
+   ],
+   "memberSituations": [
+    "a man is ruined by his own desire",
+    "a jealous man kills what he cannot possess"
+   ]
+  },
+  {
+   "id": "answering-for-anothers-act",
+   "label": "One party is made to bear the reckoning for what a different person did",
+   "roles": [
+    "holding-to-account",
+    "answering"
+   ],
+   "act": "makes one party answer for another's act",
+   "members": [
+    59,
+    79
+   ],
+   "group": 7,
+   "memberIds": [
+    "s1bundefined-such_gorgeous_kid_like_me-3",
+    "s0b12-pardon_my_past-2"
+   ],
+   "memberSituations": [
+    "one person is punished for another's crime",
+    "one man is made to answer for another"
+   ]
+  },
+  {
+   "id": "made-thing-turns-on-maker",
+   "label": "One party turns against the one who raised, taught or relied on them, using what it was given",
+   "roles": [
+    "turning",
+    "turned-on"
+   ],
+   "act": "turns against the party that made or relied on it",
+   "members": [
+    75,
+    96
+   ],
+   "group": 7,
+   "memberIds": [
+    "s3b1-killers_of_flower_moon-5",
+    "s3b4-honeyland-1"
+   ],
+   "memberSituations": [
+    "a subordinate turns against the one they served",
+    "a lesson given is turned against the giver"
+   ]
+  },
+  {
+   "id": "bond-held-under-a-false-self",
+   "label": "One party holds a bond with another while concealing what they really are",
+   "roles": [
+    "concealing",
+    "deceived"
+   ],
+   "act": "sustains a bond while hiding their true identity from the other",
+   "members": [
+    1,
+    55,
+    90
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b5-awaara-3",
+    "s0b7-jolanda_daughter_of_black_co-2",
+    "s3b3-persepolis-5"
+   ],
+   "memberSituations": [
+    "a lover hides what he really is",
+    "someone is loved under a mistaken identity",
+    "a deception is uncovered by the one deceived"
+   ]
+  },
+  {
+   "id": "trust-entered-to-harm",
+   "label": "One party is taken into another's trust while working toward that party's harm",
+   "roles": [
+    "infiltrating",
+    "trusting"
+   ],
+   "act": "occupies a position of trust while being the source of the harm",
+   "members": [
+    11,
+    36,
+    38,
+    63
+   ],
+   "group": 8,
+   "memberIds": [
+    "s1bundefined-love_under_crucifix-2",
+    "s2b9-thunderheart-0",
+    "s0b11-mara_maru-4",
+    "s1bundefined-harlan_county_usa-1"
+   ],
+   "memberSituations": [
+    "a trusted person leads another into a trap",
+    "those asked to find the guilty are guilty",
+    "a friendship is built on a hidden purpose",
+    "the danger is someone already inside"
+   ]
+  },
+  {
+   "id": "payment-withheld-for-work-done",
+   "label": "One party withholds payment for work the other has already completed",
+   "roles": [
+    "withholding",
+    "owed"
+   ],
+   "act": "refuses what is owed after the other has delivered",
+   "members": [
+    20,
+    35
+   ],
+   "group": 8,
+   "memberIds": [
+    "s2b10-goopy_bagha_phire_elo-1",
+    "s2b10-il_marchese_del_grillo-1"
+   ],
+   "memberSituations": [
+    "payment is refused after the work is done",
+    "payment is refused after the work is done"
+   ]
+  },
+  {
+   "id": "third-party-keeps-two-apart",
+   "label": "A third party stands between two who would join and holds them apart",
+   "roles": [
+    "separating",
+    "parted"
+   ],
+   "act": "prevents two others from belonging together",
+   "members": [
+    7,
+    26,
+    78
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b6-war_and_peace-2",
+    "s2b7-best_intentions-1",
+    "s2b11-krull-0"
+   ],
+   "memberSituations": [
+    "lovers are not permitted to belong together",
+    "elders keep two lovers apart by deception",
+    "a wedding is broken off by an attack"
+   ]
+  },
+  {
+   "id": "claim-pressed-on-another-s-beloved",
+   "label": "One party presses a claim on a person another already holds",
+   "roles": [
+    "claiming",
+    "holding"
+   ],
+   "act": "contests another's hold on the person between them",
+   "members": [
+    54,
+    72
+   ],
+   "group": 8,
+   "memberIds": [
+    "s1bundefined-little_night_music-4",
+    "s0b11-come_fill_cup-2"
+   ],
+   "memberSituations": [
+    "two men risk death over the same woman",
+    "a man loves a woman married to another"
+   ]
+  },
+  {
+   "id": "one-set-aside-for-another",
+   "label": "One party is set aside when the other prefers someone else",
+   "roles": [
+    "preferring",
+    "set-aside"
+   ],
+   "act": "displaces one attachment in favour of another",
+   "members": [
+    37,
+    88
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b9-women_of_night-2",
+    "s3b12-daisy-2"
+   ],
+   "memberSituations": [
+    "one lover is set aside for another",
+    "someone loves the wrong person by mistake"
+   ]
+  },
+  {
+   "id": "return-to-an-abandoned-bond",
+   "label": "One party comes back to a bond they had left, and the other must answer the return",
+   "roles": [
+    "returning",
+    "awaiting"
+   ],
+   "act": "comes back to a bond they abandoned and asks to be taken in again",
+   "members": [
+    23,
+    40,
+    79,
+    89,
+    95
+   ],
+   "group": 8,
+   "memberIds": [
+    "s1bundefined-merchant_of_four_seasons-3",
+    "s3b9-salt_of_earth-3",
+    "s3b12-rolling_thunder_revue_bob_dy-3",
+    "s0b5-piece_of_sky-3",
+    "s3b7-dolls-5"
+   ],
+   "memberSituations": [
+    "a man returns to the love he lost",
+    "a man returns to the home he fled",
+    "an old lover tries to rekindle what ended",
+    "a man returns to a woman he abandoned",
+    "someone returns to a love left long ago"
+   ]
+  },
+  {
+   "id": "appeal-turned-away",
+   "label": "One party comes asking something of another, who turns them away",
+   "roles": [
+    "refusing",
+    "asking"
+   ],
+   "act": "turns away one who comes asking",
+   "members": [
+    9,
+    31,
+    33,
+    62
+   ],
+   "group": 8,
+   "memberIds": [
+    "s2b4-something_to_talk_about-2",
+    "s1bundefined-trip_to_vienna-3",
+    "s0b1-street_of_shame-1",
+    "s0b4-burmese_harp-0"
+   ],
+   "memberSituations": [
+    "a parent withholds support from a grown child",
+    "help is refused at the moment of need",
+    "a parent asks the child to come home",
+    "one sent to make peace is beaten"
+   ]
+  },
+  {
+   "id": "wrong-known-and-left-unanswered",
+   "label": "One party knows of another's wrong and lets it stand unchallenged",
+   "roles": [
+    "knowing",
+    "unanswered"
+   ],
+   "act": "declines to call a wrong they know of",
+   "members": [
+    21,
+    45,
+    80
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b1-killers_of_flower_moon-4",
+    "s2b4-decalogue_iii-2",
+    "s2b6-crimes_and_misdemeanors-1"
+   ],
+   "memberSituations": [
+    "no one acts on a crime everyone knows",
+    "one person lets another's lie stand unchallenged",
+    "the guilty man is never punished"
+   ]
+  },
+  {
+   "id": "silence-imposed-on-a-witness",
+   "label": "One party compels another who could tell of their wrong to keep it hidden",
+   "roles": [
+    "silencing",
+    "silenced"
+   ],
+   "act": "forces silence on someone who could speak",
+   "members": [
+    24,
+    52
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b8-beyond_forest-2",
+    "s2b8-guilty_as_sin-1"
+   ],
+   "memberSituations": [
+    "a threat to tell is answered with killing",
+    "a person is sworn to conceal a crime"
+   ]
+  },
+  {
+   "id": "compliance-forced-by-harm",
+   "label": "One party applies harm, or the threat of it, until the other gives up what they withhold",
+   "roles": [
+    "coercing",
+    "yielding"
+   ],
+   "act": "extracts by pain what the other will not give freely",
+   "members": [
+    15,
+    43,
+    75
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b12-hangmen_also_die-0",
+    "s0b1-passion_of_joan_of_arc-3",
+    "s1bundefined-battle_of_algiers-1"
+   ],
+   "memberSituations": [
+    "many are held to force one to surrender",
+    "consent is extracted by the threat of pain",
+    "a person is hurt until they name someone"
+   ]
+  },
+  {
+   "id": "cost-shifted-onto-another",
+   "label": "One party's burden is moved onto another, who bears in their place what the first would have borne",
+   "roles": [
+    "shifting",
+    "bearing"
+   ],
+   "act": "puts onto another the harm that was his own to carry",
+   "members": [
+    32,
+    44,
+    92
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b2-inland_empire-4",
+    "s3b3-infernal_affairs-2",
+    "s1bundefined-trip_to_vienna-4"
+   ],
+   "memberSituations": [
+    "one is freed by another's suffering",
+    "one sends another into danger from safety",
+    "punishment for one is deflected onto another"
+   ]
+  },
+  {
+   "id": "instrument-refuses-its-maker",
+   "label": "One party refuses or turns against the purpose assigned it by the one who made or commanded it",
+   "roles": [
+    "refusing",
+    "commanding"
+   ],
+   "act": "rejects the purpose given it by the party that set it in motion",
+   "members": [
+    19,
+    28,
+    58
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b4-wall_e-0",
+    "s0b1-battleship_potemkin-3",
+    "s1bundefined-flesh_for_frankenstein-4"
+   ],
+   "memberSituations": [
+    "a made thing refuses its given purpose",
+    "those ordered to kill refuse the order",
+    "what was made turns upon its maker"
+   ]
+  },
+  {
+   "id": "remade-into-the-adversary",
+   "label": "One party sets itself against another and is turned into the thing it opposed",
+   "roles": [
+    "adversary",
+    "convert"
+   ],
+   "act": "absorbs the one who came against it",
+   "members": [
+    4,
+    30
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b6-eastern_promises-2",
+    "s0b9-human_condition_ii_road_to_e-4"
+   ],
+   "memberSituations": [
+    "someone becomes what he was sent to destroy",
+    "surviving requires becoming the thing one hated"
+   ]
+  },
+  {
+   "id": "private-suffering-put-on-show",
+   "label": "One party puts another's suffering in front of onlookers",
+   "roles": [
+    "exhibiting",
+    "exhibited"
+   ],
+   "act": "makes a spectacle of another's ordeal",
+   "members": [
+    53,
+    70,
+    94
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b2-cabinet_of_dr_caligari-3",
+    "s1bundefined-viva_maria-5",
+    "s2b2-elephant_man-0"
+   ],
+   "memberSituations": [
+    "a private torment becomes a public entertainment",
+    "an ordeal is replayed for an audience",
+    "a person is shown to strangers for profit"
+   ]
+  },
+  {
+   "id": "household-disposes-of-a-dependent",
+   "label": "A household moves one of its dependents out of it, without their say in the matter",
+   "roles": [
+    "disposing",
+    "disposed"
+   ],
+   "act": "hands a dependent member out of the house",
+   "members": [
+    13,
+    41
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b11-postcard-1",
+    "s3b0-there_will_be_blood-1"
+   ],
+   "memberSituations": [
+    "a widow is handed to her husband's brother",
+    "a child is sent away from the household"
+   ]
+  },
+  {
+   "id": "held-between-two-loyalties",
+   "label": "One party demands that another choose it over a competing bond",
+   "roles": [
+    "demanding",
+    "torn"
+   ],
+   "act": "forces the other to choose between two claims on them",
+   "members": [
+    22,
+    64
+   ],
+   "group": 8,
+   "memberIds": [
+    "s2b11-confucian_confusion-1",
+    "s3b7-dinner_with_friends-1"
+   ],
+   "memberSituations": [
+    "someone is asked to choose between two loyalties",
+    "friends are made to take sides"
+   ]
+  },
+  {
+   "id": "successor-takes-a-failing-elder-s-place",
+   "label": "One party takes over the place of another whose powers are giving out",
+   "roles": [
+    "succeeding",
+    "declining"
+   ],
+   "act": "steps into the place of one who can no longer hold it",
+   "members": [
+    65,
+    69,
+    74
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b9-megalopolis-4",
+    "s2b9-doc_hollywood-4",
+    "s3b9-salt_of_earth-4"
+   ],
+   "memberSituations": [
+    "a kinsman waits for an elder to fail",
+    "the old make way for the young",
+    "a son takes up what his father cannot"
+   ]
+  },
+  {
+   "id": "the-dead-charge-the-living",
+   "label": "The dead lay a charge on the living, who cannot give it back",
+   "roles": [
+    "charging",
+    "carrying"
+   ],
+   "act": "binds the living to a duty that cannot be refused or returned",
+   "members": [
+    2,
+    42
+   ],
+   "group": 8,
+   "memberIds": [
+    "s1bundefined-don_t_look_now-0",
+    "s3b6-honey_don_t-0"
+   ],
+   "memberSituations": [
+    "a survivor keeps faith with the dead",
+    "the dead leave an errand for the living"
+   ]
+  },
+  {
+   "id": "taking-up-the-written-off",
+   "label": "One party takes up a person others have written off and treats them as worth something",
+   "roles": [
+    "taking-up",
+    "written-off"
+   ],
+   "act": "takes in and vouches for someone the rest have discarded",
+   "members": [
+    6,
+    34
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b11-come_fill_cup-0",
+    "s3b9-star_wars_episode_i_phantom_-1"
+   ],
+   "memberSituations": [
+    "a man ruined by drink is taken in",
+    "someone sees a gift in an overlooked person"
+   ]
+  },
+  {
+   "id": "carrying-another-s-obligation",
+   "label": "One party carries an obligation that properly belongs to another who cannot or will not",
+   "roles": [
+    "carrying",
+    "owing"
+   ],
+   "act": "assumes a duty that was another's to bear",
+   "members": [
+    49,
+    57,
+    93
+   ],
+   "group": 8,
+   "memberIds": [
+    "s1bundefined-lolita-2",
+    "s0b11-cops_and_robbers-4",
+    "s0b8-passing_fancy-1"
+   ],
+   "memberSituations": [
+    "a man raises a child not his own",
+    "one man keeps another's family in his absence",
+    "a debt is taken on for a friend"
+   ]
+  },
+  {
+   "id": "guilt-fixed-without-a-hearing",
+   "label": "One party settles on another's guilt without letting them answer",
+   "roles": [
+    "condemning",
+    "condemned"
+   ],
+   "act": "convicts another before hearing them",
+   "members": [
+    39,
+    67
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b7-dinner_with_friends-2",
+    "s2b4-decalogue_iii-3"
+   ],
+   "memberSituations": [
+    "someone is condemned before being heard",
+    "a spouse suspects the other of an affair"
+   ]
+  },
+  {
+   "id": "pardon-granted-by-the-wronged",
+   "label": "The party who was wronged releases the one who wronged them",
+   "roles": [
+    "forgiving",
+    "forgiven"
+   ],
+   "act": "gives up their claim against the one who wronged them",
+   "members": [
+    71,
+    77
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b8-beyond_forest-4",
+    "s0b2-sunrise_song_of_two_humans-3"
+   ],
+   "memberSituations": [
+    "a wronged spouse forgives too readily",
+    "a betrayal is forgiven by the one betrayed"
+   ]
+  },
+  {
+   "id": "one-withdraws-as-the-other-holds-on",
+   "label": "One party draws away while the other still reaches to keep them",
+   "roles": [
+    "withdrawing",
+    "holding"
+   ],
+   "act": "recedes from a bond the other cannot hold shut",
+   "members": [
+    17,
+    73
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b1-hiroshima_mon_amour-3",
+    "s3b1-eo-2"
+   ],
+   "memberSituations": [
+    "an affair must end at a fixed hour",
+    "one reaches for someone slipping away"
+   ]
+  },
+  {
+   "id": "ground-taken-from-those-living-on-it",
+   "label": "One party secures its living out of ground that others already occupy",
+   "roles": [
+    "taking",
+    "occupying"
+   ],
+   "act": "takes its wealth or safety from the place another lives in",
+   "members": [
+    16,
+    56,
+    87
+   ],
+   "group": 8,
+   "memberIds": [
+    "s2b9-thunderheart-5",
+    "s3b2-princess_mononoke-3",
+    "s3b6-from_up_on_poppy_hill-2"
+   ],
+   "memberSituations": [
+    "outsiders take wealth from land others live on",
+    "a refuge is built by ruining its neighbours",
+    "the young fight to keep an old place"
+   ]
+  },
+  {
+   "id": "contested-account-of-the-past",
+   "label": "One party puts forward an account of what happened that another will not accept",
+   "roles": [
+    "asserting",
+    "disputing"
+   ],
+   "act": "advances a version of the past against another's",
+   "members": [
+    3,
+    8,
+    27
+   ],
+   "group": 8,
+   "memberIds": [
+    "s0b1-harakiri-5",
+    "s2b3-germany_in_autumn-4",
+    "s3b12-rolling_thunder_revue_bob_dy-1"
+   ],
+   "memberSituations": [
+    "what happened is denied to save face",
+    "someone doubts the account they must pass on",
+    "several people claim the same shared past"
+   ]
+  },
+  {
+   "id": "drawn-into-another-s-quarrel",
+   "label": "One party draws another into a fight that was not theirs to take up",
+   "roles": [
+    "drawing-in",
+    "drawn-in"
+   ],
+   "act": "pulls an outsider into a contest of its own",
+   "members": [
+    29,
+    50
+   ],
+   "group": 8,
+   "memberIds": [
+    "s2b8-guilty_as_sin-0",
+    "s3b11-attorney-0"
+   ],
+   "memberSituations": [
+    "a challenge is accepted out of vanity",
+    "an onlooker is drawn into another's fight"
+   ]
+  },
+  {
+   "id": "life-lived-to-another-s-design",
+   "label": "One party imposes on another the life that other is to live",
+   "roles": [
+    "imposing",
+    "subjected"
+   ],
+   "act": "makes another live by a design not their own",
+   "members": [
+    14,
+    86
+   ],
+   "group": 8,
+   "memberIds": [
+    "s3b2-inland_empire-0",
+    "s0b4-devi-0"
+   ],
+   "memberSituations": [
+    "a person is made to live another's life",
+    "an elder's belief is imposed on the family"
+   ]
+  },
+  {
+   "id": "stands-in-for-another",
+   "label": "One party steps into the place of another who is gone or dead, and is held to that place by those around them.",
+   "roles": [
+    "replacing",
+    "replaced"
+   ],
+   "act": "occupies the place and name of one who is absent or dead",
+   "members": [
+    18,
+    19,
+    24,
+    78
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b5-no_end-5",
+    "s3b10-ghost_writer-0",
+    "s3b10-avatar_way_of_water-4",
+    "s2b10-il_marchese_del_grillo-3"
+   ],
+   "memberSituations": [
+    "a stranger takes the place of the missing",
+    "one man steps into a dead man's place",
+    "one man steps into a dead man's place",
+    "one man is put in another's place"
+   ]
+  },
+  {
+   "id": "raised-turns-on-raiser",
+   "label": "One party who was trained, freed or served by another turns and takes that other's position or life.",
+   "roles": [
+    "risen",
+    "displaced"
+   ],
+   "act": "displaces or destroys the one who made, freed or was served by them",
+   "members": [
+    9,
+    17,
+    81
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b0-farewell_my_concubine-5",
+    "s3b1-mad_max_fury_road-1",
+    "s1bundefined-such_gorgeous_kid_like_me-2"
+   ],
+   "memberSituations": [
+    "the one he trained takes his place",
+    "a subordinate turns against the one they served",
+    "the freed one destroys the liberator"
+   ]
+  },
+  {
+   "id": "truth-withheld-from-intimate",
+   "label": "One party keeps from the person closest to them the fact that would change what they are to each other.",
+   "roles": [
+    "concealing",
+    "kept in the dark"
+   ],
+   "act": "withholds from an intimate the fact that would alter the bond",
+   "members": [
+    37,
+    73,
+    79
+   ],
+   "group": 9,
+   "memberIds": [
+    "s0b11-cops_and_robbers-2",
+    "s1bundefined-rosemary_s_baby-1",
+    "s1bundefined-muriel-1"
+   ],
+   "memberSituations": [
+    "a man hides his ruin from his family",
+    "a partner conceals what would end the bond",
+    "a partner conceals what would end the bond"
+   ]
+  },
+  {
+   "id": "account-of-harm-disbelieved",
+   "label": "One party names a harm or a danger and the other refuses to credit it, discrediting the one who speaks.",
+   "roles": [
+    "disbelieving",
+    "testifying"
+   ],
+   "act": "refuses to credit another's account of harm or danger",
+   "members": [
+    27,
+    52,
+    90
+   ],
+   "group": 9,
+   "memberIds": [
+    "s0b2-cabinet_of_dr_caligari-2",
+    "s3b11-attorney-1",
+    "s2b5-dream_lover-2"
+   ],
+   "memberSituations": [
+    "the one naming the danger is called mad",
+    "those in power deny what was done",
+    "one is not believed about being harmed"
+   ]
+  },
+  {
+   "id": "blame-lodged-on-another",
+   "label": "One party fixes blame on another for what was not that other's to answer for, and never lifts it.",
+   "roles": [
+    "blaming",
+    "blamed"
+   ],
+   "act": "fixes blame on one who did not answer for the act and will not withdraw it",
+   "members": [
+    13,
+    56,
+    82,
+    95
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b10-someone_s_watching_me-2",
+    "s2b6-chronicle_of_death_foretold-3",
+    "s0b7-difficult_years-1",
+    "s2b7-eyes_of_laura_mars-3"
+   ],
+   "memberSituations": [
+    "the wrong person is punished for another's act",
+    "an accusation is never withdrawn",
+    "yesterday's obedience becomes today's crime",
+    "someone is blamed for what they show others"
+   ]
+  },
+  {
+   "id": "group-turns-on-weakest",
+   "label": "A group singles out the least defended of its own and destroys them.",
+   "roles": [
+    "hounding",
+    "singled out"
+   ],
+   "act": "turns on its weakest member and destroys them",
+   "members": [
+    57,
+    59
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-ningen-1",
+    "s0b9-human_condition_ii_road_to_e-1"
+   ],
+   "memberSituations": [
+    "the starving kill the weakest among them",
+    "the weakest is hounded by the rest"
+   ]
+  },
+  {
+   "id": "work-taken-payment-withheld",
+   "label": "One party keeps the fruit of another's work — the pay, the credit, the standing — and returns that party nothing.",
+   "roles": [
+    "benefiting",
+    "working"
+   ],
+   "act": "takes the benefit of another's work while withholding what is owed for it",
+   "members": [
+    7,
+    44,
+    72
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b10-where_are_you_going_on_holid-3",
+    "s2b9-dangerous_toy-3",
+    "s2b11-1492_conquest_of_paradise-5"
+   ],
+   "memberSituations": [
+    "payment is refused after the work is done",
+    "public praise leaves the praised no better off",
+    "the work is remembered under another name"
+   ]
+  },
+  {
+   "id": "taken-up-then-discarded",
+   "label": "One party takes another up while they serve its purpose and casts them off once they do not.",
+   "roles": [
+    "taking up",
+    "cast off"
+   ],
+   "act": "uses another and discards them when the use is over",
+   "members": [
+    2,
+    30
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b9-thunderheart-3",
+    "s0b0-vertigo-3"
+   ],
+   "memberSituations": [
+    "someone is discarded once no longer useful",
+    "a woman is claimed then cast aside"
+   ]
+  },
+  {
+   "id": "passed-between-keepers",
+   "label": "One party puts another person into someone else's keeping, and the one handed over has no say in it.",
+   "roles": [
+    "handing over",
+    "handed on"
+   ],
+   "act": "places another person into a third party's keeping",
+   "members": [
+    14,
+    51,
+    65
+   ],
+   "group": 9,
+   "memberIds": [
+    "s3b12-tokyo_family-4",
+    "s3b12-tokyo_family-0",
+    "s2b2-pixote-2"
+   ],
+   "memberSituations": [
+    "a parent entrusts a child to an outsider",
+    "the old are passed between their grown children",
+    "a person is handed between keepers"
+   ]
+  },
+  {
+   "id": "rules-how-another-lives",
+   "label": "One party takes it on itself to settle how another shall live, and holds them to it.",
+   "roles": [
+    "ruling",
+    "ruled"
+   ],
+   "act": "assumes the right to decide how another must live",
+   "members": [
+    25,
+    85
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-rocky_road_to_dublin-1",
+    "s2b10-where_are_you_going_on_holid-5"
+   ],
+   "memberSituations": [
+    "the old hold the young to their rules",
+    "children decide what is good for their parents"
+   ]
+  },
+  {
+   "id": "kept-under-watch",
+   "label": "One party installs itself inside another's private life and keeps it under observation.",
+   "roles": [
+    "watching",
+    "watched"
+   ],
+   "act": "places itself inside another's private life to monitor it",
+   "members": [
+    61,
+    69
+   ],
+   "group": 9,
+   "memberIds": [
+    "s0b2-strike-3",
+    "s3b3-persepolis-0"
+   ],
+   "memberSituations": [
+    "watchers are planted among the people they watch",
+    "private life is policed by the authorities"
+   ]
+  },
+  {
+   "id": "closeness-withheld-within-bond",
+   "label": "Two parties stay in each other's company while one holds itself closed against the other.",
+   "roles": [
+    "withholding",
+    "offering"
+   ],
+   "act": "keeps itself closed to a party it remains bound to",
+   "members": [
+    39,
+    43,
+    83
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-klute-3",
+    "s1bundefined-last_tango_in_paris-0",
+    "s2b8-good_news-1"
+   ],
+   "memberSituations": [
+    "closeness is refused as a loss of self",
+    "two people agree to remain strangers",
+    "a couple lives together unable to speak"
+   ]
+  },
+  {
+   "id": "will-not-release-the-leaving",
+   "label": "One party will not let go of another who is going, and presses a claim that other no longer accepts.",
+   "roles": [
+    "holding on",
+    "going"
+   ],
+   "act": "refuses to release another who is departing",
+   "members": [
+    8,
+    26,
+    96
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-bird_with_crystal_plumage-2",
+    "s1bundefined-last_tango_in_paris-3",
+    "s1bundefined-little_night_music-1"
+   ],
+   "memberSituations": [
+    "a man is kept from leaving by others",
+    "someone will not accept that it is over",
+    "a former lover returns to claim him"
+   ]
+  },
+  {
+   "id": "devotion-goes-unreturned",
+   "label": "One party binds itself to another that returns nothing or does it harm, and will not withdraw.",
+   "roles": [
+    "devoted",
+    "unreturning"
+   ],
+   "act": "gives itself to a party that gives nothing back",
+   "members": [
+    12,
+    22,
+    64
+   ],
+   "group": 9,
+   "memberIds": [
+    "s3b1-grizzly_man-0",
+    "s1bundefined-au_hasard_balthazar-1",
+    "s3b7-dolls-4"
+   ],
+   "memberSituations": [
+    "a man treats a wild thing as kin",
+    "someone keeps returning to the one hurting her",
+    "an admirer damages himself to stay loyal"
+   ]
+  },
+  {
+   "id": "attachment-goes-elsewhere",
+   "label": "One party's attachment turns elsewhere while the party they were bound to keeps the place open for them.",
+   "roles": [
+    "leaving",
+    "waiting"
+   ],
+   "act": "turns away from a bond toward another attachment while the other holds it",
+   "members": [
+    4,
+    76,
+    93
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b9-it_takes_two-0",
+    "s1bundefined-liza-3",
+    "s3b9-faithless-0"
+   ],
+   "memberSituations": [
+    "someone about to marry is drawn elsewhere",
+    "a deserted family calls the man back",
+    "a spouse leaves for the closest friend"
+   ]
+  },
+  {
+   "id": "protector-inflicts-the-harm",
+   "label": "The party whose office is to protect or heal another is the source of that other's harm.",
+   "roles": [
+    "charged with care",
+    "in their care"
+   ],
+   "act": "does the harm it was charged with preventing",
+   "members": [
+    5,
+    11
+   ],
+   "group": 9,
+   "memberIds": [
+    "s0b2-cabinet_of_dr_caligari-0",
+    "s2b5-dream_lover-0"
+   ],
+   "memberSituations": [
+    "the one sent to heal becomes the harm",
+    "a child is harmed by its protector"
+   ]
+  },
+  {
+   "id": "aid-sought-from-another",
+   "label": "One party's need is put to another who is free to answer it or not, and the cost falls on the one who asked.",
+   "roles": [
+    "able to answer",
+    "in need"
+   ],
+   "act": "is appealed to in another's extremity and decides whether to answer",
+   "members": [
+    29,
+    35,
+    50,
+    80
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-martha-4",
+    "s1bundefined-is_paris_burning-3",
+    "s0b0-vertigo-4",
+    "s0b1-harakiri-4"
+   ],
+   "memberSituations": [
+    "the one asked for help gives none",
+    "help is asked of those passing by",
+    "a man's fear costs another person's life",
+    "those who demanded courage will not appear"
+   ]
+  },
+  {
+   "id": "kills-to-clear-the-way",
+   "label": "One party puts another out of the world because that other stands in the way of what it wants to keep or gain.",
+   "roles": [
+    "removing",
+    "removed"
+   ],
+   "act": "kills another to clear an obstacle to itself",
+   "members": [
+    34,
+    45
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-muriel-3",
+    "s1bundefined-once_upon_time_in_west-2"
+   ],
+   "memberSituations": [
+    "someone is killed to keep the past quiet",
+    "a family is killed to clear the way"
+   ]
+  },
+  {
+   "id": "the-dead-charge-the-living",
+   "label": "A party who is dead leaves a word, a claim or a debt on a living party, who carries it.",
+   "roles": [
+    "departed",
+    "surviving"
+   ],
+   "act": "lays a charge on the living that outlasts them",
+   "members": [
+    3,
+    49,
+    63
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-shadows_of_forgotten_ancesto-4",
+    "s1bundefined-muriel-2",
+    "s3b10-ghost_writer-4"
+   ],
+   "memberSituations": [
+    "the dead seem to call the living onward",
+    "a survivor keeps faith with the dead",
+    "the dead leave word for whoever comes next"
+   ]
+  },
+  {
+   "id": "returns-to-closed-place",
+   "label": "One party comes back to a place or a bond that has already closed over their absence.",
+   "roles": [
+    "returning",
+    "receiving"
+   ],
+   "act": "returns to a bond that has shut behind them",
+   "members": [
+    15,
+    28
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b10-where_are_you_going_on_holid-6",
+    "s0b7-manxman-1"
+   ],
+   "memberSituations": [
+    "they return to a home made strange",
+    "a man reported dead comes back alive"
+   ]
+  },
+  {
+   "id": "the-nearest-goes-unseen",
+   "label": "One party fails to see or value the person standing closest to it.",
+   "roles": [
+    "overlooking",
+    "overlooked"
+   ],
+   "act": "fails to recognise or value the party nearest to it",
+   "members": [
+    33,
+    55
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b7-another_woman-2",
+    "s0b4-page_of_madness-1"
+   ],
+   "memberSituations": [
+    "those closest were treated with quiet contempt",
+    "one is not recognized by the person nearest"
+   ]
+  },
+  {
+   "id": "opponents-bound-together",
+   "label": "Two parties set against each other are bound together by necessity and come to hold each other.",
+   "roles": [
+    "opposed",
+    "counterpart"
+   ],
+   "act": "is forced into common cause with a party it was set against",
+   "members": [
+    16,
+    41,
+    46
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b11-days_of_thunder-2",
+    "s3b1-mad_max_fury_road-3",
+    "s3b0-memories_of_murder-2"
+   ],
+   "memberSituations": [
+    "rivals become friends after they are both hurt",
+    "a forced ally becomes a chosen one",
+    "two men with opposite methods must work together"
+   ]
+  },
+  {
+   "id": "two-claim-one-thing",
+   "label": "Two parties each claim the same thing as theirs alone, and contend with each other for it.",
+   "roles": [
+    "claiming",
+    "rival claimant"
+   ],
+   "act": "contends with another for exclusive possession of the same thing",
+   "members": [
+    42,
+    74
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-hellbenders-5",
+    "s2b8-table_for_five-3"
+   ],
+   "memberSituations": [
+    "brothers turn on each other over a prize",
+    "a child is claimed by two rival fathers"
+   ]
+  },
+  {
+   "id": "harmed-offered-a-place",
+   "label": "One party offers a place inside itself to a person it took from the side it harms.",
+   "roles": [
+    "taking in",
+    "taken in"
+   ],
+   "act": "offers belonging to one it holds or has harmed",
+   "members": [
+    23,
+    71
+   ],
+   "group": 9,
+   "memberIds": [
+    "s1bundefined-rosemary_s_baby-5",
+    "s3b2-princess_mononoke-2"
+   ],
+   "memberSituations": [
+    "a victim is offered a place among captors",
+    "a child is raised by her people's enemies"
+   ]
+  },
+  {
+   "id": "withdraws-from-the-undertaking",
+   "label": "One party stops carrying out what it was bound and expected to do, leaving the party that counted on it.",
+   "roles": [
+    "withdrawing",
+    "counting on them"
+   ],
+   "act": "refuses to go on performing what it committed to",
+   "members": [
+    21,
+    91
+   ],
+   "group": 9,
+   "memberIds": [
+    "s3b7-into_abyss-5",
+    "s3b10-panic_room-3"
+   ],
+   "memberSituations": [
+    "a man refuses to keep doing his duty",
+    "an accomplice balks at what the plan requires"
+   ]
+  },
+  {
+   "id": "falsehood-set-before-another",
+   "label": "One party puts a manufactured truth in front of another, who acts on it as though it were so.",
+   "roles": [
+    "fabricating",
+    "taking it as true"
+   ],
+   "act": "sets a falsehood before another who acts on it",
+   "members": [
+    32,
+    36,
+    48
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b5-sleepers-5",
+    "s2b8-farewell_to_nostradamus-2",
+    "s3b9-megalopolis-5"
+   ],
+   "memberSituations": [
+    "a good man lies to save the wronged",
+    "people are governed by predictions someone invents",
+    "a rival is disgraced by an engineered scandal"
+   ]
+  },
+  {
+   "id": "withholds-the-blow",
+   "label": "One party who could destroy another, and is sent or entitled to, holds the blow back.",
+   "roles": [
+    "sparing",
+    "at their mercy"
+   ],
+   "act": "withholds the harm it has the power and warrant to do",
+   "members": [
+    67,
+    84
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b0-blade_runner-2",
+    "s2b0-yeelen-5"
+   ],
+   "memberSituations": [
+    "one sent to kill falls in love instead",
+    "the wronged one chooses to spare the other"
+   ]
+  },
+  {
+   "id": "one-harmed-to-move-another",
+   "label": "One party harms or seizes a second person in order to bend the will of a third who is watching.",
+   "roles": [
+    "wielding",
+    "made an instrument"
+   ],
+   "act": "harms one party in order to work upon another",
+   "members": [
+    10,
+    75,
+    94
+   ],
+   "group": 9,
+   "memberIds": [
+    "s0b1-passion_of_joan_of_arc-5",
+    "s0b1-battleship_potemkin-2",
+    "s2b8-plot_of_fuma_clan-0"
+   ],
+   "memberSituations": [
+    "one death turns the onlookers against the powerful",
+    "one is punished to make the others obey",
+    "a hostage is taken to force a trade"
+   ]
+  },
+  {
+   "id": "own-end-put-before-others",
+   "label": "One party settles the terms of its own death and requires those bound to it to stand by and let it happen.",
+   "roles": [
+    "choosing their end",
+    "made to stand by"
+   ],
+   "act": "sets its own end and leaves the others to accept it",
+   "members": [
+    20,
+    89
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b8-last_note-3",
+    "s3b6-encounters_at_end_of_world-2"
+   ],
+   "memberSituations": [
+    "the old arrange their own deaths in advance",
+    "one walks away from the group toward death"
+   ]
+  },
+  {
+   "id": "telling-breaks-the-hearer",
+   "label": "One party tells another the truth about itself, and the telling takes that other apart.",
+   "roles": [
+    "disclosing",
+    "undone"
+   ],
+   "act": "discloses a truth that destroys the one who hears it",
+   "members": [
+    53,
+    58
+   ],
+   "group": 9,
+   "memberIds": [
+    "s3b7-dinner_with_friends-5",
+    "s0b5-secrets_of_women-1"
+   ],
+   "memberSituations": [
+    "someone reveals the happiness they showed was false",
+    "a confession drives the other toward self-destruction"
+   ]
+  },
+  {
+   "id": "the-wanted-child-denied",
+   "label": "One party is denied the child it wants, and the party bound to them is caught in the lack.",
+   "roles": [
+    "childless",
+    "implicated"
+   ],
+   "act": "is denied the child it wants, implicating the one bound to it",
+   "members": [
+    68,
+    87
+   ],
+   "group": 9,
+   "memberIds": [
+    "s2b7-another_woman-4",
+    "s2b7-waterland-1"
+   ],
+   "memberSituations": [
+    "a woman cannot have the child she wants",
+    "a woman cannot have the child she wants"
+   ]
+  },
+  {
+   "id": "held-apart-across-a-limit",
+   "label": "Two parties hold to each other across a barrier or a term that neither of them set and neither can lift.",
+   "roles": [
+    "holding on",
+    "held apart"
+   ],
+   "act": "holds to a bond across a separation it cannot remove",
+   "members": [
+    62,
+    66
+   ],
+   "group": 9,
+   "memberIds": [
+    "s0b0-seven_samurai-4",
+    "s3b0-tropical_malady-3"
+   ],
+   "memberSituations": [
+    "lovers are kept apart by unequal birth",
+    "two people love inside a fixed deadline"
+   ]
+  },
+  {
+   "id": "aid-withheld-from-the-needing",
+   "label": "One party holds back the help or thing another cannot do without, and will not release it",
+   "roles": [
+    "withholding",
+    "needing"
+   ],
+   "act": "holds back from another the help they cannot do without",
+   "members": [
+    1,
+    13,
+    65
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b9-women_of_night-3",
+    "s2b8-plot_of_fuma_clan-1",
+    "s1bundefined-harlan_county_usa-0"
+   ],
+   "memberSituations": [
+    "help is withheld by those closest",
+    "an elder refuses to ransom his own kin",
+    "the weak withhold what the strong need"
+   ]
+  },
+  {
+   "id": "identity-passed-off",
+   "label": "One party stands before another under an identity that is not their own, and the other takes it as true",
+   "roles": [
+    "passing",
+    "taken in"
+   ],
+   "act": "presents a false identity that another accepts as real",
+   "members": [
+    4,
+    7,
+    11,
+    71
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b0-metropolis-2",
+    "s3b3-infernal_affairs-0",
+    "s2b10-where_are_you_going_on_holid-1",
+    "s1bundefined-oldest_profession-1"
+   ],
+   "memberSituations": [
+    "a false double replaces a trusted person",
+    "a person must pretend to be someone else",
+    "a man hides where he comes from",
+    "a spouse appears to the other in disguise"
+   ]
+  },
+  {
+   "id": "shelter-turned-against-the-sheltered",
+   "label": "The party relied on for shelter or safe conduct uses that position to deliver the one who trusted them into harm",
+   "roles": [
+    "trusted",
+    "entrusted"
+   ],
+   "act": "turns the trust of protection against the one who gave it",
+   "members": [
+    15,
+    50,
+    68
+   ],
+   "group": 10,
+   "memberIds": [
+    "s2b0-close_up-1",
+    "s3b6-eastern_promises-1",
+    "s3b5-certain_women-2"
+   ],
+   "memberSituations": [
+    "a welcomed stranger betrays the trust given",
+    "the one trusted for shelter is the predator",
+    "the only helper hands the person over"
+   ]
+  },
+  {
+   "id": "secret-held-as-leverage",
+   "label": "One party holds something another has hidden and makes its disclosure the price of something else",
+   "roles": [
+    "holding the secret",
+    "exposed"
+   ],
+   "act": "trades on the threat of telling what another hid",
+   "members": [
+    12,
+    19
+   ],
+   "group": 10,
+   "memberIds": [
+    "s2b6-crimes_and_misdemeanors-0",
+    "s1bundefined-cat_o_nine_tails-1"
+   ],
+   "memberSituations": [
+    "a lover threatens to tell what was hidden",
+    "a secret is sold back to its owner"
+   ]
+  },
+  {
+   "id": "sheltered-from-consequence",
+   "label": "One party covers what another did so that the other never has to answer for it",
+   "roles": [
+    "shielding",
+    "shielded"
+   ],
+   "act": "absorbs or conceals another's act to keep them from being called to answer",
+   "members": [
+    21,
+    28
+   ],
+   "group": 10,
+   "memberIds": [
+    "s1bundefined-investigation_of_citizen_abo-2",
+    "s2b3-hard_eight-4"
+   ],
+   "memberSituations": [
+    "those in power protect their own from consequence",
+    "a rash act is covered up by another"
+   ]
+  },
+  {
+   "id": "private-matter-made-public",
+   "label": "Onlookers take hold of what belongs to another's private life and make it the business of everyone",
+   "roles": [
+    "publicising",
+    "talked about"
+   ],
+   "act": "turns another's private life into public property",
+   "members": [
+    14,
+    20
+   ],
+   "group": 10,
+   "memberIds": [
+    "s1bundefined-mother_kusters_trip_to_heave-1",
+    "s1bundefined-harlan_county_usa-3"
+   ],
+   "memberSituations": [
+    "a private grief is made public property",
+    "the absent are shamed by their own neighbours"
+   ]
+  },
+  {
+   "id": "closed-ranks-against-an-outsider",
+   "label": "A group holds one person outside its circle and keeps them under its watch",
+   "roles": [
+    "closing",
+    "shut out"
+   ],
+   "act": "keeps one person outside the group and under its eyes",
+   "members": [
+    37,
+    45
+   ],
+   "group": 10,
+   "memberIds": [
+    "s1bundefined-les_creatures-1",
+    "s1bundefined-graduate-2"
+   ],
+   "memberSituations": [
+    "a newcomer is watched by a closed community",
+    "a group closes ranks against one man"
+   ]
+  },
+  {
+   "id": "credence-refused",
+   "label": "Those around one party will not credit what that party knows or says of themselves, and give no hearing",
+   "roles": [
+    "disbelieving",
+    "unbelieved"
+   ],
+   "act": "refuses to credit what one person holds to be true",
+   "members": [
+    26,
+    61,
+    62
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b10-stalag_17-0",
+    "s3b11-spiderwick_chronicles-0",
+    "s0b3-general-0"
+   ],
+   "memberSituations": [
+    "the innocent is presumed guilty by all",
+    "one person sees what nobody else will believe",
+    "a man is thought a coward wrongly"
+   ]
+  },
+  {
+   "id": "falsehood-planted-between-two",
+   "label": "A third party puts a falsehood before one member of a couple that turns them against the other",
+   "roles": [
+    "planting",
+    "turned against"
+   ],
+   "act": "plants a falsehood that breaks a bond from outside it",
+   "members": [
+    10,
+    17
+   ],
+   "group": 10,
+   "memberIds": [
+    "s2b11-krull-2",
+    "s2b2-terrorizers-0"
+   ],
+   "memberSituations": [
+    "a lover is shown false proof of betrayal",
+    "a lie to a stranger ruins a marriage"
+   ]
+  },
+  {
+   "id": "accounting-demanded-by-the-wronged",
+   "label": "The party who was failed or harmed confronts the one responsible and demands they answer for it",
+   "roles": [
+    "calling to account",
+    "answering"
+   ],
+   "act": "confronts the one who wronged them and demands an accounting",
+   "members": [
+    30,
+    33
+   ],
+   "group": 10,
+   "memberIds": [
+    "s1bundefined-autumn_sonata-0",
+    "s1bundefined-casanova_70-4"
+   ],
+   "memberSituations": [
+    "a grown child accuses a parent of neglect",
+    "a man is judged by everyone he wronged"
+   ]
+  },
+  {
+   "id": "mercy-from-the-stronger-hand",
+   "label": "A party entitled to strike, or who has struck before, instead spares or helps the one at their mercy",
+   "roles": [
+    "holding power",
+    "at their mercy"
+   ],
+   "act": "gives relief to the one they were entitled to harm",
+   "members": [
+    16,
+    57
+   ],
+   "group": 10,
+   "memberIds": [
+    "s2b0-blade_runner-5",
+    "s0b5-tokyo_chorus-4"
+   ],
+   "memberSituations": [
+    "the wronged one chooses to spare the other",
+    "the man who once punished him now helps"
+   ]
+  },
+  {
+   "id": "death-answered-with-death",
+   "label": "One party pursues another's death as something owed, and the pursuit runs to the last of them",
+   "roles": [
+    "pursuing",
+    "pursued"
+   ],
+   "act": "pursues another's death as a debt to be collected",
+   "members": [
+    34,
+    39
+   ],
+   "group": 10,
+   "memberIds": [
+    "s2b9-lupin_iii_dead_or_alive-3",
+    "s2b3-decalogue_v-1"
+   ],
+   "memberSituations": [
+    "a killer hunts the last of a family",
+    "a killing is answered with a killing"
+   ]
+  },
+  {
+   "id": "rivals-for-one-regard",
+   "label": "Two parties contend for the regard of a third, and the one passed over moves against the one preferred",
+   "roles": [
+    "passed over",
+    "preferred"
+   ],
+   "act": "moves against the one preferred over them for a third party's regard",
+   "members": [
+    38,
+    47,
+    52,
+    59
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b8-mother_should_be_loved-2",
+    "s1bundefined-my_dear_killer-0",
+    "s2b7-pirates-1",
+    "s1bundefined-little_night_music-2"
+   ],
+   "memberSituations": [
+    "a parent's love is not evenly divided",
+    "a man destroys the kin he envies",
+    "two men want the same woman",
+    "a young man wants his father's wife"
+   ]
+  },
+  {
+   "id": "supplanted-in-a-bond",
+   "label": "One party has taken the place another held in a bond, and the two must face each other over it",
+   "roles": [
+    "taking the place",
+    "displaced"
+   ],
+   "act": "occupies the place another held in a bond",
+   "members": [
+    51,
+    64
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b11-come_fill_cup-3",
+    "s3b11-past-3"
+   ],
+   "memberSituations": [
+    "a man rescues his own replacement in love",
+    "a returning man finds his place already taken"
+   ]
+  },
+  {
+   "id": "holding-on-to-one-slipping",
+   "label": "One party keeps hold of another who is being lost to them and can no longer meet them as before",
+   "roles": [
+    "holding on",
+    "slipping away"
+   ],
+   "act": "keeps faith with someone who is disappearing from them",
+   "members": [
+    25,
+    42
+   ],
+   "group": 10,
+   "memberIds": [
+    "s3b4-wall_e-5",
+    "s3b1-aftersun-2"
+   ],
+   "memberSituations": [
+    "a beloved returns emptied of all memory",
+    "one reaches for someone slipping away"
+   ]
+  },
+  {
+   "id": "dependent-becomes-the-keeper",
+   "label": "The party who was cared for takes up the charge of the one who used to carry them",
+   "roles": [
+    "taking charge",
+    "cared for"
+   ],
+   "act": "assumes the burden of the one who once provided for them",
+   "members": [
+    36,
+    53
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b5-secrets_of_women-2",
+    "s2b11-goonies-0"
+   ],
+   "memberSituations": [
+    "a spouse becomes the parent of the other",
+    "children act to save what adults are losing"
+   ]
+  },
+  {
+   "id": "left-waiting-by-the-departed",
+   "label": "One party goes and does not return, and the one left behind is suspended on that absence",
+   "roles": [
+    "departing",
+    "left waiting"
+   ],
+   "act": "leaves another suspended on a return that does not come",
+   "members": [
+    27,
+    29,
+    40
+   ],
+   "group": 10,
+   "memberIds": [
+    "s3b11-spiderwick_chronicles-2",
+    "s3b7-dolls-1",
+    "s0b4-rebel_without_cause-5"
+   ],
+   "memberSituations": [
+    "a child waits for a parent's promised return",
+    "an abandoned person tries to end her life",
+    "a parent's absence unmakes the one left waiting"
+   ]
+  },
+  {
+   "id": "one-spent-to-keep-another",
+   "label": "One party gives up what is theirs, or themselves, so that another may go on",
+   "roles": [
+    "giving up",
+    "kept"
+   ],
+   "act": "spends what is theirs so another may continue",
+   "members": [
+    6,
+    48
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b5-tokyo_chorus-2",
+    "s0b6-without_pity-5"
+   ],
+   "memberSituations": [
+    "a family sells what it has to survive",
+    "an escape is paid for with a life"
+   ]
+  },
+  {
+   "id": "another-sent-to-do-the-killing",
+   "label": "One party sets another to the deadly act while keeping clear of it themselves",
+   "roles": [
+    "instigating",
+    "sent"
+   ],
+   "act": "enlists another to carry the mortal risk in their place",
+   "members": [
+    24,
+    58
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b2-sunrise_song_of_two_humans-0",
+    "s3b3-no_bears-4"
+   ],
+   "memberSituations": [
+    "a lover proposes the removal of a spouse",
+    "one sends another into danger from safety"
+   ]
+  },
+  {
+   "id": "person-handed-between-parties",
+   "label": "Two parties transact over a third person in their keeping, who is given from one to the other",
+   "roles": [
+    "disposing",
+    "disposed of"
+   ],
+   "act": "hands a person in their keeping over to another party",
+   "members": [
+    2,
+    66
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b4-idiot-0",
+    "s1bundefined-love_in_afternoon-2"
+   ],
+   "memberSituations": [
+    "a woman is traded between men as property",
+    "someone asks to be given a child"
+   ]
+  },
+  {
+   "id": "loved-one-carried-off",
+   "label": "An outside party takes a loved one out of the hands of those who held them",
+   "roles": [
+    "taking",
+    "losing"
+   ],
+   "act": "removes a loved one from the household that held them",
+   "members": [
+    5,
+    54
+   ],
+   "group": 10,
+   "memberIds": [
+    "s3b8-okja-0",
+    "s3b10-avatar_way_of_water-3"
+   ],
+   "memberSituations": [
+    "a loved one is taken away by strangers",
+    "a boy is claimed by the enemy father"
+   ]
+  },
+  {
+   "id": "kept-from-their-own-blood",
+   "label": "One party keeps another in ignorance of a blood tie that is that other's own",
+   "roles": [
+    "concealing",
+    "unknowing"
+   ],
+   "act": "withholds from another the knowledge of their own blood tie",
+   "members": [
+    9,
+    44
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b8-mother_should_be_loved-0",
+    "s0b5-secrets_of_women-3"
+   ],
+   "memberSituations": [
+    "a child is raised as another woman's own",
+    "a woman conceals a pregnancy from its father"
+   ]
+  },
+  {
+   "id": "two-destitute-hold-each-other",
+   "label": "Two parties with nothing left become each other's only support",
+   "roles": [
+    "sustaining",
+    "sustained"
+   ],
+   "act": "becomes the sole support of another who has nothing, and is held up in turn",
+   "members": [
+    3,
+    22
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b10-slice_of_life-2",
+    "s0b3-modern_times-2"
+   ],
+   "memberSituations": [
+    "two ruined people meet again by chance",
+    "two with nothing keep each other alive"
+   ]
+  },
+  {
+   "id": "attachment-across-a-forbidden-line",
+   "label": "One party forms an attachment across a line their own people hold as forbidden, and those people move against them",
+   "roles": [
+    "crossing",
+    "holding the line"
+   ],
+   "act": "binds itself across a line the group forbids",
+   "members": [
+    43,
+    49,
+    63
+   ],
+   "group": 10,
+   "memberIds": [
+    "s2b7-best_intentions-2",
+    "s2b9-love_in_germany-0",
+    "s0b7-last_days_of_pompeii-4"
+   ],
+   "memberSituations": [
+    "two people marry across a gulf between them",
+    "love across a forbidden line is punished",
+    "a woman's faith puts her against her family"
+   ]
+  },
+  {
+   "id": "claim-pressed-on-the-unwilling",
+   "label": "One party presses an attachment on another who does not want it and contrives to keep them near",
+   "roles": [
+    "pressing",
+    "pressed"
+   ],
+   "act": "presses and holds an unwanted claim on another",
+   "members": [
+    35,
+    56,
+    60
+   ],
+   "group": 10,
+   "memberIds": [
+    "s2b6-chronicle_of_death_foretold-0",
+    "s0b6-variety_lights-2",
+    "s2b4-decalogue_iii-0"
+   ],
+   "memberSituations": [
+    "a marriage is forced on an unwilling woman",
+    "an aging person pursues someone far younger",
+    "someone invents an emergency to keep another close"
+   ]
+  },
+  {
+   "id": "bound-by-an-unasked-obligation",
+   "label": "What one party does for or asks of another leaves that other under an obligation they did not choose",
+   "roles": [
+    "binding",
+    "bound"
+   ],
+   "act": "places another under a lasting obligation by an act or a request",
+   "members": [
+    46,
+    72
+   ],
+   "group": 10,
+   "memberIds": [
+    "s0b6-without_pity-0",
+    "s1bundefined-viva_maria-1"
+   ],
+   "memberSituations": [
+    "saving a life creates a lasting bond",
+    "a dying man extracts a promise"
+   ]
+  }
+ ]
+}

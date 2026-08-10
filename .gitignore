@@ -121,3 +121,5 @@ __pycache__/
 /atlas/pipeline/rag/__pycache__/
 /atlas/pipeline/out/rag-*.npz
 /atlas/pipeline/out/rag-audit-dense.json
+/atlas/pipeline/.cache-propB/
+/atlas/pipeline/.cache-propC/

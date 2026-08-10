@@ -60,7 +60,7 @@ const CACHE = path.join(__dirname, ".cache-readings");
 
 const MODEL = "claude-opus-5";
 const BATCH_SIZE = 6;              // smaller than axes.js: the output per film is far longer
-const PROMPT_VERSION = "readings-prompt-1";
+const PROMPT_VERSION = "readings-prompt-2";
 const CONCURRENCY = 3;
 const CALL_TIMEOUT_MS = 15 * 60 * 1000;
 const MAX_PLOT_CHARS = 8000;
@@ -133,17 +133,46 @@ WHAT I WANT, PER FILM
    which parent he wants to live with and spends the film forging a life that
    would put that evening back" — not "explores family and identity".
 
-2. "predicaments" — 3 to 6 short phrases, each naming ONE situation the film
-   turns on, in the form of something that happens between people. Phrase each
-   as a general situation, not as this film's specifics, so that another film
-   could be described by the same phrase: "one party ends a bond and will not
-   give a reason the other can accept". For each, give:
-     - "situation": the general phrase
-     - "basis": one sentence naming how it appears in THIS film, specifically
+2. "predicaments" — 3 to 6 situations the film turns on. Each is two fields
+   doing two different jobs, and the whole pass depends on not mixing them up.
+
+     - "situation" — the NAME of the situation, and nothing else.
+       * EIGHT WORDS MAXIMUM. Count them.
+       * One clause. No "and", "but", "because", "who", "which", "when",
+         "while", "so that". No commas.
+       * No proper nouns, and no word that only means something once you have
+         seen this film: no jobs, ranks or titles, no objects, no places, no
+         weapons, no documents, no numbers, no period detail.
+       * The test, applied before you write it down: could a film made on
+         another continent in another century carry this exact phrase, word for
+         word? If not, cut words until it can.
+       * It must still be a situation BETWEEN PEOPLE. "grief", "power",
+         "betrayal", "identity" are themes, and a theme is not a situation.
+         Aim between a theme and a summary of this plot.
+
+     - "basis" — one sentence about THIS film, specifically. Every name, job,
+       object and event you stripped out of "situation" belongs here. This
+       field carries the evidence; "situation" carries only the name.
+
      - "centrality": 0-1, is this the spine or something the film passes through
      - "outcome": one of restored | unrestored | fatal | ambiguous | transfigured
      - "roles": if the situation has two sides, name which side each main
        figure occupies; omit if it does not
+
+   The transformation, on an invented example. This shows LENGTH AND SHAPE
+   only — do not reach for this situation, it is not about any real film:
+
+     too specific  "a landlord raises the rent on the tenant who fixed his
+                    roof"                                        (12 words)
+     right grain   "a favour is repaid with a penalty"            (7 words)
+     too general   "ingratitude"                                  (a theme)
+
+   REUSE THE WORDING. If two of the films below turn on the same situation,
+   give them the SAME phrase, character for character. Do not vary it so it
+   fits each film better — "basis" is where the fit goes. A phrase used once
+   and never again is a phrase that failed. Expect the same handful of
+   situations to come back across films that have nothing else in common; when
+   one does, write it exactly the way you wrote it the first time.
 
 3. "relatives" — up to 5 other films this one brings to mind AT THE LEVEL OF
    THE SITUATION, not of genre, era, country or director. One clause each
@@ -159,6 +188,11 @@ RULES
   empty predicaments array — that is a correct answer, not a failure.
 - Never mention how famous, acclaimed, influential or well-regarded any film is.
 - Do not invent a situation to fill the quota. Three good ones beat six.
+- A "situation" longer than eight words, or carrying a name, a job, an object
+  or a place, is wrong even when it is true. Shorten it and move the detail
+  into "basis". Length is the failure mode this pass actually has: a
+  sixteen-word situation is a description of one film, and two films never
+  write the same sixteen words.
 - "relatives" is allowed to name films from your own knowledge, since it is a
   pointer and not a claim about the text.
 
@@ -269,5 +303,10 @@ function parse(raw, expected) {
   const phrases = results.flatMap((r) => (r.predicaments || []).map((p) => p.situation)).filter(Boolean);
   console.log(`\n  wrote ${results.length} readings -> ${path.relative(ROOT, OUT_FILE)}`);
   console.log(`  ${phrases.length} predicament phrases, ${new Set(phrases.map((s) => s.toLowerCase())).size} distinct before clustering`);
+  // Phrase LENGTH is the grain, and the grain decides whether anything can
+  // cluster at all. A median far above ~8 words means the pass is writing one
+  // description per film and pipeline/measure-saturation.js will read linear.
+  const lens = phrases.map((s) => s.trim().split(/\s+/).length).sort((a, b) => a - b);
+  if (lens.length) console.log(`  situation length: median ${lens[Math.floor(lens.length / 2)]} words, max ${lens[lens.length - 1]} (target: 8 or fewer)`);
   console.log(`  -> next: cluster those into a controlled vocabulary, then re-tag.\n`);
 })();

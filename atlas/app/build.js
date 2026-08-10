@@ -20,6 +20,7 @@ const {canonicalJson,contentVersion,layoutVersionFor,projectDiscovery,validateDi
 const {LAYOUT_ALGORITHM_VERSION,layout}=require("./layout-sky.js");
 const {STRATA_LAYOUT_VERSION,strataLayouts}=require("./layout-strata.js");
 const {isTrivia}=require("../pipeline/claim-tiers.js");
+const {packAttributes,RUNTIME_VERSION}=require("./query-runtime.js");
 const ROOT=path.join(__dirname,"..");
 const arg=(n,d)=>{
   const flag="--"+n,i=process.argv.indexOf(flag);
@@ -517,6 +518,111 @@ const TRANSPORT={
 };
 
 
+/* ── THE LIGHT ─────────────────────────────────────────────────────────────
+ * WHAT A FILM LOOKS LIKE, WITHOUT SHOWING ONE FRAME OF IT.
+ *
+ * The panel had exactly one picture: the Wikipedia one-sheet, which is
+ * advertising, and which 75 films do not have at all. The obvious upgrade is a
+ * shelf of stills, and it is the one thing this project may not do.
+ * docs/specs/film-grab-evaluation.md settled it — the frames were fetched once
+ * at ~1 req/s, measured, and deleted: "derived numbers only in the repo ...
+ * Nothing rehosted, no image URL served at runtime". IMDb forbids
+ * redistribution, BFI forbids bulk copying, TMDB is barred as a runtime
+ * dependency by AGENTS 6b, and there is no film still anywhere in this
+ * repository — `git ls-files` returns four raster files and not one is a
+ * frame. There is no lawful shelf of photographs to build.
+ *
+ * So the shelf is the MEASUREMENT the frames left behind: the seven OKLab
+ * statistics per film in pipeline/out/frame-measures.json, drawn back out as
+ * plates. The atlas may not show what it looked at, so it draws what it saw.
+ * The plates are CSS gradients in `oklab()`, which is the space the numbers
+ * were measured in — nothing is converted and nothing is invented between the
+ * instrument and the screen.
+ *
+ * `provenance` IS STRIPPED HERE AND THE BUILD FAILS IF IT SURVIVES. 903 of the
+ * 1,017 records carry a https://film-grab.com/... gallery URL. It is a page
+ * and not an image, and it is still a film-grab URL inside a public artifact,
+ * which the spec's own sentence refuses. The assertion below is why this is a
+ * build step and not a file copy.
+ *
+ * COVERAGE IS 1,017 OF 2,204 AND THE SHAPE OF THAT GAP IS FAME — the file says
+ * so in its own `caveat`: 9.7% of the quietest pageview quartile against 76.1%
+ * of the loudest. That is exactly why the shelf's GEOMETRY must not depend on
+ * it. Every film gets the same three slots at the same size; coverage changes
+ * what is inside a slot and what its caption admits, never how much room the
+ * shelf takes. A shelf that grew with coverage is a shelf that grew with fame,
+ * which is AGENTS rule 1 drawn as a layout.
+ *
+ * THE TWO INSTRUMENTS ARE NOT THE SAME CLAIM (AGENTS rule 8). 903 films are
+ * measured from curator-selected frames — the reference. 114 are measured from
+ * promotional backdrops, up to 8 of them, "systematically brighter", pulled
+ * onto the reference scale by an offset derived from 110 dual-measured films.
+ * Advertising calibrated into a guess at projection is a reading, so those
+ * plates ship marked as one and the app draws them dashed, in the same
+ * solid/dashed grammar the edges already use. */
+const LIGHT_PATH=path.join(ROOT,"pipeline","out","frame-measures.json");
+const LIGHT_AXES=["glare","Lrange","hardness","chroma","chroma90","warmth","warmspread"];
+const LIGHT_MONO_FLOOR=0.002;   /* frame-measures.json's own black-and-white anchor */
+let LIGHT=null, LIGHT_QUOTED=[], LIGHT_COUNT=null;
+if(fs.existsSync(LIGHT_PATH)){
+  const src=JSON.parse(fs.readFileSync(LIGHT_PATH,"utf8"));
+  if(!src.films||!src.measures||!src.bwAnchor||!src.calibration){
+    throw new Error("frame-measures.json is missing films, measures, bwAnchor or calibration");
+  }
+  if(!src.bwAnchor.note.includes(String(LIGHT_MONO_FLOOR))){
+    throw new Error("frame-measures.json no longer anchors monochrome at "+LIGHT_MONO_FLOOR);
+  }
+  const films={};
+  let filmgrab=0,tmdb=0,mono=0,thin=0;
+  for(const key of Object.keys(corpus.films)){
+    const r=src.films[key];
+    if(!r) continue;
+    for(const axis of LIGHT_AXES){
+      if(!Number.isFinite(r[axis])) throw new Error(`${key}: frame measure ${axis} is not a number`);
+    }
+    if(!Number.isFinite(r.n)||r.n<1) throw new Error(`${key}: frame measure carries no frame count`);
+    if(r.source!=="film-grab"&&r.source!=="tmdb") throw new Error(`${key}: unknown frame source ${r.source}`);
+    /* Positional and short on purpose: seven floats over a thousand films is
+       the whole payload and a key per float would be most of it. The order is
+       LIGHT_AXES, which the template names once and the probe re-checks. */
+    films[key]=[r.source==="film-grab"?0:1,r.n,...LIGHT_AXES.map(a=>Math.round(r[a]*1e5)/1e5)];
+    /* FIVE PLACES, NOT FOUR, AND THE REASON IS ONE FILM. At 4dp a chroma of
+       0.001968 rounds to 0.00197 -> still under the floor, but 0.0019996 would
+       not, and A Matter of Life and Death — a part-Technicolor film measured at
+       0.001968, exactly the tinted-print case the file's bwAnchor note warns
+       about — sat close enough that the page and the pipeline disagreed about
+       whether it is monochrome. The verdict must not be a rounding artefact. */
+    if((r.chroma<LIGHT_MONO_FLOOR)!==(films[key][2+LIGHT_AXES.indexOf("chroma")]<LIGHT_MONO_FLOOR)){
+      throw new Error(`${key}: packing moved the monochrome verdict — chroma ${r.chroma} does not survive rounding`);
+    }
+    if(r.source==="film-grab") filmgrab++; else tmdb++;
+    if(r.chroma<LIGHT_MONO_FLOOR) mono++;
+    if(r.n<8) thin++;
+  }
+  /* ONLY WHAT THE PAGE DRAWS SHIPS. `measures`, `calibration` and `caveat` are
+     read here and left behind: prose nobody renders is weight, and `caveat` is
+     also the one field in the file that contains the string "film-grab". What
+     the shelf DOES quote out of the caveat — the two percentages that make the
+     coverage gap a fame gradient — is checked against the file below, so the
+     sentence in the template cannot go stale while the measurement moves. */
+  LIGHT={ axes:LIGHT_AXES, monoFloor:LIGHT_MONO_FLOOR, films };
+  for(const quoted of ["9.7%","76.1%"]){
+    if(!src.caveat.includes(quoted)){
+      throw new Error(`the shelf quotes ${quoted} from the frame-measure caveat and the file no longer says it`);
+    }
+  }
+  LIGHT_QUOTED=["9.7%","76.1%"];
+  const packed=JSON.stringify(LIGHT);
+  if(/film-?grab\.com|https?:\/\//i.test(packed)){
+    throw new Error("the light payload carries a URL — frame provenance must never reach the artifact");
+  }
+  /* The census is for the build's own console and does NOT go into LIGHT: the
+     packed object is greppable by two probes for the frame source's name, and
+     a field called `filmgrab` in the artifact trips them for no reader's
+     benefit. What ships is what the shelf draws. */
+  LIGHT_COUNT={films:filmgrab+tmdb,filmgrab,tmdb,mono,thin};
+}
+
 /* ── THE REGISTERS ─────────────────────────────────────────────────────────
  * static/registers.json is DERIVED (pipeline/build-registers.js evaluates a
  * rule over themes), where discovery.json is RECORDED. They ship as separate
@@ -595,6 +701,99 @@ const layoutManifest={
   strata,
 };
 
+/* ══ THE TYPED SEARCH ════════════════════════════════════════════════════════
+ * A reader types a sentence and the atlas re-forms into a constellation where
+ * distance from the centre is how well each film answers it. That needs four
+ * things in the artifact that were never in it: the consensus attributes, the
+ * closed vocabulary, the reader-word lexicon, and the four modules that turn one
+ * into the other. The page makes no network call, so all four ship.
+ *
+ * NOTHING IS PORTED. match.js, questioner.js, query-parse.js and
+ * query-runtime.js are inlined VERBATIM under a small CommonJS shim with a
+ * virtual filesystem, for the same reason layout-sky.js is embedded rather than
+ * reimplemented: a second hand-written copy of a scorer is a copy that drifts,
+ * and the day it drifts the sky stops being drawn by the rules the pipeline
+ * measures. A shebang is the one thing that has to go — Node's loader strips it
+ * and `new Function` does not, and `#!` is a syntax error in a browser with no
+ * file and no line number attached to it.
+ *
+ * THE SHARD BOUNDARY SURVIVES THE PACKING, and that is the only hard constraint
+ * on this payload. Only the known shard declares a vocabulary; that is what
+ * makes silence there known-absent and silence in the outline shard unknown.
+ * Merging the three converts 484 honest unknowns into confident zeros — films
+ * above zero on the reference query drops from 1,090 to 606, same scorer, same
+ * query, no error anywhere. packAttributes carries a tier byte per film for
+ * exactly this reason and query-runtime.js refuses a payload where more than
+ * one shard declares a vocabulary. */
+const SHARD_DIR=path.join(ROOT,"pipeline","out");
+const shardNames=["consensus.shard-known.json","consensus.shard-outline.json","consensus.shard-unknown.json"];
+const shards=shardNames.map(n=>{
+  const p=path.join(SHARD_DIR,n);
+  if(!fs.existsSync(p)) throw new Error(`Atlas build needs ${n} for the typed search; run pipeline/consensus.js`);
+  return JSON.parse(fs.readFileSync(p,"utf8"));
+});
+const findKeys=Object.keys(corpus.films);
+const findAttrs=packAttributes(shards,findKeys);
+if(findAttrs.unseen) throw new Error(`${findAttrs.unseen} films are in the corpus and in no consensus shard`);
+/* Read as objects and handed to the virtual filesystem as objects: the parser
+   does JSON.parse(readFileSync(...)), so the shim stringifies on read rather
+   than the build shipping every quote twice escaped. */
+const findFiles={
+  "consensus-vocab.json":JSON.parse(fs.readFileSync(path.join(ROOT,"pipeline","consensus-vocab.json"),"utf8")),
+  "query-lexicon.json":JSON.parse(fs.readFileSync(path.join(ROOT,"pipeline","query-lexicon.json"),"utf8")),
+  "questioner-phrasings.json":JSON.parse(fs.readFileSync(path.join(ROOT,"pipeline","questioner-phrasings.json"),"utf8")),
+};
+if(findFiles["query-lexicon.json"].vocabVersion!==findFiles["consensus-vocab.json"].vocabVersion){
+  throw new Error("query-lexicon.json and consensus-vocab.json disagree about the vocabulary version");
+}
+const FIND={
+  version:RUNTIME_VERSION,
+  vocabVersion:findFiles["consensus-vocab.json"].vocabVersion,
+  attrs:findAttrs,
+  files:findFiles,
+};
+const findModuleFiles=[
+  ["match.js",path.join(ROOT,"pipeline","match.js")],
+  ["query-parse.js",path.join(ROOT,"pipeline","query-parse.js")],
+  ["query-runtime.js",path.join(__dirname,"query-runtime.js")],
+  ["layout-match.js",path.join(__dirname,"layout-match.js")],
+];
+const findModules={};
+for(const [name,file] of findModuleFiles){
+  const src=fs.readFileSync(file,"utf8").replace(/^#![^\n]*\n/,"");
+  if(/^#!/.test(src)) throw new Error(`${name} still carries a shebang after stripping`);
+  findModules[name]=src;
+}
+/* QUESTIONER.JS IS THE ONE MODULE THAT DOES NOT SHIP WHOLE, and it is CUT
+ * rather than copied. The runtime needs exactly one function out of it —
+ * withComplements, which gives match.js a `not:<attr>` column without match.js
+ * learning about negation, and whose one rule (an unknown never inverts) is the
+ * difference between a reader's "no" being honoured and an unattributed film
+ * quietly becoming evidence for it. The rest of the file is the wall's
+ * question-picker, 28 KB of it, and the search uses none of it.
+ *
+ * Sliced out of the source at build time with a brace match, never transcribed:
+ * a hand copy of a twenty-line rule is a copy that goes stale the day the rule
+ * changes, and this build fails loudly if the function is renamed or moved. */
+const questionerSource=fs.readFileSync(path.join(ROOT,"pipeline","questioner.js"),"utf8");
+const wcAt=questionerSource.indexOf("function withComplements(table) {");
+if(wcAt<0) throw new Error("questioner.js no longer declares withComplements(table) in the form the embed cuts");
+let depth=0,wcEnd=-1;
+for(let i=questionerSource.indexOf("{",wcAt);i<questionerSource.length;i++){
+  const c=questionerSource[i];
+  if(c==="{") depth++;
+  else if(c==="}"){ depth--; if(!depth){ wcEnd=i+1; break; } }
+}
+if(wcEnd<0) throw new Error("questioner.js's withComplements does not close");
+const wcSource=questionerSource.slice(wcAt,wcEnd);
+if(!/table\.value\(filmKey, attr\.slice\(NOT\.length\)\)/.test(wcSource)){
+  throw new Error("questioner.js's withComplements no longer reads the way the search depends on");
+}
+findModuleFiles.splice(1,0,["questioner.js",path.join(ROOT,"pipeline","questioner.js")]);
+findModules["questioner.js"]=
+  `/* cut from pipeline/questioner.js at build time; see app/build.js */\n`+
+  `const NOT = "not:";\n${wcSource}\nmodule.exports = { withComplements };\n`;
+
 /* Chunked, never one enormous line: a 250k-character line is valid JavaScript
    and a practical failure — editors, diff viewers and artifact renderers all
    choke on it, and the symptom is a blank screen rather than an error. */
@@ -608,11 +807,24 @@ const pack=(name,value)=>{
   for(let i=0;i<json.length;i+=CH) chunks.push(JSON.stringify(json.slice(i,i+CH)));
   return `const ${name} = JSON.parse([\n`+chunks.join(",\n")+`\n].join(""));`;
 };
+/* Module sources are strings, not JSON values, so they get their own packer —
+   same chunking discipline, one JSON.stringify instead of two. */
+const packString=(expr,value)=>{
+  const chunks=[];
+  for(let i=0;i<value.length;i+=CH) chunks.push(JSON.stringify(value.slice(i,i+CH)));
+  return `${expr} = [\n`+chunks.join(",\n")+`\n].join("");`;
+};
 const block=pack("CORPUS",corpus);
 const discoveryBlock=pack("DISCOVERY",discovery);
 const layoutBlock=pack("LAYOUT",layoutManifest);
 const registerBlock=pack("REGISTERS",REGISTERS);
 const transportBlock=pack("TRANSPORT",TRANSPORT);
+const lightBlock=pack("LIGHT",LIGHT);
+const findBlock=[
+  pack("FIND_DATA",FIND),
+  "const __FIND_SRC = Object.create(null);",
+  ...findModuleFiles.map(([name])=>packString(`__FIND_SRC[${JSON.stringify(name)}]`,findModules[name])),
+].join("\n");
 
 let html=fs.readFileSync(path.join(__dirname,"template.html"),"utf8");
 const marker="/* __CORPUS__ */";
@@ -635,6 +847,19 @@ const transportMarker="/* __TRANSPORT__ */";
 if(!html.includes(transportMarker)) throw new Error("Atlas template is missing its transport marker");
 html=html.replace(transportMarker,transportBlock);
 if(html.includes(transportMarker)) throw new Error("Atlas template contains more than one transport marker");
+const lightMarker="/* __LIGHT__ */";
+if(!html.includes(lightMarker)) throw new Error("Atlas template is missing its light marker");
+/* The other half of the caveat check: the numbers are still in the file AND
+   the shelf still prints them. Either side going missing is a silent lie. */
+for(const quoted of LIGHT_QUOTED){
+  if(!html.includes(quoted)) throw new Error(`the template no longer prints ${quoted}, the coverage gradient the shelf is required to admit`);
+}
+html=html.replace(lightMarker,lightBlock);
+if(html.includes(lightMarker)) throw new Error("Atlas template contains more than one light marker");
+const findMarker="/* __FIND__ */";
+if(!html.includes(findMarker)) throw new Error("Atlas template is missing its typed-search marker");
+html=html.replace(findMarker,()=>findBlock);
+if(html.includes(findMarker)) throw new Error("Atlas template contains more than one typed-search marker");
 const inspectionMarker="/* __RADIAL_INSPECTION__ */";
 if(!html.includes(inspectionMarker)) throw new Error("Atlas template is missing its radial inspection marker");
 const inspectionSource=fs.readFileSync(path.join(__dirname,"radial-inspection.js"),"utf8");
@@ -709,9 +934,26 @@ console.log(`${strataReport.length} strata re-formed — ${strataReport.reduce((
 console.log(REGISTERS
   ? `${Object.keys(REGISTERS.definitions).length} registers, ${registerStrataCount} of them with their own baked constellation`
   : "no registers — static/registers.json absent, atlas builds without the register layer");
+/* Say the coverage out loud, every build, including the part that is missing.
+   A shelf that is present for 46% of the corpus and silent about it is the
+   fame gradient shipping as an impression. */
+console.log(LIGHT_COUNT
+  ? `light ${LIGHT_COUNT.films} of ${Object.keys(corpus.films).length} films measured `+
+    `(${(100*LIGHT_COUNT.films/Object.keys(corpus.films).length).toFixed(1)}%) — `+
+    `${LIGHT_COUNT.filmgrab} from frames, ${LIGHT_COUNT.tmdb} from backdrops (drawn as readings), `+
+    `${LIGHT_COUNT.mono} measured monochrome, `+
+    `${Object.keys(corpus.films).length-LIGHT_COUNT.films} with no light at all, `+
+    `${(JSON.stringify(LIGHT).length/1024).toFixed(0)} KB`
+  : "no light — pipeline/out/frame-measures.json absent, every shelf falls back to the mark alone");
 /* Say what the transport was baked from, in the same voice: a percentage the
    app prints in its own key is a percentage somebody should be able to see the
    build compute. */
+console.log(`typed search ${FIND.vocabVersion} — ${FIND.attrs.a.length} attributes over `+
+  `${findKeys.length} films, rungs ${FIND.attrs.rungsUsed.join("/")}, `+
+  `${shards.filter(s=>s.vocabulary).length} of ${shards.length} shards declare a vocabulary, `+
+  `attrs ${(JSON.stringify(FIND.attrs).length/1024).toFixed(0)} KB, `+
+  `lexicon+vocab ${(JSON.stringify(FIND.files).length/1024).toFixed(0)} KB, `+
+  `modules ${(Object.values(findModules).join("").length/1024).toFixed(0)} KB`);
 console.log(`transport ${TRANSPORT.y0}-${TRANSPORT.y1} — ${TRANSPORT.measuredPrints} measured prints, `+
   `descent ${TRANSPORT.tense.descent.directed}/${TRANSPORT.tense.descent.n} directed at `+
   `${(TRANSPORT.tense.descent.forward*100).toFixed(1)}% forward, `+

@@ -1,0 +1,1811 @@
+{
+ "version": 1,
+ "promptVersion": "propC-reach-1",
+ "stage": "facts",
+ "generated": "2026-08-10T13:30:06.395Z",
+ "note": "What the current atlas can already say about every pair of cohort films. No model calls. Nothing here is an edge.",
+ "cohort": {
+  "films": 300,
+  "phrases": 1538,
+  "filmsWithNoPredicaments": 4
+ },
+ "definitions": {
+  "edge": "a connection between the two films exists in static/corpus.json",
+  "attr": "the two films share a crew member, a cast member or a non-catalogue TMDB keyword",
+  "hop2": "the two films have a common neighbour in the corpus graph",
+  "tonalNear": "either film is inside the other's 200 nearest of 1,541 scored films by five-axis Euclidean distance",
+  "unreachable": "none of the four above — the atlas has no route to this pair and no reason to propose one"
+ },
+ "pairs": {
+  "total": 44850,
+  "edge": 454,
+  "edgePct": 1.01,
+  "noEdge": 44396,
+  "noEdgePct": 98.99,
+  "sharedCrew": 915,
+  "sharedCast": 424,
+  "sharedKeyword": 1763,
+  "anyAttr": 2853,
+  "anyAttrPct": 6.36,
+  "hop2": 5148,
+  "hop2Pct": 11.48,
+  "tonalNear": 7435,
+  "tonalNearPct": 16.58,
+  "inEachOthersTopSix": 165,
+  "unreachable": 31661,
+  "unreachablePct": 70.59
+ },
+ "topSixToday": {
+  "slots": 1795,
+  "share": {
+   "crew": 50.53,
+   "cast": 19.5,
+   "unlabelled": 9.14,
+   "keyword": 6.91,
+   "subject": 5.85,
+   "genreEra": 2.67,
+   "setting": 1.89,
+   "sameAuthor": 1.28,
+   "studio": 1,
+   "countryEra": 0.56,
+   "movement": 0.45,
+   "adaptation": 0.17,
+   "genre": 0.06
+  },
+  "note": "the 300 cohort films own top-six slots, by signal. The corpus-wide baseline this trial is judged against is crew 52.5%, crew+cast 72.7%."
+ },
+ "inductionGroups": {
+  "count": 35,
+  "sizes": [
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   11,
+   11,
+   10,
+   9,
+   10,
+   10,
+   10,
+   9,
+   8,
+   9,
+   8,
+   8,
+   7,
+   8,
+   7,
+   8,
+   6,
+   5,
+   6,
+   5,
+   4,
+   5,
+   3,
+   2,
+   1
+  ],
+  "invariant": "every group is a clique in the unreachable relation and no two films in a group came from the same Pass A reading batch. Nothing is relaxed.",
+  "groups": [
+   {
+    "g": 0,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 39,
+      "title": "War and Peace",
+      "batch": "0:6"
+     },
+     {
+      "fi": 48,
+      "title": "A Mother Should be Loved",
+      "batch": "0:8"
+     },
+     {
+      "fi": 30,
+      "title": "Mother India",
+      "batch": "0:5"
+     },
+     {
+      "fi": 74,
+      "title": "Hangmen Also Die!",
+      "batch": "0:12"
+     },
+     {
+      "fi": 211,
+      "title": "Someone's Watching Me!",
+      "batch": "2:10"
+     },
+     {
+      "fi": 253,
+      "title": "WALL-E",
+      "batch": "3:4"
+     },
+     {
+      "fi": 14,
+      "title": "Mother Joan of the Angels",
+      "batch": "0:2"
+     },
+     {
+      "fi": 218,
+      "title": "Bad Company",
+      "batch": "2:11"
+     },
+     {
+      "fi": 26,
+      "title": "Late Chrysanthemums",
+      "batch": "0:4"
+     },
+     {
+      "fi": 96,
+      "title": "Shadows of Forgotten Ancestors",
+      "batch": "1:3"
+     },
+     {
+      "fi": 230,
+      "title": "Tropical Malady",
+      "batch": "3:0"
+     },
+     {
+      "fi": 116,
+      "title": "I maniaci",
+      "batch": "1:6"
+     }
+    ]
+   },
+   {
+    "g": 1,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 177,
+      "title": "The Last Waltz",
+      "batch": "2:4"
+     },
+     {
+      "fi": 251,
+      "title": "The Iron Giant",
+      "batch": "3:4"
+     },
+     {
+      "fi": 43,
+      "title": "Downhill",
+      "batch": "0:7"
+     },
+     {
+      "fi": 70,
+      "title": "Cops and Robbers",
+      "batch": "0:11"
+     },
+     {
+      "fi": 100,
+      "title": "The Man Who Shot Liberty Valance",
+      "batch": "1:4"
+     },
+     {
+      "fi": 246,
+      "title": "The Day He Arrives",
+      "batch": "3:3"
+     },
+     {
+      "fi": 285,
+      "title": "Unknown Pleasures",
+      "batch": "3:10"
+     },
+     {
+      "fi": 201,
+      "title": "Guilty as Sin",
+      "batch": "2:8"
+     },
+     {
+      "fi": 256,
+      "title": "Certain Women",
+      "batch": "3:5"
+     },
+     {
+      "fi": 145,
+      "title": "Flesh for Frankenstein",
+      "batch": "1:11"
+     },
+     {
+      "fi": 273,
+      "title": "The Man from London",
+      "batch": "3:8"
+     },
+     {
+      "fi": 205,
+      "title": "A Love in Germany",
+      "batch": "2:9"
+     }
+    ]
+   },
+   {
+    "g": 2,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 272,
+      "title": "Dinner with Friends",
+      "batch": "3:7"
+     },
+     {
+      "fi": 247,
+      "title": "No Bears",
+      "batch": "3:3"
+     },
+     {
+      "fi": 235,
+      "title": "Aftersun",
+      "batch": "3:1"
+     },
+     {
+      "fi": 254,
+      "title": "Waltz with Bashir",
+      "batch": "3:4"
+     },
+     {
+      "fi": 122,
+      "title": "Joy of Learning",
+      "batch": "1:7"
+     },
+     {
+      "fi": 129,
+      "title": "Tidal Wave",
+      "batch": "1:9"
+     },
+     {
+      "fi": 139,
+      "title": "Liza",
+      "batch": "1:10"
+     },
+     {
+      "fi": 126,
+      "title": "The Merchant of Four Seasons",
+      "batch": "1:8"
+     },
+     {
+      "fi": 141,
+      "title": "Il gatto",
+      "batch": "1:11"
+     },
+     {
+      "fi": 172,
+      "title": "Decalogue V",
+      "batch": "2:3"
+     },
+     {
+      "fi": 290,
+      "title": "Avatar: The Way of Water",
+      "batch": "3:10"
+     },
+     {
+      "fi": 45,
+      "title": "Jolanda, the Daughter of the Black Corsair",
+      "batch": "0:7"
+     }
+    ]
+   },
+   {
+    "g": 3,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 186,
+      "title": "Memories",
+      "batch": "2:6"
+     },
+     {
+      "fi": 265,
+      "title": "My Best Fiend",
+      "batch": "3:6"
+     },
+     {
+      "fi": 119,
+      "title": "Seemabaddha",
+      "batch": "1:7"
+     },
+     {
+      "fi": 42,
+      "title": "Difficult Years",
+      "batch": "0:7"
+     },
+     {
+      "fi": 223,
+      "title": "Trois places pour le 26",
+      "batch": "2:12"
+     },
+     {
+      "fi": 175,
+      "title": "Decalogue III",
+      "batch": "2:4"
+     },
+     {
+      "fi": 296,
+      "title": "The Past",
+      "batch": "3:11"
+     },
+     {
+      "fi": 69,
+      "title": "Mara Maru",
+      "batch": "0:11"
+     },
+     {
+      "fi": 288,
+      "title": "The Triangle",
+      "batch": "3:10"
+     },
+     {
+      "fi": 228,
+      "title": "The White Ribbon",
+      "batch": "3:0"
+     },
+     {
+      "fi": 97,
+      "title": "I Am Cuba",
+      "batch": "1:3"
+     },
+     {
+      "fi": 259,
+      "title": "The Tragedy of Macbeth",
+      "batch": "3:5"
+     }
+    ]
+   },
+   {
+    "g": 4,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 78,
+      "title": "La Jetée",
+      "batch": "1:0"
+     },
+     {
+      "fi": 165,
+      "title": "The Terrorizers",
+      "batch": "2:2"
+     },
+     {
+      "fi": 29,
+      "title": "Devi",
+      "batch": "0:4"
+     },
+     {
+      "fi": 236,
+      "title": "EO",
+      "batch": "3:1"
+     },
+     {
+      "fi": 257,
+      "title": "Le Quattro Volte",
+      "batch": "3:5"
+     },
+     {
+      "fi": 222,
+      "title": "Tasmania Story",
+      "batch": "2:12"
+     },
+     {
+      "fi": 295,
+      "title": "The Spiderwick Chronicles",
+      "batch": "3:11"
+     },
+     {
+      "fi": 276,
+      "title": "All the Money in the World",
+      "batch": "3:8"
+     },
+     {
+      "fi": 143,
+      "title": "My Dear Killer",
+      "batch": "1:11"
+     },
+     {
+      "fi": 89,
+      "title": "Lolita",
+      "batch": "1:2"
+     },
+     {
+      "fi": 106,
+      "title": "Dont Look Back",
+      "batch": "1:5"
+     },
+     {
+      "fi": 38,
+      "title": "Rich and Strange",
+      "batch": "0:6"
+     }
+    ]
+   },
+   {
+    "g": 5,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 249,
+      "title": "Nine Queens",
+      "batch": "3:4"
+     },
+     {
+      "fi": 154,
+      "title": "Close-Up",
+      "batch": "2:0"
+     },
+     {
+      "fi": 114,
+      "title": "Martha",
+      "batch": "1:6"
+     },
+     {
+      "fi": 95,
+      "title": "Daisies",
+      "batch": "1:3"
+     },
+     {
+      "fi": 34,
+      "title": "Fear and Desire",
+      "batch": "0:5"
+     },
+     {
+      "fi": 200,
+      "title": "A Last Note",
+      "batch": "2:8"
+     },
+     {
+      "fi": 109,
+      "title": "The Touch",
+      "batch": "1:5"
+     },
+     {
+      "fi": 174,
+      "title": "The Time to Live and the Time to Die",
+      "batch": "2:4"
+     },
+     {
+      "fi": 21,
+      "title": "Safety Last!",
+      "batch": "0:3"
+     },
+     {
+      "fi": 183,
+      "title": "Joi Baba Felunath",
+      "batch": "2:5"
+     },
+     {
+      "fi": 55,
+      "title": "The Human Condition II: Road to Eternity",
+      "batch": "0:9"
+     },
+     {
+      "fi": 104,
+      "title": "The Bird with the Crystal Plumage",
+      "batch": "1:4"
+     }
+    ]
+   },
+   {
+    "g": 6,
+    "heldOut": true,
+    "films": [
+     {
+      "fi": 209,
+      "title": "Doc Hollywood",
+      "batch": "2:9"
+     },
+     {
+      "fi": 36,
+      "title": "Variety Lights",
+      "batch": "0:6"
+     },
+     {
+      "fi": 266,
+      "title": "Encounters at the End of the World",
+      "batch": "3:6"
+     },
+     {
+      "fi": 130,
+      "title": "Trip to Vienna",
+      "batch": "1:9"
+     },
+     {
+      "fi": 146,
+      "title": "Les Créatures",
+      "batch": "1:11"
+     },
+     {
+      "fi": 182,
+      "title": "The Green Room",
+      "batch": "2:5"
+     },
+     {
+      "fi": 160,
+      "title": "The Sacrifice",
+      "batch": "2:1"
+     },
+     {
+      "fi": 137,
+      "title": "Ningen",
+      "batch": "1:10"
+     },
+     {
+      "fi": 94,
+      "title": "Rosemary's Baby",
+      "batch": "1:3"
+     },
+     {
+      "fi": 54,
+      "title": "Women of the Night",
+      "batch": "0:9"
+     },
+     {
+      "fi": 31,
+      "title": "Awaara",
+      "batch": "0:5"
+     },
+     {
+      "fi": 187,
+      "title": "The River",
+      "batch": "2:6"
+     }
+    ]
+   },
+   {
+    "g": 7,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 156,
+      "title": "Shoah",
+      "batch": "2:1"
+     },
+     {
+      "fi": 118,
+      "title": "Sympathy for the Devil",
+      "batch": "1:7"
+     },
+     {
+      "fi": 275,
+      "title": "Pina",
+      "batch": "3:8"
+     },
+     {
+      "fi": 155,
+      "title": "Yeelen",
+      "batch": "2:0"
+     },
+     {
+      "fi": 292,
+      "title": "Bugonia",
+      "batch": "3:11"
+     },
+     {
+      "fi": 263,
+      "title": "Eastern Promises",
+      "batch": "3:6"
+     },
+     {
+      "fi": 162,
+      "title": "Total Recall",
+      "batch": "2:2"
+     },
+     {
+      "fi": 168,
+      "title": "Sweetie",
+      "batch": "2:3"
+     },
+     {
+      "fi": 67,
+      "title": "Come Fill the Cup",
+      "batch": "0:11"
+     },
+     {
+      "fi": 212,
+      "title": "Il Marchese del Grillo",
+      "batch": "2:10"
+     },
+     {
+      "fi": 298,
+      "title": "Tokyo Family",
+      "batch": "3:12"
+     },
+     {
+      "fi": 35,
+      "title": "Tokyo Chorus",
+      "batch": "0:5"
+     }
+    ]
+   },
+   {
+    "g": 8,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 53,
+      "title": "Girls of the Night",
+      "batch": "0:8"
+     },
+     {
+      "fi": 245,
+      "title": "Infernal Affairs",
+      "batch": "3:3"
+     },
+     {
+      "fi": 241,
+      "title": "Eureka",
+      "batch": "3:2"
+     },
+     {
+      "fi": 9,
+      "title": "Battleship Potemkin",
+      "batch": "0:1"
+     },
+     {
+      "fi": 157,
+      "title": "Hoop Dreams",
+      "batch": "2:1"
+     },
+     {
+      "fi": 134,
+      "title": "Loving Couples",
+      "batch": "1:9"
+     },
+     {
+      "fi": 207,
+      "title": "Thunderheart",
+      "batch": "2:9"
+     },
+     {
+      "fi": 66,
+      "title": "Task Force",
+      "batch": "0:11"
+     },
+     {
+      "fi": 135,
+      "title": "A Little Night Music",
+      "batch": "1:10"
+     },
+     {
+      "fi": 65,
+      "title": "A Slice of Life",
+      "batch": "0:10"
+     },
+     {
+      "fi": 127,
+      "title": "The Hellbenders",
+      "batch": "1:8"
+     },
+     {
+      "fi": 190,
+      "title": "Chronicle of a Death Foretold",
+      "batch": "2:6"
+     }
+    ]
+   },
+   {
+    "g": 9,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 248,
+      "title": "Persepolis",
+      "batch": "3:3"
+     },
+     {
+      "fi": 159,
+      "title": "Lessons of Darkness",
+      "batch": "2:1"
+     },
+     {
+      "fi": 77,
+      "title": "The Mirror",
+      "batch": "1:0"
+     },
+     {
+      "fi": 234,
+      "title": "Killers of the Flower Moon",
+      "batch": "3:1"
+     },
+     {
+      "fi": 291,
+      "title": "The Attorney",
+      "batch": "3:11"
+     },
+     {
+      "fi": 277,
+      "title": "Prisoners",
+      "batch": "3:8"
+     },
+     {
+      "fi": 37,
+      "title": "Sword of Penitence",
+      "batch": "0:6"
+     },
+     {
+      "fi": 133,
+      "title": "Love in the Afternoon",
+      "batch": "1:9"
+     },
+     {
+      "fi": 128,
+      "title": "Un flic",
+      "batch": "1:8"
+     },
+     {
+      "fi": 214,
+      "title": "Where Are You Going on Holiday?",
+      "batch": "2:10"
+     },
+     {
+      "fi": 202,
+      "title": "The Plot of the Fuma Clan",
+      "batch": "2:8"
+     },
+     {
+      "fi": 196,
+      "title": "Another Woman",
+      "batch": "2:7"
+     }
+    ]
+   },
+   {
+    "g": 10,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 103,
+      "title": "Klute",
+      "batch": "1:4"
+     },
+     {
+      "fi": 237,
+      "title": "Midsommar",
+      "batch": "3:2"
+     },
+     {
+      "fi": 15,
+      "title": "Strike",
+      "batch": "0:2"
+     },
+     {
+      "fi": 136,
+      "title": "The Cowboys",
+      "batch": "1:10"
+     },
+     {
+      "fi": 221,
+      "title": "1492 – Conquest of Paradise",
+      "batch": "2:11"
+     },
+     {
+      "fi": 231,
+      "title": "The Act of Killing",
+      "batch": "3:1"
+     },
+     {
+      "fi": 284,
+      "title": "Like Father, Like Son",
+      "batch": "3:9"
+     },
+     {
+      "fi": 192,
+      "title": "Waterland",
+      "batch": "2:7"
+     },
+     {
+      "fi": 171,
+      "title": "Aria",
+      "batch": "2:3"
+     },
+     {
+      "fi": 117,
+      "title": "Viva Maria!",
+      "batch": "1:7"
+     },
+     {
+      "fi": 264,
+      "title": "From Up on Poppy Hill",
+      "batch": "3:6"
+     }
+    ]
+   },
+   {
+    "g": 11,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 198,
+      "title": "Table for Five",
+      "batch": "2:8"
+     },
+     {
+      "fi": 32,
+      "title": "Secrets of Women",
+      "batch": "0:5"
+     },
+     {
+      "fi": 297,
+      "title": "Rolling Thunder Revue: A Bob Dylan Story by Martin Scorsese",
+      "batch": "3:12"
+     },
+     {
+      "fi": 58,
+      "title": "The Best of Enemies",
+      "batch": "0:9"
+     },
+     {
+      "fi": 170,
+      "title": "Germany in Autumn",
+      "batch": "2:3"
+     },
+     {
+      "fi": 243,
+      "title": "Flowers of Shanghai",
+      "batch": "3:3"
+     },
+     {
+      "fi": 60,
+      "title": "Adua and Her Friends",
+      "batch": "0:10"
+     },
+     {
+      "fi": 16,
+      "title": "Sunrise: A Song of Two Humans",
+      "batch": "0:2"
+     },
+     {
+      "fi": 274,
+      "title": "Okja",
+      "batch": "3:8"
+     },
+     {
+      "fi": 287,
+      "title": "The Ghost Writer",
+      "batch": "3:10"
+     },
+     {
+      "fi": 88,
+      "title": "Onibaba",
+      "batch": "1:2"
+     }
+    ]
+   },
+   {
+    "g": 12,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 140,
+      "title": "Zatoichi and the Chest of Gold",
+      "batch": "1:10"
+     },
+     {
+      "fi": 51,
+      "title": "The Law Is the Law",
+      "batch": "0:8"
+     },
+     {
+      "fi": 115,
+      "title": "Such a Gorgeous Kid Like Me",
+      "batch": "1:6"
+     },
+     {
+      "fi": 17,
+      "title": "The Cabinet of Dr. Caligari",
+      "batch": "0:2"
+     },
+     {
+      "fi": 224,
+      "title": "Death of a Salesman",
+      "batch": "2:12"
+     },
+     {
+      "fi": 269,
+      "title": "Doubt",
+      "batch": "3:7"
+     },
+     {
+      "fi": 164,
+      "title": "A City of Sadness",
+      "batch": "2:2"
+     },
+     {
+      "fi": 79,
+      "title": "Taxi Driver",
+      "batch": "1:0"
+     },
+     {
+      "fi": 242,
+      "title": "Princess Mononoke",
+      "batch": "3:2"
+     },
+     {
+      "fi": 105,
+      "title": "Blood and Black Lace",
+      "batch": "1:5"
+     }
+    ]
+   },
+   {
+    "g": 13,
+    "heldOut": true,
+    "films": [
+     {
+      "fi": 286,
+      "title": "Panic Room",
+      "batch": "3:10"
+     },
+     {
+      "fi": 280,
+      "title": "The Salt of the Earth",
+      "batch": "3:9"
+     },
+     {
+      "fi": 153,
+      "title": "Farewell My Concubine",
+      "batch": "2:0"
+     },
+     {
+      "fi": 75,
+      "title": "High and Low",
+      "batch": "1:0"
+     },
+     {
+      "fi": 61,
+      "title": "The Young One",
+      "batch": "0:10"
+     },
+     {
+      "fi": 185,
+      "title": "Dream Lover",
+      "batch": "2:5"
+     },
+     {
+      "fi": 112,
+      "title": "Mother Küsters' Trip to Heaven",
+      "batch": "1:6"
+     },
+     {
+      "fi": 110,
+      "title": "The Oldest Profession",
+      "batch": "1:5"
+     },
+     {
+      "fi": 50,
+      "title": "The Battle of the River Plate",
+      "batch": "0:8"
+     }
+    ]
+   },
+   {
+    "g": 14,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 232,
+      "title": "Grizzly Man",
+      "batch": "3:1"
+     },
+     {
+      "fi": 28,
+      "title": "A Page of Madness",
+      "batch": "0:4"
+     },
+     {
+      "fi": 299,
+      "title": "Daisy",
+      "batch": "3:12"
+     },
+     {
+      "fi": 80,
+      "title": "Eraserhead",
+      "batch": "1:0"
+     },
+     {
+      "fi": 131,
+      "title": "Last Tango in Paris",
+      "batch": "1:9"
+     },
+     {
+      "fi": 47,
+      "title": "The Last Days of Pompeii",
+      "batch": "0:7"
+     },
+     {
+      "fi": 125,
+      "title": "Lucky Luciano",
+      "batch": "1:8"
+     },
+     {
+      "fi": 99,
+      "title": "The Wicker Man",
+      "batch": "1:4"
+     },
+     {
+      "fi": 41,
+      "title": "Rabindranath Tagore",
+      "batch": "0:6"
+     },
+     {
+      "fi": 203,
+      "title": "Farewell to Nostradamus",
+      "batch": "2:8"
+     }
+    ]
+   },
+   {
+    "g": 15,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 180,
+      "title": "No End",
+      "batch": "2:5"
+     },
+     {
+      "fi": 279,
+      "title": "Faithless",
+      "batch": "3:9"
+     },
+     {
+      "fi": 289,
+      "title": "Adaptation",
+      "batch": "3:10"
+     },
+     {
+      "fi": 10,
+      "title": "Street of Shame",
+      "batch": "0:1"
+     },
+     {
+      "fi": 62,
+      "title": "Children of Hiroshima",
+      "batch": "0:10"
+     },
+     {
+      "fi": 19,
+      "title": "The General",
+      "batch": "0:3"
+     },
+     {
+      "fi": 132,
+      "title": "Is Paris Burning?",
+      "batch": "1:9"
+     },
+     {
+      "fi": 294,
+      "title": "A Taxi Driver",
+      "batch": "3:11"
+     },
+     {
+      "fi": 206,
+      "title": "A Dangerous Toy",
+      "batch": "2:9"
+     },
+     {
+      "fi": 108,
+      "title": "Fantastic Planet",
+      "batch": "1:5"
+     }
+    ]
+   },
+   {
+    "g": 16,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 107,
+      "title": "Harlan County, USA",
+      "batch": "1:5"
+     },
+     {
+      "fi": 293,
+      "title": "Postcard",
+      "batch": "3:11"
+     },
+     {
+      "fi": 197,
+      "title": "Black Rain",
+      "batch": "2:7"
+     },
+     {
+      "fi": 24,
+      "title": "Rebel Without a Cause",
+      "batch": "0:4"
+     },
+     {
+      "fi": 225,
+      "title": "Portrait of a Lady on Fire",
+      "batch": "3:0"
+     },
+     {
+      "fi": 18,
+      "title": "Pandora's Box",
+      "batch": "0:3"
+     },
+     {
+      "fi": 210,
+      "title": "Goopy Bagha Phire Elo",
+      "batch": "2:10"
+     },
+     {
+      "fi": 258,
+      "title": "Intolerable Cruelty",
+      "batch": "3:5"
+     },
+     {
+      "fi": 176,
+      "title": "Intervista",
+      "batch": "2:4"
+     },
+     {
+      "fi": 240,
+      "title": "Inland Empire",
+      "batch": "3:2"
+     }
+    ]
+   },
+   {
+    "g": 17,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 194,
+      "title": "Pirates",
+      "batch": "2:7"
+     },
+     {
+      "fi": 204,
+      "title": "Lupin III: Dead or Alive",
+      "batch": "2:9"
+     },
+     {
+      "fi": 158,
+      "title": "Koyaanisqatsi",
+      "batch": "2:1"
+     },
+     {
+      "fi": 267,
+      "title": "Little Dieter Needs to Fly",
+      "batch": "3:7"
+     },
+     {
+      "fi": 52,
+      "title": "Beyond the Forest",
+      "batch": "0:8"
+     },
+     {
+      "fi": 184,
+      "title": "King Lear",
+      "batch": "2:5"
+     },
+     {
+      "fi": 124,
+      "title": "The Working Class Goes to Heaven",
+      "batch": "1:8"
+     },
+     {
+      "fi": 167,
+      "title": "The Piano",
+      "batch": "2:2"
+     },
+     {
+      "fi": 87,
+      "title": "Le Samouraï",
+      "batch": "1:2"
+     }
+    ]
+   },
+   {
+    "g": 18,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 2,
+      "title": "Metropolis",
+      "batch": "0:0"
+     },
+     {
+      "fi": 166,
+      "title": "Pixote",
+      "batch": "2:2"
+     },
+     {
+      "fi": 229,
+      "title": "Memories of Murder",
+      "batch": "3:0"
+     },
+     {
+      "fi": 268,
+      "title": "Into the Abyss",
+      "batch": "3:7"
+     },
+     {
+      "fi": 92,
+      "title": "The Wild Child",
+      "batch": "1:2"
+     },
+     {
+      "fi": 148,
+      "title": "Rocky Road to Dublin",
+      "batch": "1:12"
+     },
+     {
+      "fi": 142,
+      "title": "Grand Slam",
+      "batch": "1:11"
+     },
+     {
+      "fi": 260,
+      "title": "Lincoln",
+      "batch": "3:5"
+     }
+    ]
+   },
+   {
+    "g": 19,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 72,
+      "title": "Foundry Town",
+      "batch": "0:12"
+     },
+     {
+      "fi": 271,
+      "title": "Dolls",
+      "batch": "3:7"
+     },
+     {
+      "fi": 216,
+      "title": "A Confucian Confusion",
+      "batch": "2:11"
+     },
+     {
+      "fi": 46,
+      "title": "Two Men in Manhattan",
+      "batch": "0:7"
+     },
+     {
+      "fi": 84,
+      "title": "The Conformist",
+      "batch": "1:1"
+     },
+     {
+      "fi": 138,
+      "title": "Exorcist II: The Heretic",
+      "batch": "1:10"
+     },
+     {
+      "fi": 64,
+      "title": "Stalag 17",
+      "batch": "0:10"
+     },
+     {
+      "fi": 40,
+      "title": "Without Pity",
+      "batch": "0:6"
+     },
+     {
+      "fi": 90,
+      "title": "Autumn Sonata",
+      "batch": "1:2"
+     }
+    ]
+   },
+   {
+    "g": 20,
+    "heldOut": true,
+    "films": [
+     {
+      "fi": 270,
+      "title": "Song to Song",
+      "batch": "3:7"
+     },
+     {
+      "fi": 68,
+      "title": "Close to My Heart",
+      "batch": "0:11"
+     },
+     {
+      "fi": 262,
+      "title": "Honey Don't!",
+      "batch": "3:6"
+     },
+     {
+      "fi": 215,
+      "title": "Let's Hope It's a Girl",
+      "batch": "2:10"
+     },
+     {
+      "fi": 93,
+      "title": "Muriel",
+      "batch": "1:3"
+     },
+     {
+      "fi": 188,
+      "title": "One Hundred and One Nights",
+      "batch": "2:6"
+     },
+     {
+      "fi": 1,
+      "title": "Seven Samurai",
+      "batch": "0:0"
+     },
+     {
+      "fi": 86,
+      "title": "The Battle of Algiers",
+      "batch": "1:1"
+     }
+    ]
+   },
+   {
+    "g": 21,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 227,
+      "title": "There Will Be Blood",
+      "batch": "3:0"
+     },
+     {
+      "fi": 149,
+      "title": "Love under the Crucifix",
+      "batch": "1:12"
+     },
+     {
+      "fi": 63,
+      "title": "The Great War",
+      "batch": "0:10"
+     },
+     {
+      "fi": 199,
+      "title": "Good News",
+      "batch": "2:8"
+     },
+     {
+      "fi": 278,
+      "title": "The Dust of Time",
+      "batch": "3:8"
+     },
+     {
+      "fi": 5,
+      "title": "Cléo from 5 to 7",
+      "batch": "0:0"
+     },
+     {
+      "fi": 208,
+      "title": "It Takes Two",
+      "batch": "2:9"
+     },
+     {
+      "fi": 213,
+      "title": "City Hall",
+      "batch": "2:10"
+     }
+    ]
+   },
+   {
+    "g": 22,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 282,
+      "title": "Star Wars: Episode I – The Phantom Menace",
+      "batch": "3:9"
+     },
+     {
+      "fi": 179,
+      "title": "The Castle of Cagliostro",
+      "batch": "2:4"
+     },
+     {
+      "fi": 226,
+      "title": "The Tree of Life",
+      "batch": "3:0"
+     },
+     {
+      "fi": 23,
+      "title": "The Red Shoes",
+      "batch": "0:3"
+     },
+     {
+      "fi": 91,
+      "title": "Mouchette",
+      "batch": "1:2"
+     },
+     {
+      "fi": 3,
+      "title": "Vertigo",
+      "batch": "0:0"
+     },
+     {
+      "fi": 191,
+      "title": "Crimes and Misdemeanors",
+      "batch": "2:6"
+     }
+    ]
+   },
+   {
+    "g": 23,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 178,
+      "title": "Something to Talk About",
+      "batch": "2:4"
+     },
+     {
+      "fi": 189,
+      "title": "Big Deal After 20 Years",
+      "batch": "2:6"
+     },
+     {
+      "fi": 195,
+      "title": "The Best Intentions",
+      "batch": "2:7"
+     },
+     {
+      "fi": 44,
+      "title": "The Manxman",
+      "batch": "0:7"
+     },
+     {
+      "fi": 161,
+      "title": "Schindler's List",
+      "batch": "2:1"
+     },
+     {
+      "fi": 0,
+      "title": "Rashomon",
+      "batch": "0:0"
+     },
+     {
+      "fi": 151,
+      "title": "Blade Runner",
+      "batch": "2:0"
+     },
+     {
+      "fi": 283,
+      "title": "To Catch a Killer",
+      "batch": "3:9"
+     }
+    ]
+   },
+   {
+    "g": 24,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 144,
+      "title": "Damien: Omen II",
+      "batch": "1:11"
+     },
+     {
+      "fi": 73,
+      "title": "Pardon My Past",
+      "batch": "0:12"
+     },
+     {
+      "fi": 250,
+      "title": "Honeyland",
+      "batch": "3:4"
+     },
+     {
+      "fi": 11,
+      "title": "Harakiri",
+      "batch": "0:1"
+     },
+     {
+      "fi": 101,
+      "title": "The Graduate",
+      "batch": "1:4"
+     },
+     {
+      "fi": 173,
+      "title": "Hard Eight",
+      "batch": "2:3"
+     },
+     {
+      "fi": 113,
+      "title": "A Quiet Place in the Country",
+      "batch": "1:6"
+     }
+    ]
+   },
+   {
+    "g": 25,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 238,
+      "title": "Gladiator",
+      "batch": "3:2"
+     },
+     {
+      "fi": 193,
+      "title": "Eyes of Laura Mars",
+      "batch": "2:7"
+     },
+     {
+      "fi": 152,
+      "title": "Akira",
+      "batch": "2:0"
+     },
+     {
+      "fi": 27,
+      "title": "The Burmese Harp",
+      "batch": "0:4"
+     },
+     {
+      "fi": 7,
+      "title": "The Passion of Joan of Arc",
+      "batch": "0:1"
+     },
+     {
+      "fi": 71,
+      "title": "I Know Where I'm Going!",
+      "batch": "0:11"
+     },
+     {
+      "fi": 121,
+      "title": "The Phantom of Liberty",
+      "batch": "1:7"
+     },
+     {
+      "fi": 123,
+      "title": "Casanova 70",
+      "batch": "1:8"
+     }
+    ]
+   },
+   {
+    "g": 26,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 57,
+      "title": "The Burning Soil",
+      "batch": "0:9"
+     },
+     {
+      "fi": 244,
+      "title": "Platform",
+      "batch": "3:3"
+     },
+     {
+      "fi": 33,
+      "title": "Piece of the Sky",
+      "batch": "0:5"
+     },
+     {
+      "fi": 25,
+      "title": "The Idiot",
+      "batch": "0:4"
+     },
+     {
+      "fi": 220,
+      "title": "The Goonies",
+      "batch": "2:11"
+     },
+     {
+      "fi": 82,
+      "title": "Persona",
+      "batch": "1:1"
+     }
+    ]
+   },
+   {
+    "g": 27,
+    "heldOut": true,
+    "films": [
+     {
+      "fi": 102,
+      "title": "Serpico",
+      "batch": "1:4"
+     },
+     {
+      "fi": 8,
+      "title": "Ordet",
+      "batch": "0:1"
+     },
+     {
+      "fi": 111,
+      "title": "La Chinoise",
+      "batch": "1:6"
+     },
+     {
+      "fi": 49,
+      "title": "Passing Fancy",
+      "batch": "0:8"
+     },
+     {
+      "fi": 4,
+      "title": "La Strada",
+      "batch": "0:0"
+     }
+    ]
+   },
+   {
+    "g": 28,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 163,
+      "title": "The Elephant Man",
+      "batch": "2:2"
+     },
+     {
+      "fi": 12,
+      "title": "Diary of a Country Priest",
+      "batch": "0:2"
+     },
+     {
+      "fi": 150,
+      "title": "The Shining",
+      "batch": "2:0"
+     },
+     {
+      "fi": 85,
+      "title": "Investigation of a Citizen Above Suspicion",
+      "batch": "1:1"
+     },
+     {
+      "fi": 217,
+      "title": "Days of Thunder",
+      "batch": "2:11"
+     },
+     {
+      "fi": 59,
+      "title": "It Happened in the Park",
+      "batch": "0:9"
+     }
+    ]
+   },
+   {
+    "g": 29,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 76,
+      "title": "Once Upon a Time in the West",
+      "batch": "1:0"
+     },
+     {
+      "fi": 20,
+      "title": "Modern Times",
+      "batch": "0:3"
+     },
+     {
+      "fi": 81,
+      "title": "Blowup",
+      "batch": "1:1"
+     },
+     {
+      "fi": 13,
+      "title": "Jules and Jim",
+      "batch": "0:2"
+     },
+     {
+      "fi": 219,
+      "title": "Krull",
+      "batch": "2:11"
+     }
+    ]
+   },
+   {
+    "g": 30,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 281,
+      "title": "Megalopolis",
+      "batch": "3:9"
+     },
+     {
+      "fi": 252,
+      "title": "The Incredibles",
+      "batch": "3:4"
+     },
+     {
+      "fi": 120,
+      "title": "The Cat o' Nine Tails",
+      "batch": "1:7"
+     },
+     {
+      "fi": 239,
+      "title": "A Serious Man",
+      "batch": "3:2"
+     }
+    ]
+   },
+   {
+    "g": 31,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 56,
+      "title": "Era lui... sì! sì!",
+      "batch": "0:9"
+     },
+     {
+      "fi": 83,
+      "title": "Au Hasard Balthazar",
+      "batch": "1:1"
+     },
+     {
+      "fi": 181,
+      "title": "Sleepers",
+      "batch": "2:5"
+     },
+     {
+      "fi": 255,
+      "title": "Tár",
+      "batch": "3:5"
+     },
+     {
+      "fi": 6,
+      "title": "Hiroshima mon amour",
+      "batch": "0:1"
+     }
+    ]
+   },
+   {
+    "g": 32,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 22,
+      "title": "The Crowd",
+      "batch": "0:3"
+     },
+     {
+      "fi": 98,
+      "title": "Don't Look Now",
+      "batch": "1:3"
+     },
+     {
+      "fi": 169,
+      "title": "Lumière and Company",
+      "batch": "2:3"
+     }
+    ]
+   },
+   {
+    "g": 33,
+    "heldOut": false,
+    "films": [
+     {
+      "fi": 147,
+      "title": "Machine Gun McCain",
+      "batch": "1:12"
+     },
+     {
+      "fi": 261,
+      "title": "The Terminal",
+      "batch": "3:6"
+     }
+    ]
+   },
+   {
+    "g": 34,
+    "heldOut": true,
+    "films": [
+     {
+      "fi": 233,
+      "title": "Mad Max: Fury Road",
+      "batch": "3:1"
+     }
+    ]
+   }
+  ]
+ },
+ "missingFingerprint": []
+}
