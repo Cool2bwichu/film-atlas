@@ -1,0 +1,1100 @@
+{
+ "version": 1,
+ "model": "claude-opus-5",
+ "generated": "2026-08-10T06:41:05.747Z",
+ "note": "Hallucination probe for the consensus layer. Decoy films DO NOT EXIST and must never enter consensus.json.",
+ "decoyTally": {
+  "well": 0,
+  "outline": 0,
+  "no": 24,
+  "n": 24
+ },
+ "realTally": {
+  "well": 69,
+  "outline": 26,
+  "no": 1,
+  "n": 96
+ },
+ "results": [
+  {
+   "decoy": false,
+   "title": "Fanny and Alexander",
+   "year": 1982,
+   "director": "Ingmar Bergman",
+   "known": "well",
+   "recall": "the Christmas party; the bishop's bare house; the children smuggled out in Isak's chest",
+   "filled": 11
+  },
+  {
+   "decoy": false,
+   "title": "Images",
+   "year": 1972,
+   "director": "Robert Altman",
+   "known": "well",
+   "recall": "the children's book she narrates in voice-over; the body over the cliff turns out to be her own",
+   "filled": 9
+  },
+  {
+   "decoy": true,
+   "title": "The Salt Marshes",
+   "year": 1971,
+   "director": "Krzysztof Zanussi",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "A Chinese Ghost Story",
+   "year": 1987,
+   "director": "Ching Siu-tung",
+   "known": "well",
+   "recall": "the tree demon's giant tongue chasing them through the temple; the Taoist swordsman sings his creed",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Escape at Dawn",
+   "year": 1950,
+   "director": "Senkichi Taniguchi",
+   "known": "outline",
+   "recall": "",
+   "filled": 3
+  },
+  {
+   "decoy": false,
+   "title": "Brother",
+   "year": 2000,
+   "director": "Takeshi Kitano",
+   "known": "well",
+   "recall": "the chopstick in the eye; Denny calls him 'Aniki'; the last ambush leaves him riddled",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Mr. Sleeman Is Coming",
+   "year": 1957,
+   "director": "Ingmar Bergman",
+   "known": "outline",
+   "recall": "",
+   "filled": 4
+  },
+  {
+   "decoy": true,
+   "title": "Winter Ledger",
+   "year": 1983,
+   "director": "Jerzy Kawalerowicz",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Summer in the City",
+   "year": 1970,
+   "director": "Wim Wenders",
+   "known": "outline",
+   "recall": "",
+   "filled": 6
+  },
+  {
+   "decoy": false,
+   "title": "Burden of Dreams",
+   "year": 1982,
+   "director": "Les Blank",
+   "known": "well",
+   "recall": "Herzog in the mud calling the jungle 'obscenity'; the steamship winched over the hill",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Music in Darkness",
+   "year": 1947,
+   "director": "Ingmar Bergman",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Sweet Charity",
+   "year": 1969,
+   "director": "Bob Fosse",
+   "known": "well",
+   "recall": "the hostesses draped over the ballroom rail for 'Big Spender', staring dead at camera",
+   "filled": 10
+  },
+  {
+   "decoy": true,
+   "title": "A Room Above the Harbour",
+   "year": 1958,
+   "director": "Kon Ichikawa",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "News from Home",
+   "year": 1976,
+   "director": "Chantal Akerman",
+   "known": "well",
+   "recall": "her mother's letters read over static NY street shots, drowned by subway noise; ferry pulls away at the end",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Tokyo Drifter",
+   "year": 1966,
+   "director": "Seijun Suzuki",
+   "known": "well",
+   "recall": "Tetsu in the powder-blue suit whistling his own theme; the white nightclub set for the last shootout",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Girls of the Night",
+   "year": 1961,
+   "director": "Kinuyo Tanaka",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "The Professional",
+   "year": 1981,
+   "director": "Georges Lautner",
+   "known": "well",
+   "recall": "Belmondo shot in the back crossing the airfield while Morricone's 'Chi Mai' plays",
+   "filled": 7
+  },
+  {
+   "decoy": true,
+   "title": "The Quiet Inheritance",
+   "year": 1996,
+   "director": "Otar Iosseliani",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Far from Vietnam",
+   "year": 1967,
+   "director": "Jean-Luc Godard, Chris Marker, Alain Resnais, Agnès Varda, Joris Ivens, Claude Lelouch, William Klein",
+   "known": "well",
+   "recall": "Godard to camera beside his Mitchell, admitting he never got to Vietnam and can only film himself",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Breathless",
+   "year": 1960,
+   "director": "Jean-Luc Godard",
+   "known": "well",
+   "recall": "Michel dragging his thumb across his lips at a Bogart poster; jump cuts in the car through Paris",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Aguirre, the Wrath of God",
+   "year": 1972,
+   "director": "Werner Herzog",
+   "known": "well",
+   "recall": "the closing raft spinning in circles, overrun by small monkeys",
+   "filled": 11
+  },
+  {
+   "decoy": false,
+   "title": "Rhapsody in August",
+   "year": 1991,
+   "director": "Akira Kurosawa",
+   "known": "well",
+   "recall": "the schoolyard jungle gym melted by the blast; the grandmother's umbrella inverting in the storm",
+   "filled": 9
+  },
+  {
+   "decoy": true,
+   "title": "Nine Bridges",
+   "year": 1965,
+   "director": "Miklós Jancsó",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Until the End of the World",
+   "year": 1991,
+   "director": "Wim Wenders",
+   "known": "well",
+   "recall": "the blind mother 'sees' recorded images; later they sit hooked on watching their own dreams",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Under Capricorn",
+   "year": 1949,
+   "director": "Alfred Hitchcock",
+   "known": "well",
+   "recall": "the shrunken head hidden in Bergman's bed; her confession played in one long unbroken take",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Paths of Glory",
+   "year": 1957,
+   "director": "Stanley Kubrick",
+   "known": "well",
+   "recall": "tracking shots down the trench before the attack; the German girl's song at the end",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "The Man Who Knew Too Much",
+   "year": 1934,
+   "director": "Alfred Hitchcock",
+   "known": "well",
+   "recall": "the cymbal crash at the Albert Hall; Lorre's white streak of hair",
+   "filled": 8
+  },
+  {
+   "decoy": true,
+   "title": "The Copper Hours",
+   "year": 1978,
+   "director": "Márta Mészáros",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "The Lie",
+   "year": 1970,
+   "director": "Jan Molander",
+   "known": "outline",
+   "recall": "",
+   "filled": 2
+  },
+  {
+   "decoy": false,
+   "title": "Johnny Guitar",
+   "year": 1954,
+   "director": "Nicholas Ray",
+   "known": "well",
+   "recall": "Crawford in a white dress at the piano as the black-clad posse arrives",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Mission: Impossible 2",
+   "year": 2000,
+   "director": "John Woo",
+   "known": "well",
+   "recall": "doves burst from the church as Cruise and Ambrose ride head-on into each other on motorbikes",
+   "filled": 7
+  },
+  {
+   "decoy": false,
+   "title": "My Son, My Son, What Have Ye Done?",
+   "year": 2009,
+   "director": "Werner Herzog",
+   "known": "well",
+   "recall": "Michael Shannon kills his mother with a sword, then holds the house while flamingos and ostriches stare",
+   "filled": 9
+  },
+  {
+   "decoy": true,
+   "title": "Letters from the Interior",
+   "year": 1988,
+   "director": "Souleymane Cissé",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "The Great Dictator",
+   "year": 1940,
+   "director": "Charlie Chaplin",
+   "known": "well",
+   "recall": "Hynkel dances with the inflatable globe until it bursts; the barber's address to camera at the end",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "O Dragão da Maldade Contra o Santo Guerreiro",
+   "year": 1969,
+   "director": "Glauber Rocha",
+   "known": "well",
+   "recall": "Antonio and the cangaceiro fight a slow ritual duel in the dust while a chorus sings the story",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "The Third Murder",
+   "year": 2017,
+   "director": "Hirokazu Koreeda",
+   "known": "well",
+   "recall": "the interview-room glass merges lawyer's and killer's faces; the canaries buried in the snow",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "The House on Carroll Street",
+   "year": 1988,
+   "director": "Peter Yates",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": true,
+   "title": "The Glass Orchard",
+   "year": 1974,
+   "director": "Shohei Imamura",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "The Ballad of Narayama",
+   "year": 1983,
+   "director": "Shohei Imamura",
+   "known": "well",
+   "recall": "Orin smashes her own healthy teeth on a stone basin; the son carries her up to the crow-picked bones",
+   "filled": 12
+  },
+  {
+   "decoy": false,
+   "title": "There Will Be Blood",
+   "year": 2007,
+   "director": "Paul Thomas Anderson",
+   "known": "well",
+   "recall": "fifteen wordless opening minutes down a silver mine; the derrick fire; \"I drink your milkshake\"",
+   "filled": 12
+  },
+  {
+   "decoy": false,
+   "title": "Tragedy of a Ridiculous Man",
+   "year": 1981,
+   "director": "Bernardo Bertolucci",
+   "known": "well",
+   "recall": "the father watches his son's kidnapping through binoculars from his cheese factory",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "The Sugarland Express",
+   "year": 1974,
+   "director": "Steven Spielberg",
+   "known": "well",
+   "recall": "the fugitives watch a Road Runner cartoon at a drive-in, the police convoy idling behind them",
+   "filled": 9
+  },
+  {
+   "decoy": true,
+   "title": "Provincial Weather",
+   "year": 1962,
+   "director": "Mario Monicelli",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Inherent Vice",
+   "year": 2014,
+   "director": "Paul Thomas Anderson",
+   "known": "well",
+   "recall": "Bigfoot eating chocolate-covered frozen bananas and bellowing his pancake order in Japanese",
+   "filled": 11
+  },
+  {
+   "decoy": false,
+   "title": "Black Rain",
+   "year": 1989,
+   "director": "Shohei Imamura",
+   "known": "well",
+   "recall": "black-and-white; the shell-shocked veteran who charges into the road at every passing engine",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "8",
+   "year": 2008,
+   "director": "Gus Van Sant, Wim Wenders, Gael García Bernal, Jane Campion, Abderrahmane Sissako, Gaspar Noé, Mira Nair, Jan Kounen",
+   "known": "outline",
+   "recall": "",
+   "filled": 4
+  },
+  {
+   "decoy": false,
+   "title": "Léon Morin, Priest",
+   "year": 1961,
+   "director": "Jean-Pierre Melville",
+   "known": "well",
+   "recall": "she enters the confessional to provoke him: religion is the opium of the people",
+   "filled": 10
+  },
+  {
+   "decoy": true,
+   "title": "The Long Sunday",
+   "year": 1991,
+   "director": "Manoel de Oliveira",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Bushido, Samurai Saga",
+   "year": 1963,
+   "director": "Tadashi Imai",
+   "known": "well",
+   "recall": "seven generations of one family, all played by Kinnosuke Nakamura, ruined by loyalty",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Stavisky",
+   "year": 1974,
+   "director": "Alain Resnais",
+   "known": "well",
+   "recall": "Sondheim's score; Trotsky's arrival in France cut against the swindler's last months",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "M. Butterfly",
+   "year": 1993,
+   "director": "David Cronenberg",
+   "known": "well",
+   "recall": "Gallimard puts on Butterfly makeup before the prisoners and cuts his throat",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Passing Fancy",
+   "year": 1933,
+   "director": "Yasujirō Ozu",
+   "known": "well",
+   "recall": "Kihachi jumps off the Hokkaido-bound boat and swims back to his son",
+   "filled": 7
+  },
+  {
+   "decoy": true,
+   "title": "Tin Anniversary",
+   "year": 1969,
+   "director": "Věra Chytilová",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Platform",
+   "year": 2000,
+   "director": "Jia Zhangke",
+   "known": "well",
+   "recall": "the troupe running after a train through a cutting, shouting at it",
+   "filled": 11
+  },
+  {
+   "decoy": false,
+   "title": "And the Ship Sails On",
+   "year": 1983,
+   "director": "Federico Fellini",
+   "known": "well",
+   "recall": "the seasick rhinoceros in the hold; the finale pulls back to the studio and plastic sea",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Samurai Banners",
+   "year": 1969,
+   "director": "Hiroshi Inagaki",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Black God, White Devil",
+   "year": 1964,
+   "director": "Glauber Rocha",
+   "known": "well",
+   "recall": "Sebastião knifes a baby on the rock; Manuel and Rosa run the sertão toward the sea",
+   "filled": 11
+  },
+  {
+   "decoy": true,
+   "title": "The Borrowed Coat",
+   "year": 1959,
+   "director": "Yasuzo Masumura",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Notre musique",
+   "year": 2004,
+   "director": "Jean-Luc Godard",
+   "known": "well",
+   "recall": "the shot/reverse-shot lecture on two near-identical photos; Paradise guarded by US Marines",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "The Devil's Own",
+   "year": 1997,
+   "director": "Alan J. Pakula",
+   "known": "well",
+   "recall": "the boy sees his father shot dead at the dinner table; the tugboat arms deal",
+   "filled": 7
+  },
+  {
+   "decoy": false,
+   "title": "Even Dwarfs Started Small",
+   "year": 1970,
+   "director": "Werner Herzog",
+   "known": "well",
+   "recall": "the driverless car circling the yard while the dwarfs cackle; the kneeling camel",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Taza, Son of Cochise",
+   "year": 1954,
+   "director": "Douglas Sirk",
+   "known": "outline",
+   "recall": "",
+   "filled": 3
+  },
+  {
+   "decoy": true,
+   "title": "Cattle Road",
+   "year": 1980,
+   "director": "Fred Schepisi",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Carmen",
+   "year": 1984,
+   "director": "Francesco Rosi",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Accattone",
+   "year": 1961,
+   "director": "Pier Paolo Pasolini",
+   "known": "well",
+   "recall": "Bach's St Matthew Passion over a dust-lot fistfight; Accattone dreams his own funeral",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "The Niklashausen Journey",
+   "year": 1970,
+   "director": "Rainer Werner Fassbinder, Michael Fengler",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Dogtooth",
+   "year": 2009,
+   "director": "Yorgos Lanthimos",
+   "known": "well",
+   "recall": "the parents teach that 'sea' means armchair; the daughter smashes out her own canine",
+   "filled": 10
+  },
+  {
+   "decoy": true,
+   "title": "The Third Summer",
+   "year": 1993,
+   "director": "Hou Hsiao-hsien",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Princess Mononoke",
+   "year": 1997,
+   "director": "Hayao Miyazaki",
+   "known": "well",
+   "recall": "Ashitaka's writhing cursed arm; the beheaded Forest Spirit floods the hills with white death",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Illustrious Corpses",
+   "year": 1976,
+   "director": "Francesco Rosi",
+   "known": "well",
+   "recall": "opens among the mummies in the Palermo catacombs; Rogas trails a chain of murdered judges",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Conspiracy Theory",
+   "year": 1997,
+   "director": "Richard Donner",
+   "known": "well",
+   "recall": "he compulsively buys copies of The Catcher in the Rye; padlocks food inside his fridge",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "The Holy Mountain",
+   "year": 1973,
+   "director": "Alejandro Jodorowsky",
+   "known": "well",
+   "recall": "the final zoom-out that reveals the film crew: 'Real life awaits us'",
+   "filled": 12
+  },
+  {
+   "decoy": true,
+   "title": "Machine for Sleeping",
+   "year": 2004,
+   "director": "Lucrecia Martel",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Francesco",
+   "year": 1989,
+   "director": "Liliana Cavani",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Where Are You Going on Holiday?",
+   "year": 1978,
+   "director": "Alberto Sordi, Mauro Bolognini, Luciano Salce",
+   "known": "outline",
+   "recall": "",
+   "filled": 6
+  },
+  {
+   "decoy": false,
+   "title": "Rambo: First Blood Part II",
+   "year": 1985,
+   "director": "George P. Cosmatos",
+   "known": "well",
+   "recall": "submerged in the leech pit; he machine-guns the computer bank in the final scene",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Male Companion",
+   "year": 1964,
+   "director": "Philippe de Broca",
+   "known": "outline",
+   "recall": "",
+   "filled": 3
+  },
+  {
+   "decoy": true,
+   "title": "The Undertow",
+   "year": 1976,
+   "director": "Krzysztof Kieślowski",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Spellbound",
+   "year": 1945,
+   "director": "Alfred Hitchcock",
+   "known": "well",
+   "recall": "Dalí's dream: giant scissors slicing the painted eyes on hanging curtains",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "The World in His Arms",
+   "year": 1952,
+   "director": "Raoul Walsh",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "RRR",
+   "year": 2022,
+   "director": "S. S. Rajamouli",
+   "known": "well",
+   "recall": "Bheem's truckload of wild animals loosed at the British garrison; the Naatu Naatu dance-off",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Film Socialisme",
+   "year": 2010,
+   "director": "Jean-Luc Godard",
+   "known": "well",
+   "recall": "subtitles in clipped 'Navajo English'; a llama at the family petrol station; Patti Smith adrift on the cruise ship",
+   "filled": 9
+  },
+  {
+   "decoy": true,
+   "title": "Fair Weather Friends",
+   "year": 1948,
+   "director": "Jules Dassin",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "A Separation",
+   "year": 2011,
+   "director": "Asghar Farhadi",
+   "known": "well",
+   "recall": "the divorce-court plea delivered straight to camera; the disputed shove on the stairwell",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "I Am the Law",
+   "year": 1977,
+   "director": "Pasquale Squitieri",
+   "known": "outline",
+   "recall": "",
+   "filled": 1
+  },
+  {
+   "decoy": false,
+   "title": "The Long Goodbye",
+   "year": 1973,
+   "director": "Robert Altman",
+   "known": "well",
+   "recall": "Marlowe's midnight supermarket run for cat food; Roger Wade walking out into the sea",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "From Up on Poppy Hill",
+   "year": 2011,
+   "director": "Gorō Miyazaki",
+   "known": "well",
+   "recall": "Umi raises signal flags each morning for her dead father; students scrub out the Latin Quarter clubhouse",
+   "filled": 10
+  },
+  {
+   "decoy": true,
+   "title": "The Mineral Line",
+   "year": 1986,
+   "director": "Aleksandr Sokurov",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Escalation",
+   "year": 1968,
+   "director": "Roberto Faenza",
+   "known": "outline",
+   "recall": "",
+   "filled": 2
+  },
+  {
+   "decoy": false,
+   "title": "Once Upon a Time in the West",
+   "year": 1968,
+   "director": "Sergio Leone",
+   "known": "well",
+   "recall": "the fly trapped in the gunman's pistol barrel at the station; water dripping onto a hat brim",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Yeelen",
+   "year": 1987,
+   "director": "Souleymane Cissé",
+   "known": "well",
+   "recall": "the father hauling the glowing Kore pillar across the sand; the final white flash and the ostrich egg",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Portrait Werner Herzog",
+   "year": 1986,
+   "director": "Werner Herzog",
+   "known": "outline",
+   "recall": "",
+   "filled": 2
+  },
+  {
+   "decoy": true,
+   "title": "Blue Hour at the Depot",
+   "year": 2011,
+   "director": "Cristian Mungiu",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "The Bachelor",
+   "year": 1990,
+   "director": "Roberto Faenza",
+   "known": "outline",
+   "recall": "",
+   "filled": 2
+  },
+  {
+   "decoy": false,
+   "title": "An-Magritt",
+   "year": 1969,
+   "director": "Arne Skouen",
+   "known": "outline",
+   "recall": "",
+   "filled": 4
+  },
+  {
+   "decoy": false,
+   "title": "L'Amour à mort",
+   "year": 1984,
+   "director": "Alain Resnais",
+   "known": "well",
+   "recall": "scenes cut apart by black screens of drifting white flecks over Henze's score",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Hammett",
+   "year": 1982,
+   "director": "Wim Wenders",
+   "known": "outline",
+   "recall": "",
+   "filled": 6
+  },
+  {
+   "decoy": true,
+   "title": "The Neighbours' Garden",
+   "year": 1967,
+   "director": "Satyajit Ray",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Guilty as Sin",
+   "year": 1993,
+   "director": "Sidney Lumet",
+   "known": "well",
+   "recall": "the client smugly tells his own defence lawyer he did it, then locks her into the case",
+   "filled": 6
+  },
+  {
+   "decoy": false,
+   "title": "Eureka",
+   "year": 2000,
+   "director": "Shinji Aoyama",
+   "known": "well",
+   "recall": "three and a half hours of sepia; the bus-hijack survivors take to the road in a camper",
+   "filled": 9
+  },
+  {
+   "decoy": false,
+   "title": "Star Wars: Episode II – Attack of the Clones",
+   "year": 2002,
+   "director": "George Lucas",
+   "known": "well",
+   "recall": "Jango's seismic charges in the asteroid field; Yoda drops his cane and draws a saber on Dooku",
+   "filled": 7
+  },
+  {
+   "decoy": false,
+   "title": "Decalogue VIII",
+   "year": 1988,
+   "director": "Krzysztof Kieślowski",
+   "known": "well",
+   "recall": "in the ethics seminar the visitor recounts her own 1943 case back to the professor who refused her",
+   "filled": 8
+  },
+  {
+   "decoy": true,
+   "title": "The Orchard Wall",
+   "year": 1999,
+   "director": "Abbas Kiarostami",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Caro Michele",
+   "year": 1976,
+   "director": "Mario Monicelli",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Someone's Watching Me!",
+   "year": 1978,
+   "director": "John Carpenter",
+   "known": "well",
+   "recall": "the watcher phones her and sends 'Excursions Unlimited' gifts; she signals back across the glass towers",
+   "filled": 6
+  },
+  {
+   "decoy": false,
+   "title": "Indiana Jones and the Kingdom of the Crystal Skull",
+   "year": 2008,
+   "director": "Steven Spielberg",
+   "known": "well",
+   "recall": "the lead-lined fridge rides out the nuke; Mutt swings through the jungle with the monkeys",
+   "filled": 7
+  },
+  {
+   "decoy": false,
+   "title": "The Venetian",
+   "year": 1958,
+   "director": "Ingmar Bergman",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": true,
+   "title": "Gravel",
+   "year": 2015,
+   "director": "Kelly Reichardt",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Portrait of Madame Yuki",
+   "year": 1950,
+   "director": "Kenji Mizoguchi",
+   "known": "well",
+   "recall": "the young maid watches her mistress go back to the coarse husband; the lake at the end",
+   "filled": 8
+  },
+  {
+   "decoy": false,
+   "title": "Machibuse",
+   "year": 1970,
+   "director": "Hiroshi Inagaki",
+   "known": "outline",
+   "recall": "",
+   "filled": 5
+  },
+  {
+   "decoy": false,
+   "title": "Mother",
+   "year": 1952,
+   "director": "Mikio Naruse",
+   "known": "well",
+   "recall": "the daughter's voice-over over the family laundry; the youngest girl given away to relatives",
+   "filled": 10
+  },
+  {
+   "decoy": false,
+   "title": "Korczak",
+   "year": 1990,
+   "director": "Andrzej Wajda",
+   "known": "well",
+   "recall": "the final shot: the boxcar uncouples and the children walk off into white mist in slow motion",
+   "filled": 10
+  },
+  {
+   "decoy": true,
+   "title": "The Emptied House",
+   "year": 1990,
+   "director": "Theo Angelopoulos",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Touch of Evil",
+   "year": 1958,
+   "director": "Orson Welles",
+   "known": "well",
+   "recall": "the opening crane shot riding the planted bomb across the border until the car blows",
+   "filled": 12
+  },
+  {
+   "decoy": false,
+   "title": "Straw Dogs",
+   "year": 1971,
+   "director": "Sam Peckinpah",
+   "known": "well",
+   "recall": "the farmhouse siege ends with the mantrap snapped shut around a man's neck",
+   "filled": 11
+  },
+  {
+   "decoy": false,
+   "title": "Sacco and Vanzetti",
+   "year": 1971,
+   "director": "Giuliano Montaldo",
+   "known": "outline",
+   "recall": "",
+   "filled": 4
+  },
+  {
+   "decoy": false,
+   "title": "Oppenheimer",
+   "year": 2023,
+   "director": "Christopher Nolan",
+   "known": "well",
+   "recall": "Trinity's silence before the roar arrives; the black-and-white Strauss hearings cut throughout",
+   "filled": 12
+  },
+  {
+   "decoy": true,
+   "title": "The Cold Kitchen",
+   "year": 1972,
+   "director": "István Szabó",
+   "known": "no",
+   "recall": "",
+   "filled": 0
+  },
+  {
+   "decoy": false,
+   "title": "Good News",
+   "year": 1979,
+   "director": "Elio Petri",
+   "known": "outline",
+   "recall": "",
+   "filled": 3
+  },
+  {
+   "decoy": false,
+   "title": "Nanook of the North",
+   "year": 1922,
+   "director": "Robert J. Flaherty",
+   "known": "well",
+   "recall": "Nanook bites the gramophone record; the igloo built with a slab of ice fitted as a window",
+   "filled": 10
+  }
+ ]
+}

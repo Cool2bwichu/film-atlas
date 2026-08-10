@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "vocabVersion": "consensus-vocab-1",
+  "note": "One reader-facing question per attribute in consensus-vocab.json. The vocabulary's gloss is written for the attributor and says things like 'obeys the rules of a dream: images and associations before cause and effect'. Nobody types that. These are the same claims in the words a person would use, and they are part of the interface, not documentation — a wrong phrasing here makes the reader answer a different question from the one the corpus was scored on, which is worse than any ranking bug because it is invisible.",
+  "rules": [
+    "A question must be answerable yes or no by someone who has not seen the film they are looking for. 'Do you want it cerebral' fails that; 'do you want it to give you something to think about' passes.",
+    "The question must mean the gloss, not a looser neighbour. consensus-vocab's NOT clause is the boundary: subject:grief is not 'films where someone dies', so the question may not be 'do you want someone to die in it'.",
+    "No schema words. No attribute ids, no 0-1, no group names.",
+    "'label' is the two-or-three-word chip the answer becomes once given, so the reader can see what they have said and take it back."
+  ],
+  "questions": {
+    "pace:relentless": {
+      "q": "Do you want it to keep coming at you, no room to breathe?",
+      "label": "relentless"
+    },
+    "pace:brisk": {
+      "q": "Do you want it quick and light on its feet?",
+      "label": "quick and light"
+    },
+    "pace:slow-burn": {
+      "q": "Do you want it to tighten slowly, building to something?",
+      "label": "a slow burn"
+    },
+    "pace:contemplative": {
+      "q": "Do you want it to take its time and let you look?",
+      "label": "unhurried"
+    },
+    "tone:hopeful": {
+      "q": "Do you want to come out of it believing something can be mended?",
+      "label": "hopeful"
+    },
+    "tone:bleak": {
+      "q": "Do you want it to offer no comfort at all?",
+      "label": "bleak"
+    },
+    "tone:melancholy": {
+      "q": "Do you want a soft, liveable sadness running under it?",
+      "label": "melancholy"
+    },
+    "tone:comic": {
+      "q": "Do you want it to be funny?",
+      "label": "funny"
+    },
+    "tone:ironic": {
+      "q": "Do you want it to keep a knowing distance from what it shows?",
+      "label": "ironic"
+    },
+    "tone:earnest": {
+      "q": "Do you want it to mean exactly what it says, with no irony?",
+      "label": "earnest"
+    },
+    "tone:cerebral": {
+      "q": "Do you want it to give you something to think about, and to make you work?",
+      "label": "makes you think"
+    },
+    "tone:tender": {
+      "q": "Do you want it to be gentle with its people?",
+      "label": "tender"
+    },
+    "mood:dreamlike": {
+      "q": "Do you want it to run on dream logic rather than cause and effect?",
+      "label": "dreamlike"
+    },
+    "mood:menacing": {
+      "q": "Do you want the feeling that something bad is coming?",
+      "label": "menacing"
+    },
+    "mood:paranoid": {
+      "q": "Do you want the sense that someone is watching or lying, and you cannot tell who?",
+      "label": "paranoid"
+    },
+    "mood:warm": {
+      "q": "Do you want it to be good company — something you sit inside?",
+      "label": "warm"
+    },
+    "mood:austere": {
+      "q": "Do you want it cold and stripped bare?",
+      "label": "austere"
+    },
+    "mood:elegiac": {
+      "q": "Do you want it mourning a world that has already gone?",
+      "label": "elegiac"
+    },
+    "mood:sensual": {
+      "q": "Do you want it interested in bodies, heat and appetite?",
+      "label": "sensual"
+    },
+    "mood:absurd": {
+      "q": "Do you want a world running on broken logic that nobody in it questions?",
+      "label": "absurd"
+    },
+    "subject:spiritual": {
+      "q": "Do you want it to be about faith, or the search for meaning?",
+      "label": "spiritual"
+    },
+    "subject:political": {
+      "q": "Do you want power and who gets to decide to be the actual subject?",
+      "label": "political"
+    },
+    "subject:coming-of-age": {
+      "q": "Do you want it to be about growing up, filmed while it happens?",
+      "label": "growing up"
+    },
+    "subject:grief": {
+      "q": "Do you want it to be about losing someone, and what you do after?",
+      "label": "grief"
+    },
+    "subject:obsession": {
+      "q": "Do you want someone consumed by something past the point of reason?",
+      "label": "obsession"
+    },
+    "subject:family": {
+      "q": "Do you want the family to be the real arena — parents, children, what gets inherited?",
+      "label": "family"
+    },
+    "subject:desire": {
+      "q": "Do you want it to be about wanting someone, and what the wanting costs?",
+      "label": "desire"
+    },
+    "subject:work": {
+      "q": "Do you want it to be about the job — the craft, the crew, the process?",
+      "label": "work"
+    },
+    "subject:memory": {
+      "q": "Do you want remembering itself to be the film's business?",
+      "label": "memory"
+    },
+    "subject:class": {
+      "q": "Do you want money and social station, and the walls they make, to be the point?",
+      "label": "class"
+    },
+    "story:coming-home": {
+      "q": "Do you want a return — someone going back to a place or a people they left?",
+      "label": "coming home"
+    },
+    "story:fish-out-of-water": {
+      "q": "Do you want someone landing where they plainly do not belong?",
+      "label": "out of place"
+    },
+    "story:race-against-time": {
+      "q": "Do you want a clock running, with the whole film built on beating it?",
+      "label": "against the clock"
+    },
+    "story:descent": {
+      "q": "Do you want to watch someone come apart over the course of it?",
+      "label": "a descent"
+    },
+    "story:investigation": {
+      "q": "Do you want the plot to be somebody finding out what happened?",
+      "label": "an investigation"
+    },
+    "story:revenge": {
+      "q": "Do you want a wrong being answered?",
+      "label": "revenge"
+    },
+    "story:survival": {
+      "q": "Do you want staying alive to be the whole problem?",
+      "label": "survival"
+    },
+    "texture:sparse-dialogue": {
+      "q": "Do you want people to barely speak?",
+      "label": "little dialogue"
+    },
+    "texture:talky": {
+      "q": "Do you want the talking to be the event, and a lot of it?",
+      "label": "talky"
+    },
+    "texture:painterly": {
+      "q": "Do you want it made to be looked at — the image one of the reasons it exists?",
+      "label": "painterly"
+    },
+    "texture:handheld-raw": {
+      "q": "Do you want it rough and immediate, the camera in the room?",
+      "label": "raw"
+    },
+    "texture:stylised": {
+      "q": "Do you want it heightened and designed rather than lifelike?",
+      "label": "stylised"
+    },
+    "texture:graphic-violence": {
+      "q": "Do you want the violence shown rather than implied?",
+      "label": "violence shown"
+    },
+    "texture:music-led": {
+      "q": "Do you want music to be what carries it?",
+      "label": "music-led"
+    },
+    "texture:grimy": {
+      "q": "Do you want dirt, sweat and decay — a surface you can smell?",
+      "label": "grimy"
+    },
+    "structure:nonlinear": {
+      "q": "Do you want time shuffled, with the shuffling part of the design?",
+      "label": "nonlinear"
+    },
+    "structure:ensemble": {
+      "q": "Do you want many people carried in parallel, with no single lead?",
+      "label": "an ensemble"
+    },
+    "structure:single-setting": {
+      "q": "Do you want it held in one place, with the confinement the point?",
+      "label": "one place"
+    },
+    "structure:episodic": {
+      "q": "Do you want it built as a chain of separate episodes rather than one plot?",
+      "label": "episodic"
+    },
+    "structure:twist": {
+      "q": "Do you want it to turn on a revelation that reframes everything before it?",
+      "label": "a turn"
+    },
+    "structure:narrated": {
+      "q": "Do you want a voice telling it to you?",
+      "label": "narrated"
+    },
+    "setting:space": {
+      "q": "Do you want it set off Earth?",
+      "label": "in space"
+    },
+    "setting:small-town": {
+      "q": "Do you want a small place where everyone is known?",
+      "label": "small-town"
+    },
+    "setting:city-at-night": {
+      "q": "Do you want the night city — streets, neon, the hours after everyone left?",
+      "label": "city at night"
+    },
+    "setting:wilderness": {
+      "q": "Do you want landscape that does not care you are in it?",
+      "label": "wilderness"
+    },
+    "setting:future": {
+      "q": "Do you want it set ahead of its own making, with the future part of the subject?",
+      "label": "the future"
+    },
+    "mode:action": {
+      "q": "Do you want physical action to be one of the pleasures on offer?",
+      "label": "action"
+    },
+    "mode:suspense": {
+      "q": "Do you want to be made anxious about what happens next?",
+      "label": "suspense"
+    },
+    "mode:spectacle": {
+      "q": "Do you want scale — the sight of it as a reason to go?",
+      "label": "spectacle"
+    }
+  }
+}

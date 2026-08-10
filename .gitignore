@@ -64,6 +64,8 @@ yarn-error.log*
 /atlas/pipeline/.cache-native-wd/
 /atlas/pipeline/.cache-native-wt/
 /atlas/pipeline/.cache-native-views/
+/atlas/pipeline/.cache-consensus-decoy/
+/atlas/pipeline/.cache-consensus/
 
 # Generated seed expansion. Regenerable with:
 #   node atlas/pipeline/expand-seeds.js --target N > atlas/pipeline/seeds-expansion.txt

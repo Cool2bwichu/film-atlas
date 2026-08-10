@@ -1,0 +1,329 @@
+{
+ "version": 1,
+ "vocabVersion": "consensus-vocab-1",
+ "model": "claude-opus-5",
+ "promptVersion": "consensus-prompt-1",
+ "generated": "2026-08-10T06:40:59.942Z",
+ "tier": "unknown",
+ "note": "the model did not know these films. passed = unknown on every attribute",
+ "films": {
+  "firelight": {
+   "passed": true
+  },
+  "hope": {
+   "passed": true
+  },
+  "the lie": {
+   "passed": true
+  },
+  "trip to vienna": {
+   "passed": true
+  },
+  "i maniaci": {
+   "passed": true
+  },
+  "darling of min": {
+   "passed": true
+  },
+  "ramuntcho": {
+   "passed": true
+  },
+  "farewell to nostradamus": {
+   "passed": true
+  },
+  "the blessed ones": {
+   "passed": true
+  },
+  "last love": {
+   "passed": true
+  },
+  "unknown woman": {
+   "passed": true
+  },
+  "barabbas": {
+   "passed": true
+  },
+  "the magnificent lie": {
+   "passed": true
+  },
+  "menage all italiana": {
+   "passed": true
+  },
+  "la supertestimone": {
+   "passed": true
+  },
+  "the most gentle confessions": {
+   "passed": true
+  },
+  "lupin iii dead or alive": {
+   "passed": true
+  },
+  "flickan i frack": {
+   "passed": true
+  },
+  "finishing school": {
+   "passed": true
+  },
+  "the syndicate a death in the family": {
+   "passed": true
+  },
+  "not with my wife you don t": {
+   "passed": true
+  },
+  "tetepango": {
+   "passed": true
+  },
+  "it takes two": {
+   "passed": true
+  },
+  "horse": {
+   "passed": true
+  },
+  "citta violenta": {
+   "passed": true
+  },
+  "countersex": {
+   "passed": true
+  },
+  "in lilac time": {
+   "passed": true
+  },
+  "a dreamer s journey": {
+   "passed": true
+  },
+  "the angel who pawned her harp": {
+   "passed": true
+  },
+  "il mostro": {
+   "passed": true
+  },
+  "the bachelor": {
+   "passed": true
+  },
+  "weak spot": {
+   "passed": true
+  },
+  "a dangerous toy": {
+   "passed": true
+  },
+  "tre colonne in cronaca": {
+   "passed": true
+  },
+  "destinees": {
+   "passed": true
+  },
+  "the moon is the sun s dream": {
+   "passed": true
+  },
+  "se non avessi piu te": {
+   "passed": true
+  },
+  "husband and wife": {
+   "passed": true
+  },
+  "sword of penitence": {
+   "passed": true
+  },
+  "vergine moderna": {
+   "passed": true
+  },
+  "catch as catch can": {
+   "passed": true
+  },
+  "a thief in paradise": {
+   "passed": true
+  },
+  "el greco": {
+   "passed": true
+  },
+  "flesh will surrender": {
+   "passed": true
+  },
+  "a slice of life": {
+   "passed": true
+  },
+  "a matter of morals": {
+   "passed": true
+  },
+  "ingmar bergman s cinema": {
+   "passed": true
+  },
+  "bezeten het gat in de muur": {
+   "passed": true
+  },
+  "marmalade revolution": {
+   "passed": true
+  },
+  "rabies": {
+   "passed": true
+  },
+  "where are you going on holiday": {
+   "passed": true
+  },
+  "how i lost the war": {
+   "passed": true
+  },
+  "si salvi chi vuole": {
+   "passed": true
+  },
+  "a girl of solbakken": {
+   "passed": true
+  },
+  "the passionate adventure": {
+   "passed": true
+  },
+  "scusi facciamo l amore": {
+   "passed": true
+  },
+  "a yank in rome": {
+   "passed": true
+  },
+  "halbblut": {
+   "passed": true
+  },
+  "the betrayal": {
+   "passed": true
+  },
+  "disclosure day": {
+   "passed": true
+  },
+  "run for your wife": {
+   "passed": true
+  },
+  "playing on the rainbow": {
+   "passed": true
+  },
+  "wild horse nine": {
+   "passed": true
+  },
+  "il carro armato dell 8 settembre": {
+   "passed": true
+  },
+  "the marriage of mr mississippi": {
+   "passed": true
+  },
+  "suzakumon": {
+   "passed": true
+  },
+  "the road to klockrike": {
+   "passed": true
+  },
+  "laughing in the sunshine": {
+   "passed": true
+  },
+  "amanti senza amore": {
+   "passed": true
+  },
+  "comandamenti per un gangster": {
+   "passed": true
+  },
+  "the voyeur": {
+   "passed": true
+  },
+  "the venetian": {
+   "passed": true
+  },
+  "katinka": {
+   "passed": true
+  },
+  "epitome": {
+   "passed": true
+  },
+  "stage fright 1960": {
+   "passed": true
+  },
+  "life of a woman": {
+   "passed": true
+  },
+  "piece of the sky": {
+   "passed": true
+  },
+  "bullet for stefano": {
+   "passed": true
+  },
+  "make way for lila": {
+   "passed": true
+  },
+  "the realm of the rye": {
+   "passed": true
+  },
+  "the triangle": {
+   "passed": true
+  },
+  "guest at one s own home": {
+   "passed": true
+  },
+  "the innocent": {
+   "passed": true
+  },
+  "his last twelve hours": {
+   "passed": true
+  },
+  "love has to be learned": {
+   "passed": true
+  },
+  "chronicle of a homicide": {
+   "passed": true
+  },
+  "era lui si si": {
+   "passed": true
+  },
+  "jolanda the daughter of the black corsair": {
+   "passed": true
+  },
+  "morderspiel": {
+   "passed": true
+  },
+  "ningen": {
+   "passed": true
+  },
+  "i tre corsari": {
+   "passed": true
+  },
+  "portrait werner herzog": {
+   "passed": true
+  },
+  "akuto film": {
+   "passed": true
+  },
+  "scar yosaburo": {
+   "passed": true
+  },
+  "cameriera bella presenza offresi": {
+   "passed": true
+  },
+  "tasmania story": {
+   "passed": true
+  },
+  "the mountain eagle": {
+   "passed": true
+  },
+  "tsubasa no gaika": {
+   "passed": true
+  },
+  "the secret ways": {
+   "passed": true
+  },
+  "sword for hire": {
+   "passed": true
+  },
+  "gli ordini sono ordini": {
+   "passed": true
+  },
+  "big lasse of delsbo": {
+   "passed": true
+  },
+  "until the day we meet again": {
+   "passed": true
+  },
+  "snow white and the seven jugglers": {
+   "passed": true
+  },
+  "his young wife": {
+   "passed": true
+  },
+  "let sleeping cops lie": {
+   "passed": true
+  }
+ }
+}

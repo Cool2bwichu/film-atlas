@@ -1,0 +1,3812 @@
+{
+ "version": 1,
+ "vocabVersion": "consensus-vocab-1",
+ "model": "claude-opus-5",
+ "promptVersion": "consensus-prompt-1",
+ "generated": "2026-08-10T06:40:59.942Z",
+ "tier": "outline",
+ "note": "no vocabulary declared on purpose: silence here is ignorance, not absence",
+ "films": {
+  "the night and the moment": {
+   "attrs": {
+    "texture:talky": 0.5,
+    "mood:sensual": 0.5,
+    "subject:desire": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "guilty as sin": {
+   "attrs": {
+    "mode:suspense": 0.5,
+    "texture:talky": 0.5,
+    "mood:menacing": 0.25
+   }
+  },
+  "mata hari agent h 21": {
+   "attrs": {
+    "subject:political": 0.25,
+    "subject:desire": 0.25
+   }
+  },
+  "the pick up artist": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "pace:brisk": 0.5,
+    "tone:comic": 0.25,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "battle hymn": {
+   "attrs": {
+    "tone:earnest": 0.75,
+    "subject:spiritual": 0.5,
+    "tone:hopeful": 0.5
+   }
+  },
+  "the river": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:work": 0.5,
+    "subject:class": 0.5,
+    "tone:earnest": 0.5
+   }
+  },
+  "the sun also shines at night": {
+   "attrs": {
+    "subject:spiritual": 0.75,
+    "pace:contemplative": 0.5,
+    "texture:painterly": 0.5,
+    "subject:desire": 0.5,
+    "subject:obsession": 0.25
+   }
+  },
+  "the defector": {
+   "attrs": {
+    "subject:political": 0.5,
+    "mood:paranoid": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "shoot loud louder i don t understand": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "mood:dreamlike": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "eva": {
+   "attrs": {
+    "subject:family": 0.25,
+    "tone:earnest": 0.25
+   }
+  },
+  "karin mansdotter": {
+   "attrs": {
+    "subject:class": 0.5,
+    "subject:political": 0.5
+   }
+  },
+  "the love of the actress sumako": {
+   "attrs": {
+    "subject:work": 0.5,
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "gonza the spearman": {
+   "attrs": {
+    "texture:painterly": 0.5,
+    "subject:desire": 0.5,
+    "mood:austere": 0.25,
+    "tone:melancholy": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "thirst 1950": {
+   "attrs": {
+    "tone:bleak": 0.5,
+    "mood:austere": 0.5,
+    "subject:desire": 0.5,
+    "texture:talky": 0.5,
+    "structure:single-setting": 0.25,
+    "pace:slow-burn": 0.25
+   }
+  },
+  "hana": {
+   "attrs": {
+    "story:revenge": 0.75,
+    "tone:comic": 0.5,
+    "subject:class": 0.5,
+    "tone:tender": 0.5,
+    "mood:warm": 0.5,
+    "texture:grimy": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "the lady gambles": {
+   "attrs": {
+    "story:descent": 0.75,
+    "subject:obsession": 0.75,
+    "structure:nonlinear": 0.5,
+    "tone:bleak": 0.25,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "lanton mills": {
+   "attrs": {}
+  },
+  "tidal wave": {
+   "attrs": {
+    "mode:spectacle": 0.75,
+    "tone:bleak": 0.5,
+    "story:race-against-time": 0.5,
+    "structure:ensemble": 0.5,
+    "subject:political": 0.25,
+    "mood:elegiac": 0.25
+   }
+  },
+  "street scenes": {
+   "attrs": {
+    "subject:political": 1,
+    "texture:handheld-raw": 1,
+    "texture:talky": 0.5,
+    "structure:ensemble": 0.25
+   }
+  },
+  "jerry lee lewis trouble in mind": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "structure:episodic": 0.5,
+    "mood:elegiac": 0.25
+   }
+  },
+  "the dirk diggler story": {
+   "attrs": {
+    "structure:narrated": 0.5,
+    "tone:ironic": 0.5,
+    "story:descent": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "the last days of pompeii": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "mode:action": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "juno and the paycock": {
+   "attrs": {
+    "texture:talky": 0.75,
+    "structure:single-setting": 0.5,
+    "subject:family": 0.5,
+    "subject:class": 0.5,
+    "subject:political": 0.5,
+    "tone:comic": 0.25
+   }
+  },
+  "in ginocchio da te": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "pace:brisk": 0.25
+   }
+  },
+  "the chamber": {
+   "attrs": {
+    "subject:family": 0.5,
+    "story:race-against-time": 0.5,
+    "subject:political": 0.25,
+    "tone:earnest": 0.25,
+    "texture:talky": 0.25
+   }
+  },
+  "bad company": {
+   "attrs": {
+    "mood:paranoid": 0.5,
+    "mode:suspense": 0.5
+   }
+  },
+  "variety lights": {
+   "attrs": {
+    "subject:work": 0.5,
+    "tone:melancholy": 0.5,
+    "structure:episodic": 0.5,
+    "tone:comic": 0.25
+   }
+  },
+  "the young girls turn 25": {
+   "attrs": {
+    "subject:memory": 0.75,
+    "mood:elegiac": 0.5,
+    "texture:music-led": 0.5,
+    "tone:melancholy": 0.5,
+    "structure:narrated": 0.5,
+    "tone:tender": 0.5,
+    "setting:small-town": 0.25
+   }
+  },
+  "faro document": {
+   "attrs": {
+    "subject:work": 0.75,
+    "mood:elegiac": 0.5,
+    "subject:class": 0.5,
+    "subject:political": 0.5,
+    "texture:handheld-raw": 0.5,
+    "structure:narrated": 0.5,
+    "setting:small-town": 0.5,
+    "mood:austere": 0.5
+   }
+  },
+  "the rare breed": {
+   "attrs": {
+    "subject:work": 0.5,
+    "setting:wilderness": 0.5,
+    "tone:earnest": 0.5,
+    "mood:warm": 0.25
+   }
+  },
+  "the killers": {
+   "attrs": {
+    "mood:menacing": 0.5,
+    "structure:single-setting": 0.5,
+    "texture:talky": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "the lady of the camellias": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "subject:class": 0.5,
+    "tone:melancholy": 0.5,
+    "texture:stylised": 0.5
+   }
+  },
+  "dinner with friends": {
+   "attrs": {
+    "texture:talky": 0.75,
+    "subject:family": 0.5,
+    "subject:desire": 0.25,
+    "tone:melancholy": 0.25
+   }
+  },
+  "the sign of venus": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "tone:melancholy": 0.5,
+    "pace:brisk": 0.5,
+    "subject:desire": 0.5,
+    "texture:talky": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "without pity": {
+   "attrs": {
+    "tone:bleak": 0.5,
+    "texture:grimy": 0.5,
+    "subject:class": 0.5,
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "ghosts of rome": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "texture:stylised": 0.5,
+    "mood:absurd": 0.25,
+    "structure:ensemble": 0.25
+   }
+  },
+  "older brother younger sister": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:class": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "the boy from oklahoma": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "setting:small-town": 0.5,
+    "mood:warm": 0.25
+   }
+  },
+  "edo porn": {
+   "attrs": {
+    "mood:sensual": 0.75,
+    "subject:desire": 0.5,
+    "subject:work": 0.5,
+    "subject:obsession": 0.5,
+    "structure:episodic": 0.5
+   }
+  },
+  "roseanna": {
+   "attrs": {
+    "story:investigation": 0.75,
+    "pace:slow-burn": 0.5
+   }
+  },
+  "shuu": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:class": 0.25,
+    "pace:contemplative": 0.25
+   }
+  },
+  "woman without a face": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "story:descent": 0.5,
+    "structure:nonlinear": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "white sister": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "subject:spiritual": 0.5,
+    "subject:political": 0.5,
+    "subject:desire": 0.5,
+    "mood:warm": 0.25
+   }
+  },
+  "night drum": {
+   "attrs": {
+    "tone:bleak": 0.5,
+    "subject:family": 0.5,
+    "subject:political": 0.5,
+    "structure:nonlinear": 0.5,
+    "story:coming-home": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "jag mandir": {
+   "attrs": {
+    "mode:spectacle": 0.75,
+    "structure:episodic": 0.75,
+    "texture:music-led": 0.5,
+    "texture:sparse-dialogue": 0.5,
+    "mood:dreamlike": 0.25
+   }
+  },
+  "a dangerous woman": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "setting:small-town": 0.5,
+    "story:descent": 0.25,
+    "subject:family": 0.25
+   }
+  },
+  "the sun also rises": {
+   "attrs": {
+    "structure:nonlinear": 0.75,
+    "structure:episodic": 0.5,
+    "mood:dreamlike": 0.5,
+    "texture:stylised": 0.5,
+    "texture:music-led": 0.25
+   }
+  },
+  "judgement": {
+   "attrs": {
+    "structure:single-setting": 0.75,
+    "tone:ironic": 0.75,
+    "subject:class": 0.5,
+    "tone:comic": 0.5,
+    "mood:absurd": 0.5,
+    "texture:talky": 0.5,
+    "subject:political": 0.5
+   }
+  },
+  "taira clan saga": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:class": 0.5,
+    "texture:stylised": 0.5,
+    "texture:painterly": 0.5,
+    "mode:spectacle": 0.25
+   }
+  },
+  "waltzes from vienna": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5
+   }
+  },
+  "all the invisible children": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "structure:ensemble": 0.5,
+    "subject:class": 0.5,
+    "tone:earnest": 0.5,
+    "subject:coming-of-age": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "the end of violence": {
+   "attrs": {
+    "mood:paranoid": 0.75,
+    "tone:cerebral": 0.5,
+    "subject:political": 0.25,
+    "pace:slow-burn": 0.25,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "ogro": {
+   "attrs": {
+    "subject:political": 0.75,
+    "mode:suspense": 0.5,
+    "pace:slow-burn": 0.25
+   }
+  },
+  "the fifth cord": {
+   "attrs": {
+    "story:investigation": 0.75,
+    "mood:menacing": 0.5,
+    "texture:stylised": 0.5,
+    "texture:painterly": 0.5,
+    "mood:paranoid": 0.25,
+    "story:descent": 0.25,
+    "texture:graphic-violence": 0.25
+   }
+  },
+  "beyond the clouds": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "structure:narrated": 0.5,
+    "subject:desire": 0.75,
+    "mood:sensual": 0.5,
+    "pace:contemplative": 0.5,
+    "texture:painterly": 0.5,
+    "tone:melancholy": 0.5
+   }
+  },
+  "control": {
+   "attrs": {
+    "structure:single-setting": 0.5,
+    "structure:ensemble": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "the palermo connection": {
+   "attrs": {
+    "subject:political": 0.75,
+    "story:coming-home": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "the woman in the rumor": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:desire": 0.5,
+    "subject:class": 0.5,
+    "subject:work": 0.5,
+    "tone:melancholy": 0.5,
+    "texture:painterly": 0.25
+   }
+  },
+  "the inheritance 1976": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:class": 0.5,
+    "subject:desire": 0.5,
+    "mood:sensual": 0.5,
+    "texture:painterly": 0.25
+   }
+  },
+  "raiders of the lost ark the adaptation": {
+   "attrs": {
+    "mode:action": 0.5,
+    "texture:handheld-raw": 0.5,
+    "pace:brisk": 0.25
+   }
+  },
+  "the glass mountain": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.25
+   }
+  },
+  "cops and robbers": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "subject:class": 0.5,
+    "subject:family": 0.5,
+    "tone:melancholy": 0.25,
+    "mood:warm": 0.25,
+    "subject:work": 0.25
+   }
+  },
+  "a story of floating weeds": {
+   "attrs": {
+    "pace:contemplative": 0.75,
+    "subject:family": 0.75,
+    "tone:melancholy": 0.75,
+    "mood:elegiac": 0.5,
+    "setting:small-town": 0.5,
+    "subject:work": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "i vinti": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:bleak": 0.25,
+    "subject:political": 0.25,
+    "subject:class": 0.25,
+    "mood:austere": 0.25
+   }
+  },
+  "the pied piper": {
+   "attrs": {
+    "texture:music-led": 0.5,
+    "tone:bleak": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "casanova 70": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "subject:desire": 0.75,
+    "structure:episodic": 0.5,
+    "pace:brisk": 0.5,
+    "mood:absurd": 0.25,
+    "tone:ironic": 0.25
+   }
+  },
+  "documenteur": {
+   "attrs": {
+    "tone:melancholy": 0.75,
+    "structure:narrated": 0.75,
+    "pace:contemplative": 0.5,
+    "subject:memory": 0.5,
+    "story:fish-out-of-water": 0.25,
+    "subject:family": 0.25
+   }
+  },
+  "where is freedom": {
+   "attrs": {
+    "tone:ironic": 0.75,
+    "tone:comic": 0.5,
+    "story:fish-out-of-water": 0.5,
+    "structure:narrated": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "ransom": {
+   "attrs": {
+    "mode:suspense": 0.5,
+    "story:race-against-time": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "machine gun mccain": {
+   "attrs": {
+    "mode:action": 0.5,
+    "mode:suspense": 0.25,
+    "story:revenge": 0.25,
+    "pace:brisk": 0.25
+   }
+  },
+  "dancing girl": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "the scarlet letter": {
+   "attrs": {
+    "setting:small-town": 0.5,
+    "subject:spiritual": 0.25,
+    "mood:austere": 0.25,
+    "tone:bleak": 0.25
+   }
+  },
+  "tree without leaves": {
+   "attrs": {
+    "subject:memory": 0.5,
+    "subject:family": 0.5,
+    "pace:contemplative": 0.25,
+    "structure:narrated": 0.25
+   }
+  },
+  "tigers in lipstick": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:comic": 0.5,
+    "mood:sensual": 0.5
+   }
+  },
+  "la funivia del faloria": {
+   "attrs": {
+    "subject:work": 0.5,
+    "setting:wilderness": 0.5
+   }
+  },
+  "campane a martello": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "setting:small-town": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "the best intentions": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:class": 0.5,
+    "subject:spiritual": 0.5,
+    "tone:earnest": 0.5,
+    "tone:melancholy": 0.5,
+    "mood:austere": 0.5,
+    "texture:talky": 0.5,
+    "pace:slow-burn": 0.25,
+    "setting:small-town": 0.25
+   }
+  },
+  "dark illness": {
+   "attrs": {
+    "tone:comic": 0.25,
+    "tone:ironic": 0.25
+   }
+  },
+  "escape to france": {
+   "attrs": {
+    "subject:political": 0.5,
+    "mode:suspense": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "tis pity she s a whore": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "texture:stylised": 0.5,
+    "mood:sensual": 0.5,
+    "texture:graphic-violence": 0.25,
+    "tone:bleak": 0.25
+   }
+  },
+  "wind from the east": {
+   "attrs": {
+    "subject:political": 1,
+    "tone:cerebral": 0.75,
+    "structure:narrated": 0.75,
+    "mood:austere": 0.5,
+    "pace:contemplative": 0.5,
+    "tone:ironic": 0.25
+   }
+  },
+  "prison": {
+   "attrs": {
+    "tone:bleak": 0.75,
+    "subject:spiritual": 0.5,
+    "story:descent": 0.5,
+    "mood:austere": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "the lizards": {
+   "attrs": {
+    "setting:small-town": 0.75,
+    "structure:ensemble": 0.5,
+    "tone:ironic": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:coming-of-age": 0.25
+   }
+  },
+  "the 50 year argument": {
+   "attrs": {
+    "subject:political": 0.75,
+    "texture:talky": 0.75,
+    "tone:cerebral": 0.75,
+    "structure:episodic": 0.5,
+    "subject:work": 0.5
+   }
+  },
+  "non son degno di te": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "subject:desire": 0.5,
+    "tone:earnest": 0.25
+   }
+  },
+  "the dress": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "subject:family": 0.5
+   }
+  },
+  "anna": {
+   "attrs": {
+    "subject:spiritual": 0.5,
+    "subject:desire": 0.5,
+    "mood:sensual": 0.25,
+    "tone:melancholy": 0.25
+   }
+  },
+  "the desert song": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "setting:wilderness": 0.25
+   }
+  },
+  "red sonja": {
+   "attrs": {
+    "mode:action": 0.5,
+    "story:revenge": 0.5,
+    "mode:spectacle": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "lightning": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:class": 0.5,
+    "tone:melancholy": 0.5,
+    "pace:contemplative": 0.25
+   }
+  },
+  "last pair out": {
+   "attrs": {
+    "subject:coming-of-age": 0.5,
+    "subject:family": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "libera my love": {
+   "attrs": {
+    "subject:political": 0.75
+   }
+  },
+  "daddy s gone a hunting": {
+   "attrs": {
+    "mode:suspense": 0.5,
+    "mood:menacing": 0.5,
+    "story:revenge": 0.5,
+    "mood:paranoid": 0.25
+   }
+  },
+  "crisis": {
+   "attrs": {
+    "setting:small-town": 0.5,
+    "subject:family": 0.5,
+    "subject:coming-of-age": 0.5,
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.25
+   }
+  },
+  "55 days at peking": {
+   "attrs": {
+    "mode:spectacle": 0.75,
+    "story:survival": 0.5,
+    "subject:political": 0.5,
+    "mode:action": 0.5,
+    "structure:ensemble": 0.5
+   }
+  },
+  "gods of the plague": {
+   "attrs": {
+    "mood:austere": 0.5,
+    "tone:bleak": 0.5,
+    "pace:contemplative": 0.5,
+    "setting:city-at-night": 0.25,
+    "texture:sparse-dialogue": 0.25
+   }
+  },
+  "the outrage": {
+   "attrs": {
+    "structure:nonlinear": 0.75,
+    "subject:memory": 0.5,
+    "texture:talky": 0.5
+   }
+  },
+  "abhijan": {
+   "attrs": {
+    "subject:class": 0.5,
+    "tone:melancholy": 0.25,
+    "subject:work": 0.25
+   }
+  },
+  "brink of life": {
+   "attrs": {
+    "structure:single-setting": 0.75,
+    "mood:austere": 0.5,
+    "texture:talky": 0.5,
+    "subject:grief": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "identification of a woman": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "pace:contemplative": 0.5,
+    "mood:sensual": 0.25,
+    "tone:cerebral": 0.5,
+    "story:investigation": 0.25
+   }
+  },
+  "mr sleeman is coming": {
+   "attrs": {
+    "structure:single-setting": 0.5,
+    "texture:talky": 0.5,
+    "texture:stylised": 0.25,
+    "mood:menacing": 0.25,
+    "tone:melancholy": 0.25
+   }
+  },
+  "gone with the bullets": {
+   "attrs": {
+    "texture:stylised": 0.75,
+    "mood:absurd": 0.5,
+    "tone:comic": 0.5,
+    "mode:spectacle": 0.5,
+    "tone:ironic": 0.5,
+    "pace:brisk": 0.5
+   }
+  },
+  "pressure of guilt": {
+   "attrs": {
+    "mode:suspense": 0.5,
+    "story:investigation": 0.5,
+    "texture:talky": 0.25
+   }
+  },
+  "tokyo family": {
+   "attrs": {
+    "subject:family": 0.75,
+    "pace:contemplative": 0.5,
+    "tone:melancholy": 0.5,
+    "tone:tender": 0.5,
+    "tone:earnest": 0.5,
+    "subject:grief": 0.5,
+    "mood:warm": 0.25
+   }
+  },
+  "the seafarers": {
+   "attrs": {
+    "structure:narrated": 0.75,
+    "subject:work": 0.75,
+    "tone:earnest": 0.5
+   }
+  },
+  "elstree calling": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "texture:music-led": 0.5,
+    "tone:comic": 0.5
+   }
+  },
+  "handicapped future": {
+   "attrs": {
+    "tone:earnest": 0.5,
+    "texture:handheld-raw": 0.5
+   }
+  },
+  "distant vision": {
+   "attrs": {
+    "subject:family": 0.5
+   }
+  },
+  "fortunella": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "cyrano and d artagnan": {
+   "attrs": {
+    "mode:action": 0.5,
+    "pace:brisk": 0.25
+   }
+  },
+  "helas pour moi": {
+   "attrs": {
+    "pace:contemplative": 0.5,
+    "tone:cerebral": 0.75,
+    "mood:dreamlike": 0.5,
+    "subject:spiritual": 0.75,
+    "texture:painterly": 0.5,
+    "structure:narrated": 0.5,
+    "structure:nonlinear": 0.5
+   }
+  },
+  "windows": {
+   "attrs": {
+    "subject:obsession": 0.75,
+    "mood:menacing": 0.5,
+    "mood:paranoid": 0.5,
+    "mode:suspense": 0.5,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "tonight for sure": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "mood:sensual": 0.25
+   }
+  },
+  "tsuribaka nisshi 2": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "subject:work": 0.5,
+    "mood:warm": 0.25
+   }
+  },
+  "none but the brave": {
+   "attrs": {
+    "story:survival": 0.5,
+    "setting:wilderness": 0.5,
+    "tone:earnest": 0.5,
+    "subject:political": 0.25,
+    "structure:narrated": 0.25,
+    "mode:action": 0.25
+   }
+  },
+  "the southern star": {
+   "attrs": {
+    "mode:action": 0.5,
+    "setting:wilderness": 0.5,
+    "pace:brisk": 0.25,
+    "tone:comic": 0.25
+   }
+  },
+  "lucky luciano": {
+   "attrs": {
+    "subject:political": 0.75,
+    "story:investigation": 0.5,
+    "tone:cerebral": 0.5,
+    "texture:talky": 0.5,
+    "mood:austere": 0.25,
+    "structure:nonlinear": 0.25
+   }
+  },
+  "tragic hunt": {
+   "attrs": {
+    "subject:political": 0.5,
+    "subject:class": 0.5,
+    "texture:grimy": 0.25,
+    "texture:handheld-raw": 0.25
+   }
+  },
+  "midway": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "structure:ensemble": 0.5,
+    "mode:action": 0.5,
+    "tone:earnest": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "castle keep": {
+   "attrs": {
+    "tone:ironic": 0.5,
+    "mood:absurd": 0.5,
+    "texture:stylised": 0.5,
+    "structure:ensemble": 0.5,
+    "mode:action": 0.25
+   }
+  },
+  "the witches": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:ironic": 0.5,
+    "tone:comic": 0.5,
+    "texture:stylised": 0.5
+   }
+  },
+  "the rite": {
+   "attrs": {
+    "texture:talky": 0.75,
+    "mood:austere": 0.75,
+    "structure:single-setting": 0.5,
+    "structure:episodic": 0.5,
+    "tone:cerebral": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "struggle in italy": {
+   "attrs": {
+    "subject:political": 1,
+    "tone:cerebral": 0.75,
+    "structure:narrated": 0.75,
+    "texture:talky": 0.5,
+    "mood:austere": 0.5
+   }
+  },
+  "room for one more": {
+   "attrs": {
+    "subject:family": 0.75,
+    "mood:warm": 0.5,
+    "tone:earnest": 0.5,
+    "tone:comic": 0.25
+   }
+  },
+  "a chinese tall story": {
+   "attrs": {
+    "texture:stylised": 0.75,
+    "tone:comic": 0.5,
+    "mode:spectacle": 0.5,
+    "subject:desire": 0.5
+   }
+  },
+  "music in darkness": {
+   "attrs": {
+    "texture:music-led": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:class": 0.5,
+    "subject:desire": 0.5,
+    "tone:earnest": 0.5
+   }
+  },
+  "the sea is watching": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "the left handed woman": {
+   "attrs": {
+    "pace:contemplative": 0.75,
+    "texture:sparse-dialogue": 0.5,
+    "mood:austere": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "woman of rome": {
+   "attrs": {
+    "subject:class": 0.5,
+    "subject:desire": 0.5,
+    "mood:sensual": 0.25,
+    "tone:melancholy": 0.25
+   }
+  },
+  "a lesson in love": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "texture:talky": 0.75,
+    "tone:ironic": 0.5,
+    "subject:desire": 0.5,
+    "subject:family": 0.5
+   }
+  },
+  "escape at dawn": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "tone:bleak": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "gidget goes to rome": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "story:fish-out-of-water": 0.5,
+    "mood:warm": 0.25,
+    "subject:desire": 0.25,
+    "pace:brisk": 0.25
+   }
+  },
+  "come fill the cup": {
+   "attrs": {
+    "tone:earnest": 0.5,
+    "texture:talky": 0.5,
+    "subject:work": 0.5,
+    "story:descent": 0.25
+   }
+  },
+  "rio das mortes": {
+   "attrs": {
+    "tone:ironic": 0.5,
+    "subject:class": 0.25,
+    "mood:absurd": 0.25
+   }
+  },
+  "task force": {
+   "attrs": {
+    "subject:work": 0.5,
+    "tone:earnest": 0.5,
+    "subject:political": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "the quiet duel": {
+   "attrs": {
+    "tone:earnest": 0.5,
+    "subject:work": 0.5,
+    "tone:melancholy": 0.5,
+    "texture:talky": 0.5,
+    "mood:austere": 0.25,
+    "structure:single-setting": 0.25
+   }
+  },
+  "the rat race": {
+   "attrs": {
+    "subject:work": 0.5,
+    "story:fish-out-of-water": 0.5,
+    "subject:class": 0.25,
+    "setting:city-at-night": 0.25,
+    "tone:earnest": 0.25
+   }
+  },
+  "roma citta libera": {
+   "attrs": {
+    "setting:city-at-night": 0.5,
+    "structure:ensemble": 0.5,
+    "tone:melancholy": 0.25
+   }
+  },
+  "women of the night": {
+   "attrs": {
+    "tone:bleak": 0.75,
+    "texture:grimy": 0.5,
+    "subject:class": 0.5,
+    "story:descent": 0.5
+   }
+  },
+  "espion leve toi": {
+   "attrs": {
+    "mood:paranoid": 0.75,
+    "mode:suspense": 0.5,
+    "subject:political": 0.5
+   }
+  },
+  "francesco": {
+   "attrs": {
+    "subject:spiritual": 1,
+    "tone:earnest": 0.5,
+    "mood:austere": 0.5,
+    "pace:contemplative": 0.5,
+    "structure:narrated": 0.5,
+    "texture:grimy": 0.5
+   }
+  },
+  "the phantom of the opera": {
+   "attrs": {
+    "texture:graphic-violence": 0.5,
+    "texture:stylised": 0.5,
+    "subject:desire": 0.5,
+    "mood:sensual": 0.25,
+    "texture:grimy": 0.25
+   }
+  },
+  "marco polo": {
+   "attrs": {
+    "structure:episodic": 0.5,
+    "mode:spectacle": 0.5,
+    "story:fish-out-of-water": 0.5,
+    "setting:wilderness": 0.25
+   }
+  },
+  "especially on sunday": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:melancholy": 0.5,
+    "setting:small-town": 0.5
+   }
+  },
+  "the lady of monza": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "mood:sensual": 0.5,
+    "subject:spiritual": 0.25
+   }
+  },
+  "stimulantia": {
+   "attrs": {
+    "structure:episodic": 0.75
+   }
+  },
+  "foundry town": {
+   "attrs": {
+    "subject:coming-of-age": 0.75,
+    "subject:class": 0.75,
+    "subject:family": 0.5,
+    "subject:work": 0.5,
+    "setting:small-town": 0.5,
+    "tone:earnest": 0.5,
+    "tone:hopeful": 0.25
+   }
+  },
+  "carmen": {
+   "attrs": {
+    "texture:music-led": 1,
+    "subject:desire": 0.75,
+    "subject:obsession": 0.5,
+    "mood:sensual": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "la bataille de san sebastian": {
+   "attrs": {
+    "mode:action": 0.5,
+    "setting:small-town": 0.25,
+    "subject:spiritual": 0.25,
+    "story:survival": 0.25
+   }
+  },
+  "willie phil": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "texture:talky": 0.5,
+    "structure:episodic": 0.5,
+    "tone:comic": 0.25,
+    "mood:warm": 0.25
+   }
+  },
+  "viva maria": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "pace:brisk": 0.5,
+    "subject:political": 0.5,
+    "mode:action": 0.5,
+    "texture:stylised": 0.25,
+    "mood:warm": 0.25
+   }
+  },
+  "the queen s guards": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:work": 0.25,
+    "structure:nonlinear": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "sikkim": {
+   "attrs": {
+    "structure:narrated": 0.5,
+    "subject:spiritual": 0.25,
+    "setting:wilderness": 0.25,
+    "subject:political": 0.25,
+    "pace:contemplative": 0.25
+   }
+  },
+  "la fievre monte a el pao": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:ironic": 0.5,
+    "story:descent": 0.25,
+    "subject:desire": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "drama of the rich": {
+   "attrs": {
+    "subject:class": 0.5,
+    "subject:family": 0.5,
+    "texture:stylised": 0.25,
+    "story:investigation": 0.25
+   }
+  },
+  "the birth of love": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "subject:desire": 0.5,
+    "texture:talky": 0.5,
+    "pace:contemplative": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "for ever mozart": {
+   "attrs": {
+    "tone:cerebral": 0.75,
+    "subject:political": 0.75,
+    "tone:ironic": 0.5,
+    "structure:episodic": 0.5,
+    "texture:talky": 0.5
+   }
+  },
+  "penelope": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "a last note": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "mood:elegiac": 0.5,
+    "pace:contemplative": 0.5,
+    "subject:memory": 0.5,
+    "subject:grief": 0.25
+   }
+  },
+  "first love": {
+   "attrs": {
+    "subject:coming-of-age": 0.75,
+    "subject:desire": 0.75,
+    "tone:melancholy": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "sanshiro sugata part ii": {
+   "attrs": {
+    "mode:action": 0.5,
+    "subject:work": 0.25,
+    "subject:political": 0.25,
+    "subject:spiritual": 0.25
+   }
+  },
+  "the glass menagerie": {
+   "attrs": {
+    "texture:talky": 0.75,
+    "subject:family": 0.75,
+    "structure:narrated": 0.5,
+    "structure:single-setting": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:memory": 0.5,
+    "subject:class": 0.5
+   }
+  },
+  "il gatto": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "tone:ironic": 0.5,
+    "subject:family": 0.5,
+    "story:investigation": 0.25
+   }
+  },
+  "to love": {
+   "attrs": {
+    "subject:grief": 0.5,
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.5,
+    "mood:sensual": 0.25
+   }
+  },
+  "pardon my past": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5,
+    "story:fish-out-of-water": 0.25
+   }
+  },
+  "gardens of stone": {
+   "attrs": {
+    "mood:elegiac": 0.75,
+    "subject:work": 0.5,
+    "tone:earnest": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:grief": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "the niklashausen journey": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:spiritual": 0.25,
+    "tone:cerebral": 0.5,
+    "texture:stylised": 0.5,
+    "mood:absurd": 0.25
+   }
+  },
+  "kristin lavransdatter": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "subject:family": 0.5,
+    "subject:spiritual": 0.5,
+    "setting:wilderness": 0.25
+   }
+  },
+  "wolf 1955": {
+   "attrs": {
+    "subject:class": 0.75,
+    "subject:work": 0.5,
+    "tone:bleak": 0.5,
+    "structure:ensemble": 0.5,
+    "texture:grimy": 0.25,
+    "pace:slow-burn": 0.25
+   }
+  },
+  "a mother should be loved": {
+   "attrs": {
+    "subject:family": 0.75,
+    "tone:melancholy": 0.5,
+    "tone:tender": 0.5,
+    "pace:contemplative": 0.25
+   }
+  },
+  "the colossus of rhodes": {
+   "attrs": {
+    "mode:spectacle": 0.75,
+    "mode:action": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "the fifth day of peace": {
+   "attrs": {
+    "subject:political": 0.5,
+    "tone:bleak": 0.5,
+    "mood:austere": 0.25,
+    "structure:single-setting": 0.25
+   }
+  },
+  "dream lover": {
+   "attrs": {
+    "mood:dreamlike": 0.5,
+    "mode:suspense": 0.5,
+    "mood:paranoid": 0.25
+   }
+  },
+  "galileo": {
+   "attrs": {
+    "subject:political": 0.5,
+    "tone:cerebral": 0.5,
+    "texture:talky": 0.25
+   }
+  },
+  "those who make tomorrow": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:work": 0.5,
+    "tone:earnest": 0.5
+   }
+  },
+  "the making of fanny and alexander": {
+   "attrs": {
+    "subject:work": 0.75,
+    "texture:handheld-raw": 0.5,
+    "structure:episodic": 0.25
+   }
+  },
+  "autumn has already started": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "subject:family": 0.5,
+    "subject:coming-of-age": 0.5,
+    "subject:class": 0.25,
+    "pace:contemplative": 0.25
+   }
+  },
+  "escalation": {
+   "attrs": {
+    "tone:ironic": 0.5,
+    "subject:class": 0.5,
+    "texture:stylised": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "workers 71 nothing about us without us": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:work": 0.75,
+    "subject:class": 0.5,
+    "texture:handheld-raw": 0.5,
+    "texture:talky": 0.5
+   }
+  },
+  "king of the gypsies": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:class": 0.25,
+    "texture:grimy": 0.25
+   }
+  },
+  "mary": {
+   "attrs": {
+    "story:investigation": 0.75,
+    "texture:talky": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "a day at the beach": {
+   "attrs": {
+    "story:descent": 0.5,
+    "tone:bleak": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "male companion": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5
+   }
+  },
+  "private confessions": {
+   "attrs": {
+    "texture:talky": 0.75,
+    "pace:contemplative": 0.5,
+    "mood:austere": 0.5,
+    "subject:spiritual": 0.5,
+    "subject:desire": 0.5,
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "structure:nonlinear": 0.5
+   }
+  },
+  "the professional": {
+   "attrs": {
+    "story:revenge": 0.75,
+    "mode:action": 0.5,
+    "texture:music-led": 0.5,
+    "subject:political": 0.5,
+    "pace:brisk": 0.5,
+    "mood:paranoid": 0.25
+   }
+  },
+  "henry iv": {
+   "attrs": {
+    "texture:talky": 0.5,
+    "texture:stylised": 0.5,
+    "tone:cerebral": 0.5,
+    "structure:single-setting": 0.5,
+    "mood:absurd": 0.25,
+    "subject:memory": 0.25
+   }
+  },
+  "in public": {
+   "attrs": {
+    "pace:contemplative": 0.75,
+    "texture:handheld-raw": 0.5,
+    "texture:sparse-dialogue": 0.5,
+    "subject:class": 0.5,
+    "subject:work": 0.25,
+    "mood:elegiac": 0.25
+   }
+  },
+  "stanley iris": {
+   "attrs": {
+    "subject:work": 0.5,
+    "subject:class": 0.5,
+    "tone:earnest": 0.5,
+    "tone:tender": 0.5,
+    "mood:warm": 0.25,
+    "subject:grief": 0.25
+   }
+  },
+  "a ship bound for india": {
+   "attrs": {
+    "subject:family": 0.75,
+    "story:coming-home": 0.5,
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.25,
+    "texture:grimy": 0.25,
+    "structure:nonlinear": 0.25
+   }
+  },
+  "chiriyakhana": {
+   "attrs": {
+    "story:investigation": 0.75,
+    "structure:twist": 0.5,
+    "mode:suspense": 0.25,
+    "texture:talky": 0.25
+   }
+  },
+  "the fighting pimpernel": {
+   "attrs": {
+    "pace:brisk": 0.5,
+    "tone:comic": 0.5,
+    "texture:stylised": 0.5,
+    "mode:action": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "exposed": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "subject:political": 0.5,
+    "mood:sensual": 0.5,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "michael": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "tone:melancholy": 0.5,
+    "texture:painterly": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "valmont": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "subject:class": 0.5,
+    "mood:sensual": 0.5,
+    "tone:ironic": 0.5
+   }
+  },
+  "untamed": {
+   "attrs": {
+    "subject:work": 0.5,
+    "subject:family": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "take me to town": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "mood:warm": 0.5,
+    "subject:family": 0.5,
+    "setting:small-town": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "plot": {
+   "attrs": {
+    "subject:political": 0.75,
+    "mood:paranoid": 0.5,
+    "mode:suspense": 0.5,
+    "story:investigation": 0.25
+   }
+  },
+  "no other choice": {
+   "attrs": {
+    "subject:work": 0.75,
+    "tone:ironic": 0.5,
+    "tone:comic": 0.5,
+    "subject:class": 0.5,
+    "subject:family": 0.5,
+    "texture:stylised": 0.5
+   }
+  },
+  "the pleasure garden": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "setting:small-town": 0.25
+   }
+  },
+  "the flying doctors of east africa": {
+   "attrs": {
+    "subject:work": 0.5,
+    "setting:wilderness": 0.5,
+    "texture:handheld-raw": 0.5,
+    "structure:narrated": 0.5,
+    "tone:earnest": 0.25
+   }
+  },
+  "cheerful wind": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "mood:warm": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "pete n tillie": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "subject:family": 0.5,
+    "subject:grief": 0.5,
+    "texture:talky": 0.5
+   }
+  },
+  "wife": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "subject:family": 0.5,
+    "subject:class": 0.25,
+    "subject:desire": 0.25,
+    "pace:contemplative": 0.25,
+    "texture:talky": 0.25
+   }
+  },
+  "duel of the titans": {
+   "attrs": {
+    "mode:action": 0.5,
+    "mode:spectacle": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "liza": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "subject:obsession": 0.5,
+    "tone:ironic": 0.5,
+    "mood:absurd": 0.5,
+    "setting:wilderness": 0.25
+   }
+  },
+  "gintama the movie the final chapter be forever yorozuya": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "mode:action": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "the long silence": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:grief": 0.5,
+    "tone:bleak": 0.5
+   }
+  },
+  "artists under the big top perplexed": {
+   "attrs": {
+    "tone:cerebral": 0.75,
+    "tone:ironic": 0.5,
+    "subject:political": 0.5,
+    "subject:work": 0.5,
+    "structure:episodic": 0.5,
+    "structure:narrated": 0.5,
+    "mood:absurd": 0.25
+   }
+  },
+  "champagne": {
+   "attrs": {
+    "pace:brisk": 0.5,
+    "tone:comic": 0.5,
+    "subject:class": 0.5,
+    "subject:family": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "promise at dawn": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:memory": 0.5,
+    "structure:narrated": 0.5
+   }
+  },
+  "anzukko": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "what am i doing in the middle of the revolution": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "subject:political": 0.5
+   }
+  },
+  "the munekata sisters": {
+   "attrs": {
+    "pace:contemplative": 0.5,
+    "subject:family": 0.75,
+    "tone:melancholy": 0.5,
+    "texture:talky": 0.25
+   }
+  },
+  "the plot of the fuma clan": {
+   "attrs": {
+    "mode:action": 0.75,
+    "pace:brisk": 0.5,
+    "tone:comic": 0.5,
+    "texture:stylised": 0.25,
+    "texture:music-led": 0.25
+   }
+  },
+  "green green grass of home": {
+   "attrs": {
+    "setting:small-town": 0.75,
+    "story:fish-out-of-water": 0.5,
+    "mood:warm": 0.5,
+    "tone:earnest": 0.5,
+    "pace:contemplative": 0.25,
+    "structure:episodic": 0.25,
+    "subject:work": 0.25
+   }
+  },
+  "the dove": {
+   "attrs": {
+    "setting:wilderness": 0.75,
+    "subject:coming-of-age": 0.5,
+    "tone:earnest": 0.5,
+    "story:survival": 0.25,
+    "texture:music-led": 0.25,
+    "mood:warm": 0.25
+   }
+  },
+  "love at twenty": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "subject:desire": 0.5,
+    "subject:coming-of-age": 0.5
+   }
+  },
+  "dangerous moves": {
+   "attrs": {
+    "subject:obsession": 0.5,
+    "subject:political": 0.5,
+    "subject:work": 0.5,
+    "mode:suspense": 0.5
+   }
+  },
+  "the prefab people": {
+   "attrs": {
+    "texture:handheld-raw": 0.75,
+    "subject:family": 0.5,
+    "subject:class": 0.5,
+    "tone:bleak": 0.5,
+    "texture:talky": 0.5,
+    "texture:grimy": 0.25
+   }
+  },
+  "professor my son": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:class": 0.5,
+    "tone:tender": 0.25
+   }
+  },
+  "a big bold beautiful journey": {
+   "attrs": {
+    "subject:memory": 0.75,
+    "tone:earnest": 0.5,
+    "texture:stylised": 0.5,
+    "tone:melancholy": 0.25,
+    "subject:desire": 0.25
+   }
+  },
+  "gloria": {
+   "attrs": {
+    "mode:suspense": 0.5,
+    "mode:action": 0.25,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "the assassin 1961": {
+   "attrs": {
+    "structure:nonlinear": 0.5,
+    "story:investigation": 0.5,
+    "tone:ironic": 0.5,
+    "subject:class": 0.5
+   }
+  },
+  "leonor": {
+   "attrs": {
+    "mood:dreamlike": 0.5,
+    "mood:menacing": 0.5,
+    "subject:desire": 0.5,
+    "subject:grief": 0.25
+   }
+  },
+  "the judge": {
+   "attrs": {
+    "subject:political": 0.5,
+    "texture:talky": 0.25
+   }
+  },
+  "cute girl": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "texture:music-led": 0.5,
+    "mood:warm": 0.5,
+    "pace:brisk": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "lucky dragon no 5": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:bleak": 0.5,
+    "tone:earnest": 0.5,
+    "subject:work": 0.5
+   }
+  },
+  "a place for lovers": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.5,
+    "mood:sensual": 0.25
+   }
+  },
+  "the little house": {
+   "attrs": {
+    "subject:memory": 0.75,
+    "subject:class": 0.5,
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "structure:nonlinear": 0.5,
+    "pace:contemplative": 0.5,
+    "tone:tender": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "the truce": {
+   "attrs": {
+    "story:coming-home": 1,
+    "structure:episodic": 0.75,
+    "subject:memory": 0.5,
+    "structure:narrated": 0.5,
+    "mood:elegiac": 0.5,
+    "tone:hopeful": 0.5,
+    "story:survival": 0.25
+   }
+  },
+  "ghosts italian style": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "structure:single-setting": 0.25
+   }
+  },
+  "the white shadow": {
+   "attrs": {
+    "subject:family": 0.25
+   }
+  },
+  "thrilling": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:comic": 0.75
+   }
+  },
+  "rapture": {
+   "attrs": {
+    "pace:slow-burn": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:coming-of-age": 0.5,
+    "subject:desire": 0.5,
+    "texture:painterly": 0.5,
+    "mood:menacing": 0.25,
+    "subject:family": 0.25
+   }
+  },
+  "battle of okinawa": {
+   "attrs": {
+    "structure:ensemble": 0.75,
+    "structure:narrated": 0.75,
+    "tone:bleak": 0.75,
+    "texture:graphic-violence": 0.5,
+    "subject:political": 0.5,
+    "mode:spectacle": 0.5,
+    "story:survival": 0.25
+   }
+  },
+  "let s hope it s a girl": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "structure:ensemble": 0.75,
+    "subject:family": 0.75,
+    "tone:ironic": 0.5,
+    "mood:warm": 0.5,
+    "subject:class": 0.25,
+    "setting:small-town": 0.25
+   }
+  },
+  "down the ancient staircase": {
+   "attrs": {
+    "subject:obsession": 0.5,
+    "subject:desire": 0.5,
+    "structure:single-setting": 0.5,
+    "texture:painterly": 0.5,
+    "mood:sensual": 0.5,
+    "tone:melancholy": 0.25
+   }
+  },
+  "the man who loved cat dancing": {
+   "attrs": {
+    "story:revenge": 0.5,
+    "setting:wilderness": 0.5,
+    "subject:grief": 0.5,
+    "subject:desire": 0.25,
+    "tone:melancholy": 0.25
+   }
+  },
+  "cinderella liberty": {
+   "attrs": {
+    "tone:tender": 0.5,
+    "subject:family": 0.5,
+    "subject:desire": 0.5,
+    "tone:melancholy": 0.5,
+    "texture:grimy": 0.5,
+    "setting:city-at-night": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "seven guns for the macgregors": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5,
+    "mode:action": 0.5,
+    "setting:wilderness": 0.25
+   }
+  },
+  "a genius two partners and a dupe": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5,
+    "tone:ironic": 0.25,
+    "mode:action": 0.25
+   }
+  },
+  "fast company": {
+   "attrs": {
+    "subject:work": 0.5,
+    "mode:action": 0.5,
+    "texture:grimy": 0.5
+   }
+  },
+  "oh rosalinda": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "texture:stylised": 0.75,
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5
+   }
+  },
+  "big deal after 20 years": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "structure:ensemble": 0.5,
+    "mood:elegiac": 0.25
+   }
+  },
+  "antarctic journal": {
+   "attrs": {
+    "setting:wilderness": 0.75,
+    "mood:menacing": 0.5,
+    "story:descent": 0.5,
+    "story:survival": 0.5,
+    "subject:obsession": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "un amour de swann": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "subject:obsession": 0.5,
+    "subject:class": 0.5,
+    "mood:sensual": 0.5,
+    "texture:painterly": 0.5,
+    "tone:melancholy": 0.25,
+    "pace:contemplative": 0.25
+   }
+  },
+  "the world in his arms": {
+   "attrs": {
+    "mode:action": 0.5,
+    "pace:brisk": 0.5,
+    "setting:wilderness": 0.5,
+    "subject:desire": 0.5,
+    "story:race-against-time": 0.25,
+    "mood:warm": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "keep your right up": {
+   "attrs": {
+    "mood:absurd": 0.5,
+    "texture:music-led": 0.5,
+    "structure:episodic": 0.5,
+    "tone:cerebral": 0.5,
+    "tone:comic": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "adua and her friends": {
+   "attrs": {
+    "subject:work": 0.5,
+    "subject:class": 0.5,
+    "structure:ensemble": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "visions of eight": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "subject:work": 0.5,
+    "tone:earnest": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "but not for me": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "texture:talky": 0.5,
+    "subject:desire": 0.5
+   }
+  },
+  "the glass cell": {
+   "attrs": {
+    "mood:paranoid": 0.5,
+    "pace:slow-burn": 0.25,
+    "tone:bleak": 0.25
+   }
+  },
+  "arabella": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "structure:episodic": 0.25
+   }
+  },
+  "loving couples": {
+   "attrs": {
+    "structure:ensemble": 0.5,
+    "structure:nonlinear": 0.5,
+    "subject:desire": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "the thief of paris": {
+   "attrs": {
+    "story:revenge": 0.5,
+    "structure:episodic": 0.5,
+    "subject:class": 0.5,
+    "tone:ironic": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "the palace": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "tone:ironic": 0.5,
+    "structure:ensemble": 0.5,
+    "structure:single-setting": 0.5,
+    "subject:class": 0.5,
+    "mood:absurd": 0.25
+   }
+  },
+  "his days are numbered": {
+   "attrs": {
+    "subject:work": 0.5,
+    "subject:class": 0.5,
+    "tone:melancholy": 0.5,
+    "structure:episodic": 0.5
+   }
+  },
+  "madame x": {
+   "attrs": {
+    "story:descent": 0.75,
+    "tone:melancholy": 0.5,
+    "subject:family": 0.5,
+    "subject:class": 0.5,
+    "texture:stylised": 0.5
+   }
+  },
+  "mr arkadin": {
+   "attrs": {
+    "structure:nonlinear": 0.5,
+    "story:investigation": 0.75,
+    "subject:memory": 0.5,
+    "structure:twist": 0.5,
+    "texture:stylised": 0.5,
+    "mood:paranoid": 0.5
+   }
+  },
+  "decalogue ix": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "subject:family": 0.5,
+    "mood:austere": 0.5,
+    "tone:melancholy": 0.5,
+    "pace:slow-burn": 0.5,
+    "story:investigation": 0.25
+   }
+  },
+  "no blood relation": {
+   "attrs": {
+    "subject:family": 0.75,
+    "tone:melancholy": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "taza son of cochise": {
+   "attrs": {
+    "setting:wilderness": 0.5,
+    "mode:action": 0.25,
+    "texture:stylised": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "earthquake": {
+   "attrs": {
+    "mode:spectacle": 0.75,
+    "structure:ensemble": 0.5,
+    "story:survival": 0.5,
+    "mode:suspense": 0.25,
+    "mode:action": 0.25
+   }
+  },
+  "chronicle of a death foretold": {
+   "attrs": {
+    "structure:nonlinear": 0.5,
+    "mood:menacing": 0.5,
+    "subject:class": 0.5,
+    "story:investigation": 0.25,
+    "setting:small-town": 0.5,
+    "mood:sensual": 0.25
+   }
+  },
+  "glory to the filmmaker": {
+   "attrs": {
+    "mood:absurd": 0.75,
+    "structure:episodic": 0.75,
+    "tone:comic": 0.5,
+    "tone:ironic": 0.5
+   }
+  },
+  "in the presence of a clown": {
+   "attrs": {
+    "texture:talky": 0.5,
+    "mood:absurd": 0.5,
+    "tone:comic": 0.25,
+    "texture:stylised": 0.25,
+    "subject:obsession": 0.5,
+    "structure:single-setting": 0.25
+   }
+  },
+  "hammett": {
+   "attrs": {
+    "setting:city-at-night": 0.5,
+    "texture:stylised": 0.5,
+    "story:investigation": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "wake up and die": {
+   "attrs": {
+    "mode:action": 0.5,
+    "texture:grimy": 0.25
+   }
+  },
+  "huie s sermon": {
+   "attrs": {
+    "subject:spiritual": 1,
+    "texture:talky": 0.75,
+    "structure:single-setting": 0.5,
+    "texture:handheld-raw": 0.5
+   }
+  },
+  "while the city sleeps": {
+   "attrs": {
+    "subject:coming-of-age": 0.5,
+    "subject:class": 0.5,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "lovers and liars": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "story:fish-out-of-water": 0.5,
+    "subject:desire": 0.25,
+    "subject:family": 0.25
+   }
+  },
+  "flame of my love": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:earnest": 0.5,
+    "subject:class": 0.25,
+    "subject:desire": 0.25
+   }
+  },
+  "the island": {
+   "attrs": {
+    "texture:graphic-violence": 0.5,
+    "mode:action": 0.5,
+    "mood:menacing": 0.25,
+    "setting:wilderness": 0.25
+   }
+  },
+  "the ship of condemned women": {
+   "attrs": {
+    "structure:single-setting": 0.5,
+    "texture:stylised": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "count tacchia": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "subject:class": 0.5,
+    "story:fish-out-of-water": 0.5
+   }
+  },
+  "the three faces": {
+   "attrs": {
+    "structure:episodic": 0.75
+   }
+  },
+  "palermo shooting": {
+   "attrs": {
+    "mood:dreamlike": 0.5,
+    "subject:spiritual": 0.5,
+    "tone:earnest": 0.25,
+    "texture:music-led": 0.25
+   }
+  },
+  "whistle stop": {
+   "attrs": {
+    "setting:small-town": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "based on a true story": {
+   "attrs": {
+    "mood:paranoid": 0.5,
+    "pace:slow-burn": 0.5,
+    "mode:suspense": 0.5,
+    "subject:work": 0.25,
+    "structure:twist": 0.25
+   }
+  },
+  "wild innocence": {
+   "attrs": {
+    "subject:grief": 0.5,
+    "subject:obsession": 0.5,
+    "subject:work": 0.5,
+    "tone:melancholy": 0.5,
+    "mood:austere": 0.5
+   }
+  },
+  "trois places pour le 26": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "texture:stylised": 0.5,
+    "story:coming-home": 0.5,
+    "subject:family": 0.25,
+    "tone:melancholy": 0.25
+   }
+  },
+  "up the macgregors": {
+   "attrs": {
+    "pace:brisk": 0.5,
+    "tone:comic": 0.5,
+    "mode:action": 0.5,
+    "structure:ensemble": 0.25
+   }
+  },
+  "an magritt": {
+   "attrs": {
+    "subject:work": 0.5,
+    "subject:class": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "woman to woman": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "salka valka": {
+   "attrs": {
+    "setting:small-town": 0.5,
+    "subject:class": 0.5,
+    "subject:coming-of-age": 0.5
+   }
+  },
+  "hymn to a tired man": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:memory": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "8 2008": {
+   "attrs": {
+    "subject:political": 0.5,
+    "structure:episodic": 0.75
+   }
+  },
+  "the moon has risen": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:desire": 0.25,
+    "mood:warm": 0.25
+   }
+  },
+  "the big mess": {
+   "attrs": {
+    "setting:space": 0.5,
+    "setting:future": 0.5,
+    "mood:absurd": 0.5,
+    "tone:ironic": 0.5,
+    "tone:cerebral": 0.5,
+    "structure:episodic": 0.5,
+    "subject:political": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "the hi lo country": {
+   "attrs": {
+    "mood:elegiac": 0.75,
+    "subject:desire": 0.5,
+    "subject:work": 0.5,
+    "setting:wilderness": 0.5
+   }
+  },
+  "echoes from a somber empire": {
+   "attrs": {
+    "subject:political": 0.75,
+    "story:investigation": 0.5,
+    "structure:narrated": 0.5,
+    "tone:bleak": 0.5,
+    "mood:elegiac": 0.25,
+    "subject:memory": 0.25
+   }
+  },
+  "barnen fran frostmofjallet": {
+   "attrs": {
+    "subject:family": 0.5,
+    "story:survival": 0.25
+   }
+  },
+  "days of youth": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "pace:brisk": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "vladimir and rosa": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:cerebral": 0.5,
+    "tone:ironic": 0.5,
+    "texture:talky": 0.5,
+    "texture:stylised": 0.25,
+    "structure:narrated": 0.25
+   }
+  },
+  "this can t happen here": {
+   "attrs": {
+    "subject:political": 0.5,
+    "mode:suspense": 0.5,
+    "mood:paranoid": 0.25
+   }
+  },
+  "sign of the pagan": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "texture:stylised": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "one hundred and one nights": {
+   "attrs": {
+    "subject:memory": 0.75,
+    "structure:episodic": 0.5,
+    "mood:elegiac": 0.5,
+    "tone:comic": 0.25
+   }
+  },
+  "with beauty and sorrow": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "subject:memory": 0.5,
+    "tone:melancholy": 0.5,
+    "story:revenge": 0.5
+   }
+  },
+  "liliom": {
+   "attrs": {
+    "mood:dreamlike": 0.5,
+    "texture:stylised": 0.5,
+    "subject:spiritual": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "there will be no leave today": {
+   "attrs": {
+    "story:race-against-time": 0.5,
+    "mode:suspense": 0.5,
+    "subject:work": 0.5
+   }
+  },
+  "daisy": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "subject:desire": 0.5,
+    "structure:narrated": 0.5,
+    "structure:nonlinear": 0.25
+   }
+  },
+  "tricheurs": {
+   "attrs": {
+    "subject:obsession": 0.75
+   }
+  },
+  "visions of europe": {
+   "attrs": {
+    "structure:episodic": 1,
+    "subject:political": 0.5,
+    "structure:ensemble": 0.25
+   }
+  },
+  "to catch a killer": {
+   "attrs": {
+    "story:investigation": 0.75,
+    "mode:suspense": 0.5,
+    "tone:bleak": 0.5,
+    "mood:menacing": 0.5,
+    "setting:city-at-night": 0.25,
+    "subject:obsession": 0.25
+   }
+  },
+  "machibuse": {
+   "attrs": {
+    "setting:wilderness": 0.5,
+    "mode:action": 0.5,
+    "structure:ensemble": 0.25
+   }
+  },
+  "sheer madness": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "story:descent": 0.5,
+    "texture:talky": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "tormented": {
+   "attrs": {
+    "mood:menacing": 0.5,
+    "mood:dreamlike": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "a little night music": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "subject:desire": 0.5,
+    "tone:ironic": 0.5,
+    "structure:ensemble": 0.5,
+    "texture:stylised": 0.25,
+    "tone:melancholy": 0.25
+   }
+  },
+  "section speciale": {
+   "attrs": {
+    "subject:political": 1,
+    "tone:bleak": 0.5,
+    "tone:ironic": 0.5,
+    "structure:ensemble": 0.5,
+    "texture:talky": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "drive he said": {
+   "attrs": {
+    "subject:political": 0.5,
+    "story:descent": 0.5,
+    "subject:work": 0.25,
+    "texture:handheld-raw": 0.25,
+    "tone:ironic": 0.25
+   }
+  },
+  "portrait of madame yuki": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "tone:melancholy": 0.5,
+    "story:descent": 0.5,
+    "texture:painterly": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "the outlaw": {
+   "attrs": {
+    "mood:sensual": 0.5,
+    "subject:desire": 0.5,
+    "setting:wilderness": 0.25
+   }
+  },
+  "the army game": {
+   "attrs": {
+    "tone:comic": 0.5
+   }
+  },
+  "the seven deadly sins": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:ironic": 0.5,
+    "tone:comic": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "the wolves": {
+   "attrs": {
+    "setting:wilderness": 0.5,
+    "subject:work": 0.5
+   }
+  },
+  "i ll do anything": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:work": 0.5,
+    "tone:comic": 0.5,
+    "texture:talky": 0.25
+   }
+  },
+  "how is it going": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:cerebral": 0.75,
+    "subject:work": 0.5,
+    "texture:talky": 0.5
+   }
+  },
+  "this angry age": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:class": 0.5,
+    "subject:obsession": 0.25,
+    "tone:bleak": 0.25
+   }
+  },
+  "the last mimzy": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:earnest": 0.5,
+    "tone:hopeful": 0.5,
+    "setting:future": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "siddhartha": {
+   "attrs": {
+    "subject:spiritual": 0.75,
+    "pace:contemplative": 0.5,
+    "texture:painterly": 0.5,
+    "tone:earnest": 0.5,
+    "structure:episodic": 0.25,
+    "subject:desire": 0.25
+   }
+  },
+  "close to my heart": {
+   "attrs": {
+    "subject:family": 0.75,
+    "story:investigation": 0.5
+   }
+  },
+  "the world s most beautiful swindlers": {
+   "attrs": {
+    "structure:episodic": 1,
+    "tone:ironic": 0.5,
+    "tone:comic": 0.5,
+    "pace:brisk": 0.25
+   }
+  },
+  "the hellbenders": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:bleak": 0.5,
+    "texture:grimy": 0.5,
+    "setting:wilderness": 0.5,
+    "texture:graphic-violence": 0.25
+   }
+  },
+  "summer in the city": {
+   "attrs": {
+    "pace:contemplative": 0.5,
+    "structure:episodic": 0.5,
+    "tone:melancholy": 0.5,
+    "texture:music-led": 0.25
+   }
+  },
+  "according to pereira": {
+   "attrs": {
+    "subject:political": 0.75,
+    "pace:slow-burn": 0.5,
+    "tone:earnest": 0.5,
+    "structure:narrated": 0.5,
+    "subject:grief": 0.25
+   }
+  },
+  "my dear killer": {
+   "attrs": {
+    "story:investigation": 0.75,
+    "mode:suspense": 0.5,
+    "texture:graphic-violence": 0.5,
+    "structure:twist": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "the law is the law": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "pace:brisk": 0.5,
+    "setting:small-town": 0.5,
+    "mood:absurd": 0.5,
+    "story:fish-out-of-water": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "cannery row": {
+   "attrs": {
+    "structure:narrated": 0.75,
+    "texture:stylised": 0.5,
+    "tone:comic": 0.5,
+    "mood:warm": 0.5,
+    "setting:small-town": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "the lady of musashino": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:class": 0.25,
+    "pace:contemplative": 0.25
+   }
+  },
+  "the stationmaster s wife": {
+   "attrs": {
+    "tone:bleak": 0.5,
+    "tone:ironic": 0.5,
+    "subject:desire": 0.5,
+    "story:descent": 0.5,
+    "setting:small-town": 0.5,
+    "subject:class": 0.25,
+    "mood:austere": 0.25
+   }
+  },
+  "ella mccay": {
+   "attrs": {
+    "subject:political": 0.5,
+    "subject:family": 0.5
+   }
+  },
+  "curtain call": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "mood:warm": 0.5
+   }
+  },
+  "levity": {
+   "attrs": {
+    "subject:spiritual": 0.5,
+    "subject:grief": 0.5,
+    "tone:earnest": 0.5,
+    "tone:melancholy": 0.5
+   }
+  },
+  "how do you know": {
+   "attrs": {
+    "texture:talky": 0.5,
+    "tone:comic": 0.5,
+    "subject:desire": 0.5,
+    "tone:earnest": 0.25
+   }
+  },
+  "the house on carroll street": {
+   "attrs": {
+    "mood:paranoid": 0.5,
+    "subject:political": 0.5,
+    "mode:suspense": 0.5,
+    "story:investigation": 0.5,
+    "pace:slow-burn": 0.25
+   }
+  },
+  "more than a miracle": {
+   "attrs": {
+    "texture:stylised": 0.5,
+    "tone:comic": 0.5,
+    "subject:desire": 0.5,
+    "mood:dreamlike": 0.25,
+    "subject:class": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "the return of a man called horse": {
+   "attrs": {
+    "setting:wilderness": 0.5,
+    "story:coming-home": 0.5,
+    "subject:spiritual": 0.5,
+    "mode:action": 0.25,
+    "texture:graphic-violence": 0.25
+   }
+  },
+  "port of call": {
+   "attrs": {
+    "tone:bleak": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:class": 0.5,
+    "subject:desire": 0.5,
+    "texture:handheld-raw": 0.25
+   }
+  },
+  "when women lost their tails": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "mood:sensual": 0.5,
+    "mood:absurd": 0.25,
+    "subject:class": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "snow trail": {
+   "attrs": {
+    "setting:wilderness": 0.75,
+    "story:survival": 0.5,
+    "mode:suspense": 0.5
+   }
+  },
+  "vendetta for a samurai": {
+   "attrs": {
+    "story:revenge": 0.75,
+    "pace:slow-burn": 0.25,
+    "tone:ironic": 0.25,
+    "mode:action": 0.25
+   }
+  },
+  "one day in the life of ivan denisovich": {
+   "attrs": {
+    "tone:bleak": 0.5,
+    "mood:austere": 0.5,
+    "story:survival": 0.75,
+    "setting:wilderness": 0.5,
+    "subject:work": 0.5,
+    "subject:political": 0.5,
+    "texture:sparse-dialogue": 0.25
+   }
+  },
+  "christ stopped at eboli": {
+   "attrs": {
+    "pace:contemplative": 0.75,
+    "tone:melancholy": 0.5,
+    "mood:austere": 0.5,
+    "mood:elegiac": 0.5,
+    "subject:political": 0.5,
+    "subject:class": 0.5,
+    "setting:small-town": 0.75,
+    "structure:narrated": 0.5,
+    "story:fish-out-of-water": 0.5,
+    "texture:painterly": 0.5
+   }
+  },
+  "scandal": {
+   "attrs": {
+    "tone:earnest": 0.5,
+    "subject:class": 0.25,
+    "subject:political": 0.25,
+    "texture:talky": 0.5,
+    "story:investigation": 0.25
+   }
+  },
+  "the vagabond king": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "texture:stylised": 0.5
+   }
+  },
+  "easy years": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "subject:political": 0.75,
+    "tone:ironic": 0.5,
+    "subject:class": 0.5
+   }
+  },
+  "monsignor": {
+   "attrs": {
+    "subject:spiritual": 0.5,
+    "subject:desire": 0.5,
+    "story:descent": 0.5
+   }
+  },
+  "rabindranath tagore": {
+   "attrs": {
+    "structure:narrated": 0.75,
+    "tone:earnest": 0.5,
+    "mood:elegiac": 0.5,
+    "subject:memory": 0.25
+   }
+  },
+  "easy virtue": {
+   "attrs": {
+    "subject:class": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:desire": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "stavisky": {
+   "attrs": {
+    "subject:political": 0.5,
+    "texture:stylised": 0.5,
+    "mood:elegiac": 0.5,
+    "structure:nonlinear": 0.5,
+    "tone:ironic": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "lucky to be a woman": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "subject:work": 0.25,
+    "tone:ironic": 0.25,
+    "mood:sensual": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "comes a horseman": {
+   "attrs": {
+    "setting:wilderness": 0.5,
+    "mood:elegiac": 0.5,
+    "pace:slow-burn": 0.25,
+    "texture:painterly": 0.25,
+    "subject:work": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "our time will come": {
+   "attrs": {
+    "subject:political": 0.5,
+    "tone:earnest": 0.5,
+    "structure:narrated": 0.25,
+    "mood:elegiac": 0.25,
+    "pace:slow-burn": 0.25,
+    "structure:ensemble": 0.25
+   }
+  },
+  "the empty table": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:political": 0.5,
+    "mood:austere": 0.5,
+    "texture:talky": 0.5,
+    "tone:bleak": 0.25,
+    "pace:contemplative": 0.25
+   }
+  },
+  "table for five": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:grief": 0.5,
+    "tone:earnest": 0.5,
+    "tone:melancholy": 0.25
+   }
+  },
+  "pearls of the deep": {
+   "attrs": {
+    "structure:episodic": 1,
+    "structure:ensemble": 0.5,
+    "tone:comic": 0.5,
+    "tone:ironic": 0.5,
+    "mood:absurd": 0.5,
+    "subject:work": 0.25
+   }
+  },
+  "the lost world of sinbad": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "mode:action": 0.5,
+    "texture:stylised": 0.5,
+    "pace:brisk": 0.25
+   }
+  },
+  "chung kuo cina": {
+   "attrs": {
+    "structure:narrated": 0.75,
+    "subject:political": 0.5,
+    "pace:contemplative": 0.5,
+    "structure:episodic": 0.5,
+    "tone:cerebral": 0.25
+   }
+  },
+  "the corruptor": {
+   "attrs": {
+    "mode:action": 0.5,
+    "texture:graphic-violence": 0.5,
+    "setting:city-at-night": 0.5,
+    "texture:grimy": 0.5,
+    "tone:bleak": 0.25,
+    "pace:brisk": 0.25
+   }
+  },
+  "parash pathar": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "tone:ironic": 0.5,
+    "subject:class": 0.5
+   }
+  },
+  "lightning over water": {
+   "attrs": {
+    "mood:elegiac": 0.75,
+    "tone:melancholy": 0.5,
+    "subject:grief": 0.5,
+    "subject:work": 0.25,
+    "texture:handheld-raw": 0.5,
+    "pace:contemplative": 0.5
+   }
+  },
+  "silence 1971": {
+   "attrs": {
+    "subject:spiritual": 1,
+    "tone:bleak": 0.5,
+    "mood:austere": 0.5,
+    "pace:slow-burn": 0.25
+   }
+  },
+  "the oldest profession": {
+   "attrs": {
+    "structure:episodic": 1,
+    "subject:desire": 0.5,
+    "tone:comic": 0.5,
+    "texture:stylised": 0.25,
+    "setting:future": 0.25
+   }
+  },
+  "max mon amour": {
+   "attrs": {
+    "mood:absurd": 0.75,
+    "tone:ironic": 0.75,
+    "tone:comic": 0.5,
+    "subject:desire": 0.5,
+    "subject:class": 0.25,
+    "tone:cerebral": 0.25
+   }
+  },
+  "the french as seen by": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "mood:absurd": 0.5,
+    "tone:comic": 0.5,
+    "story:fish-out-of-water": 0.5,
+    "tone:ironic": 0.25
+   }
+  },
+  "mahjong": {
+   "attrs": {
+    "subject:class": 0.5,
+    "tone:ironic": 0.5,
+    "structure:ensemble": 0.5,
+    "texture:talky": 0.5,
+    "setting:city-at-night": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "deadline": {
+   "attrs": {
+    "subject:political": 0.5
+   }
+  },
+  "weekend at dunkirk": {
+   "attrs": {
+    "story:survival": 0.5,
+    "tone:bleak": 0.5,
+    "tone:ironic": 0.25,
+    "texture:grimy": 0.25
+   }
+  },
+  "nouvelle vague": {
+   "attrs": {
+    "tone:cerebral": 0.75,
+    "texture:painterly": 0.5,
+    "texture:talky": 0.5,
+    "pace:contemplative": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "dear summer sister": {
+   "attrs": {
+    "subject:political": 0.5,
+    "subject:family": 0.5,
+    "subject:desire": 0.25
+   }
+  },
+  "circle of deceit": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:bleak": 0.5,
+    "mood:menacing": 0.5,
+    "texture:grimy": 0.5,
+    "subject:work": 0.5,
+    "story:descent": 0.25
+   }
+  },
+  "the odyssey": {
+   "attrs": {
+    "mode:spectacle": 0.75,
+    "story:coming-home": 0.5,
+    "setting:wilderness": 0.25
+   }
+  },
+  "the ox": {
+   "attrs": {
+    "tone:bleak": 0.5,
+    "mood:austere": 0.5,
+    "subject:class": 0.5,
+    "subject:family": 0.5,
+    "story:survival": 0.5,
+    "texture:painterly": 0.5,
+    "pace:slow-burn": 0.25,
+    "subject:spiritual": 0.25
+   }
+  },
+  "voyage in time": {
+   "attrs": {
+    "pace:contemplative": 0.75,
+    "texture:talky": 0.5,
+    "tone:cerebral": 0.5,
+    "subject:work": 0.5,
+    "mood:elegiac": 0.25,
+    "texture:painterly": 0.25
+   }
+  },
+  "short working day": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:work": 0.25,
+    "structure:single-setting": 0.25,
+    "tone:bleak": 0.25,
+    "texture:handheld-raw": 0.25
+   }
+  },
+  "the best of enemies": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "tone:ironic": 0.5,
+    "subject:political": 0.25,
+    "setting:wilderness": 0.25
+   }
+  },
+  "sonny and jed": {
+   "attrs": {
+    "mode:action": 0.5,
+    "texture:grimy": 0.5,
+    "texture:graphic-violence": 0.25,
+    "tone:comic": 0.25
+   }
+  },
+  "san babila 8 p m": {
+   "attrs": {
+    "subject:political": 0.75,
+    "mood:menacing": 0.5,
+    "tone:bleak": 0.5,
+    "texture:grimy": 0.5,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "the sailor from gibraltar": {
+   "attrs": {
+    "subject:desire": 0.5,
+    "subject:obsession": 0.5
+   }
+  },
+  "postcard": {
+   "attrs": {
+    "subject:grief": 0.5,
+    "subject:family": 0.5,
+    "mood:elegiac": 0.5,
+    "tone:earnest": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "yamato": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "tone:earnest": 0.5,
+    "mood:elegiac": 0.5,
+    "texture:graphic-violence": 0.5,
+    "subject:grief": 0.25
+   }
+  },
+  "the jerusalem file": {
+   "attrs": {
+    "subject:political": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "heartbeeps": {
+   "attrs": {
+    "setting:future": 0.5,
+    "tone:earnest": 0.5,
+    "tone:comic": 0.25,
+    "mood:warm": 0.25,
+    "subject:desire": 0.25
+   }
+  },
+  "the five days": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "tone:ironic": 0.5,
+    "subject:political": 0.5,
+    "structure:episodic": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "nadine": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "pace:brisk": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "something to talk about": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:comic": 0.25,
+    "mood:warm": 0.25
+   }
+  },
+  "mara maru": {
+   "attrs": {
+    "mode:action": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "incident at a corner": {
+   "attrs": {
+    "structure:nonlinear": 0.75,
+    "story:investigation": 0.75,
+    "setting:small-town": 0.5,
+    "mode:suspense": 0.25
+   }
+  },
+  "legacy of the 500 000": {
+   "attrs": {
+    "mode:action": 0.5,
+    "setting:wilderness": 0.5
+   }
+  },
+  "girls of the night": {
+   "attrs": {
+    "subject:class": 0.5,
+    "subject:work": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "the burning soil": {
+   "attrs": {
+    "subject:obsession": 0.5,
+    "subject:class": 0.5,
+    "subject:family": 0.5,
+    "tone:melancholy": 0.25
+   }
+  },
+  "good news": {
+   "attrs": {
+    "mood:paranoid": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "i am the law": {
+   "attrs": {
+    "subject:political": 0.5
+   }
+  },
+  "love under the crucifix": {
+   "attrs": {
+    "subject:desire": 0.75,
+    "subject:spiritual": 0.5,
+    "subject:political": 0.25,
+    "tone:melancholy": 0.5
+   }
+  },
+  "a confucian confusion": {
+   "attrs": {
+    "structure:ensemble": 0.75,
+    "texture:talky": 0.75,
+    "tone:ironic": 0.75,
+    "tone:comic": 0.5,
+    "tone:cerebral": 0.5,
+    "subject:work": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "magnet of doom": {
+   "attrs": {
+    "story:fish-out-of-water": 0.5,
+    "structure:episodic": 0.5,
+    "subject:class": 0.25,
+    "pace:slow-burn": 0.25
+   }
+  },
+  "bethune the making of a hero": {
+   "attrs": {
+    "subject:political": 0.5,
+    "subject:work": 0.5,
+    "tone:earnest": 0.5
+   }
+  },
+  "i graduated but": {
+   "attrs": {
+    "subject:work": 0.75,
+    "subject:class": 0.5,
+    "tone:melancholy": 0.25,
+    "subject:family": 0.25,
+    "tone:comic": 0.25
+   }
+  },
+  "you re a big boy now": {
+   "attrs": {
+    "subject:coming-of-age": 0.75,
+    "tone:comic": 0.5,
+    "texture:music-led": 0.5,
+    "subject:desire": 0.5,
+    "pace:brisk": 0.5,
+    "texture:stylised": 0.25,
+    "setting:city-at-night": 0.25
+   }
+  },
+  "the stranger within a woman": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:bleak": 0.5,
+    "pace:slow-burn": 0.5,
+    "story:descent": 0.5,
+    "subject:desire": 0.25,
+    "texture:talky": 0.25,
+    "mood:austere": 0.25
+   }
+  },
+  "cigarettes coffee": {
+   "attrs": {
+    "texture:talky": 0.5,
+    "structure:ensemble": 0.25
+   }
+  },
+  "help me": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "subject:desire": 0.5,
+    "texture:talky": 0.25
+   }
+  },
+  "gintama the movie": {
+   "attrs": {
+    "mode:action": 0.75,
+    "tone:comic": 0.5,
+    "texture:stylised": 0.5
+   }
+  },
+  "honey don t": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "tone:ironic": 0.5,
+    "story:investigation": 0.5,
+    "texture:stylised": 0.25,
+    "mood:absurd": 0.25,
+    "setting:small-town": 0.25
+   }
+  },
+  "the magic mountain": {
+   "attrs": {
+    "texture:talky": 0.5,
+    "tone:cerebral": 0.5,
+    "structure:single-setting": 0.5,
+    "pace:contemplative": 0.25
+   }
+  },
+  "zatoichi and the chest of gold": {
+   "attrs": {
+    "mode:action": 0.75,
+    "pace:brisk": 0.5,
+    "texture:graphic-violence": 0.5,
+    "subject:class": 0.25,
+    "story:investigation": 0.25
+   }
+  },
+  "l amour a mort": {
+   "attrs": {
+    "subject:spiritual": 0.75,
+    "tone:cerebral": 0.5,
+    "texture:talky": 0.5,
+    "mood:austere": 0.5,
+    "subject:desire": 0.5,
+    "subject:grief": 0.5,
+    "pace:contemplative": 0.5
+   }
+  },
+  "caro michele": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "structure:narrated": 0.5,
+    "structure:ensemble": 0.25
+   }
+  },
+  "metello": {
+   "attrs": {
+    "subject:class": 0.75,
+    "subject:political": 0.75,
+    "subject:work": 0.5,
+    "subject:desire": 0.25,
+    "texture:painterly": 0.25
+   }
+  },
+  "all these women": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "tone:ironic": 0.5,
+    "texture:stylised": 0.5,
+    "mood:absurd": 0.25
+   }
+  },
+  "the last run": {
+   "attrs": {
+    "mood:elegiac": 0.5,
+    "tone:melancholy": 0.25,
+    "subject:work": 0.25,
+    "mode:action": 0.25
+   }
+  },
+  "difficult years": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:ironic": 0.5,
+    "tone:comic": 0.5,
+    "setting:small-town": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "rocky road to dublin": {
+   "attrs": {
+    "subject:political": 0.75,
+    "structure:narrated": 0.75,
+    "texture:handheld-raw": 0.5,
+    "tone:ironic": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "bushido samurai saga": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:bleak": 0.75,
+    "subject:family": 0.5,
+    "subject:class": 0.5,
+    "subject:political": 0.5,
+    "texture:graphic-violence": 0.5
+   }
+  },
+  "queen of the desert": {
+   "attrs": {
+    "setting:wilderness": 0.75,
+    "texture:painterly": 0.5,
+    "pace:contemplative": 0.5,
+    "subject:desire": 0.5,
+    "tone:earnest": 0.5,
+    "structure:narrated": 0.25
+   }
+  },
+  "daughters wives and a mother": {
+   "attrs": {
+    "subject:family": 0.75,
+    "structure:ensemble": 0.5,
+    "subject:class": 0.5,
+    "tone:melancholy": 0.5
+   }
+  },
+  "gli indifferenti": {
+   "attrs": {
+    "subject:family": 0.5,
+    "subject:class": 0.5,
+    "subject:desire": 0.25,
+    "texture:talky": 0.25
+   }
+  },
+  "battle of the japan sea": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "mode:action": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "hurricane": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "subject:desire": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "kiss the other sheik": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "structure:episodic": 0.5
+   }
+  },
+  "tom sawyer": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "setting:small-town": 0.5,
+    "subject:coming-of-age": 0.5,
+    "mood:warm": 0.5,
+    "structure:episodic": 0.5
+   }
+  },
+  "buster s bedroom": {
+   "attrs": {
+    "mood:absurd": 0.5,
+    "mood:dreamlike": 0.5,
+    "texture:stylised": 0.5
+   }
+  },
+  "after the rain": {
+   "attrs": {
+    "tone:tender": 0.75,
+    "tone:earnest": 0.5,
+    "tone:hopeful": 0.5,
+    "mood:warm": 0.5,
+    "pace:contemplative": 0.5
+   }
+  },
+  "the scar": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:work": 0.5,
+    "setting:small-town": 0.5,
+    "mood:austere": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "giordano bruno": {
+   "attrs": {
+    "subject:political": 0.75,
+    "subject:spiritual": 0.5,
+    "texture:talky": 0.5,
+    "tone:earnest": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "a wife s heart": {
+   "attrs": {
+    "subject:family": 0.75,
+    "subject:desire": 0.5,
+    "subject:work": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:class": 0.25
+   }
+  },
+  "avatar fire and ash": {
+   "attrs": {
+    "mode:spectacle": 1,
+    "mode:action": 0.75,
+    "subject:family": 0.75,
+    "subject:grief": 0.5,
+    "texture:stylised": 0.5,
+    "setting:wilderness": 0.5
+   }
+  },
+  "the absence": {
+   "attrs": {
+    "pace:contemplative": 0.75,
+    "texture:sparse-dialogue": 0.5,
+    "mood:dreamlike": 0.5,
+    "tone:cerebral": 0.5,
+    "structure:episodic": 0.25
+   }
+  },
+  "circus world": {
+   "attrs": {
+    "mode:spectacle": 0.75,
+    "subject:work": 0.5,
+    "story:fish-out-of-water": 0.25,
+    "subject:family": 0.25,
+    "mode:action": 0.25,
+    "tone:earnest": 0.25
+   }
+  },
+  "scream of stone": {
+   "attrs": {
+    "setting:wilderness": 0.75,
+    "subject:obsession": 0.75,
+    "story:survival": 0.25,
+    "mode:spectacle": 0.25
+   }
+  },
+  "the power of emotion": {
+   "attrs": {
+    "tone:cerebral": 0.75,
+    "structure:episodic": 0.75,
+    "structure:narrated": 0.75,
+    "tone:ironic": 0.5,
+    "subject:political": 0.5,
+    "texture:music-led": 0.25
+   }
+  },
+  "john goldfarb please come home": {
+   "attrs": {
+    "story:fish-out-of-water": 0.75,
+    "tone:comic": 0.5,
+    "tone:ironic": 0.25,
+    "subject:political": 0.25
+   }
+  },
+  "ediths tagebuch": {
+   "attrs": {
+    "story:descent": 0.5,
+    "subject:family": 0.5,
+    "tone:bleak": 0.25
+   }
+  },
+  "the five man army": {
+   "attrs": {
+    "mode:action": 0.5,
+    "structure:ensemble": 0.5,
+    "subject:political": 0.25,
+    "setting:wilderness": 0.25
+   }
+  },
+  "the outsider": {
+   "attrs": {
+    "texture:handheld-raw": 0.5,
+    "tone:bleak": 0.5,
+    "story:descent": 0.25,
+    "subject:class": 0.25
+   }
+  },
+  "the shortest day": {
+   "attrs": {
+    "tone:comic": 0.5,
+    "structure:ensemble": 0.5,
+    "pace:brisk": 0.25
+   }
+  },
+  "the dust of time": {
+   "attrs": {
+    "pace:contemplative": 0.75,
+    "tone:melancholy": 0.5,
+    "mood:elegiac": 0.5,
+    "subject:memory": 0.75,
+    "subject:political": 0.5,
+    "structure:nonlinear": 0.5,
+    "texture:painterly": 0.5
+   }
+  },
+  "young husbands": {
+   "attrs": {
+    "subject:coming-of-age": 0.5,
+    "setting:small-town": 0.5,
+    "tone:melancholy": 0.25
+   }
+  },
+  "goopy bagha phire elo": {
+   "attrs": {
+    "texture:music-led": 0.75,
+    "tone:comic": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "the fighting generation": {
+   "attrs": {
+    "structure:narrated": 0.5,
+    "subject:political": 0.25
+   }
+  },
+  "kiss the blood off my hands": {
+   "attrs": {
+    "setting:city-at-night": 0.5,
+    "story:descent": 0.25,
+    "tone:bleak": 0.25,
+    "texture:grimy": 0.25,
+    "subject:desire": 0.25,
+    "mood:menacing": 0.25
+   }
+  },
+  "a slightly pregnant man": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "mood:absurd": 0.5,
+    "tone:ironic": 0.5,
+    "subject:family": 0.25,
+    "pace:brisk": 0.25
+   }
+  },
+  "i flunked but": {
+   "attrs": {
+    "tone:comic": 0.75,
+    "pace:brisk": 0.5,
+    "subject:class": 0.25,
+    "subject:coming-of-age": 0.25,
+    "tone:ironic": 0.25
+   }
+  },
+  "love and anger": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "subject:political": 0.75,
+    "tone:cerebral": 0.5,
+    "tone:ironic": 0.25
+   }
+  },
+  "the fossil": {
+   "attrs": {
+    "pace:contemplative": 0.5,
+    "tone:melancholy": 0.5,
+    "subject:spiritual": 0.5,
+    "mood:austere": 0.25
+   }
+  },
+  "double suicide japanese summer": {
+   "attrs": {
+    "subject:political": 0.5,
+    "subject:desire": 0.5,
+    "mood:absurd": 0.5,
+    "tone:bleak": 0.5
+   }
+  },
+  "i delfini": {
+   "attrs": {
+    "subject:class": 0.5,
+    "setting:small-town": 0.5,
+    "structure:ensemble": 0.5,
+    "tone:ironic": 0.25,
+    "subject:desire": 0.25
+   }
+  },
+  "the image makers": {
+   "attrs": {
+    "texture:talky": 0.75,
+    "structure:single-setting": 0.5,
+    "subject:work": 0.5,
+    "tone:cerebral": 0.5
+   }
+  },
+  "nel segno di roma": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "mode:action": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "a pilot returns": {
+   "attrs": {
+    "story:survival": 0.5,
+    "subject:political": 0.25,
+    "tone:earnest": 0.25
+   }
+  },
+  "the teacher from vigevano": {
+   "attrs": {
+    "subject:class": 0.75,
+    "subject:work": 0.5,
+    "tone:ironic": 0.5,
+    "tone:comic": 0.5,
+    "setting:small-town": 0.5,
+    "subject:family": 0.25
+   }
+  },
+  "many wars ago": {
+   "attrs": {
+    "subject:political": 0.75,
+    "tone:bleak": 0.75,
+    "mood:absurd": 0.5,
+    "subject:class": 0.5,
+    "texture:graphic-violence": 0.5,
+    "setting:wilderness": 0.25
+   }
+  },
+  "samurai banners": {
+   "attrs": {
+    "mode:spectacle": 0.5,
+    "mode:action": 0.5,
+    "subject:political": 0.5,
+    "texture:stylised": 0.25
+   }
+  },
+  "the mystery of oberwald": {
+   "attrs": {
+    "texture:talky": 0.75,
+    "texture:stylised": 0.75,
+    "structure:single-setting": 0.5,
+    "subject:desire": 0.5,
+    "subject:political": 0.25,
+    "mood:dreamlike": 0.25
+   }
+  },
+  "it happened in the park": {
+   "attrs": {
+    "structure:episodic": 0.75,
+    "tone:comic": 0.5,
+    "structure:ensemble": 0.5
+   }
+  },
+  "metti una sera a cena": {
+   "attrs": {
+    "texture:talky": 0.5,
+    "mood:sensual": 0.5,
+    "subject:desire": 0.5,
+    "subject:class": 0.25,
+    "texture:stylised": 0.25
+   }
+  },
+  "summer clouds": {
+   "attrs": {
+    "subject:family": 0.5,
+    "tone:melancholy": 0.5,
+    "pace:contemplative": 0.25
+   }
+  },
+  "miss oyu": {
+   "attrs": {
+    "tone:melancholy": 0.5,
+    "subject:desire": 0.5,
+    "subject:family": 0.5,
+    "pace:contemplative": 0.5,
+    "texture:painterly": 0.5
+   }
+  }
+ }
+}
