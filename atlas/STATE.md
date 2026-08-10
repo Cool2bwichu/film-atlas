@@ -227,6 +227,37 @@ Sites edition, 2026-08-06:
 5. Corpus payload is 13.4 MB, and the built artifact 8.8 MB — fine on a
    desktop connection, genuinely heavy on mobile. It was 3.6 MB at N=803.
 
+## Proposed, not merged — the predicate layer
+
+`proposals/predicate-layer.md`. A third descriptive layer for what happens
+BETWEEN the people in a film, distinct from the signature (how the film behaves
+on screen) and the fingerprint (its temperature). Aimed squarely at item 2
+above: `crew` at 40.3% and 1,324 films with no reading. RE-MEASURED 2026-08-10 over
+the top-six edge slots of every film — the slots a reader actually sees — crew is
+**52.5%** and crew+cast is **72.7%**. The proposal's figure understates it.
+
+Why it exists, in one measurement: the fingerprint's nearest film to *The
+Banshees of Inisherin* is **Ex Machina at distance 2.8 of ~200**, while *Old
+Joy* — a friendship that ends without either man saying so — ranks **#1286 of
+1,531**. Distance in a temperature space is not measuring what a viewer means
+by related, and tuning it will not get there.
+
+Films match by **co-occurrence on a named predicament**, not by distance, so two
+films in different traditions can land on the same situation. The predicate
+selects the family; the fingerprint orders it. Tonal distance never enters
+strength.
+
+Sequence: `readings.js` (free-prose pass, plot text only) -> cluster a
+controlled vocabulary out of the readings -> re-tag as classification ->
+`associate-predicates.js` for edges. `wishlist.js` turns the pass's by-product
+into seed candidates; `measure-predicate-coverage.js` aims later expansion
+rounds at gaps rather than at whatever the model reached for.
+
+**Nothing is merged. `readings.js` has never made a live model call. The 18
+hand-tagged films in `predicate-tags.seed.json` were written from model recall
+rather than plot text and must not be scaled.** Read the proposal's "Status"
+section before touching any of it — it lists seven things that must not happen.
+
 ## Traps that have already cost time
 
 - **jsdom cannot tell you a page is visible.** It mounts and evaluates; it does

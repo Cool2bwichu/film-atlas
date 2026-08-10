@@ -2,6 +2,61 @@
 
 Status: **prototype run, not merged.** Nothing in `corpus.json` changed.
 
+## Status — read this before touching anything
+
+Nothing here has been merged. `corpus.json` is untouched. Every file below is a
+proposal with a working prototype attached, and the prototypes were built to
+make an argument checkable, not to ship.
+
+| file | state | trust |
+|---|---|---|
+| `pipeline/predicates.json` | 25 seed predicates | **a demo vocabulary, not the vocabulary.** The real one is mined from readings — see Revision |
+| `pipeline/predicate-tags.seed.json` | 18 films, hand-tagged | **written from model recall, not from plot text.** It breaks the pass's own sourcing rule on purpose, to demonstrate the mechanism before paying for a run |
+| `pipeline/associate-predicates.js` | runs, verified | the scoring shape is real; the inputs it scores are not |
+| `pipeline/predicate-cohort.js` | runs, verified | stratified sampler, deterministic seed |
+| `pipeline/readings.js` | dry-run only | **has never made a live model call.** The parser and JSON contract are untested |
+| `pipeline/wishlist.js` | runs on a hand-built demo input | logic verified, never seen real readings output |
+| `pipeline/measure-predicate-coverage.js` | runs, verified | thresholds are judgement calls, not measurements |
+| `pipeline/out/readings-demo.json` | hand-written | **not model output.** Exists so wishlist.js could be exercised |
+
+### Seven things that must not happen
+
+1. **Do not scale the seed tags.** They were authored from recall. They are not
+   training data, not few-shot exemplars, and not ground truth. The pass reads
+   plot text and nothing else, for the same reason `axes.js` does.
+2. **Do not let tonal distance into edge strength.** Predicate selects the
+   family; fingerprint orders it. The moment distance contributes to strength,
+   the ranking collapses back onto the fingerprint. See "Order of operations".
+3. **Do not promote `relatives` to edges.** One-directional, popularity-biased.
+   Reciprocal pairs only, at low confidence, ranked below co-occurrence.
+4. **Do not treat `estPrevalence` as measured.** They are hand guesses so the
+   seed cohort could be ranked as it would rank at scale. `--prior` is a demo
+   flag. Replace with counts from a real tagging pass.
+5. **Do not author the vocabulary before the reading pass.** That was the
+   original plan and the reuse measurement killed it.
+6. **Do not merge predicate edges into `corpus.json`** until the trial moves
+   `crew %`, trivia share and repeated-line rate off 40.3 / 23.0 / 6.3. A field
+   that does not move those numbers gets deleted, per `signature-schema.md`.
+7. **Do not harvest a nominated film without probing for an above-floor plot
+   section first.** An admitted film that cannot be read can never be tagged and
+   survives on crew and setting edges — manufacturing the problem this fixes.
+
+### The evidence, so it does not have to be re-derived
+
+- *Banshees*' nearest film by fingerprint is **Ex Machina at distance 2.8**;
+  *Old Joy* ranks **#1286 of 1531** and *Y tu mamá también* **#973**. Reproduce:
+  five-axis Euclidean over `static/fingerprints.json`.
+- *Catch Me If You Can*'s 20 current edges are 4 crew, 6 cast, 6 setting,
+  4 genreEra. **Zero concern what the film is about.**
+- **`Moonlight` is recorded as set in Atlanta.** It is set in Miami. That record
+  is generating a false claim on two films' maps — `setting` needs a spot-check.
+- Of 47 films named unprompted in the conversation that produced this: **43%
+  were not in the corpus**, and **0 came from E-Asia, S-Asia or Oceania** (7% of
+  it). Small sample; the asymmetry argument does not depend on it.
+- Vocabulary reuse between the first two hand-tagged clusters: **10%**. This
+  measures open-ended generation, not closed-vocabulary classification, and is
+  the reason the order was inverted.
+
 ## The problem, stated as a measurement
 
 ATLAS has two descriptive layers built or specified:
@@ -120,7 +175,12 @@ the population was assembled because of the thing you are measuring*. It is
 recorded here because it will recur on the first real tagging pass if the pass
 is run on a themed cohort rather than the whole corpus.
 
-## The hard part, named in advance
+## The hard part, named in advance — SUPERSEDED, see "Revision" below
+
+> This section described authoring the vocabulary FIRST and classifying against
+> it. That order was wrong and is kept only because the reasoning about
+> collision still holds. Read "Revision — the vocabulary is MINED, not authored"
+> before acting on anything here.
 
 **A vocabulary is only useful if it collides.** Free extraction over 2,204 films
 produces ~20,000 unique phrasings of the same handful of situations and
