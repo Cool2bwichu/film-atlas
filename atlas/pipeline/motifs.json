@@ -265,6 +265,486 @@
       "label": "the bureaucratic list that decides who lives",
       "test": "A written list of people determines survival or ruin, and the film gives weight to the making of it.",
       "notThis": "A film in which a list appears but the selection happens elsewhere."
+    },
+    {
+      "id": "humiliation-a-child-witnesses",
+      "label": "a parent shamed while the child watches",
+      "test": "A parent is publicly humiliated and the film's weight falls on the child watching it happen, not on the humiliation itself.",
+      "notThis": "A child merely present during an argument. The watching must be the wound the film is measuring."
+    },
+    {
+      "id": "defenders-excluded-from-the-peace",
+      "label": "the protectors excluded from what they saved",
+      "test": "People hired or volunteering to defend a community succeed, and are then quietly excluded from the life they preserved.",
+      "notThis": "A hero who rides off by choice, or who dies. The exclusion must come from the community and be treated as its judgement."
+    },
+    {
+      "id": "manners-acquired-and-refused",
+      "label": "the code learned item by item, and refused anyway",
+      "test": "An outsider deliberately acquires a class's manners, dress and speech, and is expelled by that class regardless of how completely they master it.",
+      "notThis": "A rags-to-riches story that succeeds, or a fish-out-of-water comedy. The acquisition must be thorough and the rejection final."
+    },
+    {
+      "id": "protagonist-handed-off",
+      "label": "the film that changes who it is about",
+      "test": "The person the film has established as its subject is removed well before the end, and the film transfers itself to someone else.",
+      "notThis": "An ensemble piece with no single subject, or a death in a final act. The handoff must strand the viewer."
+    },
+    {
+      "id": "rescuer-who-means-harm",
+      "label": "the rescuer who intends to kill what he recovers",
+      "test": "A long search to recover a person is sustained by an intention to destroy them, which the searcher will not state and the film only lets slip.",
+      "notThis": "A rescue that turns sour on arrival. The murderous intent must predate and drive the search."
+    },
+    {
+      "id": "one-life-recast",
+      "label": "one person played by several actors, the joins withheld",
+      "test": "A single character is played by different performers across sealed sections, and the film withholds the years between so the recasting is the only account of what changed.",
+      "notThis": "A child actor replaced by an adult in a conventional chronology."
+    },
+    {
+      "id": "disappearance-never-resolved",
+      "label": "a disappearance the film abandons",
+      "test": "Someone vanishes and the film declines to explain it, letting the search dissolve into something else without ever returning to the question.",
+      "notThis": "A mystery solved late, or an ambiguous ending to an otherwise answered plot. The abandonment must be structural."
+    },
+    {
+      "id": "life-from-contradictory-witnesses",
+      "label": "a life assembled from accounts that will not agree",
+      "test": "A person is reconstructed after their death from testimony that conflicts, and the film endorses none of it.",
+      "notThis": "A framed narrative with a reliable account underneath, or a courtroom film that reaches a verdict."
+    },
+    {
+      "id": "the-prize-is-a-fake",
+      "label": "the object everyone died for turns out to be worthless",
+      "test": "A pursuit sustained by an object's value ends with the object exposed as a fake, and the film closes on the fraud rather than the recovery.",
+      "notThis": "A twist that substitutes one treasure for another, or a moral about greed with the treasure still real."
+    },
+    {
+      "id": "animal-as-the-centre",
+      "label": "an animal carried between owners as the film's spine",
+      "test": "An animal passes between owners who each embody a different use or cruelty, and its blankness is the film's only continuous vantage.",
+      "notThis": "A pet in a story about its human, or an animal granted thoughts and motives."
+    },
+    {
+      "id": "crowd-as-protagonist",
+      "label": "a crowd where the protagonist should be",
+      "test": "No individual survives in the film long enough to carry it, and the real units of action are collective — a ship's company, a street, a workforce.",
+      "notThis": "An ensemble film with several followed individuals."
+    },
+    {
+      "id": "camera-as-the-weapon",
+      "label": "the recording apparatus as the instrument of harm",
+      "test": "The act of filming is itself the violence, with the recording of the victim as the object of the crime rather than its record.",
+      "notThis": "A film in which a camera merely witnesses or incriminates."
+    },
+    {
+      "id": "trade-ended-by-the-century",
+      "label": "men whose trade the century has just abolished",
+      "test": "Characters whose livelihood has been rendered obsolete by a datable historical change choose the terms of their own extinction rather than adapt.",
+      "notThis": "Generic ageing or a last job before retirement. The obsolescence must be specific and external."
+    },
+    {
+      "id": "menace-in-the-background",
+      "label": "the figure standing in a frame nobody points at",
+      "test": "A threatening presence is placed in the unremarked depth of shots the film never draws attention to, so menace is a fact of composition rather than an event.",
+      "notThis": "A jump scare, or a stalker the film cuts to deliberately."
+    },
+    {
+      "id": "awake-inside-a-driven-body",
+      "label": "a mind awake in a body it cannot steer",
+      "test": "A character remains conscious and perceiving inside a body under someone else's control, able to watch through their own eyes and unable to act.",
+      "notThis": "Possession played for horror spectacle, or paralysis with no external driver."
+    },
+    {
+      "id": "object-as-the-structure",
+      "label": "an object circulating as the film's structure",
+      "test": "A single object passes through a whole society, each transaction changing an owner while the object itself stays constant, and the circulation is the film's form.",
+      "notThis": "A MacGuffin pursued by a fixed cast."
+    },
+    {
+      "id": "the-world-revealed-as-surface",
+      "label": "being shown the world is a made surface",
+      "test": "A character is shown that the reality they inhabit is constructed or rendered, and is made to choose whether to remain inside it.",
+      "notThis": "A dream revealed at the end, or a simulation used only as a setting."
+    },
+    {
+      "id": "escalation-as-survival",
+      "label": "the debtor who can only survive by raising the stake",
+      "test": "A character holds off collapse by adding another bet or debt, so escalation becomes the only available form of survival and the film's rhythm.",
+      "notThis": "A gambling story with a moral arc of loss and recovery."
+    },
+    {
+      "id": "class-presiding-over-its-end",
+      "label": "the aristocrat who arranges his own class's replacement",
+      "test": "A member of a ruling class knowingly manages the transfer of power away from it and stays to watch the effect.",
+      "notThis": "A decline story where the class is merely overtaken. The character must be the agent of the handover."
+    },
+    {
+      "id": "legend-written-by-a-journalist",
+      "label": "the man built into a legend by someone else's copy",
+      "test": "A journalist's or biographer's account manufactures a public legend, and the subject then has to live inside it and is discarded when it is complete.",
+      "notThis": "A biopic that merely covers a famous person's press."
+    },
+    {
+      "id": "the-ritual-endlessly-deferred",
+      "label": "a ritual that can never begin",
+      "test": "A meal, ceremony or performance is repeatedly prevented from starting, with each interruption arriving from a different order of reality.",
+      "notThis": "A single disrupted event, or farce built on one running obstacle."
+    },
+    {
+      "id": "spent-on-the-household",
+      "label": "the one spent so the household could recover",
+      "test": "A family member's labour or body is consumed financing the others' futures, and the film shows the household recovering without them.",
+      "notThis": "A sacrifice honoured and mourned by the family. The point is the quiet continuation."
+    },
+    {
+      "id": "recording-examined-until-it-inverts",
+      "label": "a recording replayed until its meaning turns over",
+      "test": "A single sound recording is replayed and re-processed at length until what it means inverts, and that process carries the film.",
+      "notThis": "A tape used once as evidence or a reveal."
+    },
+    {
+      "id": "clerical-error-that-kills",
+      "label": "a paperwork mistake that cannot be un-filed",
+      "test": "An administrative error acquires the authority of fact, and everyone downstream treats it as true while correction requires the same machinery that caused it.",
+      "notThis": "A wrongful accusation resolved by finding the truth."
+    },
+    {
+      "id": "expert-overruled-on-commercial-grounds",
+      "label": "the warning overruled for the season's takings",
+      "test": "A specialist's warning is set aside by an official for commercial reasons, and the film itemises the harm that follows the decision.",
+      "notThis": "A disaster film where the warning is ignored through disbelief rather than interest."
+    },
+    {
+      "id": "confession-only-in-narration",
+      "label": "a confession spoken only to the audience",
+      "test": "A character narrates an admission directly to us that the person it concerns is present for and will never hear.",
+      "notThis": "Ordinary voiceover, or a confession eventually spoken aloud."
+    },
+    {
+      "id": "killed-by-the-rescue",
+      "label": "the survivor killed by the party sent to save them",
+      "test": "A relief or rescue force arrives and destroys the person it came for, and the film registers it flatly rather than tragically.",
+      "notThis": "Friendly fire as an accident of battle."
+    },
+    {
+      "id": "trial-staged-in-faces",
+      "label": "a proceeding filmed only in faces",
+      "test": "A trial or hearing is shot so that the room's geography and eyelines are withheld, leaving the human face as the only space the film has.",
+      "notThis": "A courtroom drama with close-ups. The spatial withholding must be systematic."
+    },
+    {
+      "id": "labour-bought-because-it-is-owed-nothing",
+      "label": "workers hired precisely because nothing is owed for them",
+      "test": "An employer recruits from a stranded or undocumented pool specifically because their deaths carry no liability, and the film prices it out loud.",
+      "notThis": "General exploitation of the poor without the liability calculation being named."
+    },
+    {
+      "id": "the-line-persisting-in-the-body",
+      "label": "the machine's rhythm left running in the worker",
+      "test": "A worker's body continues the motion of the production line after the machine has stopped, carrying the labour out of the workplace involuntarily.",
+      "notThis": "Exhaustion, or a habit played only as a joke."
+    },
+    {
+      "id": "regime-experienced-as-pageantry",
+      "label": "politics arriving only as festival",
+      "test": "A political regime is present in the film solely through parades, banquets and ceremony, with no scene of politics existing away from the celebration.",
+      "notThis": "A film with political rallies among other political scenes."
+    },
+    {
+      "id": "sustained-silence-for-one-act",
+      "label": "one sequence stripped of sound",
+      "test": "Score, dialogue and most effects are withdrawn for a single sustained sequence so that only the task's own noise remains.",
+      "notThis": "A film that is generally quiet, or a brief silent beat."
+    },
+    {
+      "id": "system-without-people",
+      "label": "a system filmed where a character should be",
+      "test": "The film has no characters at all: its subject is a system — traffic, grids, assembly lines — filmed at a rate no person experiences, and motion carries the argument.",
+      "notThis": "A documentary with interviewees, or a city film with recurring figures."
+    },
+    {
+      "id": "life-as-frontal-emblems",
+      "label": "a life told as still emblems, not scenes",
+      "test": "A biography is delivered as a sequence of frontal tableaux with no dialogue, no scene and no causal link between stages.",
+      "notThis": "A stylised biopic that still stages scenes."
+    },
+    {
+      "id": "refusal-solicited-one-by-one",
+      "label": "help refused person by person",
+      "test": "Assistance is sought individually from a whole community and declined each time, so the film is a series of separate withdrawals rather than one betrayal.",
+      "notThis": "A town that collectively turns away in a single scene."
+    },
+    {
+      "id": "the-heirs-apply-the-lesson",
+      "label": "the patriarch destroyed by his own method",
+      "test": "A ruler's children destroy him by applying precisely the method he used to build the domain, and tell him so.",
+      "notThis": "A succession struggle, or children who merely rebel."
+    },
+    {
+      "id": "mission-completed-as-succession",
+      "label": "the man sent to kill becoming the man he killed",
+      "test": "An assassin's completion of a mission is indistinguishable from taking the target's place.",
+      "notThis": "An undercover agent going native without inheriting the position."
+    },
+    {
+      "id": "delusion-outlasting-the-expedition",
+      "label": "the leader still proclaiming over the wreck",
+      "test": "An expedition collapses entirely while its leader continues issuing plans and proclamations, the delusion surviving everything it was meant to command.",
+      "notThis": "A doomed voyage with a leader who breaks or recants."
+    },
+    {
+      "id": "unsolved-and-handed-back",
+      "label": "the case that never closes",
+      "test": "An investigation ends without resolution, the file handed back, and the film refuses the answer to the audience as well.",
+      "notThis": "A downbeat ending where the audience knows who did it."
+    },
+    {
+      "id": "the-inquiry-annulled-by-politics",
+      "label": "the investigation undone in an epilogue",
+      "test": "An investigation succeeds completely and is then voided by a change of government or policy stated in a closing coda.",
+      "notThis": "An investigation obstructed throughout. The success must be complete before the annulment."
+    },
+    {
+      "id": "recording-litigated-line-by-line",
+      "label": "a recording that replaces the event it captured",
+      "test": "A recorded domestic or private exchange is entered as evidence and argued over line by line until the recording supplants the event.",
+      "notThis": "A tape used as a plot device rather than litigated."
+    },
+    {
+      "id": "respectability-bought-on-credit",
+      "label": "a reputation financed by debt",
+      "test": "A person's respectable persona is explicitly maintained on borrowed money, with the debts itemised as the cost of the appearance.",
+      "notThis": "General financial trouble, or a con artist with no maintained standing."
+    },
+    {
+      "id": "a-criminal-economy-of-children",
+      "label": "a criminal world with no adults above it",
+      "test": "A criminal economy is staffed and inherited entirely by children, with no adult tier to be inducted into.",
+      "notThis": "Child members of an adult gang."
+    },
+    {
+      "id": "the-departure-refused-at-the-gangway",
+      "label": "the emigrant who turns back at the last step",
+      "test": "A character obtains the means to leave for a longed-for elsewhere and refuses at the final threshold.",
+      "notThis": "A departure prevented by circumstance or by another person."
+    },
+    {
+      "id": "record-that-is-also-reenactment",
+      "label": "the document openly staged and presented as observation",
+      "test": "Scenes are staged for the camera with the subjects' cooperation and then presented as observed record, and the film's status is the question.",
+      "notThis": "Docudrama with actors, or a reenactment labelled as such."
+    },
+    {
+      "id": "consolation-object-for-the-life-denied",
+      "label": "a purchase offered in place of the life refused",
+      "test": "A material consolation is supplied to stand in for something a person was denied, and the film treats the substitution as the injury.",
+      "notThis": "A gift that comforts, or ordinary material compensation."
+    },
+    {
+      "id": "the-predator-fluent-in-piety",
+      "label": "the predator who arrives speaking the community's morals",
+      "test": "A threat enters a community fluent in its own moral or religious language, so piety is the disguise rather than the defence against it.",
+      "notThis": "A hypocrite exposed early, or an outsider distrusted from the start."
+    },
+    {
+      "id": "death-nobody-in-town-sees",
+      "label": "the death the community's attention misses",
+      "test": "A central death happens while the whole community's attention is fixed on something else, and nobody witnesses it.",
+      "notThis": "A death witnessed by the audience and mourned by the town."
+    },
+    {
+      "id": "reenactment-that-destroys-the-event",
+      "label": "repetition that dismantles what it recovers",
+      "test": "An event is reenacted in mutually incompatible versions until the repetition destroys rather than restores it.",
+      "notThis": "A single reenactment, or repetition that clarifies."
+    },
+    {
+      "id": "one-person-as-two-rivals",
+      "label": "one person split into two who duel",
+      "test": "A single character maintains two personas who are set against each other, each courting or acting on the other's behalf.",
+      "notThis": "Twins, or a disguise with a stable underlying self."
+    },
+    {
+      "id": "the-cure-demonstrated-on-stage",
+      "label": "the reformed subject exhibited as proof",
+      "test": "A person treated by a programme is displayed to an invited audience as evidence that the policy works.",
+      "notThis": "A rehabilitation story with no public demonstration."
+    },
+    {
+      "id": "the-trick-that-requires-a-death",
+      "label": "the performance that kills the performer each time",
+      "test": "An act can only be achieved by the performer's destruction at every performance, with a replacement taking the applause.",
+      "notThis": "A dangerous stunt, or a single fatal accident."
+    },
+    {
+      "id": "compulsion-built-into-an-object",
+      "label": "a private compulsion sculpted into a shape",
+      "test": "A character compulsively reproduces a shape they cannot explain in whatever material is at hand, until the object takes over the household.",
+      "notThis": "An artist working deliberately, or an obsession expressed only in words."
+    },
+    {
+      "id": "the-invented-identity-made-real",
+      "label": "the fiction a real person is forced to inhabit",
+      "test": "An institution invents an identity for nobody to occupy, and a real person is compelled to live inside it and eventually to make it true.",
+      "notThis": "An assumed alias, or an impostor acting by choice."
+    },
+    {
+      "id": "speaking-through-glass",
+      "label": "the account given through glass, facing away",
+      "test": "A character can only address the person who matters through a barrier and with their back turned, telling their own life as a story about a third person.",
+      "notThis": "A prison visiting scene played conventionally."
+    },
+    {
+      "id": "language-never-acquired",
+      "label": "the person passed between institutions as an experiment",
+      "test": "An adult without acquired language is handed between institutions that each test rather than teach them.",
+      "notThis": "A child raised in institutions, which the vocabulary already covers elsewhere."
+    },
+    {
+      "id": "drill-as-choreography",
+      "label": "training filmed as dance with no enemy",
+      "test": "Military or institutional drill is staged as choreography, given full duration, with no adversary on the other side of it.",
+      "notThis": "A training montage building to a battle."
+    },
+    {
+      "id": "two-ages-of-one-romance",
+      "label": "the same romance lived at two ages at once",
+      "test": "An older character's revisited first love is cut against a younger one's beginning, so a single sequence carries the same romance at two ages.",
+      "notThis": "Parallel romances between unrelated couples."
+    },
+    {
+      "id": "the-lesson-that-is-the-relationship",
+      "label": "a lesson standing in for an entire relationship",
+      "test": "A parent demonstrates a child's inadequacy by performing the same skill better, and the demonstration carries the whole relationship.",
+      "notThis": "A stern teacher, or a rivalry between equals."
+    },
+    {
+      "id": "remade-into-the-dead",
+      "label": "a person remade into someone dead",
+      "test": "A character adopts a dead person's clothes, name and finally their fate, becoming them rather than merely imitating.",
+      "notThis": "Restyling a living person to resemble another, which the vocabulary covers separately."
+    },
+    {
+      "id": "the-substitute-family",
+      "label": "a family assembled overnight by the abandoned",
+      "test": "People without households assemble a temporary substitute family in a borrowed or abandoned space over a short compressed period.",
+      "notThis": "A found-family arc developed across a long time."
+    },
+    {
+      "id": "the-killing-the-town-cannot-do",
+      "label": "the killer a community needs and cannot keep",
+      "test": "A community requires a killing it cannot perform, and the person who performs it is thereby disqualified from living among them.",
+      "notThis": "A hero who leaves for other reasons, or a villain driven out."
+    },
+    {
+      "id": "penance-set-by-the-self",
+      "label": "a penance the character sets for himself",
+      "test": "A character devises and administers his own physical penance because he has decided the institution's version does not count.",
+      "notThis": "Punishment imposed by others, or ritual observance within the institution."
+    },
+    {
+      "id": "hunter-and-hunted-understand-each-other",
+      "label": "the pursuer and the pursued, off the clock",
+      "test": "Antagonists meet once outside the pursuit and find they understand each other better than they understand their own households.",
+      "notThis": "A villain's monologue, or a mutual-respect beat inside the chase."
+    },
+    {
+      "id": "the-family-rank-learned-from-film",
+      "label": "children learning their family's rank from a recording",
+      "test": "Children watch a recording of a parent performing for a superior and learn their household's real position in the world from it.",
+      "notThis": "A home movie used for nostalgia or exposition."
+    },
+    {
+      "id": "the-maker-who-will-not-look",
+      "label": "the maker in love with the work, refusing its purpose",
+      "test": "Someone devoted to the object they are building declines to look at the war or system paying for it, and the film keeps the funding in frame.",
+      "notThis": "A scientist who repents, or one who never learns."
+    },
+    {
+      "id": "the-convoy-that-was-a-decoy",
+      "label": "the thing defended at cost turns out to be empty",
+      "test": "Something is defended at enormous human cost and revealed to have been a decoy, the sacrifice made for nothing.",
+      "notThis": "A pyrrhic victory over a real objective."
+    },
+    {
+      "id": "the-subject-turns-the-interview",
+      "label": "the subject who takes over the interview",
+      "test": "An interviewee turns the questioning back on the journalist until the piece being made becomes the real subject.",
+      "notThis": "A hostile interview, or a subject who simply refuses to answer."
+    },
+    {
+      "id": "filming-as-the-courtship",
+      "label": "the camera as the only way to approach",
+      "test": "A filmmaker can only approach people through the apparatus, so the act of filming becomes the relationship itself.",
+      "notThis": "An assigned observer falling for a subject, which the vocabulary covers separately."
+    },
+    {
+      "id": "charity-diagnosed-as-illness",
+      "label": "goodness disposed of as madness",
+      "test": "A character's charity or moral excess is diagnosed as illness and disposed of by committal, with family, clergy and doctors all agreeing on the paperwork.",
+      "notThis": "A genuine breakdown, or persecution without a medical frame."
+    },
+    {
+      "id": "addressing-the-furniture",
+      "label": "objects addressed in place of the person gone",
+      "test": "A character speaks to household objects as stand-ins for someone who has left, and the film plays it straight.",
+      "notThis": "A single grief-stricken outburst, or comic talking to oneself."
+    },
+    {
+      "id": "household-consenting-to-dissolve",
+      "label": "a household that agrees to end itself",
+      "test": "Each member of a household separately chooses the arrangement that ends the shared home, with no quarrel and no villain.",
+      "notThis": "A family broken by a rupture, a death or a betrayal."
+    },
+    {
+      "id": "carried-toward-the-atrocity-foreseen",
+      "label": "the heir who foresees the atrocity done in his name",
+      "test": "A figure foresees in detail the harm that will be committed in their name and is carried toward it by the people who need the prophecy fulfilled.",
+      "notThis": "A vague prophecy, or a leader who chooses the atrocity freely."
+    },
+    {
+      "id": "one-day-to-one-irreversible-act",
+      "label": "a single day compressed to one irreversible act",
+      "test": "The film's action occupies one day and builds to a single act that cannot be taken back.",
+      "notThis": "A day-in-the-life with no hinge. The vocabulary covers the single-night variant separately."
+    },
+    {
+      "id": "the-test-of-who-is-human",
+      "label": "a test improvised to prove who is still human",
+      "test": "A group devises a test on the spot to establish which of them is still what they appear, and administers it to everyone at once.",
+      "notThis": "An institutional screening procedure, or a test applied to one suspect."
+    },
+    {
+      "id": "prejudice-as-refused-service",
+      "label": "prejudice administered entirely as refused service",
+      "test": "Discrimination is delivered through ordinary transactions declined — the shop that will not sell, the table never served — rather than through violence or slurs.",
+      "notThis": "Explicit confrontation or violence carrying the film's account of prejudice."
+    },
+    {
+      "id": "production-machinery-turned-private",
+      "label": "the film industry's machinery used for a private end",
+      "test": "The apparatus of production — a casting call, a crew, real applicants — is staged so one person can pursue a private purpose through it.",
+      "notThis": "A film about filmmaking with ordinary professional motives."
+    },
+    {
+      "id": "revenge-authored-as-theatre",
+      "label": "a revenge written as a script for its target",
+      "test": "A revenge is staged over years as authored theatre, the target released into a scenario written for him with props and players supplied by his hunter.",
+      "notThis": "An elaborate trap sprung in a single scene."
+    },
+    {
+      "id": "initiation-turned-weapon",
+      "label": "the inherited craft used against the one it was for",
+      "test": "Knowledge meant to be passed to the next generation is used by the holder as a weapon against them.",
+      "notThis": "A mentor betrayed by a student, or knowledge simply withheld."
+    },
+    {
+      "id": "the-visit-run-the-other-way",
+      "label": "the duty visit measured in departure times",
+      "test": "Adult children travel to ageing parents and the neglect is measured by how soon they begin arranging their return, paid off by visits that never happen.",
+      "notThis": "Parents visiting children, which the vocabulary covers separately."
     }
   ]
 }
