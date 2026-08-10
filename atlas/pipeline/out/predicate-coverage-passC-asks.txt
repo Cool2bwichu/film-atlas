@@ -1,0 +1,574 @@
+TARGETED QUESTIONS — 95 underspread predicates of 175
+Regions taken from pipeline/out/plots.json (record-derived), and the missing
+regions ordered by how many films the corpus actually holds there, instead of by
+Set iteration order in fingerprints.json. Nothing was harvested.
+
+the-accuser-holds-the-guilt
+    "The party pressing another to account is the party that holds the fault, and hands it to someone who cannot carry it back."
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+unchosen-debt-created
+    "What one party does for or asks of another leaves the two standing in an obligation neither chose"
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+the-welcomed-guest-ruins-the-house
+    "Hospitality is repaid by the guest taking everything"
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+answerable-for-what-was-done-below
+    "A commander is held to account for what his men did"
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+rivalry-for-a-single-place
+    "Two who belong to each other come to want the same place, which cannot hold both, so the one who holds it fears the one who would take it."
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+virtue-is-turned-against-the-one-who-has-it
+    "Decency is read as weakness or as pretence and used"
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+kin-subordinated-to-rule
+    "One party applies to its own blood the rule it would apply to anyone, at that blood's cost"
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+restraint-dropped-before-another
+    "One party loses its hold on what it was keeping back and lets the other have it"
+    holds 0 film(s) across 0 region(s), 0y span  [films 0<6, regions 0<3, span 0y<30]
+    has: 
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+an-open-secret-nobody-acts-on
+    "Everyone knows and nobody moves"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Diary of a Country Priest (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+standing-stripped-answered-with-death
+    "One party strips another of standing or denies them what they took as their due, and the answer comes not as argument but as destruction."
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: The Cabinet of Dr. Caligari (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+another-hand-runs-your-life
+    "Someone else has been making the decisions of a person's life"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Rocky Road to Dublin (UK/IE)
+    ask: which films from US/CA, W-Europe, Japan, E-Asia turn on this?
+
+a-woman-is-shamed-for-her-own-violation
+    "The violated party is the one held to account"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Rashomon (Japan)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Asia turn on this?
+
+the-crowd-decides-a-mans-fate
+    "An assembled public settles what happens to one person"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Gladiator (US/CA)
+    ask: which films from W-Europe, Japan, UK/IE, E-Asia turn on this?
+
+suspicion-spreads-among-neighbours
+    "An unexplained event sets a community accusing itself"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: The White Ribbon (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+outsiders-strip-both-sides
+    "An outside interest profits from a quarrel it keeps going"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Thunderheart (US/CA)
+    ask: which films from W-Europe, Japan, UK/IE, E-Asia turn on this?
+
+mourners-cannot-grieve-together
+    "Two who lost the same thing cannot grieve in the same way"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Don't Look Now (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+bond-held-by-need
+    "One party stays inside a bond out of need or obligation rather than out of wanting the other"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Autumn Sonata (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+the-quarrel-passes-down-the-generations
+    "A wrong is inherited and paid by people who did not commit it"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Shadows of Forgotten Ancestors (E-Europe)
+    ask: which films from US/CA, W-Europe, Japan, UK/IE turn on this?
+
+the-young-are-spent-for-the-old
+    "The young are expended for a purpose that is not theirs"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Difficult Years (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+intervener-struck-down
+    "One party steps between two others and is struck by the party it stood against"
+    holds 1 film(s) across 1 region(s), 0y span  [films 1<6, regions 1<3, span 0y<30]
+    has: Princess Mononoke (Japan)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Asia turn on this?
+
+standing-in-anothers-place
+    "One party comes to occupy, or is installed in, the place that belongs to someone gone, and is held to it"
+    holds 2 film(s) across 1 region(s), 56y span  [films 2<6, regions 1<3]
+    has: La Strada (W-Europe), The Ghost Writer (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+person-passed-between-holders
+    "One party holds another as property or charge and hands them on to the next holder, who has no say in it"
+    holds 2 film(s) across 1 region(s), 37y span  [films 2<6, regions 1<3]
+    has: Pandora's Box (W-Europe), Au Hasard Balthazar (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+distant-stranger-harmed
+    "One party's act secures its own safety or advantage and lands as harm on someone with no part in it"
+    holds 2 film(s) across 1 region(s), 10y span  [films 2<6, regions 1<3, span 10y<30]
+    has: La Chinoise (W-Europe), Il gatto (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+the-strong-hound-the-weakest
+    "The group takes its condition out on the one least able to resist"
+    holds 2 film(s) across 1 region(s), 13y span  [films 2<6, regions 1<3, span 13y<30]
+    has: Women of the Night (Japan), Girls of the Night (Japan)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Asia turn on this?
+
+the-dying-arrange-what-comes-after
+    "The dying set terms for the people who will outlive them"
+    holds 2 film(s) across 1 region(s), 15y span  [films 2<6, regions 1<3, span 15y<30]
+    has: A Last Note (Japan), Postcard (Japan)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Asia turn on this?
+
+the-one-entrusted-keeps-it
+    "The thing given into someone's keeping is not given back"
+    holds 2 film(s) across 1 region(s), 19y span  [films 2<6, regions 1<3, span 19y<30]
+    has: A Slice of Life (W-Europe), Trip to Vienna (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+reckoning-with-those-left
+    "One party comes through and is left answerable to those it did not bring through with it"
+    holds 2 film(s) across 1 region(s), 21y span  [films 2<6, regions 1<3, span 21y<30]
+    has: Black Rain (Japan), Postcard (Japan)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Asia turn on this?
+
+the-parent-seen-plainly
+    "A child sees what the parent actually is and can no longer be held by the figure the parent was."
+    holds 2 film(s) across 1 region(s), 26y span  [films 2<6, regions 1<3, span 26y<30]
+    has: Death of a Salesman (US/CA), The Tree of Life (US/CA)
+    ask: which films from W-Europe, Japan, UK/IE, E-Asia turn on this?
+
+another-given-to-danger
+    "One party hands another over to the harm that is coming, so that itself or the rest may go clear"
+    holds 2 film(s) across 2 region(s), 43y span  [films 2<6, regions 2<3]
+    has: Sword of Penitence (Japan), The Conformist (W-Europe)
+    ask: which films from US/CA, UK/IE, E-Asia, E-Europe turn on this?
+
+blame-lands-where-it-can
+    "A loss no one can be shown to have caused is converted into blame settled on whoever is close enough to receive it."
+    holds 2 film(s) across 2 region(s), 12y span  [films 2<6, regions 2<3, span 12y<30]
+    has: Martha (Other), Let's Hope It's a Girl (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+a-debt-holds-a-person-in-place
+    "A debt is the thing keeping a person where they are"
+    holds 2 film(s) across 2 region(s), 1y span  [films 2<6, regions 2<3, span 1y<30]
+    has: Street of Shame (Japan), Mother India (S-Asia)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Asia turn on this?
+
+closeness-held-short-of-consummation
+    "Two stay close for years without letting it become what it is"
+    holds 2 film(s) across 2 region(s), 5y span  [films 2<6, regions 2<3, span 5y<30]
+    has: Love in the Afternoon (W-Europe), A Little Night Music (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+loved-under-a-mistaken-identity
+    "The love is real and aimed at a person who is not there"
+    holds 2 film(s) across 2 region(s), 8y span  [films 2<6, regions 2<3, span 8y<30]
+    has: Vertigo (US/CA), Persona (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+the-lie-must-be-fed
+    "A single lie has to be maintained by more of them"
+    holds 2 film(s) across 2 region(s), 72y span  [films 2<6, regions 2<3]
+    has: Safety Last! (US/CA), Farewell to Nostradamus (Japan)
+    ask: which films from W-Europe, UK/IE, E-Asia, E-Europe turn on this?
+
+the-substitute-lives-the-other-life
+    "One person occupies another's identity and lives it"
+    holds 2 film(s) across 2 region(s), 14y span  [films 2<6, regions 2<3, span 14y<30]
+    has: Il Marchese del Grillo (W-Europe), Memories (Japan)
+    ask: which films from US/CA, UK/IE, E-Asia, E-Europe turn on this?
+
+affection-made-to-be-earned
+    "One party makes their regard wait on a proof of worth, and the other keeps performing for a love that is never simply given."
+    holds 2 film(s) across 2 region(s), 2y span  [films 2<6, regions 2<3, span 2y<30]
+    has: The Time to Live and the Time to Die (E-Asia), King Lear (US/CA)
+    ask: which films from W-Europe, Japan, UK/IE, E-Europe turn on this?
+
+the-host-preys-on-the-guest
+    "The one offering shelter is the danger inside it"
+    holds 2 film(s) across 2 region(s), 26y span  [films 2<6, regions 2<3, span 26y<30]
+    has: Mouchette (W-Europe), Farewell My Concubine (E-Asia)
+    ask: which films from US/CA, Japan, UK/IE, E-Europe turn on this?
+
+failing-life-in-keeping
+    "One party's failing life falls into the hands of the one they used to carry, who must now carry them or leave them"
+    holds 2 film(s) across 2 region(s), 41y span  [films 2<6, regions 2<3]
+    has: Autumn Sonata (W-Europe), Honeyland (Other)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+the-gift-that-goes-unnamed
+    "What one party gives or owes another is kept from being named, so the good done is credited elsewhere and the debt is never spoken."
+    holds 2 film(s) across 2 region(s), 7y span  [films 2<6, regions 2<3, span 7y<30]
+    has: The Ghost Writer (W-Europe), A Taxi Driver (E-Asia)
+    ask: which films from US/CA, Japan, UK/IE, E-Europe turn on this?
+
+another-kept-dependent
+    "One party keeps another unable to stand on their own so that they cannot leave"
+    holds 2 film(s) across 2 region(s), 1y span  [films 2<6, regions 2<3, span 1y<30]
+    has: Fantastic Planet (W-Europe), Martha (Other)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+the-one-everyone-lives-off
+    "A circle of people draws its life from a single person, and that person is cut off from ordinary relation with any of them."
+    holds 2 film(s) across 2 region(s), 35y span  [films 2<6, regions 2<3]
+    has: Devi (S-Asia), One Hundred and One Nights (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+secret-amends-to-wronged
+    "One party quietly serves the person it once harmed without disclosing that it was the author of the harm"
+    holds 2 film(s) across 2 region(s), 70y span  [films 2<6, regions 2<3]
+    has: A Page of Madness (Japan), Hard Eight (US/CA)
+    ask: which films from W-Europe, UK/IE, E-Asia, E-Europe turn on this?
+
+search-consumes-the-searcher
+    "One party gives themselves over to recovering someone lost or taken, and the search takes them over"
+    holds 3 film(s) across 1 region(s), 20y span  [films 3<6, regions 1<3, span 20y<30]
+    has: Without Pity (W-Europe), La Jetée (W-Europe), A Quiet Place in the Country (W-Europe)
+    ask: which films from US/CA, Japan, UK/IE, E-Asia turn on this?
+
+scarcity-divided-among-dependents
+    "One party must divide what is not enough among those who depend on them for it"
+    holds 3 film(s) across 1 region(s), 28y span  [films 3<6, regions 1<3, span 28y<30]
+    has: A Mother Should be Loved (Japan), Street of Shame (Japan), Ningen (Japan)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Asia turn on this?
+
+one-goes-one-keeps-faith
+    "One party goes out of the shared life and the other stays inside it, holding the bond in place alone across the gap."
+    holds 3 film(s) across 2 region(s), 38y span  [films 3<6, regions 2<3]
+    has: The Burmese Harp (Japan), The Human Condition II: Road to Eternity (Japan), A Confucian Confusion (E-Asia)
+    ask: which films from US/CA, W-Europe, UK/IE, E-Europe turn on this?
+
+the-one-who-saw-is-not-believed
+    "The person telling the truth is the one nobody credits"
+    holds 3 film(s) across 2 region(s), 50y span  [films 3<6, regions 2<3]
+    has: Blowup (W-Europe), The Spiderwick Chronicles (US/CA), Certain Women (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+drawn-into-anothers-quarrel
+    "One party draws another into a fight that was not theirs to take up"
+    holds 3 film(s) across 2 region(s), 43y span  [films 3<6, regions 2<3]
+    has: Safety Last! (US/CA), Viva Maria! (W-Europe), Les Créatures (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+made-to-answer-for-another
+    "A reckoning is pressed against a substitute — kin, messenger, stand-in — who is made to answer for someone else's act."
+    holds 3 film(s) across 2 region(s), 62y span  [films 3<6, regions 2<3]
+    has: Pardon My Past (US/CA), Awaara (S-Asia), Eastern Promises (US/CA)
+    ask: which films from W-Europe, Japan, UK/IE, E-Asia turn on this?
+
+antagonism-without-settleable-cause
+    "Two parties meet in a hostility that has no cause either can settle, and it reasserts itself between them"
+    holds 3 film(s) across 2 region(s), 45y span  [films 3<6, regions 2<3]
+    has: La Strada (W-Europe), Days of Thunder (US/CA), My Best Fiend (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+refusing-what-all-have-settled
+    "One party will not concede what everyone around them treats as already settled, and the group's agreement is exactly what cannot move them."
+    holds 3 film(s) across 2 region(s), 14y span  [films 3<6, regions 2<3, span 14y<30]
+    has: Germany in Autumn (W-Europe), King Lear (US/CA), 1492 – Conquest of Paradise (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+one-dies-in-another-mans-place
+    "The death lands on the person who was standing nearby"
+    holds 3 film(s) across 2 region(s), 35y span  [films 3<6, regions 2<3]
+    has: Come Fill the Cup (US/CA), Flesh for Frankenstein (US/CA), Pirates (E-Europe)
+    ask: which films from W-Europe, Japan, UK/IE, E-Asia turn on this?
+
+shelter-across-a-hostile-line
+    "One party gives shelter or care to someone their own side is set against, and takes that danger onto themselves by giving it."
+    holds 3 film(s) across 2 region(s), 21y span  [films 3<6, regions 2<3, span 21y<30]
+    has: Germany in Autumn (W-Europe), Schindler's List (US/CA), The Iron Giant (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+the-old-give-way-to-the-young
+    "The old step aside, or are stepped past, for the young"
+    holds 3 film(s) across 2 region(s), 28y span  [films 3<6, regions 2<3, span 28y<30]
+    has: Doc Hollywood (US/CA), Tokyo Family (Japan), Midsommar (US/CA)
+    ask: which films from W-Europe, UK/IE, E-Asia, E-Europe turn on this?
+
+the-house-hides-its-shame
+    "The household conceals its ruin to keep its standing"
+    holds 3 film(s) across 2 region(s), 36y span  [films 3<6, regions 2<3]
+    has: A Page of Madness (Japan), Cops and Robbers (W-Europe), Foundry Town (Japan)
+    ask: which films from US/CA, UK/IE, E-Asia, E-Europe turn on this?
+
+account-that-spares-teller
+    "A party called to answer gives the one judging an account of the deed that clears itself"
+    holds 3 film(s) across 2 region(s), 40y span  [films 3<6, regions 2<3]
+    has: Last Tango in Paris (W-Europe), Into the Abyss (US/CA), The Act of Killing (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+falsehood-planted-between-two
+    "A third party sets a falsehood before one member of a bond that turns them against the other"
+    holds 3 film(s) across 2 region(s), 19y span  [films 3<6, regions 2<3, span 19y<30]
+    has: The Graduate (US/CA), Krull (US/CA), The Terrorizers (E-Asia)
+    ask: which films from W-Europe, Japan, UK/IE, E-Europe turn on this?
+
+personhood-held-by-another
+    "One party holds in its hands whether the other counts as anyone at all"
+    holds 3 film(s) across 2 region(s), 50y span  [films 3<6, regions 2<3]
+    has: Fantastic Planet (W-Europe), Lincoln (US/CA), Killers of the Flower Moon (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+the-bond-recast-unilaterally
+    "One party takes up a role toward the other that the tie between them never called for, and the bond is re-set on that footing."
+    holds 3 film(s) across 2 region(s), 31y span  [films 3<6, regions 2<3]
+    has: Secrets of Women (W-Europe), Last Tango in Paris (W-Europe), Table for Five (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+each-teller-shapes-the-past
+    "Every account of the same event flatters its teller"
+    holds 3 film(s) across 3 region(s), 39y span  [films 3<6]
+    has: Rashomon (Japan), Trois places pour le 26 (W-Europe), Crimes and Misdemeanors (US/CA)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+many-are-spent-to-hold-a-position
+    "People are expended to keep a position that is not theirs"
+    holds 3 film(s) across 3 region(s), 88y span  [films 3<6]
+    has: Metropolis (Other), Seven Samurai (Japan), Mad Max: Fury Road (US/CA)
+    ask: which films from W-Europe, UK/IE, E-Asia, E-Europe turn on this?
+
+friends-divided-by-a-larger-force
+    "A friendship is broken by a power neither friend controls"
+    holds 3 film(s) across 3 region(s), 39y span  [films 3<6]
+    has: Foundry Town (Japan), Jules and Jim (W-Europe), Dinner with Friends (US/CA)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+the-child-carries-the-household
+    "The child does the work the adults cannot"
+    holds 3 film(s) across 3 region(s), 16y span  [films 3<6, span 16y<30]
+    has: Awaara (S-Asia), Foundry Town (Japan), Mouchette (W-Europe)
+    ask: which films from US/CA, UK/IE, E-Asia, E-Europe turn on this?
+
+a-message-goes-astray
+    "Word entrusted to a carrier does not arrive as sent"
+    holds 3 film(s) across 3 region(s), 56y span  [films 3<6]
+    has: Mother Joan of the Angels (E-Europe), The Piano (W-Europe), Okja (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, S-Asia turn on this?
+
+shut-in-together
+    "Two parties are closed in with each other and neither can leave"
+    holds 3 film(s) across 3 region(s), 40y span  [films 3<6]
+    has: Ningen (Japan), Liza (W-Europe), Panic Room (US/CA)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+the-innocent-answer-for-one-mans-act
+    "The family or the many are punished for what one person did"
+    holds 4 film(s) across 2 region(s), 78y span  [films 4<6, regions 2<3]
+    has: Hangmen Also Die! (US/CA), Gladiator (US/CA), Waltz with Bashir (W-Europe), The Tragedy of Macbeth (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+faculty-supplied-for-another
+    "One party lends their voice, eyes or hands to another who lacks them, so that the other can act only through them"
+    holds 4 film(s) across 2 region(s), 65y span  [films 4<6, regions 2<3]
+    has: The Passion of Joan of Arc (W-Europe), The Cat o' Nine Tails (W-Europe), Exorcist II: The Heretic (US/CA), The Piano (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+one-absorbs-another-identity
+    "One party models itself on another until the two can barely be told apart, and is brought face to face with the one it copies"
+    holds 4 film(s) across 2 region(s), 36y span  [films 4<6, regions 2<3]
+    has: Persona (W-Europe), The Bird with the Crystal Plumage (W-Europe), Liza (W-Europe), Adaptation (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+help-that-buys-a-hold
+    "The only help on offer comes from someone who holds what the other cannot do without, and the giving carries terms — named or hidden — that the receiver is in no position to refuse."
+    holds 4 film(s) across 3 region(s), 69y span  [films 4<6]
+    has: Without Pity (W-Europe), Mother India (S-Asia), 1492 – Conquest of Paradise (W-Europe), All the Money in the World (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+promise-of-marriage-broken
+    "A promise to marry, or to wait, is broken"
+    holds 4 film(s) across 3 region(s), 73y span  [films 4<6]
+    has: The Manxman (UK/IE), The Plot of the Fuma Clan (Japan), Flowers of Shanghai (E-Asia), Dolls (Japan)
+    ask: which films from US/CA, W-Europe, E-Europe, S-Asia turn on this?
+
+love-renounced-to-spare-the-other
+    "Love is withheld or given up to protect the one loved"
+    holds 4 film(s) across 3 region(s), 44y span  [films 4<6]
+    has: The Man Who Shot Liberty Valance (US/CA), The Castle of Cagliostro (Japan), Doc Hollywood (US/CA), Daisy (E-Asia)
+    ask: which films from W-Europe, UK/IE, E-Europe, S-Asia turn on this?
+
+the-child-sees-what-the-adults-will-not-say
+    "The child asks or witnesses the thing the adults are managing around"
+    holds 4 film(s) across 3 region(s), 67y span  [films 4<6]
+    has: Ordet (W-Europe), Foundry Town (Japan), Memories (Japan), Aftersun (US/CA)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+the-nearest-cannot-stop-what-one-becomes
+    "Those closest watch a person change and cannot reach them"
+    holds 4 film(s) across 3 region(s), 40y span  [films 4<6]
+    has: Devi (S-Asia), Sympathy for the Devil (W-Europe), Akira (Japan), Eureka (Japan)
+    ask: which films from US/CA, UK/IE, E-Asia, E-Europe turn on this?
+
+bond-held-across-separation
+    "Two parties hold to each other across an absence or a barrier neither of them set and neither can lift"
+    holds 4 film(s) across 3 region(s), 46y span  [films 4<6]
+    has: Tidal Wave (Japan), Inland Empire (US/CA), The Dust of Time (W-Europe), Portrait of a Lady on Fire (W-Europe)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+the-child-leaves-the-one-who-raised-them
+    "The child departs, or refuses to depart, from the one who raised them"
+    holds 4 film(s) across 3 region(s), 53y span  [films 4<6]
+    has: Late Chrysanthemums (Japan), Street of Shame (Japan), Star Wars: Episode I – The Phantom Menace (US/CA), Persepolis (W-Europe)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+a-child-claimed-by-two
+    "A child is claimed at once by those who bore them and those who keep them, and where the child belongs is settled between the adults."
+    holds 4 film(s) across 4 region(s), 84y span  [films 4<6]
+    has: The Manxman (UK/IE), The Mirror (E-Europe), Table for Five (US/CA), Like Father, Like Son (Japan)
+    ask: which films from W-Europe, E-Asia, S-Asia, LatAm turn on this?
+
+contempt-drives-a-person-to-end-their-life
+    "A person is treated out of existence"
+    holds 4 film(s) across 4 region(s), 100y span  [films 4<6]
+    has: The Burning Soil (W-Europe), Strike (E-Europe), The Human Condition II: Road to Eternity (Japan), Tár (US/CA)
+    ask: which films from UK/IE, E-Asia, S-Asia, LatAm turn on this?
+
+the-search-was-staged-by-its-object
+    "The emergency was arranged by the person it is about"
+    holds 4 film(s) across 4 region(s), 24y span  [films 4<6, span 24y<30]
+    has: Klute (US/CA), The Wicker Man (UK/IE), Decalogue III (E-Europe), Memories (Japan)
+    ask: which films from W-Europe, E-Asia, S-Asia, LatAm turn on this?
+
+the-wanted-child-denied
+    "One party is denied the child it wants, and the party bound to them is caught in the lack"
+    holds 4 film(s) across 4 region(s), 41y span  [films 4<6]
+    has: Close to My Heart (US/CA), Children of Hiroshima (Japan), Jules and Jim (W-Europe), Waterland (UK/IE)
+    ask: which films from E-Asia, E-Europe, S-Asia, LatAm turn on this?
+
+the-danger-is-already-inside-the-house
+    "The threat is a person already admitted"
+    holds 5 film(s) across 1 region(s), 47y span  [films 5<6, regions 1<3]
+    has: Damien: Omen II (US/CA), Someone's Watching Me! (US/CA), Guilty as Sin (US/CA), The Triangle (US/CA), Honey Don't! (US/CA)
+    ask: which films from W-Europe, Japan, UK/IE, E-Asia turn on this?
+
+the-made-turns-on-maker
+    "What one party shaped, taught or set in motion refuses the purpose it was given and comes back on the one who made it."
+    holds 5 film(s) across 2 region(s), 36y span  [films 5<6, regions 2<3]
+    has: Fantastic Planet (W-Europe), Flesh for Frankenstein (US/CA), Blade Runner (US/CA), Total Recall (US/CA), The White Ribbon (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+a-bargain-with-a-price-not-named
+    "The terms of the offer are not what they appeared"
+    holds 5 film(s) across 2 region(s), 36y span  [films 5<6, regions 2<3]
+    has: Mara Maru (US/CA), Piece of the Sky (W-Europe), Exorcist II: The Heretic (US/CA), Intervista (W-Europe), It Takes Two (US/CA)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+witness-misreads-the-scene
+    "One party takes what they saw for something it was not, while another holds the sense of it"
+    holds 5 film(s) across 2 region(s), 17y span  [films 5<6, regions 2<3, span 17y<30]
+    has: The Burmese Harp (Japan), The Law Is the Law (W-Europe), Blowup (W-Europe), The Bird with the Crystal Plumage (W-Europe), Don't Look Now (W-Europe)
+    ask: which films from US/CA, UK/IE, E-Asia, E-Europe turn on this?
+
+a-life-settled-by-others
+    "Others with the standing to do it settle the shape of a party's life in advance, and the one whose life it is was never put the question."
+    holds 5 film(s) across 3 region(s), 37y span  [films 5<6]
+    has: Diary of a Country Priest (W-Europe), The Young One (LatAm), Where Are You Going on Holiday? (W-Europe), The Sacrifice (W-Europe), It Takes Two (US/CA
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+the-bond-ended-without-account
+    "One party ends or leaves the bond on their own account and gives the other no reason they can accept, and the other has no standing to refuse it."
+    holds 5 film(s) across 3 region(s), 50y span  [films 5<6]
+    has: Last Tango in Paris (W-Europe), Doc Hollywood (US/CA), Eureka (Japan), Tropical Malady (W-Europe), Aftersun (US/CA)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+confession-to-the-powerless
+    "One party discharges a guilt onto someone who can neither punish it nor absolve it"
+    holds 5 film(s) across 3 region(s), 34y span  [films 5<6]
+    has: Persona (W-Europe), Taxi Driver (US/CA), Waterland (UK/IE), Guilty as Sin (US/CA), Faithless (W-Europe)
+    ask: which films from Japan, E-Asia, E-Europe, S-Asia turn on this?
+
+judged-by-birth-not-by-act
+    "A person is judged by their parentage or rank rather than what they did"
+    holds 5 film(s) across 3 region(s), 30y span  [films 5<6]
+    has: Awaara (S-Asia), Close to My Heart (US/CA), War and Peace (US/CA), The Merchant of Four Seasons (W-Europe), Il Marchese del Grillo (W-Europe)
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+cast-out-by-group
+    "A body of people puts out one of its own members and withholds standing from them"
+    holds 5 film(s) across 4 region(s), 63y span  [films 5<6]
+    has: Hiroshima mon amour (Japan), La Chinoise (W-Europe), The Working Class Goes to Heaven (W-Europe), The Incredibles (US/CA), No Bears (S-Asia)
+    ask: which films from UK/IE, E-Asia, E-Europe, LatAm turn on this?
+
+two-claims-on-one-person
+    "Two parties press a whole claim on the same person, who can be neither shared nor divided, so going to one is the unmaking of the other."
+    holds 5 film(s) across 4 region(s), 42y span  [films 5<6]
+    has: The Idiot (Japan), Jules and Jim (W-Europe), A Little Night Music (US/CA), Doc Hollywood (US/CA), Farewell My Concubine (E-Asia)
+    ask: which films from UK/IE, E-Europe, S-Asia, LatAm turn on this?
+
+withdrawal-inside-the-bond
+    "Two parties stay in each other's company while one holds itself closed and the other turns outside it"
+    holds 5 film(s) across 4 region(s), 37y span  [films 5<6]
+    has: Shadows of Forgotten Ancestors (E-Europe), Love in the Afternoon (W-Europe), Good News (W-Europe), The Terrorizers (E-Asia), Dinner with Friends (US/C
+    ask: which films from Japan, UK/IE, S-Asia, LatAm turn on this?
+
+accounting-demanded-by-wronged
+    "The party who was failed or harmed confronts the one responsible and demands they answer for it"
+    holds 5 film(s) across 4 region(s), 61y span  [films 5<6]
+    has: Harakiri (Japan), Autumn Sonata (W-Europe), Nine Queens (LatAm), Like Father, Like Son (Japan), Killers of the Flower Moon (US/CA)
+    ask: which films from UK/IE, E-Asia, E-Europe, S-Asia turn on this?
+
+the-newcomer-takes-the-place-already-held
+    "An arrival occupies the place someone already held"
+    holds 6 film(s) across 2 region(s), 47y span  [regions 2<3]
+    has: The Man Who Shot Liberty Valance (US/CA), The Merchant of Four Seasons (W-Europe), The Phantom of Liberty (W-Europe), Trois places pour le 26 (W-Europ
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+help-comes-from-the-enemy
+    "The help arrives from the person with the most reason to withhold it"
+    holds 6 film(s) across 2 region(s), 66y span  [regions 2<3]
+    has: Come Fill the Cup (US/CA), Stalag 17 (US/CA), The Law Is the Law (W-Europe), The Best of Enemies (US/CA), Panic Room (US/CA), All the Money in the Wor
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+a-parent-cannot-love-the-child
+    "A parent cannot feel toward the child what the child needs"
+    holds 6 film(s) across 3 region(s), 29y span  [span 29y<30]
+    has: Close to My Heart (US/CA), Rebel Without a Cause (US/CA), Persona (W-Europe), The Merchant of Four Seasons (W-Europe), Autumn Sonata (W-Europe), Pixot
+    ask: which films from Japan, UK/IE, E-Asia, E-Europe turn on this?
+
+taking-another-into-keeping
+    "One party takes into its own house and keeping someone with no claim to be there"
+    holds 8 film(s) across 2 region(s), 78y span  [regions 2<3]
+    has: Passing Fancy (Japan), A Mother Should be Loved (Japan), Rashomon (Japan), Close to My Heart (US/CA), The Wild Child (US/CA), Black Rain (Japan), A Se
+    ask: which films from W-Europe, UK/IE, E-Asia, E-Europe turn on this?
+
+a-bond-resting-on-concealment
+    "One party holds a bond in place by keeping from the person closest to them something that would change what the bond is."
+    holds 8 film(s) across 5 region(s), 21y span  [span 21y<30]
+    has: Rosemary's Baby (US/CA), The Touch (US/CA), Un flic (W-Europe), Good News (W-Europe), No End (E-Europe), Aria (UK/IE), Decalogue III (E-Europe), Sweet
+    ask: which films from Japan, E-Asia, S-Asia, LatAm turn on this?

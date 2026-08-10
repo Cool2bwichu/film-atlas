@@ -39,9 +39,15 @@ const argv = process.argv.slice(2);
 const opt = (k, d) => { const i = argv.indexOf(k); return i === -1 ? d : argv[i + 1]; };
 
 const MIN_FILMS = 6, MIN_REGIONS = 3, MIN_SPAN = 30;
+const TARGETS = parseInt(opt("--targets", 20), 10);   // how many expansion targets to print; default unchanged
 
 const TAGS = opt("--tags", "pipeline/predicate-tags.seed.json");
-const vocab = JSON.parse(fs.readFileSync(path.join(ROOT, "pipeline/predicates.json"), "utf8"));
+/* The vocabulary was hardcoded to the 25-entry demo list in pipeline/predicates.json,
+   which is a DEMO vocabulary, not the vocabulary — the real one is mined by Pass B and
+   frozen (pipeline/out/predicates-frozen.json). Default is unchanged, so every previous
+   invocation still reports exactly what it reported before. */
+const VOCAB = opt("--vocab", "pipeline/predicates.json");
+const vocab = JSON.parse(fs.readFileSync(path.join(ROOT, VOCAB), "utf8"));
 const tagsrc = JSON.parse(fs.readFileSync(path.join(ROOT, TAGS), "utf8"));
 const corpus = JSON.parse(fs.readFileSync(path.join(ROOT, "static/corpus.json"), "utf8"));
 const fps = JSON.parse(fs.readFileSync(path.join(ROOT, "static/fingerprints.json"), "utf8")).films;
@@ -80,6 +86,7 @@ const allRegions = new Set(Object.values(fps).map((f) => f.region || "Other"));
 const pad = (s, n) => String(s).padEnd(n);
 
 console.log(`\n  PREDICATE COVERAGE — ${TAGS}`);
+console.log(`  vocabulary: ${VOCAB}`);
 console.log(`  ${Object.keys(tagsrc.films).length} films tagged, ${V.size} predicates in vocabulary`);
 console.log(`  thresholds: >=${MIN_FILMS} films, >=${MIN_REGIONS} regions, >=${MIN_SPAN}y span\n`);
 
@@ -95,7 +102,7 @@ if (!argv.includes("--gaps")) {
 }
 
 console.log("  EXPANSION TARGETS — ask these against the regions listed, not in general\n");
-for (const r of bad.slice(0, 20)) {
+for (const r of bad.slice(0, TARGETS)) {
   const missing = [...allRegions].filter((x) => !r.regions.has(x));
   console.log(`  ${r.id}`);
   console.log(`    "${r.label}"`);

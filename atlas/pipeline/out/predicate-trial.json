@@ -1,0 +1,251 @@
+{
+ "generated": "2026-08-10T16:05:24.250Z",
+ "method": "top-6 visible slots per film; primary rank = raw edge.strength desc, stable sort, corpus-edges-first tie order; one edge per pair, stronger wins",
+ "corpus": "static/corpus.json",
+ "predicates": "pipeline/out/predicate-edges.json",
+ "taggedFilms": 292,
+ "predicateEdges": 7299,
+ "predicateStrength": {
+  "min": 0.2994,
+  "median": 0.364,
+  "max": 0.5436
+ },
+ "saturatedTaggedFilms": 252,
+ "results": {
+  "strength": {
+   "corpusWide": {
+    "before": {
+     "bySig": {
+      "crew": 6925,
+      "subject": 677,
+      "authored": 982,
+      "keyword": 932,
+      "cast": 2654,
+      "movement": 61,
+      "setting": 274,
+      "adaptation": 32,
+      "sameAuthor": 160,
+      "genreEra": 277,
+      "countryEra": 140,
+      "genre": 10,
+      "studio": 59
+     },
+     "shown": 13183,
+     "trivia": 3081,
+     "repeated": 3360,
+     "mapsWithRepeat": 1787,
+     "thin": 14
+    },
+    "after": {
+     "bySig": {
+      "crew": 6915,
+      "subject": 677,
+      "authored": 981,
+      "keyword": 932,
+      "cast": 2654,
+      "movement": 61,
+      "setting": 274,
+      "adaptation": 32,
+      "sameAuthor": 160,
+      "genreEra": 252,
+      "countryEra": 131,
+      "genre": 10,
+      "predicate": 53,
+      "studio": 56
+     },
+     "shown": 13188,
+     "trivia": 3047,
+     "repeated": 3347,
+     "mapsWithRepeat": 1784,
+     "thin": 13
+    }
+   },
+   "cohort": {
+    "before": {
+     "bySig": {
+      "crew": 889,
+      "sameAuthor": 23,
+      "cast": 345,
+      "keyword": 124,
+      "authored": 153,
+      "subject": 108,
+      "genreEra": 42,
+      "movement": 6,
+      "setting": 32,
+      "studio": 13,
+      "countryEra": 9,
+      "adaptation": 3
+     },
+     "shown": 1747,
+     "trivia": 396,
+     "repeated": 414,
+     "mapsWithRepeat": 225
+    },
+    "after": {
+     "bySig": {
+      "crew": 879,
+      "sameAuthor": 23,
+      "cast": 345,
+      "keyword": 124,
+      "authored": 152,
+      "subject": 108,
+      "predicate": 53,
+      "movement": 6,
+      "setting": 32,
+      "genreEra": 17,
+      "adaptation": 3,
+      "studio": 10
+     },
+     "shown": 1752,
+     "trivia": 362,
+     "repeated": 401,
+     "mapsWithRepeat": 222
+    }
+   },
+   "churn": {
+    "corpusWide": {
+     "n": 2204,
+     "changed": 27,
+     "top3": 7,
+     "gained": 27
+    },
+    "cohort": {
+     "n": 292,
+     "changed": 27,
+     "top3": 7,
+     "gained": 27
+    }
+   }
+  },
+  "app": {
+   "corpusWide": {
+    "before": {
+     "bySig": {
+      "authored": 2096,
+      "keyword": 1351,
+      "crew": 5143,
+      "subject": 595,
+      "cast": 1898,
+      "movement": 81,
+      "studio": 409,
+      "setting": 453,
+      "adaptation": 31,
+      "sameAuthor": 141,
+      "genreEra": 465,
+      "countryEra": 398,
+      "genre": 122
+     },
+     "shown": 13183,
+     "trivia": 2883,
+     "repeated": 798,
+     "mapsWithRepeat": 613,
+     "thin": 14
+    },
+    "after": {
+     "bySig": {
+      "authored": 2060,
+      "keyword": 1297,
+      "crew": 4554,
+      "subject": 561,
+      "cast": 1660,
+      "movement": 75,
+      "studio": 350,
+      "setting": 424,
+      "adaptation": 31,
+      "sameAuthor": 138,
+      "predicate": 1174,
+      "genreEra": 398,
+      "countryEra": 361,
+      "genre": 105
+     },
+     "shown": 13188,
+     "trivia": 2524,
+     "repeated": 704,
+     "mapsWithRepeat": 537,
+     "thin": 13
+    }
+   },
+   "cohort": {
+    "before": {
+     "bySig": {
+      "sameAuthor": 18,
+      "crew": 632,
+      "authored": 358,
+      "cast": 238,
+      "keyword": 172,
+      "studio": 59,
+      "countryEra": 37,
+      "subject": 86,
+      "genre": 17,
+      "setting": 53,
+      "genreEra": 67,
+      "movement": 7,
+      "adaptation": 3
+     },
+     "shown": 1747,
+     "trivia": 359,
+     "repeated": 94,
+     "mapsWithRepeat": 76
+    },
+    "after": {
+     "bySig": {
+      "sameAuthor": 15,
+      "predicate": 1174,
+      "authored": 322,
+      "keyword": 118,
+      "subject": 52,
+      "setting": 24,
+      "crew": 43,
+      "adaptation": 3,
+      "movement": 1
+     },
+     "shown": 1752,
+     "trivia": 0,
+     "repeated": 0,
+     "mapsWithRepeat": 0
+    }
+   },
+   "churn": {
+    "corpusWide": {
+     "n": 2204,
+     "changed": 268,
+     "top3": 217,
+     "gained": 268
+    },
+    "cohort": {
+     "n": 292,
+     "changed": 268,
+     "top3": 217,
+     "gained": 268
+    }
+   }
+  },
+  "ceiling": {
+   "bySig": {
+    "crew": 6041,
+    "subject": 569,
+    "authored": 831,
+    "keyword": 808,
+    "cast": 2309,
+    "movement": 55,
+    "setting": 242,
+    "predicate": 1745,
+    "sameAuthor": 137,
+    "adaptation": 29,
+    "genreEra": 235,
+    "countryEra": 131,
+    "genre": 10,
+    "studio": 46
+   },
+   "shown": 13188,
+   "trivia": 2685,
+   "repeated": 2947,
+   "churn": {
+    "n": 2204,
+    "changed": 292,
+    "top3": 292,
+    "gained": 292
+   }
+  }
+ }
+}

@@ -1,0 +1,4393 @@
+{
+ "version": "predicate-tags-passC-shard1",
+ "pass": "C - tag. Classification against the frozen vocabulary only.",
+ "vocabulary": {
+  "file": "pipeline/out/predicates-frozen.json",
+  "version": "predicate-vocab-1.0.0",
+  "predicates": 175
+ },
+ "shard": {
+  "index": 1,
+  "of": 3,
+  "label": "shard 2 of 3",
+  "cohort": "pipeline/predicate-cohort-300.pc-shard1.txt",
+  "slice": "contiguous lines 101-200 of the 300-film cohort, in file order",
+  "films": 100,
+  "cohortNote": "Lines 101-200 of pipeline/predicate-cohort-300.txt, written out as pc-shard1.txt to match the sibling shards. Verified against the files the other two workflows used: pc-shard0.txt is exactly lines 1-100 and pc-shard2.txt exactly lines 201-300, so the three shards partition the 300-film cohort with no overlap and no gap."
+ },
+ "method": [
+  "Each film was classified from its plot section in pipeline/out/plots.json and nothing else. All 100 films in this slice are above plot-source.js's 1,500-char floor (min 1,514, median 3,219, max 12,871).",
+  "Pass A readings and the provenance.readings blocks in the frozen file were NOT read into the classification, per passCContract.doNotPrompt: they carry the Pass A batch artefact.",
+  "pipeline/predicate-tags.seed.json was not opened, used as an exemplar, or scored against.",
+  "No predicate was invented. Every id, role and outcome is validated against the frozen file; 0 tags failed validation.",
+  "role records which side of the predicate the film's own weight sits on, and is always one of that predicate's two declared roles.",
+  "outcome uses the five values Pass A used: restored, transfigured, unrestored, fatal, ambiguous.",
+  "basis names the specific instantiation in this film and is written from the plot text, never as a restatement of the predicate label.",
+  "A soft ceiling of about five tags per film was applied to rich plots so that length of plot section did not become the tag count - plotChars is a fame-correlated quantity and AGENTS rule 1 keeps fame out of the graph. Films where a sixth was genuinely instantiated record five and lose the weakest."
+ ],
+ "results": {
+  "filmsTagged": 100,
+  "tags": 434,
+  "meanTagsPerFilm": 4.34,
+  "noneOfThese": 2,
+  "noneOfThesePct": 2.0,
+  "noneOfTheseFilms": [
+   "Joy of Learning",
+   "Koyaanisqatsi"
+  ],
+  "tagsPerFilmDistribution": {
+   "0": 2,
+   "1": 1,
+   "2": 2,
+   "3": 7,
+   "4": 33,
+   "5": 54,
+   "6": 1
+  },
+  "distinctPredicatesFired": 127,
+  "ofVocabulary": 175,
+  "predicatesNeverFiredInThisShard": 48,
+  "meanCentrality": 0.61,
+  "outcomeCounts": {
+   "unrestored": 147,
+   "fatal": 128,
+   "restored": 112,
+   "ambiguous": 28,
+   "transfigured": 19
+  },
+  "topTen": [
+   {
+    "predicate": "person-used-as-means",
+    "films": 20,
+    "label": "One party spends another on a purpose that other is never made party to"
+   },
+   {
+    "predicate": "the-wrong-person-is-blamed",
+    "films": 14,
+    "label": "The blame is fixed on someone who did not do it"
+   },
+   {
+    "predicate": "knower-silenced",
+    "films": 12,
+    "label": "One party moves against another for what that other has learned, to keep it from getting out"
+   },
+   {
+    "predicate": "own-death-brought-about",
+    "films": 11,
+    "label": "One party settles the terms of its own death and requires those bound to it to stand by and let it happen"
+   },
+   {
+    "predicate": "kept-under-watch",
+    "films": 10,
+    "label": "One party holds another under a sustained look, and the watching stands in place of any exchange between them"
+   },
+   {
+    "predicate": "harm-answered-with-harm",
+    "films": 10,
+    "label": "One party sets out to make another pay in kind for a harm already done to them or to their own"
+   },
+   {
+    "predicate": "the-warning-that-cannot-land",
+    "films": 10,
+    "label": "One party sees plainly what is true and cannot get it credited by the people who would have to act on it, and the cost falls where they said it would."
+   },
+   {
+    "predicate": "will-pressed-into-yielding",
+    "films": 9,
+    "label": "One party applies pressure, harm or the threat of it until another gives up what they were withholding"
+   },
+   {
+    "predicate": "cost-taken-onto-oneself",
+    "films": 9,
+    "label": "One party takes onto itself the danger, ruin or loss that belongs to another, so the other does not carry it"
+   },
+   {
+    "predicate": "identity-passed-off",
+    "films": 8,
+    "label": "One party stands before another under an identity that is not their own, and the other takes it as true"
+   }
+  ],
+  "firedOnceOnly": [
+   "a-deception-is-uncovered-by-the-one-deceived",
+   "a-life-is-bought-back-for-a-price",
+   "a-wrong-never-answered-for",
+   "absolution-sought-from-wronged",
+   "account-that-spares-teller",
+   "accounting-demanded-by-wronged",
+   "acting-on-a-false-picture",
+   "another-given-to-danger",
+   "another-hand-runs-your-life",
+   "antagonism-without-settleable-cause",
+   "bond-held-across-separation",
+   "bond-held-by-need",
+   "confession-to-the-powerless",
+   "failing-life-in-keeping",
+   "grievance-read-as-insubordination",
+   "kinship-made-from-lack",
+   "love-renounced-to-spare-the-other",
+   "mourners-cannot-grieve-together",
+   "personhood-held-by-another",
+   "promise-of-marriage-broken",
+   "reckoning-with-those-left",
+   "search-consumes-the-searcher",
+   "shelter-across-a-hostile-line",
+   "shut-in-together",
+   "subordinate-turns-on-superior",
+   "the-bond-ended-without-account",
+   "the-child-carries-the-household",
+   "the-host-preys-on-the-guest",
+   "the-one-entrusted-keeps-it",
+   "the-parent-seen-plainly",
+   "the-price-paid-by-another",
+   "the-substitute-lives-the-other-life",
+   "the-trap-closes-on-the-one-who-set-it",
+   "two-claims-on-one-person",
+   "withholds-the-blow"
+  ],
+  "neverFiredInThisShard": [
+   "a-debt-holds-a-person-in-place",
+   "a-message-goes-astray",
+   "a-secret-kept-from-the-one-loved",
+   "a-woman-is-shamed-for-her-own-violation",
+   "acting-inside-anothers-design",
+   "an-open-secret-nobody-acts-on",
+   "answerable-for-what-was-done-below",
+   "concealed-thing-surfaces",
+   "contempt-drives-a-person-to-end-their-life",
+   "drawn-into-anothers-quarrel",
+   "friends-divided-by-a-larger-force",
+   "help-comes-from-the-enemy",
+   "help-that-buys-a-hold",
+   "intervener-struck-down",
+   "kin-subordinated-to-rule",
+   "loved-under-a-mistaken-identity",
+   "made-to-answer-for-another",
+   "many-are-spent-to-hold-a-position",
+   "marriage-made-for-gain",
+   "one-goes-one-keeps-faith",
+   "outsiders-strip-both-sides",
+   "person-passed-between-holders",
+   "restraint-dropped-before-another",
+   "rivalry-for-a-single-place",
+   "scarcity-divided-among-dependents",
+   "secret-amends-to-wronged",
+   "standing-in-anothers-place",
+   "standing-stripped-answered-with-death",
+   "suspicion-spreads-among-neighbours",
+   "the-accuser-holds-the-guilt",
+   "the-child-leaves-the-one-who-raised-them",
+   "the-child-sees-what-the-adults-will-not-say",
+   "the-crowd-decides-a-mans-fate",
+   "the-dying-arrange-what-comes-after",
+   "the-gift-that-goes-unnamed",
+   "the-house-hides-its-shame",
+   "the-innocent-answer-for-one-mans-act",
+   "the-lie-must-be-fed",
+   "the-old-give-way-to-the-young",
+   "the-one-everyone-lives-off",
+   "the-one-who-saw-is-not-believed",
+   "the-quarrel-passes-down-the-generations",
+   "the-strong-hound-the-weakest",
+   "the-wanted-child-denied",
+   "the-welcomed-guest-ruins-the-house",
+   "the-young-are-spent-for-the-old",
+   "unchosen-debt-created",
+   "virtue-is-turned-against-the-one-who-has-it"
+  ],
+  "firedOnceOnlyCount": 35,
+  "bottomTenNote": "There is no bottom ten by count. 48 of the 175 predicates fired zero times in this shard and 35 more fired exactly once, so the tail is an 83-way tie at 0 or 1. Both lists are given in full (neverFiredInThisShard, firedOnceOnly). A rank order inside that tail would be noise.",
+  "aboveBandInThisShard": [
+   {
+    "predicate": "person-used-as-means",
+    "films": 20,
+    "pctOfShard": 20
+   },
+   {
+    "predicate": "the-wrong-person-is-blamed",
+    "films": 14,
+    "pctOfShard": 14
+   },
+   {
+    "predicate": "knower-silenced",
+    "films": 12,
+    "pctOfShard": 12
+   },
+   {
+    "predicate": "own-death-brought-about",
+    "films": 11,
+    "pctOfShard": 11
+   },
+   {
+    "predicate": "kept-under-watch",
+    "films": 10,
+    "pctOfShard": 10
+   },
+   {
+    "predicate": "harm-answered-with-harm",
+    "films": 10,
+    "pctOfShard": 10
+   },
+   {
+    "predicate": "the-warning-that-cannot-land",
+    "films": 10,
+    "pctOfShard": 10
+   },
+   {
+    "predicate": "will-pressed-into-yielding",
+    "films": 9,
+    "pctOfShard": 9
+   },
+   {
+    "predicate": "cost-taken-onto-oneself",
+    "films": 9,
+    "pctOfShard": 9
+   }
+  ],
+  "bandWarning": "Nine predicates are held by more than 8% of this 100-film shard, person-used-as-means by 20%. The proposal's band is 0.4-8% and its own test is that a situation held by a third of the corpus is a genre. These are shard percentages on a cohort assembled for readability and skewed 44% W-Europe and 1967-1990; they are NOT corpus prevalence and must not be reported as such. The band cut belongs after all three shards and the full 2,204, per the frozen file's afterPassC."
+ },
+ "caveats": [
+  "This is one third of the 300-film cohort, not the corpus. Prevalence must be recounted over all 2,204 after all three shards land, and the 0.4-8% band cut then, per the frozen file's afterPassC.",
+  "The shard is skewed W-Europe and 1967-1990 because the cohort slice is contiguous and the cohort is ordered by year. Predicate frequencies here are not corpus frequencies.",
+  "Coverage is deliberately uneven. Two films carry nothing and several essay and portmanteau films carry one to three low-centrality tags."
+ ],
+ "films": [
+  {
+   "film": "La Chinoise",
+   "filmId": "film-608abcf197fcc7ce",
+   "year": 1967,
+   "region": "W-Europe",
+   "plotChars": 2783,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cast-out-by-group",
+     "role": "expelling",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Henri argues the pro-Soviet line inside the Aden Arabie cell, is denounced as a revisionist by the others and put out of the apartment."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "On the train to the assassination Francis Jeanson works on Veronique for the length of the ride to turn her back from violence, and she goes on to the hotel anyway."
+    },
+    {
+     "predicate": "the-nearest-goes-unseen",
+     "role": "overlooked",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Yvonne, the only actual peasant in a cell that lectures itself about the peasantry, does the apartment's housework and is kept outside the discussions."
+    },
+    {
+     "predicate": "distant-stranger-harmed",
+     "role": "struck",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Veronique reverses the digits of the hotel room number and shoots a man who has no part in her politics, then goes back to finish the job she came for."
+    }
+   ]
+  },
+  {
+   "film": "Le Samouraï",
+   "filmId": "film-9f06cb40d998ad1e",
+   "year": 1967,
+   "region": "W-Europe",
+   "plotChars": 2769,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-one-in-power-punishes-his-own-instrument",
+     "role": "instrument",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Jef comes to collect the fee for the Martey hit and his paymaster shoots him in the arm instead: once he is a suspect the men who hired him would rather have him dead than paid."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Jef walks back into the club making no attempt to be unseen, puts on his working gloves in front of the room and levels an unloaded gun at Valerie so the waiting police will shoot."
+    },
+    {
+     "predicate": "the-witness-who-stays-silent",
+     "role": "the one it falls on",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Valerie sees Jef leaving Martey's office clearly and then fails to pick him out of the identity parade, and the silence is what puts him back on the street."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watched",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The commissaire has Jef followed, bugs his room while he is out and puts dozens of plainclothes men on him through the Metro; the police never speak to him again, they only look."
+    },
+    {
+     "predicate": "deference-withheld-from-power",
+     "role": "withholding",
+     "centrality": 0.25,
+     "outcome": "unrestored",
+     "basis": "The police search Jane's flat and offer to leave her alone if she withdraws Jef's alibi; she turns the offer down flat."
+    }
+   ]
+  },
+  {
+   "film": "Mouchette",
+   "filmId": "film-0c7231369e8a1dc5",
+   "year": 1967,
+   "region": "W-Europe",
+   "plotChars": 2764,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-child-carries-the-household",
+     "role": "child",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Mouchette does all the housework, feeds and changes the infant brother and fetches the gin her bedbound mother asks for so as to die without pain, while the father drinks and abuses her."
+    },
+    {
+     "predicate": "the-host-preys-on-the-guest",
+     "role": "sheltered",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Arsene takes Mouchette out of the rainstorm into his hut, she nurses him through his seizure, and when he comes round he holds her there and rapes her."
+    },
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "She tells the gamekeeper and his wife that she spent the night at Arsene's because he is her lover, and the shopkeeper who spots the scratch on her chest calls her a little slut."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "refusing",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "The old woman gives her a shroud for her mother and three dresses that fit, and Mouchette insults her and stains the carpet on the way out."
+    }
+   ]
+  },
+  {
+   "film": "Rocky Road to Dublin",
+   "filmId": "film-3c496048a78e1b95",
+   "year": 1967,
+   "region": "UK/IE",
+   "plotChars": 4470,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "knower-silenced",
+     "role": "knowing",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "The roll call of Irish and foreign writers banned by the censorship board is read over church bells rung as at a funeral, and emigration is named as what the bans produced."
+    },
+    {
+     "predicate": "another-hand-runs-your-life",
+     "role": "steered",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "An anonymous young married woman is told at confession to sleep apart from her husband rather than share his sin; the couple stop their method and she miscarries."
+    }
+   ]
+  },
+  {
+   "film": "The Graduate",
+   "filmId": "film-653491d8b6099cb6",
+   "year": 1967,
+   "region": "US/CA",
+   "plotChars": 3382,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "parted",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Mrs Robinson threatens to tell Elaine about the affair to stop the two of them, and Mr Robinson threatens Benjamin with jail and takes Elaine out of Berkeley to marry Carl."
+    },
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Benjamin meets his father's law partner's wife at the Taft Hotel through the summer, signing the register as Mr Gladstone."
+    },
+    {
+     "predicate": "falsehood-planted-between-two",
+     "role": "turned against",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Mrs Robinson tells Elaine that Benjamin raped her, and Elaine keeps him off until she finds out her mother lied."
+    },
+    {
+     "predicate": "the-match-arranged-by-others",
+     "role": "the one disposed of",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Mr Robinson pulls Elaine out of college and settles her marriage to Carl, and she is at the altar in Santa Barbara before she breaks it."
+    }
+   ]
+  },
+  {
+   "film": "The Hellbenders",
+   "filmId": "film-9e4503bbad4cfce0",
+   "year": 1967,
+   "region": "W-Europe",
+   "plotChars": 3105,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Claire is put into the dead prostitute's part as the widow of Captain Ambrose Allen and has to keep the grief up in front of a sheriff's posse, a minister who knew him, and finally his old fort."
+    },
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "carrying",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Colonel Jonas holds his three sons to the Confederate war he refuses to concede is over, and the coffin of banknotes they escort is the money he means to raise a new army with."
+    },
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "turning",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Ben denounces the family in front of the Indians and offers them the coffin money, and Nat and Jeff shoot each other over it in the crossfire."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Jonas whips Claire for arranging the burial at the fort and keeps her outside the cave through the storm until she takes pneumonia."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Sergeant Tolt mentions he holds photographs of Captain Allen and his wife, and Jonas decides he must be killed quietly and the photographs taken."
+    }
+   ]
+  },
+  {
+   "film": "The Oldest Profession",
+   "filmId": "film-9db1de5cae82235c",
+   "year": 1967,
+   "region": "W-Europe",
+   "plotChars": 1669,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.9,
+     "outcome": "ambiguous",
+     "basis": "Every episode is the same transaction in a different century: Brit made up to draw a passing trader, Mimi at her window, Nini going through the sleeping banker's wallet, Catherine working out of a friend's car and then an ambulance."
+    },
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "expended",
+     "centrality": 0.25,
+     "outcome": "unrestored",
+     "basis": "Philibert visits Mimi on the promise of paying as soon as the lawyers settle his guillotined uncle's estate, and then disappears."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.25,
+     "outcome": "restored",
+     "basis": "The Empress Domitilla is the mysterious beauty the Emperor Flavius finds at the brothel he made an excuse to leave her for."
+    }
+   ]
+  },
+  {
+   "film": "A Quiet Place in the Country",
+   "filmId": "film-fc4cfb157872ac40",
+   "year": 1968,
+   "region": "W-Europe",
+   "plotChars": 4492,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "expended",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Flavia presses Leonardo to paint so her gallery has stock, and when he is committed she buys the small obscene canvases off the orderly who is now doing the pressing."
+    },
+    {
+     "predicate": "search-consumes-the-searcher",
+     "role": "searching",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Leonardo drops the restoration of the villa to reconstruct the dead countess Wanda from the butcher, the caretaker and her mother's mementos, and ends in a psychiatric institution."
+    },
+    {
+     "predicate": "one-kills-what-one-loves",
+     "role": "killing",
+     "centrality": 0.65,
+     "outcome": "ambiguous",
+     "basis": "He hunts Flavia through the villa with a shovel and dismembers her, and then sees her standing among the police outside, unharmed, and attacks her again."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Leonardo convinces Wanda's destitute mother in her Venice flat that he is a journalist writing about the aristocracy, and steals photographs of Wanda while she shows him the red satin dress."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watching",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Attilio shows Leonardo the small room with the one-way mirror where he and Wanda had sex while Wanda's mother watched from the other side."
+    }
+   ]
+  },
+  {
+   "film": "Once Upon a Time in the West",
+   "filmId": "film-61df15f95182eb99",
+   "year": 1968,
+   "region": "US/CA",
+   "plotChars": 3108,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Frank once stood a boy under his hanging brother with a harmonica forced into his mouth until the boy's legs gave out; the grown boy waits at Sweetwater and puts the harmonica back into Frank's mouth as he dies."
+    },
+    {
+     "predicate": "one-removed-from-the-way",
+     "role": "removing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Frank exceeds Morton's brief to frighten McBain and shoots him and his three children at Sweetwater, because the watering-station land is what he wants for himself."
+    },
+    {
+     "predicate": "the-one-in-power-punishes-his-own-instrument",
+     "role": "leader",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Morton, who hired Frank, buys Frank's own gunmen to kill him once Frank starts taking Sweetwater for himself."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Frank forces Jill into a sexual encounter and then to put Sweetwater up for auction, where his men frighten off every bidder so he can have it cheap."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Frank leaves evidence at the McBain ranch pointing at Cheyenne, and Cheyenne spends the film as the wanted man whose bounty is finally bid as the price of the land."
+    }
+   ]
+  },
+  {
+   "film": "Rosemary's Baby",
+   "filmId": "film-a19b3afe7146dfcf",
+   "year": 1968,
+   "region": "US/CA",
+   "plotChars": 5833,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "basis": "Guy trades his wife's body and the child she carries to the Castevets' coven for the stage role the previous actor went blind to vacate, and she is only told what she was for after the birth."
+    },
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one kept from knowing",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Rosemary wakes scratched from the chocolate mousse and Guy tells her he had sex with her while she was unconscious because he did not want to miss baby night."
+    },
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one in their charge",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Dr Sapirstein, the obstetrician the Castevets steer her to, attributes the pain to pelvic joints, discounts her, and sedates her at the door of the delivery."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Rosemary reaches Dr Hill with the anagram, the tannis root and the necktie taken from the blinded actor, and he takes her for delusional and telephones Sapirstein."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "knowing",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Hutch researches the Bramford's history and Roman Castevet, arranges to bring Rosemary what he found, and falls into a coma that night; he surfaces once, to leave her the anagram."
+    }
+   ]
+  },
+  {
+   "film": "Sympathy for the Devil",
+   "filmId": "film-9dd2429cab7e479a",
+   "year": 1968,
+   "region": "W-Europe",
+   "plotChars": 2886,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Two bound Maoist hostages sit beside a book display in the pornographic bookshop and every customer, finally including a small child, slaps their faces as part of the purchase before giving a Nazi salute."
+    },
+    {
+     "predicate": "injury-discharged-on-outsiders",
+     "role": "discharging",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "In the junkyard the Panthers read Cleaver and Baraka and pass rifles hand to hand while a group of captive white women in white are shot off camera and their bodies laid out in tableaux."
+    },
+    {
+     "predicate": "the-nearest-cannot-stop-what-one-becomes",
+     "role": "watching",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Take after take at Olympic Studios shows the band re-cutting the song around Brian Jones as he comes apart in the room with them."
+    }
+   ]
+  },
+  {
+   "film": "Joy of Learning",
+   "filmId": "film-e46fb748efa4ebdf",
+   "year": 1969,
+   "region": "W-Europe",
+   "plotChars": 2970,
+   "aboveFloor": true,
+   "noneOfThese": true,
+   "noneNote": "Two students in a black studio working through sound, image and ideology for four years. No situation between two parties is instantiated: the relation between Patricia and Emile is deliberately voided along with plot and character, and the teacher figure is a whispered voice-over, not a party. the-teacher-and-the-one-taught was cut from the vocabulary in Pass B and nothing else in the frozen list fires.",
+   "tags": []
+  },
+  {
+   "film": "Machine Gun McCain",
+   "filmId": "film-f48a156a04b2530e",
+   "year": 1969,
+   "region": "W-Europe",
+   "plotChars": 2263,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Adamo has McCain sprung from prison and put on the Royal through Jack, so that the robbery reads as a bank robber's own idea and Adamo's stake war with Stilberman never appears in it."
+    },
+    {
+     "predicate": "betrayed-by-the-closest",
+     "role": "trusting",
+     "centrality": 0.65,
+     "outcome": "fatal",
+     "basis": "McCain's own son Jack brings him the job for Adamo and arrives at the warehouse with two of Adamo's men who are there to kill them both."
+    },
+    {
+     "predicate": "the-one-in-power-punishes-his-own-instrument",
+     "role": "instrument",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Don Francesco tortures McCain and Irene's names out of Adamo, his own newly promoted West Coast chief, and then has him killed."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "spared",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Rosemary Scott arranges the passage out for McCain and Irene, is taken by Francesco's men for it, and kills herself before they can get his position out of her."
+    }
+   ]
+  },
+  {
+   "film": "Investigation of a Citizen Above Suspicion",
+   "filmId": "film-4dfe2434399be7c9",
+   "year": 1970,
+   "region": "W-Europe",
+   "plotChars": 1514,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielded",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "The Doctor lays every proof of his own guilt in front of his superiors and confesses, and they refuse to hear it and make him withdraw the confession, the commissioner concurring."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "He plants clues that steer his own subordinates onto the murdered woman's husband and onto a student radical, and then clears them himself."
+    },
+    {
+     "predicate": "the-witness-who-stays-silent",
+     "role": "the one it falls on",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Antonio Pace, the one person who can place him at the flat, will not name him, on the grounds that a criminal running the repression proves what he says about power."
+    }
+   ]
+  },
+  {
+   "film": "The Bird with the Crystal Plumage",
+   "filmId": "film-05bd79e7b7f0c79b",
+   "year": 1970,
+   "region": "W-Europe",
+   "plotChars": 3583,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "witness-misreads-the-scene",
+     "role": "mistaken",
+     "centrality": 0.95,
+     "outcome": "restored",
+     "basis": "Trapped between the gallery's glass doors, Sam takes what he sees for a woman being attacked; it was Monica going at Alberto with the knife, and the missing clue is which of the two was which."
+    },
+    {
+     "predicate": "one-absorbs-another-identity",
+     "role": "imitating",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Monica, attacked as a girl ten years earlier, saw the painting of that attack and took the assailant's side of it for her own, restaging the raincoat and the knife on other young women."
+    },
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielding",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Alberto covers his wife's killings, commits some of them himself, and as he falls from the window confesses to the whole series."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "The killer telephones Sam and promises to kill Julia unless he drops the investigation, and then goes for her in the flat while he is out."
+    },
+    {
+     "predicate": "held-in-place-by-force",
+     "role": "held",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Two days before Sam and Julia are to fly home the police take his passport, on the grounds that he is the one witness."
+    }
+   ]
+  },
+  {
+   "film": "The Conformist",
+   "filmId": "film-9a0aca55382bc1f7",
+   "year": 1970,
+   "region": "W-Europe",
+   "plotChars": 3992,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "another-given-to-danger",
+     "role": "handing over",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Marcello gives Manganiello the road to Quadri's house in Savoy and then sits in the back of the car while Anna, whom he had told not to come, beats on the window for help and is run down and shot in the trees."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one admitted",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Marcello arrives in Paris as Quadri's old student on his honeymoon and is taken into the household, which is what puts him close enough to fix the killing."
+    },
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one in their charge",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "In 1917 the chauffeur Lino pulls the boy Marcello away from the schoolmates beating him, takes him to his room, shows him a pistol and assaults him."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "On the night Mussolini falls Marcello shouts that Lino murdered the Quadris, and then denounces his blind friend Italo as a Fascist to the crowd that carries him off."
+    },
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielded",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Marcello tells the priest about the assault, the man he believes he shot dead and his lack of any guilt about it, and is absolved once the priest hears he works for the secret police."
+    }
+   ]
+  },
+  {
+   "film": "The Wild Child",
+   "filmId": "film-c9eece5690bc6ea8",
+   "year": 1970,
+   "region": "US/CA",
+   "plotChars": 1690,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "another-shaped-to-order",
+     "role": "shaped",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "Itard works the boy he names Victor into speech and household order, and what the boy gains in social relation he loses in his capacity to live as he did in the woods."
+    },
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "taking up",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "basis": "Itard's colleagues at the school for deaf-mutes have the boy down as deaf or an idiot; Itard says he is neither, and that the state he is in is what deprivation did to him."
+    },
+    {
+     "predicate": "taking-another-into-keeping",
+     "role": "taking in",
+     "centrality": 0.55,
+     "outcome": "transfigured",
+     "basis": "Itard takes formal custody and removes the boy to his own house on the edge of Paris, where he and his housekeeper raise him."
+    },
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "evading",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "A woman screaming brings hunters and a pack of dogs, who tree the naked boy, tear at him when he drops, follow him to his hole and finally smoke him out of it."
+    }
+   ]
+  },
+  {
+   "film": "Klute",
+   "filmId": "film-32b4d581f604bf21",
+   "year": 1971,
+   "region": "US/CA",
+   "plotChars": 3217,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "kept-under-watch",
+     "role": "watched",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "basis": "Klute takes the basement flat in Bree's building, taps her telephone and follows her on tricks, and is doing it for weeks before she learns he is there."
+    },
+    {
+     "predicate": "the-search-was-staged-by-its-object",
+     "role": "searching",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Peter Cable hires his family friend Klute to find Gruneman and takes his reports throughout, having killed Gruneman himself and planted the obscene letter to explain him."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Gruneman walked in on Cable beating Jane McKenna, so Cable wrote to Bree in Gruneman's name and left the letter in his office to make him the man in the black book."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Every woman who could name the older client goes: McKenna a supposed suicide, Arlyn Page pulled out of the river after she tells Bree the photograph is the wrong man."
+    }
+   ]
+  },
+  {
+   "film": "Seemabaddha",
+   "filmId": "film-498159d928b2e1e5",
+   "year": 1971,
+   "region": "S-Asia",
+   "plotChars": 1517,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "To get the contract's civil-disturbance clause Shyamal has a riot staged at his own plant; a factory watchman is badly hurt in it and Shyamal is congratulated for efficient handling."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "directing",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "The plan is put into the labour officer's hands to provoke the strike and the lock-out, so that the defective paint never has to be Shyamal's to answer for."
+    },
+    {
+     "predicate": "corroded-by-anothers-life",
+     "role": "envied",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Tutul is shown round the restaurants, clubs, parlours and racecourse her sister lives among, admires the idealism of the teacher's pupil who married her, and is privately eaten by it."
+    }
+   ]
+  },
+  {
+   "film": "The Cat o' Nine Tails",
+   "filmId": "film-4411fd3aeb1b6b5d",
+   "year": 1971,
+   "region": "W-Europe",
+   "plotChars": 4003,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Everyone who holds a piece of what happened at the Terzi Institute is removed in turn: Calabresi under a train, the photographer with the uncropped negatives strangled, Bianca strangled over the locket, Braun stabbed."
+    },
+    {
+     "predicate": "identity-assigned-from-outside",
+     "role": "assigned",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "The Institute's XYY study holds that the chromosome carries a criminal tendency and Casoni argues for testing as crime prevention; Casoni broke in to swap out the record showing he carries it."
+    },
+    {
+     "predicate": "faculty-supplied-for-another",
+     "role": "lacking",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Franco, blind and once an ace reporter, works the case entirely through what Lori and Carlo describe to him, and it is Lori's mention of Bianca fidgeting with a locket that breaks it."
+    },
+    {
+     "predicate": "leverage-held-for-payment",
+     "role": "needing",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Casoni takes Lori and offers her life against the end of the investigation, the same trade Calabresi tried to make with him before the train."
+    }
+   ]
+  },
+  {
+   "film": "The Touch",
+   "filmId": "film-68c238fa1ce3fbb1",
+   "year": 1971,
+   "region": "US/CA",
+   "plotChars": 2540,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Karin has fifteen years of marriage, two children and a husband at the hospital, and David; Andreas tells her plainly that if she goes to London she does not come back, and she goes."
+    },
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one kept from knowing",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "David told Karin his family were all killed in the camps; at his London address she is met by his sister Sara, who says he will never leave her."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "David's moods set the terms of the affair, and when Karin turns up having drunk and still smoking against what they agreed, he hits her."
+    },
+    {
+     "predicate": "what-the-helped-hand-back",
+     "role": "the one who gave",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Andreas, who nursed David after his suicide attempt, comes to his flat with the poison-pen letters, and David argues with him for bringing the debt up."
+    },
+    {
+     "predicate": "hidden-life-exposed",
+     "role": "exposed",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Anonymous letters arrive at the house telling Andreas that his wife is sleeping with the American archaeologist."
+    }
+   ]
+  },
+  {
+   "film": "The Working Class Goes to Heaven",
+   "filmId": "film-2d759eb1e7b10a52",
+   "year": 1971,
+   "region": "W-Europe",
+   "plotChars": 1529,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Management holds up Lulu's piece rate as proof of what the line can do and raises everyone's quota from it, which is why the men beside him will not have him."
+    },
+    {
+     "predicate": "the-work-consumes-the-life",
+     "role": "consumed",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Militina is in the asylum after collapsing at the same machines, Lulu loses a finger to them, and by the end he is reciting his dream of the wall on the line, barely following what is said to him."
+    },
+    {
+     "predicate": "cast-out-by-group",
+     "role": "expelled",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "When the union settles, the whole plant goes back through the gate except Lulu, sacked for the agitation the settlement was built on; the same unionists later get him taken back."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Lulu moves the students at the gates into his flat and calls the strike with them, and when he is out of work they tell him he is no use to them because he is an individual case."
+    }
+   ]
+  },
+  {
+   "film": "Last Tango in Paris",
+   "filmId": "film-1f0e6cdda45ae902",
+   "year": 1972,
+   "region": "W-Europe",
+   "plotChars": 1901,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-bond-recast-unilaterally",
+     "role": "the one who must accept them",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Paul sets the terms of the empty flat himself: no names, no histories, nothing personal, and Jeanne, who says plainly that she dislikes it, keeps coming back on them."
+    },
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "evading",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "When Jeanne says it is over Paul runs her through the streets of Paris, past her threat to call the police, into her mother's building and through the door of the flat."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "He holds her down and sodomises her with a stick of butter, and she tells him afterwards that she tries to leave and cannot make herself do it."
+    },
+    {
+     "predicate": "the-bond-ended-without-account",
+     "role": "the one left",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Paul clears the flat and goes without a word, and Jeanne lets herself in to bare rooms; when he turns up again on the street it is to ask for it back."
+    },
+    {
+     "predicate": "account-that-spares-teller",
+     "role": "accounting",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "basis": "With Paul dying on the balcony Jeanne rehearses the sentence she will give the police: a stranger who tried to rape her, whose name she never knew."
+    }
+   ]
+  },
+  {
+   "film": "Liza",
+   "filmId": "film-0d139b0fce73829f",
+   "year": 1972,
+   "region": "W-Europe",
+   "plotChars": 2040,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "one-absorbs-another-identity",
+     "role": "imitating",
+     "centrality": 0.75,
+     "outcome": "ambiguous",
+     "basis": "Having drowned the dog whose company Giorgio preferred to hers, Liza takes Melampo's place literally, living as his female dog on a collar, and he takes the game up."
+    },
+    {
+     "predicate": "one-removed-from-the-way",
+     "role": "removing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Giorgio spends his days in conversation with Melampo and is otherwise indifferent to Liza, so she swims the dog out from the island until it drowns of exhaustion."
+    },
+    {
+     "predicate": "parent-walks-out",
+     "role": "leaving",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Giorgio left a wife and son in Paris for the island, and only goes back when the boy comes to tell him his mother has tried to kill herself."
+    },
+    {
+     "predicate": "shut-in-together",
+     "role": "confined",
+     "centrality": 0.45,
+     "outcome": "ambiguous",
+     "basis": "The sea takes the inflatable, their one way off the rock, and the two of them are left on it with no provisions and fish they cannot live on."
+    }
+   ]
+  },
+  {
+   "film": "Love in the Afternoon",
+   "filmId": "film-532bddd536d9e235",
+   "year": 1972,
+   "region": "W-Europe",
+   "plotChars": 2528,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "closeness-held-short-of-consummation",
+     "role": "holding-back",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Frederic spends his afternoons with Chloe for months on the exact terms that suit them both, a mistress without adultery for him and a man without sex for her, and when she comes out of the shower and asks him to bed he gets as far as the turtleneck and goes home."
+    },
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "basis": "Chloe wants no marriage but wants a child by him and treats his wife and two children as beside the point; he finds Helene alone and in tears instead."
+    },
+    {
+     "predicate": "withdrawal-inside-the-bond",
+     "role": "turning elsewhere",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "The things Frederic cannot say to Helene he says all afternoon to Chloe, and when he finally sits down with his wife the two of them cannot find the words and she breaks down."
+    }
+   ]
+  },
+  {
+   "film": "My Dear Killer",
+   "filmId": "film-43f0ab310012fef2",
+   "year": 1972,
+   "region": "W-Europe",
+   "plotChars": 2670,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Everyone who came near the Moroni kidnapping is taken off: Paradisi beheaded by the excavator, its driver hanged to look like suicide, Paradisi's wife strangled at the tram stop, the kindergarten teacher cut up with a circular saw, Mattia beaten with a statue, and finally the old woman who happens to own the mirror."
+    },
+    {
+     "predicate": "corroded-by-anothers-life",
+     "role": "envying",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Oliviero, who came back from the war without a hand, took his brother-in-law's daughter and then the industrialist himself out of what he says at the end was jealousy of the man's money."
+    },
+    {
+     "predicate": "a-life-is-bought-back-for-a-price",
+     "role": "ransoming",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Moroni goes to pay the ransom for Stefania and is taken along with her, and the two of them are left in the shack to die."
+    },
+    {
+     "predicate": "leverage-held-for-payment",
+     "role": "holding back",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Paradisi, the insurance company's investigator, works out who did it and offers the answer for sale to the dead girl's relatives rather than to the police."
+    }
+   ]
+  },
+  {
+   "film": "Such a Gorgeous Kid Like Me",
+   "filmId": "film-9d7608570619b287",
+   "year": 1972,
+   "region": "W-Europe",
+   "plotChars": 1560,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "what-the-helped-hand-back",
+     "role": "the one who gave",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Stanislas hunts down the boy with the film that proves Camille innocent and gets her out of prison; when she has shot her husband and put the gun in his hand she does nothing at all for him."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Camille kills the husband who caught them and plants the pistol on Stanislas while he is unconscious, and he goes to prison for the murder."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "The thesis interviews on criminal women become Camille's way out: she gives the sociologist the life story that has him working to clear her, and once she is a singing star she has no further use for him."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "those who will not credit it",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "The secretary tells Stanislas to his face that Camille is a manipulative slut and cannot move him; she is the one left typing the thesis that finally says so."
+    }
+   ]
+  },
+  {
+   "film": "The Cowboys",
+   "filmId": "film-92c0ea7365488d48",
+   "year": 1972,
+   "region": "US/CA",
+   "plotChars": 3810,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "carrying",
+     "centrality": 0.8,
+     "outcome": "transfigured",
+     "basis": "Andersen takes on schoolboys because every hand in Bozeman has gone to the gold fields, and the drive to Belle Fourche is finished by the boys after he is shot, who then buy him a stone reading Beloved Husband and Father."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "After burying Andersen the boys break open the gun box on the chuck wagon, kill three rustlers silently, ride the rest down among stampeding horses and cut Watts loose to be dragged."
+    },
+    {
+     "predicate": "the-witness-who-stays-silent",
+     "role": "the one who says nothing",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Watts lets Dan go with a promise to cut his throat if he speaks, and Dan says nothing about the men trailing the herd until they are already in the camp."
+    },
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "written off",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Cimarron is fired for pulling a knife on Slim and trails the herd anyway; when Slim goes off his horse in the river Cimarron pulls him out, and Andersen puts him on the crew."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "Charlie Schwartz climbs down into the ravine where the herd is bedded to bring back the glasses Dan dropped, and is trampled doing it."
+    }
+   ]
+  },
+  {
+   "film": "The Merchant of Four Seasons",
+   "filmId": "film-438de2f5608383e7",
+   "year": 1972,
+   "region": "W-Europe",
+   "plotChars": 5825,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "a-parent-cannot-love-the-child",
+     "role": "child",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "His mother greets him home from the Legion with the good die young and people like you come back, keeps Heidi as the good daughter, and once forbade him the mechanic's job because it would dirty his hands."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "Told that drink will finish his heart, Hans sits down at a table with Irmgard, Harry and his friends and puts away a few dozen shots in front of them until it does."
+    },
+    {
+     "predicate": "the-newcomer-takes-the-place-already-held",
+     "role": "displaced",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Hans brings his old Legion friend Harry into the business and then into the house; Harry works the cart better than he ever did, and after the funeral stays on with Irmgard."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Irmgard talks Anzell into overcharging on the round and splitting it with her, knowing Hans follows his man through the courtyards, so that the one witness to her affair is sacked as a thief."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "harming",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Hans throws a chair at Irmgard in the bar for coming to fetch him and beats her in the flat in front of Renate, and she is gone with the child the next morning."
+    },
+    {
+     "predicate": "judged-by-birth-not-by-act",
+     "role": "judged",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "The great love of his life turned down his armful of roses because her parents would not have their daughter married to a fruit peddler."
+    }
+   ]
+  },
+  {
+   "film": "Un flic",
+   "filmId": "film-c7e9965f490e5fbc",
+   "year": 1972,
+   "region": "W-Europe",
+   "plotChars": 3641,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "turning",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Coleman and Simon greet each other as old friends at the closed nightclub, with Coleman at the piano, and the film ends with Coleman shooting him on the pavement outside the hotel."
+    },
+    {
+     "predicate": "one-removed-from-the-way",
+     "role": "removing",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Marc is the wounded man the press has already reported, so Simon sends Cathy into the clinic in a nurse's uniform to put air into his drip."
+    },
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one concealing",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Cathy keeps the hotel afternoons with Coleman from Simon, and Coleman works out that Simon has known about them the whole time and said nothing."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Simon walks out of the hotel with the case of heroin, reaches inside his overcoat for a gun he is not carrying, and Coleman finds the empty pocket afterwards."
+    },
+    {
+     "predicate": "pressed-for-an-account",
+     "role": "pressing",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Coleman takes Louis at a restaurant table and works him at the precinct until the one man who looked unbreakable gives up Simon's and Paul's names."
+    }
+   ]
+  },
+  {
+   "film": "Don't Look Now",
+   "filmId": "film-0df167d05a7766d2",
+   "year": 1973,
+   "region": "W-Europe",
+   "plotChars": 3219,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "those who will not credit it",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Blind Heather says she can see Christine sitting with them and that John must leave Venice or die there; he argues with Laura about it and stays on to finish the church."
+    },
+    {
+     "predicate": "witness-misreads-the-scene",
+     "role": "mistaken",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "John sees his wife on a funeral barge with the two sisters while she is in England, and takes the small red coat in the alleys for his drowned daughter; both are pictures of his own funeral and his own killer."
+    },
+    {
+     "predicate": "mourners-cannot-grieve-together",
+     "role": "mourner",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Laura comes back from the restaurant lifted by the medium and John will not have any of it, and the marriage runs on that split from the pond in England to the Venetian police station."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watched",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "With a killer at large in the city, the inspector taking John's report about his missing wife puts men on him instead."
+    }
+   ]
+  },
+  {
+   "film": "Fantastic Planet",
+   "filmId": "film-ede0d11417ad2882",
+   "year": 1973,
+   "region": "W-Europe",
+   "plotChars": 2950,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "personhood-held-by-another",
+     "role": "dependent",
+     "centrality": 0.95,
+     "outcome": "transfigured",
+     "basis": "The Draags keep Oms as pets or let them run wild in the parks and de-om the parks periodically to keep the numbers down; whether an Om is anyone at all is a Draag administrative question."
+    },
+    {
+     "predicate": "the-made-turns-on-maker",
+     "role": "the made",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "The knowledge that leaks into Terr through a faulty collar during Tiwa's lessons is what teaches the wild tribes to read, build rockets and break the meditation statues the Draags need to breed."
+    },
+    {
+     "predicate": "another-kept-dependent",
+     "role": "kept",
+     "centrality": 0.65,
+     "outcome": "transfigured",
+     "basis": "Tiwa is careful never to hurt Terr and keeps him on the collar her parents told her to use, which steers him wherever she likes until a wild Om cuts it off."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.4,
+     "outcome": "transfigured",
+     "basis": "When Tiwa reaches her teens and starts to meditate she stops attending to the pet she raised, and Terr walks out with her headset."
+    }
+   ]
+  },
+  {
+   "film": "Flesh for Frankenstein",
+   "filmId": "film-b6d176998735c200",
+   "year": 1973,
+   "region": "US/CA",
+   "plotChars": 2836,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "another-shaped-to-order",
+     "role": "shaping",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "The Baron is building a male and a female out of corpse parts to found an obedient Serbian race, and rejects heads for the wrong nose and the wrong libido."
+    },
+    {
+     "predicate": "the-made-turns-on-maker",
+     "role": "the made",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Ordered to kill Nicholas, the male creature is stopped by what is left of the friend whose head it wears, and kills the Baron instead before opening itself up."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "The Baron uses the female creature's surgical incisions for his own satisfaction and Otto copies him, which is what disembowels her."
+    },
+    {
+     "predicate": "one-dies-in-another-mans-place",
+     "role": "spared",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Waiting for the randy farmhand outside the brothel, the Baron and Otto take the head of the friend who was there to be talked out of the monastery; Nicholas walks away alive."
+    },
+    {
+     "predicate": "the-trap-closes-on-the-one-who-set-it",
+     "role": "scheming",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Katrin hands Nicholas to her brother and is paid in the use of the male creature, which kills her in the act."
+    }
+   ]
+  },
+  {
+   "film": "Lucky Luciano",
+   "filmId": "film-204d34bfb5f73248",
+   "year": 1973,
+   "region": "US/CA",
+   "plotChars": 1903,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielded",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Luciano trades wartime services to military intelligence for Dewey's commutation and deportation, and when Siragusa says the commutation was bought his own superiors order the investigation stopped."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Siragusa turns Giannini, leaves him a year in an Italian jail on the counterfeit charge when he fails to produce, and then sends him back to the United States to testify."
+    },
+    {
+     "predicate": "betrayed-by-the-closest",
+     "role": "trusting",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Giannini is Luciano's own associate, working for the Bureau of Narcotics the whole time, and Luciano finds it out by reading the letters Giannini sent through the mistress they were sharing."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Giannini is shot on Luciano's order before he can get in front of the grand jury in New York."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "directing",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "In Naples Luciano runs the drug traffic entirely through proxies out of a race track, so that dozens of his associates are arrested over the years and nothing is ever in his hand."
+    }
+   ]
+  },
+  {
+   "film": "Serpico",
+   "filmId": "film-2581cd4b215bd34b",
+   "year": 1973,
+   "region": "US/CA",
+   "plotChars": 2682,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "grievance-read-as-insubordination",
+     "role": "complaining",
+     "centrality": 0.95,
+     "outcome": "restored",
+     "basis": "Serpico reports the attempted bribe upward and is told to keep the money; every further attempt gets him ostracised, and after the New York Times piece his superiors post him to a Brooklyn narcotics squad."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "At the door of the trafficker's flat his own partners hold him back at the moment he goes in, and he takes a bullet in the face; the Chief's first thought is that a cop shot him."
+    },
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "basis": "He is made to ride along while the squad collects its pad from criminals and shopkeepers and refuses to take his cut, which is what marks him."
+    },
+    {
+     "predicate": "arbiter-bent-by-power",
+     "role": "denied redress",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "The mayor's assistant promises a real investigation and is stopped by political pressure, and the district attorney keeps the grand jury questions narrow so that how far the corruption goes never gets said."
+    }
+   ]
+  },
+  {
+   "film": "The Wicker Man",
+   "filmId": "film-240145d20880d3cf",
+   "year": 1973,
+   "region": "UK/IE",
+   "plotChars": 3764,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-search-was-staged-by-its-object",
+     "role": "searching",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "basis": "The anonymous letter about Rowan, the islanders denying she ever existed, the hare in her coffin and the girl in the cave are one apparatus for bringing a virgin policeman to Summerisle of his own free will."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Howie is what the failed harvest requires: he came freely, he carries the power of a king in the law, he is a virgin and he is the fool, and he is put in the wicker figure with the animals and burned."
+    },
+    {
+     "predicate": "another-shaped-to-order",
+     "role": "shaping",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Lord Summerisle's grandfather bred fruit trees for the Scottish climate and gave the Christian islanders the old gods to go with them, so that the ministers left and the island now owes its gods a body when the crop fails."
+    },
+    {
+     "predicate": "held-in-place-by-force",
+     "role": "held",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "When Howie goes back to his seaplane on May Day morning to call the mainland, the engine is dead and the radio is smashed."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Burning, Howie tells Summerisle that the orchards fail because the climate will not carry them and that the islanders will put him in the fire next year, and nobody on the hill takes it up."
+    }
+   ]
+  },
+  {
+   "film": "Tidal Wave",
+   "filmId": "film-a88fde658b79ec39",
+   "year": 1973,
+   "region": "Japan",
+   "plotChars": 3826,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Tadokoro tells the cabinet after Amagi that more eruptions and quakes are coming and is dismissed as an alarmist; the Tokyo earthquake follows and kills three million."
+    },
+    {
+     "predicate": "bond-held-across-separation",
+     "role": "holding",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Onodera and Reiko arrange to marry and meet again in Geneva, are pulled apart by the quake that sets off Fuji, and end the film on a Swiss passenger train and in an American boxcar."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "asking",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "basis": "Yamamoto goes country by country asking them to take a hundred million people, and South Korea, China and Taiwan will not take part."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "At Watari's deathbed Tadokoro tells Yamamoto he will stay on the islands to the end, and stands there as the helicopter lifts Yamamoto off."
+    }
+   ]
+  },
+  {
+   "film": "Trip to Vienna",
+   "filmId": "film-1897155238a20d9d",
+   "year": 1973,
+   "region": "W-Europe",
+   "plotChars": 4034,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-one-entrusted-keeps-it",
+     "role": "entrusting",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Mariu, who says he is a Romanian officer on a secret mission, takes almost the whole 15,000 marks in his Vienna flat against valuables to be collected in a few days, and then never answers the door."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "To get the illegal pig slaughter off Marga, the two women hide meat in Fred's office and garden and stage a rape with Marga arriving as the witness."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Toni asks her lover Fred, a Party official and the one man in town who could act, to help the jailed aunt; he refuses, and then tells her the aunt died in the bombing of the prison."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Major Kopp brings another soldier and forces Mariu's door, and the women carry out porcelain, rugs and clocks to the value of the money while Mariu stands there and hardly protests."
+    },
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "collecting",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "The money the whole Vienna trip runs on is the 15,000 marks Toni's husband hid at home, most likely squeezed out of one of the town's Jewish residents."
+    }
+   ]
+  },
+  {
+   "film": "Martha",
+   "filmId": "film-f5cd6c180450f3b6",
+   "year": 1974,
+   "region": "Other",
+   "plotChars": 4180,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "another-shaped-to-order",
+     "role": "shaped",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "basis": "Helmut ends her job without asking, sets her diet, replaces her records with his music, hands her an engineering textbook of his own field to read, and ridicules every gesture she makes on her own initiative."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "He forbids her suntan oil on the honeymoon and then takes her in the hotel room while she is screaming from the burns, and afterwards he is aroused whenever she is hurt or frightened."
+    },
+    {
+     "predicate": "another-kept-dependent",
+     "role": "kept",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "They move out of her childhood house, the telephone is disconnected, she is not to leave the house, the cat he finally allowed her is found dead, and children are refused on the grounds of her mother's madness."
+    },
+    {
+     "predicate": "blame-lands-where-it-can",
+     "role": "the one held to account",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Her father drops dead of a heart attack on the Spanish Steps and her mother receives her home in Constance by holding her responsible for it, then drinks openly and draws moustaches on his photographs."
+    },
+    {
+     "predicate": "kindness-from-a-stranger",
+     "role": "the one who asks",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Martha runs to Kaiser, a colleague she once trained and who owes her nothing, and he agrees to drive her; she grabs the wheel believing Helmut is behind them, and the crash kills him and paralyses her."
+    }
+   ]
+  },
+  {
+   "film": "The Phantom of Liberty",
+   "filmId": "film-1457c9be88ef95d5",
+   "year": 1974,
+   "region": "W-Europe",
+   "plotChars": 4018,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-nearest-goes-unseen",
+     "role": "overlooked",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The Legendres are told their daughter has vanished from school, find her at her desk, can see her and talk to her, and take her along to the police station to report her missing, where nobody in the room admits she is standing there."
+    },
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielded",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "The Montparnasse sniper who shot passers-by at random is tried, convicted and sentenced to death, and then walks out of the courtroom to autographs."
+    },
+    {
+     "predicate": "the-newcomer-takes-the-place-already-held",
+     "role": "displaced",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "basis": "The Prefect of Police is arrested for desecration by officers who will not believe who he is, and is brought to his own office, where another Prefect is already sitting and greets him as an acquaintance."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "The Foucaulds sack the nanny over the postcards the man in the park handed the girls while she sat reading."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Knocked out by the statue of the noblewoman's husband while stroking hers, the French captain has her tomb opened to get at the body."
+    }
+   ]
+  },
+  {
+   "film": "Mother Küsters' Trip to Heaven",
+   "filmId": "film-3474333e1bf88b1b",
+   "year": 1975,
+   "region": "W-Europe",
+   "plotChars": 4272,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "The reporters work the widow while she is still assembling plugs at the kitchen table, and Niemeyer, who took the most interest in the family, prints the piece she finds unbearable and takes up with her daughter."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Her son and daughter-in-law go on holiday days after the killing and come back to announce they are moving out; Corinna tells her to keep away from the communists and then leaves too."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.65,
+     "outcome": "ambiguous",
+     "basis": "The Thalmanns take her up at the funeral and want her husband as a victim of capitalism for the election, and when she wants something done the anarchists take her on to the hostage-taking she stands horrified in the middle of."
+    },
+    {
+     "predicate": "the-work-consumes-the-life",
+     "role": "consumed",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Hermann Kusters put twenty years into the tyre factory and killed his supervisor's son and himself the day the layoffs were announced."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "asking",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Emma goes to the factory about the company pension and finds the workers' council and the board at one that her case does not qualify."
+    }
+   ]
+  },
+  {
+   "film": "The Mirror",
+   "filmId": "film-32aa631798486cee",
+   "year": 1975,
+   "region": "E-Europe",
+   "plotChars": 9804,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "parent-walks-out",
+     "role": "left",
+     "centrality": 0.85,
+     "outcome": "ambiguous",
+     "basis": "The passing doctor at the dacha gate is the one who says out loud that Maria's husband has left her; the father is a voice reciting poems for most of the film and comes back only when the war is over, to a wife still bitter and children in tears."
+    },
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "carrying",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Aleksei's marriage repeats his mother's down to the face - Natalia and Maria are the same actress, Ignat and the young Aleksei the same boy - and he hands his son the absent father he has never stopped carrying."
+    },
+    {
+     "predicate": "the-reckoning-comes-too-late",
+     "role": "the one who comes to see",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "On the deathbed the doctor tells him there is nothing wrong with him but a bad conscience, and he sends the few people still at the bedside away and opens his hand to let a bird go."
+    },
+    {
+     "predicate": "a-child-claimed-by-two",
+     "role": "the one who claims",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Aleksei tells Natalia that Ignat has said he wants to live with him; put the question in front of the boy, Ignat says he never said it."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "At the military school the orphan pulls a grenade out of his sack, the other boys take it and draw the pin, and the instructor throws himself flat on it before anyone can see it is a dummy."
+    }
+   ]
+  },
+  {
+   "film": "Harlan County, USA",
+   "filmId": "film-3af6b623f97a58a7",
+   "year": 1976,
+   "region": "US/CA",
+   "plotChars": 3840,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "expended",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "Duke Power's profit rises 170 percent in one year while the Brookside men, living in houses without running water or power, are offered four percent against a seven percent cost of living."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "The company's gun thugs keep their weapons out of shot at first and openly brandish them as the year goes on, shooting at the picket, and it is only when Lawrence Jones is shot dead that both sides sit down."
+    },
+    {
+     "predicate": "the-work-consumes-the-life",
+     "role": "consumed",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "The strike is about safety, and Kopple's interviews are with men whose lungs are already gone black from the seam they are picketing to be allowed to work safely."
+    },
+    {
+     "predicate": "one-removed-from-the-way",
+     "role": "removing",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Yablonski ran against Boyle for the UMWA presidency in 1969, lost an election everyone took to be rigged, and was found murdered with his family; Boyle was convicted of paying 20,000 dollars for it."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watching",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Kopple keeps the camera running, and runs it empty when the film is out, because the crew being there is what holds the shooting down on the picket line."
+    }
+   ]
+  },
+  {
+   "film": "Taxi Driver",
+   "filmId": "film-8c003caa91602c8d",
+   "year": 1976,
+   "region": "US/CA",
+   "plotChars": 4200,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "taking up",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Travis buys time alone with the twelve-year-old Iris by making Sport think he is a customer, and spends it arguing her out of the life; her parents write from Pittsburgh that she is home and back at school."
+    },
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielded",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "Travis shoots three men in a brothel with an illegal arsenal and is written up in the papers as a vigilante hero, never charged, and back on the night shift when he comes out of the coma."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "asking",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Betsy walks out of the porno theatre he takes her to on the second date, will not take his calls or his flowers, and has him thrown out of the Palantine office when he comes to argue."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Sport is at once Iris's pimp and the man she is in love with, which is what makes Travis's argument with her go nowhere until he comes back with the guns."
+    },
+    {
+     "predicate": "confession-to-the-powerless",
+     "role": "confessing",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Travis tells Wizard at the cabbies' diner that he has bad ideas in his head, and Wizard cannot make anything of it and tells him he will be fine."
+    }
+   ]
+  },
+  {
+   "film": "A Little Night Music",
+   "filmId": "film-58747b6e0f1ea7c3",
+   "year": 1977,
+   "region": "US/CA",
+   "plotChars": 3745,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "two-claims-on-one-person",
+     "role": "the one holding the claim",
+     "centrality": 0.75,
+     "outcome": "restored",
+     "basis": "Desiree wants Frederich out of a marriage eleven months old, Count Carl-Magnus wants Desiree kept and his own wife Charlotte kept too, and the whole party is assembled at Madame Armfeldt's so the claims can be settled in one weekend."
+    },
+    {
+     "predicate": "closeness-held-short-of-consummation",
+     "role": "holding-back",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Anne has kept her virginity through eleven months of marriage to Frederich, telling him each time that she will be ready soon."
+    },
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Erich, in training for the church, is in love with his father's wife, who is a year younger than he is, and tells only Fredericka before running out to kill himself."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "instrument",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Carl-Magnus does not confront Frederich; he sends his wife Charlotte to call on Anne Egerman and put the affair in front of her."
+    },
+    {
+     "predicate": "dependent-handed-over",
+     "role": "giving up",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Desiree's fourteen-year-old daughter Fredericka is kept by Madame Armfeldt at the country estate while her mother goes from play to play across Europe."
+    }
+   ]
+  },
+  {
+   "film": "Eraserhead",
+   "filmId": "film-97c01fa7b3c25ec8",
+   "year": 1977,
+   "region": "US/CA",
+   "plotChars": 2877,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "one-kills-what-one-loves",
+     "role": "killing",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Left alone with a thing that will not eat, cannot breathe and never stops crying, Henry cuts the swaddling he has never opened and finds it is holding the organs in, then puts the scissors into them."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Mary's mother corners Henry in the hall after the dinner, tries to kiss him, and tells him Mary has had his baby and that the two of them must be married."
+    },
+    {
+     "predicate": "parent-walks-out",
+     "role": "left",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "The crying drives Mary out of the one-room flat and back to her family, leaving Henry with the child she is not sure is a child."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Henry goes across the hall to the woman he slept with and finds her in her doorway with another man, looking at him."
+    }
+   ]
+  },
+  {
+   "film": "Exorcist II: The Heretic",
+   "filmId": "film-12ff40ca3d278535",
+   "year": 1977,
+   "region": "US/CA",
+   "plotChars": 3812,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Merrin, dead four years, appears to Lamont in the synchronizer's trance and gives him Regan to watch over; Tuskin says the same words to him on the pavement at the end."
+    },
+    {
+     "predicate": "pressed-for-an-account",
+     "role": "pressing",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "Lamont comes to the institute to make Regan account for how Merrin died, Tuskin blocks him and then hypnotises Regan herself, and the girl keeps saying she remembers nothing of Georgetown."
+    },
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "The Church is modernising and will not have Satan on the books, so Merrin is tried for heresy after his death on the strength of his own writings."
+    },
+    {
+     "predicate": "a-bargain-with-a-price-not-named",
+     "role": "accepting",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Pazuzu comes to Lamont in the taxi wearing Regan's face and offers him power without limit, and he takes it far enough that Regan has to call him back out of it."
+    },
+    {
+     "predicate": "faculty-supplied-for-another",
+     "role": "lending",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "Waiting outside Tuskin's office, Regan reaches into an autistic girl's mind and the girl speaks, and her mother will not stay to be studied but takes her home so the father can hear it."
+    }
+   ]
+  },
+  {
+   "film": "Il gatto",
+   "filmId": "film-d2d133ec0f46782d",
+   "year": 1977,
+   "region": "W-Europe",
+   "plotChars": 3079,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "pressing",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "A billion lire is on the table for the building if it is empty, so Amedeo and Ofelia set about the remaining tenants one by one until the last of them is out - and then the lawyer tears up the cheques because Wanda has moved back in."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watching",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "The siblings listen at doors, search the musicians' flat, go through Don Garofalo's rooms and follow two of his men to a beach house, all of it dressed up as an inquiry into who killed their cat."
+    },
+    {
+     "predicate": "distant-stranger-harmed",
+     "role": "acting",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Ofelia posts anonymous notes saying we know your secret to every remaining tenant; most treat it as bluff and the American journalist Herdigher kills himself."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Wanda is holding recordings of Don Garofalo and Legrand, which is why her dinner was poisoned and why Garofalo puts a man on her when she runs for the border."
+    },
+    {
+     "predicate": "deference-withheld-from-power",
+     "role": "withholding",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Legrand offers the siblings money to let the cat business drop and Ofelia takes the stand against him instead, and explains in open court how the poison was meant for Wanda."
+    }
+   ]
+  },
+  {
+   "film": "Autumn Sonata",
+   "filmId": "film-397f38bb9e7a534a",
+   "year": 1978,
+   "region": "W-Europe",
+   "plotChars": 2883,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "accounting-demanded-by-wronged",
+     "role": "calling to account",
+     "centrality": 0.95,
+     "outcome": "unrestored",
+     "basis": "Woken by her mother's nightmare, Eva keeps her in the living room until morning and puts the whole ledger to her: the tours, the years away, the child she was pressed into aborting."
+    },
+    {
+     "predicate": "a-parent-cannot-love-the-child",
+     "role": "child",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Charlotte gives Helena a wristwatch, offers Eva her car, and on the train out asks her agent why the girl could not simply have died."
+    },
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Eva plays the Chopin A minor prelude for her mother and Charlotte sits down and plays the same piece again, better, and explains what it is about."
+    },
+    {
+     "predicate": "failing-life-in-keeping",
+     "role": "taking charge",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Eva took her paralysed sister out of the hospital and into the parsonage, and is the only person alive who can make out what Helena is saying."
+    },
+    {
+     "predicate": "bond-held-by-need",
+     "role": "staying",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Eva keeps house for Viktor, whom she respects and does not love, and he sits in the next room through the night's confrontation and does not come in."
+    }
+   ]
+  },
+  {
+   "film": "Damien: Omen II",
+   "filmId": "film-9c49a3a00fabc2fd",
+   "year": 1978,
+   "region": "US/CA",
+   "plotChars": 4185,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-danger-is-already-inside-the-house",
+     "role": "threatened",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Richard and Ann Thorn have raised their nephew for seven years in Chicago, and the boy at the academy and the dinner table is the one the Megiddo daggers were sent for."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "knowing",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Everyone who works out what Damien is dies within the scene: Bugenhagen and Morgan under the ruins, Joan Hart blinded by the raven and run down, the doctor who finds jackal marrow under a falling elevator cable, Warren under a locomotive."
+    },
+    {
+     "predicate": "betrayed-by-the-closest",
+     "role": "trusting",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Richard brings his wife to the museum to take up the daggers and Ann puts them into him, saying she has always belonged to Damien."
+    },
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "turning",
+     "centrality": 0.65,
+     "outcome": "fatal",
+     "basis": "Mark, the cousin Damien has shared a room and an academy with, overhears Warren and refuses to come with him, so Damien bursts a vessel in his head."
+    },
+    {
+     "predicate": "another-shaped-to-order",
+     "role": "shaped",
+     "centrality": 0.6,
+     "outcome": "transfigured",
+     "basis": "Sergeant Neff, planted at the military academy, takes Damien in hand and sets him Revelation 13 to read, and the boy finds 666 under his hair in the mirror."
+    }
+   ]
+  },
+  {
+   "film": "Eyes of Laura Mars",
+   "filmId": "film-980b3a100277040c",
+   "year": 1978,
+   "region": "US/CA",
+   "plotChars": 3541,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one in their charge",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Neville takes charge of the case, becomes her lover and hands her a pistol for her own protection, and it is his own hand that finally closes hers around it."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Neville puts the models' photographs in Tommy's flat and one of Tommy's playing cards under Donald's body, and after Tommy is shot in the street he tells Laura a whole invented life to explain him."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watched",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Laura's visions arrive from inside the killer's head and several of them are of herself, seen from wherever he happens to be standing."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "When the other personality has finished talking, Neville folds Laura's hand around the gun he gave her and asks her to shoot him, and she does."
+    }
+   ]
+  },
+  {
+   "film": "Germany in Autumn",
+   "filmId": "film-a3398251680f912d",
+   "year": 1978,
+   "region": "W-Europe",
+   "plotChars": 4229,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "The official account of the night in Stammheim is that Baader, Ensslin and Raspe killed themselves, and the film keeps returning to people who cannot make it hold: Fassbinder with his mother, Biermann singing Girl in Stuttgart, Mahler in his cell."
+    },
+    {
+     "predicate": "identity-assigned-from-outside",
+     "role": "assigned",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "basis": "A Turkish man is taken outside the Schleyer memorial for carrying a rifle, and at the French crossing a couple's papers are gone through because the guard thinks the woman looks like one of the wanted."
+    },
+    {
+     "predicate": "refusing-what-all-have-settled",
+     "role": "the one holding out",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Gabi Teichert will not teach the German history in the syllabus as settled and goes digging into Mayerling, the Spartacists and Rommel's poisoning, to her superiors' alarm, and sits taking notes through the SPD conference."
+    },
+    {
+     "predicate": "shelter-across-a-hostile-line",
+     "role": "the one who shelters",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "basis": "A Munich woman lets in a man bleeding from the head, finds his face in the newspaper among the wanted, and does not pick up the telephone."
+    },
+    {
+     "predicate": "kindness-from-a-stranger",
+     "role": "the one with no obligation",
+     "centrality": 0.3,
+     "outcome": "restored",
+     "basis": "Franziska Busch stops her car in the underground garage, gets the man off the woman he is hitting, and takes her home to look after her."
+    }
+   ]
+  },
+  {
+   "film": "Someone's Watching Me!",
+   "filmId": "film-c9510c56c0931f93",
+   "year": 1978,
+   "region": "US/CA",
+   "plotChars": 4267,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "kept-under-watch",
+     "role": "watched",
+     "centrality": 0.95,
+     "outcome": "restored",
+     "basis": "Before Leigh has spent a night in the high-rise the caller has been through her flat and left microphones in it, and the free-holiday letters, the telescope and the swimsuit keep arriving from a man she cannot see."
+    },
+    {
+     "predicate": "the-danger-is-already-inside-the-house",
+     "role": "threatened",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "The man is Herbert Stiles, the building's own inspector, who holds keys to her flat and to buildings all over the city as a condition of his job."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Officer Gary Hunt hears the whole thing out and tells Leigh that watching a woman through a telescope and telephoning her is not a crime he can act on."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "The man in the opposite block is arrested for harassment denying everything and goes home to Iowa, and the flat he was supposedly watching from turns out to belong to someone working abroad."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "knowing",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Sophie is at the telescope in Leigh's flat, in radio contact with her, when she is attacked, and the police close it by finding she had a flight booked to Fort Worth."
+    }
+   ]
+  },
+  {
+   "film": "The Green Room",
+   "filmId": "film-7588e9e5a4efa854",
+   "year": 1978,
+   "region": "W-Europe",
+   "plotChars": 2345,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "basis": "Eleven years after Julie's death Davenne keeps an upstairs room for her, and when it burns he rebuilds it in a ruined cemetery chapel as a forest of candles he goes on talking to."
+    },
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who withholds",
+     "centrality": 0.75,
+     "outcome": "ambiguous",
+     "basis": "Cecilia finally writes what she cannot say to his face - that to be loved by him she would have to be dead - and lights the last candle for him herself."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.7,
+     "outcome": "transfigured",
+     "basis": "Having reached the point where he knows more dead than living, Davenne consecrates the chapel to the whole cemetery and keeps a candle burning for every one of them."
+    },
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "turned on",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Massigny, once his closest friend, did him some injury the film never names, and Davenne will not have a candle for him until the night he finally grants it and goes to the chapel to die."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "refusing",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "When Cecilia breaks with him he shuts himself in the house and will not eat, will not see the doctor and will not speak."
+    }
+   ]
+  },
+  {
+   "film": "The Last Waltz",
+   "filmId": "film-8f68b8c994813ef6",
+   "year": 1978,
+   "region": "US/CA",
+   "plotChars": 2664,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-work-consumes-the-life",
+     "role": "consumed",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Robertson keeps coming back to it between songs: sixteen years on the road, the numbers start to scare you, and he could not live with twenty - which is what the concert is for."
+    }
+   ]
+  },
+  {
+   "film": "Where Are You Going on Holiday?",
+   "filmId": "film-d7fc4262e18db26b",
+   "year": 1978,
+   "region": "W-Europe",
+   "plotChars": 2770,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "deed-done-through-another",
+     "role": "instrument",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Colombi pays the guide to find him a lion to shoot and Colombi's wife offers him a cut of the insurance to arrange a hunting accident for her husband instead."
+    },
+    {
+     "predicate": "a-life-settled-by-others",
+     "role": "the one decided for",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Remo and Augusta's three sons book them a holiday of necropolises, churches and the Venice Biennale, and the greengrocers go through all of it out of pride in the boys' education and come home to find the flat refurnished to match."
+    },
+    {
+     "predicate": "incomer-denied-a-place",
+     "role": "incomer",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Enrico comes to Giuliana's villa to put the relationship back together and finds it filling with her young friends and their parties, where a man of nearly fifty has no standing at all."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.3,
+     "outcome": "unrestored",
+     "basis": "Arturo guides safaris as Wilson to keep his Italian roots out of it, and pours the whole story out drunk to a well-mannered listener who is the insurance investigator on the case."
+    }
+   ]
+  },
+  {
+   "film": "A Dangerous Toy",
+   "filmId": "film-d9b405b480df93ac",
+   "year": 1979,
+   "region": "W-Europe",
+   "plotChars": 1558,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Barletta carries the cash and fronts the black funds for Griffo, the industrialist he has known since childhood, and is finally made to sign away a phantom company before he is let go."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Shot in the supermarket robbery, he is replaced on the security run by a harder ex-carabinieri marshal, and after the ambush and the days in jail Griffo drops him altogether."
+    },
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The papers drop the pizzeria shooting almost at once, and Nicola, his wife Laura and their daughter Patrizia make a joke of the accountant with the pistol in front of each other."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "basis": "Shut in the flat with nothing left, Barletta sets out to humiliate the Griffos, and the dying Ada sets herself to stopping him."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.35,
+     "outcome": "fatal",
+     "basis": "The convict Sauro recognises in the pizzeria shoots him, and after a few seconds of hesitation Barletta draws the pistol Sauro gave him and kills the man."
+    }
+   ]
+  },
+  {
+   "film": "Good News",
+   "filmId": "film-cfe84139c1c9533c",
+   "year": 1979,
+   "region": "W-Europe",
+   "plotChars": 1563,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "those who will not credit it",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "Gualtiero turns up after fifteen years to say that people are following him who mean to kill him and that he does not know who they are; he is talked into the clinic instead, and the man watches the report of his killing on a monitor at work."
+    },
+    {
+     "predicate": "withdrawal-inside-the-bond",
+     "role": "turning elsewhere",
+     "centrality": 0.7,
+     "outcome": "ambiguous",
+     "basis": "He and Fedora live in the same flat without being able to say anything to each other, and he puts his hand out to his colleague Tignetti, to Fedora's friend Benedetta and to Gualtiero's wife Ada, and gets nowhere with any of them."
+    },
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one kept from knowing",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "Fedora tells him at the graveside that the child she announced is Gualtiero's, and after the first fury he agrees with her that they will have it."
+    }
+   ]
+  },
+  {
+   "film": "Joi Baba Felunath",
+   "filmId": "film-c268c26e1fbb7424",
+   "year": 1979,
+   "region": "S-Asia",
+   "plotChars": 2850,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Maganlal offers Feluda two thousand rupees to drop the Ganesh case, and when it is refused he stands Jatayu against a board and has knives thrown around him."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one who trusts",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Bikash Singha is one of the Ghosal household and takes Maganlal's money to lift the golden Ganesh out of it."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "taken in",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Machhli Baba arrives in Varanasi for the Puja and has the whole town at his feet; he is on Maganlal's payroll."
+    },
+    {
+     "predicate": "knower-silenced",
+     "role": "knowing",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Shashibhushan Pal found the statue while painting the Durga lion and handed it to Bikash without knowing whose man he was, so Maganlal sends a henchman with Bikash to stab him and drop the knife in the Ganges."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "After the knife-throwing Feluda swears he will either settle what was done to Jatayu or give up being a detective, and the sting that takes Maganlal is the settlement."
+    }
+   ]
+  },
+  {
+   "film": "The Castle of Cagliostro",
+   "filmId": "film-57dae5cfd4b8aa69",
+   "year": 1979,
+   "region": "Japan",
+   "plotChars": 4396,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-match-arranged-by-others",
+     "role": "the one disposed of",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "Clarisse is to be married to the Count who rules in her name, because the wedding fixes his regency and puts her ancestral ring beside his over the treasure; she is drugged for the ceremony."
+    },
+    {
+     "predicate": "what-the-helped-hand-back",
+     "role": "the one given to",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Lupin tells the others that ten years ago, when his first run at the treasure went wrong, this girl saved his life; the whole raid on Cagliostro is him coming back for it."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Lupin walks into the castle dressed as Inspector Zenigata while the real Zenigata is dropped into the catacombs, and Fujiko is inside already as Clarisse's lady-in-waiting before going out as a television reporter."
+    },
+    {
+     "predicate": "leverage-held-for-payment",
+     "role": "needing",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Clarisse hands the Count her ring to buy Lupin's life and he takes the ring and goes back on it; on the clock face Lupin offers both rings for her and the Count does it again."
+    },
+    {
+     "predicate": "love-renounced-to-spare-the-other",
+     "role": "renouncing",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Clarisse says she does not want him to go and would turn thief to stay with him, and Lupin turns her down gently and leaves her the duchy."
+    }
+   ]
+  },
+  {
+   "film": "Pixote",
+   "filmId": "film-e87b3957ba1fa91a",
+   "year": 1980,
+   "region": "LatAm",
+   "plotChars": 1779,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Inside FEBEM the boys are the pieces the guards and their commander play with, and what they are used for is never anything of theirs."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "A boy dies under police beating and the institution puts the killing on Lilica's unnamed lover, and then kills him too."
+    },
+    {
+     "predicate": "a-parent-cannot-love-the-child",
+     "role": "child",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "With Dito dead by his own hand and nothing left, Pixote climbs onto Sueli and takes her breast in his mouth like an infant, and she pushes him off in disgust."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Dito, whom Lilica took up after the reformatory, turns to the prostitute they are pimping, and Lilica walks out of the group."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Debora took them for the cocaine money in Rio, and when Pixote finds her at the club the argument ends with a knife in her."
+    }
+   ]
+  },
+  {
+   "film": "The Elephant Man",
+   "filmId": "film-0bac9e23875308a2",
+   "year": 1980,
+   "region": "US/CA",
+   "plotChars": 3992,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Bytes keeps Merrick hooded between shows, is paid by Treves for the loan of him, beats him nearly to death when he comes back, steals him out of the hospital and finally locks him in a cage in Belgium to die."
+    },
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "written off",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "Bytes has him down as an imbecile because he does not speak and the London Hospital does not take incurables, and Treves keeps at him until he recites the whole of the twenty-third psalm to Carr Gomm on the stairs."
+    },
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "The night porter Jim sells tickets to the ward to see the Elephant Man, Mothershead says the high-society visitors are another kind of show, and the crowd at Liverpool Street corners him and pulls the hood off."
+    },
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.35,
+     "outcome": "transfigured",
+     "basis": "Merrick shows Treves and Ann the photograph of his mother, says he must have been a disappointment to her and hopes she would be proud to see him among friends, and dies to her voice."
+    }
+   ]
+  },
+  {
+   "film": "The Shining",
+   "filmId": "film-dbb511f5943e9c44",
+   "year": 1980,
+   "region": "US/CA",
+   "plotChars": 3513,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Wendy and Danny are inside the marriage that once put the boy's shoulder out of its socket, and by February it is Jack coming through the bathroom door with the axe."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "instrument",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Delbert Grady, who cut up his own wife and daughters in the same hotel, meets Jack in the ballroom and tells him his family needs correcting, and lets him out of the pantry Wendy locked."
+    },
+    {
+     "predicate": "held-in-place-by-force",
+     "role": "held",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Jack smashes the two-way radio and disables the snowcat, so that when Wendy has him unconscious on the pantry floor there is still no way down the mountain."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Wendy takes the marks on Danny for Jack's doing, and Jack, having seen the woman in 237 and told Wendy he saw nothing, says the boy did it to himself."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.45,
+     "outcome": "fatal",
+     "basis": "Hallorann picks up Danny's call in Florida, flies to Colorado and drives a snowcat up the mountain to a lobby where Jack is waiting with the axe."
+    }
+   ]
+  },
+  {
+   "film": "Il Marchese del Grillo",
+   "filmId": "film-3053dab55e3b271a",
+   "year": 1981,
+   "region": "W-Europe",
+   "plotChars": 3180,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "arbiter-bent-by-power",
+     "role": "bending",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Aronne Piperno takes the Marquis to law over the wages he will not pay, and Onofrio buys the judges and the cardinals, so that Piperno is the one condemned and jeered at in the street."
+    },
+    {
+     "predicate": "the-substitute-lives-the-other-life",
+     "role": "displaced",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Onofrio has a drunk coalman who is his double carried home and dressed in his clothes, and Gasperino wakes a marquis, is taken for possessed, is put up for exorcism, settles into it well enough that parts of the family prefer him, and is nearly guillotined in his place."
+    },
+    {
+     "predicate": "judged-by-birth-not-by-act",
+     "role": "judging",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "Arrested at a table of common criminals, Onofrio tells the crowd that being noble entitles him to do as he pleases and that being poor they are worth nothing, and he refuses Piperno's wages on the grounds that a Jew killed Christ."
+    },
+    {
+     "predicate": "sheltered-from-consequence",
+     "role": "shielded",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "As the Pope's favourite Onofrio can play any prank he likes without fear, and even the guillotine is stopped at the last moment because Pius VII wanted the joke for himself."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "withholding",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Given command of the Swiss Guard at Castel Sant'Angelo, Onofrio leaves his post to check on a plebeian girl he is keeping, and the French walk in and take the Pope."
+    }
+   ]
+  },
+  {
+   "film": "Blade Runner",
+   "filmId": "film-a7dc4fcdfc330122",
+   "year": 1982,
+   "region": "US/CA",
+   "plotChars": 4163,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-made-turns-on-maker",
+     "role": "the made",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Roy gets past Sebastian into the penthouse to ask Tyrell for more life, is told the four years cannot be altered and is praised for his design, and kisses him and puts his thumbs through his eyes."
+    },
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "pursuing",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Deckard is put back on the job to retire four Nexus-6 off-world runaways, and works from a snake scale and a photograph in Leon's hotel room to Zhora's dressing room and Sebastian's flat."
+    },
+    {
+     "predicate": "truth-kept-from-its-owner",
+     "role": "the one kept unknowing",
+     "centrality": 0.8,
+     "outcome": "unrestored",
+     "basis": "Rachael has Tyrell's niece's memories and a family photograph to go with them, and Deckard, having taken a hundred questions to be sure, recites her own childhood back to her until she leaves in tears."
+    },
+    {
+     "predicate": "withholds-the-blow",
+     "role": "at their mercy",
+     "centrality": 0.75,
+     "outcome": "transfigured",
+     "basis": "Roy runs Deckard onto the roof and across the gap, and with his own four years running out that minute reaches down and hauls him up by the wrist instead of letting him drop."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Pris works on J. F. Sebastian's loneliness until he takes her in, and Roy uses him and his access to get to the top of the Tyrell pyramid; Sebastian is reported dead soon after."
+    }
+   ]
+  },
+  {
+   "film": "Koyaanisqatsi",
+   "filmId": "film-b8ca4262da0e3d6e",
+   "year": 1982,
+   "region": "US/CA",
+   "plotChars": 3031,
+   "aboveFloor": true,
+   "noneOfThese": true,
+   "noneNote": "Eighty-six minutes of landscape, infrastructure and crowds, with no dialogue, no narration and no named party on either side of anything. The people in the last sequence look into the camera and are not in relation to anyone else in the film. Nothing in the frozen list is instantiated; the film's subject is a relation between a species and a world, which the unit deliberately excludes.",
+   "tags": []
+  },
+  {
+   "film": "A Love in Germany",
+   "filmId": "film-15fa6adb4dee8f1c",
+   "year": 1983,
+   "region": "W-Europe",
+   "plotChars": 2005,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Pauline, running her called-up husband's shop, takes the Polish prisoner assigned to help her as a lover, and they are seen at it in the open in a village where the race laws make it a capital matter for him."
+    },
+    {
+     "predicate": "the-price-paid-by-another",
+     "role": "the one who escapes it",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "For the same affair Stanislaw is taken to court and hanged and Pauline serves two years."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "in need",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "The town official warns her again and again what the law will do, and when it comes to it he stands away from her - and is still living in the village when her son and grandson come looking."
+    },
+    {
+     "predicate": "the-witness-who-stays-silent",
+     "role": "the one it falls on",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "A man and his son come to the village to find out what happened to Pauline Kropp in 1941 and are met by people who will not tell them."
+    }
+   ]
+  },
+  {
+   "film": "Krull",
+   "filmId": "film-a3291e581466fd85",
+   "year": 1983,
+   "region": "US/CA",
+   "plotChars": 3671,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "loved-one-carried-off",
+     "role": "losing",
+     "centrality": 0.9,
+     "outcome": "restored",
+     "basis": "The Slayers break up the wedding of Colwyn and Lyssa before the vows are finished and take her into the Black Fortress, where the Beast puts it to her that marrying him would stop the attacks."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "spared",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "The Widow of the Web gives Ynyr the sand that holds the Crystal Spider off and keeps him alive long enough to name the Fortress's next site, and the spider takes her; Rell holds the closing doors of the Fortress apart on his own back so the others can get in."
+    },
+    {
+     "predicate": "falsehood-planted-between-two",
+     "role": "turned against",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "The Beast sends a changeling in a woman's shape to get Colwyn into bed while Lyssa is made to watch it, so that she will believe he does not want her."
+    },
+    {
+     "predicate": "identity-passed-off",
+     "role": "taken in",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "A changeling kills the Emerald Seer and travels on with the party wearing his face until Rell and Colwyn find it out."
+    }
+   ]
+  },
+  {
+   "film": "Table for Five",
+   "filmId": "film-28e99e378ea2e27e",
+   "year": 1983,
+   "region": "US/CA",
+   "plotChars": 3388,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-nearest-goes-unseen",
+     "role": "overlooking",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Tannen books the cruise to get his children back and spends it leaving them to themselves while he looks for a woman for the fifth chair; Mitchell's case against him in the Cairo tavern is that he cannot name one of their friends or teachers, and the last thing Tannen does is recite the list."
+    },
+    {
+     "predicate": "a-child-claimed-by-two",
+     "role": "the one who claims",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "With Kathleen dead, the stepfather flies out to take the three children home and Tannen decides to go for full custody, and Mitchell promises to use his practice to ruin him for it."
+    },
+    {
+     "predicate": "truth-kept-from-its-owner",
+     "role": "the one who withholds",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "Kathleen is killed and buried in New York while the children are at sea, and Tannen asks Mitchell for more time and carries it alone from Athens through Cairo before telling them at the Pyramids."
+    },
+    {
+     "predicate": "the-bond-recast-unilaterally",
+     "role": "the one who offers new terms",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Feeling he cannot manage as a father, Tannen proposes that the children treat him as a friend and call him J.P.; Trung, caught in the Tunis market after running, tells him to his face that what he needs is a father."
+    }
+   ]
+  },
+  {
+   "film": "The River",
+   "filmId": "film-cc2cece6dc7499f2",
+   "year": 1984,
+   "region": "US/CA",
+   "plotChars": 2965,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Wade sets the grain price at his own mill, works the senator and the bank, quietly buys the river frontage for the dam he wants and finally has Tom's corn graded down and offers less than it cost to put in the ground."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "Wade brings a truckload of farmers who have already lost their own places to pull the levee apart for day money, and offers Tom's neighbours a bonus to cut it from the inside."
+    },
+    {
+     "predicate": "standing-lowered-before-others",
+     "role": "degraded",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Tom takes the mill job to keep the bank off the farm and only learns he is a strikebreaker as the bus crosses the line; when the strike settles the scabs must walk out unprotected, past men who look at them and then start shaming them."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Mae, worn out, puts it to Tom that he is losing to Wade and to the river both and should stop, and he goes back out to the sandbags on his own."
+    }
+   ]
+  },
+  {
+   "film": "Big Deal After 20 Years",
+   "filmId": "film-3e2f31946462ca9c",
+   "year": 1985,
+   "region": "W-Europe",
+   "plotChars": 3756,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "return-after-long-absence",
+     "role": "returning",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Tiberio comes out of prison to a Rome he does not know, finds a house painter installed with Teresa on rent paid in her company, learns his camera gear went to the lawyer's bill, and is thrown out of the door and sleeps in a wrecked car in the yard opposite."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "They are told they are running money out of Yugoslavia for the Banker; on the way back Tiberio finds the seat has been changed and there is cocaine under it, and the Banker takes the car and leaves them their fee."
+    },
+    {
+     "predicate": "incomer-denied-a-place",
+     "role": "incomer",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Peppe il Pantera turns Tiberio down for the job because the part calls for a middle-aged woman, so Tiberio arrives in a dress, and Peppe laughs until his heart goes."
+    },
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "handing down",
+     "centrality": 0.5,
+     "outcome": "ambiguous",
+     "basis": "Dante Cruciani's son Augusto is running stolen medicines and Tiberio's son Brunino turns up from Milan to interrupt his father's old-fashioned break-ins, and ends up driving the car across the border for him."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "answered on",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "The carabinieri stop the bus with the cocaine on it, and at Peppe's birthday party, mid-sentence about how well it all went, one of the traffickers walks in and shoots him."
+    }
+   ]
+  },
+  {
+   "film": "Death of a Salesman",
+   "filmId": "film-3fa0539428b32030",
+   "year": 1985,
+   "region": "US/CA",
+   "plotChars": 4027,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-parent-seen-plainly",
+     "role": "the one who sees",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Biff goes to Boston to get his father to fix the maths grade and finds Miss Francis in the hotel room, and never sits the summer course or anything else his father planned for him."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "With Ben talking him through it, Willy drives the car off the road on purpose so that the twenty thousand of insurance will set Biff up in business."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "those who will not credit it",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Biff holds onto him in the yard and says as plainly as he can that he is a dime a dozen and so are both of them, and Willy takes the crying for forgiveness and goes out to buy him a business with his own death."
+    },
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "handing down",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Willy has been handing his sons Ben's example and his own idea of being well liked since they were boys, and at the grave Happy announces he is going to do it all over again."
+    },
+    {
+     "predicate": "taken-up-then-discarded",
+     "role": "cast off",
+     "centrality": 0.6,
+     "outcome": "unrestored",
+     "basis": "Willy goes in to ask Howard, whose father he worked for, to be taken off the road and put on the city, and comes out with no job at all."
+    }
+   ]
+  },
+  {
+   "film": "No End",
+   "filmId": "film-136dc65fe647cdd1",
+   "year": 1985,
+   "region": "E-Europe",
+   "plotChars": 2844,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Ula goes to a hypnotist to have Antek taken out of her head and sees him standing in the room instead, and keeps his files, his client and the candles at his grave going for the whole film."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "She leaves Jacek at his grandmother's, comes home, turns on the gas oven and sits down in front of it with tape across her mouth."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.7,
+     "outcome": "ambiguous",
+     "basis": "Darek means to stay inside and go on with the hunger strike; Labrador builds a defence around union men swearing he is no danger to anyone, and sends his junior into the cell to talk him out of the strike, and the sentence is suspended."
+    },
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one kept from knowing",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Going through Antek's papers Ula finds nude photographs of herself with the face cut out of them, and has to go to his friend Tomek to be told what they were."
+    },
+    {
+     "predicate": "intimacy-for-support",
+     "role": "giving closeness",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "An English visitor in a bar offers Ula fifty dollars; she laughs at it and then goes with him."
+    }
+   ]
+  },
+  {
+   "film": "Shoah",
+   "filmId": "film-d8282a7ab464ae73",
+   "year": 1985,
+   "region": "W-Europe",
+   "plotChars": 6652,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "pressed-for-an-account",
+     "role": "pressing",
+     "centrality": 0.85,
+     "outcome": "restored",
+     "basis": "Lanzmann pays Suchomel five hundred marks and promises not to use his name, then films him on hidden equipment; he keeps Bomba cutting hair and talking past the point where the man can go on, and does the same to Filip Muller."
+    },
+    {
+     "predicate": "the-witness-who-stays-silent",
+     "role": "the one who says nothing",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "The villagers around Treblinka and Chelmno tell Lanzmann they watched full trains go in and empty ones come out and guessed within days what it meant, and that they said nothing because of what would have happened to them."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "instrument",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Gawkowski drove the Sonderzuge to Treblinka with a German officer behind him and vodka as the bonus, and drew his hand across his throat at the waiting convoys; Walter Stier says he was managing railway traffic and papers, not people."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "Bomba cut women's hair inside the gas chamber itself and found the wife and sister of a friend among them, Muller burned the bodies, and Srebnik was made to sing military songs for the guards at Chelmno."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Karski had himself taken into the Warsaw ghetto to see it, and then travelled on false papers to England to get the Allied governments to act on what he had seen."
+    }
+   ]
+  },
+  {
+   "film": "The Goonies",
+   "filmId": "film-cc7487b3ceaf8ef7",
+   "year": 1985,
+   "region": "US/CA",
+   "plotChars": 3480,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "taking up",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Chunk is left tied up with the deformed brother the Fratellis keep chained in the cellar, gets him loose, and at the end stops the police taking him and asks him to come and live at his house."
+    },
+    {
+     "predicate": "pressed-for-an-account",
+     "role": "holding the account",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The Fratellis pick Chunk up off the road, work on him in the restaurant until he tells them where the others went into the tunnel, and then go after them."
+    },
+    {
+     "predicate": "cost-borne-gain-taken",
+     "role": "expended",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "The Goonies get through every trap in the tunnel to the Inferno and the Fratellis walk aboard, empty their pockets and start them along the plank."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Mikey tells them they may fill their pockets but must leave what sits on the scales in front of One-Eyed Willy, and it is the Fratellis grabbing that which brings the grotto down."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Chunk gets to a telephone and gives the sheriff the whole thing - the Fratellis, the bodies in the freezer, the tunnel - and the sheriff files it with his other stories."
+    }
+   ]
+  },
+  {
+   "film": "The Time to Live and the Time to Die",
+   "filmId": "film-a9a51689f71ffc53",
+   "year": 1985,
+   "region": "E-Asia",
+   "plotChars": 1988,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "withholding",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "The grandmother dies at home without Ah-ha or his two younger brothers noticing, and the mortician who comes for her finds half the body already gone and says nothing to them about it."
+    },
+    {
+     "predicate": "affection-made-to-be-earned",
+     "role": "the one who tries to meet it",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "The girl from the other school tells Ah-ha she will think about him once he is admitted to college, which is what finally puts him in front of the entrance exam; he fails it."
+    },
+    {
+     "predicate": "deference-withheld-from-power",
+     "role": "withholding",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "After an argument with his teacher Ah-ha lets the air out of the man's bicycle tyres, and puts a stone through a veteran's window."
+    }
+   ]
+  },
+  {
+   "film": "Dream Lover",
+   "filmId": "film-9a7e2c3efb2deb1c",
+   "year": 1986,
+   "region": "US/CA",
+   "plotChars": 4789,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-protector-is-the-danger",
+     "role": "the one in their charge",
+     "centrality": 0.85,
+     "outcome": "transfigured",
+     "basis": "The dream that will not stop finally plays out: the child in the white dress that turns red, the window from the painting over her father's bed, and Ben walking in as Danny."
+    },
+    {
+     "predicate": "acting-on-a-false-picture",
+     "role": "the one mistaken",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Danny comes to the new flat looking for a woman called Maggie, is embarrassed, leaves her a flower, and comes back through the door that night still asking for Maggie, and dies on his own knife."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "With the Sleep Center now running further experiments off her case, Kathy volunteers as Michael's subject and he forgets to give her the drug the protocol calls for."
+    },
+    {
+     "predicate": "verdict-before-proof",
+     "role": "condemned",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "The detectives take the semen in her bed as evidence she and Danny were involved, and go on treating a woman who stabbed an unarmed man as something other than a survivor."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.35,
+     "outcome": "ambiguous",
+     "basis": "Kathy comes back to the flat and finds Kevin there with another woman, and after they patch it up she dreams of killing him for it."
+    }
+   ]
+  },
+  {
+   "film": "Let's Hope It's a Girl",
+   "filmId": "film-8a92b88efdeaef75",
+   "year": 1986,
+   "region": "W-Europe",
+   "plotChars": 3481,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "blame-lands-where-it-can",
+     "role": "the one held to account",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Leonardo reverses off a cliff because Gugo was letting a pigeon go instead of watching him, and at the funeral it is Elena that Franca and Malvina hold responsible, for not having given him the money."
+    },
+    {
+     "predicate": "appeal-turned-away",
+     "role": "refusing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Leonardo comes to the villa from Rome to ask his separated wife for the sum that would finish the spa his mistress is financing, and Elena, who has heard his schemes before, gives him a bed away from his creditors and nothing else."
+    },
+    {
+     "predicate": "the-witness-who-stays-silent",
+     "role": "the one who says nothing",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Gugo walks back to the villa that evening and sits through the whole search for the two runaway girls without mentioning that he watched the Mustang go over the edge."
+    },
+    {
+     "predicate": "dependent-handed-over",
+     "role": "giving up",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Elena and Nardoni get Uncle Gugo into the retirement home where Nardoni's mother lives by trickery, and he walks out of it one night and comes home."
+    },
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who withholds",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "Nardoni, who has farmed for her and loved her for years, offers to buy the villa and marry her so she need not leave it; Elena sells him the land and refuses the marriage."
+    }
+   ]
+  },
+  {
+   "film": "Pirates",
+   "filmId": "film-72aad22991a2be7d",
+   "year": 1986,
+   "region": "E-Europe",
+   "plotChars": 3582,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "torn-between-two-claims",
+     "role": "the one who is torn",
+     "centrality": 0.75,
+     "outcome": "unrestored",
+     "basis": "In the middle of the boarding Frog finds Maria Dolores and crosses swords with Don Alfonso for her, and then breaks it off to go and help Red get the throne into the boat."
+    },
+    {
+     "predicate": "leverage-held-for-payment",
+     "role": "holding back",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Red takes the governor's niece into the residence as his bargaining piece for the golden throne, and when the uncle proves indifferent to what happens to her, works on his gout instead until the document is signed."
+    },
+    {
+     "predicate": "subordinate-turns-on-superior",
+     "role": "rising",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Don Alfonso takes the Neptune the moment Captain Linares dies, and Red and Frog work the crew up against him until the open rebellion carries the ship."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "using",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Red burns his own brig so no one can retreat, quietly has Boomako ready a boat for the throne alone, and rows away leaving the surviving crew in the water."
+    },
+    {
+     "predicate": "one-dies-in-another-mans-place",
+     "role": "spared",
+     "centrality": 0.4,
+     "outcome": "fatal",
+     "basis": "Don Alfonso levels his pistol at Frog across the water, Maria Dolores throws herself at his arm, and the ball takes Boomako."
+    }
+   ]
+  },
+  {
+   "film": "The Sacrifice",
+   "filmId": "film-bbdd00b22850f5e1",
+   "year": 1986,
+   "region": "W-Europe",
+   "plotChars": 3717,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.95,
+     "outcome": "transfigured",
+     "basis": "With the jets over the house and the broadcast running, Alexander promises God he will give up everything he has and loves, his son included, if the day can be taken back, and in the morning he burns the house to the ground to keep the bargain."
+    },
+    {
+     "predicate": "a-life-settled-by-others",
+     "role": "the one who decides",
+     "centrality": 0.7,
+     "outcome": "transfigured",
+     "basis": "The vow disposes of Little Man, the house, Adelaide and Marta without a word to any of them, and he gets them out for a walk before setting the fire."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "pressing",
+     "centrality": 0.55,
+     "outcome": "ambiguous",
+     "basis": "Sent by Otto to lie with the maid who is a witch in the best sense, Alexander tells Maria about his mother's garden, and when she is bewildered by his advances he puts Victor's pistol to his own temple and says do not kill us."
+    },
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.45,
+     "outcome": "transfigured",
+     "basis": "Alexander delivers the whole tirade about modern man to a boy who cannot answer him because of the throat operation, and knocks him flying when the child jumps on his back; the last line of the film is Little Man's, under the tree."
+    }
+   ]
+  },
+  {
+   "film": "The Terrorizers",
+   "filmId": "film-7ea1fa61b0724e4a",
+   "year": 1986,
+   "region": "E-Asia",
+   "plotChars": 3522,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "falsehood-planted-between-two",
+     "role": "planting",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Bored and stuck in the flat with a bad leg, Shu An rings numbers in her building and tells Zhou to come to the empty apartment because there is something to settle with her husband."
+    },
+    {
+     "predicate": "withdrawal-inside-the-bond",
+     "role": "withdrawing",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Three years after the miscarriage Zhou cannot write and cannot be reached, and she leaves Li over how little he has understood of it, going back to Shen who took an interest."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blaming",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "With the chief's post open, Li fixes the dead chief's offence on Jing, his colleague and oldest friend, and Jing resigns in disgust believing it was the third candidate."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watching",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "Qiang photographs the raid, keeps the frame of the girl watching it, blows it up into a wall-sized collage of her face in the flat he rents as a darkroom, and tells her he cannot stop."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.55,
+     "outcome": "fatal",
+     "basis": "Li takes Gu's service pistol, shoots the director and then Shen, leaves Zhou alive, and lets Shu walk him to a hotel room with the police already coming up the stairs."
+    }
+   ]
+  },
+  {
+   "film": "Aria",
+   "filmId": "film-7aa2ec42fd44e4de",
+   "year": 1987,
+   "region": "UK/IE",
+   "plotChars": 5140,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one concealing",
+     "centrality": 0.25,
+     "outcome": "ambiguous",
+     "basis": "In the Rigoletto episode a producer installs himself at the Madonna Inn with a starlet without knowing that his wife is in another room of the same motel with a man of her own."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.25,
+     "outcome": "fatal",
+     "basis": "The Liebestod couple drive down Fremont Street, take a cheap Las Vegas room, and open their wrists together in the bath."
+    },
+    {
+     "predicate": "one-removed-from-the-way",
+     "role": "removed",
+     "centrality": 0.2,
+     "outcome": "restored",
+     "basis": "King Zog is in Vienna in 1931 to see a lover and his opponents are waiting on the opera-house steps; he draws and fires back and lives."
+    },
+    {
+     "predicate": "the-nearest-goes-unseen",
+     "role": "overlooked",
+     "centrality": 0.2,
+     "outcome": "unrestored",
+     "basis": "In the Armide episode two cleaners circle the bodybuilders and finally strip in front of them, and the men go on counting their reps."
+    }
+   ]
+  },
+  {
+   "film": "Chronicle of a Death Foretold",
+   "filmId": "film-19e3385d386d765c",
+   "year": 1987,
+   "region": "W-Europe",
+   "plotChars": 3919,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-witness-who-stays-silent",
+     "role": "the one who says nothing",
+     "centrality": 0.95,
+     "outcome": "fatal",
+     "basis": "Half the town knows the Vicario twins are sitting in Clotilde Armenta's shop with knives waiting for Santiago; some think it is talk, some think it must be stopped, the authorities do nothing, and he walks into the square unarmed."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Beaten by her mother until she gives a name, Angela says Santiago Nasar, though the two were never seen together and she never alters a word of it in twenty-seven years."
+    },
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Pablo and Pedro do not want to do it, announce it to everyone they meet in the hope of being stopped, and take the rum Clotilde presses on them, and still have to kill him because the town's custom leaves them nothing else."
+    },
+    {
+     "predicate": "the-match-arranged-by-others",
+     "role": "the one disposed of",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Angela tells her parents she does not love Bayardo San Roman and her mother answers that love can be learned; the family marries her off with a lavish party and he brings her back to the door the same night."
+    },
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "the one who holds on",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Angela writes to Bayardo every week for years with no answer, and he finally walks in with the whole bundle of letters unopened."
+    }
+   ]
+  },
+  {
+   "film": "Intervista",
+   "filmId": "film-e59d82302e161f93",
+   "year": 1987,
+   "region": "W-Europe",
+   "plotChars": 3057,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "pressed-for-an-account",
+     "role": "holding the account",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "A Japanese crew has come to Cinecitta to get Fellini on the record about his new film and spends the whole picture being walked round commercials, backlots and screen tests instead; even the studio's custodian slips off into Studio 5 to pick dandelions rather than sit for them."
+    },
+    {
+     "predicate": "a-bargain-with-a-price-not-named",
+     "role": "offering",
+     "centrality": 0.45,
+     "outcome": "ambiguous",
+     "basis": "The production everyone is casting and building sets for is Kafka's Amerika, which exists as the pretext under which Fellini shoots the film about his own first day at Cinecitta in 1938; when the producers complain about the gloom he switches on an arc lamp for them."
+    }
+   ]
+  },
+  {
+   "film": "King Lear",
+   "filmId": "film-379ebcdf16ae79b2",
+   "year": 1987,
+   "region": "US/CA",
+   "plotChars": 12871,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "affection-made-to-be-earned",
+     "role": "the one who tries to meet it",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Don Learo tells Cordelia she has not professed enough and may mar her dollars, and the telexes from the other two daughters arrive with their extravagant lines, at which she sinks to the floor."
+    },
+    {
+     "predicate": "refusing-what-all-have-settled",
+     "role": "the one holding out",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Cordelia will not produce the profession the room requires, and Will Jr says in voice-over that everything organising itself around her silence, wanting to silence her silence, is what produces the violence."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "carrying",
+     "centrality": 0.55,
+     "outcome": "ambiguous",
+     "basis": "After Chernobyl everything came back except culture, and William Shakespeare Junior is engaged by the Cannon Cultural Division and the Royal Library to recover his ancestor's lost works, which he starts hearing coming out of Learo's mouth in the restaurant."
+    },
+    {
+     "predicate": "will-pressed-into-yielding",
+     "role": "yielding",
+     "centrality": 0.4,
+     "outcome": "ambiguous",
+     "basis": "The film opens on Menahem Golan on a three-way call telling Godard how long he has taken and that it will be at Cannes in 1987."
+    },
+    {
+     "predicate": "third-holds-two-apart",
+     "role": "separating",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Will Jr goes over to thank Cordelia and Learo accuses him of making a play for his girl and leads her away without a word."
+    }
+   ]
+  },
+  {
+   "film": "The Plot of the Fuma Clan",
+   "filmId": "film-27c0234f308de2e3",
+   "year": 1987,
+   "region": "Japan",
+   "plotChars": 4955,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "loved-one-carried-off",
+     "role": "losing",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "A second party of Fuma ninja take Murasaki out of her own wedding while the first party is fighting over the urn, and leave a note offering to trade her for it."
+    },
+    {
+     "predicate": "aid-withheld-at-need",
+     "role": "withholding",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "Clan Elder Suminawa will not give up the urn for his granddaughter's life, because it holds the way to the family treasure, so Lupin steals it off him and makes the trade himself."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one who trusts",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Inspector Kazami, who talks Zenigata out of the temple and back onto the case, has been the Fuma Boss's man the whole time, and Fujiko finds him standing in their ranks."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Held at knifepoint on the castle roof as the thing that would stop Goemon fighting, Murasaki throws herself off it and takes Kazami down with her."
+    },
+    {
+     "predicate": "promise-of-marriage-broken",
+     "role": "waiting",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "With the treasure gone Goemon tells Murasaki he must train away his weaknesses before he can marry her, and she calls after him that she is not going to wait."
+    }
+   ]
+  },
+  {
+   "film": "Yeelen",
+   "filmId": "film-9f4b3cb5d0fbdee3",
+   "year": 1987,
+   "region": "W-Europe",
+   "plotChars": 2672,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "hunter-and-quarry",
+     "role": "evading",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Soma is told in a vision that his son will be the death of him and sets out to kill him first, following him across the country with a pylon that tracks him and goes through every barrier put in its way."
+    },
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "carrying",
+     "centrality": 0.7,
+     "outcome": "transfigured",
+     "basis": "His uncle Djigui hands Nianankoro the Kore's Wing he was blinded for using, and Nianankoro leaves his cloak with the pregnant Attou for the son who later picks his father's egg out of the sand."
+    },
+    {
+     "predicate": "bond-across-forbidden-line",
+     "role": "crossing",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "basis": "Asked to cure the barrenness of King Rouma's wife, Nianankoro makes the enchantment and then sleeps with Attou, and the two go back that night to tell the king what they have done."
+    },
+    {
+     "predicate": "verdict-before-proof",
+     "role": "condemned",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Crossing Fula country Nianankoro is taken for a thief and Rouma Boli orders him killed, until he freezes the guards where they stand."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.4,
+     "outcome": "unrestored",
+     "basis": "Djigui lost his sight long ago because he chose to turn the Kore's Wing to his people's use rather than his own."
+    }
+   ]
+  },
+  {
+   "film": "Akira",
+   "filmId": "film-f1aa1445141b0031",
+   "year": 1988,
+   "region": "Japan",
+   "plotChars": 4584,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "turned on",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Tetsuo goes through everyone who has ever held him up - the Capsules, Kaneda, the espers, Shikishima - and kills Yamagata at the Harukiya over the bike he took."
+    },
+    {
+     "predicate": "the-nearest-cannot-stop-what-one-becomes",
+     "role": "watching",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Kaori holds onto Tetsuo at the stadium while Shikishima offers to mend his arm and teach him to hold the power, and Kaneda comes at him with a laser rifle; the mass takes the stadium, Kaori and Kaneda with it."
+    },
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Takashi, Masaru and Kiyoko were put through the psychic programme as children and are still in the laboratory as old-faced children, and what is left of Akira is in jars under the Olympic site for research."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "basis": "Kai brings Kaneda the news about Yamagata and Kaneda swears he will settle it with Tetsuo himself, and goes into the stadium after him twice."
+    },
+    {
+     "predicate": "the-warning-that-cannot-land",
+     "role": "the one who sees",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Kiyoko tells Shikishima that Neo-Tokyo is going to go the way of Tokyo, and the parliament hears him out and dismisses it, which is what finally puts him into a coup."
+    }
+   ]
+  },
+  {
+   "film": "Another Woman",
+   "filmId": "film-e752bc8f98897311",
+   "year": 1988,
+   "region": "US/CA",
+   "plotChars": 1715,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-reckoning-comes-too-late",
+     "role": "the one who comes to see",
+     "centrality": 0.85,
+     "outcome": "ambiguous",
+     "basis": "At fifty-plus Marion works out what she has been to the people around her - the brother who feels she is ashamed of him, the school friend she eclipsed, the stepdaughter who resents her, and the first husband who killed himself."
+    },
+    {
+     "predicate": "kept-under-watch",
+     "role": "watching",
+     "centrality": 0.55,
+     "outcome": "ambiguous",
+     "basis": "The sublet's heating duct carries a stranger's analysis into Marion's writing room, and she sits and listens to Hope's sessions day after day before ever speaking to her."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceived",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Marion catches Ken in his affair and leaves the marriage she had already recognised as unfulfilling."
+    },
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "carrying",
+     "centrality": 0.45,
+     "outcome": "ambiguous",
+     "basis": "What she finally names in herself - the unfairness, the unkindness, the judging - is her father's, handed on and practised for thirty years without her noticing."
+    }
+   ]
+  },
+  {
+   "film": "Decalogue III",
+   "filmId": "film-506ecee11502648b",
+   "year": 1988,
+   "region": "E-Europe",
+   "plotChars": 2145,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-search-was-staged-by-its-object",
+     "role": "searching",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Ewa gets Janusz out of the house on Christmas night to look for a husband who has not been hers for three years and is in Krakow with another family, and lays clues through the hospitals and the station to keep the search going till dawn."
+    },
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one concealing",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Janusz tells his wife the taxi has been stolen and goes; she says leave it alone, and when he comes home in the morning asks him straight out whether he has started with Ewa again."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.6,
+     "outcome": "ambiguous",
+     "basis": "Ewa had set the terms privately before she came: keep him away from his family until seven and everything would be all right, fail and she would kill herself; the clock strikes and she tells him what the night was."
+    },
+    {
+     "predicate": "kindness-from-a-stranger",
+     "role": "the one with no obligation",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Janusz sees through the game somewhere in the small hours and drives on with her anyway without saying so, and only goes home when it gets light."
+    }
+   ]
+  },
+  {
+   "film": "It Takes Two",
+   "filmId": "film-175d7baa16c62290",
+   "year": 1988,
+   "region": "US/CA",
+   "plotChars": 2299,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "later-wanting-against-earlier-tie",
+     "role": "the one held by the earlier tie",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Travis is marrying the girl he has known his whole life and spends the eve of it in Dallas with the saleswoman who sold him the car."
+    },
+    {
+     "predicate": "a-bargain-with-a-price-not-named",
+     "role": "accepting",
+     "centrality": 0.65,
+     "outcome": "restored",
+     "basis": "Jonni takes him on a test drive and loads the order with every option except the extended warranty, and the car is a lemon because Dave has been building them out of inferior parts."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Travis telephones his father to say he is in love with Jonni, and his father talks him down by telling him about his own dalliance before the wedding - with Jonni listening."
+    },
+    {
+     "predicate": "the-nearest-goes-unseen",
+     "role": "overlooking",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Left standing at the altar, Stephi tells the congregation about the pony she lost by leaving the gate open while she was not paying attention, and says that is what she has been doing to Travis."
+    },
+    {
+     "predicate": "a-life-settled-by-others",
+     "role": "the one decided for",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "Stephi's father has the manure business waiting for him and will not take no, and the coworkers spend the run-up telling him what marriage will be."
+    }
+   ]
+  },
+  {
+   "film": "Trois places pour le 26",
+   "filmId": "film-d99e39a1c56cd537",
+   "year": 1988,
+   "region": "W-Europe",
+   "plotChars": 1787,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "truth-kept-from-its-owner",
+     "role": "the one kept unknowing",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Mylene had the child after they parted and never told him, and never told Marion whose daughter she is, so the two of them meet as a star and a fan and spend a night together before the breakfast conversation gives it away."
+    },
+    {
+     "predicate": "return-after-long-absence",
+     "role": "returning",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Montand comes back to Marseille to stage his own life and spends his free hours looking for the girl he loved when he was nobody, and finds her behind the Baroness de Lambert's card, in the bar they first met in, about to lose her home while her husband serves five years."
+    },
+    {
+     "predicate": "the-newcomer-takes-the-place-already-held",
+     "role": "arriving",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Marion is selling scent and asking for three seats for the 26th, and when the leading lady has to go because she is pregnant she puts herself forward and gets the part."
+    },
+    {
+     "predicate": "each-teller-shapes-the-past",
+     "role": "telling",
+     "centrality": 0.35,
+     "outcome": "restored",
+     "basis": "The musical being rehearsed is Montand's own life as he tells it - the unknown years, the first love he lost, then Piaf and Monroe - and he is on stage performing it while the woman it is about is in the audience."
+    }
+   ]
+  },
+  {
+   "film": "A City of Sadness",
+   "filmId": "film-598b6f5751d80214",
+   "year": 1989,
+   "region": "E-Asia",
+   "plotChars": 4185,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Wen-ching, who has been deaf since he was a boy, is taken from the miners' hospital into a system running summary trials; he comes out once, delivers an executed cellmate's things to the widow, is taken again, and Hinomi can find no record of him anywhere in Taipei."
+    },
+    {
+     "predicate": "the-wrong-person-is-blamed",
+     "role": "blamed",
+     "centrality": 0.75,
+     "outcome": "fatal",
+     "basis": "The Shanghai gang settle the quarrel over Red Monkey's money by using their mainland connections to have the Lin brothers denounced as Japanese collaborators; Wen-liang comes out of the cells with his brain damaged."
+    },
+    {
+     "predicate": "the-trusted-serves-another-interest",
+     "role": "the one who trusts",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Wen-hsiung finds out only by accident that his own brother, his concubine's brother and the Shanghai men have been running contraband through his ships and his storehouse."
+    },
+    {
+     "predicate": "argued-off-a-course",
+     "role": "dissuaded",
+     "centrality": 0.5,
+     "outcome": "fatal",
+     "basis": "Wen-ching finds Hinoe in the mountains with the guerillas and asks to join them; Hinoe sends him back down and tells him Hinomi loves him."
+    },
+    {
+     "predicate": "vigil-beside-the-unanswering",
+     "role": "attending",
+     "centrality": 0.45,
+     "outcome": "unrestored",
+     "basis": "After the arrest Hinomi keeps the household going with the baby and writes to Ah-shue that she has been round Taipei asking for word of him and there is none."
+    }
+   ]
+  },
+  {
+   "film": "Black Rain",
+   "filmId": "film-e0fcb2b33bf13008",
+   "year": 1989,
+   "region": "Japan",
+   "plotChars": 1816,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "identity-assigned-from-outside",
+     "role": "assigned",
+     "centrality": 0.9,
+     "outcome": "unrestored",
+     "basis": "Every family that comes to look at Yasuko withdraws the moment they hear she was in Hiroshima that morning, on the grounds that she may sicken or bear sick children, and no certificate of her health makes any difference."
+    },
+    {
+     "predicate": "reckoning-with-those-left",
+     "role": "surviving",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Shigematsu buries one hibakusha friend after another while watching his own wife and niece begin to go the same way, and stands in the road at the end waiting for a rainbow over the ambulance."
+    },
+    {
+     "predicate": "taking-another-into-keeping",
+     "role": "taken in",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Yasuko was taken in by her uncle and aunt as a half-orphan, and when her remarried father offers her a place in his house she stays with them."
+    },
+    {
+     "predicate": "verdict-before-proof",
+     "role": "condemning",
+     "centrality": 0.45,
+     "outcome": "restored",
+     "basis": "When Yuichi's mother asks his consent to the marriage, Shigematsu - whose own niece has been refused all round for what happened to her - is indignant at the young man's war trauma before he will consider it."
+    }
+   ]
+  },
+  {
+   "film": "Crimes and Misdemeanors",
+   "filmId": "film-a32c726f1b598f6e",
+   "year": 1989,
+   "region": "US/CA",
+   "plotChars": 3861,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "knower-silenced",
+     "role": "silencing",
+     "centrality": 0.9,
+     "outcome": "fatal",
+     "basis": "Dolores threatens to take the affair to Miriam and can also describe the financial dealings that built the practice, so Judah has her shot and goes to the flat himself for the letters."
+    },
+    {
+     "predicate": "a-wrong-never-answered-for",
+     "role": "the one who evades",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "The killing is written off to a drifter with a record, the guilt lifts after a few months, and Judah tells the story to Cliff at the wedding as a hypothetical and then goes home cheerfully with his wife."
+    },
+    {
+     "predicate": "deed-done-through-another",
+     "role": "directing",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Judah takes it to his brother Jack, who finds the man and arranges it, so that Judah is only ever the one who made the phone call."
+    },
+    {
+     "predicate": "set-aside-for-another",
+     "role": "set aside",
+     "centrality": 0.55,
+     "outcome": "unrestored",
+     "basis": "Halley turns Cliff down gently and goes to London, and comes back engaged to Lester, who had sent her white roses round the clock for days."
+    },
+    {
+     "predicate": "each-teller-shapes-the-past",
+     "role": "telling",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Paid to make a life of Lester, Cliff cuts him against Mussolini on the balcony, against himself shouting at his staff and making a pass at a young actress, and screens it to the man's face."
+    }
+   ]
+  },
+  {
+   "film": "Decalogue V",
+   "filmId": "film-54928816775690d2",
+   "year": 1989,
+   "region": "E-Europe",
+   "plotChars": 3431,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "injury-discharged-on-outsiders",
+     "role": "discharging",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Jacek carries a rope round the city, plays pointless cruelties on strangers, and strangles and then stones a taxi driver he has no quarrel with; five years earlier his twelve-year-old sister was run down by a driver who had been drinking with Jacek that afternoon."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "answered on",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "The state does its killing with the same deliberateness the film gave the first one: the room, the straps, several men holding him down, and the drop."
+    },
+    {
+     "predicate": "the-account-fixed-beyond-appeal",
+     "role": "the one who cannot contest it",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "Piotr goes into the judge's chambers to ask whether a better lawyer could have saved his client, and is told his was the finest argument against the death penalty the judge had heard and that it could never have made any difference."
+    },
+    {
+     "predicate": "claim-of-the-dead",
+     "role": "charging",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "In the last hour Jacek asks to be put in beside his sister and father although there is one place left and his mother would have to give it up, and hands Piotr the enlarged photograph of the girl to take to her."
+    }
+   ]
+  },
+  {
+   "film": "Sweetie",
+   "filmId": "film-75a754a4d552f4ca",
+   "year": 1989,
+   "region": "Oceania",
+   "plotChars": 2148,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.85,
+     "outcome": "fatal",
+     "basis": "Sweetie arrives back with Bob and takes the house over - Kay's clothes ruined, the furniture broken, everyone managed round her rages and then forgiven the next morning."
+    },
+    {
+     "predicate": "another-shaped-to-order",
+     "role": "shaping",
+     "centrality": 0.7,
+     "outcome": "fatal",
+     "basis": "The flashbacks are Gordon holding his daughter up through her tricks and songs, and he goes on treating a grown woman as that child rather than as ill; Flo says plainly that he indulges her, and the family keep the little girl at the end."
+    },
+    {
+     "predicate": "own-death-brought-about",
+     "role": "ending themselves",
+     "centrality": 0.65,
+     "outcome": "fatal",
+     "basis": "Stripped and painted black in the childhood tree house, Sweetie will not come down for any of them and keeps rocking the fort until it comes out of the tree, killing her and injuring Flo underneath."
+    },
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one concealing",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Kay digs up the sapling Louis plants in the yard and hides it because of what the fortune teller's words have made her fear, and says nothing to him about having done it."
+    }
+   ]
+  },
+  {
+   "film": "Close-Up",
+   "filmId": "film-c371f502326d5560",
+   "year": 1990,
+   "region": "W-Europe",
+   "plotChars": 2064,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "identity-passed-off",
+     "role": "passing",
+     "centrality": 0.95,
+     "outcome": "restored",
+     "basis": "Sabzian tells the woman beside him on the bus, who is reading about The Cyclist, that he is Makhmalbaf, and spends a fortnight in the Ahankhah house promising to shoot his next film there with the sons in it, and borrowing 1,900 tomans for cab fare."
+    },
+    {
+     "predicate": "hidden-life-exposed",
+     "role": "exposed",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Mr Ahankhah, having seen a magazine photograph of a younger, darker Makhmalbaf, brings the journalist Farazmand into the house to identify him, and Farazmand photographs the arrest for a piece called Bogus Makhmalbaf Arrested."
+    },
+    {
+     "predicate": "absolution-sought-from-wronged",
+     "role": "asking",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "In court Sabzian says he did it because the films let him feel seen in his own suffering, and the judge puts it to the Ahankhahs, who pardon him on condition that he makes something of himself."
+    },
+    {
+     "predicate": "taking-up-the-written-off",
+     "role": "written off",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "The real Makhmalbaf meets him at the prison gate and gives him a lift to the Ahankhahs' door, where the father says he hopes the man will be good now and make them proud of him."
+    }
+   ]
+  },
+  {
+   "film": "Days of Thunder",
+   "filmId": "film-dc4c47527b08c49b",
+   "year": 1990,
+   "region": "US/CA",
+   "plotChars": 3662,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-newcomer-takes-the-place-already-held",
+     "role": "displaced",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Daland puts Russ Wheeler in the seat while Cole is mending from Daytona and then runs both cars, and takes his new driver's side over Harry's and Cole's every time."
+    },
+    {
+     "predicate": "past-laid-on-the-young",
+     "role": "handing down",
+     "centrality": 0.7,
+     "outcome": "restored",
+     "basis": "Harry left the sport a year after Buddy Bretherton was killed in one of his cars and comes out of retirement to build Cole a chassis and drill the terms of the trade into a driver who does not know what loose or tight means."
+    },
+    {
+     "predicate": "bound-parties-turn-hostile",
+     "role": "turned on",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "His own team-mate blocks his pit stall at North Wilkesboro and puts him in the outside wall on the last lap, Cole drives into him on the cool-down, and the whole shop ends in a fight that gets Cole and Harry fired."
+    },
+    {
+     "predicate": "antagonism-without-settleable-cause",
+     "role": "one side",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Cole and Rowdy Burns run each other harder every week for no reason either can name until they take each other out at the Firecracker 400, and Big John sits them down and sends them off to wreck rental cars on the beach instead."
+    },
+    {
+     "predicate": "cost-taken-onto-oneself",
+     "role": "shielding",
+     "centrality": 0.55,
+     "outcome": "restored",
+     "basis": "Rowdy, going in for surgery on a burst vessel in his brain, asks Cole to drive his car at Daytona so that his sponsor will pay out his year."
+    }
+   ]
+  },
+  {
+   "film": "Tasmania Story",
+   "filmId": "film-1e186c02684f5738",
+   "year": 1990,
+   "region": "Japan",
+   "plotChars": 1676,
+   "aboveFloor": true,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "parent-walks-out",
+     "role": "left",
+     "centrality": 0.8,
+     "outcome": "restored",
+     "basis": "Shoichi has not seen his father since the divorce and his mother is dead, so he spends his last spring break as a sixth-grader flying to Sydney on an old address and then following him to Tasmania."
+    },
+    {
+     "predicate": "torn-between-two-claims",
+     "role": "the one who is torn",
+     "centrality": 0.6,
+     "outcome": "restored",
+     "basis": "Kawano has the boy on his hands at the same time as the conservation fight against his old trading company and his own hunt for a thylacine that has been extinct for fifty years."
+    },
+    {
+     "predicate": "act-demanded-against-conscience",
+     "role": "refusing",
+     "centrality": 0.5,
+     "outcome": "restored",
+     "basis": "Kawano has broken with the leading Japanese trading house he was an executive of because he cannot square its logging and land practices in Tasmania with himself, and now campaigns against them."
+    },
+    {
+     "predicate": "kinship-made-from-lack",
+     "role": "one",
+     "centrality": 0.4,
+     "outcome": "restored",
+     "basis": "Shoichi crosses to Tasmania with Minoru, a runaway he picks up in Sydney, each of them travelling because of a father."
+    }
+   ]
+  }
+ ]
+}

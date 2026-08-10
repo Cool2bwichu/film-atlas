@@ -1,0 +1,145 @@
+
+  WISHLIST — from pipeline/out/readings-pass-all300.json
+  300 readings, 296 of them naming anything
+  414 distinct films named that the corpus does not have
+
+  SKEW BEING INHERITED — region of the films doing the naming
+  region      corpus   nominating  lift
+  US/CA       34.7%    34.1%       1.0x
+  W-Europe    34.1%    32.8%       1.0x
+  Japan       13.6%    13.9%       1.0x
+  E-Asia      4.2%     4.4%        1.1x
+  UK/IE       4.0%     4.1%        1.0x
+  E-Europe    3.3%     3.7%        1.1x
+  S-Asia      2.6%     2.4%        0.9x
+  Other       2.2%     3.4%        1.5x   <- amplified
+  LatAm       1.0%     1.0%        1.0x
+  Oceania     0.3%     0.3%        1.1x
+
+  This tool cannot correct that: it does not know an absent film's region.
+  Counterweight the batch from expand-seeds.js, which derives candidates
+  from the corpus rather than from recall.
+
+  TOP 60 CANDIDATES — ranked by nominators x distinct reasons
+
+  score  nom  why  title
+  100    10   10   Umberto D.   [needs (year)]
+         Modern Times -> a man with no footing left, kept going by the one creature attached to him
+  64     8    8    The Treasure of the Sierra Madre
+         Mara Maru -> partners in a hunt for buried wealth turn on each other as the prize comes up
+  49     7    7    Ordinary People   [needs (year)]
+         The Crowd -> a child's death that a marriage cannot absorb
+  36     6    6    The Servant   [needs (year)]
+         Era lui... sì! sì! -> a newcomer's rise inside a household unbalances the man who hired him
+  25     5    5    Sophie's Choice   [needs (year)]
+         Hiroshima mon amour -> a wartime shame spoken aloud for the first time to a new lover, and 
+  25     5    5    Breaking the Waves
+         The Passion of Joan of Arc -> a woman's direct, literal dealings with God are judged as mad
+  25     5    5    Rosetta   [needs (year)]
+         Street of Shame -> a person whose whole existence is the maintenance of a dependent who giv
+  25     5    5    Make Way for Tomorrow
+         Late Chrysanthemums -> children's departures leave the parents holding nothing but each oth
+  25     5    5    The Awful Truth
+         Secrets of Women -> spouses fencing about infidelity until the accusation turns back into i
+  25     5    5    All About Eve
+         Variety Lights -> a newcomer taken in by a company eclipses the people who took her in
+  25     5    5    The Return of Martin Guerre
+         The Manxman -> a man's return from the dead forces a household to confront who the child be
+  25     5    5    Secrets & Lies
+         A Mother Should be Loved -> a parentage kept hidden for years and the reckoning when it sur
+  25     5    5    Le Corbeau   [needs (year)]
+         Stalag 17 -> a closed community hunting its informer and settling its certainty on the wron
+  25     5    5    Kramer vs. Kramer
+         Pardon My Past -> a child fought over by two parents with a legal machine sharpening the fi
+  25     5    5    The Rules of the Game
+         I maniaci -> a household where each partner is separately concealing a lover and everyone k
+  16     4    4    The Sweet Hereafter
+         Rashomon -> a witness lies in testimony to cover something of her own
+  16     4    4    The Crucible   [needs (year)]
+         Mother Joan of the Angels -> a private torment becomes a public entertainment, with authori
+  16     4    4    Whiplash   [needs (year)]
+         The Red Shoes -> a maker who insists the art be the only thing in the pupil's life
+  16     4    4    The Grapes of Wrath
+         Mother India -> land and lenders destroying a family while the mother is the only thing hol
+  16     4    4    Cyrano de Bergerac
+         War and Peace -> a man pleads another man's case to the woman he himself loves
+  16     4    4    Sweet Smell of Success
+         Two Men in Manhattan -> two men bound by work, one of whom will print anything, and the oth
+  16     4    4    The Apartment   [needs (year)]
+         Come Fill the Cup -> a man ends up caring for the woman his rival is treating badly, and ha
+  16     4    4    The Mission   [needs (year)]
+         Mara Maru -> a man's violence measured against what other people hold sacred, and paid for 
+  16     4    4    The Trial   [needs (year)]
+         Investigation of a Citizen Above Suspicion -> guilt and accusation come loose from each oth
+  16     4    4    The Piano Teacher
+         Onibaba -> an older woman polices a younger one's desire out of her own need for her
+  16     4    4    Gaslight   [needs (year)]
+         Rosemary's Baby -> a husband arranges things so that his wife's correct perceptions look to
+  16     4    4    A Woman Under the Influence
+         Rosemary's Baby -> a woman's distress is handed to doctors and family to be managed rather 
+  16     4    4    Dogville   [needs (year)]
+         Les Créatures -> a small isolated community closes around an outsider and turns its collect
+  16     4    4    Frankenstein (1931)   [needs (year)]
+         Blade Runner -> the made thing walking back to its maker to demand an account
+  9      3    3    Eyes Without a Face
+         Vertigo -> living women are remade to restore a face that is gone
+  9      3    3    Mamma Roma   [needs (year)]
+         Street of Shame -> a grown child who cannot forgive the trade that paid for him and cuts th
+  9      3    3    Matewan   [needs (year)]
+         Strike -> hired men sent among workers to manufacture the violence that licenses the crackd
+  9      3    3    A Place in the Sun
+         Sunrise: A Song of Two Humans -> a man takes a woman out on a lake intending to drown her, 
+  9      3    3    The Blue Angel
+         Pandora's Box -> a settled respectable man destroys himself the moment he acts on wanting a
+  9      3    3    Antigone   [needs (year)]
+         The Burmese Harp -> one person decides the unburied dead have a claim that outweighs every 
+  9      3    3    A Prophet   [needs (year)]
+         Sword of Penitence -> the choice at the end is between dying and going back to crime, with 
+  9      3    3    The Nasty Girl
+         Difficult Years -> those who served the regime prosper after it falls while the one left ho
+  9      3    3    In the Name of the Father
+         Downhill -> a man serves the punishment for what someone else did, and the record is correc
+  9      3    3    The Ox-Bow Incident
+         The Last Days of Pompeii -> the wrong men condemned quickly because someone needed a crime 
+  9      3    3    Being There   [needs (year)]
+         Era lui... sì! sì! -> a blank newcomer is raised to a height purely by what other people pr
+  9      3    3    Wuthering Heights   [needs (year)]
+         The Burning Soil -> a marriage made for property poisons everyone who loved either party
+  9      3    3    The Best Years of Our Lives
+         Task Force -> a marriage lived around absence, judged at the moment of return
+  9      3    3    The Lives of Others
+         The Conformist -> a state functionary is placed inside the domestic life of the intellectua
+  9      3    3    Casablanca   [needs (year)]
+         Muriel -> a former lover reappears having concealed a marriage, and the interrupted affair 
+  9      3    3    The Silence of the Lambs
+         Such a Gorgeous Kid Like Me -> an interviewer builds a career on a prisoner's account and i
+  9      3    3    Take Shelter   [needs (year)]
+         The Shining -> a family sealed in with a father whose mind is turning and who insists nothi
+  9      3    3    S21: The Khmer Rouge Killing Machine
+         Shoah -> survivors and guards returned to the site and made to speak in each other's presen
+  9      3    3    The Official Story
+         A City of Sadness -> living beside a machinery of disappearance while trying to keep an ord
+  9      3    3    The Wrestler   [needs (year)]
+         The Last Waltz -> a performer decides whether to keep living on the road when the road has 
+  9      3    3    Dances with Wolves
+         Thunderheart -> a man sent out by his own institution ends up belonging to the people he wa
+  9      3    3    The Vanishing   [needs (year)]
+         Someone's Watching Me! -> an ordinary-seeming man's private project of watching and taking 
+  4      2    2    Laura   [needs (year)]
+         Vertigo -> a man falls in love with a dead woman's image and then meets her alive
+  4      2    2    Black Book   [needs (year)]
+         Hiroshima mon amour -> a woman punished by her own community for having loved a man on the 
+  4      2    2    A Man for All Seasons
+         The Passion of Joan of Arc -> an authority that needs one spoken assent from a person who w
+  4      2    2    Bloody Sunday   [needs (year)]
+         Battleship Potemkin -> armed ranks advancing in formation on an unarmed civilian crowd that
+  4      2    2    Ossessione   [needs (year)]
+         Sunrise: A Song of Two Humans -> a lover proposes the removal of a spouse as the price of t
+  4      2    2    The Manchurian Candidate
+         The Cabinet of Dr. Caligari -> a person is used as another's hands, made to kill on command
+  4      2    2    Nightmare Alley   [needs (year)]
+         The Cabinet of Dr. Caligari -> a sideshow act built on another person's condition, and a co
+  4      2    2    The Prisoner of Zenda
+         Safety Last! -> a man stands in for another for one hour and cannot get out of the role
+  4      2    2    The Deer Hunter
+         The Burmese Harp -> comrades travel and plead to bring back the one who stayed, and he will

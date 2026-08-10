@@ -1,0 +1,897 @@
+{
+ "generated": "2026-08-10T16:08:28.481Z",
+ "what": "quality audit of pipeline/out/predicate-edges.json. Measurement only; corpus.json untouched.",
+ "fameProxy": {
+  "source": "pipeline/rag/fame.js",
+  "proxy": "60-day en.wikipedia pageviews, cache-only",
+  "window": "20260608",
+  "staleVsTodayWindow": "20260609",
+  "coverage": "2175/2204"
+ },
+ "fame": {
+  "cohort300": {
+   "label": "the 300-film cohort, stratified by fame decile by construction",
+   "films": 300,
+   "filmsWithViews": 296,
+   "predicate degree vs pageviews": {
+    "rho": 0.1967,
+    "n": 296,
+    "p": 0.000666
+   },
+   "predicate degree vs corpus degree": {
+    "rho": 0.0267,
+    "n": 300,
+    "p": 0.645
+   },
+   "tags per film vs pageviews": {
+    "rho": 0.2177,
+    "n": 296,
+    "p": 0.00016
+   },
+   "plot chars vs pageviews": {
+    "rho": 0.3762,
+    "n": 296,
+    "p": 2.2e-11
+   },
+   "CONTROL corpus degree vs pageviews, same films": {
+    "rho": 0.4682,
+    "n": 296,
+    "p": 1.58e-17
+   },
+   "PARTIAL predicate degree vs pageviews, holding plot chars fixed": {
+    "rho": 0.0781,
+    "n": 296,
+    "p": 0.181,
+    "zeroOrder": 0.1967
+   },
+   "PARTIAL predicate degree vs pageviews, holding tag count fixed": {
+    "rho": 0.0721,
+    "n": 296,
+    "p": 0.217,
+    "zeroOrder": 0.1967
+   },
+   "medianViewsByPredicateDegreeQuartile": {
+    "bottom": 4315,
+    "top": 8743,
+    "ratio": 2.03,
+    "meanPredDegreeBottom": 18.3,
+    "meanPredDegreeTop": 79.7
+   },
+   "medianViewsByCorpusDegreeQuartile": {
+    "bottom": 1474,
+    "top": 32674,
+    "ratio": 22.17
+   }
+  },
+  "scored304": {
+   "label": "300 cohort + 4 films scored but not counted for prevalence",
+   "films": 304,
+   "filmsWithViews": 300,
+   "predicate degree vs pageviews": {
+    "rho": 0.1982,
+    "n": 300,
+    "p": 0.000556
+   },
+   "predicate degree vs corpus degree": {
+    "rho": 0.0372,
+    "n": 304,
+    "p": 0.518
+   },
+   "tags per film vs pageviews": {
+    "rho": 0.2177,
+    "n": 296,
+    "p": 0.00016
+   },
+   "plot chars vs pageviews": {
+    "rho": 0.3762,
+    "n": 296,
+    "p": 2.2e-11
+   },
+   "CONTROL corpus degree vs pageviews, same films": {
+    "rho": 0.473,
+    "n": 300,
+    "p": 3.92e-18
+   },
+   "PARTIAL predicate degree vs pageviews, holding plot chars fixed": {
+    "rho": 0.0781,
+    "n": 296,
+    "p": 0.181,
+    "zeroOrder": 0.1967
+   },
+   "PARTIAL predicate degree vs pageviews, holding tag count fixed": {
+    "rho": 0.0721,
+    "n": 296,
+    "p": 0.217,
+    "zeroOrder": 0.1967
+   },
+   "medianViewsByPredicateDegreeQuartile": {
+    "bottom": 4362,
+    "top": 9006,
+    "ratio": 2.06,
+    "meanPredDegreeBottom": 18.1,
+    "meanPredDegreeTop": 79.6
+   },
+   "medianViewsByCorpusDegreeQuartile": {
+    "bottom": 1474,
+    "top": 32674,
+    "ratio": 22.17
+   }
+  },
+  "wholeCorpusControl": {
+   "label": "all 2,204 films, existing graph only",
+   "films": 2175,
+   "corpus degree vs pageviews": {
+    "rho": 0.4466,
+    "n": 2175,
+    "p": 4.35e-107
+   }
+  },
+  "edgeLevel": {
+   "edgesWithBothViewsKnown": 7127,
+   "strength vs mean pageviews of the two films": {
+    "rho": 0.0111,
+    "n": 7127,
+    "p": 0.348
+   },
+   "strength vs the LESS famous film": {
+    "rho": 0.0179,
+    "n": 7127,
+    "p": 0.131
+   },
+   "strength vs the MORE famous film": {
+    "rho": 0.0142,
+    "n": 7127,
+    "p": 0.232
+   }
+  },
+  "hubs": {
+   "top10ByPredicateDegree": [
+    {
+     "title": "Pixote",
+     "predicateDegree": 107,
+     "corpusDegree": 19,
+     "pageviews": 5792,
+     "tags": 5,
+     "plotChars": 1779
+    },
+    {
+     "title": "The Shining",
+     "predicateDegree": 102,
+     "corpusDegree": 28,
+     "pageviews": 204828,
+     "tags": 5,
+     "plotChars": 3513
+    },
+    {
+     "title": "Joi Baba Felunath",
+     "predicateDegree": 101,
+     "corpusDegree": 20,
+     "pageviews": 2369,
+     "tags": 5,
+     "plotChars": 2850
+    },
+    {
+     "title": "The Incredibles",
+     "predicateDegree": 98,
+     "corpusDegree": 20,
+     "pageviews": 129091,
+     "tags": 5,
+     "plotChars": 3943
+    },
+    {
+     "title": "The Last Days of Pompeii",
+     "predicateDegree": 91,
+     "corpusDegree": 20,
+     "pageviews": 2500,
+     "tags": 5,
+     "plotChars": 4177
+    },
+    {
+     "title": "A Dangerous Toy",
+     "predicateDegree": 91,
+     "corpusDegree": 21,
+     "pageviews": 324,
+     "tags": 5,
+     "plotChars": 1558
+    },
+    {
+     "title": "Jolanda, the Daughter of the Black Corsair",
+     "predicateDegree": 90,
+     "corpusDegree": 20,
+     "pageviews": 420,
+     "tags": 6,
+     "plotChars": 2481
+    },
+    {
+     "title": "Bugonia",
+     "predicateDegree": 90,
+     "corpusDegree": 20,
+     "pageviews": 427522,
+     "tags": 5,
+     "plotChars": 4115
+    },
+    {
+     "title": "Harakiri",
+     "predicateDegree": 89,
+     "corpusDegree": 21,
+     "pageviews": 27934,
+     "tags": 7,
+     "plotChars": 6065
+    },
+    {
+     "title": "Once Upon a Time in the West",
+     "predicateDegree": 89,
+     "corpusDegree": 28,
+     "pageviews": 89426,
+     "tags": 5,
+     "plotChars": 3108
+    }
+   ],
+   "top10ShareOfAllEdgeEndpointsPct": 6.5,
+   "filmsWithZeroPredicateEdges": 12,
+   "maxDegree": 107,
+   "medianDegree": 47
+  }
+ },
+ "strangers": {
+  "predicateEdges": 7299,
+  "joiningFilmsWithNoExistingEdge": 7213,
+  "sharePct": 98.8,
+  "baseRate": {
+   "filmsTouched": 292,
+   "possiblePairs": 42486,
+   "alreadyConnected": 435,
+   "pctOfPossiblePairsAlreadyConnected": 1.02,
+   "strangerShareIfEdgesWereDrawnAtRandom": 99
+  },
+  "existingGraphHopsBetweenEndpoints": {
+   "1": 86,
+   "2": 931,
+   "3": 4232,
+   "4": 2008,
+   "5+": 42
+  },
+  "crossRegionAndAtLeastThreeHopsApart": {
+   "edges": 4942,
+   "pctOfPredicateEdges": 67.7
+  },
+  "recoveryOfExistingEdges": {
+   "predicateEdgesLandingOnAnExistingPair": 86,
+   "expectedIfDrawnAtRandom": 74.7,
+   "enrichment": 1.15
+  },
+  "strongestTenStrangers": [
+   {
+    "pair": "The Idiot / Jules and Jim",
+    "predicate": "two-claims-on-one-person",
+    "type": "rhyme",
+    "hops": 3,
+    "strength": 0.5436,
+    "tonalDistance": 28.3,
+    "regions": [
+     "Japan",
+     "W-Europe"
+    ],
+    "years": [
+     1951,
+     1962
+    ]
+   },
+   {
+    "pair": "Eyes of Laura Mars / The Terrorizers",
+    "predicate": "kept-under-watch",
+    "type": "rhyme",
+    "hops": 4,
+    "strength": 0.5402,
+    "tonalDistance": 89,
+    "regions": [
+     "US/CA",
+     "E-Asia"
+    ],
+    "years": [
+     1978,
+     1986
+    ]
+   },
+   {
+    "pair": "Lolita / Sleepers",
+    "predicate": "the-protector-is-the-danger",
+    "type": "rhyme",
+    "hops": 3,
+    "strength": 0.5333,
+    "tonalDistance": 51.4,
+    "regions": [
+     "US/CA",
+     "US/CA"
+    ],
+    "years": [
+     1962,
+     1996
+    ]
+   },
+   {
+    "pair": "The Young One / Eyes of Laura Mars",
+    "predicate": "the-protector-is-the-danger",
+    "type": "rhyme",
+    "hops": 3,
+    "strength": 0.5326,
+    "tonalDistance": 34.4,
+    "regions": [
+     "LatAm",
+     "US/CA"
+    ],
+    "years": [
+     1960,
+     1978
+    ]
+   },
+   {
+    "pair": "Stalag 17 / The Conformist",
+    "predicate": "the-trusted-serves-another-interest",
+    "type": "rhyme",
+    "hops": 3,
+    "strength": 0.5237,
+    "tonalDistance": 71.9,
+    "regions": [
+     "US/CA",
+     "W-Europe"
+    ],
+    "years": [
+     1953,
+     1970
+    ]
+   },
+   {
+    "pair": "High and Low / My Dear Killer",
+    "predicate": "corroded-by-anothers-life",
+    "type": "rhyme",
+    "hops": 3,
+    "strength": 0.5216,
+    "tonalDistance": 33.4,
+    "regions": [
+     "Japan",
+     "W-Europe"
+    ],
+    "years": [
+     1963,
+     1972
+    ]
+   },
+   {
+    "pair": "Martha / Sweetie",
+    "predicate": "another-shaped-to-order",
+    "type": "rhyme",
+    "hops": 4,
+    "strength": 0.5194,
+    "tonalDistance": 61,
+    "regions": [
+     "Other",
+     "Oceania"
+    ],
+    "years": [
+     1974,
+     1989
+    ]
+   },
+   {
+    "pair": "Serpico / Il Marchese del Grillo",
+    "predicate": "arbiter-bent-by-power",
+    "type": "rebuttal",
+    "hops": 3,
+    "strength": 0.5131,
+    "tonalDistance": 60.1,
+    "regions": [
+     "US/CA",
+     "W-Europe"
+    ],
+    "years": [
+     1973,
+     1981
+    ]
+   },
+   {
+    "pair": "The Mirror / Days of Thunder",
+    "predicate": "past-laid-on-the-young",
+    "type": "rebuttal",
+    "hops": 3,
+    "strength": 0.5116,
+    "tonalDistance": 109.2,
+    "regions": [
+     "E-Europe",
+     "US/CA"
+    ],
+    "years": [
+     1975,
+     1990
+    ]
+   },
+   {
+    "pair": "Don't Look Now / Honeyland",
+    "predicate": "the-warning-that-cannot-land",
+    "type": "rhyme",
+    "hops": 4,
+    "strength": 0.5102,
+    "tonalDistance": 63.8,
+    "regions": [
+     "W-Europe",
+     "Other"
+    ],
+    "years": [
+     1973,
+     2019
+    ]
+   }
+  ]
+ },
+ "tradition": {
+  "predicate": {
+   "pairs": 7299,
+   "crossRegionPct": 75.6,
+   "crossDecadePct": 88,
+   "crossBothPct": 67.1,
+   "unmeasurable": 0,
+   "medianYears": 23,
+   "meanYears": 27.6
+  },
+  "crew": {
+   "pairs": 5568,
+   "crossRegionPct": 21.3,
+   "crossDecadePct": 64.5,
+   "crossBothPct": 15.6,
+   "unmeasurable": 13,
+   "medianYears": 7,
+   "meanYears": 10.2
+  },
+  "cast": {
+   "pairs": 6025,
+   "crossRegionPct": 21.1,
+   "crossDecadePct": 64.3,
+   "crossBothPct": 15.1,
+   "unmeasurable": 6,
+   "medianYears": 7,
+   "meanYears": 10.4
+  },
+  "keyword": {
+   "pairs": 1053,
+   "crossRegionPct": 42.6,
+   "crossDecadePct": 79.3,
+   "crossBothPct": 35.5,
+   "unmeasurable": 0,
+   "medianYears": 16,
+   "meanYears": 20.5
+  },
+  "subject": {
+   "pairs": 505,
+   "crossRegionPct": 67.3,
+   "crossDecadePct": 85.1,
+   "crossBothPct": 58.4,
+   "unmeasurable": 0,
+   "medianYears": 19,
+   "meanYears": 23.6
+  },
+  "setting": {
+   "pairs": 288,
+   "crossRegionPct": 35.1,
+   "crossDecadePct": 84.4,
+   "crossBothPct": 30.9,
+   "unmeasurable": 3,
+   "medianYears": 18,
+   "meanYears": 22.5
+  },
+  "genreEra": {
+   "pairs": 3630,
+   "crossRegionPct": 69.1,
+   "crossDecadePct": 63.6,
+   "crossBothPct": 44.2,
+   "unmeasurable": 8,
+   "medianYears": 7,
+   "meanYears": 6.7
+  },
+  "countryEra": {
+   "pairs": 2998,
+   "crossRegionPct": 11.8,
+   "crossDecadePct": 27,
+   "crossBothPct": 4.1,
+   "unmeasurable": 10,
+   "medianYears": 2,
+   "meanYears": 2.7
+  },
+  "allCorpusEdges": {
+   "pairs": 22159,
+   "crossRegionPct": 32.7,
+   "crossDecadePct": 62,
+   "crossBothPct": 23.3,
+   "unmeasurable": 58,
+   "medianYears": 7,
+   "meanYears": 10.7
+  },
+  "NULL_corpusEdgesAmongTheSameFilms": {
+   "pairs": 435,
+   "crossRegionPct": 42.1,
+   "crossDecadePct": 61.4,
+   "crossBothPct": 28,
+   "unmeasurable": 0,
+   "medianYears": 7,
+   "meanYears": 11.6
+  },
+  "NULL_bySignalAmongTheSameFilms": {
+   "crew": {
+    "pairs": 90,
+    "crossRegionPct": 25.6,
+    "crossDecadePct": 60,
+    "crossBothPct": 15.6,
+    "unmeasurable": 0,
+    "medianYears": 7,
+    "meanYears": 9.8
+   },
+   "cast": {
+    "pairs": 105,
+    "crossRegionPct": 22.9,
+    "crossDecadePct": 65.7,
+    "crossBothPct": 17.1,
+    "unmeasurable": 0,
+    "medianYears": 7,
+    "meanYears": 11
+   },
+   "keyword": {
+    "pairs": 21,
+    "crossRegionPct": 28.6,
+    "crossDecadePct": 81,
+    "crossBothPct": 28.6,
+    "unmeasurable": 0,
+    "medianYears": 15,
+    "meanYears": 20.4
+   }
+  },
+  "NULL_randomPairInWholeCorpus": {
+   "pairs": 2414503,
+   "films": 2198,
+   "crossRegionPct": 73.8,
+   "crossDecadePct": 88.1
+  },
+  "NULL_randomPairAmongTheSameFilms": {
+   "pairs": 42486,
+   "crossRegionPct": 75.7,
+   "crossDecadePct": 88.6,
+   "crossBothPct": 67.5,
+   "unmeasurable": 0,
+   "medianYears": 24,
+   "meanYears": 28.1
+  }
+ },
+ "rebuttals": {
+  "edgesTypedRebuttalByAssociatePredicates": 2384,
+  "edgesTypedRhyme": 4915,
+  "opposedOutcomeInstancesOverEverySharedPredicate": 2587,
+  "distinctPairsWithAtLeastOneOpposition": 2515,
+  "onANonLeadSharedPredicate": 203,
+  "edgesSkippedForMissingTagSide": 0,
+  "outcomePairings": {
+   "restored vs unrestored": 1209,
+   "fatal vs restored": 868,
+   "transfigured vs unrestored": 270,
+   "fatal vs transfigured": 240
+  },
+  "roleAgreement": {
+   "sameRole": 1517,
+   "differentRole": 1070,
+   "eitherSideTaggedBoth": 74,
+   "sameRoleAndBothCentral": 265
+  },
+  "handAuthoredRebuttalsInCorpusToday": 110,
+  "centralityFilter": {
+   "bothAtLeast0_6": 432,
+   "eitherBelow0_4": 863
+  },
+  "outcomeVsBasisConsistency": {
+   "VERDICT": "INCONCLUSIVE — this instrument failed. Read the samples: most flagged tags are correct ('her dead husband's son', a drowning the film ABANDONS). The regex cannot tell a death that settles the situation from a death mentioned in passing, and the 'fatal with no death word' rate of ~51% shows the same failure from the other side. These two numbers are NOT defect rates and must not be quoted as such. The judgement on outcome labelling stays a hand judgement on the ten printed pairs.",
+   "tagsChecked": 1271,
+   "restoredButBasisNamesADeath": 56,
+   "pctOfRestored": 17.9,
+   "fatalButBasisNamesNoDeath": 176,
+   "pctOfFatal": 50.9,
+   "samples": [
+    {
+     "film": "Metropolis",
+     "predicate": "many-are-spent-to-hold-a-position",
+     "outcome": "restored",
+     "basis": "The underground workers are consumed operating the machines that power Joh Fredersen's city — a machine explosion kills and injures them and one collapses from exhaustion at his post before Freder takes his place — until Freder joins Fredersen's hand to Grot's."
+    },
+    {
+     "film": "Metropolis",
+     "predicate": "subordinate-turns-on-superior",
+     "outcome": "restored",
+     "basis": "Freder, the master's son and heir, sees his father's cold indifference to the machine-hall dead and secretly rebels, enlisting the dismissed Josaphat and going down to the catacombs to take the workers' side against Fredersen."
+    },
+    {
+     "film": "Sunrise: A Song of Two Humans",
+     "predicate": "the-protector-is-the-danger",
+     "outcome": "restored",
+     "basis": "The Man takes his unsuspecting Wife out onto the lake intending to throw her overboard and drown her, and only abandons it when she pleads for mercy in the boat."
+    },
+    {
+     "film": "A Mother Should be Loved",
+     "predicate": "taking-another-into-keeping",
+     "outcome": "restored",
+     "basis": "After Kajiwara's funeral Okazuki asks Chieko to go on raising Sadao, her dead husband's son by his first marriage, as if he were her own child."
+    },
+    {
+     "film": "Close to My Heart",
+     "predicate": "judged-by-birth-not-by-act",
+     "outcome": "restored",
+     "basis": "Danny is passed over by other prospective parents for being a foundling, and Mrs. Morrow halts the adoption outright once she recognises the photo of Edward Hewitt, imprisoned for murder, as his father."
+    },
+    {
+     "film": "Era lui... sì! sì!",
+     "predicate": "taken-up-then-discarded",
+     "outcome": "restored",
+     "basis": "Fernando makes Walter general manager within two days of hiring him, then, as the nightmares continue, turns on him and tries to kill him, leaving Walter tossed about with no explanation until the staff track him down and the position is handed back."
+    },
+    {
+     "film": "Mara Maru",
+     "predicate": "aid-thrown-back",
+     "outcome": "restored",
+     "basis": "Stella discovers Benedict's plan to murder Mason, warns him and begs him to abandon the expedition and return with her to a normal life in the United States, and Mason chooses the treasure instead."
+    },
+    {
+     "film": "Mara Maru",
+     "predicate": "the-wrong-person-is-blamed",
+     "outcome": "restored",
+     "basis": "Lt. Zuenon arrests Mason for Callahan's murder on the strength of the bar quarrel and Callahan's jealousy over Mason's pre-marriage relationship with Stella, until Ranier's account frees him."
+    }
+   ]
+  },
+  "tenToJudge": [
+   {
+    "a": "Eyes of Laura Mars",
+    "b": "The Terrorizers",
+    "predicate": "the-wrong-person-is-blamed",
+    "isLeadPredicate": false,
+    "label": "The blame is fixed on someone who did not do it",
+    "aOutcome": "restored",
+    "bOutcome": "unrestored",
+    "aCentrality": 0.7,
+    "bCentrality": 0.7,
+    "aRole": "blamed",
+    "bRole": "blaming",
+    "sameRole": false,
+    "aBasis": "Neville puts the models' photographs in Tommy's flat and one of Tommy's playing cards under Donald's body, and after Tommy is shot in the street he tells Laura a whole invented life to explain him.",
+    "bBasis": "With the chief's post open, Li fixes the dead chief's offence on Jing, his colleague and oldest friend, and Jing resigns in disgust believing it was the third candidate.",
+    "strength": 0.5402,
+    "regions": [
+     "US/CA",
+     "E-Asia"
+    ],
+    "years": [
+     1978,
+     1986
+    ]
+   },
+   {
+    "a": "The Young One",
+    "b": "Eyes of Laura Mars",
+    "predicate": "the-wrong-person-is-blamed",
+    "isLeadPredicate": false,
+    "label": "The blame is fixed on someone who did not do it",
+    "aOutcome": "unrestored",
+    "bOutcome": "restored",
+    "aCentrality": 0.6,
+    "bCentrality": 0.7,
+    "aRole": "blamed",
+    "bRole": "blamed",
+    "sameRole": true,
+    "aBasis": "Traver flees a lynch mob for a rape he did not commit, accused by a woman the Reverend knows to be a drunk who falsely accused a white man of the same thing two years earlier.",
+    "bBasis": "Neville puts the models' photographs in Tommy's flat and one of Tommy's playing cards under Donald's body, and after Tommy is shot in the street he tells Laura a whole invented life to explain him.",
+    "strength": 0.5326,
+    "regions": [
+     "LatAm",
+     "US/CA"
+    ],
+    "years": [
+     1960,
+     1978
+    ]
+   },
+   {
+    "a": "Serpico",
+    "b": "Il Marchese del Grillo",
+    "predicate": "arbiter-bent-by-power",
+    "isLeadPredicate": true,
+    "label": "One party turns the judging power against the weaker side, who is left without redress",
+    "aOutcome": "restored",
+    "bOutcome": "unrestored",
+    "aCentrality": 0.65,
+    "bCentrality": 0.8,
+    "aRole": "denied redress",
+    "bRole": "bending",
+    "sameRole": false,
+    "aBasis": "The mayor's assistant promises a real investigation and is stopped by political pressure, and the district attorney keeps the grand jury questions narrow so that how far the corruption goes never gets said.",
+    "bBasis": "Aronne Piperno takes the Marquis to law over the wages he will not pay, and Onofrio buys the judges and the cardinals, so that Piperno is the one condemned and jeered at in the street.",
+    "strength": 0.5131,
+    "regions": [
+     "US/CA",
+     "W-Europe"
+    ],
+    "years": [
+     1973,
+     1981
+    ]
+   },
+   {
+    "a": "The Mirror",
+    "b": "Days of Thunder",
+    "predicate": "past-laid-on-the-young",
+    "isLeadPredicate": true,
+    "label": "An older party passes into a younger one the injury or the task it carried, which the younger has to take forward",
+    "aOutcome": "unrestored",
+    "bOutcome": "restored",
+    "aCentrality": 0.8,
+    "bCentrality": 0.7,
+    "aRole": "carrying",
+    "bRole": "handing down",
+    "sameRole": false,
+    "aBasis": "Aleksei's marriage repeats his mother's down to the face - Natalia and Maria are the same actress, Ignat and the young Aleksei the same boy - and he hands his son the absent father he has never stopped carrying.",
+    "bBasis": "Harry left the sport a year after Buddy Bretherton was killed in one of his cars and comes out of retirement to build Cole a chassis and drill the terms of the trade into a driver who does not know what loose or tight means.",
+    "strength": 0.5116,
+    "regions": [
+     "E-Europe",
+     "US/CA"
+    ],
+    "years": [
+     1975,
+     1990
+    ]
+   },
+   {
+    "a": "Joi Baba Felunath",
+    "b": "Bad Company",
+    "predicate": "the-trusted-serves-another-interest",
+    "isLeadPredicate": true,
+    "label": "One party is taken in and relied on while acting for an interest that is not the other's, and the trust itself is what opens the way.",
+    "aOutcome": "restored",
+    "bOutcome": "fatal",
+    "aCentrality": 0.6,
+    "bCentrality": 0.75,
+    "aRole": "the one who trusts",
+    "bRole": "the one admitted",
+    "sameRole": false,
+    "aBasis": "Bikash Singha is one of the Ghosal household and takes Maganlal's money to lift the golden Ganesh out of it.",
+    "bBasis": "Crowe is hired into Grimes' Toolshed and worked alongside by Wells while secretly reporting to CIA handler Smitty, whose agency intends to seize the firm; Smitty finally tells Wells about the infiltration and she comes to kill Crowe.",
+    "strength": 0.5065,
+    "regions": [
+     "S-Asia",
+     "US/CA"
+    ],
+    "years": [
+     1979,
+     1995
+    ]
+   },
+   {
+    "a": "Joi Baba Felunath",
+    "b": "Bugonia",
+    "predicate": "identity-passed-off",
+    "isLeadPredicate": true,
+    "label": "One party stands before another under an identity that is not their own, and the other takes it as true",
+    "aOutcome": "restored",
+    "bOutcome": "fatal",
+    "aCentrality": 0.6,
+    "bCentrality": 0.6,
+    "aRole": "taken in",
+    "bRole": "passing",
+    "sameRole": false,
+    "aBasis": "Machhli Baba arrives in Varanasi for the Puja and has the whole town at his feet; he is on Maganlal's payroll.",
+    "bBasis": "Michelle spends the film insisting she is only a pharmaceutical CEO and offering Teddy a revised Atlantis-and-ark history to placate him, then walks into her office closet, teleports to the mothership and is revealed as the Andromedan emperor, who domes the Earth and kills every human.",
+    "strength": 0.5051,
+    "regions": [
+     "S-Asia",
+     "UK/IE"
+    ],
+    "years": [
+     1979,
+     2025
+    ]
+   },
+   {
+    "a": "Investigation of a Citizen Above Suspicion",
+    "b": "Sleepers",
+    "predicate": "sheltered-from-consequence",
+    "isLeadPredicate": true,
+    "label": "One party covers what another did so that the other never has to answer for it",
+    "aOutcome": "unrestored",
+    "bOutcome": "restored",
+    "aCentrality": 0.9,
+    "bCentrality": 0.7,
+    "aRole": "shielded",
+    "bRole": "shielding",
+    "sameRole": false,
+    "aBasis": "The Doctor lays every proof of his own guilt in front of his superiors and confesses, and they refuse to hear it and make him withdraw the confession, the commissioner concurring.",
+    "bBasis": "Michael, now an assistant district attorney, gets himself assigned to the Nokes murder case in order to botch his own prosecution, secretly drafting Snyder's cross-examination questions so that John and Tommy walk free for a killing they committed in front of witnesses.",
+    "strength": 0.5006,
+    "regions": [
+     "W-Europe",
+     "US/CA"
+    ],
+    "years": [
+     1970,
+     1996
+    ]
+   },
+   {
+    "a": "Onibaba",
+    "b": "The Graduate",
+    "predicate": "third-holds-two-apart",
+    "isLeadPredicate": true,
+    "label": "A third party stands between two who would join and keeps them apart",
+    "aOutcome": "fatal",
+    "bOutcome": "restored",
+    "aCentrality": 0.85,
+    "bCentrality": 0.85,
+    "aRole": "separating",
+    "bRole": "parted",
+    "sameRole": false,
+    "aBasis": "The older woman, who needs her daughter-in-law's help to ambush and loot soldiers, blocks her nightly path to Hachi's hut wearing the dead samurai's robes and hannya mask and convinces her the demon is punishment for the affair.",
+    "bBasis": "Mrs Robinson threatens to tell Elaine about the affair to stop the two of them, and Mr Robinson threatens Benjamin with jail and takes Elaine out of Berkeley to marry Carl.",
+    "strength": 0.4976,
+    "regions": [
+     "Japan",
+     "US/CA"
+    ],
+    "years": [
+     1964,
+     1967
+    ]
+   },
+   {
+    "a": "Klute",
+    "b": "Il gatto",
+    "predicate": "kept-under-watch",
+    "isLeadPredicate": true,
+    "label": "One party holds another under a sustained look, and the watching stands in place of any exchange between them",
+    "aOutcome": "transfigured",
+    "bOutcome": "unrestored",
+    "aCentrality": 0.8,
+    "bCentrality": 0.7,
+    "aRole": "watched",
+    "bRole": "watching",
+    "sameRole": false,
+    "aBasis": "Klute takes the basement flat in Bree's building, taps her telephone and follows her on tricks, and is doing it for weeks before she learns he is there.",
+    "bBasis": "The siblings listen at doors, search the musicians' flat, go through Don Garofalo's rooms and follow two of his men to a beach house, all of it dressed up as an inquiry into who killed their cat.",
+    "strength": 0.4963,
+    "regions": [
+     "US/CA",
+     "W-Europe"
+    ],
+    "years": [
+     1971,
+     1977
+    ]
+   },
+   {
+    "a": "Table for Five",
+    "b": "Tokyo Family",
+    "predicate": "the-nearest-goes-unseen",
+    "isLeadPredicate": true,
+    "label": "One party fails to see or value the person standing closest to it",
+    "aOutcome": "restored",
+    "bOutcome": "unrestored",
+    "aCentrality": 0.85,
+    "bCentrality": 0.8,
+    "aRole": "overlooking",
+    "bRole": "overlooked",
+    "sameRole": false,
+    "aBasis": "Tannen books the cruise to get his children back and spends it leaving them to themselves while he looks for a woman for the fifth chair; Mitchell's case against him in the Cairo tavern is that he cannot name one of their friends or teachers, and the last thing Tannen does is recite the list.",
+    "bBasis": "Koichi cancels the Yokohama sightseeing for a medical emergency, Shigeko parks her parents in a client's luxury hotel and then says they cannot stay with her because of a neighbourhood meeting, so Shukichi and Tomiko spend the night apart.",
+    "strength": 0.4951,
+    "regions": [
+     "US/CA",
+     "Japan"
+    ],
+    "years": [
+     1983,
+     2013
+    ]
+   }
+  ]
+ }
+}

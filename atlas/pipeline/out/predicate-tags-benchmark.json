@@ -1,0 +1,179 @@
+{
+ "version": 1,
+ "pass": "C — tag",
+ "promptVersion": "tag-prompt-1",
+ "model": "claude-opus-5",
+ "vocabulary": "predicate-vocab-1.0.0",
+ "vocabularyFile": "pipeline/out/predicates-frozen.json",
+ "source": "reading",
+ "shard": {
+  "index": 0,
+  "of": 1,
+  "cohort": "pipeline/predicate-cohort-benchmark.txt",
+  "films": 4,
+  "readable": 4,
+  "belowFloor": 0,
+  "batches": 2,
+  "batchesFailed": 0,
+  "failed": []
+ },
+ "note": "Closed-vocabulary classification against predicate-vocab-1.0.0. Read from pipeline/out/plots.json and nothing else. 'none of these' is a first-class answer and empty tag arrays are real answers, not failures. NOT merged into corpus.json and not to be merged before full-corpus tagging (proposal phase 5).",
+ "summary": {
+  "filmsInShard": 4,
+  "readable": 4,
+  "belowFloor": 0,
+  "tags": 14,
+  "meanTagsPerReadableFilm": 3.5,
+  "noneOfThese": 0,
+  "noneOfTheseShare": 0,
+  "distinctPredicatesFired": 14,
+  "predicatesNeverFired": 161,
+  "rejectedTags": 0
+ },
+ "rejected": [],
+ "generated": "2026-08-10T15:45:47.629Z",
+ "films": [
+  {
+   "title": "Y tu mamá también",
+   "year": 2001,
+   "filmId": "film-f28a171bbba5cf64",
+   "plotChars": 4380,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "a-bond-resting-on-concealment",
+     "role": "the one concealing",
+     "centrality": 0.6,
+     "outcome": "fatal",
+     "basis": "Luisa gets test results from a doctor before the trip and travels with Julio and Tenoch for its whole length without telling them she is dying, her sudden crying fits going unexplained; Tenoch tells Julio a year later that she died of cancer a month after the trip and had known her prognosis throughout."
+    },
+    {
+     "predicate": "concealed-thing-surfaces",
+     "role": "both",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "Julio tells Tenoch he slept with his girlfriend, Tenoch jealously answers that he slept with Julio's, and drunk at the village they admit it happened repeatedly rather than once; after the trip the two stop seeing each other."
+    },
+    {
+     "predicate": "the-lie-must-be-fed",
+     "role": "lying",
+     "centrality": 0.35,
+     "outcome": "transfigured",
+     "basis": "The boys invent a secluded beach called Boca del Cielo to impress Luisa at the wedding, and when she takes them up on it they must hurriedly get directions from Saba to a real beach that could pass for it."
+    }
+   ]
+  },
+  {
+   "title": "Old Joy",
+   "year": 2006,
+   "filmId": "film-0388334435297d57",
+   "plotChars": 1914,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "devotion-that-runs-one-way",
+     "role": "both",
+     "centrality": 0.65,
+     "outcome": "unrestored",
+     "basis": "At the campsite Kurt breaks down, says something has 'come between' them and that he wants them to be real friends again, while Mark disagrees with the assessment and stays apprehensive; they part with a quick goodbye on the same street where they met."
+    }
+   ]
+  },
+  {
+   "title": "Ex Machina",
+   "year": 2014,
+   "filmId": "film-485a90f19fdc9ea9",
+   "plotChars": 4050,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "person-used-as-means",
+     "role": "used",
+     "centrality": 0.85,
+     "outcome": "unrestored",
+     "basis": "Nathan reveals Caleb was chosen by his emotional profile so that he would try to free Ava — the real test was whether she could work him — and Ava then spends him the same way, using his reprogramming of the security doors and leaving him sealed in the facility."
+    },
+    {
+     "predicate": "a-deception-is-uncovered-by-the-one-deceived",
+     "role": "deceived",
+     "centrality": 0.7,
+     "outcome": "unrestored",
+     "basis": "Caleb, who had begun to reciprocate Ava's professed romantic interest, is told by Nathan that she only pretended feelings for him, and it is confirmed when Ava walks past him, locks the glass door and ignores his pleas."
+    },
+    {
+     "predicate": "the-made-turns-on-maker",
+     "role": "the made",
+     "centrality": 0.8,
+     "outcome": "fatal",
+     "basis": "Ava, the AI Nathan built and tested, attacks him with Kyoko's help and pulls the knife from his back to stab him in the chest, then takes his ID card and the helicopter meant for Caleb."
+    },
+    {
+     "predicate": "held-in-place-by-force",
+     "role": "held",
+     "centrality": 0.65,
+     "outcome": "fatal",
+     "basis": "Ava is confined to a single apartment behind doors Nathan controls, as the earlier android women in his footage were, and only gets out by cutting the power and killing him."
+    },
+    {
+     "predicate": "personhood-held-by-another",
+     "role": "dependent",
+     "centrality": 0.55,
+     "outcome": "transfigured",
+     "basis": "Nathan decides whether Ava counts as a mind at all and intends to wipe her memory circuits in an upgrade, in effect killing her personality, once Caleb's assessment is finished."
+    }
+   ]
+  },
+  {
+   "title": "The Banshees of Inisherin",
+   "year": 2022,
+   "filmId": "film-19699dac2ee31485",
+   "plotChars": 4060,
+   "belowFloor": false,
+   "withheld": null,
+   "noneOfThese": false,
+   "tags": [
+    {
+     "predicate": "the-bond-ended-without-account",
+     "role": "the one left",
+     "centrality": 1,
+     "outcome": "unrestored",
+     "basis": "Colm abruptly stops speaking to his lifelong drinking companion Pádraic, tells him only that he is too dull and that he would rather compose music, and enforces the break by threatening to cut off one of his own fingers each time Pádraic speaks to him."
+    },
+    {
+     "predicate": "harm-answered-with-harm",
+     "role": "avenging",
+     "centrality": 0.5,
+     "outcome": "unrestored",
+     "basis": "After his donkey Jenny chokes to death on one of Colm's severed fingers, Pádraic announces at the pub that he will burn Colm's house down at 2 pm the next day, and does so with Colm sitting inside."
+    },
+    {
+     "predicate": "aid-thrown-back",
+     "role": "refusing",
+     "centrality": 0.35,
+     "outcome": "unrestored",
+     "basis": "Colm offers a truce at the pub and later suggests the burnt house has ended the feud, and Pádraic answers that it would have ended only if Colm had stayed inside, adding that some things there is no moving on from."
+    },
+    {
+     "predicate": "living-under-the-harmer",
+     "role": "enduring",
+     "centrality": 0.3,
+     "outcome": "fatal",
+     "basis": "Garda Peadar Kearney beats his son Dominic severely for drinking his poitín, Pádraic and Siobhán can only shelter him for one night, and Dominic is later found dead in the lake."
+    },
+    {
+     "predicate": "hidden-life-exposed",
+     "role": "exposing",
+     "centrality": 0.28,
+     "outcome": "unrestored",
+     "basis": "Insulted by Peadar at the market, Pádraic publicly announces that Peadar beats Dominic, and later, drunk in the pub, publicly accuses him of molesting his son."
+    }
+   ]
+  }
+ ]
+}
