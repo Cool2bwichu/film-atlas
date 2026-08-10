@@ -820,6 +820,44 @@ const layoutBlock=pack("LAYOUT",layoutManifest);
 const registerBlock=pack("REGISTERS",REGISTERS);
 const transportBlock=pack("TRANSPORT",TRANSPORT);
 const lightBlock=pack("LIGHT",LIGHT);
+/* THE RECORD LAYER, FINALLY SHIPPED. Typing "matt damon" returned nothing not
+   because the ranking was wrong but because the data was never in the room:
+   corpus.json carries title, year, director-as-a-string and colour, while the
+   cast of 2,080 films and the 258 genres stayed in pipeline/out/harvest.json
+   and never reached a reader. build-lookup.js turns them into posting lists;
+   this ships them. 226 KB gzipped against a 1.61 MB site. */
+const LOOKUP_FULL=JSON.parse(fs.readFileSync(path.join(__dirname,"../pipeline/out/lookup.json"),"utf8"));
+/* PROJECTED ONTO WHATEVER CORPUS IS BEING BUILT, rather than refused when they
+   differ. The sample fixture builds 80 films against a lookup made for 2,204,
+   and a hard equality check turned that into a build failure — which is a
+   worse answer than simply dropping the postings for films this build does not
+   contain. A name that loses every one of its films disappears with them. */
+const LOOKUP=(()=>{
+  const full=LOOKUP_FULL;
+  if(full.n===discovery.filmOrder.length) return full;
+  const src=JSON.parse(fs.readFileSync(path.join(__dirname,"../static/discovery.json"),"utf8"));
+  const at=new Map();
+  (src.filmOrder||[]).forEach((id,i)=>at.set(i,src.keyByFilmId&&src.keyByFilmId[id]||id));
+  const want=new Map();
+  discovery.filmOrder.forEach((id,i)=>want.set(discovery.keyByFilmId&&discovery.keyByFilmId[id]||id,i));
+  const out={...full,n:discovery.filmOrder.length,projectedFrom:full.n};
+  for(const kind of ["person","genre","country","movement","decade"]){
+    const bucket=full[kind]||{}, next={};
+    for(const name of Object.keys(bucket)){
+      const e=bucket[name], keep=[];
+      let a=0;
+      for(const d of e.f||[]){ a+=d; const k=at.get(a); const j=k!==undefined?want.get(k):undefined; if(j!==undefined) keep.push(j); }
+      if(!keep.length) continue;
+      keep.sort((x,y)=>x-y);
+      const deltas=[]; let prev=0;
+      for(const v of keep){ deltas.push(v-prev); prev=v; }
+      next[name]=e.r?{f:deltas,r:e.r}:{f:deltas};
+    }
+    out[kind]=next;
+  }
+  return out;
+})();
+const lookupBlock=pack("LOOKUP",LOOKUP);
 const findBlock=[
   pack("FIND_DATA",FIND),
   "const __FIND_SRC = Object.create(null);",
@@ -860,6 +898,10 @@ const findMarker="/* __FIND__ */";
 if(!html.includes(findMarker)) throw new Error("Atlas template is missing its typed-search marker");
 html=html.replace(findMarker,()=>findBlock);
 if(html.includes(findMarker)) throw new Error("Atlas template contains more than one typed-search marker");
+const lookupMarker="/* __LOOKUP__ */";
+if(!html.includes(lookupMarker)) throw new Error("Atlas template is missing its lookup marker");
+html=html.replace(lookupMarker,()=>lookupBlock);
+if(html.includes(lookupMarker)) throw new Error("Atlas template contains more than one lookup marker");
 const inspectionMarker="/* __RADIAL_INSPECTION__ */";
 if(!html.includes(inspectionMarker)) throw new Error("Atlas template is missing its radial inspection marker");
 const inspectionSource=fs.readFileSync(path.join(__dirname,"radial-inspection.js"),"utf8");
@@ -948,6 +990,10 @@ console.log(LIGHT_COUNT
 /* Say what the transport was baked from, in the same voice: a percentage the
    app prints in its own key is a percentage somebody should be able to see the
    build compute. */
+const lookupKB=o=>Math.round(Buffer.byteLength(JSON.stringify(o))/1024);
+console.log(`lookup — ${Object.keys(LOOKUP.person).length} people, ${Object.keys(LOOKUP.genre).length} genres, `+
+  `${Object.keys(LOOKUP.country).length} countries, ${Object.keys(LOOKUP.movement).length} movements, `+
+  `${Object.keys(LOOKUP.decade).length} decades, ${lookupKB(LOOKUP)} KB`);
 console.log(`typed search ${FIND.vocabVersion} — ${FIND.attrs.a.length} attributes over `+
   `${findKeys.length} films, rungs ${FIND.attrs.rungsUsed.join("/")}, `+
   `${shards.filter(s=>s.vocabulary).length} of ${shards.length} shards declare a vocabulary, `+

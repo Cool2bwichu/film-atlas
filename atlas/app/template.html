@@ -1748,6 +1748,7 @@ main{flex:1;position:relative;overflow:hidden}
 /* __REGISTERS__ */
 /* __TRANSPORT__ */
 /* __LIGHT__ */
+/* __LOOKUP__ */
 /* __FIND__ */
 const POS = Object.fromEntries(
   Object.entries(DISCOVERY.keyByFilmId).map(([id,key]) => [key,LAYOUT.positions[id]])
@@ -3781,7 +3782,7 @@ const sky = {
      taken and the axes they have spent. Cleared only by an explicit gesture, by
      a facet selection, or by the #/sky address — leaving the view and coming
      back returns you to the picture you left, exactly as a selection does. */
-  query:null,
+  query:null, lookup:null,
   /* PER-FILM COVERAGE UNDER A TYPED READING, and it is drawn.
      1 = the corpus has NO reading for any term in the query and this film is
      sitting on prior credit alone; 0 = at least one term was actually read.
@@ -5522,6 +5523,9 @@ function skyApplySelection(ms){
      one sentence about it. The typed box stays live, so saying it again is one
      keystroke away. */
   if (sky.query){ sky.query=null; skyQcov(null); skyFindRender(); }
+  /* A set is a picture of the atlas too, and re-forming to anything else puts
+     it down for the same reason a reading is put down. */
+  sky.lookup=null;
   sky.pinKey=null; sky.hoverKey=null; sky.examineKey=null;
   /* The held neighbourhood is a fact about the picture that is being
      replaced; it is released rather than dragged through the flight, and the
@@ -8018,6 +8022,7 @@ function skyFoldSummary(folded){
   const anchor=skyAnchor();
   const key = anchor ? (sky.examineKey || sky.hoverKey || anchor) : skyInHand();
   if (key!=null && F[key]) return F[key].title;
+  if (sky.lookup) return sky.lookup.name+n(` \u00b7 ${sky.lookup.n} film${sky.lookup.n===1?"":"s"}`);
   if (skyTpSpeaking()){
     const shown=TP.pv!==null?TP.pv:Math.min(TP.y1,Math.round(TP.t));
     if (TP.pv!==null) return shown+n(` \u00b7 ${skyTpCensusAt(shown)} films within two years`);
@@ -8253,6 +8258,29 @@ function skyReadoutBody(){
        at build time by app/build.js with build-registers.js's own instruments
        and shipped with the artifact, so this sentence describes the corpus that
        actually shipped rather than repeating a figure from a prototype. */
+    /* ── A NAME, A GENRE, A DECADE ────────────────────────────────────────
+       The set is at the centre and the rest of the atlas is still drawn around
+       it, so the readout has to say WHICH set — and name its films, because at
+       this density the discs are one cluster and these rows are the only place
+       a reader can read them. Same clickable rows the typed search uses. */
+    if (sky.lookup){
+      const L=sky.lookup, nf=v=>v.toLocaleString("en-US");
+      const roles=(L.kind==="person" && LOOKUP.person[L.name] && LOOKUP.person[L.name].r) || [];
+      const what = L.kind==="person" ? (roles.length ? roles.join(", ") : "in the corpus")
+        : L.kind==="decade" ? "made in the "+L.name
+        : L.kind==="country" ? "from "+L.name : L.kind;
+      box.innerHTML=`<span class="slate">${esc(L.name)} \u00b7 ${nf(L.n)} film${L.n===1?"":"s"} \u00b7 ${esc(what)}</span>
+        <span class="y sky-hint" style="margin-top:7px">A RECORD, not a reading: who is credited and
+          what the film is filed as, not what anyone thinks it is like. Every film here belongs
+          equally \u2014 the set is not ranked \u2014 and the rest of the atlas is still drawn around
+          it, further out.</span>
+        <div class="find-miss">${L.films.slice(0,12).map(k=>
+          `<button type="button" class="find-miss-row find-go" data-go="${esc(k)}"><b>${esc((F[k]&&F[k].title)||k)}</b>`+
+          `<span>${(F[k]&&F[k].year)||""}${F[k]&&F[k].director?" \u00b7 "+esc(F[k].director):""}</span></button>`).join("")}</div>`
+        + (L.n>12 ? `<span class="find-note">and ${nf(L.n-12)} more, all of them at the centre.</span>` : "");
+      skyFindBind(box);
+      return;
+    }
     if (skyTpSpeaking()){
       const t=TP_DATA, sep=t.sep||{};
       const grazing=TP.pv!==null;
@@ -9506,6 +9534,119 @@ function findOfferRow(v){
   }
   return {t:"query", text:t, note};
 }
+/* ══ THE RECORD LAYER AT THE KEYBOARD ═════════════════════════════════════
+   "matt damon" returned nothing, and so did "heist films", because the typed
+   search could only see the 59 consensus attributes — what a film is LIKE — and
+   the atlas's cast, genres, countries and movements were never shipped to the
+   browser at all. LOOKUP is those posting lists. This is the pass that reads
+   them, and it runs BEFORE the consensus vocabulary because a person's name is
+   not a description and should never be scored as one.
+
+   A SET, NOT A RANKING. Every film with Matt Damon in it has him in it equally.
+   The set is handed to the same match layout the typed search uses, with 1 for
+   a member and 0 for everything else, so the members take the centre and the
+   rest of the corpus stays drawn at the rim — nothing filtered, rule 1
+   untouched, and no ordering inside the set for fame to hide in. */
+const LOOKUP_KINDS=["person","genre","country","movement","decade"];
+const lookupNorm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")
+  .replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
+let LOOKUP_INDEX=null;
+function lookupIndex(){
+  if (LOOKUP_INDEX) return LOOKUP_INDEX;
+  LOOKUP_INDEX=new Map();
+  if (typeof LOOKUP==="undefined" || !LOOKUP) return LOOKUP_INDEX;
+  for (const kind of LOOKUP_KINDS){
+    const bucket=LOOKUP[kind]; if (!bucket) continue;
+    for (const name of Object.keys(bucket)){
+      const n=lookupNorm(name);
+      if (!n) continue;
+      let e=LOOKUP_INDEX.get(n);
+      /* One normalised string can be two things — a director who is also an
+         actor, a country that is also a movement. Both are kept and the caller
+         shows the bigger one first rather than silently picking. */
+      if (!e) LOOKUP_INDEX.set(n,(e=[]));
+      e.push({kind,name});
+    }
+  }
+  return LOOKUP_INDEX;
+}
+function lookupFilms(kind,name){
+  const e=LOOKUP && LOOKUP[kind] && LOOKUP[kind][name];
+  if (!e || !e.f) return [];
+  const out=[]; let at=0;
+  for (const d of e.f){
+    at+=d;
+    const key=DISCOVERY.filmOrder[at]!==undefined
+      ? (DISCOVERY.keyByFilmId[DISCOVERY.filmOrder[at]] || DISCOVERY.filmOrder[at]) : null;
+    if (key!=null && F[key]) out.push(key);
+  }
+  return out;
+}
+/* Exact first, then prefix, then contained — and never more than a handful,
+   because this shares the suggestion list with film titles and titles win. */
+function lookupMatches(text,cap){
+  const n=lookupNorm(text);
+  if (n.length<3) return [];
+  const idx=lookupIndex(), out=[], seen=new Set();
+  const push=(hit)=>{
+    const id=hit.kind+"|"+hit.name;
+    if (seen.has(id)) return; seen.add(id);
+    const films=lookupFilms(hit.kind,hit.name);
+    if (films.length) out.push({...hit, films});
+  };
+  for (const hit of (idx.get(n)||[])) push(hit);
+  if (out.length<cap) for (const [k,hits] of idx){ if (k.startsWith(n)) for(const h of hits) push(h); if (out.length>=cap*3) break; }
+  if (out.length<cap) for (const [k,hits] of idx){ if (k.includes(n)) for(const h of hits) push(h); if (out.length>=cap*3) break; }
+  /* Bigger sets first is NOT fame: it is how many films the atlas holds for
+     that name, which is a fact about the corpus and the thing a reader wants
+     when two people share a surname. */
+  out.sort((a,b)=>b.films.length-a.films.length);
+  return out.slice(0,cap);
+}
+const LOOKUP_LABEL={person:"", genre:"films", country:"films from", movement:"", decade:"films of the"};
+function lookupNote(hit){
+  const n=hit.films.length, f=n===1?"film":"films";
+  if (hit.kind==="person"){
+    const roles=(LOOKUP.person[hit.name]||{}).r||[];
+    const said=roles.length ? roles.slice(0,3).join(", ") : "in the corpus";
+    return `${n} ${f} · ${said}`;
+  }
+  if (hit.kind==="decade") return `${n} ${f} made in the ${hit.name}`;
+  if (hit.kind==="country") return `${n} ${f} from ${hit.name}`;
+  return `${n} ${f} · ${hit.kind}`;
+}
+/* Draw the set. Binary scores into the same layout the typed search uses. */
+function lookupRun(kind,name){
+  const films=lookupFilms(kind,name);
+  if (!films.length) return false;
+  if (!sky.ready || !SKY_POS){ /* the wall, not the sky: open the first film */
+    openMap(films[0]); return true;
+  }
+  /* FIND_LAYOUT is lazy — the modules are only required when a reading is first
+     run — and a lookup reaches the same layout without going through the
+     engine, so it has to ask for it. Without this the first click on a name
+     threw "Cannot read properties of null (reading 'layoutMatch')" and the sky
+     stayed whole, which is exactly how it failed the first time I drove it. */
+  if (!FIND_LAYOUT) findEngine();
+  if (!FIND_LAYOUT){
+    $("#sr-status").textContent="The layout engine could not start in this page.";
+    return false;
+  }
+  const member=new Set(films);
+  const scores=Object.create(null);
+  for (const k of sky.keys) scores[k]= member.has(k) ? 1 : 0;
+  const target=skyTargetQuery(scores);
+  if (!target) return false;
+  sky.lookup={kind,name,films,n:films.length};
+  sky.query=null;
+  skyQcov(null);
+  skyWorldsOpen(false);
+  skyFormTo(target,{ms:SKY_FORM_MS,label:name});
+  skyReadout();
+  skyStratumRender();
+  $("#sr-status").textContent=`${name}. ${films.length} films, drawn at the centre; the rest of the atlas is still here, further out.`;
+  return true;
+}
 function search(v){
   const box=$("#sugg");
   const n=norm(v);
@@ -9519,8 +9660,13 @@ function search(v){
       if(starts.length>=8) break;
     }
   }
-  const films=[...starts,...has].slice(0,q?6:8).map(k=>({t:"film",k}));
-  suggList=q?[...films,q]:films;
+  const films=[...starts,...has].slice(0,q?4:6).map(k=>({t:"film",k}));
+  /* Names and genres sit BETWEEN the titles and the constellation door: a
+     reader typing "matt damon" is not naming a film and is not describing one
+     either, and until now the box had nothing to offer them at all. */
+  const looks=lookupMatches(v,3).map(h=>({t:"look",h}));
+  suggList=[...films,...looks];
+  if (q) suggList.push(q);
   suggIdx=-1;
   if(!suggList.length){
     setSuggestions(true);
@@ -9534,6 +9680,12 @@ function search(v){
         id="suggestion-${i}" data-k="${esc(row.k)}" data-i="${i}">
         ${art(row.k)}<span><span class="t">${esc(F[row.k].title)}</span>
         <span class="y">${F[row.k].year||""} · ${esc(F[row.k].director||"")}</span></span></button>`
+    : row.t==="look"
+    ? `<button type="button" role="option" aria-selected="false" class="sugg-find sugg-look"
+        id="suggestion-${i}" data-look-kind="${esc(row.h.kind)}" data-look-name="${esc(row.h.name)}" data-i="${i}">
+        <span class="sugg-find-mark" aria-hidden="true">&#9711;</span>
+        <span><span class="t">${esc(row.h.name)}</span>
+        <span class="y">${esc(lookupNote(row.h))}</span></span></button>`
     : `<button type="button" role="option" aria-selected="false" class="sugg-find"
         id="suggestion-${i}" data-find="1" data-i="${i}">
         <span class="sugg-find-mark" aria-hidden="true">&#9678;</span>
@@ -9544,6 +9696,12 @@ function search(v){
   });
   box.querySelectorAll("button[data-find]").forEach(b=>b.onclick=()=>{
     setSuggestions(false); skyOpenQuery($("#q").value);
+  });
+  box.querySelectorAll("button[data-look-kind]").forEach(b=>b.onclick=()=>{
+    setSuggestions(false);
+    if (state.view!=="sky" && SKY_POS) show("sky");
+    $("#q").blur();
+    lookupRun(b.dataset.lookKind, b.dataset.lookName);
   });
 }
 
