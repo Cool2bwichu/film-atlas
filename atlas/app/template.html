@@ -1056,6 +1056,15 @@ main{flex:1;position:relative;overflow:hidden}
    same pairing every other honesty block in this box uses. --dim is 7.6:1 and
    --faint 5.0:1 on this ground; nothing here goes under the floor. */
 .find-conflicts,.find-miss{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+/* A row that goes somewhere says so: it takes the pointer, lights on hover and
+   on keyboard focus, and carries a caret. Everything else about the row is
+   unchanged — the information in it was never the problem. */
+.find-miss-row.find-go{width:100%;text-align:left;background:none;border:0;
+  font:inherit;color:inherit;cursor:pointer;padding:0}
+.find-miss-row.find-go b::after{content:" \203A";color:var(--faint)}
+.find-miss-row.find-go:hover b,.find-miss-row.find-go:focus-visible b{color:var(--accent)}
+.find-miss-row.find-go:hover b::after,.find-miss-row.find-go:focus-visible b::after{color:var(--accent)}
+.find-miss-row.find-go:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
 .find-conflict,.find-miss-row{display:flex;flex-direction:column;gap:2px;
   padding:6px 8px;border-left:1px solid var(--hair)}
 .find-conflict{border-left-color:var(--rebuttal,#D15D53)}
@@ -7736,18 +7745,45 @@ function skyNeighbours(key){
    is at full sharpness and full contrast, and the only thing graph depth
    changes is its size and its ink. */
 function skyLabels(key){
-  if (key===sky.labelKey) return;
-  sky.labelKey=key;
+  /* A QUERY SKY HAS A LEAD AND THE WHOLE ATLAS DOES NOT, WHICH IS WHY THIS
+     BRANCH EXISTS. Labels are gated on interaction everywhere else for a good
+     reason — 2,204 names at the fit zoom is a grey block, not a map, and the
+     atlas has no opinion about which of them you came for. A typed reading is
+     the one picture that DOES: the films at the front are the answer to the
+     question, and the review's blocker was that the answer was not in the
+     picture. So the top few are named on arrival, and holding any film still
+     replaces them with that film and its own neighbours. */
+  const qTop = key==null && sky.query && sky.query.r && sky.query.r.top;
+  const qLead = !!(qTop && qTop.length);
+  const sig = qLead ? "\u0000q:"+sky.query.text : key;
+  if (sig===sky.labelKey) return;
+  sky.labelKey=sig;
   const box=$("#sky-labels");
   box.innerHTML="";
   sky.labels=[];
+  if (qLead){
+    /* Five, not more: these are drawn at the front of a disc where the top
+       twelve land within a few pixels of each other, and the placer drops a
+       name it cannot put down without lying across another. */
+    const list=qTop.slice(0,5)
+      .filter(t=>t && t.key!=null && sky.at[t.key]!==undefined)
+      .map((t,n)=>({k:t.key,lead:n===0}));
+    skyLabelsMake(list, box);
+    return;
+  }
   if (key==null || sky.at[key]===undefined) return;
-  const list=[{k:key,lead:true}, ...skyNeighbours(key).map(k=>({k,lead:false}))];
+  skyLabelsMake([{k:key,lead:true}, ...skyNeighbours(key).map(k=>({k,lead:false}))], box);
+}
+
+/* One builder, so the query branch and the film-in-hand branch cannot drift
+   apart on how a name is made or measured. */
+function skyLabelsMake(list, box){
   const made=[];
   for (const it of list){
     const i=sky.at[it.k];
     if (i===undefined) continue;
     const f=F[it.k];
+    if (!f) continue;
     const node=el("div","sky-label"+(it.lead?"":" near"));
     node.innerHTML = esc(f.title) + (it.lead && f.year ? `<span class="y">${f.year}</span>` : "");
     box.appendChild(node);
@@ -9328,13 +9364,21 @@ function skyFindSlate(){
   const nearest=(r.top||[]).slice(0,5).filter(t=>t.misses && t.misses.length);
   if (nearest.length){
     out.push(`<span class="y" style="margin-top:11px">nearest first, and what each one misses</span>`);
+    /* THESE ARE BUTTONS NOW, AND THAT WAS THE WHOLE BLOCKER. The 2026-08-10
+       review measured ZERO interactive elements in this block: the five films at
+       the front of a typed reading were the one list in the atlas a reader could
+       not click, in a project whose founding sentence is that every connection
+       carries a specific, clickable claim. It is also the only place those films
+       are NAMED — the discs land within 3.4px of each other and the label placer
+       draws nothing at that density. */
+
     out.push(`<div class="find-miss">${(r.top||[]).slice(0,5).map(t=>
-      `<span class="find-miss-row"><b>${esc(t.title||t.key)}</b>`+
+      `<button type="button" class="find-miss-row find-go" data-go="${esc(t.key)}"><b>${esc(t.title||t.key)}</b>`+
       `<span>${t.held} of ${t.of} · ${t.misses.length
         ? "no "+t.misses.map(esc).join(", no ")
         : "nothing you asked for is missing"}${
         t.unreadClauses && t.unreadClauses.length
-          ? " · never read for "+t.unreadClauses.length+" of them" : ""}</span></span>`).join("")}</div>`);
+          ? " · never read for "+t.unreadClauses.length+" of them" : ""}</span></button>`).join("")}</div>`);
   }
 
   for (const t of (r.tension||[])){
@@ -9390,6 +9434,10 @@ function skyFindRender(){
    rewritten wholesale (the same discipline every other panel in this view
    uses). */
 function skyFindBind(box){
+  /* Go to the film. skyOrMap flies the camera to it when it is live in this sky
+     and falls back to its radial map when it is not — the same contract the
+     search suggestions have always used. */
+  box.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>skyOrMap(b.dataset.go));
   box.querySelectorAll("[data-drop]").forEach(b=>b.onclick=()=>skyQueryDrop(b.dataset.drop));
   box.querySelectorAll("[data-take]").forEach(b=>b.onclick=()=>skyQueryTake(b.dataset.take));
   box.querySelectorAll("[data-spend]").forEach(b=>b.onclick=()=>skyQuerySpend(b.dataset.spend));
