@@ -1,9 +1,16 @@
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
+import { handleInterpret, type Vocab } from "./interpret";
+import ATLAS_VOCAB from "../atlas/pipeline/consensus-vocab.json";
 
 interface Env {
   ASSETS?: Fetcher;
+  /* Worker secrets. Never in source, never in the artifact - AGENTS.md. Set with
+     `wrangler secret put ANTHROPIC_API_KEY`. Absent, /api/interpret answers 503
+     and the page falls back to its local parser, which is what ships today. */
+  ANTHROPIC_API_KEY?: string;
+  ATLAS_INTERPRET_MODEL?: string;
   DB: D1Database;
   IMAGES: {
     input(stream: ReadableStream): {
@@ -45,7 +52,12 @@ async function serveAtlas(request: Request, env: Env, url: URL): Promise<Respons
     "content-security-policy",
     "default-src 'none'; base-uri 'none'; object-src 'none'; form-action 'none'; " +
       "frame-ancestors 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; " +
-      "img-src 'self' data: https:; font-src 'self' data:; connect-src 'none'",
+      /* connect-src WAS 'none' and that was right while the page asked nobody for
+         anything. /api/interpret is the single exception and it is scoped to
+         'self': the atlas may talk to its own origin and to no other host. The
+         key lives in a Worker secret, so the browser never holds it and the
+         artifact never contains it. */
+      "img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'",
   );
 
   if (request.method === "HEAD") return new Response(null, { status: asset.status, headers });
@@ -68,6 +80,12 @@ const worker = {
 
     const atlas = await serveAtlas(request, env, url);
     if (atlas) return atlas;
+
+    /* The one route that talks to a model, and it only ever translates. See the
+       header on interpret.ts for why it may not answer. */
+    if (url.pathname === "/api/interpret") {
+      return handleInterpret(request, env, ctx, (ATLAS_VOCAB as { attributes: Vocab[] }).attributes);
+    }
 
     if (url.pathname === "/_vinext/image") {
       const assets = env.ASSETS;

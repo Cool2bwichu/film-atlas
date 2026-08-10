@@ -9708,6 +9708,47 @@ function search(v){
 /* The one door from the box into the query world. Opens the sky first, because
    the reading is a state OF the constellation and a reader who typed a sentence
    from the wall has to be taken to the picture it makes. */
+/* ══ WHEN THE ATLAS CANNOT READ YOU, ASK ═══════════════════════════════════
+   The local parser reads a closed phrase table and it is fast, offline and
+   exact. It is also silent on about half of ordinary sentences — "friends who
+   break up but make up towards the end" reads as nothing at all — and Route 1
+   measured that a shipped dictionary cannot compose that either.
+
+   So the LAST resort is the origin's own /api/interpret, which puts the
+   sentence to a model and gets back CLAUSES IN THIS VOCABULARY. The model never
+   names a film; it cannot, because its reply has no field a film could travel
+   in, and every id it returns is checked against the 59 before anything is
+   scored. What comes back runs through exactly the same engine a hand-typed
+   clause does, so distance, coverage, rule 3's hollow discs and explain() are
+   all untouched.
+
+   IT IS ASKED ONLY WHEN THE LOCAL PARSER GOT NOTHING, and never for a name or a
+   genre — those are answered instantly by LOOKUP and asking a model about them
+   would be slower, dearer and worse. If the network is gone or the route is
+   unconfigured the page keeps the answer it already had. */
+let findRemoteWarned=false;
+const FIND_REMOTE_MS=6000;
+async function findRemote(text){
+  const raw=String(text||"").trim();
+  if (!raw) return null;
+  try{
+    const ctl=new AbortController();
+    const t=setTimeout(()=>ctl.abort(),FIND_REMOTE_MS);
+    const res=await fetch("/api/interpret",{
+      method:"POST", signal:ctl.signal,
+      headers:{"content-type":"application/json"},
+      body:JSON.stringify({q:raw}),
+    });
+    clearTimeout(t);
+    if (!res.ok) return null;
+    const d=await res.json();
+    if (!d || !Array.isArray(d.clauses) || !d.clauses.length) return null;
+    return d;
+  }catch(error){
+    if (!findRemoteWarned){ findRemoteWarned=true; console.warn("[atlas] /api/interpret is not answering; the local reading stands.",error); }
+    return null;
+  }
+}
 function skyOpenQuery(text){
   const raw=String(text||"").trim();
   if(!raw || !SKY_POS) return;
@@ -9718,6 +9759,20 @@ function skyOpenQuery(text){
   if(state.view!=="sky") show("sky");
   $("#q").blur();
   skyQueryRun(raw);
+  /* IF THE LOCAL READING CAME BACK EMPTY, ASK THE ORIGIN — after drawing, never
+     instead of it. The reader already has whatever the phrase table found and
+     the honest refusal prose that goes with it; this can only add. It arrives a
+     second later and re-forms, or it does not arrive and nothing changes. */
+  const r0 = sky.query && sky.query.r;
+  const readNothing = !r0 || !r0.drawable || !(r0.readings||[]).length;
+  if (readNothing) findRemote(raw).then(d=>{
+    if (!d) return;
+    /* Still the same sentence on screen? A reader who has typed on since is not
+       waiting for this and must not have their picture yanked. */
+    if (!sky.query || sky.query.text!==raw) return;
+    skyQueryRun(raw,{taken:d.clauses.map(c=>c.attr)});
+    $("#sr-status").textContent=`Read again with help: ${d.clauses.length} things understood.`;
+  });
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
